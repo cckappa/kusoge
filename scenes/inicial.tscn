@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfidel1ct2nq"]
+[gd_scene load_steps=3 format=3 uid="uid://dfidel1ct2nq"]
 
 [ext_resource type="Texture2D" uid="uid://ccnxin1on7xkk" path="res://icon.svg" id="1_o1vym"]
+[ext_resource type="Script" path="res://scripts/inicial.gd" id="1_o71xu"]
 
 [node name="Inicial" type="Node2D"]
+script = ExtResource("1_o71xu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
+position = Vector2(-496.883, 113.639)
 texture = ExtResource("1_o1vym")
+
+[node name="Camera2D" type="Camera2D" parent="."]
