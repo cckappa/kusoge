@@ -15,8 +15,7 @@ extends Control
 @export var video_panel:PanelContainer
 
 @export_category('Bottom Buttons')
-@export var discard_button:Button
-@export var save_button:Button
+@export var close_button:Button
 
 var paneles:Array[PanelContainer]
 
@@ -26,16 +25,16 @@ func _ready() -> void:
 	audio_button.connect("pressed", pressed_audio)
 	controls_button.connect("pressed", pressed_controls)
 	video_button.connect("pressed", pressed_video)
-	discard_button.connect("pressed", discard_changes)
-	save_button.connect("pressed", save_changes)
+	close_button.connect("pressed", save_changes)
 	paneles = [game_panel, accesibility_panel, audio_panel, controls_panel, video_panel]
 
 func _input(event:InputEvent) -> void:
-	if event.is_action_pressed("pause"):
-		if(visible == true):
-			discard_changes()
-		else:
-			toggle_pause()
+	pass
+	#if event.is_action_pressed("pause"):
+		#if(visible == true):
+			#save_changes()
+		#else:
+			#toggle_pause()
 
 
 func pressed_game() -> void:
@@ -68,8 +67,11 @@ func toggle_pause() -> void:
 	visible = true
 
 func discard_changes() -> void:
+	SignalBus.emit_signal("settings_discarded")
 	get_tree().paused = false
 	visible = false
 
 func save_changes() -> void:
-	pass
+	ConfigFileHandler.save_settings_to_file()
+	get_tree().paused = false
+	visible = false

@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5pci2v2vm4qd"]
+[gd_scene load_steps=4 format=3 uid="uid://b5pci2v2vm4qd"]
 
 [ext_resource type="Script" path="res://scripts/inicio_menu.gd" id="1_7l6qo"]
 [ext_resource type="Theme" uid="uid://ctd47cus6kna0" path="res://assets/themes/menu_theme.tres" id="2_tpjnf"]
+[ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="3_ppuyb"]
 
-[node name="InicioMenu" type="Control" node_paths=PackedStringArray("play")]
+[node name="InicioMenu" type="Control" node_paths=PackedStringArray("play", "settings", "settings_menu")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +13,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7l6qo")
 play = NodePath("PanelContainer/MarginContainer/VBoxContainer/Play")
+settings = NodePath("PanelContainer/MarginContainer/VBoxContainer/Settings")
+settings_menu = NodePath("SettingsMenu")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(512, 0)
@@ -34,12 +37,17 @@ layout_mode = 2
 
 [node name="Play" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Play"
+text = "Jugar"
 
 [node name="Settings" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Settings"
+text = "Opciones
+"
 
 [node name="Credits" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Credits"
+text = "Créditos"
+
+[node name="SettingsMenu" parent="." instance=ExtResource("3_ppuyb")]
+visible = false
+layout_mode = 1

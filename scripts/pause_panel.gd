@@ -1,19 +1,21 @@
 class_name PausePanel
 extends PanelContainer
 
-var _game_settings:Dictionary
+@onready var game_settings:=ConfigFileHandler.game_settings
+@onready var accesibility_settings:=ConfigFileHandler.accesibility_settings
+@onready var audio_settings:=ConfigFileHandler.audio_settings
+@onready var video_settings:=ConfigFileHandler.video_settings
 
 func _ready() -> void:
+	SignalBus.connect("settings_discarded", _apply_settings)
 	_ready_scene()
-	_load_settings()
+	_apply_settings()
 
 func _ready_scene() -> void:
 	pass
 
 func save_setting(section:String, key:String, value:Variant) -> void:
-	match(section):
-		"game":
-			ConfigFileHandler.save_game_setting(key, value)
+	ConfigFileHandler.save_setting(section, key, value)
 
-func _load_settings() -> void:
+func _apply_settings() -> void:
 	pass
