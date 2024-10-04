@@ -1,0 +1,68 @@
+[gd_scene load_steps=12 format=3 uid="uid://cc852y6dvkcdr"]
+
+[ext_resource type="Texture2D" uid="uid://ccnxin1on7xkk" path="res://icon.svg" id="1_7wxll"]
+[ext_resource type="Script" path="res://scripts/playable_character.gd" id="1_vne8f"]
+[ext_resource type="Resource" uid="uid://jr2yuolebha7" path="res://assets/resources/conejitx.tres" id="2_dcwwv"]
+[ext_resource type="Script" path="res://scripts/state_machine.gd" id="3_3n386"]
+[ext_resource type="Script" path="res://scenes/run_state.gd" id="4_chw2b"]
+[ext_resource type="Texture2D" uid="uid://civvllqehi3r0" path="res://assets/spritesheets/kenney_rpg-urban-pack/Tilemap/tilemap.png" id="6_brn32"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ifkpl"]
+radius = 34.0
+height = 90.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w688j"]
+atlas = ExtResource("6_brn32")
+region = Rect2(407, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ck6l"]
+atlas = ExtResource("6_brn32")
+region = Rect2(407, 17, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxwxl"]
+atlas = ExtResource("6_brn32")
+region = Rect2(407, 34, 17, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dd1ai"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w688j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ck6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w688j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxwxl")
+}],
+"loop": true,
+"name": &"forward",
+"speed": 5.0
+}]
+
+[node name="PlayableCharacter" type="CharacterBody2D"]
+script = ExtResource("1_vne8f")
+character_info = ExtResource("2_dcwwv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ifkpl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.484375, 0.484375)
+texture = ExtResource("1_7wxll")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_3n386")
+
+[node name="RunState" type="Node" parent="StateMachine"]
+script = ExtResource("4_chw2b")
+
+[node name="conejx_spritesheet" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dd1ai")
+animation = &"forward"
+autoplay = "forward"
+frame = 3
+frame_progress = 0.243053

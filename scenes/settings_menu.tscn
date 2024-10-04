@@ -309,11 +309,6 @@ text = "Resolución"
 
 [node name="OptionButton" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/VideoPanel/MarginContainer/VBoxContainer/ScreenResolution"]
 layout_mode = 2
-selected = 0
-item_count = 2
-popup/item_0/text = "1920x1080"
-popup/item_1/text = "1024x960"
-popup/item_1/id = 1
 
 [node name="ControlsPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections"]
 visible = false
