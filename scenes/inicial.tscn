@@ -1,15 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfidel1ct2nq"]
+[gd_scene load_steps=5 format=3 uid="uid://dfidel1ct2nq"]
 
 [ext_resource type="Script" path="res://scripts/inicial.gd" id="1_o71xu"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="2_1dw8i"]
 [ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="3_5la8r"]
+[ext_resource type="Texture2D" uid="uid://ccnxin1on7xkk" path="res://icon.svg" id="4_jljwb"]
 
 [node name="Inicial" type="Node2D"]
 script = ExtResource("1_o71xu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.484375, 0.484375)
+texture = ExtResource("4_jljwb")
 
 [node name="SettingsMenu" parent="." instance=ExtResource("2_1dw8i")]
 visible = false
 
 [node name="PlayableCharacter" parent="." instance=ExtResource("3_5la8r")]
-
-[node name="Camera2D" type="Camera2D" parent="."]

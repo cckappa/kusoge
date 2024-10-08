@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0b7g35luu5xq"]
+
+[ext_resource type="Script" path="res://scripts/sprite_animations.gd" id="1_c3bcx"]
+
+[node name="SpriteAnimations" type="Node"]
+script = ExtResource("1_c3bcx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
