@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfidel1ct2nq"]
+[gd_scene load_steps=6 format=3 uid="uid://dfidel1ct2nq"]
 
 [ext_resource type="Script" path="res://scripts/inicial.gd" id="1_o71xu"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="2_1dw8i"]
 [ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="3_5la8r"]
 [ext_resource type="Texture2D" uid="uid://ccnxin1on7xkk" path="res://icon.svg" id="4_jljwb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ur4vs"]
+size = Vector2(132.129, 134.193)
 
 [node name="Inicial" type="Node2D"]
 script = ExtResource("1_o71xu")
@@ -12,7 +15,15 @@ script = ExtResource("1_o71xu")
 scale = Vector2(0.484375, 0.484375)
 texture = ExtResource("4_jljwb")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(2.65798e-05, -1.03226)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ur4vs")
+
 [node name="SettingsMenu" parent="." instance=ExtResource("2_1dw8i")]
 visible = false
 
 [node name="PlayableCharacter" parent="." instance=ExtResource("3_5la8r")]
+position = Vector2(238.68, 206.875)
