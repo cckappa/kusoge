@@ -179,6 +179,33 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_hqthg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("conejxSpritesheet:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle_down"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("conejxSpritesheet:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_qa5w1"]
 resource_name = "idle_down"
 length = 0.2
@@ -415,33 +442,6 @@ tracks/1/keys = {
 "values": [1, 2, 3, 0]
 }
 
-[sub_resource type="Animation" id="Animation_hqthg"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("conejxSpritesheet:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"idle_down"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("conejxSpritesheet:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6unp3"]
 _data = {
 "RESET": SubResource("Animation_hqthg"),
@@ -521,6 +521,7 @@ states/Start/position = Vector2(212, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_a88c5"), "Idle", "Move", SubResource("AnimationNodeStateMachineTransition_amupv"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_4biik")]
 
 [node name="PlayableCharacter" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_vne8f")
 character_info = ExtResource("2_dcwwv")
 
