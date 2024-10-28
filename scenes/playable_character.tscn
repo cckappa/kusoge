@@ -9,8 +9,8 @@
 [ext_resource type="Script" path="res://scripts/idle.gd" id="6_u7i7p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ifkpl"]
-radius = 34.0
-height = 90.0
+radius = 27.0
+height = 58.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7hewh"]
 atlas = ExtResource("6_brn32")
@@ -520,12 +520,13 @@ states/Move/position = Vector2(439, 136)
 states/Start/position = Vector2(212, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_a88c5"), "Idle", "Move", SubResource("AnimationNodeStateMachineTransition_amupv"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_4biik")]
 
-[node name="PlayableCharacter" type="CharacterBody2D"]
+[node name="PlayableCharacter" type="CharacterBody2D" groups=["main_character"]]
 y_sort_enabled = true
 script = ExtResource("1_vne8f")
 character_info = ExtResource("2_dcwwv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -25)
 shape = SubResource("CapsuleShape2D_ifkpl")
 
 [node name="StateMachine" type="Node" parent="."]
@@ -547,6 +548,7 @@ scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_dd1ai")
 animation = &"idle_down"
 autoplay = "idle_down"
+offset = Vector2(0, -7.66)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

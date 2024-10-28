@@ -27,7 +27,7 @@ func physics_update(_delta: float) -> void:
 	
 	player.move_and_slide()
 
-func _input(event:InputEvent) -> void:
+func handle_input(event:InputEvent) -> void:
 	if event.is_action_pressed("dash") and can_dash:
 		can_dash = false
 		emit_signal("dash_cooldown")

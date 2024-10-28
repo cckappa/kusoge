@@ -1,13 +1,28 @@
-[gd_scene load_steps=9 format=4 uid="uid://dfidel1ct2nq"]
+[gd_scene load_steps=12 format=3 uid="uid://dfidel1ct2nq"]
 
 [ext_resource type="Script" path="res://scripts/inicial.gd" id="1_o71xu"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="2_1dw8i"]
 [ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="3_5la8r"]
-[ext_resource type="Texture2D" uid="uid://ccnxin1on7xkk" path="res://icon.svg" id="4_jljwb"]
+[ext_resource type="Texture2D" uid="uid://lnilswokcc5l" path="res://assets/spritesheets/props01.png" id="5_1cxj3"]
 [ext_resource type="Texture2D" uid="uid://civvllqehi3r0" path="res://assets/spritesheets/kenney_rpg-urban-pack/Tilemap/tilemap.png" id="5_yy2iu"]
+[ext_resource type="Texture2D" uid="uid://bofxl2yrphcv" path="res://assets/spritesheets/mecha.png" id="6_ersdn"]
+[ext_resource type="Script" path="res://scripts/talking.gd" id="7_b1xsq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ur4vs"]
-size = Vector2(132.129, 134.193)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ph4v"]
+resource_name = "test"
+texture = ExtResource("5_1cxj3")
+texture_region_size = Vector2i(180, 180)
+4:1/size_in_atlas = Vector2i(6, 7)
+4:1/0 = 0
+4:1/0/texture_origin = Vector2i(0, 145)
+4:1/0/y_sort_origin = -60
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-519.016, -265.872, -544.472, -144.25, -487.904, -42.4264, -530.33, 48.0833, -479.418, 48.0833, -431.335, 96.1666, -337.997, 175.363, -340.825, 274.357, -267.286, 277.186, -255.973, 336.583, -222.032, 305.47, -227.688, 234.76, -272.943, 231.931, -281.428, 161.22, -227.688, 158.392, -227.688, 62.2254, -230.517, 5.65686, -176.777, -22.6274, -148.492, 22.6274, -117.38, 50.9117, -43.8406, 53.7402, -12.7279, 31.1127, 90, 53.7402, 89.0955, 124.451, 60.8112, 181.019, 60.8112, 243.245, 100.409, 240.416, 111.723, 183.848, 148.492, 175.363, 145.664, 226.274, 168.291, 214.961, 176.777, 169.706, 233.345, 135.765, 247.487, 104.652, 298.399, 152.735, 340.826, 155.564, 354.968, 175.363, 383.252, 147.078, 340.826, 107.48, 371.938, 90.5097, 309.713, 8.48529, 349.311, -31.1127, 403.051, -96.1665, 357.796, -135.764, 357.796, -206.475, 298.399, -243.245, 332.34, -274.357, 281.429, -328.098, -29.6985, -282.843, -219.203, -302.642, -431.335, -299.813)
+10:4/size_in_atlas = Vector2i(2, 2)
+10:4/0 = 0
+10:4/0/texture_origin = Vector2i(-27, 14)
+10:4/0/y_sort_origin = -115
+10:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-130.5, 11, 114.5, 13, 117.5, -124, -132.5, -124)
+6:8/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d52u8"]
 resource_name = "tile01"
@@ -15,29 +30,30 @@ texture = ExtResource("5_yy2iu")
 separation = Vector2i(1, 1)
 9:9/0 = 0
 9:9/0/y_sort_origin = 3
-16:8/size_in_atlas = Vector2i(1, 2)
-16:8/0 = 0
-16:8/0/y_sort_origin = 8
 17:8/size_in_atlas = Vector2i(1, 2)
 17:8/0 = 0
+17:8/0/y_sort_origin = 8
 16:11/size_in_atlas = Vector2i(1, 2)
 16:11/0 = 0
+16:11/0/y_sort_origin = 8
+16:8/size_in_atlas = Vector2i(1, 2)
+16:8/0 = 0
+16:8/0/texture_origin = Vector2i(0, 12)
+16:8/0/y_sort_origin = -3
+16:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.06586, 0.176777, -5.83363, -6.18719, 5.65685, -5.48008, 3.88909, -0.353554, 3.00521, 2.65165, 1.94454, 3.71231, 0.707108, 4.24264, -1.94454, 4.06586)
 
 [sub_resource type="TileSet" id="TileSet_gqim1"]
+tile_size = Vector2i(180, 180)
+physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_d52u8")
+sources/0 = SubResource("TileSetAtlasSource_5ph4v")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dpxpg"]
+radius = 59.8415
 
 [node name="Inicial" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_o71xu")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.484375, 0.484375)
-texture = ExtResource("4_jljwb")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
-position = Vector2(2.65798e-05, -1.03226)
-shape = SubResource("RectangleShape2D_ur4vs")
 
 [node name="SettingsMenu" parent="." instance=ExtResource("2_1dw8i")]
 visible = false
@@ -47,6 +63,33 @@ position = Vector2(238.68, 206.875)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAACAP//AQAQAAgAAAADAP//AQAQAAgAAAAEAP//AQAQAAgAAAAEAAAAAQAQAAgAAAAFAAAAAQAQAAgAAAAGAAAAAQAQAAgAAAAGAP//AQAQAAgAAAAGAP7/AQAQAAgAAAA=")
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray(0, 0, 36, 0, 4, 0, 0, 0, 6, 0, 8, 0, 0, 0, 0, 0, 254, 255, 0, 0, 4, 0, 1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 10, 0, 4, 0, 0, 0)
 tile_set = SubResource("TileSet_gqim1")
+
+[node name="Mecha" type="Node2D" parent="."]
+position = Vector2(-716, 217)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Mecha"]
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mecha/StaticBody2D"]
+position = Vector2(0, 72)
+polygon = PackedVector2Array(-14, 208, -86, 190, -92, 142, -134, 136, -158, 222, -152, 310, -206, 316, -208, 386, -190, 404, -152, 404, -152, 474, -170, 484, -264, 428, -268, 330, -338, 258, -384, 252, -382, 220, -442, 198, -444, 176, -398, 118, -446, 76, -466, -12, -438, -32, -424, -62, -420, -108, -412, -120, -348, -102, -360, -156, 344, -148, 398, -118, 386, -98, 430, -34, 444, 36, 462, 60, 466, 84, 362, 164, 432, 226, 458, 258, 462, 332, 360, 310, 308, 286, 266, 324, 240, 384, 210, 384, 214, 344, 188, 336, 166, 364, 168, 404, 132, 406, 136, 334, 196, 228, 144, 230, 144, 202, 92, 192, 72, 192)
+
+[node name="Mecha" type="Sprite2D" parent="Mecha"]
+y_sort_enabled = true
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_ersdn")
+offset = Vector2(0, 71)
+
+[node name="Talking" type="Node2D" parent="Mecha" node_paths=PackedStringArray("talking_area")]
+position = Vector2(0, 216)
+script = ExtResource("7_b1xsq")
+talking_area = NodePath("Area2D")
+timeline_name = "obj_mecha"
+
+[node name="Area2D" type="Area2D" parent="Mecha/Talking"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mecha/Talking/Area2D"]
+shape = SubResource("CircleShape2D_dpxpg")
