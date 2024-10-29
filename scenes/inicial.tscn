@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://lnilswokcc5l" path="res://assets/spritesheets/props01.png" id="5_1cxj3"]
 [ext_resource type="Texture2D" uid="uid://civvllqehi3r0" path="res://assets/spritesheets/kenney_rpg-urban-pack/Tilemap/tilemap.png" id="5_yy2iu"]
 [ext_resource type="Texture2D" uid="uid://bofxl2yrphcv" path="res://assets/spritesheets/mecha.png" id="6_ersdn"]
-[ext_resource type="Script" path="res://scripts/talking.gd" id="7_b1xsq"]
+[ext_resource type="Script" path="res://scripts/talk.gd" id="7_b1xsq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ph4v"]
 resource_name = "test"
@@ -83,13 +83,13 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_ersdn")
 offset = Vector2(0, 71)
 
-[node name="Talking" type="Node2D" parent="Mecha" node_paths=PackedStringArray("talking_area")]
+[node name="Talk" type="Node2D" parent="Mecha" node_paths=PackedStringArray("talking_area")]
 position = Vector2(0, 216)
 script = ExtResource("7_b1xsq")
 talking_area = NodePath("Area2D")
 timeline_name = "obj_mecha"
 
-[node name="Area2D" type="Area2D" parent="Mecha/Talking"]
+[node name="Area2D" type="Area2D" parent="Mecha/Talk"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mecha/Talking/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mecha/Talk/Area2D"]
 shape = SubResource("CircleShape2D_dpxpg")

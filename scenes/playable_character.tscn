@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cc852y6dvkcdr"]
+[gd_scene load_steps=51 format=3 uid="uid://cc852y6dvkcdr"]
 
 [ext_resource type="Script" path="res://scripts/playable_character.gd" id="1_vne8f"]
 [ext_resource type="Resource" uid="uid://jr2yuolebha7" path="res://assets/resources/conejitx.tres" id="2_dcwwv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://civvllqehi3r0" path="res://assets/spritesheets/kenney_rpg-urban-pack/Tilemap/tilemap.png" id="6_brn32"]
 [ext_resource type="Script" path="res://scripts/dashing.gd" id="6_e3jlj"]
 [ext_resource type="Script" path="res://scripts/idle.gd" id="6_u7i7p"]
+[ext_resource type="Script" path="res://scripts/talking.gd" id="7_b6wb8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ifkpl"]
 radius = 27.0
@@ -542,6 +543,10 @@ animation_tree = NodePath("../../AnimationTree")
 
 [node name="Dashing" type="Node" parent="StateMachine"]
 script = ExtResource("6_e3jlj")
+
+[node name="Talking" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation_tree")]
+script = ExtResource("7_b6wb8")
+animation_tree = NodePath("../../AnimationTree")
 
 [node name="conejxSpritesheet" type="AnimatedSprite2D" parent="."]
 scale = Vector2(5, 5)

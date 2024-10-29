@@ -8,10 +8,11 @@ const RUNNING = "Running"
 const JUMPING = "Jumping"
 const FALLING = "Falling"
 const DASHING = "Dashing"
+const TALKING = "Talking"
 
 var player:PlayableCharacter
 var direction := Vector2(0,0)
-var last_facing_direction := Vector2(0,0)
+var last_facing_direction : Vector2
 var can_dash:= true
 
 @export var animation_tree:AnimationTree
