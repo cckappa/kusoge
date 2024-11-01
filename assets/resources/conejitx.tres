@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_4df2p")
-run_speed = 250.0
-dash_speed = 4.0
+run_speed = 500.0
+dash_speed = 2.5
 dash_cooldown = 0.7
-dash_distance = 0.1
+dash_distance = 0.2

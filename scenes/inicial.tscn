@@ -1,12 +1,32 @@
-[gd_scene load_steps=12 format=3 uid="uid://dfidel1ct2nq"]
+[gd_scene load_steps=22 format=3 uid="uid://dfidel1ct2nq"]
 
 [ext_resource type="Script" path="res://scripts/inicial.gd" id="1_o71xu"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="2_1dw8i"]
 [ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="3_5la8r"]
+[ext_resource type="Texture2D" uid="uid://ddarug307hvbq" path="res://assets/objects/cosas_0000s_0004_mesa1.png" id="4_iw8l8"]
 [ext_resource type="Texture2D" uid="uid://lnilswokcc5l" path="res://assets/spritesheets/props01.png" id="5_1cxj3"]
 [ext_resource type="Texture2D" uid="uid://civvllqehi3r0" path="res://assets/spritesheets/kenney_rpg-urban-pack/Tilemap/tilemap.png" id="5_yy2iu"]
 [ext_resource type="Texture2D" uid="uid://bofxl2yrphcv" path="res://assets/spritesheets/mecha.png" id="6_ersdn"]
 [ext_resource type="Script" path="res://scripts/talk.gd" id="7_b1xsq"]
+[ext_resource type="Texture2D" uid="uid://bdnfd84tl2sep" path="res://assets/backgrounds/fondo.png" id="8_h8ib1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hm6u"]
+size = Vector2(304, 1835)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4pqnx"]
+size = Vector2(1629, 755.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ro2g1"]
+size = Vector2(275, 1071)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uxw4m"]
+size = Vector2(810.5, 237)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlq4c"]
+size = Vector2(1085, 222)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04bmr"]
+size = Vector2(268.5, 752.5)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ph4v"]
 resource_name = "test"
@@ -48,6 +68,12 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_d52u8")
 sources/0 = SubResource("TileSetAtlasSource_5ph4v")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frhot"]
+size = Vector2(260, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0w0ve"]
+size = Vector2(247, 52)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_dpxpg"]
 radius = 59.8415
 
@@ -58,17 +84,77 @@ script = ExtResource("1_o71xu")
 [node name="SettingsMenu" parent="." instance=ExtResource("2_1dw8i")]
 visible = false
 
+[node name="BackgroundLayer" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundLayer"]
+z_index = -1
+texture = ExtResource("8_h8ib1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BackgroundLayer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
+position = Vector2(-925, -97.5)
+shape = SubResource("RectangleShape2D_7hm6u")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
+position = Vector2(6.5, -640.125)
+shape = SubResource("RectangleShape2D_4pqnx")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
+position = Vector2(911.5, -485.5)
+shape = SubResource("RectangleShape2D_ro2g1")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
+position = Vector2(-667.25, 898)
+shape = SubResource("RectangleShape2D_uxw4m")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
+position = Vector2(497.5, 894)
+shape = SubResource("RectangleShape2D_hlq4c")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
+position = Vector2(908.75, 631.75)
+shape = SubResource("RectangleShape2D_04bmr")
+
 [node name="PlayableCharacter" parent="." instance=ExtResource("3_5la8r")]
 position = Vector2(238.68, 206.875)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
+position = Vector2(-2116, -1700)
 scale = Vector2(0.5, 0.5)
 tile_map_data = PackedByteArray(0, 0, 36, 0, 4, 0, 0, 0, 6, 0, 8, 0, 0, 0, 0, 0, 254, 255, 0, 0, 4, 0, 1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 10, 0, 4, 0, 0, 0)
 tile_set = SubResource("TileSet_gqim1")
 
+[node name="ObjectLayer" type="Node" parent="."]
+
+[node name="Table" type="Node2D" parent="." groups=["objects"]]
+position = Vector2(-29, -252)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Table"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table/StaticBody2D"]
+position = Vector2(2, 42)
+shape = SubResource("RectangleShape2D_frhot")
+
+[node name="Talk" type="Node2D" parent="Table" node_paths=PackedStringArray("talking_area")]
+script = ExtResource("7_b1xsq")
+talking_area = NodePath("Area2D")
+timeline_name = "obj_table_hospital"
+
+[node name="Area2D" type="Area2D" parent="Table/Talk"]
+position = Vector2(0, 85)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table/Talk/Area2D"]
+position = Vector2(-0.5, 16)
+shape = SubResource("RectangleShape2D_0w0ve")
+
+[node name="Sprite2D" type="Sprite2D" parent="Table"]
+y_sort_enabled = true
+texture = ExtResource("4_iw8l8")
+
 [node name="Mecha" type="Node2D" parent="."]
-position = Vector2(-716, 217)
+position = Vector2(-2056, -271)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Mecha"]
 scale = Vector2(0.5, 0.5)

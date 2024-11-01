@@ -21,6 +21,7 @@ func physics_update(_delta: float) -> void:
 	player.velocity = direction * player.character_info.run_speed
 
 	animation_tree["parameters/Move/blend_position"] = direction
+	animation_tree["parameters/Dash/blend_position"] = direction
 	
 	if is_equal_approx(direction.x, 0.0) and is_equal_approx(direction.y, 0.0):
 		animation_tree["parameters/conditions/move"] = false
@@ -34,6 +35,7 @@ func handle_input(event:InputEvent) -> void:
 		can_dash = false
 		emit_signal("dash_cooldown")
 		SignalBus.disconnect("starts_talking", starts_talking_run)
+		animation_tree["parameters/conditions/move"] = false
 		finished.emit(DASHING, {"last_facing_direction":last_facing_direction})
 
 func starts_talking_run() -> void:

@@ -34,7 +34,8 @@ gdscript/warnings/untyped_declaration=2
 
 directories/dch_directory={}
 directories/dtl_directory={
-"obj_mecha": "res://dialogic/timelines/obj_mecha.dtl"
+"obj_mecha": "res://dialogic/timelines/obj_mecha.dtl",
+"obj_table_hospital": "res://dialogic/timelines/obj_table_hospital.dtl"
 }
 
 [display]
@@ -52,6 +53,7 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 [global_group]
 
 main_character="The main character"
+objects="Object Group"
 
 [gui]
 
