@@ -9,6 +9,7 @@ const JUMPING = "Jumping"
 const FALLING = "Falling"
 const DASHING = "Dashing"
 const TALKING = "Talking"
+const CAUGHT = "Caught"
 
 var player:PlayableCharacter
 var direction := Vector2(0,0)

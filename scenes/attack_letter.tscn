@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxw145o41exlv"]
+
+[ext_resource type="Theme" uid="uid://bci1eig3l1g22" path="res://assets/themes/attack_letter_theme.tres" id="1_k8hr0"]
+[ext_resource type="Script" path="res://scripts/attack_letter.gd" id="2_vemw3"]
+
+[node name="AttackLetter" type="RichTextLabel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.5
+offset_top = -88.0
+offset_right = 145.5
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_k8hr0")
+bbcode_enabled = true
+text = " "
+fit_content = true
+script = ExtResource("2_vemw3")

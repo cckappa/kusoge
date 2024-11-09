@@ -1,0 +1,209 @@
+[gd_scene load_steps=15 format=3 uid="uid://cn7cxbug5sjey"]
+
+[ext_resource type="Texture2D" uid="uid://c31kt0h0ajr2y" path="res://assets/objects/cosas_0000s_0000_maceta.png" id="1_1vy82"]
+[ext_resource type="Script" path="res://scripts/battle.gd" id="1_8mi71"]
+[ext_resource type="Texture2D" uid="uid://di2rh1u02rxdt" path="res://assets/character_portraits/portrait_main_character.png" id="2_kwws5"]
+[ext_resource type="Script" path="res://scripts/state_machine.gd" id="2_nbqvb"]
+[ext_resource type="Script" path="res://scripts/enter.gd" id="3_7hbmj"]
+[ext_resource type="Script" path="res://scripts/character_container.gd" id="3_30a52"]
+[ext_resource type="Script" path="res://scripts/character_portraits.gd" id="3_s5yx3"]
+[ext_resource type="Script" path="res://scripts/deciding.gd" id="4_tp14i"]
+[ext_resource type="Texture2D" uid="uid://cv42vdyov0olf" path="res://assets/character_portraits/portrait_dog.png" id="5_6gxpq"]
+[ext_resource type="Script" path="res://scripts/fighting.gd" id="5_kvkly"]
+[ext_resource type="Script" path="res://scripts/attacking.gd" id="6_0x8yj"]
+[ext_resource type="Texture2D" uid="uid://c1p3mdt7qyydq" path="res://assets/character_portraits/front_main_character.png" id="6_57hxh"]
+[ext_resource type="Script" path="res://scripts/active_character.gd" id="7_aqbom"]
+[ext_resource type="Script" path="res://scripts/attack_list.gd" id="9_6jgr0"]
+
+[node name="Battle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8mi71")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_nbqvb")
+
+[node name="Enter" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_portraits", "black_rect")]
+script = ExtResource("3_7hbmj")
+character_portraits = NodePath("../../CharacterPortraits")
+black_rect = NodePath("../../BlackRect")
+
+[node name="Deciding" type="Node" parent="StateMachine" node_paths=PackedStringArray("fight_run", "run", "fight")]
+script = ExtResource("4_tp14i")
+fight_run = NodePath("../../FightRunButtons")
+run = NodePath("../../FightRunButtons/Run")
+fight = NodePath("../../FightRunButtons/Fight")
+
+[node name="Fighting" type="Node" parent="StateMachine" node_paths=PackedStringArray("active_character", "active_character_buttons", "attack", "menu", "character_portraits", "attack_list")]
+script = ExtResource("5_kvkly")
+active_character = NodePath("../../ActiveCharacter")
+active_character_buttons = NodePath("../../ActiveCharacter/ActiveCharacterButtons")
+attack = NodePath("../../ActiveCharacter/ActiveCharacterButtons/Attack")
+menu = NodePath("../../ActiveCharacter/ActiveCharacterButtons/Menu")
+character_portraits = NodePath("../../CharacterPortraits")
+attack_list = NodePath("../../AttackList")
+
+[node name="Attacking" type="Node" parent="StateMachine"]
+script = ExtResource("6_0x8yj")
+
+[node name="FightRunButtons" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -51.0
+offset_top = -467.0
+offset_right = 52.0
+offset_bottom = -427.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Run" type="Button" parent="FightRunButtons"]
+layout_mode = 2
+text = "Huir"
+
+[node name="Fight" type="Button" parent="FightRunButtons"]
+layout_mode = 2
+text = "Pelear
+"
+
+[node name="EnemyPhoto" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -244.0
+offset_right = 46.5
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1vy82")
+
+[node name="CharacterPortraits" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -310.0
+offset_right = 150.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+script = ExtResource("3_s5yx3")
+
+[node name="CharacterContainer" type="VBoxContainer" parent="CharacterPortraits"]
+visible = false
+layout_mode = 2
+focus_next = NodePath("../CharacterContainer2")
+script = ExtResource("3_30a52")
+
+[node name="TextureRect" type="TextureRect" parent="CharacterPortraits/CharacterContainer"]
+layout_mode = 2
+texture = ExtResource("2_kwws5")
+
+[node name="LifeContainer" type="HBoxContainer" parent="CharacterPortraits/CharacterContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CharacterPortraits/CharacterContainer/LifeContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0.458824, 1, 0.32549, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CharacterPortraits/CharacterContainer/LifeContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0.458824, 1, 0.32549, 1)
+
+[node name="CharacterContainer2" type="VBoxContainer" parent="CharacterPortraits"]
+visible = false
+layout_mode = 2
+focus_previous = NodePath("../CharacterContainer")
+script = ExtResource("3_30a52")
+
+[node name="TextureRect" type="TextureRect" parent="CharacterPortraits/CharacterContainer2"]
+layout_mode = 2
+texture = ExtResource("5_6gxpq")
+
+[node name="LifeContainer" type="HBoxContainer" parent="CharacterPortraits/CharacterContainer2"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CharacterPortraits/CharacterContainer2/LifeContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0.458824, 1, 0.32549, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CharacterPortraits/CharacterContainer2/LifeContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0.458824, 1, 0.32549, 1)
+
+[node name="ActiveCharacter" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 230.0
+offset_top = 442.0
+offset_right = 671.0
+offset_bottom = 846.0
+script = ExtResource("7_aqbom")
+
+[node name="ActiveCharacterFront" type="TextureRect" parent="ActiveCharacter" groups=["active_character_front"]]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("6_57hxh")
+expand_mode = 3
+
+[node name="ActiveCharacterButtons" type="VBoxContainer" parent="ActiveCharacter"]
+layout_mode = 2
+alignment = 1
+
+[node name="Attack" type="Button" parent="ActiveCharacter/ActiveCharacterButtons"]
+layout_mode = 2
+text = "ATACAR"
+
+[node name="Menu" type="Button" parent="ActiveCharacter/ActiveCharacterButtons"]
+layout_mode = 2
+text = "MENU"
+
+[node name="AttackList" type="VBoxContainer" parent="." groups=["attack_list"]]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -485.0
+offset_top = 69.0
+offset_right = -69.0
+offset_bottom = 723.0
+grow_horizontal = 0
+script = ExtResource("9_6jgr0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AttackList"]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+
+[node name="BlackRect" type="ColorRect" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

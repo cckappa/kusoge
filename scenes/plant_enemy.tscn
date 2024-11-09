@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://cdgrmvtad8eac"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_xtg0d"]
+[ext_resource type="Texture2D" uid="uid://c31kt0h0ajr2y" path="res://assets/objects/cosas_0000s_0000_maceta.png" id="2_waugy"]
+[ext_resource type="Script" path="res://scripts/enemy_detection.gd" id="3_aigqm"]
+[ext_resource type="Texture2D" uid="uid://pgvjh544jsbd" path="res://assets/icons/warning.png" id="4_njook"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qfl4"]
+atlas = ExtResource("2_waugy")
+region = Rect2(0, 0, 93, 159)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x5sia"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qfl4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix3r2"]
+size = Vector2(81, 38.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qdqpb"]
+radius = 83.0241
+
+[node name="PlantEnemy" type="CharacterBody2D" groups=["enemies"]]
+script = ExtResource("1_xtg0d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_x5sia")
+offset = Vector2(0, -40.515)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 16.25)
+shape = SubResource("RectangleShape2D_ix3r2")
+
+[node name="EnemyDetection" type="Node2D" parent="." node_paths=PackedStringArray("warning_sprite", "area_fight")]
+script = ExtResource("3_aigqm")
+warning_sprite = NodePath("Sprite2D")
+area_fight = NodePath("Area2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemyDetection"]
+visible = false
+position = Vector2(0, -52)
+scale = Vector2(0.0316688, 0.0316688)
+texture = ExtResource("4_njook")
+
+[node name="Area2D" type="Area2D" parent="EnemyDetection"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetection/Area2D"]
+position = Vector2(-3, 9)
+shape = SubResource("CircleShape2D_qdqpb")

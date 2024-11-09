@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HealAbility" load_steps=2 format=3 uid="uid://ct5dshx02d4l0"]
+
+[ext_resource type="Script" path="res://scripts/abilities/heal_ability.gd" id="1_em4tk"]
+
+[resource]
+script = ExtResource("1_em4tk")
+heal_points = 3
+ability_name = "Focused Healing"
+sequence = Array[StringName]([&"up", &"down", &"up"])
+description = "Cura 3 de vida"
+type = "Heal"

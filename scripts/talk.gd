@@ -7,8 +7,8 @@ var talking:=false
 var talking_zone:=false
 
 func _ready() -> void:
-	talking_area.connect("body_entered", entra_area)
-	talking_area.connect("body_exited", sale_area)
+	talking_area.connect("body_entered", enters_area)
+	talking_area.connect("body_exited", exits_area)
 
 func start_dialog() -> void:
 	talking = true
@@ -27,12 +27,12 @@ func _input(event:InputEvent) -> void:
 		start_dialog()
 		print("empieza a hablar")
 
-func entra_area(body:Node2D) -> void:
+func enters_area(body:Node2D) -> void:
 	if body.is_in_group("main_character"):
 		print(body.name)
 		talking_zone = true
 
-func sale_area(body:Node2D) -> void:
+func exits_area(body:Node2D) -> void:
 	if body.is_in_group("main_character"):
 		print(body.name)
 		talking_zone = false

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Character" load_steps=7 format=3 uid="uid://cgvghpwc1pnon"]
+
+[ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_3y5f7"]
+[ext_resource type="Resource" uid="uid://ct5dshx02d4l0" path="res://assets/resources/abilities/focused_healing.tres" id="2_80ecl"]
+[ext_resource type="Script" path="res://scripts/character.gd" id="2_ia3gp"]
+[ext_resource type="Resource" uid="uid://ckabh1vy5csrg" path="res://assets/resources/abilities/punch.tres" id="3_bh6gf"]
+[ext_resource type="Texture2D" uid="uid://drw4yn5y0uptl" path="res://assets/character_portraits/front_dog.png" id="4_sveyr"]
+[ext_resource type="Texture2D" uid="uid://cv42vdyov0olf" path="res://assets/character_portraits/portrait_dog.png" id="5_womdx"]
+
+[resource]
+script = ExtResource("2_ia3gp")
+name = "Perro"
+character_portrait = ExtResource("5_womdx")
+character_front = ExtResource("4_sveyr")
+abilities = Array[ExtResource("1_3y5f7")]([ExtResource("2_80ecl"), ExtResource("3_bh6gf")])
+max_hp = 1

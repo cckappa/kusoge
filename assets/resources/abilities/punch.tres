@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DamageAbility" load_steps=2 format=3 uid="uid://ckabh1vy5csrg"]
+
+[ext_resource type="Script" path="res://scripts/abilities/damage_ability.gd" id="1_in507"]
+
+[resource]
+script = ExtResource("1_in507")
+damage_points = 3
+ability_name = "Punch"
+sequence = Array[StringName]([&"up", &"down", &"left", &"right"])
+description = "Es solo un golpe"
+type = "Attack"
