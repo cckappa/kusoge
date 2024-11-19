@@ -1,6 +1,7 @@
 extends BattleState
 
 @export var character_portraits:HBoxContainer
+@export var enemy_photo:TextureRect
 
 var character_containers : Array[CharacterContainer]
 var character_container_size := Vector2(125, 0)
@@ -41,3 +42,6 @@ func add_characters() -> void:
 			life_rect.size = Vector2(rect_size_x, 20)
 			life_rect.custom_minimum_size = Vector2(rect_size_x, 20)
 			life_container.add_child(life_rect)
+
+func add_main_enemy() -> void:
+	enemy_photo.texture = Globals.main_enemy.portrait

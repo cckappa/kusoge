@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=5 format=3 uid="uid://sv50sqn41x38"]
+
+[ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_lir8g"]
+[ext_resource type="Resource" uid="uid://ckabh1vy5csrg" path="res://assets/resources/abilities/punch.tres" id="2_85u7y"]
+[ext_resource type="Texture2D" uid="uid://c31kt0h0ajr2y" path="res://assets/objects/cosas_0000s_0000_maceta.png" id="2_87wx5"]
+[ext_resource type="Script" path="res://scripts/enemy_resource.gd" id="2_opljk"]
+
+[resource]
+script = ExtResource("2_opljk")
+name = &"Plantita"
+portrait = ExtResource("2_87wx5")
+abilities = Array[ExtResource("1_lir8g")]([ExtResource("2_85u7y")])
+max_hp = 8
+dialog = &""

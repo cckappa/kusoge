@@ -56,4 +56,4 @@ func check_sequence() -> void:
 	print(events_arr)
 	for ability in active_attacker.abilities:
 		if events_arr == ability.sequence:
-			print(ability.ability_name)
+			finished.emit(TARGETING, {"ability":ability})

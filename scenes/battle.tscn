@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cn7cxbug5sjey"]
+[gd_scene load_steps=17 format=3 uid="uid://cn7cxbug5sjey"]
 
 [ext_resource type="Texture2D" uid="uid://c31kt0h0ajr2y" path="res://assets/objects/cosas_0000s_0000_maceta.png" id="1_1vy82"]
 [ext_resource type="Script" path="res://scripts/battle.gd" id="1_8mi71"]
@@ -12,7 +12,9 @@
 [ext_resource type="Script" path="res://scripts/fighting.gd" id="5_kvkly"]
 [ext_resource type="Script" path="res://scripts/attacking.gd" id="6_0x8yj"]
 [ext_resource type="Texture2D" uid="uid://c1p3mdt7qyydq" path="res://assets/character_portraits/front_main_character.png" id="6_57hxh"]
+[ext_resource type="Script" path="res://scripts/targeting.gd" id="7_11owf"]
 [ext_resource type="Script" path="res://scripts/active_character.gd" id="7_aqbom"]
+[ext_resource type="Script" path="res://scripts/resolving.gd" id="7_uy7fa"]
 [ext_resource type="Script" path="res://scripts/attack_list.gd" id="9_6jgr0"]
 
 [node name="Battle" type="Control"]
@@ -27,9 +29,10 @@ script = ExtResource("1_8mi71")
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_nbqvb")
 
-[node name="Enter" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_portraits", "black_rect")]
+[node name="Enter" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_portraits", "enemy_photo", "black_rect")]
 script = ExtResource("3_7hbmj")
 character_portraits = NodePath("../../CharacterPortraits")
+enemy_photo = NodePath("../../EnemyPhoto")
 black_rect = NodePath("../../BlackRect")
 
 [node name="Deciding" type="Node" parent="StateMachine" node_paths=PackedStringArray("fight_run", "run", "fight")]
@@ -49,6 +52,12 @@ attack_list = NodePath("../../AttackList")
 
 [node name="Attacking" type="Node" parent="StateMachine"]
 script = ExtResource("6_0x8yj")
+
+[node name="Targeting" type="Node" parent="StateMachine"]
+script = ExtResource("7_11owf")
+
+[node name="Resolving" type="Node" parent="StateMachine"]
+script = ExtResource("7_uy7fa")
 
 [node name="FightRunButtons" type="HBoxContainer" parent="."]
 visible = false

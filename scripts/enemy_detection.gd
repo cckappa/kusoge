@@ -1,6 +1,7 @@
 class_name EnemyDetection
 extends Node2D
 
+@export var enemy_resource:EnemyResource
 @export var angle_cone_of_vision:= 90.0
 @export var max_view_distance:= 800.0
 @export var angle_between_rays:= 5.0
@@ -43,6 +44,7 @@ func _physics_process(delta:float) -> void:
 func entered_fight_zone(body:Node2D) -> void:
 	if body.is_in_group("main_character"):
 		fighting = true
+		Globals.set_current_enemies(enemy_resource)
 		SignalBus.emit_signal("starts_fighting")
 
 func reset_fighting() -> void:

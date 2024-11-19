@@ -5,3 +5,4 @@ extends Ability
 
 func use_ability() -> void:
 	print('Damaged ', damage_points, '!')
+	

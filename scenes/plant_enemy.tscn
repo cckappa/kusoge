@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdgrmvtad8eac"]
+[gd_scene load_steps=10 format=3 uid="uid://cdgrmvtad8eac"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_xtg0d"]
 [ext_resource type="Texture2D" uid="uid://c31kt0h0ajr2y" path="res://assets/objects/cosas_0000s_0000_maceta.png" id="2_waugy"]
 [ext_resource type="Script" path="res://scripts/enemy_detection.gd" id="3_aigqm"]
+[ext_resource type="Resource" uid="uid://sv50sqn41x38" path="res://assets/resources/enemies/plant_enemy.tres" id="4_i4lei"]
 [ext_resource type="Texture2D" uid="uid://pgvjh544jsbd" path="res://assets/icons/warning.png" id="4_njook"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2qfl4"]
@@ -39,6 +40,10 @@ shape = SubResource("RectangleShape2D_ix3r2")
 
 [node name="EnemyDetection" type="Node2D" parent="." node_paths=PackedStringArray("warning_sprite", "area_fight")]
 script = ExtResource("3_aigqm")
+enemy_resource = ExtResource("4_i4lei")
+angle_cone_of_vision = null
+max_view_distance = null
+angle_between_rays = null
 warning_sprite = NodePath("Sprite2D")
 area_fight = NodePath("Area2D")
 
