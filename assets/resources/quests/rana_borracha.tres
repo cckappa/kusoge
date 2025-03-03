@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CharacterQuest" load_steps=2 format=3 uid="uid://cdodr052w1u4g"]
+
+[ext_resource type="Script" path="res://scripts/quests/character_quest.gd" id="1_m763d"]
+
+[resource]
+script = ExtResource("1_m763d")
+name = "Rana Borracha"
+description_list = Array[String](["Encuentra a su novia.", "Consigue electrolitos orales para la rana."])

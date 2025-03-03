@@ -16,4 +16,4 @@ func start_fighting() -> void:
 	run.disconnect("pressed", start_running)
 	fight.disconnect("pressed", start_fighting)
 	fight_run.visible = false
-	finished.emit(FIGHTING)
+	finished.emit(ATTACKING)

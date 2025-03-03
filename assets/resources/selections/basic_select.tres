@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="BasicSelect" load_steps=2 format=3 uid="uid://bnsdg5ny4ckdx"]
+
+[ext_resource type="Script" path="res://scripts/selections/basic_select.gd" id="1_g3gll"]
+
+[resource]
+script = ExtResource("1_g3gll")

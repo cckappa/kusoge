@@ -265,13 +265,13 @@ func prepare() -> void:
 
 
 #region UPDATE OLD STYLES
-# TODO deprecated when going into beta
+# deprecated when going into beta
 
-# TODO  Deprecated, only for Styles before alpha 16!
+#   Deprecated, only for Styles before alpha 16!
 @export var base_scene: PackedScene = null
-# TODO Deprecated, only for Styles before alpha 16!
+#  Deprecated, only for Styles before alpha 16!
 @export var base_overrides := {}
-# TODO Deprecated, only for Styles before alpha 16!
+#  Deprecated, only for Styles before alpha 16!
 @export var layers: Array[DialogicStyleLayer] = []
 
 func update_from_pre_alpha16() -> void:

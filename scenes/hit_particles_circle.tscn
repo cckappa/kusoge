@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://hg6t1jbcmxp3"]
+
+[ext_resource type="Texture2D" uid="uid://berlxv4abd018" path="res://assets/icons/circle_particle.png" id="1_5a4vc"]
+
+[sub_resource type="Curve" id="Curve_06s05"]
+_data = [Vector2(0, 1), 0.0, 2.18937, 0, 0, Vector2(1, 0), -8.42039, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_h6dd4"]
+offsets = PackedFloat32Array(0, 0.283636, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.0784314, 0.317647, 0.819608, 1, 1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_6f1k8"]
+offsets = PackedFloat32Array(0, 0.538182, 1)
+colors = PackedColorArray(0, 0.909804, 0, 1, 0.866667, 0, 0.537255, 1, 1, 1, 0, 1)
+
+[node name="HitParticlesCircle" type="CPUParticles2D"]
+emitting = false
+lifetime = 0.45
+one_shot = true
+explosiveness = 0.4
+texture = ExtResource("1_5a4vc")
+direction = Vector2(0, -1)
+initial_velocity_min = 450.76
+initial_velocity_max = 450.76
+scale_amount_min = 0.05
+scale_amount_max = 0.15
+scale_amount_curve = SubResource("Curve_06s05")
+color = Color(0.912271, 3.17663e-06, 6.73831e-07, 1)
+color_ramp = SubResource("Gradient_h6dd4")
+color_initial_ramp = SubResource("Gradient_6f1k8")
+hue_variation_min = -1.0
+hue_variation_max = 0.58

@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-@onready var character_portraits := %CharacterPortraits
+@onready var character_portraits := %AllyPortraits
 
 func _ready() -> void:
 	for character_portrait in character_portraits.get_children():

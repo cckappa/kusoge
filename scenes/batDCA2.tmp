@@ -1,0 +1,209 @@
+[gd_scene load_steps=21 format=3 uid="uid://cn7cxbug5sjey"]
+
+[ext_resource type="Script" path="res://scripts/battle.gd" id="1_8mi71"]
+[ext_resource type="Script" path="res://scripts/state_machine.gd" id="2_nbqvb"]
+[ext_resource type="Script" path="res://scripts/enter.gd" id="3_7hbmj"]
+[ext_resource type="Script" path="res://scripts/character_portraits.gd" id="3_s5yx3"]
+[ext_resource type="Script" path="res://scripts/deciding.gd" id="4_tp14i"]
+[ext_resource type="Script" path="res://scripts/fighting.gd" id="5_kvkly"]
+[ext_resource type="Script" path="res://scripts/attacking.gd" id="6_0x8yj"]
+[ext_resource type="Texture2D" uid="uid://c1p3mdt7qyydq" path="res://assets/character_portraits/front_main_character.png" id="6_57hxh"]
+[ext_resource type="Script" path="res://scripts/selecting.gd" id="6_ut3rv"]
+[ext_resource type="Script" path="res://scripts/targeting.gd" id="7_11owf"]
+[ext_resource type="Script" path="res://scripts/active_character.gd" id="7_aqbom"]
+[ext_resource type="Script" path="res://scripts/resolving.gd" id="7_uy7fa"]
+[ext_resource type="Script" path="res://scripts/attack_list.gd" id="9_6jgr0"]
+[ext_resource type="PackedScene" uid="uid://deg6oekjklhs8" path="res://scenes/enemy_container.tscn" id="9_i44it"]
+[ext_resource type="Script" path="res://scripts/enemy_enter.gd" id="10_v4bbh"]
+[ext_resource type="Script" path="res://scripts/enemy_deciding.gd" id="11_i4tvp"]
+[ext_resource type="PackedScene" uid="uid://li0a5rq7wt7u" path="res://scenes/ally_container.tscn" id="11_o8q8i"]
+[ext_resource type="Script" path="res://scripts/enemy_selecting.gd" id="12_2tqea"]
+[ext_resource type="Script" path="res://scripts/enemy_attacking.gd" id="12_a600e"]
+[ext_resource type="Script" path="res://scripts/enemy_resolving.gd" id="14_x0esv"]
+
+[node name="Battle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8mi71")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_nbqvb")
+
+[node name="Enter" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_portraits", "black_rect")]
+script = ExtResource("3_7hbmj")
+character_portraits = NodePath("../../AllyPortraits")
+black_rect = NodePath("../../BlackRect")
+
+[node name="Deciding" type="Node" parent="StateMachine" node_paths=PackedStringArray("fight_run", "run", "fight")]
+script = ExtResource("4_tp14i")
+fight_run = NodePath("../../FightRunButtons")
+run = NodePath("../../FightRunButtons/Run")
+fight = NodePath("../../FightRunButtons/Fight")
+
+[node name="Attacking" type="Node" parent="StateMachine"]
+script = ExtResource("6_0x8yj")
+
+[node name="Selecting" type="Node" parent="StateMachine"]
+script = ExtResource("6_ut3rv")
+
+[node name="Resolving" type="Node" parent="StateMachine"]
+script = ExtResource("7_uy7fa")
+
+[node name="Fighting_del" type="Node" parent="StateMachine" node_paths=PackedStringArray("active_character", "active_character_buttons", "attack", "menu", "character_portraits", "attack_list")]
+script = ExtResource("5_kvkly")
+active_character = NodePath("../../ActiveCharacter")
+active_character_buttons = NodePath("../../ActiveCharacter/ActiveCharacterButtons")
+attack = NodePath("../../ActiveCharacter/ActiveCharacterButtons/Attack")
+menu = NodePath("../../ActiveCharacter/ActiveCharacterButtons/Menu")
+character_portraits = NodePath("../../AllyPortraits")
+attack_list = NodePath("../../AttackList")
+
+[node name="Targeting_del" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_portraits", "enemy_portraits")]
+script = ExtResource("7_11owf")
+character_portraits = NodePath("../../AllyPortraits")
+enemy_portraits = NodePath("../../EnemyPortraits")
+
+[node name="StateMachineEnemy" type="Node" parent="."]
+script = ExtResource("2_nbqvb")
+
+[node name="EnemyEnter" type="Node" parent="StateMachineEnemy" node_paths=PackedStringArray("enemy_portraits")]
+script = ExtResource("10_v4bbh")
+enemy_portraits = NodePath("../../EnemyPortraits")
+
+[node name="EnemyDeciding" type="Node" parent="StateMachineEnemy" node_paths=PackedStringArray("run", "fight")]
+script = ExtResource("11_i4tvp")
+run = NodePath("../../FightRunButtons/Run")
+fight = NodePath("../../FightRunButtons/Fight")
+
+[node name="EnemyAttacking" type="Node" parent="StateMachineEnemy"]
+script = ExtResource("12_a600e")
+
+[node name="EnemySelecting" type="Node" parent="StateMachineEnemy"]
+script = ExtResource("12_2tqea")
+
+[node name="EnemyResolving" type="Node" parent="StateMachineEnemy"]
+script = ExtResource("14_x0esv")
+
+[node name="FightRunButtons" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -51.0
+offset_top = -467.0
+offset_right = 52.0
+offset_bottom = -427.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Run" type="Button" parent="FightRunButtons"]
+layout_mode = 2
+text = "Huir"
+
+[node name="Fight" type="Button" parent="FightRunButtons"]
+layout_mode = 2
+text = "Pelear
+"
+
+[node name="EnemyPortraits" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -218.0
+offset_right = 46.5
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EnemyContainer" parent="EnemyPortraits" instance=ExtResource("9_i44it")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="AllyPortraits" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 683.0
+offset_top = -526.0
+offset_right = -683.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 20
+script = ExtResource("3_s5yx3")
+
+[node name="AllyContainer" parent="AllyPortraits" instance=ExtResource("11_o8q8i")]
+visible = false
+layout_mode = 2
+focus_next = NodePath("")
+
+[node name="ActiveCharacter" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 230.0
+offset_top = 442.0
+offset_right = 671.0
+offset_bottom = 846.0
+script = ExtResource("7_aqbom")
+
+[node name="ActiveCharacterFront" type="TextureRect" parent="ActiveCharacter" groups=["active_character_front"]]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("6_57hxh")
+expand_mode = 3
+
+[node name="ActiveCharacterButtons" type="VBoxContainer" parent="ActiveCharacter"]
+layout_mode = 2
+alignment = 1
+
+[node name="Attack" type="Button" parent="ActiveCharacter/ActiveCharacterButtons"]
+layout_mode = 2
+text = "ATACAR"
+
+[node name="Menu" type="Button" parent="ActiveCharacter/ActiveCharacterButtons"]
+layout_mode = 2
+text = "MENU"
+
+[node name="AttackList" type="VBoxContainer" parent="." groups=["attack_list"]]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -485.0
+offset_top = 69.0
+offset_right = -69.0
+offset_bottom = 723.0
+grow_horizontal = 0
+script = ExtResource("9_6jgr0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AttackList"]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+
+[node name="BlackRect" type="ColorRect" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

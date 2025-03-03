@@ -1,23 +1,13 @@
 class_name CharacterContainer
-extends VBoxContainer
+extends Control
 
-signal focused_character(character:Character, container:CharacterContainer)
-signal unfocused_character(character:Character, container:CharacterContainer)
+var arrange_position : int
 
-var front_texture : Texture
-var character : Character
+func set_max_life(hp: int) -> void:
+	pass
 
-func _ready() -> void:
-	connect("mouse_entered", focused)
-	connect("focus_entered", focused)
-	connect("mouse_exited", unfocused)
-	connect("focus_exited", unfocused)
+func set_health(hp:int, effect:StringName, crit:bool=false) -> void:
+	pass
 
-func focused() -> void:
-	#get_child(0).custom_minimum_size = Vector2(200, 300)
-	emit_signal("focused_character", character, self)
-
-func unfocused() -> void:
-	emit_signal("unfocused_character", character, self)
-	
-	#get_child(0).custom_minimum_size = Vector2(0, 0)
+func death() -> void:
+	pass

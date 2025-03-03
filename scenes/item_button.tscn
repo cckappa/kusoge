@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmbnb1rj72sqi"]
+
+[ext_resource type="Script" path="res://scripts/item_button.gd" id="1_jvce7"]
+
+[node name="ItemButton" type="Button"]
+text = "Nombre de objeto"
+script = ExtResource("1_jvce7")
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

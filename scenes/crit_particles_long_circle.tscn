@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://4hkn25062ror"]
+
+[ext_resource type="Texture2D" uid="uid://byns6ywywh7d" path="res://assets/icons/long_particle.png" id="1_nugwq"]
+
+[sub_resource type="Curve" id="Curve_l4sw8"]
+_data = [Vector2(0, 0.199338), 0.0, 0.0, 0, 0, Vector2(0.960396, 0.0701987), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_kfpw0"]
+offsets = PackedFloat32Array(0, 0.134545, 0.978182)
+colors = PackedColorArray(0.817158, 0.900746, 1, 1, 0.956863, 0.952941, 0, 1, 0.933918, 0.13263, 0, 1)
+
+[sub_resource type="Curve" id="Curve_y83t4"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="CritParticlesLongCircle" type="CPUParticles2D"]
+emitting = false
+amount = 16
+lifetime = 0.25
+texture = ExtResource("1_nugwq")
+particle_flag_align_y = true
+direction = Vector2(0, -1)
+spread = 180.0
+initial_velocity_min = 170.65
+initial_velocity_max = 203.67
+scale_amount_curve = SubResource("Curve_l4sw8")
+color_ramp = SubResource("Gradient_kfpw0")
+hue_variation_curve = SubResource("Curve_y83t4")

@@ -4,8 +4,9 @@
 
 [resource]
 script = ExtResource("1_em4tk")
-heal_points = 3
-ability_name = "Focused Healing"
-sequence = Array[StringName]([&"up", &"down", &"up"])
-description = "Cura 3 de vida"
-type = "Heal"
+heal_points = 15
+ability_name = "Curación Personal"
+type = "GRASS"
+description = "Cura 15 de vida"
+wait_time = 3.0
+effect = "POSITIVE"

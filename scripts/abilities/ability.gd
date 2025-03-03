@@ -2,9 +2,21 @@ class_name Ability
 extends Resource
 
 @export var ability_name:String
-@export var sequence:Array[StringName]
+@export_enum(
+	"NORMAL", 
+	"FIRE", 
+	"WATER", 
+	"ELECTRIC", 
+	"EARTH", 
+	"ICE", 
+	"WIND", 
+	"GRASS") var type: String = "NORMAL"
 @export var description:String
-@export_enum("Attack", "Heal", "Effect") var type:String
+@export var wait_time: float = 1.0
+@export_enum(
+	"NEGATIVE",
+	"POSITIVE"
+) var effect: String = "NEGATIVE"
 
-func use_ability() -> void:
+func use_ability(character: Character, crit:bool=false) -> void:
 	pass

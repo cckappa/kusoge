@@ -19,7 +19,7 @@ func _recognize(resource: Resource) -> bool:
 
 
 ## Save the resource
-## TODO: This should use timeline.as_text(), why is this still here?
+## This should use timeline.as_text(), why is this still here?
 func _save(resource: Resource, path: String = '', _flags: int = 0) -> Error:
 	if resource.get_meta("timeline_not_saved", false):
 

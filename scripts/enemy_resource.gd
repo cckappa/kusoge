@@ -1,8 +1,4 @@
 class_name EnemyResource
-extends Resource
+extends Character
 
-@export var name:StringName
-@export var portrait:Texture
-@export var abilities:Array[Ability]
-@export var max_hp:int
 @export var dialog:StringName

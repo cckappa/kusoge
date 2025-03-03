@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://diyhj67vyeuiw"]
+
+[ext_resource type="Texture2D" uid="uid://byns6ywywh7d" path="res://assets/icons/long_particle.png" id="1_7fua7"]
+
+[sub_resource type="Curve" id="Curve_c5pb4"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, -24.3179), 0.0, 0.0, 0, 0, Vector2(0.9967, 0.476837), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_g5kgv"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.247525, 0.552318), 0.0, 0.0, 0, 0, Vector2(0.554455, 0.552318), 0.0, 0.0, 0, 0, Vector2(0.884488, 0.319868), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Gradient" id="Gradient_iu35d"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.52549)
+
+[node name="HealParticlesLong" type="CPUParticles2D"]
+emitting = false
+amount = 16
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.15
+texture = ExtResource("1_7fua7")
+emission_shape = 3
+emission_rect_extents = Vector2(45, 1)
+direction = Vector2(0, -1)
+spread = 3.35
+gravity = Vector2(0, 0)
+initial_velocity_min = 220.68
+initial_velocity_max = 374.49
+radial_accel_min = 52.2
+radial_accel_max = 52.2
+angle_min = -0.9
+angle_max = 0.5
+angle_curve = SubResource("Curve_c5pb4")
+scale_amount_curve = SubResource("Curve_g5kgv")
+color = Color(0.192157, 1, 0.54902, 0.74902)
+color_ramp = SubResource("Gradient_iu35d")

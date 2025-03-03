@@ -211,7 +211,7 @@ func _get_glossary_translation_key_prefix(glossary: DialogicGlossary) -> String:
 ## This method helps to sort glossary entry properties by their importance
 ## matching the order in the editor.
 ##
-## TODO: Allow Dialogic users to define their own order.
+## Allow Dialogic users to define their own order.
 func _sort_glossary_entry_property_keys(property_key_a: String, property_key_b: String) -> bool:
 	const GLOSSARY_CSV_LINE_ORDER := {
 		DialogicGlossary.NAME_PROPERTY: 0,

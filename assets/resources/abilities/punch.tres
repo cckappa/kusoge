@@ -5,7 +5,8 @@
 [resource]
 script = ExtResource("1_in507")
 damage_points = 3
-ability_name = "Punch"
-sequence = Array[StringName]([&"up", &"down", &"left", &"right"])
+ability_name = "Golpe"
+type = "NORMAL"
 description = "Es solo un golpe"
-type = "Attack"
+wait_time = 3.0
+effect = "NEGATIVE"

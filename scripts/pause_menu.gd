@@ -1,77 +1,87 @@
 extends Control
 
-@export_category('Top Menu')
-@export var game_button:Button
-@export var accesibility_button:Button
-@export var audio_button:Button
-@export var controls_button:Button
-@export var video_button:Button
+@onready var button_container := %ButtonContainer
+@onready var party_container := %PartyContainer
+@onready var items_container := %ItemsContainer
+@onready var favorite_container := %FavoriteContainer
+@onready var character_items_container := %CharacterItemsContainer
+@onready var character_items_scroll := %CharacterItemsScroll
+@onready var use_item := %UseItem
+@onready var toss_item := %TossItem
+@onready var back_item := %BackItem
+@onready var items := %Items
 
-@export_category('Panels')
-@export var game_panel:PanelContainer
-@export var accesibility_panel:PanelContainer
-@export var audio_panel:PanelContainer
-@export var controls_panel:PanelContainer
-@export var video_panel:PanelContainer
-
-@export_category('Bottom Buttons')
-@export var close_button:Button
-
-var paneles:Array[PanelContainer]
+var menu_level:=0
 
 func _ready() -> void:
-	game_button.connect("pressed", pressed_game)
-	accesibility_button.connect("pressed", pressed_accesibility)
-	audio_button.connect("pressed", pressed_audio)
-	controls_button.connect("pressed", pressed_controls)
-	video_button.connect("pressed", pressed_video)
-	close_button.connect("pressed", save_changes)
-	paneles = [game_panel, accesibility_panel, audio_panel, controls_panel, video_panel]
+	items_container.connect("advance_menu", set_menu_level)
+
+func toggle_menu() -> void:
+	visible = not visible
+	
+	if visible:
+		select_first_menu()
+	else:
+		party_container.visible = false
+		items_container.visible = false
+		character_items_scroll.visible = false
+		for item_button in items.get_children():
+			item_button.focus_mode = Control.FOCUS_ALL
+		use_item.focus_mode = Control.FOCUS_NONE
+		toss_item.focus_mode = Control.FOCUS_NONE
+		back_item.focus_mode = Control.FOCUS_NONE
+		menu_level = 0
+	
+	get_tree().paused = not get_tree().paused
 
 func _input(event:InputEvent) -> void:
-	pass
-	#if event.is_action_pressed("pause"):
-		#if(visible == true):
-			#save_changes()
-		#else:
-			#toggle_pause()
+	if event.is_action_pressed("pause"):
+		toggle_menu()
+	
+	if event.is_action_pressed("ui_cancel"):
+		match menu_level:
+			1:
+				select_first_menu()
+				close_second_menu()
+			2:
+				pass
+			3:
+				close_fourth_menu()
 
+func set_menu_level(num:int) -> void:
+	menu_level = num
 
-func pressed_game() -> void:
-	game_button.button_pressed = true
-	toggle_panels(game_panel)
+func _on_party_pressed() -> void:
+	menu_level = 1
+	party_container.visible = true
+	unselect_first_menu()
+	favorite_container.get_child(0).selected_button.grab_focus()
 
-func pressed_accesibility() -> void:
-	accesibility_button.button_pressed = true
-	toggle_panels(accesibility_panel)
+func _on_items_pressed() -> void:
+	menu_level = 1
+	items_container.visible = true
+	unselect_first_menu()
+	if items_container.find_child("Items").get_child_count() > 0:
+		items_container.find_child("Items").get_child(0).grab_focus()
 
-func pressed_audio() -> void:
-	audio_button.button_pressed = true
-	toggle_panels(audio_panel)
+func select_first_menu() -> void:
+	for button in button_container.get_children():
+		button.focus_mode = Control.FOCUS_ALL
+	button_container.get_child(0).grab_focus()
 
-func pressed_controls() -> void:
-	controls_button.button_pressed = true
-	toggle_panels(controls_panel)
+func unselect_first_menu() -> void:
+	for button in button_container.get_children():
+		button.focus_mode = Control.FOCUS_NONE
 
-func pressed_video() -> void:
-	video_button.button_pressed = true
-	toggle_panels(video_panel)
+func close_second_menu() -> void:
+	party_container.visible = false
+	items_container.visible = false
 
-func toggle_panels(selected_panel:PanelContainer) -> void:
-	for panel in paneles:
-		panel.visible = false
-	selected_panel.visible = true
-
-func toggle_pause() -> void:
-	get_tree().paused = true
-	visible = true
-
-func discard_changes() -> void:
-	SignalBus.emit_signal("settings_discarded")
-	get_tree().paused = false
-	visible = false
-
-func save_changes() -> void:
-	ConfigFileHandler.save_settings_to_file()
-	get_tree().paused = false
-	visible = false
+func close_fourth_menu() -> void:
+	menu_level = 2
+	character_items_scroll.visible = false
+	if items_container.visible == true:
+		use_item.focus_mode = Control.FOCUS_ALL
+		toss_item.focus_mode = Control.FOCUS_ALL
+		back_item.focus_mode = Control.FOCUS_ALL
+		use_item.grab_focus()

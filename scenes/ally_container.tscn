@@ -1,0 +1,312 @@
+[gd_scene load_steps=26 format=3 uid="uid://li0a5rq7wt7u"]
+
+[ext_resource type="Script" path="res://scripts/ally_container.gd" id="1_fh84y"]
+[ext_resource type="Texture2D" uid="uid://cdulpvixtxapj" path="res://assets/icons/selected_arrow.svg" id="2_mtgi1"]
+[ext_resource type="Theme" uid="uid://ctd47cus6kna0" path="res://assets/themes/menu_theme.tres" id="3_8ksiu"]
+[ext_resource type="Script" path="res://scripts/selected_arrow.gd" id="3_mbva7"]
+[ext_resource type="Texture2D" uid="uid://ctb2muwbi50se" path="res://assets/character_portraits/alicia.png" id="4_7t7h1"]
+[ext_resource type="Texture2D" uid="uid://b2h5yxmm73g2m" path="res://assets/icons/left_arrow.png" id="5_chbk5"]
+[ext_resource type="Texture2D" uid="uid://jr71m17ib8jj" path="res://assets/icons/target_select.svg" id="5_h36vx"]
+[ext_resource type="Script" path="res://scripts/ability_arrow.gd" id="6_vv1c1"]
+[ext_resource type="Texture2D" uid="uid://3u75myl0alnt" path="res://assets/icons/circle_crit.svg" id="7_fa4ii"]
+[ext_resource type="Texture2D" uid="uid://dgqpwvwksevim" path="res://assets/icons/death_tomb.png" id="8_2n5jn"]
+[ext_resource type="Texture2D" uid="uid://6j1rxxcilfca" path="res://assets/icons/particle_pop_circle_thick.svg" id="8_tt1g2"]
+[ext_resource type="Texture2D" uid="uid://d6uwsam2mcwy" path="res://assets/icons/particle_pop_circle_thin.svg" id="9_7dsxs"]
+[ext_resource type="PackedScene" uid="uid://hg6t1jbcmxp3" path="res://scenes/hit_particles_circle.tscn" id="10_qnxtm"]
+[ext_resource type="PackedScene" uid="uid://4hkn25062ror" path="res://scenes/crit_particles_long_circle.tscn" id="11_guey6"]
+[ext_resource type="PackedScene" uid="uid://b3k38ghwf35bw" path="res://scenes/hit_particles_big_star.tscn" id="11_xbmt1"]
+[ext_resource type="PackedScene" uid="uid://j5owvy2xjpt6" path="res://scenes/hit_particles_long_circle.tscn" id="12_b0bet"]
+[ext_resource type="PackedScene" uid="uid://b7bvrpga1v04o" path="res://scenes/hit_particles_star.tscn" id="13_uw7xb"]
+[ext_resource type="PackedScene" uid="uid://diyhj67vyeuiw" path="res://scenes/heal_particles_long.tscn" id="14_lrqhl"]
+[ext_resource type="AudioStream" uid="uid://btagcqpq4o02r" path="res://assets/sfx/162792__timgormly__8-bit-explosion1.mp3" id="14_yn0qb"]
+[ext_resource type="PackedScene" uid="uid://mls25pts3d18" path="res://scenes/heal_particles_star.tscn" id="15_q4kgi"]
+[ext_resource type="AudioStream" uid="uid://xomtmhux1icj" path="res://assets/sfx/563662__eminyildirim__healing-spell.mp3" id="17_6ud7a"]
+[ext_resource type="AudioStream" uid="uid://cp7ukw7yg8emv" path="res://assets/sfx/387137-584244_djfroyd_smokinghotdog.mp3" id="20_6a6ab"]
+[ext_resource type="AudioStream" uid="uid://yjg8t7qnv4nl" path="res://assets/sfx/691095__ikramshinwari__dfam-kick02-e-wet.mp3" id="21_fh58w"]
+[ext_resource type="AudioStream" uid="uid://brjeugobkanix" path="res://assets/sfx/637809__kyles__rope-thick-handling-rough-hairy-fishing-nets.mp3" id="23_2grme"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yon3c"]
+bg_color = Color(0, 0.898039, 0.560784, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="AllyContainer" type="Control"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 150.0
+offset_bottom = 224.0
+size_flags_horizontal = 4
+script = ExtResource("1_fh84y")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 150.0
+offset_bottom = 218.0
+theme_override_constants/separation = 7
+
+[node name="SelectedArrow" type="TextureButton" parent="VBoxContainer" groups=["selected_arrows"]]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+toggle_mode = true
+texture_pressed = ExtResource("2_mtgi1")
+texture_focused = ExtResource("2_mtgi1")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("3_mbva7")
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/CenterContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/CenterContainer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("4_7t7h1")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TargetButton" type="TextureButton" parent="VBoxContainer/CenterContainer" groups=["selected_targets"]]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+focus_mode = 0
+texture_focused = ExtResource("5_h36vx")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="LifeBar" type="ProgressBar" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+theme = ExtResource("3_8ksiu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yon3c")
+value = 80.0
+show_percentage = false
+
+[node name="CooldownBar" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/CooldownBar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(134, 15)
+layout_mode = 2
+offset_right = 150.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme = ExtResource("3_8ksiu")
+value = 100.0
+rounded = true
+show_percentage = false
+
+[node name="CircleThin" type="TextureRect" parent="VBoxContainer/CooldownBar"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 13.0
+offset_top = -117.0
+offset_right = 263.0
+offset_bottom = 133.0
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(125, 125)
+texture = ExtResource("9_7dsxs")
+expand_mode = 1
+flip_v = true
+
+[node name="CircleThick" type="TextureRect" parent="VBoxContainer/CooldownBar"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 38.0
+offset_top = -92.0
+offset_right = 238.0
+offset_bottom = 108.0
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(100, 100)
+texture = ExtResource("8_tt1g2")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/CooldownBar"]
+layout_mode = 2
+offset_left = 129.0
+offset_right = 145.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/CooldownBar/CenterContainer"]
+self_modulate = Color(1, 1, 1, 0.698039)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("7_fa4ii")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="AbilityArrow" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.0
+offset_top = 29.0
+offset_right = -48.0
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_chbk5")
+expand_mode = 1
+script = ExtResource("6_vv1c1")
+
+[node name="DeathTexture" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.5
+offset_top = -60.5
+offset_right = 60.5
+offset_bottom = 60.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_2n5jn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Menu" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = -262.0
+offset_right = 29.0
+offset_bottom = -126.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Attack" type="Button" parent="Menu" groups=["menu"]]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Habilidades"
+
+[node name="Block" type="Button" parent="Menu" groups=["menu"]]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Bloqueo"
+
+[node name="Item" type="Button" parent="Menu" groups=["menu"]]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Objeto"
+
+[node name="Run" type="Button" parent="Menu" groups=["menu"]]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Correr"
+
+[node name="AttackMenu" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 72.0
+offset_top = -270.0
+offset_right = 112.0
+offset_bottom = -230.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ParticleCenter" type="Marker2D" parent="."]
+position = Vector2(75, 118)
+gizmo_extents = 56.2
+
+[node name="CritParticlesLongCircle" parent="ParticleCenter" instance=ExtResource("11_guey6")]
+unique_name_in_owner = true
+position = Vector2(0, -35)
+
+[node name="HitParticlesCircle" parent="ParticleCenter" instance=ExtResource("10_qnxtm")]
+unique_name_in_owner = true
+
+[node name="HitParticlesBigStar" parent="ParticleCenter" instance=ExtResource("11_xbmt1")]
+unique_name_in_owner = true
+
+[node name="HitParticlesLongCircle" parent="ParticleCenter" instance=ExtResource("12_b0bet")]
+unique_name_in_owner = true
+position = Vector2(38, 23)
+
+[node name="HitParticlesStar" parent="ParticleCenter" instance=ExtResource("13_uw7xb")]
+unique_name_in_owner = true
+
+[node name="HealParticlesLong" parent="ParticleCenter" instance=ExtResource("14_lrqhl")]
+unique_name_in_owner = true
+position = Vector2(8.5, 52.5)
+
+[node name="HealParticlesStar" parent="ParticleCenter" instance=ExtResource("15_q4kgi")]
+unique_name_in_owner = true
+position = Vector2(8.5, 52.5)
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("14_yn0qb")
+bus = &"SFX"
+
+[node name="StrongHitSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("21_fh58w")
+volume_db = 7.0
+pitch_scale = 0.75
+bus = &"SFX"
+
+[node name="HealSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("17_6ud7a")
+pitch_scale = 2.0
+bus = &"SFX"
+
+[node name="CritSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("20_6a6ab")
+volume_db = 0.505
+bus = &"SFX"
+
+[node name="BurningSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("23_2grme")
+volume_db = 2.0
+bus = &"SFX"
+parameters/looping = false
+
+[connection signal="pressed" from="VBoxContainer/SelectedArrow" to="." method="_on_selected_arrow_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/CenterContainer/TargetButton" to="." method="_on_target_button_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer/CenterContainer/TargetButton" to="." method="_on_target_button_focus_exited"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer/TargetButton" to="." method="_on_target_button_pressed"]
+[connection signal="pressed" from="Menu/Attack" to="." method="_on_attack_pressed"]

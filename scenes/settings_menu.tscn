@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://byctl1vrnbctx"]
 
 [ext_resource type="Theme" uid="uid://ctd47cus6kna0" path="res://assets/themes/menu_theme.tres" id="1_eynjv"]
-[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_ot7jk"]
+[ext_resource type="Script" path="res://scripts/settings_menu.gd" id="1_ot7jk"]
 [ext_resource type="ButtonGroup" uid="uid://c6qqicdcs05wc" path="res://assets/resources/top_menu_button_group.tres" id="3_wgto6"]
 [ext_resource type="Script" path="res://scripts/audio_panel.gd" id="4_a8ce2"]
 [ext_resource type="Script" path="res://scripts/game_panel.gd" id="4_f87us"]

@@ -1,23 +1,66 @@
-[gd_scene load_steps=17 format=3 uid="uid://cn7cxbug5sjey"]
+[gd_scene load_steps=23 format=3 uid="uid://cn7cxbug5sjey"]
 
-[ext_resource type="Texture2D" uid="uid://c31kt0h0ajr2y" path="res://assets/objects/cosas_0000s_0000_maceta.png" id="1_1vy82"]
 [ext_resource type="Script" path="res://scripts/battle.gd" id="1_8mi71"]
-[ext_resource type="Texture2D" uid="uid://di2rh1u02rxdt" path="res://assets/character_portraits/portrait_main_character.png" id="2_kwws5"]
-[ext_resource type="Script" path="res://scripts/state_machine.gd" id="2_nbqvb"]
-[ext_resource type="Script" path="res://scripts/enter.gd" id="3_7hbmj"]
-[ext_resource type="Script" path="res://scripts/character_container.gd" id="3_30a52"]
+[ext_resource type="Script" path="res://scripts/battle_manager.gd" id="2_o8ur5"]
+[ext_resource type="Script" path="res://scripts/player_actions_manager.gd" id="3_76qsu"]
+[ext_resource type="Script" path="res://scripts/battle_actions_manager.gd" id="3_crp7d"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="3_rw2uy"]
 [ext_resource type="Script" path="res://scripts/character_portraits.gd" id="3_s5yx3"]
-[ext_resource type="Script" path="res://scripts/deciding.gd" id="4_tp14i"]
-[ext_resource type="Texture2D" uid="uid://cv42vdyov0olf" path="res://assets/character_portraits/portrait_dog.png" id="5_6gxpq"]
-[ext_resource type="Script" path="res://scripts/fighting.gd" id="5_kvkly"]
-[ext_resource type="Script" path="res://scripts/attacking.gd" id="6_0x8yj"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/parallel_state.gd" id="4_pxudf"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="5_3uyq7"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="6_7by8j"]
 [ext_resource type="Texture2D" uid="uid://c1p3mdt7qyydq" path="res://assets/character_portraits/front_main_character.png" id="6_57hxh"]
-[ext_resource type="Script" path="res://scripts/targeting.gd" id="7_11owf"]
 [ext_resource type="Script" path="res://scripts/active_character.gd" id="7_aqbom"]
-[ext_resource type="Script" path="res://scripts/resolving.gd" id="7_uy7fa"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="8_xgf7e"]
 [ext_resource type="Script" path="res://scripts/attack_list.gd" id="9_6jgr0"]
+[ext_resource type="Script" path="res://scripts/enemy_actions_manager.gd" id="9_iipir"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/expression_guard.gd" id="11_37w08"]
+[ext_resource type="AudioStream" uid="uid://3vetx47tyh7f" path="res://assets/music/earthbound_battle_theme.mp3" id="30_xgp4q"]
+[ext_resource type="AudioStream" uid="uid://b324qislhpfci" path="res://assets/music/victory_fanfare.mp3" id="31_681md"]
+[ext_resource type="AudioStream" uid="uid://cbw1lvt4yiqbe" path="res://assets/music/lost_battle.mp3" id="32_rw4tp"]
 
-[node name="Battle" type="Control"]
+[sub_resource type="Resource" id="Resource_lampa"]
+script = ExtResource("11_37w08")
+expression = "alive_allies <= 0"
+
+[sub_resource type="Resource" id="Resource_bmx0w"]
+script = ExtResource("11_37w08")
+expression = "alive_enemies <= 0"
+
+[sub_resource type="Resource" id="Resource_j3gal"]
+script = ExtResource("11_37w08")
+expression = "alive_enemies <= 0"
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_0bxd8"]
+clip_count = 3
+clip_0/name = &"BattleMusic"
+clip_0/stream = ExtResource("30_xgp4q")
+clip_0/auto_advance = 1
+clip_0/next_clip = 0
+clip_1/name = &"VictoryFanfare"
+clip_1/stream = ExtResource("31_681md")
+clip_1/auto_advance = 1
+clip_1/next_clip = 1
+clip_2/name = &"LostBattle"
+clip_2/stream = ExtResource("32_rw4tp")
+clip_2/auto_advance = 1
+clip_2/next_clip = 2
+_transitions = {
+Vector2i(0, 1): {
+"fade_beats": 2,
+"fade_mode": 3,
+"from_time": 1,
+"to_time": 1
+},
+Vector2i(0, 2): {
+"fade_beats": 2,
+"fade_mode": 3,
+"from_time": 1,
+"to_time": 1
+}
+}
+
+[node name="Battle" type="Control" node_paths=PackedStringArray("character_portraits", "enemy_portraits")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,39 +68,209 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8mi71")
+character_portraits = NodePath("AllyPortraits")
+enemy_portraits = NodePath("EnemyPortraits")
 
-[node name="StateMachine" type="Node" parent="."]
-script = ExtResource("2_nbqvb")
+[node name="BattleManager" type="Node" parent="."]
+script = ExtResource("2_o8ur5")
 
-[node name="Enter" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_portraits", "enemy_photo", "black_rect")]
-script = ExtResource("3_7hbmj")
-character_portraits = NodePath("../../CharacterPortraits")
-enemy_photo = NodePath("../../EnemyPhoto")
+[node name="BattleActionsManager" type="Node" parent="BattleManager"]
+script = ExtResource("3_crp7d")
+
+[node name="PlayerActionsManager" type="Node" parent="BattleManager" node_paths=PackedStringArray("black_rect")]
+script = ExtResource("3_76qsu")
 black_rect = NodePath("../../BlackRect")
 
-[node name="Deciding" type="Node" parent="StateMachine" node_paths=PackedStringArray("fight_run", "run", "fight")]
-script = ExtResource("4_tp14i")
-fight_run = NodePath("../../FightRunButtons")
-run = NodePath("../../FightRunButtons/Run")
-fight = NodePath("../../FightRunButtons/Fight")
+[node name="EnemyActionsManager" type="Node" parent="BattleManager"]
+script = ExtResource("9_iipir")
 
-[node name="Fighting" type="Node" parent="StateMachine" node_paths=PackedStringArray("active_character", "active_character_buttons", "attack", "menu", "character_portraits", "attack_list")]
-script = ExtResource("5_kvkly")
-active_character = NodePath("../../ActiveCharacter")
-active_character_buttons = NodePath("../../ActiveCharacter/ActiveCharacterButtons")
-attack = NodePath("../../ActiveCharacter/ActiveCharacterButtons/Attack")
-menu = NodePath("../../ActiveCharacter/ActiveCharacterButtons/Menu")
-character_portraits = NodePath("../../CharacterPortraits")
-attack_list = NodePath("../../AttackList")
+[node name="StateChart" type="Node" parent="BattleManager"]
+unique_name_in_owner = true
+script = ExtResource("3_rw2uy")
 
-[node name="Attacking" type="Node" parent="StateMachine"]
-script = ExtResource("6_0x8yj")
+[node name="Root" type="Node" parent="BattleManager/StateChart"]
+script = ExtResource("4_pxudf")
 
-[node name="Targeting" type="Node" parent="StateMachine"]
-script = ExtResource("7_11owf")
+[node name="PlayerActions" type="Node" parent="BattleManager/StateChart/Root"]
+script = ExtResource("5_3uyq7")
+initial_state = NodePath("Enter")
 
-[node name="Resolving" type="Node" parent="StateMachine"]
-script = ExtResource("7_uy7fa")
+[node name="Enter" type="Node" parent="BattleManager/StateChart/Root/PlayerActions"]
+script = ExtResource("6_7by8j")
+
+[node name="ToSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Enter"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../Selecting")
+event = &"setuped"
+delay_in_seconds = "0.0"
+
+[node name="Selecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions"]
+script = ExtResource("6_7by8j")
+
+[node name="ToTargetSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Selecting"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../TargetSelecting")
+event = &"target_select"
+delay_in_seconds = "0.0"
+
+[node name="ToInhabilitating" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Selecting"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../Inhabilitating")
+event = &"inhabilitated"
+delay_in_seconds = "0.0"
+
+[node name="TargetSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions"]
+script = ExtResource("6_7by8j")
+
+[node name="ToAbilitying" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/TargetSelecting"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../Abilitying")
+event = &"using_ability"
+delay_in_seconds = "0.0"
+
+[node name="ToInhabilitating" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/TargetSelecting"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../Inhabilitating")
+event = &"inhabilitated"
+delay_in_seconds = "0.0"
+
+[node name="ToSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/TargetSelecting"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../Selecting")
+event = &"repeat_select"
+delay_in_seconds = "0.0"
+
+[node name="Abilitying" type="Node" parent="BattleManager/StateChart/Root/PlayerActions"]
+script = ExtResource("6_7by8j")
+
+[node name="ToSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Abilitying"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../Selecting")
+event = &"repeat_select"
+delay_in_seconds = "0.0"
+
+[node name="ToInhabilitating" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Abilitying"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../Inhabilitating")
+event = &"inhabilitated"
+delay_in_seconds = "0.0"
+
+[node name="Inhabilitating" type="Node" parent="BattleManager/StateChart/Root/PlayerActions"]
+script = ExtResource("6_7by8j")
+
+[node name="ToLosing" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Inhabilitating"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../Losing")
+event = &"lost"
+guard = SubResource("Resource_lampa")
+delay_in_seconds = "0.0"
+
+[node name="ToSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Inhabilitating"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../Selecting")
+event = &"repeat_select"
+delay_in_seconds = "0.0"
+
+[node name="ToWinning" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Inhabilitating"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../Winning")
+event = &"wins"
+guard = SubResource("Resource_bmx0w")
+delay_in_seconds = "0.0"
+
+[node name="Losing" type="Node" parent="BattleManager/StateChart/Root/PlayerActions"]
+script = ExtResource("6_7by8j")
+
+[node name="Winning" type="Node" parent="BattleManager/StateChart/Root/PlayerActions"]
+script = ExtResource("6_7by8j")
+
+[node name="EnemyActions" type="Node" parent="BattleManager/StateChart/Root"]
+script = ExtResource("5_3uyq7")
+initial_state = NodePath("Enter")
+
+[node name="Enter" type="Node" parent="BattleManager/StateChart/Root/EnemyActions"]
+script = ExtResource("6_7by8j")
+
+[node name="ToSelecting" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/Enter"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../Selecting")
+event = &"setuped"
+delay_in_seconds = "0.0"
+
+[node name="Selecting" type="Node" parent="BattleManager/StateChart/Root/EnemyActions"]
+script = ExtResource("6_7by8j")
+
+[node name="ToTargetSelecting" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/Selecting"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../TargetSelecting")
+event = &"enemy_target"
+delay_in_seconds = "0.0"
+
+[node name="ToLosing" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/Selecting"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../Losing")
+event = &"lost"
+guard = SubResource("Resource_lampa")
+delay_in_seconds = "0.0"
+
+[node name="ToWinning" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/Selecting"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../Winning")
+event = &"wins"
+guard = SubResource("Resource_j3gal")
+delay_in_seconds = "0.0"
+
+[node name="TargetSelecting" type="Node" parent="BattleManager/StateChart/Root/EnemyActions"]
+script = ExtResource("6_7by8j")
+
+[node name="ToAbilitying" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/TargetSelecting"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../Abilitying")
+event = &"enemy_using_ability"
+delay_in_seconds = "0.0"
+
+[node name="ToLosing" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/TargetSelecting"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../Losing")
+event = &"lost"
+guard = SubResource("Resource_lampa")
+delay_in_seconds = "0.0"
+
+[node name="ToWinning" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/TargetSelecting"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../Winning")
+event = &"wins"
+guard = SubResource("Resource_j3gal")
+delay_in_seconds = "0.0"
+
+[node name="Abilitying" type="Node" parent="BattleManager/StateChart/Root/EnemyActions"]
+script = ExtResource("6_7by8j")
+
+[node name="ToSelecting" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/Abilitying"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../Selecting")
+event = &"enemy_repeat_select"
+delay_in_seconds = "0.0"
+
+[node name="ToLosing" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/Abilitying"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../Losing")
+event = &"lost"
+guard = SubResource("Resource_lampa")
+delay_in_seconds = "0.0"
+
+[node name="ToWinning" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/Abilitying"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../Winning")
+event = &"wins"
+guard = SubResource("Resource_j3gal")
+delay_in_seconds = "0.0"
+
+[node name="Losing" type="Node" parent="BattleManager/StateChart/Root/EnemyActions"]
+script = ExtResource("6_7by8j")
+
+[node name="Winning" type="Node" parent="BattleManager/StateChart/Root/EnemyActions"]
+script = ExtResource("6_7by8j")
 
 [node name="FightRunButtons" type="HBoxContainer" parent="."]
 visible = false
@@ -83,83 +296,36 @@ layout_mode = 2
 text = "Pelear
 "
 
-[node name="EnemyPhoto" type="TextureRect" parent="."]
+[node name="EnemyPortraits" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -46.5
-offset_top = -244.0
-offset_right = 46.5
-offset_bottom = -85.0
+offset_left = -925.0
+offset_top = -476.0
+offset_right = 925.0
+offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_1vy82")
+theme_override_constants/separation = 50
+alignment = 1
 
-[node name="CharacterPortraits" type="HBoxContainer" parent="."]
+[node name="AllyPortraits" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -150.0
-offset_top = -310.0
-offset_right = 150.0
-offset_bottom = -68.0
+offset_top = -365.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 20
+mouse_filter = 2
+theme_override_constants/separation = 25
+alignment = 1
 script = ExtResource("3_s5yx3")
-
-[node name="CharacterContainer" type="VBoxContainer" parent="CharacterPortraits"]
-visible = false
-layout_mode = 2
-focus_next = NodePath("../CharacterContainer2")
-script = ExtResource("3_30a52")
-
-[node name="TextureRect" type="TextureRect" parent="CharacterPortraits/CharacterContainer"]
-layout_mode = 2
-texture = ExtResource("2_kwws5")
-
-[node name="LifeContainer" type="HBoxContainer" parent="CharacterPortraits/CharacterContainer"]
-layout_mode = 2
-
-[node name="ColorRect" type="ColorRect" parent="CharacterPortraits/CharacterContainer/LifeContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-color = Color(0.458824, 1, 0.32549, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="CharacterPortraits/CharacterContainer/LifeContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-color = Color(0.458824, 1, 0.32549, 1)
-
-[node name="CharacterContainer2" type="VBoxContainer" parent="CharacterPortraits"]
-visible = false
-layout_mode = 2
-focus_previous = NodePath("../CharacterContainer")
-script = ExtResource("3_30a52")
-
-[node name="TextureRect" type="TextureRect" parent="CharacterPortraits/CharacterContainer2"]
-layout_mode = 2
-texture = ExtResource("5_6gxpq")
-
-[node name="LifeContainer" type="HBoxContainer" parent="CharacterPortraits/CharacterContainer2"]
-layout_mode = 2
-
-[node name="ColorRect" type="ColorRect" parent="CharacterPortraits/CharacterContainer2/LifeContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-color = Color(0.458824, 1, 0.32549, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="CharacterPortraits/CharacterContainer2/LifeContainer"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-color = Color(0.458824, 1, 0.32549, 1)
 
 [node name="ActiveCharacter" type="HBoxContainer" parent="."]
 visible = false
@@ -205,6 +371,84 @@ layout_mode = 2
 bbcode_enabled = true
 fit_content = true
 
+[node name="ContinueButtons" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = 15.0
+offset_right = 81.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="ContinueButton" type="Button" parent="ContinueButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "¿Continuar?"
+
+[node name="Quit" type="Button" parent="ContinueButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Salir"
+
+[node name="Next" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = 10.0
+offset_right = 40.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Siguiente"
+
+[node name="win_text" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = -21.5
+offset_right = 98.0
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center]GANASTE!"
+
+[node name="lose_text" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = -21.5
+offset_right = 98.0
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center]PERDISTE :C"
+
 [node name="BlackRect" type="ColorRect" parent="."]
 visible = false
 modulate = Color(0, 0, 0, 1)
@@ -216,3 +460,26 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamInteractive_0bxd8")
+autoplay = true
+bus = &"Music"
+
+[connection signal="state_entered" from="BattleManager/StateChart/Root/PlayerActions/Enter" to="BattleManager/PlayerActionsManager" method="_on_enter_state_entered"]
+[connection signal="state_entered" from="BattleManager/StateChart/Root/PlayerActions/Selecting" to="BattleManager/PlayerActionsManager" method="_on_selecting_state_entered"]
+[connection signal="state_input" from="BattleManager/StateChart/Root/PlayerActions/Selecting" to="BattleManager/PlayerActionsManager" method="_on_selecting_state_input"]
+[connection signal="state_entered" from="BattleManager/StateChart/Root/PlayerActions/TargetSelecting" to="BattleManager/PlayerActionsManager" method="_on_target_selecting_state_entered"]
+[connection signal="state_entered" from="BattleManager/StateChart/Root/PlayerActions/Abilitying" to="BattleManager/PlayerActionsManager" method="_on_abilitying_state_entered"]
+[connection signal="state_entered" from="BattleManager/StateChart/Root/PlayerActions/Inhabilitating" to="BattleManager/PlayerActionsManager" method="_on_inhabilitating_state_entered"]
+[connection signal="state_entered" from="BattleManager/StateChart/Root/PlayerActions/Losing" to="BattleManager/PlayerActionsManager" method="_on_losing_state_entered"]
+[connection signal="state_entered" from="BattleManager/StateChart/Root/PlayerActions/Winning" to="BattleManager/PlayerActionsManager" method="_on_winning_state_entered"]
+[connection signal="state_entered" from="BattleManager/StateChart/Root/EnemyActions/Enter" to="BattleManager/EnemyActionsManager" method="_on_enter_state_entered"]
+[connection signal="state_entered" from="BattleManager/StateChart/Root/EnemyActions/Selecting" to="BattleManager/EnemyActionsManager" method="_on_selecting_state_entered"]
+[connection signal="state_processing" from="BattleManager/StateChart/Root/EnemyActions/Selecting" to="BattleManager/EnemyActionsManager" method="_on_selecting_state_processing"]
+[connection signal="state_entered" from="BattleManager/StateChart/Root/EnemyActions/TargetSelecting" to="BattleManager/EnemyActionsManager" method="_on_target_selecting_state_entered"]
+[connection signal="state_entered" from="BattleManager/StateChart/Root/EnemyActions/Abilitying" to="BattleManager/EnemyActionsManager" method="_on_abilitying_state_entered"]
+[connection signal="pressed" from="ContinueButtons/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="ContinueButtons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]

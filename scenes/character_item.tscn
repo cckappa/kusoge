@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg1k4melt1rnk"]
+
+[ext_resource type="Script" path="res://scripts/character_item.gd" id="1_iwcbr"]
+[ext_resource type="Texture2D" uid="uid://ctb2muwbi50se" path="res://assets/character_portraits/alicia.png" id="1_x5n0o"]
+
+[node name="CharacterItem" type="PanelContainer"]
+script = ExtResource("1_iwcbr")
+
+[node name="SelectedButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="CharacterPortrait" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.9
+texture = ExtResource("1_x5n0o")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="CharacterName" type="RichTextLabel" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.05
+text = "Nombre personaje"
+fit_content = true
+
+[node name="CharacterHp" type="RichTextLabel" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "40/70"
+fit_content = true
+
+[connection signal="pressed" from="SelectedButton" to="." method="_on_selected_button_pressed"]

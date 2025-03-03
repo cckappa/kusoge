@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://0jciic6ndndf"]
+
+[ext_resource type="Script" path="res://scripts/friend_button.gd" id="1_ctef6"]
+
+[node name="FriendButton" type="Button"]
+toggle_mode = true
+text = "Nombre del personaje"
+script = ExtResource("1_ctef6")
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

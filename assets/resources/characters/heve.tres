@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Character" load_steps=9 format=3 uid="uid://m86mbbrggvcc"]
+
+[ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_i3tl1"]
+[ext_resource type="Resource" uid="uid://bbgmx00txpaek" path="res://assets/resources/abilities/cachetada.tres" id="2_51sob"]
+[ext_resource type="Script" path="res://scripts/items/item.gd" id="2_h2gmh"]
+[ext_resource type="Script" path="res://scripts/character.gd" id="3_3qnf4"]
+[ext_resource type="Resource" uid="uid://cral6nawbndl0" path="res://assets/resources/abilities/fireball.tres" id="3_orfxc"]
+[ext_resource type="Resource" uid="uid://bl6n47bckno8b" path="res://assets/resources/abilities/onepunch.tres" id="4_45yja"]
+[ext_resource type="Resource" uid="uid://ckabh1vy5csrg" path="res://assets/resources/abilities/punch.tres" id="5_xs508"]
+[ext_resource type="Texture2D" uid="uid://dmm8bpb45dxut" path="res://assets/character_portraits/heve.png" id="6_myuup"]
+
+[resource]
+script = ExtResource("3_3qnf4")
+name = "Heve"
+character_portrait = ExtResource("6_myuup")
+abilities = Array[ExtResource("1_i3tl1")]([ExtResource("2_51sob"), ExtResource("3_orfxc"), ExtResource("4_45yja"), ExtResource("5_xs508")])
+loot = Array[ExtResource("2_h2gmh")]([])
+min_loot = 0
+max_loot = 1
+max_hp = 75
+type = "NORMAL"

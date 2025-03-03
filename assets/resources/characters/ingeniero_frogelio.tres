@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Character" load_steps=9 format=3 uid="uid://cvi8qisigyg8d"]
+
+[ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_ol0q2"]
+[ext_resource type="Script" path="res://scripts/items/item.gd" id="2_8e00j"]
+[ext_resource type="Resource" uid="uid://bbgmx00txpaek" path="res://assets/resources/abilities/cachetada.tres" id="2_shukk"]
+[ext_resource type="Resource" uid="uid://b4hl0uorngix0" path="res://assets/resources/abilities/patada.tres" id="3_pbq7u"]
+[ext_resource type="Script" path="res://scripts/character.gd" id="3_x82cd"]
+[ext_resource type="Resource" uid="uid://ckabh1vy5csrg" path="res://assets/resources/abilities/punch.tres" id="4_6j0j1"]
+[ext_resource type="Resource" uid="uid://bl6n47bckno8b" path="res://assets/resources/abilities/onepunch.tres" id="5_da2xx"]
+[ext_resource type="Texture2D" uid="uid://dmebwppdwq1ho" path="res://assets/character_portraits/ingeniero_frogelio.png" id="6_bhhax"]
+
+[resource]
+script = ExtResource("3_x82cd")
+name = "Ing. Frogelio"
+character_portrait = ExtResource("6_bhhax")
+abilities = Array[ExtResource("1_ol0q2")]([ExtResource("2_shukk"), ExtResource("3_pbq7u"), ExtResource("4_6j0j1"), ExtResource("5_da2xx")])
+loot = Array[ExtResource("2_8e00j")]([])
+min_loot = 0
+max_loot = 1
+max_hp = 120
+type = "NORMAL"

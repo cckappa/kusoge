@@ -1,7 +1,15 @@
-[gd_resource type="Theme" format=3 uid="uid://ctd47cus6kna0"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ctd47cus6kna0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xtkps"]
+bg_color = Color(0.163636, 0.827287, 0.752067, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [resource]
 MarginContainer/constants/margin_bottom = 20
 MarginContainer/constants/margin_left = 20
 MarginContainer/constants/margin_right = 20
 MarginContainer/constants/margin_top = 20
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_xtkps")

@@ -1,16 +1,23 @@
-[gd_resource type="Resource" script_class="Character" load_steps=7 format=3 uid="uid://4obe6nn74oyo"]
+[gd_resource type="Resource" script_class="Character" load_steps=10 format=3 uid="uid://4obe6nn74oyo"]
 
 [ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_wmxbo"]
 [ext_resource type="Script" path="res://scripts/character.gd" id="2_euhmh"]
 [ext_resource type="Resource" uid="uid://ct5dshx02d4l0" path="res://assets/resources/abilities/focused_healing.tres" id="2_j7wsu"]
 [ext_resource type="Resource" uid="uid://ckabh1vy5csrg" path="res://assets/resources/abilities/punch.tres" id="3_1epju"]
-[ext_resource type="Texture2D" uid="uid://c1p3mdt7qyydq" path="res://assets/character_portraits/front_main_character.png" id="3_3axsq"]
-[ext_resource type="Texture2D" uid="uid://di2rh1u02rxdt" path="res://assets/character_portraits/portrait_main_character.png" id="4_skjka"]
+[ext_resource type="Resource" uid="uid://ikrsihnyo6wj" path="res://assets/resources/abilities/electro_shock.tres" id="4_8ov4w"]
+[ext_resource type="Resource" uid="uid://cwgx0kx2ur8ek" path="res://assets/resources/abilities/ice_shard.tres" id="5_c4mp1"]
+[ext_resource type="Texture2D" uid="uid://ctb2muwbi50se" path="res://assets/character_portraits/alicia.png" id="6_p2q1w"]
+[ext_resource type="Script" path="res://scripts/items/item.gd" id="7_ye45n"]
+[ext_resource type="Resource" uid="uid://bnsdg5ny4ckdx" path="res://assets/resources/selections/basic_select.tres" id="9_vs6d0"]
 
 [resource]
 script = ExtResource("2_euhmh")
 name = "Lila"
-character_portrait = ExtResource("4_skjka")
-character_front = ExtResource("3_3axsq")
-abilities = Array[ExtResource("1_wmxbo")]([ExtResource("3_1epju"), ExtResource("2_j7wsu")])
-max_hp = 10
+character_portrait = ExtResource("6_p2q1w")
+abilities = Array[ExtResource("1_wmxbo")]([ExtResource("3_1epju"), ExtResource("2_j7wsu"), ExtResource("4_8ov4w"), ExtResource("5_c4mp1")])
+loot = Array[ExtResource("7_ye45n")]([])
+min_loot = 0
+max_loot = 1
+max_hp = 50
+type = "NORMAL"
+selection = ExtResource("9_vs6d0")

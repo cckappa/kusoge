@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=30 format=3 uid="uid://c5485yeohtuy2"]
+[gd_resource type="SpriteFrames" load_steps=29 format=3 uid="uid://c5485yeohtuy2"]
 
 [ext_resource type="Texture2D" uid="uid://ctoxaobs8p6jo" path="res://assets/spritesheets/monito.png" id="1_af17v"]
 
@@ -33,10 +33,6 @@ region = Rect2(432, 216, 216, 216)
 [sub_resource type="AtlasTexture" id="AtlasTexture_kg1v1"]
 atlas = ExtResource("1_af17v")
 region = Rect2(432, 0, 216, 216)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_am2en"]
-atlas = ExtResource("1_af17v")
-region = Rect2(648, 0, 216, 216)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eq1om"]
 atlas = ExtResource("1_af17v")
@@ -162,14 +158,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_am2en")
-}],
-"loop": true,
-"name": &"idle_down",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_eq1om")
 }],
 "loop": true,
@@ -258,5 +246,10 @@ animations = [{
 }],
 "loop": true,
 "name": &"move_up",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
 "speed": 5.0
 }]

@@ -66,7 +66,7 @@ func get_line_untill_caret(line:String) -> String:
 #   content of the current line, the last word and the symbol that came before
 # Triggers opening of the popup
 func request_code_completion(force:bool, text:CodeEdit, mode:=Modes.FULL_HIGHLIGHTING) -> void:
-	## TODO remove this once https://github.com/godotengine/godot/issues/38560 is fixed
+	## remove this once https://github.com/godotengine/godot/issues/38560 is fixed
 	if mode != Modes.FULL_HIGHLIGHTING:
 		return
 
@@ -279,7 +279,7 @@ func confirm_code_completion(replace:bool, text:CodeEdit) -> void:
 	# Something has changed between 4.2 and 4.3
 	# Probably about how carets are reset when text is removed or idk.
 	# To keep compatibility with 4.2 for at least a while this should do the trick:
-	# TODO: Remove once compatibility for 4.2 is dropped.
+	# Remove once compatibility for 4.2 is dropped.
 	if Engine.get_version_info().hex >= 0x040300:
 		text.set_caret_column(text.get_caret_column())
 	else:

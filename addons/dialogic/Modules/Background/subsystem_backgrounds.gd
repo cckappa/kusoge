@@ -111,7 +111,7 @@ func update_background(scene := "", argument := "", fade_time := 0.0, transition
 		trans_node.prev_texture = old_viewport.get_child(0).get_texture()
 		old_viewport.get_meta('node')._custom_fade_out(fade_time)
 		old_viewport.hide()
-		# TODO We have to call this again here because of https://github.com/godotengine/godot/issues/23729
+		#  We have to call this again here because of https://github.com/godotengine/godot/issues/23729
 		old_viewport.get_child(0).render_target_update_mode = SubViewport.UPDATE_ALWAYS
 		trans_node.transition_finished.connect(old_viewport.queue_free)
 	if new_viewport:

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DamageAbility" load_steps=2 format=3 uid="uid://bbgmx00txpaek"]
+
+[ext_resource type="Script" path="res://scripts/abilities/damage_ability.gd" id="1_ll1y5"]
+
+[resource]
+script = ExtResource("1_ll1y5")
+damage_points = 5
+ability_name = "Cachetada"
+type = "NORMAL"
+description = "Cachetadon"
+wait_time = 2.0
+effect = "NEGATIVE"
