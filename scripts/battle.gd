@@ -90,6 +90,8 @@ func add_enemies() -> void:
 			enemy_container.set_max_life(enemy.max_hp)
 			key = key + 1
 
+	enemy_portraits.set_neighbours()
+
 
 func _on_next_pressed() -> void:
 	setup_cambiar("cambiar_principal")

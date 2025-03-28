@@ -17,6 +17,8 @@ signal disable_character(character:Character)
 @onready var heal_particles_long := %HealParticlesLong
 @onready var heal_particles_star := %HealParticlesStar
 @onready var crit_particles_long_circle := %CritParticlesLongCircle
+@onready var damage_value := %DamageValue
+@onready var animation_player := %AnimationPlayer
 @onready var burning_sound := %BurningSound
 @onready var strong_hit_sound := %StrongHitSound
 
@@ -30,6 +32,7 @@ var crits := false
 func _ready() -> void:
 	SignalBus.connect("crits_signal", crit_enabled)
 	SignalBus.connect("stop_crit", crit_disabled)
+	damage_value.visible = false
 
 func _process(delta:float) -> void:
 	if timer.time_left != 0:
@@ -48,6 +51,7 @@ func set_health(hp:int, effect:StringName,_crit:bool=false) -> void:
 		heal_animation(_crit)
 	
 	#SignalBus.emit_signal("stop_crit")
+	damage_value.text = "[center]%s" % str(int(current_hp - hp))
 	var tween := get_tree().create_tween()
 	tween.tween_property(life_bar, "value", hp, 0.5)
 	current_hp = hp
@@ -100,6 +104,7 @@ func damage_animation(_crit:bool=false) -> void:
 		Functions.control_shake($VBoxContainer, 6, 6, 8, 13, 0.4)
 	else:
 		Functions.control_shake($VBoxContainer, 3, 3, 5, 10, 0.2)
+	animation_player.play("damage_animation")
 	hit_particles_circle.emitting = true
 	hit_particles_big_star.emitting = true
 	hit_particles_long_circle.emitting = true

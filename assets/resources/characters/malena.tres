@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Character" load_steps=9 format=3 uid="uid://ha5plqow4htg"]
 
-[ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_5g5f3"]
+[ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_5g5f3"]
 [ext_resource type="Resource" uid="uid://ckabh1vy5csrg" path="res://assets/resources/abilities/punch.tres" id="2_d08up"]
-[ext_resource type="Script" path="res://scripts/items/item.gd" id="2_mjnuh"]
+[ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_mjnuh"]
 [ext_resource type="Resource" uid="uid://ct5dshx02d4l0" path="res://assets/resources/abilities/focused_healing.tres" id="3_2vul2"]
-[ext_resource type="Script" path="res://scripts/character.gd" id="3_a5ita"]
+[ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="3_a5ita"]
 [ext_resource type="Resource" uid="uid://cral6nawbndl0" path="res://assets/resources/abilities/fireball.tres" id="4_afv8g"]
 [ext_resource type="Resource" uid="uid://ikrsihnyo6wj" path="res://assets/resources/abilities/electro_shock.tres" id="5_f7q1y"]
 [ext_resource type="Texture2D" uid="uid://dcjo3p3eeqstx" path="res://assets/character_portraits/malena.png" id="6_s5y6n"]
@@ -13,9 +13,10 @@
 script = ExtResource("3_a5ita")
 name = "Malena"
 character_portrait = ExtResource("6_s5y6n")
+max_hp = 90
+unlocked = true
+type = "NORMAL"
 abilities = Array[ExtResource("1_5g5f3")]([ExtResource("2_d08up"), ExtResource("3_2vul2"), ExtResource("4_afv8g"), ExtResource("5_f7q1y")])
 loot = Array[ExtResource("2_mjnuh")]([])
 min_loot = 0
 max_loot = 1
-max_hp = 90
-type = "NORMAL"

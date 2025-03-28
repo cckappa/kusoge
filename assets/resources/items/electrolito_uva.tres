@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://4g0twc8g0qad"]
+
+[ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="1_l5fmb"]
+
+[resource]
+script = ExtResource("1_l5fmb")
+identifier = &"electrolito_uva"
+display_name = "Electrolito de Uva"
+description = "Sirve para hidratarte en caso de que estes perdido en alcohol"
+type = "KEY"
+metadata/_custom_type_script = "uid://vwrbypy2w8xi"

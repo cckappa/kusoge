@@ -32,9 +32,10 @@ func physics_update(_delta: float) -> void:
 	animation_tree["parameters/Dash/blend_position"] = direction
 	
 	if is_equal_approx(direction.x, 0.0) and is_equal_approx(direction.y, 0.0):
-		animation_tree["parameters/conditions/move"] = false
 		SignalBus.disconnect("starts_talking", starts_talking_run)
 		SignalBus.disconnect("starts_fighting", get_caught_running)
+		animation_tree["parameters/Move/blend_position"] = last_facing_direction
+		animation_tree["parameters/conditions/move"] = false
 		finished.emit(IDLE, {"last_facing_direction":last_facing_direction})
 	
 	player.move_and_slide()

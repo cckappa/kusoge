@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Character" load_steps=9 format=3 uid="uid://c6dgtrmu786cv"]
 
-[ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_mx7kx"]
+[ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_mx7kx"]
 [ext_resource type="Resource" uid="uid://bbgmx00txpaek" path="res://assets/resources/abilities/cachetada.tres" id="2_7qxyu"]
-[ext_resource type="Script" path="res://scripts/items/item.gd" id="2_fd7yh"]
-[ext_resource type="Script" path="res://scripts/character.gd" id="3_5fc53"]
+[ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_fd7yh"]
+[ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="3_5fc53"]
 [ext_resource type="Resource" uid="uid://ikrsihnyo6wj" path="res://assets/resources/abilities/electro_shock.tres" id="3_t5w2m"]
 [ext_resource type="Resource" uid="uid://ct5dshx02d4l0" path="res://assets/resources/abilities/focused_healing.tres" id="4_huxs8"]
 [ext_resource type="Resource" uid="uid://bl6n47bckno8b" path="res://assets/resources/abilities/onepunch.tres" id="5_055fv"]
@@ -13,9 +13,10 @@
 script = ExtResource("3_5fc53")
 name = "Alicia"
 character_portrait = ExtResource("6_jd567")
+max_hp = 100
+unlocked = true
+type = "NORMAL"
 abilities = Array[ExtResource("1_mx7kx")]([ExtResource("2_7qxyu"), ExtResource("3_t5w2m"), ExtResource("4_huxs8"), ExtResource("5_055fv")])
 loot = Array[ExtResource("2_fd7yh")]([])
 min_loot = 0
 max_loot = 1
-max_hp = 100
-type = "NORMAL"

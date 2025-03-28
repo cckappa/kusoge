@@ -17,6 +17,7 @@ func save_game(path:String = SAVE_PATH + SAVE_FILE_NAME) -> void:
 		print(FileAccess.get_open_error())
 		return
 	
+	## SERIALIZE ITEMS
 	var serialized_items := {}
 	for identifier:StringName in Items.item_list:
 		var item_data :Dictionary= Items.item_list[identifier]
@@ -25,21 +26,44 @@ func save_game(path:String = SAVE_PATH + SAVE_FILE_NAME) -> void:
 			"total": item_data.total
 		}
 	
+	## SERIALIZE CURRENT CHARACTERS
 	var serialized_current_characters:Array[Dictionary]
 	for character in Globals.current_characters:
 		var character_data := {
 			"resource_path": character.resource_path,   # Save the resource path
-			"current_hp": character.current_hp           # Save dynamic property (current_hp)
+			"current_hp": character.current_hp,           # Save dynamic property (current_hp)
+			"unlocked": character.unlocked
 		}
 		serialized_current_characters.append(character_data)
 	
+	## SERIALIZE PARTY
 	var serialized_party:Array[Dictionary]
 	for character in Globals.party:
 		var character_data := {
 			"resource_path": character.resource_path,   # Save the resource path
-			"current_hp": character.current_hp           # Save dynamic property (current_hp)
+			"current_hp": character.current_hp,           # Save dynamic property (current_hp)
+			"unlocked": character.unlocked
 		}
 		serialized_party.append(character_data)
+
+	## SERIALIZE DIALOGIC VARIABLES
+	var dialogic_variables:={}
+	for quest_folder:Object in Dialogic.VAR.Quests.folders():		
+		var folder_name :String = quest_folder.path
+		
+		dialogic_variables[folder_name] = {} 
+		for variable:String in quest_folder.variables():
+			dialogic_variables[folder_name][variable] = quest_folder.get(variable)
+
+	## SERIALIZE QUESTS
+	var serialized_quests:= {}
+	for identifier:StringName in Quests.current_quests:  # Iterate over quest objects
+		var quest_data:QuestResource = Quests.current_quests[identifier]
+		serialized_quests[identifier] = {
+			"resource_path": quest_data.resource_path,   # Save the resource path
+			"quest_status": quest_data.quest_status,        # Include quest_status
+			"quest_goal_index": quest_data.quest_goal_index  # Include quest_goal_index
+		}
 	
 	var data:={
 		"player": {
@@ -50,7 +74,9 @@ func save_game(path:String = SAVE_PATH + SAVE_FILE_NAME) -> void:
 		},
 		"items": serialized_items,
 		"current_characters": serialized_current_characters,
-		"party": serialized_party
+		"party": serialized_party,
+		"dialogic_variables": dialogic_variables,
+		"current_quests": serialized_quests
 	}
 	
 	var json_string := JSON.stringify(data, "\t")
@@ -96,13 +122,36 @@ func set_game_info(data:Dictionary) -> void:
 	for character:Dictionary in data.current_characters:
 		var character_resource := load(character.resource_path)
 		character_resource.set_current_hp(character.current_hp)
+		character_resource.unlocked = character.unlocked
 		current_characters.append(character_resource)
 
 	var party:Array[Character]
 	for character:Dictionary in data.party:
 		var character_resource := load(character.resource_path)
 		character_resource.set_current_hp(character.current_hp)
+		character_resource.unlocked = character.unlocked
 		party.append(character_resource)
 		
 	Globals.current_characters = current_characters
 	Globals.party = party
+
+	## DIALOGIC VARIABLES
+	for folder_name:String in data.dialogic_variables:
+		var result := folder_name.split(".")
+		
+		var folder:Object = Dialogic.VAR.Quests.get(result[1])
+		for variable:String in data.dialogic_variables[folder_name]:
+			folder.set(variable, data.dialogic_variables[folder_name][variable])
+
+	## QUESTS
+	Quests.current_quests.clear()
+
+	for identifier: StringName in data.current_quests:
+		var quest_data: Dictionary = data.current_quests[identifier]
+		var quest_resource := load(quest_data.resource_path)  # Load the QuestResource using identifier
+
+		if quest_resource:
+			quest_resource.quest_status = quest_data.quest_status  # Set the quest status
+			quest_resource.quest_goal_index = quest_data.quest_goal_index  # Set the quest status
+			Quests.current_quests[identifier] = quest_resource  # Store in current quests
+			

@@ -2,8 +2,9 @@ extends BattleManager
 
 @export var black_rect : ColorRect
 @onready var state_chart := %StateChart
-@onready var lose_text := $"../../lose_text"
-@onready var win_text := $"../../win_text"
+@onready var lose_text := %LoseText
+@onready var win_text := %WinText
+@onready var loot_text := %LootText
 @onready var audio_stream_player := %AudioStreamPlayer
 @onready var continue_buttons := %ContinueButtons
 @onready var continue_button := %ContinueButton
@@ -15,12 +16,13 @@ var interactive_stream:AudioStreamInteractive
 
 var ability_status:={
 	"ability":null,
+	"item":null,
 	"from":null,
 	"target":null,
 	"crit":null
 }
 
-###
+### 
 ### STATE ENTERS
 
 func _on_enter_state_entered() -> void:
@@ -65,6 +67,31 @@ func _on_target_selecting_state_entered() -> void:
 	elif ability_status.ability != null and ability_status.ability.effect == "NEGATIVE":
 		if enemies.size() > 0:
 				enemies[0].current_container.selected()
+	SignalBus.emit_signal("action_selected", "ABILITY")
+
+func _on_target_selecting_item_state_entered() -> void:
+	for enemy_select in get_tree().get_nodes_in_group("selected_targets"):
+		if enemy_select.visible == true:
+			enemy_select.focus_mode = Control.FOCUS_ALL
+	
+	var enemies:Array[Character] = alive_enemies(Globals.current_arrange_enemies)
+	var allies:Array[Character] = alive_allies(Globals.current_arrange_allies)
+	if ability_status.item != null and (ability_status.item.type == "HEAL" or ability_status.item.type == "BUFF"):
+		if allies.size() > 0:
+			if ability_status.from != null and ability_status.from.current_hp > 0:
+				ability_status.from.current_container.target_selected()
+			else:
+				allies[0].current_container.target_selected()
+	elif ability_status.item != null and (ability_status.item.type == "DAMAGE" or ability_status.item.type == "DEBUFF"):
+		if enemies.size() > 0:
+				enemies[0].current_container.selected()
+	SignalBus.emit_signal("action_selected", "ITEM")
+
+func _on_iteming_state_entered() -> void:
+	use_item(ability_status.item, ability_status.target)
+	SignalBus.emit_signal("item_removed", ability_status.item)
+	ability_status.from.current_container.unselected()
+	state_chart.send_event("repeat_select")
 
 func _on_abilitying_state_entered() -> void:
 	use_ability(ability_status.ability, ability_status.from, ability_status.target, ability_status.crit)
@@ -111,7 +138,8 @@ func _on_winning_state_entered() -> void:
 	win_text.visible = true
 	for loot in total_loots:
 		for item:Dictionary in loot:
-			win_text.text += "Received: " + str(item["display_name"]) + " x" + str(item["total"]) + "\n"
+			loot_text.text += str(item["display_name"]) + " x" + str(item["total"]) + "\n"
+	loot_text.visible = true
 	
 	next.visible = true
 	next.grab_focus()
@@ -131,6 +159,8 @@ func connect_allies() -> void:
 			ally.current_container.connect("disable_character", disable_character)
 			ally.current_container.connect("character_selected", character_status_select)
 			ally.current_container.connect("ability_selected", change_to_target_selecting)
+			ally.current_container.connect("item_selected", change_to_target_selecting_item)
+			ally.current_container.connect("uses_item", change_to_iteming)
 			ally.current_container.connect("uses_ability", change_to_abilitying)
 			ally.current_container.connect("back_to_menu", back_to_menu)
 
@@ -146,20 +176,34 @@ func change_to_target_selecting(ability:Ability, from:Character) -> void:
 	if from.current_container.check_timer():
 		state_chart.send_event("target_select")
 
+func change_to_target_selecting_item(item:Item, from:Character) -> void:
+	ability_status.item = item
+	ability_status.from = from
+	state_chart.send_event("target_select_item")
+
 func change_to_abilitying(target:Character, crit:bool=false) -> void:
 	ability_status.target = target
 	ability_status.crit = crit
 	state_chart.send_event("using_ability")
+
+func change_to_iteming(target:Character) -> void:
+	ability_status.target = target
+	state_chart.send_event("using_item")
 
 func use_ability(ability:Ability, from:Character, target:Character, crit:bool=false) -> void:
 	if from.current_container.reset_timer(ability.wait_time):
 		if from.current_hp <= 0:
 			SignalBus.emit_signal("stop_crit")
 		else:
+			play_attack_animation(ability, target.current_container.find_child("ParticleCenter"))
 			if crit:
 				ability.use_ability(target, crit)
 			else:
 				ability.use_ability(target)
+
+func use_item(item:Item, target:Character) -> void:
+	item.use_item([target])
+	ability_status.item = null
 
 func disable_character(character:Character) -> void:
 	character_to_disable = character
@@ -187,3 +231,9 @@ func alive_enemies(current_arrange_enemies:Dictionary) -> Array[Character]:
 			alive_enemies_arr.append(enemy)
 	
 	return alive_enemies_arr
+
+
+func play_attack_animation(ability: Ability, parent_node: Node) -> void:
+	if ability.attack_animation:
+		var animation_instance := ability.attack_animation.instantiate()
+		parent_node.add_child(animation_instance)

@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://byctl1vrnbctx"]
 
 [ext_resource type="Theme" uid="uid://ctd47cus6kna0" path="res://assets/themes/menu_theme.tres" id="1_eynjv"]
-[ext_resource type="Script" path="res://scripts/settings_menu.gd" id="1_ot7jk"]
+[ext_resource type="Script" uid="uid://cit4h4wpq0ui5" path="res://scripts/settings_menu.gd" id="1_ot7jk"]
 [ext_resource type="ButtonGroup" uid="uid://c6qqicdcs05wc" path="res://assets/resources/top_menu_button_group.tres" id="3_wgto6"]
-[ext_resource type="Script" path="res://scripts/audio_panel.gd" id="4_a8ce2"]
-[ext_resource type="Script" path="res://scripts/game_panel.gd" id="4_f87us"]
-[ext_resource type="Script" path="res://scripts/accesibility_panel.gd" id="5_3lbn0"]
-[ext_resource type="Script" path="res://scripts/video_panel.gd" id="7_5vr1g"]
+[ext_resource type="Script" uid="uid://becyvjw8kiqmv" path="res://scripts/audio_panel.gd" id="4_a8ce2"]
+[ext_resource type="Script" uid="uid://bptg7rrwpx2r6" path="res://scripts/game_panel.gd" id="4_f87us"]
+[ext_resource type="Script" uid="uid://jgbwguoeum4w" path="res://scripts/accesibility_panel.gd" id="5_3lbn0"]
+[ext_resource type="Script" uid="uid://dcpajc06alfep" path="res://scripts/video_panel.gd" id="7_5vr1g"]
 
 [node name="SettingsMenu" type="Control" node_paths=PackedStringArray("game_button", "accesibility_button", "audio_button", "controls_button", "video_button", "game_panel", "accesibility_panel", "audio_panel", "controls_panel", "video_panel", "close_button")]
 process_mode = 3

@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://0jciic6ndndf"]
+[gd_scene load_steps=3 format=3 uid="uid://0jciic6ndndf"]
 
-[ext_resource type="Script" path="res://scripts/friend_button.gd" id="1_ctef6"]
+[ext_resource type="Script" uid="uid://bxm5gamslwrm2" path="res://scripts/friend_button.gd" id="1_ctef6"]
+[ext_resource type="Theme" uid="uid://ctd47cus6kna0" path="res://assets/themes/menu_theme.tres" id="1_edmwk"]
 
 [node name="FriendButton" type="Button"]
+theme = ExtResource("1_edmwk")
 toggle_mode = true
 text = "Nombre del personaje"
 script = ExtResource("1_ctef6")

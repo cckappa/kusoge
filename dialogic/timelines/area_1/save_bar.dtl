@@ -1,5 +1,5 @@
 Ver que una cucaracha se está comiendo los cacahuates del piso te llena de determinación.
 ¿Quieres guardar la partida?
 - Sí
-	[signal arg="save_bar"]
+	[signal arg_type="dict" arg="{"name":"save_bar"}"]
 - No

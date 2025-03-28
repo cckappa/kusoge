@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bxw145o41exlv"]
 
 [ext_resource type="Theme" uid="uid://bci1eig3l1g22" path="res://assets/themes/attack_letter_theme.tres" id="1_k8hr0"]
-[ext_resource type="Script" path="res://scripts/attack_letter.gd" id="2_vemw3"]
+[ext_resource type="Script" uid="uid://bl42hb6o16vk5" path="res://scripts/attack_letter.gd" id="2_vemw3"]
 
 [node name="AttackLetter" type="RichTextLabel"]
 anchors_preset = 8

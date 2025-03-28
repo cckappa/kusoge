@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dip8q5a4jft37"]
 
-[ext_resource type="Script" path="res://scripts/enemy_area.gd" id="1_cwncl"]
-[ext_resource type="Script" path="res://scripts/character.gd" id="2_ke4lh"]
+[ext_resource type="Script" uid="uid://cuyiy732up4g7" path="res://scripts/enemy_area.gd" id="1_cwncl"]
+[ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="2_ke4lh"]
 [ext_resource type="Resource" uid="uid://bj1qxnf612jjk" path="res://assets/resources/enemies/silla.tres" id="3_4nwfk"]
 [ext_resource type="Resource" uid="uid://sv50sqn41x38" path="res://assets/resources/enemies/plant_enemy.tres" id="4_8f6xp"]
 

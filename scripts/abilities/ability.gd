@@ -18,5 +18,7 @@ extends Resource
 	"POSITIVE"
 ) var effect: String = "NEGATIVE"
 
+@export var attack_animation:PackedScene
+
 func use_ability(character: Character, crit:bool=false) -> void:
 	pass

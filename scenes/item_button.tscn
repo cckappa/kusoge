@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmbnb1rj72sqi"]
+[gd_scene load_steps=3 format=3 uid="uid://cmbnb1rj72sqi"]
 
-[ext_resource type="Script" path="res://scripts/item_button.gd" id="1_jvce7"]
+[ext_resource type="Script" uid="uid://gmtvvjebthb7" path="res://scripts/item_button.gd" id="1_jvce7"]
+[ext_resource type="Theme" uid="uid://ctd47cus6kna0" path="res://assets/themes/menu_theme.tres" id="1_wcc7j"]
 
 [node name="ItemButton" type="Button"]
+theme = ExtResource("1_wcc7j")
 text = "Nombre de objeto"
 script = ExtResource("1_jvce7")
 

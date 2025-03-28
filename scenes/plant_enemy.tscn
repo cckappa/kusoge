@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://cdgrmvtad8eac"]
 
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_xtg0d"]
+[ext_resource type="Script" uid="uid://csyi3hl4lynso" path="res://scripts/enemy.gd" id="1_xtg0d"]
 [ext_resource type="Texture2D" uid="uid://c31kt0h0ajr2y" path="res://assets/objects/cosas_0000s_0000_maceta.png" id="2_waugy"]
-[ext_resource type="Script" path="res://scripts/enemy_detection.gd" id="3_aigqm"]
+[ext_resource type="Script" uid="uid://8vjebf1j2ca7" path="res://scripts/enemy_detection.gd" id="3_aigqm"]
 [ext_resource type="Resource" uid="uid://sv50sqn41x38" path="res://assets/resources/enemies/plant_enemy.tres" id="4_i4lei"]
 [ext_resource type="Texture2D" uid="uid://pgvjh544jsbd" path="res://assets/icons/warning.png" id="4_njook"]
 

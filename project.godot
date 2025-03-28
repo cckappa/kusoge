@@ -13,19 +13,20 @@ config_version=5
 config/name="kusoge"
 config/tags=PackedStringArray("current")
 run/main_scene="res://scenes/inicio_menu.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://kusoge_icon.png"
 
 [autoload]
 
 DevTools="*res://scripts/dev_tools.gd"
 ConfigFileHandler="*res://scripts/config_file_handler.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 GameSaveHandler="*res://scripts/game_save_handler.gd"
 SignalBus="*res://scripts/signal_bus.gd"
 Functions="*res://scripts/functions.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 Globals="*res://scripts/globals.gd"
 Items="*res://scripts/items.gd"
+Quests="*res://scripts/quests.gd"
 
 [debug]
 
@@ -37,19 +38,34 @@ gdscript/warnings/untyped_declaration=2
 
 directories/dch_directory={}
 directories/dtl_directory={
+"lila_bar_1": "res://dialogic/timelines/area_1/lila_bar_1.dtl",
+"mesero_bar_1": "res://dialogic/timelines/area_1/mesero_bar_1.dtl",
 "obj_mecha": "res://dialogic/timelines/obj_mecha.dtl",
 "obj_notebook_hospital": "res://dialogic/timelines/obj_notebook_hospital.dtl",
 "obj_table_hospital": "res://dialogic/timelines/obj_table_hospital.dtl",
 "rana_borracha_bar_1": "res://dialogic/timelines/area_1/rana_borracha_bar_1.dtl",
 "save_bar": "res://dialogic/timelines/area_1/save_bar.dtl"
 }
+variables={
+"Quests": {
+"area_1": {
+"lila_bar_status": "not_knows_name",
+"ranita_quest_status": -1
+}
+}
+}
+layout/style_list=["res://dialogic/styles/basic_style.tres"]
+layout/default_style="res://dialogic/styles/basic_style.tres"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/stretch/mode="viewport"
-window/vsync/vsync_mode=0
+window/size/viewport_width=3840
+window/size/viewport_height=2160
+window/size/mode=2
+window/size/window_width_override=1920
+window/size/window_height_override=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [editor_plugins]
 

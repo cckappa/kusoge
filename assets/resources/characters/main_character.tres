@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="Character" load_steps=10 format=3 uid="uid://4obe6nn74oyo"]
 
-[ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_wmxbo"]
-[ext_resource type="Script" path="res://scripts/character.gd" id="2_euhmh"]
+[ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_wmxbo"]
+[ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="2_euhmh"]
 [ext_resource type="Resource" uid="uid://ct5dshx02d4l0" path="res://assets/resources/abilities/focused_healing.tres" id="2_j7wsu"]
 [ext_resource type="Resource" uid="uid://ckabh1vy5csrg" path="res://assets/resources/abilities/punch.tres" id="3_1epju"]
 [ext_resource type="Resource" uid="uid://ikrsihnyo6wj" path="res://assets/resources/abilities/electro_shock.tres" id="4_8ov4w"]
 [ext_resource type="Resource" uid="uid://cwgx0kx2ur8ek" path="res://assets/resources/abilities/ice_shard.tres" id="5_c4mp1"]
 [ext_resource type="Texture2D" uid="uid://ctb2muwbi50se" path="res://assets/character_portraits/alicia.png" id="6_p2q1w"]
-[ext_resource type="Script" path="res://scripts/items/item.gd" id="7_ye45n"]
+[ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="7_ye45n"]
 [ext_resource type="Resource" uid="uid://bnsdg5ny4ckdx" path="res://assets/resources/selections/basic_select.tres" id="9_vs6d0"]
 
 [resource]

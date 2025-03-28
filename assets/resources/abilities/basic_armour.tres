@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DefenseAbility" load_steps=2 format=3 uid="uid://lue3v7qslcvx"]
+
+[ext_resource type="Script" uid="uid://bc6leosjb4r46" path="res://scripts/abilities/defense_ability.gd" id="1_cs2hj"]
+
+[resource]
+script = ExtResource("1_cs2hj")
+block_points_percent = 60.0
+ability_name = "Bloqueo"
+type = "NORMAL"
+description = "Agrega 60% de armadura"
+wait_time = 4.0
+effect = "NEGATIVE"
+metadata/_custom_type_script = "uid://bc6leosjb4r46"

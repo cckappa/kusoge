@@ -11,20 +11,22 @@ offsets = PackedFloat32Array(0, 0.134545, 0.978182)
 colors = PackedColorArray(0.817158, 0.900746, 1, 1, 0.956863, 0.952941, 0, 1, 0.933918, 0.13263, 0, 1)
 
 [sub_resource type="Curve" id="Curve_y83t4"]
-min_value = -1.0
+_limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [node name="CritParticlesLongCircle" type="CPUParticles2D"]
 emitting = false
 amount = 16
-lifetime = 0.25
 texture = ExtResource("1_nugwq")
+lifetime = 0.25
 particle_flag_align_y = true
 direction = Vector2(0, -1)
 spread = 180.0
-initial_velocity_min = 170.65
-initial_velocity_max = 203.67
+initial_velocity_min = 593.0
+initial_velocity_max = 866.31
+scale_amount_min = 4.15
+scale_amount_max = 7.76
 scale_amount_curve = SubResource("Curve_l4sw8")
 color_ramp = SubResource("Gradient_kfpw0")
 hue_variation_curve = SubResource("Curve_y83t4")

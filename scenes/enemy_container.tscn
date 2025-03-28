@@ -1,8 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://deg6oekjklhs8"]
+[gd_scene load_steps=24 format=3 uid="uid://deg6oekjklhs8"]
 
-[ext_resource type="Script" path="res://scripts/enemy_container.gd" id="1_rne6s"]
+[ext_resource type="Script" uid="uid://durb5suil11ek" path="res://scripts/enemy_container.gd" id="1_rne6s"]
 [ext_resource type="Theme" uid="uid://ctd47cus6kna0" path="res://assets/themes/menu_theme.tres" id="2_hayad"]
-[ext_resource type="Texture2D" uid="uid://c31kt0h0ajr2y" path="res://assets/objects/cosas_0000s_0000_maceta.png" id="3_x7en4"]
+[ext_resource type="Texture2D" uid="uid://bgefprxussdta" path="res://assets/enemy_sprites/Serpra.png" id="3_y7wkr"]
 [ext_resource type="Texture2D" uid="uid://jr71m17ib8jj" path="res://assets/icons/target_select.svg" id="5_qrxc3"]
 [ext_resource type="PackedScene" uid="uid://hg6t1jbcmxp3" path="res://scenes/hit_particles_circle.tscn" id="6_0kop4"]
 [ext_resource type="Texture2D" uid="uid://dgqpwvwksevim" path="res://assets/icons/death_tomb.png" id="6_4wkuv"]
@@ -16,6 +16,10 @@
 [ext_resource type="AudioStream" uid="uid://xomtmhux1icj" path="res://assets/sfx/563662__eminyildirim__healing-spell.mp3" id="13_w60pi"]
 [ext_resource type="AudioStream" uid="uid://yjg8t7qnv4nl" path="res://assets/sfx/691095__ikramshinwari__dfam-kick02-e-wet.mp3" id="14_x6eex"]
 [ext_resource type="AudioStream" uid="uid://brjeugobkanix" path="res://assets/sfx/637809__kyles__rope-thick-handling-rough-hairy-fishing-nets.mp3" id="15_8qgus"]
+[ext_resource type="Theme" uid="uid://bci1eig3l1g22" path="res://assets/themes/attack_letter_theme.tres" id="17_m3ka1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y7wkr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rshif"]
 bg_color = Color(0.953278, 0.187495, 0, 1)
@@ -24,44 +28,146 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="EnemyContainer" type="Control"]
-custom_minimum_size = Vector2(93, 159)
-layout_mode = 3
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_c07se"]
+blend_mode = 1
+
+[sub_resource type="Animation" id="Animation_de1d0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DamageValue:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DamageValue:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(50, 244)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DamageValue:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DamageValue:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_3r251"]
+resource_name = "damage_animation"
+length = 0.65
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DamageValue:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16),
+"transitions": PackedFloat32Array(2.37842, 0.225313),
+"update": 0,
+"values": [Vector2(0.355, 0.355), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DamageValue:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13),
+"transitions": PackedFloat32Array(2.21914, 1),
+"update": 0,
+"values": [Vector2(50, 357), Vector2(50, 215)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DamageValue:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.392292, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DamageValue:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.65),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_77y1w"]
+_data = {
+&"RESET": SubResource("Animation_de1d0"),
+&"damage_animation": SubResource("Animation_3r251")
+}
+
+[node name="EnemyContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(100, 159)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -46.5
-offset_top = -79.5
-offset_right = 46.5
-offset_bottom = 81.035
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 300.0
+offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_vertical = 4
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_y7wkr")
 script = ExtResource("1_rne6s")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(126, 255)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -56.0
-offset_top = -123.768
-offset_right = 70.0
-offset_bottom = 161.232
-grow_horizontal = 2
-grow_vertical = 2
+custom_minimum_size = Vector2(100, 255)
+layout_mode = 2
 
 [node name="LifeBar" type="ProgressBar" parent="VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 7)
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme = ExtResource("2_hayad")
 theme_override_styles/fill = SubResource("StyleBoxFlat_rshif")
@@ -70,7 +176,7 @@ show_percentage = false
 
 [node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 15)
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme = ExtResource("2_hayad")
 value = 100.0
@@ -78,22 +184,24 @@ rounded = true
 show_percentage = false
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(126, 255)
+custom_minimum_size = Vector2(100, 255)
 layout_mode = 2
 
 [node name="EnemyPhoto" type="TextureRect" parent="VBoxContainer/CenterContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(126, 200)
+material = SubResource("CanvasItemMaterial_c07se")
+use_parent_material = true
+custom_minimum_size = Vector2(600, 400)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("3_x7en4")
-expand_mode = 3
-stretch_mode = 4
+texture = ExtResource("3_y7wkr")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="TargetButton" type="TextureButton" parent="VBoxContainer/CenterContainer" groups=["selected_targets"]]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 focus_mode = 0
 texture_focused = ExtResource("5_qrxc3")
@@ -103,29 +211,17 @@ stretch_mode = 5
 [node name="DeathTexture" type="TextureRect" parent="."]
 unique_name_in_owner = true
 visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -60.0
-offset_top = -29.0
-offset_right = 61.0
-offset_bottom = 92.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 texture = ExtResource("6_4wkuv")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="ParticleCenter" type="Marker2D" parent="."]
-position = Vector2(47.5, 151.5)
+position = Vector2(270, 244)
 gizmo_extents = 56.2
 
 [node name="CritParticlesLongCircle" parent="ParticleCenter" instance=ExtResource("6_pb7q0")]
 unique_name_in_owner = true
-position = Vector2(0, -53)
 
 [node name="HitParticlesCircle" parent="ParticleCenter" instance=ExtResource("6_0kop4")]
 unique_name_in_owner = true
@@ -142,11 +238,11 @@ unique_name_in_owner = true
 
 [node name="HealParticlesLong" parent="ParticleCenter" instance=ExtResource("10_o60lc")]
 unique_name_in_owner = true
-position = Vector2(0, 25)
+position = Vector2(8, 187)
 
 [node name="HealParticlesStar" parent="ParticleCenter" instance=ExtResource("11_7ghmc")]
 unique_name_in_owner = true
-position = Vector2(-1, 24)
+position = Vector2(5, 108)
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
@@ -172,6 +268,42 @@ stream = ExtResource("15_8qgus")
 volume_db = 2.0
 bus = &"SFX"
 parameters/looping = false
+
+[node name="DamageContainer" type="Control" parent="."]
+z_index = 15
+z_as_relative = false
+layout_mode = 2
+
+[node name="DamageValue" type="RichTextLabel" parent="DamageContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 57.0
+offset_right = 250.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(250, 56)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("17_m3ka1")
+bbcode_enabled = true
+text = "[center]35"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DamageContainer"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_77y1w")
+}
 
 [connection signal="focus_entered" from="VBoxContainer/CenterContainer/TargetButton" to="." method="_on_target_button_focus_entered"]
 [connection signal="focus_exited" from="VBoxContainer/CenterContainer/TargetButton" to="." method="_on_target_button_focus_exited"]

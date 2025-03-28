@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="EnemyResource" load_steps=11 format=3 uid="uid://bj1qxnf612jjk"]
 
-[ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_qttdh"]
+[ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_qttdh"]
 [ext_resource type="Resource" uid="uid://b4hl0uorngix0" path="res://assets/resources/abilities/patada.tres" id="2_j4p4u"]
 [ext_resource type="Resource" uid="uid://bbgmx00txpaek" path="res://assets/resources/abilities/cachetada.tres" id="3_5kwyd"]
 [ext_resource type="Resource" uid="uid://ckabh1vy5csrg" path="res://assets/resources/abilities/punch.tres" id="4_2gapy"]
 [ext_resource type="Resource" uid="uid://cwgx0kx2ur8ek" path="res://assets/resources/abilities/ice_shard.tres" id="5_ex1wg"]
 [ext_resource type="Texture2D" uid="uid://cw1m73ubd2qs6" path="res://assets/objects/cosas_0000s_0001_silla1.png" id="6_bk21b"]
-[ext_resource type="Script" path="res://scripts/enemy_resource.gd" id="7_0wntd"]
-[ext_resource type="Script" path="res://scripts/items/item.gd" id="7_2dmjf"]
+[ext_resource type="Script" uid="uid://bmxggwbtvyxeb" path="res://scripts/enemy_resource.gd" id="7_0wntd"]
+[ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="7_2dmjf"]
 [ext_resource type="Resource" uid="uid://bqyq6l006wa1h" path="res://assets/resources/items/coffee.tres" id="8_3xkva"]
 [ext_resource type="Resource" uid="uid://bnsdg5ny4ckdx" path="res://assets/resources/selections/basic_select.tres" id="8_v4e78"]
 
@@ -16,10 +16,11 @@ script = ExtResource("7_0wntd")
 dialog = &""
 name = "Silla"
 character_portrait = ExtResource("6_bk21b")
+max_hp = 35
+unlocked = false
+type = "NORMAL"
 abilities = Array[ExtResource("1_qttdh")]([ExtResource("2_j4p4u"), ExtResource("3_5kwyd"), ExtResource("4_2gapy"), ExtResource("5_ex1wg")])
 loot = Array[ExtResource("7_2dmjf")]([ExtResource("8_3xkva")])
 min_loot = 2
 max_loot = 6
-max_hp = 35
-type = "NORMAL"
 selection = ExtResource("8_v4e78")

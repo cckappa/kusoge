@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Character" load_steps=9 format=3 uid="uid://dnsq6byto3aky"]
 
-[ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_egibv"]
-[ext_resource type="Script" path="res://scripts/items/item.gd" id="2_8uu4w"]
+[ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_egibv"]
+[ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_8uu4w"]
 [ext_resource type="Resource" uid="uid://ikrsihnyo6wj" path="res://assets/resources/abilities/electro_shock.tres" id="2_q6dp3"]
 [ext_resource type="Resource" uid="uid://cwgx0kx2ur8ek" path="res://assets/resources/abilities/ice_shard.tres" id="3_25bu8"]
-[ext_resource type="Script" path="res://scripts/character.gd" id="3_wn8wx"]
+[ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="3_wn8wx"]
 [ext_resource type="Resource" uid="uid://cral6nawbndl0" path="res://assets/resources/abilities/fireball.tres" id="4_i1mq4"]
 [ext_resource type="Resource" uid="uid://ckabh1vy5csrg" path="res://assets/resources/abilities/punch.tres" id="5_kbv56"]
 [ext_resource type="Texture2D" uid="uid://b4hf6mn38p0ps" path="res://assets/character_portraits/proto_shaman.png" id="6_l52x8"]
@@ -13,9 +13,10 @@
 script = ExtResource("3_wn8wx")
 name = "Proto Shaman"
 character_portrait = ExtResource("6_l52x8")
+max_hp = 80
+unlocked = true
+type = "NORMAL"
 abilities = Array[ExtResource("1_egibv")]([ExtResource("2_q6dp3"), ExtResource("3_25bu8"), ExtResource("4_i1mq4"), ExtResource("5_kbv56")])
 loot = Array[ExtResource("2_8uu4w")]([])
 min_loot = 0
 max_loot = 1
-max_hp = 80
-type = "NORMAL"

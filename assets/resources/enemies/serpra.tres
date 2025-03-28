@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=10 format=3 uid="uid://cym74q2mvjcte"]
+
+[ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_yoklo"]
+[ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_bft4o"]
+[ext_resource type="Resource" uid="uid://bbgmx00txpaek" path="res://assets/resources/abilities/cachetada.tres" id="2_lig8e"]
+[ext_resource type="Resource" uid="uid://ckabh1vy5csrg" path="res://assets/resources/abilities/punch.tres" id="3_7u56j"]
+[ext_resource type="Script" uid="uid://bmxggwbtvyxeb" path="res://scripts/enemy_resource.gd" id="3_bbq64"]
+[ext_resource type="Resource" uid="uid://cral6nawbndl0" path="res://assets/resources/abilities/fireball.tres" id="4_qyid8"]
+[ext_resource type="Resource" uid="uid://ct5dshx02d4l0" path="res://assets/resources/abilities/focused_healing.tres" id="5_5m0ee"]
+[ext_resource type="Texture2D" uid="uid://bgefprxussdta" path="res://assets/enemy_sprites/Serpra.png" id="6_atrar"]
+[ext_resource type="Resource" uid="uid://fxibbhftjw5n" path="res://assets/resources/items/cookie.tres" id="8_o73sw"]
+
+[resource]
+script = ExtResource("3_bbq64")
+dialog = &""
+name = "Serpra"
+character_portrait = ExtResource("6_atrar")
+max_hp = 60
+unlocked = false
+type = "NORMAL"
+abilities = Array[ExtResource("1_yoklo")]([ExtResource("2_lig8e"), ExtResource("3_7u56j"), ExtResource("4_qyid8"), ExtResource("5_5m0ee")])
+loot = Array[ExtResource("2_bft4o")]([ExtResource("8_o73sw")])
+min_loot = 1
+max_loot = 2
+metadata/_custom_type_script = "uid://bmxggwbtvyxeb"

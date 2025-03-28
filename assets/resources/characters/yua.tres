@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Character" load_steps=9 format=3 uid="uid://dar7jsuf45lyh"]
 
-[ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_fdfji"]
+[ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_fdfji"]
 [ext_resource type="Resource" uid="uid://cwgx0kx2ur8ek" path="res://assets/resources/abilities/ice_shard.tres" id="2_qdtrg"]
-[ext_resource type="Script" path="res://scripts/items/item.gd" id="2_u8wig"]
-[ext_resource type="Script" path="res://scripts/character.gd" id="3_fng45"]
+[ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_u8wig"]
+[ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="3_fng45"]
 [ext_resource type="Resource" uid="uid://ct5dshx02d4l0" path="res://assets/resources/abilities/focused_healing.tres" id="3_k8iv2"]
 [ext_resource type="Resource" uid="uid://ikrsihnyo6wj" path="res://assets/resources/abilities/electro_shock.tres" id="4_nsnl7"]
 [ext_resource type="Resource" uid="uid://b4hl0uorngix0" path="res://assets/resources/abilities/patada.tres" id="5_pkl5d"]
@@ -13,9 +13,10 @@
 script = ExtResource("3_fng45")
 name = "Yua"
 character_portrait = ExtResource("6_xr2sm")
+max_hp = 80
+unlocked = true
+type = "NORMAL"
 abilities = Array[ExtResource("1_fdfji")]([ExtResource("2_qdtrg"), ExtResource("3_k8iv2"), ExtResource("4_nsnl7"), ExtResource("5_pkl5d")])
 loot = Array[ExtResource("2_u8wig")]([])
 min_loot = 0
 max_loot = 1
-max_hp = 80
-type = "NORMAL"

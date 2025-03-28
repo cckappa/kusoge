@@ -77,8 +77,8 @@ func apply_settings() -> void:
 	AudioServer.set_bus_volume_db(SFX_BUS_ID, Functions.get_decimal(config.get_value("audio", "sfx_volume")))
 	
 	# VideoPanel Settings
-	if config.get_value("video", "fullscreen"):
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-	get_window().size = screen_resolutions[config.get_value("video", "screen_resolution")]
+	# if config.get_value("video", "fullscreen"):
+	# 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	# else:
+	# 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	# get_window().size = screen_resolutions[config.get_value("video", "screen_resolution")]

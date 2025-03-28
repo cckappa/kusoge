@@ -1,11 +1,11 @@
-[gd_scene load_steps=97 format=3 uid="uid://dfidel1ct2nq"]
+[gd_scene load_steps=107 format=3 uid="uid://dfidel1ct2nq"]
 
-[ext_resource type="Script" path="res://scripts/inicial.gd" id="1_o71xu"]
+[ext_resource type="Script" uid="uid://bc48bdl6w38yw" path="res://scripts/inicial.gd" id="1_o71xu"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="2_1dw8i"]
 [ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="3_5la8r"]
 [ext_resource type="Texture2D" uid="uid://bo5fvf2u2hklg" path="res://assets/backgrounds/area_1/bar.PNG" id="3_522kq"]
 [ext_resource type="Texture2D" uid="uid://bofxl2yrphcv" path="res://assets/spritesheets/mecha.png" id="6_ersdn"]
-[ext_resource type="Script" path="res://scripts/talk.gd" id="7_b1xsq"]
+[ext_resource type="Script" uid="uid://do84xbf65qif" path="res://scripts/talk.gd" id="7_b1xsq"]
 [ext_resource type="PackedScene" uid="uid://clmbh4jnxur05" path="res://scenes/objeto.tscn" id="7_u5b8b"]
 [ext_resource type="Texture2D" uid="uid://cei8xe8pqmsp4" path="res://assets/spritesheets/area_1/tecladista.png" id="8_5sa65"]
 [ext_resource type="Texture2D" uid="uid://ck3gcn5tkecaf" path="res://assets/objects/area_1/cosas_0000_Nuevo-grupo.png" id="8_46veh"]
@@ -14,11 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://bt0ichbiqyt7l" path="res://assets/objects/area_1/cosas_0001_Nuevo-grupo.png" id="8_r774n"]
 [ext_resource type="Texture2D" uid="uid://curtu6fiih6l7" path="res://assets/spritesheets/area_1/npcsentado.png" id="9_r82wj"]
 [ext_resource type="Texture2D" uid="uid://daggyrv5kgsn3" path="res://assets/objects/area_1/cosas_0002_Nuevo-grupo.png" id="9_st8yw"]
+[ext_resource type="Script" uid="uid://b0gh7v5xk7w7w" path="res://scripts/item_giver.gd" id="10_20hxs"]
 [ext_resource type="Texture2D" uid="uid://dsg86ssa8e0f4" path="res://assets/objects/area_1/cosas_0003_Nuevo-grupo.png" id="10_rivnb"]
 [ext_resource type="Texture2D" uid="uid://bqmess7rvmk4w" path="res://assets/objects/area_1/cosas_0004_Nuevo-grupo.png" id="11_hwbld"]
+[ext_resource type="Resource" uid="uid://4g0twc8g0qad" path="res://assets/resources/items/electrolito_uva.tres" id="11_mxbwd"]
 [ext_resource type="Texture2D" uid="uid://lwunn6a2mdid" path="res://assets/objects/area_1/cosas_0005_Nuevo-grupo.png" id="12_fdurl"]
 [ext_resource type="PackedScene" uid="uid://h0q50x2317m1" path="res://scenes/npc.tscn" id="12_hoddu"]
-[ext_resource type="Script" path="res://scripts/quests/quest.gd" id="12_jkpxj"]
+[ext_resource type="Script" uid="uid://bj1igyevn8g64" path="res://scripts/quests/quest.gd" id="12_jkpxj"]
 [ext_resource type="Texture2D" uid="uid://c5l5blhdraaq" path="res://assets/objects/area_1/cosas_0006_Nuevo-grupo.png" id="13_dd8cn"]
 [ext_resource type="Resource" uid="uid://cdodr052w1u4g" path="res://assets/resources/quests/rana_borracha.tres" id="13_f53t4"]
 [ext_resource type="Texture2D" uid="uid://dd4fyt6v2phq1" path="res://assets/spritesheets/area_1/ranaborracha.png" id="13_sq37t"]
@@ -28,20 +30,23 @@
 [ext_resource type="PackedScene" uid="uid://dip8q5a4jft37" path="res://scenes/enemy_area.tscn" id="15_eeqd0"]
 [ext_resource type="Texture2D" uid="uid://dauoud6mflslm" path="res://assets/objects/area_1/cosas_0000s_0000_maceta.png" id="15_gqf6v"]
 [ext_resource type="Texture2D" uid="uid://dptf2gjym3g38" path="res://assets/objects/area_1/cosas_0008_Nuevo-grupo.png" id="15_k1ob1"]
-[ext_resource type="Script" path="res://scripts/character.gd" id="16_8i388"]
+[ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="16_8i388"]
 [ext_resource type="Texture2D" uid="uid://c8ynw2td8axnp" path="res://assets/objects/area_1/cosas_0009_Nuevo-grupo.png" id="16_701ix"]
-[ext_resource type="Resource" uid="uid://bj1qxnf612jjk" path="res://assets/resources/enemies/silla.tres" id="17_ebwig"]
+[ext_resource type="Script" uid="uid://moxcdo1lwavw" path="res://scripts/item_taker.gd" id="16_mxbwd"]
 [ext_resource type="Texture2D" uid="uid://qy0ndm700dge" path="res://assets/objects/area_1/cosas_0012_Nuevo-grupo.png" id="17_jw0jy"]
-[ext_resource type="Resource" uid="uid://sv50sqn41x38" path="res://assets/resources/enemies/plant_enemy.tres" id="18_481mx"]
 [ext_resource type="AudioStream" uid="uid://cge8amttf6646" path="res://assets/music/hospital.mp3" id="19_s2c26"]
 [ext_resource type="AudioStream" uid="uid://dg8jfiyj6wy8a" path="res://assets/music/enemy_encounter.mp3" id="20_4ogc4"]
 [ext_resource type="Texture2D" uid="uid://clbm3kycuhvh8" path="res://assets/icons/save_star.png" id="32_4trcd"]
-[ext_resource type="Script" path="res://scripts/save_button.gd" id="32_i1jro"]
-[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="34_jsasc"]
-[ext_resource type="Script" path="res://scripts/party_container.gd" id="35_77pkf"]
+[ext_resource type="Script" uid="uid://dct4fb2oheved" path="res://scripts/save_button.gd" id="32_i1jro"]
+[ext_resource type="Script" uid="uid://o5vv2g2a4qjo" path="res://scripts/pause_menu.gd" id="34_jsasc"]
+[ext_resource type="Script" uid="uid://n6sc31err5iu" path="res://scripts/party_container.gd" id="35_77pkf"]
+[ext_resource type="Resource" uid="uid://cym74q2mvjcte" path="res://assets/resources/enemies/serpra.tres" id="36_mxbwd"]
 [ext_resource type="Texture2D" uid="uid://ctb2muwbi50se" path="res://assets/character_portraits/alicia.png" id="36_yrq4c"]
 [ext_resource type="Texture2D" uid="uid://c31kt0h0ajr2y" path="res://assets/objects/cosas_0000s_0000_maceta.png" id="37_4tk2x"]
-[ext_resource type="Script" path="res://scripts/items_container.gd" id="37_be4r7"]
+[ext_resource type="Resource" uid="uid://dhjur3x054uqu" path="res://assets/resources/enemies/lobo_salvaje.tres" id="37_5m0wc"]
+[ext_resource type="Script" uid="uid://7m5muhymwbyq" path="res://scripts/items_container.gd" id="37_be4r7"]
+[ext_resource type="Theme" uid="uid://ctd47cus6kna0" path="res://assets/themes/menu_theme.tres" id="43_cjpfq"]
+[ext_resource type="Script" uid="uid://bnc8iwdoqe33y" path="res://scripts/quests_container.gd" id="43_qch6t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7hm6u"]
 size = Vector2(320, 1835)
@@ -114,6 +119,9 @@ animations = [{
 "name": &"default",
 "speed": 3.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5m0wc"]
+radius = 76.531
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqtun"]
 atlas = ExtResource("9_r82wj")
@@ -317,6 +325,27 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_4fasa"]
 radius = 130.015
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_aopbk"]
+atlas = ExtResource("37_4tk2x")
+region = Rect2(0, 0, 93, 159)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qch6t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aopbk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_20hxs"]
+size = Vector2(74, 27)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aopbk"]
+radius = 76.1643
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4uuda"]
 size = Vector2(144, 42)
 
@@ -352,13 +381,13 @@ clip_1/stream = ExtResource("20_4ogc4")
 clip_1/auto_advance = 0
 _transitions = {
 Vector2i(0, 0): {
-"fade_beats": 1,
+"fade_beats": 1.0,
 "fade_mode": 4,
 "from_time": 3,
 "to_time": 1
 },
 Vector2i(0, 1): {
-"fade_beats": 1,
+"fade_beats": 1.0,
 "fade_mode": 3,
 "from_time": 1,
 "to_time": 0
@@ -466,6 +495,31 @@ autoplay = "default"
 frame_progress = 0.932002
 offset = Vector2(0, -99.51)
 
+[node name="Talk" type="Node2D" parent="Mesero" node_paths=PackedStringArray("talking_area")]
+position = Vector2(-179, 19)
+script = ExtResource("7_b1xsq")
+talking_area = NodePath("Area2D")
+timeline_name = "mesero_bar_1"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="Mesero/Talk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mesero/Talk/Area2D"]
+shape = SubResource("CircleShape2D_5m0wc")
+
+[node name="Quest" type="Node2D" parent="Mesero"]
+position = Vector2(0, 1)
+script = ExtResource("12_jkpxj")
+quest_resource = ExtResource("13_f53t4")
+dialogic_signal = "mesero_bar_q_1"
+metadata/_custom_type_script = "uid://bj1igyevn8g64"
+
+[node name="ItemGiver" type="Node" parent="Mesero"]
+script = ExtResource("10_20hxs")
+item = ExtResource("11_mxbwd")
+dialogic_signal = "mesero_bar_i_1"
+metadata/_custom_type_script = "uid://b0gh7v5xk7w7w"
+
 [node name="WeyBarra" parent="." instance=ExtResource("12_hoddu")]
 position = Vector2(488, 460)
 
@@ -531,7 +585,43 @@ shape = SubResource("CircleShape2D_4fasa")
 
 [node name="Quest" type="Node2D" parent="RanaBorracha"]
 script = ExtResource("12_jkpxj")
-quest = ExtResource("13_f53t4")
+quest_resource = ExtResource("13_f53t4")
+dialogic_signal = "rana_borracha_quest_1"
+
+[node name="ItemTaker" type="Node" parent="RanaBorracha"]
+script = ExtResource("16_mxbwd")
+item = ExtResource("11_mxbwd")
+dialogic_signal = "rana_borracha_irm_1"
+metadata/_custom_type_script = "uid://moxcdo1lwavw"
+
+[node name="Lila" parent="." instance=ExtResource("12_hoddu")]
+position = Vector2(-303, 1215)
+
+[node name="AnimatedSprite2D" parent="Lila" index="0"]
+sprite_frames = SubResource("SpriteFrames_qch6t")
+offset = Vector2(0, -74.275)
+
+[node name="CollisionShape2D" parent="Lila/StaticBody2D" index="1"]
+position = Vector2(-5, -8.5)
+shape = SubResource("RectangleShape2D_20hxs")
+
+[node name="Talk" type="Node2D" parent="Lila" node_paths=PackedStringArray("talking_area")]
+script = ExtResource("7_b1xsq")
+talking_area = NodePath("Area2D")
+timeline_name = "lila_bar_1"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="Lila/Talk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lila/Talk/Area2D"]
+position = Vector2(-4, -21)
+shape = SubResource("CircleShape2D_aopbk")
+
+[node name="Quest" type="Node2D" parent="Lila"]
+script = ExtResource("12_jkpxj")
+quest_resource = ExtResource("13_f53t4")
+dialogic_signal = "lila_bar_q_1"
+metadata/_custom_type_script = "uid://bj1igyevn8g64"
 
 [node name="ObjectLayer" type="Node" parent="."]
 
@@ -730,7 +820,7 @@ shape = SubResource("CircleShape2D_dpxpg")
 
 [node name="EnemyArea" parent="." instance=ExtResource("15_eeqd0")]
 position = Vector2(-684, 96)
-enemies = Array[ExtResource("16_8i388")]([ExtResource("17_ebwig"), ExtResource("18_481mx")])
+enemies = Array[ExtResource("16_8i388")]([ExtResource("36_mxbwd"), ExtResource("37_5m0wc")])
 
 [node name="SavesLayer" type="Node" parent="."]
 
@@ -798,22 +888,27 @@ size_flags_vertical = 0
 
 [node name="Party" type="Button" parent="CanvasLayer/PauseMenu/MarginContainer/HBoxContainer/ButtonContainer"]
 layout_mode = 2
-text = "Equipo"
+theme = ExtResource("43_cjpfq")
+text = "Contactos"
 
 [node name="Items" type="Button" parent="CanvasLayer/PauseMenu/MarginContainer/HBoxContainer/ButtonContainer"]
 layout_mode = 2
+theme = ExtResource("43_cjpfq")
 text = "Objetos"
 
 [node name="Spells" type="Button" parent="CanvasLayer/PauseMenu/MarginContainer/HBoxContainer/ButtonContainer"]
 layout_mode = 2
+theme = ExtResource("43_cjpfq")
 text = "Habilidades"
 
 [node name="Quests" type="Button" parent="CanvasLayer/PauseMenu/MarginContainer/HBoxContainer/ButtonContainer"]
 layout_mode = 2
+theme = ExtResource("43_cjpfq")
 text = "Quests"
 
 [node name="Quit" type="Button" parent="CanvasLayer/PauseMenu/MarginContainer/HBoxContainer/ButtonContainer"]
 layout_mode = 2
+theme = ExtResource("43_cjpfq")
 text = "Salir"
 
 [node name="PartyContainer" type="VBoxContainer" parent="CanvasLayer/PauseMenu/MarginContainer/HBoxContainer"]
@@ -859,6 +954,7 @@ stretch_mode = 5
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/PauseMenu/MarginContainer/HBoxContainer/PartyContainer/HBoxContainer/FocusedCharacter"]
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_uexag")
 text = "Nombre del personaje"
 fit_content = true
@@ -866,8 +962,9 @@ fit_content = true
 [node name="ItemsContainer" type="HBoxContainer" parent="CanvasLayer/PauseMenu/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(900, 0)
+custom_minimum_size = Vector2(1200, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 0
 script = ExtResource("37_be4r7")
 
@@ -899,6 +996,7 @@ stretch_mode = 5
 [node name="ItemName" type="RichTextLabel" parent="CanvasLayer/PauseMenu/MarginContainer/HBoxContainer/ItemsContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_88rkc")
 text = "Nombre del objeto"
 fit_content = true
@@ -906,6 +1004,7 @@ fit_content = true
 [node name="ItemDescription" type="RichTextLabel" parent="CanvasLayer/PauseMenu/MarginContainer/HBoxContainer/ItemsContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_rbx7o")
 text = "Descripción del objeto"
 fit_content = true
@@ -914,18 +1013,21 @@ fit_content = true
 unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
+theme = ExtResource("43_cjpfq")
 text = "Usar"
 
 [node name="TossItem" type="Button" parent="CanvasLayer/PauseMenu/MarginContainer/HBoxContainer/ItemsContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
+theme = ExtResource("43_cjpfq")
 text = "Tirar"
 
 [node name="BackItem" type="Button" parent="CanvasLayer/PauseMenu/MarginContainer/HBoxContainer/ItemsContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
+theme = ExtResource("43_cjpfq")
 text = "Cancelar"
 
 [node name="CharacterItemsScroll" type="ScrollContainer" parent="CanvasLayer/PauseMenu/MarginContainer/HBoxContainer/ItemsContainer"]
@@ -941,6 +1043,14 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="QuestsContainer" type="VBoxContainer" parent="CanvasLayer/PauseMenu/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+script = ExtResource("43_qch6t")
 
 [node name="BlackRect" type="ColorRect" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -959,6 +1069,7 @@ color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="CanvasLayer/PauseMenu/MarginContainer/HBoxContainer/ButtonContainer/Party" to="CanvasLayer/PauseMenu" method="_on_party_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/MarginContainer/HBoxContainer/ButtonContainer/Items" to="CanvasLayer/PauseMenu" method="_on_items_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/MarginContainer/HBoxContainer/ButtonContainer/Quests" to="CanvasLayer/PauseMenu" method="_on_quests_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/MarginContainer/HBoxContainer/ItemsContainer/VBoxContainer/UseItem" to="CanvasLayer/PauseMenu/MarginContainer/HBoxContainer/ItemsContainer" method="_on_use_item_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/MarginContainer/HBoxContainer/ItemsContainer/VBoxContainer/TossItem" to="CanvasLayer/PauseMenu/MarginContainer/HBoxContainer/ItemsContainer" method="_on_toss_item_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/MarginContainer/HBoxContainer/ItemsContainer/VBoxContainer/BackItem" to="CanvasLayer/PauseMenu/MarginContainer/HBoxContainer/ItemsContainer" method="_on_back_item_pressed"]
@@ -968,6 +1079,7 @@ color = Color(0, 0, 0, 1)
 [editable path="TecladoPlayer"]
 [editable path="Cantante"]
 [editable path="RanaBorracha"]
+[editable path="Lila"]
 [editable path="Objeto"]
 [editable path="Synth"]
 [editable path="MesitaSilla"]

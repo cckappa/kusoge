@@ -8,6 +8,8 @@ extends Resource
 	"HEAL", 
 	"BUFF", 
 	"REVIVE",
+	"DAMAGE",
+	"DEBUFF",
 	"KEY"
 	) var type: String = "HEAL"
 
@@ -18,6 +20,7 @@ func remove_from_items(amount:int=1) -> void:
 		Items.item_list[identifier].total -= amount
 		if Items.item_list[identifier].total <= 0:
 			Items.item_list.erase(identifier)  
+	SignalBus.emit_signal("item_removed", self)
 
 func add_to_items(amount:int=1) -> void:
 	if identifier in Items.item_list:
@@ -28,6 +31,7 @@ func add_to_items(amount:int=1) -> void:
 			"total": amount
 		}
 		Items.item_list[identifier] = new_entry
+	SignalBus.emit_signal("item_added", self)
 
 func use_item(targets: Array = [])->void:
 	item_effect.apply_effect(targets)

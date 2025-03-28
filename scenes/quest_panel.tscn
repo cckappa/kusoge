@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://b58hwh3udgenr"]
+
+[ext_resource type="Texture2D" uid="uid://ctb2muwbi50se" path="res://assets/character_portraits/alicia.png" id="1_ftbat"]
+[ext_resource type="Script" uid="uid://bvrnjjgfc1ox2" path="res://scripts/quest_panel.gd" id="1_hu55q"]
+
+[node name="QuestPanel" type="PanelContainer"]
+offset_right = 349.0
+offset_bottom = 123.0
+size_flags_vertical = 3
+script = ExtResource("1_hu55q")
+
+[node name="SelectedButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="QuestTitle" type="RichTextLabel" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 36
+text = "Nombre Quest"
+fit_content = true
+
+[node name="QuestGoal" type="RichTextLabel" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 36
+text = "Goal Goal goal"
+fit_content = true
+
+[node name="QuestDescription" type="RichTextLabel" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 36
+text = "Descripcion descripcion descripcion"
+fit_content = true
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="QuestGiverTexture" type="TextureRect" parent="HBoxContainer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("1_ftbat")
+expand_mode = 1
+stretch_mode = 4

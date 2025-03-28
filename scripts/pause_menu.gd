@@ -3,6 +3,7 @@ extends Control
 @onready var button_container := %ButtonContainer
 @onready var party_container := %PartyContainer
 @onready var items_container := %ItemsContainer
+@onready var quests_container := %QuestsContainer
 @onready var favorite_container := %FavoriteContainer
 @onready var character_items_container := %CharacterItemsContainer
 @onready var character_items_scroll := %CharacterItemsScroll
@@ -11,10 +12,19 @@ extends Control
 @onready var back_item := %BackItem
 @onready var items := %Items
 
+var on_dialogic:=false
 var menu_level:=0
 
 func _ready() -> void:
+	SignalBus.connect("starts_talking", starts_talking)
+	SignalBus.connect("stops_talking", stops_talking)
 	items_container.connect("advance_menu", set_menu_level)
+
+func starts_talking() -> void:
+	on_dialogic = true
+
+func stops_talking() -> void:
+	on_dialogic = false
 
 func toggle_menu() -> void:
 	visible = not visible
@@ -24,6 +34,7 @@ func toggle_menu() -> void:
 	else:
 		party_container.visible = false
 		items_container.visible = false
+		quests_container.visible = false
 		character_items_scroll.visible = false
 		for item_button in items.get_children():
 			item_button.focus_mode = Control.FOCUS_ALL
@@ -35,7 +46,7 @@ func toggle_menu() -> void:
 	get_tree().paused = not get_tree().paused
 
 func _input(event:InputEvent) -> void:
-	if event.is_action_pressed("pause"):
+	if event.is_action_pressed("pause") and not on_dialogic:
 		toggle_menu()
 	
 	if event.is_action_pressed("ui_cancel"):
@@ -64,6 +75,13 @@ func _on_items_pressed() -> void:
 	if items_container.find_child("Items").get_child_count() > 0:
 		items_container.find_child("Items").get_child(0).grab_focus()
 
+func _on_quests_pressed() -> void:
+	menu_level = 1
+	quests_container.visible = true
+	unselect_first_menu()
+	if quests_container.get_child_count() > 0:
+		quests_container.get_child(0).focus()
+
 func select_first_menu() -> void:
 	for button in button_container.get_children():
 		button.focus_mode = Control.FOCUS_ALL
@@ -76,6 +94,7 @@ func unselect_first_menu() -> void:
 func close_second_menu() -> void:
 	party_container.visible = false
 	items_container.visible = false
+	quests_container.visible = false
 
 func close_fourth_menu() -> void:
 	menu_level = 2
@@ -85,3 +104,5 @@ func close_fourth_menu() -> void:
 		toss_item.focus_mode = Control.FOCUS_ALL
 		back_item.focus_mode = Control.FOCUS_ALL
 		use_item.grab_focus()
+
+

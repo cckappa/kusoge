@@ -1,13 +1,13 @@
 [gd_scene load_steps=49 format=3 uid="uid://cc852y6dvkcdr"]
 
-[ext_resource type="Script" path="res://scripts/playable_character.gd" id="1_vne8f"]
+[ext_resource type="Script" uid="uid://caf516xcaglfd" path="res://scripts/playable_character.gd" id="1_vne8f"]
 [ext_resource type="Resource" uid="uid://jr2yuolebha7" path="res://assets/resources/conejitx.tres" id="2_dcwwv"]
-[ext_resource type="Script" path="res://scripts/state_machine.gd" id="3_3n386"]
-[ext_resource type="Script" path="res://scripts/running.gd" id="4_chw2b"]
-[ext_resource type="Script" path="res://scripts/dashing.gd" id="6_e3jlj"]
-[ext_resource type="Script" path="res://scripts/idle.gd" id="6_u7i7p"]
-[ext_resource type="Script" path="res://scripts/talking.gd" id="7_b6wb8"]
-[ext_resource type="Script" path="res://scripts/caught.gd" id="8_t6g47"]
+[ext_resource type="Script" uid="uid://ccrejrbg32784" path="res://scripts/state_machine.gd" id="3_3n386"]
+[ext_resource type="Script" uid="uid://b78nxfgnqa1df" path="res://scripts/running.gd" id="4_chw2b"]
+[ext_resource type="Script" uid="uid://b7gak0wosifk1" path="res://scripts/dashing.gd" id="6_e3jlj"]
+[ext_resource type="Script" uid="uid://b4hewou0keeoj" path="res://scripts/idle.gd" id="6_u7i7p"]
+[ext_resource type="Script" uid="uid://bl0efmofi3rpl" path="res://scripts/talking.gd" id="7_b6wb8"]
+[ext_resource type="Script" uid="uid://gbw5ahaja4ur" path="res://scripts/caught.gd" id="8_t6g47"]
 [ext_resource type="SpriteFrames" uid="uid://dn6f35ymsph40" path="res://assets/spritesheets/mona_sprite_frames.tres" id="9_7exwx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_khea8"]
@@ -299,19 +299,19 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6unp3"]
 _data = {
-"RESET": SubResource("Animation_hqthg"),
-"dash_down": SubResource("Animation_kxj7c"),
-"dash_left": SubResource("Animation_hcexq"),
-"dash_right": SubResource("Animation_3pmbk"),
-"dash_up": SubResource("Animation_lo4xp"),
-"idle_down": SubResource("Animation_qa5w1"),
-"idle_left": SubResource("Animation_ip75f"),
-"idle_right": SubResource("Animation_agxjn"),
-"idle_up": SubResource("Animation_nahav"),
-"move_down": SubResource("Animation_bfygw"),
-"move_left": SubResource("Animation_hwfi6"),
-"move_right": SubResource("Animation_ij3g2"),
-"move_up": SubResource("Animation_5wquw")
+&"RESET": SubResource("Animation_hqthg"),
+&"dash_down": SubResource("Animation_kxj7c"),
+&"dash_left": SubResource("Animation_hcexq"),
+&"dash_right": SubResource("Animation_3pmbk"),
+&"dash_up": SubResource("Animation_lo4xp"),
+&"idle_down": SubResource("Animation_qa5w1"),
+&"idle_left": SubResource("Animation_ip75f"),
+&"idle_right": SubResource("Animation_agxjn"),
+&"idle_up": SubResource("Animation_nahav"),
+&"move_down": SubResource("Animation_bfygw"),
+&"move_left": SubResource("Animation_hwfi6"),
+&"move_right": SubResource("Animation_ij3g2"),
+&"move_up": SubResource("Animation_5wquw")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8gbgt"]
@@ -417,7 +417,7 @@ states/End/position = Vector2(722, 111)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_i8jlg")
 states/Idle/position = Vector2(439, 32)
 states/Move/node = SubResource("AnimationNodeBlendSpace2D_1cu6j")
-states/Move/position = Vector2(329, 169)
+states/Move/position = Vector2(331, 169)
 states/Start/position = Vector2(213, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_a88c5"), "Idle", "Move", SubResource("AnimationNodeStateMachineTransition_amupv"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_4biik"), "Idle", "Dash", SubResource("AnimationNodeStateMachineTransition_1c1ix"), "Dash", "Idle", SubResource("AnimationNodeStateMachineTransition_u38c3"), "Dash", "Move", SubResource("AnimationNodeStateMachineTransition_hujfv"), "Move", "Dash", SubResource("AnimationNodeStateMachineTransition_1rsed")]
 
@@ -465,12 +465,12 @@ sprite_frames = ExtResource("9_7exwx")
 offset = Vector2(0, -98)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.5, 0.5)
+position_smoothing_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_6unp3")
+&"": SubResource("AnimationLibrary_6unp3")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

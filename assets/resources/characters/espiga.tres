@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Character" load_steps=9 format=3 uid="uid://dw2nd8yp0anh1"]
 
-[ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_jgxa0"]
-[ext_resource type="Script" path="res://scripts/items/item.gd" id="2_exmd2"]
+[ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_jgxa0"]
+[ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_exmd2"]
 [ext_resource type="Resource" uid="uid://cral6nawbndl0" path="res://assets/resources/abilities/fireball.tres" id="2_kaqom"]
 [ext_resource type="Resource" uid="uid://ct5dshx02d4l0" path="res://assets/resources/abilities/focused_healing.tres" id="3_1non2"]
-[ext_resource type="Script" path="res://scripts/character.gd" id="3_apdnw"]
+[ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="3_apdnw"]
 [ext_resource type="Resource" uid="uid://b4hl0uorngix0" path="res://assets/resources/abilities/patada.tres" id="4_pj3j1"]
 [ext_resource type="Resource" uid="uid://ikrsihnyo6wj" path="res://assets/resources/abilities/electro_shock.tres" id="5_6d38s"]
 [ext_resource type="Texture2D" uid="uid://d30mwsy67g10e" path="res://assets/character_portraits/espiga.png" id="6_r1spq"]
@@ -13,9 +13,10 @@
 script = ExtResource("3_apdnw")
 name = "Espiga"
 character_portrait = ExtResource("6_r1spq")
+max_hp = 70
+unlocked = true
+type = "NORMAL"
 abilities = Array[ExtResource("1_jgxa0")]([ExtResource("2_kaqom"), ExtResource("3_1non2"), ExtResource("4_pj3j1"), ExtResource("5_6d38s")])
 loot = Array[ExtResource("2_exmd2")]([])
 min_loot = 0
 max_loot = 1
-max_hp = 70
-type = "NORMAL"

@@ -14,7 +14,6 @@ func set_info(character:Character) -> void:
 	rich_text_label.text = character.name
 	texture_rect.texture = character.character_portrait
 
-
 func _on_selected_button_focus_entered() -> void:
 	emit_signal("focused")
 

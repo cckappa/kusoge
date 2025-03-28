@@ -1,20 +1,22 @@
-[gd_scene load_steps=23 format=3 uid="uid://cn7cxbug5sjey"]
+[gd_scene load_steps=25 format=3 uid="uid://cn7cxbug5sjey"]
 
-[ext_resource type="Script" path="res://scripts/battle.gd" id="1_8mi71"]
-[ext_resource type="Script" path="res://scripts/battle_manager.gd" id="2_o8ur5"]
-[ext_resource type="Script" path="res://scripts/player_actions_manager.gd" id="3_76qsu"]
-[ext_resource type="Script" path="res://scripts/battle_actions_manager.gd" id="3_crp7d"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="3_rw2uy"]
-[ext_resource type="Script" path="res://scripts/character_portraits.gd" id="3_s5yx3"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/parallel_state.gd" id="4_pxudf"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="5_3uyq7"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="6_7by8j"]
+[ext_resource type="Script" uid="uid://1et7n8ftkqn" path="res://scripts/battle.gd" id="1_8mi71"]
+[ext_resource type="Script" uid="uid://bt86h2wsa5yga" path="res://scripts/battle_manager.gd" id="2_o8ur5"]
+[ext_resource type="Script" uid="uid://bwsprgc2t4e3r" path="res://scripts/player_actions_manager.gd" id="3_76qsu"]
+[ext_resource type="Script" uid="uid://dq66xwacvlwrn" path="res://scripts/battle_actions_manager.gd" id="3_crp7d"]
+[ext_resource type="Script" uid="uid://beban6aiggccg" path="res://addons/godot_state_charts/state_chart.gd" id="3_rw2uy"]
+[ext_resource type="Script" uid="uid://c3i60y0n4oge7" path="res://scripts/character_portraits.gd" id="3_s5yx3"]
+[ext_resource type="Script" uid="uid://svsws4uho6ta" path="res://addons/godot_state_charts/parallel_state.gd" id="4_pxudf"]
+[ext_resource type="Script" uid="uid://dbur5kxlm3tgp" path="res://addons/godot_state_charts/compound_state.gd" id="5_3uyq7"]
+[ext_resource type="Script" uid="uid://cmbxtlw1gkgq4" path="res://addons/godot_state_charts/atomic_state.gd" id="6_7by8j"]
 [ext_resource type="Texture2D" uid="uid://c1p3mdt7qyydq" path="res://assets/character_portraits/front_main_character.png" id="6_57hxh"]
-[ext_resource type="Script" path="res://scripts/active_character.gd" id="7_aqbom"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="8_xgf7e"]
-[ext_resource type="Script" path="res://scripts/attack_list.gd" id="9_6jgr0"]
-[ext_resource type="Script" path="res://scripts/enemy_actions_manager.gd" id="9_iipir"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/expression_guard.gd" id="11_37w08"]
+[ext_resource type="Script" uid="uid://cn00rymky0sbd" path="res://scripts/active_character.gd" id="7_aqbom"]
+[ext_resource type="Script" uid="uid://cxhlaiebwpuaq" path="res://addons/godot_state_charts/transition.gd" id="8_xgf7e"]
+[ext_resource type="Script" uid="uid://dt1jg2wv2ifbv" path="res://scripts/attack_list.gd" id="9_6jgr0"]
+[ext_resource type="Script" uid="uid://cdydn3qqap645" path="res://scripts/enemy_actions_manager.gd" id="9_iipir"]
+[ext_resource type="Script" uid="uid://4nnsn5mhe72h" path="res://addons/godot_state_charts/expression_guard.gd" id="11_37w08"]
+[ext_resource type="Script" uid="uid://w1q0g87ukki2" path="res://scripts/enemy_portraits.gd" id="12_p0caf"]
+[ext_resource type="Theme" uid="uid://ctd47cus6kna0" path="res://assets/themes/menu_theme.tres" id="17_61i1y"]
 [ext_resource type="AudioStream" uid="uid://3vetx47tyh7f" path="res://assets/music/earthbound_battle_theme.mp3" id="30_xgp4q"]
 [ext_resource type="AudioStream" uid="uid://b324qislhpfci" path="res://assets/music/victory_fanfare.mp3" id="31_681md"]
 [ext_resource type="AudioStream" uid="uid://cbw1lvt4yiqbe" path="res://assets/music/lost_battle.mp3" id="32_rw4tp"]
@@ -47,13 +49,13 @@ clip_2/auto_advance = 1
 clip_2/next_clip = 2
 _transitions = {
 Vector2i(0, 1): {
-"fade_beats": 2,
+"fade_beats": 2.0,
 "fade_mode": 3,
 "from_time": 1,
 "to_time": 1
 },
 Vector2i(0, 2): {
-"fade_beats": 2,
+"fade_beats": 2.0,
 "fade_mode": 3,
 "from_time": 1,
 "to_time": 1
@@ -68,8 +70,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8mi71")
-character_portraits = NodePath("AllyPortraits")
-enemy_portraits = NodePath("EnemyPortraits")
+character_portraits = NodePath("FightContainer/AllyPortraits")
+enemy_portraits = NodePath("FightContainer/EnemyPortraits")
 
 [node name="BattleManager" type="Node" parent="."]
 script = ExtResource("2_o8ur5")
@@ -119,6 +121,12 @@ to = NodePath("../../Inhabilitating")
 event = &"inhabilitated"
 delay_in_seconds = "0.0"
 
+[node name="ToTargetSelectingItem" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Selecting"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../TargetSelectingItem")
+event = &"target_select_item"
+delay_in_seconds = "0.0"
+
 [node name="TargetSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions"]
 script = ExtResource("6_7by8j")
 
@@ -140,6 +148,27 @@ to = NodePath("../../Selecting")
 event = &"repeat_select"
 delay_in_seconds = "0.0"
 
+[node name="TargetSelectingItem" type="Node" parent="BattleManager/StateChart/Root/PlayerActions"]
+script = ExtResource("6_7by8j")
+
+[node name="ToInhabilitating" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/TargetSelectingItem"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../Inhabilitating")
+event = &"inhabilitated"
+delay_in_seconds = "0.0"
+
+[node name="ToSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/TargetSelectingItem"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../Selecting")
+event = &"repeat_select"
+delay_in_seconds = "0.0"
+
+[node name="ToIteming" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/TargetSelectingItem"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../Iteming")
+event = &"using_item"
+delay_in_seconds = "0.0"
+
 [node name="Abilitying" type="Node" parent="BattleManager/StateChart/Root/PlayerActions"]
 script = ExtResource("6_7by8j")
 
@@ -153,6 +182,21 @@ delay_in_seconds = "0.0"
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Inhabilitating")
 event = &"inhabilitated"
+delay_in_seconds = "0.0"
+
+[node name="Iteming" type="Node" parent="BattleManager/StateChart/Root/PlayerActions"]
+script = ExtResource("6_7by8j")
+
+[node name="ToInhabilitating" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Iteming"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../Inhabilitating")
+event = &"inhabilitated"
+delay_in_seconds = "0.0"
+
+[node name="ToSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Iteming"]
+script = ExtResource("8_xgf7e")
+to = NodePath("../../Selecting")
+event = &"repeat_select"
 delay_in_seconds = "0.0"
 
 [node name="Inhabilitating" type="Node" parent="BattleManager/StateChart/Root/PlayerActions"]
@@ -296,32 +340,31 @@ layout_mode = 2
 text = "Pelear
 "
 
-[node name="EnemyPortraits" type="HBoxContainer" parent="."]
+[node name="FightContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -925.0
-offset_top = -476.0
-offset_right = 925.0
-offset_bottom = 13.0
+offset_left = -625.0
+offset_top = -481.5
+offset_right = 625.0
+offset_bottom = 481.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 150
+
+[node name="EnemyPortraits" type="HBoxContainer" parent="FightContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 theme_override_constants/separation = 50
 alignment = 1
+script = ExtResource("12_p0caf")
 
-[node name="AllyPortraits" type="HBoxContainer" parent="."]
+[node name="AllyPortraits" type="HBoxContainer" parent="FightContainer"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -365.0
-grow_horizontal = 2
-grow_vertical = 0
+layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 25
 alignment = 1
@@ -355,6 +398,7 @@ layout_mode = 2
 text = "MENU"
 
 [node name="AttackList" type="VBoxContainer" parent="." groups=["attack_list"]]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -407,15 +451,38 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = 10.0
-offset_right = 40.0
-offset_bottom = 41.0
+offset_left = -81.0
+offset_top = 16.0
+offset_right = 81.0
+offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("17_61i1y")
 text = "Siguiente"
 
-[node name="win_text" type="RichTextLabel" parent="."]
+[node name="LootText" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1074.0
+offset_top = -611.0
+offset_right = -142.0
+offset_bottom = 652.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 68
+text = "Recibes:
+"
+fit_content = true
+vertical_alignment = 1
+
+[node name="WinText" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -423,16 +490,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -98.0
-offset_top = -21.5
-offset_right = 98.0
-offset_bottom = 21.5
+offset_left = -225.5
+offset_top = -71.5
+offset_right = 225.5
+offset_bottom = 71.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 64
 bbcode_enabled = true
 text = "[center]GANASTE!"
 
-[node name="lose_text" type="RichTextLabel" parent="."]
+[node name="LoseText" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -440,12 +509,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -98.0
-offset_top = -21.5
-offset_right = 98.0
-offset_bottom = 21.5
+offset_left = -261.0
+offset_top = -73.0
+offset_right = 262.0
+offset_bottom = 57.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 64
 bbcode_enabled = true
 text = "[center]PERDISTE :C"
 
@@ -471,7 +541,9 @@ bus = &"Music"
 [connection signal="state_entered" from="BattleManager/StateChart/Root/PlayerActions/Selecting" to="BattleManager/PlayerActionsManager" method="_on_selecting_state_entered"]
 [connection signal="state_input" from="BattleManager/StateChart/Root/PlayerActions/Selecting" to="BattleManager/PlayerActionsManager" method="_on_selecting_state_input"]
 [connection signal="state_entered" from="BattleManager/StateChart/Root/PlayerActions/TargetSelecting" to="BattleManager/PlayerActionsManager" method="_on_target_selecting_state_entered"]
+[connection signal="state_entered" from="BattleManager/StateChart/Root/PlayerActions/TargetSelectingItem" to="BattleManager/PlayerActionsManager" method="_on_target_selecting_item_state_entered"]
 [connection signal="state_entered" from="BattleManager/StateChart/Root/PlayerActions/Abilitying" to="BattleManager/PlayerActionsManager" method="_on_abilitying_state_entered"]
+[connection signal="state_entered" from="BattleManager/StateChart/Root/PlayerActions/Iteming" to="BattleManager/PlayerActionsManager" method="_on_iteming_state_entered"]
 [connection signal="state_entered" from="BattleManager/StateChart/Root/PlayerActions/Inhabilitating" to="BattleManager/PlayerActionsManager" method="_on_inhabilitating_state_entered"]
 [connection signal="state_entered" from="BattleManager/StateChart/Root/PlayerActions/Losing" to="BattleManager/PlayerActionsManager" method="_on_losing_state_entered"]
 [connection signal="state_entered" from="BattleManager/StateChart/Root/PlayerActions/Winning" to="BattleManager/PlayerActionsManager" method="_on_winning_state_entered"]

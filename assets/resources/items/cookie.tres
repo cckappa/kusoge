@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://fxibbhftjw5n"]
 
-[ext_resource type="Script" path="res://scripts/items/heal_effect_item.gd" id="1_krlmw"]
-[ext_resource type="Script" path="res://scripts/items/item.gd" id="1_whbwt"]
+[ext_resource type="Script" uid="uid://cit3hwc5xts8m" path="res://scripts/items/heal_effect_item.gd" id="1_krlmw"]
+[ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="1_whbwt"]
 
 [sub_resource type="Resource" id="Resource_kgw1t"]
 script = ExtResource("1_krlmw")

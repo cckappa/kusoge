@@ -1,9 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://cg1k4melt1rnk"]
 
-[ext_resource type="Script" path="res://scripts/character_item.gd" id="1_iwcbr"]
+[ext_resource type="Script" uid="uid://tlpyiootj4fq" path="res://scripts/character_item.gd" id="1_iwcbr"]
 [ext_resource type="Texture2D" uid="uid://ctb2muwbi50se" path="res://assets/character_portraits/alicia.png" id="1_x5n0o"]
 
 [node name="CharacterItem" type="PanelContainer"]
+offset_right = 243.0
+offset_bottom = 46.0
 script = ExtResource("1_iwcbr")
 
 [node name="SelectedButton" type="Button" parent="."]
@@ -27,6 +29,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.05
+theme_override_font_sizes/normal_font_size = 36
 text = "Nombre personaje"
 fit_content = true
 
@@ -34,6 +37,7 @@ fit_content = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 36
 text = "40/70"
 fit_content = true
 
