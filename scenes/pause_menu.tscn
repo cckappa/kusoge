@@ -1,0 +1,236 @@
+[gd_scene load_steps=11 format=3 uid="uid://ci5a44r0l16fy"]
+
+[ext_resource type="Script" uid="uid://o5vv2g2a4qjo" path="res://scripts/pause_menu.gd" id="1_1s2dm"]
+[ext_resource type="Theme" uid="uid://ctd47cus6kna0" path="res://assets/themes/menu_theme.tres" id="2_88e76"]
+[ext_resource type="Script" uid="uid://n6sc31err5iu" path="res://scripts/party_container.gd" id="3_knqa7"]
+[ext_resource type="Texture2D" uid="uid://ctb2muwbi50se" path="res://assets/character_portraits/alicia.png" id="4_71k7c"]
+[ext_resource type="Script" uid="uid://7m5muhymwbyq" path="res://scripts/items_container.gd" id="5_cmnsq"]
+[ext_resource type="Texture2D" uid="uid://c31kt0h0ajr2y" path="res://assets/objects/cosas_0000s_0000_maceta.png" id="6_ofnjo"]
+[ext_resource type="Script" uid="uid://bnc8iwdoqe33y" path="res://scripts/quests_container.gd" id="7_1rgno"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uexag"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.156863, 0.164706, 0.2, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88rkc"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.239216, 0.239216, 0.239216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbx7o"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.239216, 0.239216, 0.239216, 1)
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1s2dm")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ButtonContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Party" type="Button" parent="MarginContainer/HBoxContainer/ButtonContainer"]
+layout_mode = 2
+theme = ExtResource("2_88e76")
+text = "Contactos"
+
+[node name="Items" type="Button" parent="MarginContainer/HBoxContainer/ButtonContainer"]
+layout_mode = 2
+theme = ExtResource("2_88e76")
+text = "Objetos"
+
+[node name="Spells" type="Button" parent="MarginContainer/HBoxContainer/ButtonContainer"]
+layout_mode = 2
+theme = ExtResource("2_88e76")
+text = "Habilidades"
+
+[node name="Quests" type="Button" parent="MarginContainer/HBoxContainer/ButtonContainer"]
+layout_mode = 2
+theme = ExtResource("2_88e76")
+text = "Quests"
+
+[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/ButtonContainer"]
+layout_mode = 2
+theme = ExtResource("2_88e76")
+text = "Salir"
+
+[node name="PartyContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+script = ExtResource("3_knqa7")
+
+[node name="FavoriteContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/PartyContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+columns = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/PartyContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/PartyContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.5
+
+[node name="ContactList" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PartyContainer/HBoxContainer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FocusedCharacter" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PartyContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/PartyContainer/HBoxContainer/FocusedCharacter"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/PartyContainer/HBoxContainer/FocusedCharacter/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("4_71k7c")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/PartyContainer/HBoxContainer/FocusedCharacter"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_uexag")
+text = "Nombre del personaje"
+fit_content = true
+
+[node name="ItemsContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(1200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+script = ExtResource("5_cmnsq")
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/ItemsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.2
+
+[node name="Items" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ItemsContainer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ItemsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.55
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/ItemsContainer/VBoxContainer"]
+visible = false
+clip_contents = true
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/ItemsContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("6_ofnjo")
+stretch_mode = 5
+
+[node name="ItemName" type="RichTextLabel" parent="MarginContainer/HBoxContainer/ItemsContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_88rkc")
+text = "Nombre del objeto"
+fit_content = true
+
+[node name="ItemDescription" type="RichTextLabel" parent="MarginContainer/HBoxContainer/ItemsContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbx7o")
+text = "Descripción del objeto"
+fit_content = true
+
+[node name="UseItem" type="Button" parent="MarginContainer/HBoxContainer/ItemsContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_88e76")
+text = "Usar"
+
+[node name="TossItem" type="Button" parent="MarginContainer/HBoxContainer/ItemsContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_88e76")
+text = "Tirar"
+
+[node name="BackItem" type="Button" parent="MarginContainer/HBoxContainer/ItemsContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_88e76")
+text = "Cancelar"
+
+[node name="CharacterItemsScroll" type="ScrollContainer" parent="MarginContainer/HBoxContainer/ItemsContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="CharacterItemsContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ItemsContainer/CharacterItemsScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="QuestsContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+script = ExtResource("7_1rgno")
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/ButtonContainer/Party" to="." method="_on_party_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/ButtonContainer/Items" to="." method="_on_items_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/ButtonContainer/Quests" to="." method="_on_quests_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/ItemsContainer/VBoxContainer/UseItem" to="MarginContainer/HBoxContainer/ItemsContainer" method="_on_use_item_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/ItemsContainer/VBoxContainer/TossItem" to="MarginContainer/HBoxContainer/ItemsContainer" method="_on_toss_item_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/ItemsContainer/VBoxContainer/BackItem" to="MarginContainer/HBoxContainer/ItemsContainer" method="_on_back_item_pressed"]

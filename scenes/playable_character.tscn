@@ -465,6 +465,8 @@ sprite_frames = ExtResource("9_7exwx")
 offset = Vector2(0, -98)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -340)
+zoom = Vector2(1.2, 1.2)
 position_smoothing_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

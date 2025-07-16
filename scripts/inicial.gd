@@ -1,7 +1,6 @@
 extends BaseScene
 
-@onready var audio_stream_player := %AudioStreamPlayer
-@onready var black_rect := %BlackRect
+@export var black_rect : ColorRect
 
 var battle_scene: String = "res://scenes/battle.tscn" 
 
