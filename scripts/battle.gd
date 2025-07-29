@@ -11,6 +11,7 @@ extends Control
 
 var inicial_scene: String = "res://scenes/inicial.tscn"
 var main_scene:String = "res://scenes/inicio_menu.tscn"
+var demo_scene:String = "res://scenes/prueba_mapa.tscn"
 var character_container_size := Vector2(125, 0)
 const ENEMY_CONTAINER = preload("res://scenes/enemy_container.tscn")
 
@@ -94,11 +95,17 @@ func add_enemies() -> void:
 
 
 func _on_next_pressed() -> void:
-	setup_cambiar("cambiar_principal")
+	if ProjectSettings.get_setting("application/config/version") == "demo":
+		setup_cambiar("cambiar_demo")
+	else:
+		setup_cambiar("cambiar_principal")
 
 func _on_continue_button_pressed() -> void:
 	Globals.reset_lives()
-	setup_cambiar("cambiar_principal")
+	if ProjectSettings.get_setting("application/config/version") == "demo":
+		setup_cambiar("cambiar_demo")
+	else:
+		setup_cambiar("cambiar_principal")
 
 func _on_quit_pressed() -> void:
 	Globals.reset_lives()
@@ -113,3 +120,6 @@ func cambiar_principal() -> void:
 
 func cambiar_main() -> void:
 	get_tree().change_scene_to_file(main_scene)
+
+func cambiar_demo() -> void:
+	get_tree().change_scene_to_file(demo_scene)

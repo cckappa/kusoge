@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="kusoge"
+config/version="demo"
 config/tags=PackedStringArray("current")
 run/main_scene="res://scenes/inicio_menu.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
@@ -27,6 +28,7 @@ Functions="*res://scripts/functions.gd"
 Globals="*res://scripts/globals.gd"
 Items="*res://scripts/items.gd"
 Quests="*res://scripts/quests.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [debug]
 
@@ -44,7 +46,8 @@ directories/dtl_directory={
 "obj_notebook_hospital": "res://dialogic/timelines/obj_notebook_hospital.dtl",
 "obj_table_hospital": "res://dialogic/timelines/obj_table_hospital.dtl",
 "rana_borracha_bar_1": "res://dialogic/timelines/area_1/rana_borracha_bar_1.dtl",
-"save_bar": "res://dialogic/timelines/area_1/save_bar.dtl"
+"save_bar": "res://dialogic/timelines/area_1/save_bar.dtl",
+"zona_batallas_demo": "res://dialogic/timelines/tests/prueba_mapa/zona_batallas_demo.dtl"
 }
 variables={
 "Quests": {
@@ -68,7 +71,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/script-ide/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [global_group]
 
@@ -170,6 +173,16 @@ back={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":9,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_9="CamBot"
+2d_physics/layer_10="CamLeft"
+2d_physics/layer_11="CamRight"
+
+[physics]
+
+common/physics_interpolation=true
 
 [rendering]
 

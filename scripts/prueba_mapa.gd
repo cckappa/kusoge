@@ -2,7 +2,7 @@ extends BaseScene
 
 @export var black_rect : ColorRect
 
-# var battle_scene: String = "res://scenes/battle.tscn" 
+var battle_scene: String = "res://scenes/battle.tscn" 
 
 func _ready_scene() -> void:
 	SignalBus.connect("wild_enemy_encounter", setup_battle)
@@ -12,9 +12,10 @@ func _ready_scene() -> void:
 func setup_battle() -> void:
 	audio_stream_player.set("parameters/switch_to_clip", "EnemyEncounter")
 	black_rect.visible = true
+	print("Setting up battle...")
 
 	await Functions.fade_color_rect(black_rect, "IN", 0.5)
 	call_deferred("start_battle")
 
-# func start_battle() -> void:
-	# get_tree().change_scene_to_file(battle_scene)
+func start_battle() -> void:
+	get_tree().change_scene_to_file(battle_scene)

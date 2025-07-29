@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://kbksb8d4m84c"]
+
+[ext_resource type="Script" uid="uid://bsi8pvr2sp247" path="res://scripts/camera_2d.gd" id="1_nhhqu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kuq5q"]
+size = Vector2(220, 1014.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbscf"]
+size = Vector2(1597, 227)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8x6h"]
+size = Vector2(1603, 220)
+
+[node name="Camera2D" type="Camera2D"]
+zoom = Vector2(1.2, 1.2)
+drag_left_margin = 0.92
+drag_top_margin = 0.0
+drag_right_margin = 0.92
+drag_bottom_margin = 0.53
+editor_draw_drag_margin = true
+script = ExtResource("1_nhhqu")
+
+[node name="Area2DBottom" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 256
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DBottom"]
+position = Vector2(0, 400.75)
+shape = SubResource("RectangleShape2D_kuq5q")
+
+[node name="Area2DLeft" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DLeft"]
+position = Vector2(-804, 226.5)
+shape = SubResource("RectangleShape2D_vbscf")
+
+[node name="Area2DRight" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DRight"]
+position = Vector2(796, 221)
+shape = SubResource("RectangleShape2D_h8x6h")
+
+[connection signal="area_entered" from="Area2DBottom" to="." method="_on_area_2d_bottom_area_entered"]
+[connection signal="area_exited" from="Area2DBottom" to="." method="_on_area_2d_bottom_area_exited"]
+[connection signal="area_entered" from="Area2DLeft" to="." method="_on_area_2d_left_area_entered"]
+[connection signal="area_exited" from="Area2DLeft" to="." method="_on_area_2d_left_area_exited"]
+[connection signal="area_entered" from="Area2DRight" to="." method="_on_area_2d_right_area_entered"]
+[connection signal="area_exited" from="Area2DRight" to="." method="_on_area_2d_right_area_exited"]

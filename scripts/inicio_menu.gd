@@ -1,6 +1,7 @@
 extends Control
 
 const inicial := preload("res://scenes/inicial.tscn")
+const demo_scene := preload("res://scenes/prueba_mapa.tscn")
 @export var play:Button
 @export var settings:Button
 @export var settings_menu:Control
@@ -18,7 +19,10 @@ func _ready()->void:
 
 func start_game()->void:
 	await Functions.fade_color_rect(black_rect, "IN", 2)
-	get_tree().change_scene_to_packed(inicial)
+	if ProjectSettings.get_setting("application/config/version") == "demo":
+		get_tree().change_scene_to_packed(demo_scene)
+	else:
+		get_tree().change_scene_to_packed(inicial)
 
 func open_settings() -> void:
 	settings_menu.visible = true
