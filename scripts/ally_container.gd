@@ -9,7 +9,7 @@ signal back_to_menu()
 signal item_selected(item:Item, from:Character)
 signal uses_item(target:Character)
 
-@onready var progress_bar := %ProgressBar
+@onready var progress_bar := %TextureProgressBar
 @onready var timer := $Timer
 @onready var texture_rect := %TextureRect
 @onready var life_bar := %LifeBar
@@ -91,6 +91,14 @@ func _process(delta:float) -> void:
 	if timer.time_left != 0: 
 		var value_timer :int = ceil(((timer.wait_time - timer.time_left) / timer.wait_time) * 100)
 		progress_bar.value = value_timer
+		# progress_bar.tint_progress = Color(1,1,1,1)
+		# progress_bar.tint_over = Color(1,1,1,1)
+		progress_bar.modulate = Color(1,1,1,1)
+	else:
+		progress_bar.modulate = Color(0, 1.657, 3.15, 1)
+		# progress_bar.tint_progress = Color(0.259, 0.871, 0.271, 1)
+		# progress_bar.tint_over = Color(0.384, 0.31, 0.953)
+
 
 func _input(event:InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -177,7 +185,7 @@ func reset_timer(wait_time:float) -> bool:
 func check_timer() -> bool:
 	if(timer.is_stopped()):
 		return true
-	elif(progress_bar.value > 84 and progress_bar.value < 97):
+	elif(progress_bar.value > 68 and progress_bar.value < 80):
 		timer.stop()
 		reset_armor()
 		SignalBus.emit_signal("crits_signal")

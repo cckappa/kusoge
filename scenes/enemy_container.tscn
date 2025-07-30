@@ -167,6 +167,8 @@ layout_mode = 2
 
 [node name="LifeBar" type="ProgressBar" parent="VBoxContainer"]
 unique_name_in_owner = true
+z_index = 16
+z_as_relative = false
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme = ExtResource("2_hayad")
@@ -176,6 +178,8 @@ show_percentage = false
 
 [node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
 unique_name_in_owner = true
+z_index = 16
+z_as_relative = false
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme = ExtResource("2_hayad")

@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="DamageAbility" load_steps=2 format=3 uid="uid://cral6nawbndl0"]
+[gd_resource type="Resource" script_class="DamageAbility" load_steps=3 format=3 uid="uid://cral6nawbndl0"]
 
+[ext_resource type="PackedScene" uid="uid://ct75l02dge6pc" path="res://scenes/ability_animations/fireball_animation.tscn" id="1_bo5c0"]
 [ext_resource type="Script" uid="uid://3uj7qdnixdle" path="res://scripts/abilities/damage_ability.gd" id="1_wqa6t"]
 
 [resource]
 script = ExtResource("1_wqa6t")
-damage_points = 20
+damage_points = 70
 ability_name = "Bola de Fuego"
 type = "FIRE"
 description = "Bola de fuegooo"
-wait_time = 6.0
+wait_time = 23.0
 effect = "NEGATIVE"
+attack_animation = ExtResource("1_bo5c0")

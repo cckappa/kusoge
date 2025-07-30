@@ -195,11 +195,11 @@ func use_ability(ability:Ability, from:Character, target:Character, crit:bool=fa
 		if from.current_hp <= 0:
 			SignalBus.emit_signal("stop_crit")
 		else:
-			play_attack_animation(ability, target.current_container.find_child("ParticleCenter"))
-			if crit:
-				ability.use_ability(target, crit)
-			else:
-				ability.use_ability(target)
+			play_attack_animation(ability, target.current_container.find_child("ParticleCenter"), target, crit)
+
+func landed_ability(ability:Ability, target:Character, crit:bool=false) -> void:
+	print("Landed ability: ", ability.ability_name, " on target: ", target.name, " with crit: ", crit)
+	ability.use_ability(target, crit)
 
 func use_item(item:Item, target:Character) -> void:
 	item.use_item([target])
@@ -233,7 +233,9 @@ func alive_enemies(current_arrange_enemies:Dictionary) -> Array[Character]:
 	return alive_enemies_arr
 
 
-func play_attack_animation(ability: Ability, parent_node: Node) -> void:
+func play_attack_animation(ability: Ability, parent_node: Node, target:Character, crit:bool=false) -> void:
 	if ability.attack_animation:
 		var animation_instance := ability.attack_animation.instantiate()
+		animation_instance.connect("landed_ability", landed_ability.bind(ability, target, crit))
 		parent_node.add_child(animation_instance)
+		
