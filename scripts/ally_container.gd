@@ -58,6 +58,8 @@ var pitch_effect:AudioEffectPitchShift
 var reverb_effect:AudioEffectReverb
 var crits := false
 var current_action:String = ""
+var current_attack_menu:VBoxContainer
+
 
 func _ready() -> void:
 	SignalBus.connect("item_removed", _on_item_removed)
@@ -70,6 +72,11 @@ func _ready() -> void:
 	reverb_effect = AudioServer.get_bus_effect(bus_index, 1) as AudioEffectReverb
 	SignalBus.connect("crits_signal", crit_enabled)
 	SignalBus.connect("stop_crit", crit_disabled)
+	SignalBus.connect("attack_menu_opened", unfocus_arrows)
+	SignalBus.connect("attack_menu_closed", focus_current_character)
+	SignalBus.connect("ability_button_pressed", ability_pressed)
+
+
 	for attack in attack_list:
 		var attack_button := Button.new()
 		attack_button.text = attack.ability_name
@@ -91,18 +98,10 @@ func _process(delta:float) -> void:
 	if timer.time_left != 0: 
 		var value_timer :int = ceil(((timer.wait_time - timer.time_left) / timer.wait_time) * 100)
 		progress_bar.value = value_timer
-		# progress_bar.tint_progress = Color(1,1,1,1)
-		# progress_bar.tint_over = Color(1,1,1,1)
 		progress_bar.modulate = Color(1,1,1,1)
 	else:
 		progress_bar.modulate = Color(0, 1.657, 3.15, 1)
-		# progress_bar.tint_progress = Color(0.259, 0.871, 0.271, 1)
-		# progress_bar.tint_over = Color(0.384, 0.31, 0.953)
 
-
-func _input(event:InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		close_menu()
 
 func set_max_life(hp: int) -> void:
 	life_bar.max_value = max_hp
@@ -135,6 +134,13 @@ func selected() -> void:
 func target_selected() -> void:
 	target_button.grab_focus()
 
+func focus_current_character(from:Character) -> void:
+	focus_arrows()
+	if from.current_container == self:
+		selected_arrow.grab_focus()
+		menu.visible = true
+	
+
 func unselected() ->void:
 	submenu_level = 0
 	selected_arrow.button_pressed = false
@@ -143,6 +149,14 @@ func unselected() ->void:
 	for button in get_tree().get_nodes_in_group("menu"):
 		button.focus_mode = Control.FOCUS_ALL
 	selected_arrow.grab_focus()
+
+func unfocus_arrows() -> void:
+	for arrow in get_tree().get_nodes_in_group("selected_arrows"):
+		arrow.focus_mode = Control.FOCUS_NONE
+
+func focus_arrows() -> void:
+	for arrow in get_tree().get_nodes_in_group("selected_arrows"):
+		arrow.focus_mode = Control.FOCUS_ALL
 
 func death() -> void:
 	print(character.name, " DEAD")
@@ -247,12 +261,17 @@ func close_all_menus() -> int:
 	return submenu_level
 
 func _on_attack_pressed() -> void:
+	attacked_pressed()
+
+func attacked_pressed() -> void:
 	crits = false
 	submenu_level = 2
-	for button in get_tree().get_nodes_in_group("menu"):
-		button.focus_mode = Control.FOCUS_NONE
-	attack_menu.visible = true
-	attack_menu.get_children()[0].grab_focus()
+	# for button in get_tree().get_nodes_in_group("menu"):
+	# 	button.focus_mode = Control.FOCUS_NONE
+	print("current_attack_menu, attack_menu", current_attack_menu, attack_menu)
+	if current_attack_menu == attack_menu:
+		current_attack_menu.visible = true
+		current_attack_menu.get_children()[0].grab_focus()
 
 func _on_block_pressed() -> void:
 	if check_timer():
@@ -289,6 +308,25 @@ func _on_ability_pressed(ability: Ability, from: Character) -> void:
 		emit_signal("ability_selected", ability, from)
 		print(ability.ability_name)
 
+func ability_pressed(from: Character, ability: Ability) -> void:
+	if from == character and check_timer():
+		# close_all_menus()
+		if crits:
+			Functions.set_game_speed(game_slow_speed)
+		else:
+			Functions.set_game_speed(1.0)
+		submenu_level = 3
+		if ability.effect == "NEGATIVE":
+			for target in get_tree().get_nodes_in_group("selected_targets"):
+				if target.visible == true:
+					target.texture_focused = TARGET_SELECT
+		elif ability.effect == "POSITIVE":
+			for target in get_tree().get_nodes_in_group("selected_targets"):
+				if target.visible == true:
+					target.texture_focused = TARGET_HEAL
+		emit_signal("ability_selected", ability, from)
+		print(ability.ability_name)
+
 func _on_item_button_pressed(item:Item) -> void:
 	close_all_menus()
 	submenu_level = 3
@@ -302,12 +340,13 @@ func _on_item_button_pressed(item:Item) -> void:
 				target.texture_focused = TARGET_HEAL
 	emit_signal("item_selected", item, character)
 
-func _on_selected_arrow_pressed() -> void:
-	emit_signal("character_selected", character)
-	open_menu()
 
 func _on_selected_arrow_focus_entered() -> void:
 	emit_signal("character_selected", character)
+	menu.visible = true
+
+func _on_selected_arrow_focus_exited() -> void:
+	menu.visible = false
 
 func _on_target_button_pressed() -> void:
 	Functions.set_game_speed(1.0)
@@ -318,7 +357,7 @@ func _on_target_button_pressed() -> void:
 	current_action = ""
 
 func damage_animation(_crit:bool=false) -> void:
-	## TODO: Pasar particulas a Character Resource
+	## TODO: Pasar particulas a Character Resource la animacion de daño
 	animation_player.play("damage_animation")
 	if _crit:
 		strong_hit_sound.play()
@@ -330,7 +369,7 @@ func damage_animation(_crit:bool=false) -> void:
 	hit_particles_long_circle.emitting = true
 	hit_particles_star.emitting = true
 	
-	## TODO: Pasar custom audio de golpe a Character Resource
+	## TODO: Pasar custom audio de golpe a Character Resource a la animacion de daño
 	hit_sound.play()
 
 

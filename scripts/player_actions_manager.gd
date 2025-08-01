@@ -10,7 +10,9 @@ extends BattleManager
 @onready var continue_button := %ContinueButton
 @onready var quit := %Quit
 @onready var next := %Next
+@onready var attack_menu := %AttackMenu
 
+var attack_button:PackedScene = preload("res://scenes/attack_button.tscn")
 var character_to_disable:Character
 var interactive_stream:AudioStreamInteractive
 
@@ -21,6 +23,19 @@ var ability_status:={
 	"target":null,
 	"crit":null
 }
+
+var menu_level := 0
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept") and menu_level == 0:
+		attack_menu.visible = true
+		attack_menu.get_child(0).grab_focus()
+		menu_level = 2
+		SignalBus.emit_signal("attack_menu_opened")
+	if event.is_action_pressed("ui_cancel"):
+		attack_menu.visible = false
+		menu_level = 0
+		SignalBus.emit_signal("attack_menu_closed", ability_status.from)
 
 ### 
 ### STATE ENTERS
@@ -211,7 +226,27 @@ func disable_character(character:Character) -> void:
 
 func character_status_select(character:Character) -> void:
 	ability_status.from = character
+	set_attack_menu()
 	print('from', ability_status.from.name)
+
+func set_attack_menu() -> void:
+	if attack_menu.get_child_count() > 0:
+		for child in attack_menu.get_children():
+			child.disconnect("pressed", _on_attack_button_pressed)
+			child.queue_free()
+
+	for attack:Ability in ability_status.from.abilities:
+		var attack_button_instance := attack_button.instantiate()
+		attack_button_instance.text = attack.ability_name
+		attack_button_instance.connect("pressed", _on_attack_button_pressed.bind(ability_status.from, attack))
+		attack_menu.add_child(attack_button_instance)
+
+func _on_attack_button_pressed(from:Character, attack:Ability) -> void:
+	SignalBus.emit_signal("ability_button_pressed", from, attack)
+	attack_menu.visible = false
+	menu_level = 0
+	SignalBus.emit_signal("attack_menu_closed", ability_status.from)
+	
 
 func back_to_menu() -> void:
 	state_chart.send_event("repeat_select")

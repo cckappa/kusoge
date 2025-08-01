@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d0kcy01aclwrf"]
+
+[node name="AttackButton" type="Button"]
+theme_override_font_sizes/font_size = 52
+button_mask = 0
+text = "Puñetazo"
