@@ -136,6 +136,10 @@ func target_selected() -> void:
 
 func focus_current_character(from:Character) -> void:
 	focus_arrows()
+	submenu_level = 0
+	if from == null:
+		# menu.visible = true
+		return
 	if from.current_container == self:
 		selected_arrow.grab_focus()
 		menu.visible = true
@@ -146,8 +150,8 @@ func unselected() ->void:
 	selected_arrow.button_pressed = false
 	for arrow in get_tree().get_nodes_in_group("selected_arrows"):
 		arrow.focus_mode = Control.FOCUS_ALL
-	for button in get_tree().get_nodes_in_group("menu"):
-		button.focus_mode = Control.FOCUS_ALL
+	# for button in get_tree().get_nodes_in_group("menu"):
+	# 	button.focus_mode = Control.FOCUS_ALL
 	selected_arrow.grab_focus()
 
 func unfocus_arrows() -> void:
@@ -201,6 +205,7 @@ func check_timer() -> bool:
 		return true
 	elif(progress_bar.value > 68 and progress_bar.value < 80):
 		timer.stop()
+		progress_bar.value = 100
 		reset_armor()
 		SignalBus.emit_signal("crits_signal")
 		crit_animation()
@@ -214,8 +219,8 @@ func open_menu() -> void:
 	menu.visible = true
 	for arrow in get_tree().get_nodes_in_group("selected_arrows"):
 		arrow.focus_mode = Control.FOCUS_NONE
-	for button in get_tree().get_nodes_in_group("menu"):
-		button.focus_mode = Control.FOCUS_ALL
+	# for button in get_tree().get_nodes_in_group("menu"):
+	# 	button.focus_mode = Control.FOCUS_ALL
 	menu.get_children()[0].grab_focus()
 	Functions.set_game_speed(game_slow_speed)
 
@@ -235,8 +240,8 @@ func close_menu() -> int:
 			crits = false
 			attack_menu.visible = false
 			item_menu.visible = false
-			for button in get_tree().get_nodes_in_group("menu"):
-				button.focus_mode = Control.FOCUS_ALL
+			# for button in get_tree().get_nodes_in_group("menu"):
+			# 	button.focus_mode = Control.FOCUS_ALL
 			#await get_tree().create_timer(0.05).timeout
 			menu.get_children()[0].grab_focus()
 			return submenu_level
@@ -269,9 +274,9 @@ func attacked_pressed() -> void:
 	# for button in get_tree().get_nodes_in_group("menu"):
 	# 	button.focus_mode = Control.FOCUS_NONE
 	print("current_attack_menu, attack_menu", current_attack_menu, attack_menu)
-	if current_attack_menu == attack_menu:
-		current_attack_menu.visible = true
-		current_attack_menu.get_children()[0].grab_focus()
+	# if current_attack_menu == attack_menu:
+	# 	current_attack_menu.visible = true
+	# 	current_attack_menu.get_children()[0].grab_focus()
 
 func _on_block_pressed() -> void:
 	if check_timer():
@@ -284,8 +289,8 @@ func _on_item_pressed() -> void:
 	if item_menu.get_child_count() == 0:
 		return
 	submenu_level = 2
-	for button in get_tree().get_nodes_in_group("menu"):
-		button.focus_mode = Control.FOCUS_NONE
+	# for button in get_tree().get_nodes_in_group("menu"):
+	# 	button.focus_mode = Control.FOCUS_NONE
 	item_menu.visible = true
 	item_menu.get_children()[0].grab_focus()
 

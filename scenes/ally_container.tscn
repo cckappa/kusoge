@@ -334,6 +334,8 @@ stretch_mode = 5
 [node name="Menu" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
 visible = false
+z_index = 16
+z_as_relative = false
 layout_mode = 2
 offset_top = -135.0
 offset_right = 400.0

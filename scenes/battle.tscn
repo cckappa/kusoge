@@ -89,6 +89,7 @@ script = ExtResource("9_iipir")
 [node name="StateChart" type="Node" parent="BattleManager"]
 unique_name_in_owner = true
 script = ExtResource("3_rw2uy")
+track_in_editor = true
 
 [node name="Root" type="Node" parent="BattleManager/StateChart"]
 script = ExtResource("4_pxudf")

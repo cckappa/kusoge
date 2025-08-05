@@ -29,13 +29,19 @@ var menu_level := 0
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept") and menu_level == 0:
 		attack_menu.visible = true
-		attack_menu.get_child(0).grab_focus()
 		menu_level = 2
 		SignalBus.emit_signal("attack_menu_opened")
+		await get_tree().create_timer(0.1).timeout
+		attack_menu.get_child(0).grab_focus()
 	if event.is_action_pressed("ui_cancel"):
 		attack_menu.visible = false
-		menu_level = 0
 		SignalBus.emit_signal("attack_menu_closed", ability_status.from)
+		menu_level = 0
+		# for enemy_select in get_tree().get_nodes_in_group("selected_targets"):
+		# 	enemy_select.focus_mode = Control.FOCUS_NONE
+		SignalBus.emit_signal("stop_crit")
+		set_attack_menu()
+		state_chart.send_event("repeat_select")
 
 ### 
 ### STATE ENTERS
@@ -49,6 +55,11 @@ func _on_enter_state_entered() -> void:
 func _on_selecting_state_entered() -> void:
 	for enemy_select in get_tree().get_nodes_in_group("selected_targets"):
 		enemy_select.focus_mode = Control.FOCUS_NONE
+	
+	menu_level = 0
+	print("Selecting state entered")
+	SignalBus.emit_signal("attack_menu_closed", ability_status.from)
+	SignalBus.emit_signal("stop_crit")
 	
 	var allies:Array[Character] = alive_allies(Globals.current_arrange_allies)
 	if allies.size() > 0:
@@ -67,6 +78,7 @@ func _on_selecting_state_entered() -> void:
 
 
 func _on_target_selecting_state_entered() -> void:
+	print("Target selecting state entered")
 	for enemy_select in get_tree().get_nodes_in_group("selected_targets"):
 		if enemy_select.visible == true:
 			enemy_select.focus_mode = Control.FOCUS_ALL
@@ -85,6 +97,7 @@ func _on_target_selecting_state_entered() -> void:
 	SignalBus.emit_signal("action_selected", "ABILITY")
 
 func _on_target_selecting_item_state_entered() -> void:
+	print("Target selecting item state entered")
 	for enemy_select in get_tree().get_nodes_in_group("selected_targets"):
 		if enemy_select.visible == true:
 			enemy_select.focus_mode = Control.FOCUS_ALL
@@ -190,6 +203,8 @@ func change_to_target_selecting(ability:Ability, from:Character) -> void:
 	ability_status.from = from
 	if from.current_container.check_timer():
 		state_chart.send_event("target_select")
+		attack_menu.visible = false
+		menu_level = 3
 
 func change_to_target_selecting_item(item:Item, from:Character) -> void:
 	ability_status.item = item
@@ -232,7 +247,8 @@ func character_status_select(character:Character) -> void:
 func set_attack_menu() -> void:
 	if attack_menu.get_child_count() > 0:
 		for child in attack_menu.get_children():
-			child.disconnect("pressed", _on_attack_button_pressed)
+			if child.has_connections("pressed"):
+				child.disconnect("pressed", _on_attack_button_pressed)
 			child.queue_free()
 
 	for attack:Ability in ability_status.from.abilities:
@@ -243,9 +259,8 @@ func set_attack_menu() -> void:
 
 func _on_attack_button_pressed(from:Character, attack:Ability) -> void:
 	SignalBus.emit_signal("ability_button_pressed", from, attack)
-	attack_menu.visible = false
-	menu_level = 0
-	SignalBus.emit_signal("attack_menu_closed", ability_status.from)
+	# for enemy_select in get_tree().get_nodes_in_group("selected_targets"):
+	# 	enemy_select.visible = true
 	
 
 func back_to_menu() -> void:
