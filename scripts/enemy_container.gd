@@ -10,10 +10,6 @@ signal disable_character(character:Character)
 @onready var timer := $Timer
 @onready var progress_bar := %ProgressBar
 @onready var target_button := %TargetButton
-@onready var hit_particles_circle := %HitParticlesCircle
-@onready var hit_particles_big_star := %HitParticlesBigStar
-@onready var hit_particles_long_circle := %HitParticlesLongCircle
-@onready var hit_particles_star := %HitParticlesStar
 @onready var heal_particles_long := %HealParticlesLong
 @onready var heal_particles_star := %HealParticlesStar
 @onready var crit_particles_long_circle := %CritParticlesLongCircle
@@ -94,28 +90,18 @@ func selected() -> void:
 func _on_target_button_pressed() -> void:
 	Functions.set_game_speed(1.0)
 	emit_signal("uses_ability", character, crits)
-	#crit_off()
-	#crits = false
 
 func damage_animation(_crit:bool=false) -> void:
-	## TODO: Pasar particulas a Character Resource
+	animation_player.play("damage_animation")
 	if _crit:
 		strong_hit_sound.play()
 		Functions.control_shake($VBoxContainer, 6, 6, 8, 13, 0.4)
 	else:
 		Functions.control_shake($VBoxContainer, 3, 3, 5, 10, 0.2)
-	animation_player.play("damage_animation")
-	hit_particles_circle.emitting = true
-	hit_particles_big_star.emitting = true
-	hit_particles_long_circle.emitting = true
-	hit_particles_star.emitting = true
-	
-	## TODO: Pasar custom audio de golpe a Character Resource
-	hit_sound.play()
+		hit_sound.play()
+
 
 func heal_animation(_crit:bool=false) -> void:
-	heal_particles_long.emitting = true
-	heal_particles_star.emitting = true
 	heal_sound.play()
 
 func crit_enabled() -> void:

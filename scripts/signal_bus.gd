@@ -18,8 +18,12 @@ signal crits_signal()
 signal stop_crit()
 signal action_selected(action:StringName)
 signal attack_menu_opened()
-signal attack_menu_closed(from:Character)
+signal item_menu_opened()
+signal menu_closed(from:Character)
+signal item_menu_closed(from:Character)
 signal ability_button_pressed(from:Character, attack:Ability)
+signal item_button_pressed(from:Character, item:Item)
+signal run_away()
 
 ## QUESTS
 

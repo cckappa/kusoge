@@ -1,16 +1,12 @@
-[gd_scene load_steps=24 format=3 uid="uid://deg6oekjklhs8"]
+[gd_scene load_steps=20 format=3 uid="uid://deg6oekjklhs8"]
 
 [ext_resource type="Script" uid="uid://durb5suil11ek" path="res://scripts/enemy_container.gd" id="1_rne6s"]
 [ext_resource type="Theme" uid="uid://ctd47cus6kna0" path="res://assets/themes/menu_theme.tres" id="2_hayad"]
 [ext_resource type="Texture2D" uid="uid://bgefprxussdta" path="res://assets/enemy_sprites/Serpra.png" id="3_y7wkr"]
 [ext_resource type="Texture2D" uid="uid://jr71m17ib8jj" path="res://assets/icons/target_select.svg" id="5_qrxc3"]
-[ext_resource type="PackedScene" uid="uid://hg6t1jbcmxp3" path="res://scenes/hit_particles_circle.tscn" id="6_0kop4"]
 [ext_resource type="Texture2D" uid="uid://dgqpwvwksevim" path="res://assets/icons/death_tomb.png" id="6_4wkuv"]
 [ext_resource type="PackedScene" uid="uid://4hkn25062ror" path="res://scenes/crit_particles_long_circle.tscn" id="6_pb7q0"]
 [ext_resource type="AudioStream" uid="uid://btagcqpq4o02r" path="res://assets/sfx/162792__timgormly__8-bit-explosion1.mp3" id="7_aprvx"]
-[ext_resource type="PackedScene" uid="uid://b3k38ghwf35bw" path="res://scenes/hit_particles_big_star.tscn" id="7_k8lej"]
-[ext_resource type="PackedScene" uid="uid://j5owvy2xjpt6" path="res://scenes/hit_particles_long_circle.tscn" id="8_d1xcm"]
-[ext_resource type="PackedScene" uid="uid://b7bvrpga1v04o" path="res://scenes/hit_particles_star.tscn" id="9_gupaa"]
 [ext_resource type="PackedScene" uid="uid://diyhj67vyeuiw" path="res://scenes/heal_particles_long.tscn" id="10_o60lc"]
 [ext_resource type="PackedScene" uid="uid://mls25pts3d18" path="res://scenes/heal_particles_star.tscn" id="11_7ghmc"]
 [ext_resource type="AudioStream" uid="uid://xomtmhux1icj" path="res://assets/sfx/563662__eminyildirim__healing-spell.mp3" id="13_w60pi"]
@@ -224,22 +220,6 @@ stretch_mode = 5
 position = Vector2(270, 244)
 gizmo_extents = 56.2
 
-[node name="CritParticlesLongCircle" parent="ParticleCenter" instance=ExtResource("6_pb7q0")]
-unique_name_in_owner = true
-
-[node name="HitParticlesCircle" parent="ParticleCenter" instance=ExtResource("6_0kop4")]
-unique_name_in_owner = true
-
-[node name="HitParticlesBigStar" parent="ParticleCenter" instance=ExtResource("7_k8lej")]
-unique_name_in_owner = true
-
-[node name="HitParticlesLongCircle" parent="ParticleCenter" instance=ExtResource("8_d1xcm")]
-unique_name_in_owner = true
-position = Vector2(31, 3)
-
-[node name="HitParticlesStar" parent="ParticleCenter" instance=ExtResource("9_gupaa")]
-unique_name_in_owner = true
-
 [node name="HealParticlesLong" parent="ParticleCenter" instance=ExtResource("10_o60lc")]
 unique_name_in_owner = true
 position = Vector2(8, 187)
@@ -247,6 +227,9 @@ position = Vector2(8, 187)
 [node name="HealParticlesStar" parent="ParticleCenter" instance=ExtResource("11_7ghmc")]
 unique_name_in_owner = true
 position = Vector2(5, 108)
+
+[node name="CritParticlesLongCircle" parent="ParticleCenter" instance=ExtResource("6_pb7q0")]
+unique_name_in_owner = true
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

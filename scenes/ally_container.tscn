@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://li0a5rq7wt7u"]
+[gd_scene load_steps=30 format=3 uid="uid://li0a5rq7wt7u"]
 
 [ext_resource type="Script" uid="uid://cm53j7285f7l8" path="res://scripts/ally_container.gd" id="1_fh84y"]
 [ext_resource type="Texture2D" uid="uid://cdulpvixtxapj" path="res://assets/icons/selected_arrow.svg" id="2_mtgi1"]
@@ -13,13 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://6j1rxxcilfca" path="res://assets/icons/particle_pop_circle_thick.svg" id="8_tt1g2"]
 [ext_resource type="Texture2D" uid="uid://d6uwsam2mcwy" path="res://assets/icons/particle_pop_circle_thin.svg" id="9_7dsxs"]
 [ext_resource type="Texture2D" uid="uid://u86wqrsgcbl1" path="res://assets/icons/radial_timer_background.png" id="10_2i6ux"]
-[ext_resource type="PackedScene" uid="uid://hg6t1jbcmxp3" path="res://scenes/hit_particles_circle.tscn" id="10_qnxtm"]
 [ext_resource type="Texture2D" uid="uid://dgsgpr4m766ne" path="res://assets/icons/radial_timer_slice.png" id="11_65wtp"]
 [ext_resource type="PackedScene" uid="uid://4hkn25062ror" path="res://scenes/crit_particles_long_circle.tscn" id="11_guey6"]
-[ext_resource type="PackedScene" uid="uid://b3k38ghwf35bw" path="res://scenes/hit_particles_big_star.tscn" id="11_xbmt1"]
 [ext_resource type="Texture2D" uid="uid://buj4nrlqipl5o" path="res://assets/icons/radial_timer_disc.png" id="12_8qofy"]
-[ext_resource type="PackedScene" uid="uid://j5owvy2xjpt6" path="res://scenes/hit_particles_long_circle.tscn" id="12_b0bet"]
-[ext_resource type="PackedScene" uid="uid://b7bvrpga1v04o" path="res://scenes/hit_particles_star.tscn" id="13_uw7xb"]
 [ext_resource type="PackedScene" uid="uid://diyhj67vyeuiw" path="res://scenes/heal_particles_long.tscn" id="14_lrqhl"]
 [ext_resource type="AudioStream" uid="uid://btagcqpq4o02r" path="res://assets/sfx/162792__timgormly__8-bit-explosion1.mp3" id="14_yn0qb"]
 [ext_resource type="PackedScene" uid="uid://mls25pts3d18" path="res://scenes/heal_particles_star.tscn" id="15_q4kgi"]
@@ -364,7 +360,7 @@ layout_mode = 2
 focus_mode = 0
 theme = ExtResource("3_8ksiu")
 button_mask = 0
-text = "Z / Objetos"
+text = "C / Objetos"
 
 [node name="Run" type="Button" parent="Menu" groups=["menu"]]
 custom_minimum_size = Vector2(150, 0)
@@ -372,25 +368,7 @@ layout_mode = 2
 focus_mode = 0
 theme = ExtResource("3_8ksiu")
 button_mask = 0
-text = "C / Huir"
-
-[node name="AttackMenu" type="VBoxContainer" parent="."]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-offset_left = 352.0
-offset_top = -415.0
-offset_right = 752.0
-offset_bottom = 104.23
-
-[node name="ItemMenu" type="VBoxContainer" parent="."]
-unique_name_in_owner = true
-visible = false
-layout_mode = 0
-offset_left = 363.0
-offset_top = -432.0
-offset_right = 747.0
-offset_bottom = 100.0
+text = "V / Huir"
 
 [node name="ParticleCenter" type="Marker2D" parent="."]
 position = Vector2(199, 321)
@@ -399,20 +377,6 @@ gizmo_extents = 56.2
 [node name="CritParticlesLongCircle" parent="ParticleCenter" instance=ExtResource("11_guey6")]
 unique_name_in_owner = true
 position = Vector2(0, -35)
-
-[node name="HitParticlesCircle" parent="ParticleCenter" instance=ExtResource("10_qnxtm")]
-unique_name_in_owner = true
-position = Vector2(17, 43)
-
-[node name="HitParticlesBigStar" parent="ParticleCenter" instance=ExtResource("11_xbmt1")]
-unique_name_in_owner = true
-
-[node name="HitParticlesLongCircle" parent="ParticleCenter" instance=ExtResource("12_b0bet")]
-unique_name_in_owner = true
-position = Vector2(38, 23)
-
-[node name="HitParticlesStar" parent="ParticleCenter" instance=ExtResource("13_uw7xb")]
-unique_name_in_owner = true
 
 [node name="HealParticlesLong" parent="ParticleCenter" instance=ExtResource("14_lrqhl")]
 unique_name_in_owner = true

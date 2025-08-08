@@ -1,8 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://ct75l02dge6pc"]
+[gd_scene load_steps=12 format=3 uid="uid://ct75l02dge6pc"]
 
 [ext_resource type="Script" uid="uid://dc78i2waebad1" path="res://scripts/ability_animations/ability_animation.gd" id="1_pwbjp"]
+[ext_resource type="Script" uid="uid://dxuy4bb1whoa0" path="res://scripts/landed_particles.gd" id="2_2jf86"]
 [ext_resource type="Texture2D" uid="uid://chrca6x2avs6l" path="res://assets/animation_assets/fireball.png" id="2_rovux"]
+[ext_resource type="PackedScene" uid="uid://j5owvy2xjpt6" path="res://scenes/hit_particles_long_circle.tscn" id="2_s4hif"]
+[ext_resource type="PackedScene" uid="uid://b7bvrpga1v04o" path="res://scenes/hit_particles_star.tscn" id="3_2jf86"]
 [ext_resource type="Texture2D" uid="uid://bj7linn412ce7" path="res://assets/animation_assets/fireball_explosion.png" id="3_rovux"]
+[ext_resource type="PackedScene" uid="uid://hg6t1jbcmxp3" path="res://scenes/hit_particles_circle.tscn" id="4_1pqxd"]
+[ext_resource type="PackedScene" uid="uid://b3k38ghwf35bw" path="res://scenes/hit_particles_big_star.tscn" id="5_hvmbx"]
 
 [sub_resource type="Animation" id="Animation_ej4sl"]
 length = 0.001
@@ -152,8 +157,21 @@ _data = {
 &"fireball_animation": SubResource("Animation_qo8do")
 }
 
-[node name="FireballAnimation" type="Node2D"]
+[node name="FireballAnimation" type="Node2D" node_paths=PackedStringArray("landed_particles")]
 script = ExtResource("1_pwbjp")
+landed_particles = NodePath("LandedParticles")
+
+[node name="LandedParticles" type="Node2D" parent="."]
+script = ExtResource("2_2jf86")
+metadata/_custom_type_script = "uid://dxuy4bb1whoa0"
+
+[node name="HitParticlesStar" parent="LandedParticles" instance=ExtResource("3_2jf86")]
+
+[node name="HitParticlesCircle" parent="LandedParticles" instance=ExtResource("4_1pqxd")]
+
+[node name="HitParticlesBigStar" parent="LandedParticles" instance=ExtResource("5_hvmbx")]
+
+[node name="HitParticlesLongCircle" parent="LandedParticles" instance=ExtResource("2_s4hif")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708

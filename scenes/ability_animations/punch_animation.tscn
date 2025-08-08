@@ -1,7 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://7fbtqmxgjegu"]
+[gd_scene load_steps=11 format=3 uid="uid://7fbtqmxgjegu"]
 
 [ext_resource type="Script" uid="uid://c5gtudy3un8dp" path="res://scripts/ability_animations/punch_animation.gd" id="1_2ifot"]
 [ext_resource type="Texture2D" uid="uid://boi1m2doc46h2" path="res://assets/animation_assets/handpunch.png" id="1_8ryep"]
+[ext_resource type="Script" uid="uid://dxuy4bb1whoa0" path="res://scripts/landed_particles.gd" id="2_3srsr"]
+[ext_resource type="PackedScene" uid="uid://j5owvy2xjpt6" path="res://scenes/hit_particles_long_circle.tscn" id="2_werfa"]
+[ext_resource type="PackedScene" uid="uid://b7bvrpga1v04o" path="res://scenes/hit_particles_star.tscn" id="3_3srsr"]
+[ext_resource type="PackedScene" uid="uid://hg6t1jbcmxp3" path="res://scenes/hit_particles_circle.tscn" id="4_wms2w"]
+[ext_resource type="PackedScene" uid="uid://b3k38ghwf35bw" path="res://scenes/hit_particles_big_star.tscn" id="5_aiuqy"]
 
 [sub_resource type="Animation" id="Animation_ijn1r"]
 length = 0.001
@@ -127,10 +132,25 @@ _data = {
 &"punch_animation": SubResource("Animation_2ifot")
 }
 
-[node name="PunchAnimation" type="Node2D"]
+[node name="PunchAnimation" type="Node2D" node_paths=PackedStringArray("landed_particles")]
 z_index = 15
 z_as_relative = false
 script = ExtResource("1_2ifot")
+landed_particles = NodePath("LandedParticles")
+
+[node name="LandedParticles" type="Node2D" parent="."]
+z_index = 16
+z_as_relative = false
+script = ExtResource("2_3srsr")
+metadata/_custom_type_script = "uid://dxuy4bb1whoa0"
+
+[node name="HitParticlesStar" parent="LandedParticles" instance=ExtResource("3_3srsr")]
+
+[node name="HitParticlesCircle" parent="LandedParticles" instance=ExtResource("4_wms2w")]
+
+[node name="HitParticlesBigStar" parent="LandedParticles" instance=ExtResource("5_aiuqy")]
+
+[node name="HitParticlesLongCircle" parent="LandedParticles" instance=ExtResource("2_werfa")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(158, 1152)

@@ -23,6 +23,8 @@ func _ready() -> void:
 	add_characters()
 	set_current_enemies()
 	add_enemies()
+
+	SignalBus.connect("run_away", _on_next_pressed)
 	
 	black_rect.visible = true
 	await Functions.fade_color_rect(black_rect, "OUT", 2)

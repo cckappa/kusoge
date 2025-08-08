@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cn7cxbug5sjey"]
+[gd_scene load_steps=23 format=3 uid="uid://cn7cxbug5sjey"]
 
 [ext_resource type="Script" uid="uid://1et7n8ftkqn" path="res://scripts/battle.gd" id="1_8mi71"]
 [ext_resource type="Script" uid="uid://bt86h2wsa5yga" path="res://scripts/battle_manager.gd" id="2_o8ur5"]
@@ -9,12 +9,10 @@
 [ext_resource type="Script" uid="uid://svsws4uho6ta" path="res://addons/godot_state_charts/parallel_state.gd" id="4_pxudf"]
 [ext_resource type="Script" uid="uid://dbur5kxlm3tgp" path="res://addons/godot_state_charts/compound_state.gd" id="5_3uyq7"]
 [ext_resource type="Script" uid="uid://cmbxtlw1gkgq4" path="res://addons/godot_state_charts/atomic_state.gd" id="6_7by8j"]
-[ext_resource type="Texture2D" uid="uid://c1p3mdt7qyydq" path="res://assets/character_portraits/front_main_character.png" id="6_57hxh"]
-[ext_resource type="Script" uid="uid://cn00rymky0sbd" path="res://scripts/active_character.gd" id="7_aqbom"]
 [ext_resource type="Script" uid="uid://cxhlaiebwpuaq" path="res://addons/godot_state_charts/transition.gd" id="8_xgf7e"]
-[ext_resource type="Script" uid="uid://dt1jg2wv2ifbv" path="res://scripts/attack_list.gd" id="9_6jgr0"]
 [ext_resource type="Script" uid="uid://cdydn3qqap645" path="res://scripts/enemy_actions_manager.gd" id="9_iipir"]
 [ext_resource type="Script" uid="uid://4nnsn5mhe72h" path="res://addons/godot_state_charts/expression_guard.gd" id="11_37w08"]
+[ext_resource type="PackedScene" uid="uid://cub1obshw672d" path="res://scenes/item_battle_button.tscn" id="12_h4dll"]
 [ext_resource type="Script" uid="uid://w1q0g87ukki2" path="res://scripts/enemy_portraits.gd" id="12_p0caf"]
 [ext_resource type="Theme" uid="uid://ctd47cus6kna0" path="res://assets/themes/menu_theme.tres" id="17_61i1y"]
 [ext_resource type="AudioStream" uid="uid://3vetx47tyh7f" path="res://assets/music/earthbound_battle_theme.mp3" id="30_xgp4q"]
@@ -317,30 +315,6 @@ script = ExtResource("6_7by8j")
 [node name="Winning" type="Node" parent="BattleManager/StateChart/Root/EnemyActions"]
 script = ExtResource("6_7by8j")
 
-[node name="FightRunButtons" type="HBoxContainer" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -51.0
-offset_top = -467.0
-offset_right = 52.0
-offset_bottom = -427.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Run" type="Button" parent="FightRunButtons"]
-layout_mode = 2
-text = "Huir"
-
-[node name="Fight" type="Button" parent="FightRunButtons"]
-layout_mode = 2
-text = "Pelear
-"
-
 [node name="AttackMenu" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -354,6 +328,25 @@ offset_right = 1128.0
 offset_bottom = 111.0
 grow_vertical = 2
 alignment = 1
+
+[node name="ItemMenu" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1278.0
+offset_top = -316.0
+offset_right = -298.0
+offset_bottom = 63.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ItemBattleButton" parent="ItemMenu" instance=ExtResource("12_h4dll")]
+layout_mode = 2
 
 [node name="FightContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -384,51 +377,6 @@ mouse_filter = 2
 theme_override_constants/separation = 160
 alignment = 1
 script = ExtResource("3_s5yx3")
-
-[node name="ActiveCharacter" type="HBoxContainer" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 230.0
-offset_top = 442.0
-offset_right = 671.0
-offset_bottom = 846.0
-script = ExtResource("7_aqbom")
-
-[node name="ActiveCharacterFront" type="TextureRect" parent="ActiveCharacter" groups=["active_character_front"]]
-unique_name_in_owner = true
-layout_mode = 2
-texture = ExtResource("6_57hxh")
-expand_mode = 3
-
-[node name="ActiveCharacterButtons" type="VBoxContainer" parent="ActiveCharacter"]
-layout_mode = 2
-alignment = 1
-
-[node name="Attack" type="Button" parent="ActiveCharacter/ActiveCharacterButtons"]
-layout_mode = 2
-text = "ATACAR"
-
-[node name="Menu" type="Button" parent="ActiveCharacter/ActiveCharacterButtons"]
-layout_mode = 2
-text = "MENU"
-
-[node name="AttackList" type="VBoxContainer" parent="." groups=["attack_list"]]
-visible = false
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -485.0
-offset_top = 69.0
-offset_right = -69.0
-offset_bottom = 723.0
-grow_horizontal = 0
-script = ExtResource("9_6jgr0")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="AttackList"]
-layout_mode = 2
-bbcode_enabled = true
-fit_content = true
 
 [node name="ContinueButtons" type="HBoxContainer" parent="."]
 unique_name_in_owner = true

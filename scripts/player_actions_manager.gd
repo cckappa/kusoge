@@ -11,8 +11,10 @@ extends BattleManager
 @onready var quit := %Quit
 @onready var next := %Next
 @onready var attack_menu := %AttackMenu
+@onready var item_menu := %ItemMenu
 
 var attack_button:PackedScene = preload("res://scenes/attack_button.tscn")
+var item_battle_button:PackedScene = preload("res://scenes/item_battle_button.tscn")
 var character_to_disable:Character
 var interactive_stream:AudioStreamInteractive
 
@@ -33,12 +35,24 @@ func _input(event: InputEvent) -> void:
 		SignalBus.emit_signal("attack_menu_opened")
 		await get_tree().create_timer(0.1).timeout
 		attack_menu.get_child(0).grab_focus()
+
+	if event.is_action_pressed("use_item") and menu_level == 0:
+		set_item_menu()
+		item_menu.visible = true
+		menu_level = 2
+		SignalBus.emit_signal("item_menu_opened")
+		await get_tree().create_timer(0.1).timeout
+		if item_menu.get_child_count() > 0:
+			item_menu.get_child(0).grab_focus()
+
+	if event.is_action_pressed("run_away") and menu_level == 0:
+		SignalBus.emit_signal("run_away")
+
 	if event.is_action_pressed("ui_cancel"):
 		attack_menu.visible = false
-		SignalBus.emit_signal("attack_menu_closed", ability_status.from)
+		item_menu.visible = false
+		SignalBus.emit_signal("menu_closed", ability_status.from)
 		menu_level = 0
-		# for enemy_select in get_tree().get_nodes_in_group("selected_targets"):
-		# 	enemy_select.focus_mode = Control.FOCUS_NONE
 		SignalBus.emit_signal("stop_crit")
 		set_attack_menu()
 		state_chart.send_event("repeat_select")
@@ -58,7 +72,7 @@ func _on_selecting_state_entered() -> void:
 	
 	menu_level = 0
 	print("Selecting state entered")
-	SignalBus.emit_signal("attack_menu_closed", ability_status.from)
+	SignalBus.emit_signal("menu_closed", ability_status.from)
 	SignalBus.emit_signal("stop_crit")
 	
 	var allies:Array[Character] = alive_allies(Globals.current_arrange_allies)
@@ -206,9 +220,11 @@ func change_to_target_selecting(ability:Ability, from:Character) -> void:
 		attack_menu.visible = false
 		menu_level = 3
 
-func change_to_target_selecting_item(item:Item, from:Character) -> void:
+func change_to_target_selecting_item(from:Character, item:Item) -> void:
 	ability_status.item = item
 	ability_status.from = from
+	item_menu.visible = false
+	menu_level = 3
 	state_chart.send_event("target_select_item")
 
 func change_to_abilitying(target:Character, crit:bool=false) -> void:
@@ -242,6 +258,7 @@ func disable_character(character:Character) -> void:
 func character_status_select(character:Character) -> void:
 	ability_status.from = character
 	set_attack_menu()
+	set_item_menu()
 	print('from', ability_status.from.name)
 
 func set_attack_menu() -> void:
@@ -257,11 +274,29 @@ func set_attack_menu() -> void:
 		attack_button_instance.connect("pressed", _on_attack_button_pressed.bind(ability_status.from, attack))
 		attack_menu.add_child(attack_button_instance)
 
+func set_item_menu() -> void:
+	if item_menu.get_child_count() > 0:
+		for child in item_menu.get_children():
+			if child.has_connections("pressed"):
+				child.disconnect("pressed", _on_item_button_pressed)
+			child.queue_free()
+
+	for identifier:StringName in Items.item_list:
+		var item_button_instance := item_battle_button.instantiate()
+		item_button_instance.text = "%s x%s" % [Items.item_list[identifier].resource.display_name, int(Items.item_list[identifier].total)]
+		item_button_instance.connect("pressed", _on_item_button_pressed.bind(ability_status.from, Items.item_list[identifier].resource))
+		item_menu.add_child(item_button_instance)
+	
+	if item_menu.get_child_count() == 0:
+		var no_items_label := Button.new()
+		no_items_label.text = "No items"
+		item_menu.add_child(no_items_label)
+
 func _on_attack_button_pressed(from:Character, attack:Ability) -> void:
 	SignalBus.emit_signal("ability_button_pressed", from, attack)
-	# for enemy_select in get_tree().get_nodes_in_group("selected_targets"):
-	# 	enemy_select.visible = true
-	
+
+func _on_item_button_pressed(from:Character, item:Item) -> void:
+	SignalBus.emit_signal("item_button_pressed", from, item)
 
 func back_to_menu() -> void:
 	state_chart.send_event("repeat_select")

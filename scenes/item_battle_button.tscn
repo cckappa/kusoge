@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cub1obshw672d"]
+
+[node name="ItemBattleButton" type="Button"]
+theme_override_font_sizes/font_size = 52
+button_mask = 0
+text = "Galletas"
