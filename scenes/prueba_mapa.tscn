@@ -27,6 +27,7 @@
 [ext_resource type="Script" uid="uid://84ck8i2ypykl" path="res://scripts/camera_manager.gd" id="19_balhk"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="20_balhk"]
 [ext_resource type="Script" uid="uid://bkkj2ica6jpjl" path="res://scripts/camera_zone_area.gd" id="22_fyrvt"]
+[ext_resource type="PackedScene" uid="uid://bfmoovgy8msfb" path="res://scenes/phantom_camera_2d_setupped.tscn" id="25_oob1o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itoh6"]
 size = Vector2(3994, 371.5)
@@ -73,12 +74,6 @@ size = Vector2(6698.01, 2640)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fyrvt"]
 size = Vector2(3686, 4254)
-
-[sub_resource type="Resource" id="Resource_fyrvt"]
-script = ExtResource("20_balhk")
-duration = 2.0
-transition = 1
-ease = 2
 
 [sub_resource type="Resource" id="Resource_p60v4"]
 script = ExtResource("20_balhk")
@@ -267,14 +262,12 @@ current_camera = NodePath("PhantomCameras/PhantomCamera2D")
 metadata/_custom_type_script = "uid://84ck8i2ypykl"
 
 [node name="Camera2D" type="Camera2D" parent="CameraManager"]
-physics_interpolation_mode = 1
 position = Vector2(53, 96)
 zoom = Vector2(1.2, 1.2)
-process_callback = 0
-limit_left = -1815
-limit_top = -1532
-limit_right = 4883
-limit_bottom = 1108
+limit_left = -2356
+limit_top = -2839
+limit_right = 2365
+limit_bottom = 1787
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="CameraManager/Camera2D"]
@@ -306,19 +299,8 @@ disabled = true
 
 [node name="PhantomCameras" type="Node" parent="CameraManager"]
 
-[node name="PhantomCamera2D" type="Node2D" parent="CameraManager/PhantomCameras" node_paths=PackedStringArray("follow_target")]
-top_level = true
+[node name="PhantomCamera2D" parent="CameraManager/PhantomCameras" instance=ExtResource("25_oob1o")]
 position = Vector2(53, 96)
-script = ExtResource("19_0f6ec")
-priority = 1
-follow_mode = 5
-follow_target = NodePath("../../../PlayableCharacter")
-zoom = Vector2(1.2, 1.2)
-tween_resource = SubResource("Resource_fyrvt")
-follow_damping = true
-follow_damping_value = Vector2(0.25, 0.25)
-draw_limits = true
-limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
 
 [node name="PhantomCamera2D2" type="Node2D" parent="CameraManager/PhantomCameras" node_paths=PackedStringArray("follow_target")]
 top_level = true
@@ -337,9 +319,8 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="CameraZoneAreas" type="Node" parent="CameraManager"]
 
-[node name="CameraZoneArea" type="Area2D" parent="CameraManager/CameraZoneAreas" node_paths=PackedStringArray("camera_a", "camera_b")]
+[node name="CameraZoneArea" type="Area2D" parent="CameraManager/CameraZoneAreas" node_paths=PackedStringArray("camera_b")]
 script = ExtResource("22_fyrvt")
-camera_a = NodePath("../../PhantomCameras/PhantomCamera2D")
 camera_b = NodePath("../../PhantomCameras/PhantomCamera2D2")
 metadata/_custom_type_script = "uid://bkkj2ica6jpjl"
 
