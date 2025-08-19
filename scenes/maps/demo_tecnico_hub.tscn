@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://cw14ehtvu80xx"]
+[gd_scene load_steps=79 format=3 uid="uid://cw14ehtvu80xx"]
 
 [ext_resource type="Script" uid="uid://ddv7kigla6iip" path="res://scripts/maps/demo_tecnico_hub.gd" id="1_w0bji"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="2_b27bq"]
@@ -31,6 +31,10 @@
 [ext_resource type="PackedScene" uid="uid://bfmoovgy8msfb" path="res://scenes/phantom_camera_2d_setupped.tscn" id="14_ovkfs"]
 [ext_resource type="Texture2D" uid="uid://ddvk3ukdg4a2d" path="res://assets/spritesheets/demo_tecnico/PUERTA.png" id="17_4k71t"]
 [ext_resource type="Texture2D" uid="uid://bpofhnoof4iy6" path="res://assets/objects/demo_tecnico/ARBOLTALADO.PNG" id="21_1tpqm"]
+[ext_resource type="Script" uid="uid://ck4xyxoy5fldl" path="res://scripts/enemies_layer.gd" id="25_jyqiw"]
+[ext_resource type="Script" uid="uid://c2d2peg3ovb8n" path="res://scripts/saves_layer.gd" id="26_kpvwu"]
+[ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="29_kpvwu"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="35_f3wh4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_41sgd"]
 atlas = ExtResource("10_5gik4")
@@ -328,9 +332,9 @@ clip_1/auto_advance = 0
 _transitions = {
 Vector2i(0, 0): {
 "fade_beats": 1.0,
-"fade_mode": 4,
+"fade_mode": 3,
 "from_time": 3,
-"to_time": 1
+"to_time": 0
 },
 Vector2i(0, 1): {
 "fade_beats": 1.0,
@@ -343,14 +347,17 @@ Vector2i(0, 1): {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovkfs"]
 size = Vector2(4721, 4626)
 
+[sub_resource type="Resource" id="Resource_fyrvt"]
+script = ExtResource("35_f3wh4")
+duration = 2.0
+transition = 1
+ease = 2
+
 [node name="DemoTecnicoHub" type="Node2D" node_paths=PackedStringArray("black_rect", "audio_stream_player")]
 y_sort_enabled = true
 script = ExtResource("1_w0bji")
 black_rect = NodePath("CanvasLayer/BlackRect")
 audio_stream_player = NodePath("AudioStreamPlayer")
-
-[node name="SettingsMenu" parent="." instance=ExtResource("2_b27bq")]
-visible = false
 
 [node name="ParallaxBackgroundLayer" type="Node2D" parent="."]
 z_index = -1
@@ -537,28 +544,24 @@ position = Vector2(0, -65)
 [node name="CollisionPolygon2D" parent="ObjectLayer/Rocas/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-253, 343, 5, 267, 225, 119, 134, -11, -75, -117, -60, -227, 164, -645, 92, -736, 123, -892, 24, -983, 96, -1081, 35, -1214, 142, -1355, 100, -1484, 16, -1689, -257, -1738)
 
-[node name="EnemiesLayer" type="Node" parent="."]
+[node name="EnemiesLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("25_jyqiw")
+metadata/_custom_type_script = "uid://ck4xyxoy5fldl"
 
-[node name="SavesLayer" type="Node" parent="."]
+[node name="SavesLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("26_kpvwu")
+metadata/_custom_type_script = "uid://c2d2peg3ovb8n"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_u2cg3")]
 
-[node name="BlackRect" type="ColorRect" parent="CanvasLayer"]
+[node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("2_b27bq")]
+
+[node name="BlackRect" parent="CanvasLayer" instance=ExtResource("29_kpvwu")]
 unique_name_in_owner = true
-visible = false
-modulate = Color(0, 0, 0, 1)
-top_level = true
-z_index = 3
-y_sort_enabled = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
@@ -578,10 +581,10 @@ physics_interpolation_mode = 1
 position = Vector2(0, 285)
 zoom = Vector2(1.2, 1.2)
 process_callback = 0
-limit_left = -2356
-limit_top = -2839
-limit_right = 2365
-limit_bottom = 1787
+limit_left = -1920
+limit_top = -1080
+limit_right = 5665
+limit_bottom = 1119
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="CameraManager/Camera2D"]
@@ -607,6 +610,8 @@ metadata/_edit_lock_ = true
 [node name="PhantomCamera2D" parent="CameraManager/PhantomCameras" node_paths=PackedStringArray("follow_target") instance=ExtResource("14_ovkfs")]
 position = Vector2(0, 285)
 follow_target = NodePath("../../../PlayableCharacter")
+tween_resource = SubResource("Resource_fyrvt")
+limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
 
 [node name="CameraZoneAreas" type="Node" parent="CameraManager"]
 

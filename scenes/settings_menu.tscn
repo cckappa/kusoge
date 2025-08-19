@@ -10,6 +10,7 @@
 
 [node name="SettingsMenu" type="Control" node_paths=PackedStringArray("game_button", "accesibility_button", "audio_button", "controls_button", "video_button", "game_panel", "accesibility_panel", "audio_panel", "controls_panel", "video_panel", "close_button")]
 process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -116,6 +117,7 @@ layout_mode = 2
 selected = 0
 item_count = 2
 popup/item_0/text = "Español"
+popup/item_0/id = 0
 popup/item_1/text = "English"
 popup/item_1/id = 1
 

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyr3ftp1nsvjj"]
+
+[ext_resource type="Script" uid="uid://5rnf247xyu5v" path="res://scripts/scene_creator_tool.gd" id="1_tq384"]
+
+[node name="EmptySceneTester" type="Node2D"]
+process_mode = 1
+y_sort_enabled = true
+
+[node name="SceneCreatorTool" type="Node" parent="."]
+script = ExtResource("1_tq384")
+metadata/_custom_type_script = "uid://5rnf247xyu5v"

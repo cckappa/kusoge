@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://da60fhf2hpt08"]
+
+[ext_resource type="Script" uid="uid://84ck8i2ypykl" path="res://scripts/camera_manager.gd" id="1_rc1ae"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_ujni5"]
+[ext_resource type="PackedScene" uid="uid://bdiecs80yne2l" path="res://scenes/collision_shape_2d_base.tscn" id="3_m66yv"]
+[ext_resource type="PackedScene" uid="uid://bfmoovgy8msfb" path="res://scenes/phantom_camera_2d_setupped.tscn" id="4_y2ba2"]
+[ext_resource type="Script" uid="uid://desx1xrrvf1ew" path="res://scripts/reminder_phantom_camera.gd" id="5_ujni5"]
+
+[node name="CameraManager" type="Node" node_paths=PackedStringArray("phantom_cameras", "current_camera")]
+script = ExtResource("1_rc1ae")
+phantom_cameras = [NodePath("PhantomCameras/PhantomCamera2D")]
+current_camera = NodePath("PhantomCameras/PhantomCamera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.2, 1.2)
+limit_left = -1920
+limit_top = -1080
+limit_right = 5665
+limit_bottom = 1119
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_ujni5")
+
+[node name="AreasLimits" type="Node" parent="."]
+
+[node name="CameraLimit" type="Area2D" parent="AreasLimits"]
+
+[node name="CameraCollision" parent="AreasLimits/CameraLimit" instance=ExtResource("3_m66yv")]
+
+[node name="PhantomCameras" type="Node" parent="."]
+
+[node name="PhantomCamera2D" parent="PhantomCameras" instance=ExtResource("4_y2ba2")]
+
+[node name="ReminderPhantomCamera" type="Node" parent="PhantomCameras"]
+script = ExtResource("5_ujni5")
+
+[node name="CameraZoneAreas" type="Node" parent="."]

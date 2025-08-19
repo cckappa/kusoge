@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdiecs80yne2l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2kmg"]
+size = Vector2(3840, 2160)
+
+[node name="CameraCollision" type="CollisionShape2D"]
+shape = SubResource("RectangleShape2D_m2kmg")
+disabled = true
