@@ -20,6 +20,7 @@ func _on_dialogic_signal_event(event_name: String) -> void:
 func start_battle(enemy_group: Array) -> void:
 	Globals.player_position = player.position
 	set_enemies(enemy_group)
+	SignalBus.emit_signal("changing_scene")
 	SignalBus.emit_signal("wild_enemy_encounter")
 
 func set_enemies(enemy_group: Array) -> void:
@@ -28,4 +29,5 @@ func set_enemies(enemy_group: Array) -> void:
 		var new_enemy := single_enemy.duplicate(true)
 		new_enemy.set_current_hp()
 		new_enemies.append(new_enemy)
+	Globals.clear_current_enemies()
 	Globals.enemies = new_enemies

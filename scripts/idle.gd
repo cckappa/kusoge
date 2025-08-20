@@ -1,5 +1,7 @@
 extends PlayerState
 
+var is_changing_scene: bool = false
+
 func enter(previous_state_path: String, data := {}) -> void:
 	player.velocity.x = 0.0
 	player.velocity.y = 0.0
@@ -10,6 +12,10 @@ func enter(previous_state_path: String, data := {}) -> void:
 	animation_tree["parameters/Idle/blend_position"] = data["last_facing_direction"]
 	animation_tree["parameters/conditions/idle"] = true
 	SignalBus.connect("starts_talking", starts_talking_idle)
+
+	if !SignalBus.is_connected("changing_scene", changing_scene_idle):
+		SignalBus.connect("changing_scene", changing_scene_idle)
+
 	if !SignalBus.is_connected("starts_fighting", get_caught_idle):
 		SignalBus.connect("starts_fighting", get_caught_idle)
 	
@@ -26,7 +32,15 @@ func physics_update(_delta: float) -> void:
 		SignalBus.disconnect("starts_fighting", get_caught_idle)
 		finished.emit(RUNNING)
 
+func changing_scene_idle() -> void:
+	is_changing_scene = true
+
+
 func starts_talking_idle() -> void:
+	if is_changing_scene:
+		print("Scene is changing, cannot start talking.")
+		return
+
 	SignalBus.disconnect("starts_talking", starts_talking_idle)
 	SignalBus.disconnect("starts_fighting", get_caught_idle)
 	finished.emit(TALKING, {"last_facing_direction": animation_tree["parameters/Idle/blend_position"]})

@@ -1,5 +1,6 @@
 extends Node
 
+signal changing_scene
 signal settings_discarded
 signal starts_talking
 signal stops_talking

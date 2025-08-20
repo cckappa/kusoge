@@ -1,7 +1,7 @@
 extends Control
 
 const inicial := preload("res://scenes/inicial.tscn")
-const demo_scene := preload("res://scenes/prueba_mapa.tscn")
+const demo_scene := preload("res://scenes/maps/demo_tecnico_hub.tscn")
 @export var play:Button
 @export var settings:Button
 @export var settings_menu:Control

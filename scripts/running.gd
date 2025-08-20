@@ -1,9 +1,14 @@
 extends PlayerState
 # Extiende el playerstate nada mas para que sea mas facil jalar el playable character y sus variables
+var is_changing_scene: bool = false
 
 func enter(previous_state_path: String, data := {}) -> void:
 	animation_tree["parameters/conditions/move"] = true
 	SignalBus.connect("starts_talking", starts_talking_run)
+
+	if !SignalBus.is_connected("changing_scene", changing_scene_run):
+		SignalBus.connect("changing_scene", changing_scene_run)
+
 	if !SignalBus.is_connected("starts_fighting", get_caught_running):
 		SignalBus.connect("starts_fighting", get_caught_running)
 	print('entra running')
@@ -40,7 +45,13 @@ func physics_update(_delta: float) -> void:
 	
 	player.move_and_slide()
 
+func changing_scene_run() -> void:
+	is_changing_scene = true
+
 func starts_talking_run() -> void:
+	if is_changing_scene:
+		print("Scene is changing, cannot start talking.")
+		return
 	SignalBus.disconnect("starts_talking", starts_talking_run)
 	SignalBus.disconnect("starts_fighting", get_caught_running)
 	finished.emit(TALKING, {"last_facing_direction": animation_tree["parameters/Move/blend_position"]})

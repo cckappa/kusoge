@@ -41,7 +41,6 @@ func fade_color_rect(rect:ColorRect, type:StringName, duration:float) -> bool:
 			return true
 
 
-
 func control_shake(object:Control, force_x:float, force_y:float, amount_x:float, amount_y:float, duration:float) -> void:
 	if not object:
 		return

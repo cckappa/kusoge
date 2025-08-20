@@ -13,10 +13,10 @@ current_camera = NodePath("PhantomCameras/PhantomCamera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.2, 1.2)
-limit_left = -1920
-limit_top = -1080
-limit_right = 5665
-limit_bottom = 1119
+limit_left = -2356
+limit_top = -2839
+limit_right = 2365
+limit_bottom = 1787
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
@@ -29,10 +29,12 @@ script = ExtResource("2_ujni5")
 [node name="CameraLimit" type="Area2D" parent="AreasLimits"]
 
 [node name="CameraCollision" parent="AreasLimits/CameraLimit" instance=ExtResource("3_m66yv")]
+metadata/_edit_lock_ = true
 
 [node name="PhantomCameras" type="Node" parent="."]
 
 [node name="PhantomCamera2D" parent="PhantomCameras" instance=ExtResource("4_y2ba2")]
+tween_on_load = false
 
 [node name="ReminderPhantomCamera" type="Node" parent="PhantomCameras"]
 script = ExtResource("5_ujni5")

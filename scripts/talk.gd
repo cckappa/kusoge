@@ -9,6 +9,7 @@ var talking_zone:=false
 func _ready() -> void:
 	talking_area.connect("body_entered", enters_area)
 	talking_area.connect("body_exited", exits_area)
+	SignalBus.connect("changing_scene", _on_changing_scene)
 
 func start_dialog() -> void:
 	talking = true
@@ -36,3 +37,6 @@ func exits_area(body:Node2D) -> void:
 	if body.is_in_group("main_character"):
 		print(body.name)
 		talking_zone = false
+
+func _on_changing_scene() -> void:
+	talking_area.monitoring = false

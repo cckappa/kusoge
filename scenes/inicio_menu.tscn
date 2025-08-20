@@ -51,7 +51,6 @@ layout_mode = 2
 text = "Créditos"
 
 [node name="SettingsMenu" parent="." instance=ExtResource("3_ppuyb")]
-visible = false
 layout_mode = 1
 
 [node name="BlackRect" type="ColorRect" parent="."]

@@ -1,14 +1,18 @@
-[gd_scene load_steps=79 format=3 uid="uid://cw14ehtvu80xx"]
+[gd_scene load_steps=94 format=3 uid="uid://cw14ehtvu80xx"]
 
 [ext_resource type="Script" uid="uid://ddv7kigla6iip" path="res://scripts/maps/demo_tecnico_hub.gd" id="1_w0bji"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="2_b27bq"]
+[ext_resource type="Script" uid="uid://dspbirfebckws" path="res://scripts/peleas_demo_tecnico.gd" id="2_mwdq3"]
 [ext_resource type="PackedScene" uid="uid://ci5a44r0l16fy" path="res://scenes/pause_menu.tscn" id="2_u2cg3"]
 [ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="3_7yfwg"]
 [ext_resource type="AudioStream" uid="uid://cge8amttf6646" path="res://assets/music/hospital.mp3" id="3_cu6af"]
 [ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="3_mr767"]
+[ext_resource type="Resource" uid="uid://owjbdndkkffa" path="res://assets/resources/enemies/gollien.tres" id="3_p1lo0"]
 [ext_resource type="AudioStream" uid="uid://dg8jfiyj6wy8a" path="res://assets/music/enemy_encounter.mp3" id="4_b27bq"]
+[ext_resource type="Resource" uid="uid://dhjur3x054uqu" path="res://assets/resources/enemies/lobo_salvaje.tres" id="4_mce50"]
 [ext_resource type="Texture2D" uid="uid://bdk20ogn4b7cn" path="res://assets/backgrounds/demo_tecnico/SUELO.PNG" id="4_ng4if"]
 [ext_resource type="Texture2D" uid="uid://be0l3u0w4cmth" path="res://assets/backgrounds/demo_tecnico/CIELO.PNG" id="5_0xr4t"]
+[ext_resource type="Resource" uid="uid://cym74q2mvjcte" path="res://assets/resources/enemies/serpra.tres" id="5_sq8m1"]
 [ext_resource type="Texture2D" uid="uid://ds6mq6sdtkyar" path="res://assets/backgrounds/demo_tecnico/MONTAÑAS.PNG" id="6_wd8je"]
 [ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="8_0xr4t"]
 [ext_resource type="Script" uid="uid://g7sf10k2338d" path="res://scripts/npc_layer.gd" id="9_4yjoi"]
@@ -28,11 +32,15 @@
 [ext_resource type="Texture2D" uid="uid://bf4eis4ocv8m6" path="res://assets/spritesheets/demo_tecnico/ARBOL3.png" id="13_c65f4"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="13_ovkfs"]
 [ext_resource type="Texture2D" uid="uid://dytw1p71e75dq" path="res://assets/objects/demo_tecnico/ARBUSTO3.PNG" id="14_273xm"]
+[ext_resource type="Texture2D" uid="uid://cixr7holjntah" path="res://assets/spritesheets/demo_tecnico/NPC.png" id="14_hdryf"]
 [ext_resource type="PackedScene" uid="uid://bfmoovgy8msfb" path="res://scenes/phantom_camera_2d_setupped.tscn" id="14_ovkfs"]
+[ext_resource type="Script" uid="uid://do84xbf65qif" path="res://scripts/talk.gd" id="15_uqfdt"]
 [ext_resource type="Texture2D" uid="uid://ddvk3ukdg4a2d" path="res://assets/spritesheets/demo_tecnico/PUERTA.png" id="17_4k71t"]
+[ext_resource type="Script" uid="uid://bsvp6e76bx107" path="res://scripts/scene_changer.gd" id="19_8uen1"]
 [ext_resource type="Texture2D" uid="uid://bpofhnoof4iy6" path="res://assets/objects/demo_tecnico/ARBOLTALADO.PNG" id="21_1tpqm"]
 [ext_resource type="Script" uid="uid://ck4xyxoy5fldl" path="res://scripts/enemies_layer.gd" id="25_jyqiw"]
 [ext_resource type="Script" uid="uid://c2d2peg3ovb8n" path="res://scripts/saves_layer.gd" id="26_kpvwu"]
+[ext_resource type="Script" uid="uid://cv43fprb0dski" path="res://scripts/spawns_layer.gd" id="28_8uen1"]
 [ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="29_kpvwu"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="35_f3wh4"]
 
@@ -81,6 +89,10 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2r6fr"]
+radius = 120.0
+height = 618.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_htik6"]
 atlas = ExtResource("11_41sgd")
@@ -232,6 +244,35 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_nn2xs"]
+atlas = ExtResource("14_hdryf")
+region = Rect2(0, 0, 400, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pno3w"]
+atlas = ExtResource("14_hdryf")
+region = Rect2(400, 0, 400, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w4oy"]
+atlas = ExtResource("14_hdryf")
+region = Rect2(0, 500, 400, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4h3p4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nn2xs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pno3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w4oy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_76sup"]
 atlas = ExtResource("17_4k71t")
 region = Rect2(0, 0, 573, 555)
@@ -320,6 +361,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pno3w"]
 size = Vector2(642, 311)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwdq3"]
+size = Vector2(337, 116)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uen1"]
+size = Vector2(382, 141)
+
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_7yfwg"]
 clip_count = 2
 clip_0/name = &"Hospital"
@@ -358,6 +405,10 @@ y_sort_enabled = true
 script = ExtResource("1_w0bji")
 black_rect = NodePath("CanvasLayer/BlackRect")
 audio_stream_player = NodePath("AudioStreamPlayer")
+
+[node name="PeleasDemoTecnico" type="Node" parent="."]
+script = ExtResource("2_mwdq3")
+enemies = [[ExtResource("3_p1lo0")], [ExtResource("4_mce50"), ExtResource("5_sq8m1")], [ExtResource("4_mce50"), ExtResource("4_mce50"), ExtResource("4_mce50")]]
 
 [node name="ParallaxBackgroundLayer" type="Node2D" parent="."]
 z_index = -1
@@ -406,6 +457,18 @@ offset = Vector2(0, -180)
 [node name="CollisionPolygon2D" parent="NpcLayer/Ranita/StaticBody2D" index="0"]
 polygon = PackedVector2Array(-231, 49, -221, 10, -186, -27, -169, -61, -57, -92, 51, -97, 155, -80, 180, -58, 204, -21, 245, 7, 240, 26, 164, 40, 63, 48, -27, 52, -161, 44)
 
+[node name="Talk" type="Node2D" parent="NpcLayer/Ranita" node_paths=PackedStringArray("talking_area")]
+script = ExtResource("15_uqfdt")
+talking_area = NodePath("Area2D")
+timeline_name = "zona_batallas_demo"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="NpcLayer/Ranita/Talk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/Ranita/Talk/Area2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_2r6fr")
+
 [node name="Arbol1" parent="NpcLayer" instance=ExtResource("9_273xm")]
 position = Vector2(1170, 642)
 
@@ -442,6 +505,18 @@ offset = Vector2(0, -474)
 [node name="CollisionPolygon2D" parent="NpcLayer/Arbol3/StaticBody2D" index="0"]
 polygon = PackedVector2Array(-97, 41, -86, -3, 118, -1, 133, 32, 118, 43, -64, 51)
 
+[node name="NpcRosita" parent="NpcLayer" instance=ExtResource("9_273xm")]
+position = Vector2(399, 933)
+
+[node name="AnimatedSprite2D" parent="NpcLayer/NpcRosita" index="0"]
+sprite_frames = SubResource("SpriteFrames_4h3p4")
+autoplay = "default"
+frame_progress = 0.119931
+offset = Vector2(0, -193.565)
+
+[node name="CollisionPolygon2D" parent="NpcLayer/NpcRosita/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-125, 20, -48, 27, 89, 21, 103, 7, 89, -37, 23, -48, -72, -48, -118, -12)
+
 [node name="ObjectLayer" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("9_h40t6")
@@ -460,6 +535,17 @@ offset = Vector2(0, -251)
 [node name="CollisionShape2D" parent="ObjectLayer/Casa/PuertaCasa/StaticBody2D" index="1"]
 position = Vector2(-3, -138.5)
 shape = SubResource("RectangleShape2D_pno3w")
+
+[node name="SceneChanger" type="Area2D" parent="ObjectLayer/Casa/PuertaCasa" node_paths=PackedStringArray("black_rect")]
+script = ExtResource("19_8uen1")
+target_scene = "res://scenes/maps/cabeza_demo_tecnico.tscn"
+target_marker = "EntradaCabeza"
+black_rect = NodePath("../../../../CanvasLayer/BlackRect")
+metadata/_custom_type_script = "uid://bsvp6e76bx107"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/Casa/PuertaCasa/SceneChanger"]
+position = Vector2(9.5, 48)
+shape = SubResource("RectangleShape2D_mwdq3")
 
 [node name="CasaEstructura" parent="ObjectLayer/Casa" instance=ExtResource("9_86tlv")]
 position = Vector2(914, -1137)
@@ -480,6 +566,17 @@ offset = Vector2(0, -490)
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/Cueva/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-797, 67, -401, 73, -358, 59, -365, -61, 36, -71, 36, 61, 50, 76, 267, 73, 313, 42, 538, 56, 627, 42, 749, 42, 721, -21, 598, -73, 527, -224, 230, -438, 147, -592, 7, -712, -84, -706, -221, -809, -372, -900, -660, -980, -797, -997)
+
+[node name="SceneChanger" type="Area2D" parent="ObjectLayer/Cueva" node_paths=PackedStringArray("black_rect")]
+script = ExtResource("19_8uen1")
+target_scene = "res://scenes/maps/cueva_demo_tecnico.tscn"
+target_marker = "EntradaCueva"
+black_rect = NodePath("../../../CanvasLayer/BlackRect")
+metadata/_custom_type_script = "uid://bsvp6e76bx107"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/Cueva/SceneChanger"]
+position = Vector2(-163, -0.5)
+shape = SubResource("RectangleShape2D_8uen1")
 
 [node name="Arbusto1" parent="ObjectLayer" instance=ExtResource("9_86tlv")]
 position = Vector2(-145, -3)
@@ -554,6 +651,20 @@ y_sort_enabled = true
 script = ExtResource("26_kpvwu")
 metadata/_custom_type_script = "uid://c2d2peg3ovb8n"
 
+[node name="SpawnsLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("28_8uen1")
+metadata/_custom_type_script = "uid://cv43fprb0dski"
+
+[node name="DefaultMarker" type="Marker2D" parent="SpawnsLayer"]
+position = Vector2(175, 69)
+
+[node name="EntradaCueva" type="Marker2D" parent="SpawnsLayer"]
+position = Vector2(-1769, -1075)
+
+[node name="EntradaCabeza" type="Marker2D" parent="SpawnsLayer"]
+position = Vector2(876, -885)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_u2cg3")]
@@ -581,10 +692,10 @@ physics_interpolation_mode = 1
 position = Vector2(0, 285)
 zoom = Vector2(1.2, 1.2)
 process_callback = 0
-limit_left = -1920
-limit_top = -1080
-limit_right = 5665
-limit_bottom = 1119
+limit_left = -2356
+limit_top = -2839
+limit_right = 2365
+limit_bottom = 1787
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="CameraManager/Camera2D"]
@@ -611,6 +722,7 @@ metadata/_edit_lock_ = true
 position = Vector2(0, 285)
 follow_target = NodePath("../../../PlayableCharacter")
 tween_resource = SubResource("Resource_fyrvt")
+tween_on_load = false
 limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
 
 [node name="CameraZoneAreas" type="Node" parent="CameraManager"]
@@ -619,6 +731,7 @@ limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
 [editable path="NpcLayer/Arbol1"]
 [editable path="NpcLayer/Arbol2"]
 [editable path="NpcLayer/Arbol3"]
+[editable path="NpcLayer/NpcRosita"]
 [editable path="ObjectLayer/Casa/PuertaCasa"]
 [editable path="ObjectLayer/Casa/CasaEstructura"]
 [editable path="ObjectLayer/Cueva"]

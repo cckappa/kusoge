@@ -91,7 +91,6 @@ black_rect = NodePath("CanvasLayer/BlackRect")
 audio_stream_player = NodePath("AudioStreamPlayer")
 
 [node name="SettingsMenu" parent="." instance=ExtResource("2_5s8uf")]
-visible = false
 
 [node name="PeleasDemoTecnico" type="Node" parent="."]
 script = ExtResource("15_p60v4")
@@ -264,10 +263,10 @@ metadata/_custom_type_script = "uid://84ck8i2ypykl"
 [node name="Camera2D" type="Camera2D" parent="CameraManager"]
 position = Vector2(53, 96)
 zoom = Vector2(1.2, 1.2)
-limit_left = -2356
-limit_top = -2839
-limit_right = 2365
-limit_bottom = 1787
+limit_left = -1952
+limit_top = -938
+limit_right = 1952
+limit_bottom = 938
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="CameraManager/Camera2D"]

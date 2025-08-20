@@ -154,6 +154,7 @@ func _on_inhabilitating_state_entered() -> void:
 
 func _on_losing_state_entered() -> void:
 	SignalBus.emit_signal("stop_crit")
+	menu_level = 666
 	audio_stream_player.set("parameters/switch_to_clip", "LostBattle")
 	lose_text.visible = true
 	continue_buttons.visible = true
@@ -164,6 +165,7 @@ func _on_losing_state_entered() -> void:
 
 func _on_winning_state_entered() -> void:
 	SignalBus.emit_signal("stop_crit")
+	menu_level = 999
 	audio_stream_player.set("parameters/switch_to_clip", "VictoryFanfare")
 	var winning_allies:Array[Character] = alive_allies(Globals.current_arrange_allies)
 	for ally in winning_allies:
