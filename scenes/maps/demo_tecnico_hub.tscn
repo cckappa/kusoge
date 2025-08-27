@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://cw14ehtvu80xx"]
+[gd_scene load_steps=105 format=3 uid="uid://cw14ehtvu80xx"]
 
 [ext_resource type="Script" uid="uid://ddv7kigla6iip" path="res://scripts/maps/demo_tecnico_hub.gd" id="1_w0bji"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="2_b27bq"]
@@ -35,14 +35,31 @@
 [ext_resource type="Texture2D" uid="uid://cixr7holjntah" path="res://assets/spritesheets/demo_tecnico/NPC.png" id="14_hdryf"]
 [ext_resource type="PackedScene" uid="uid://bfmoovgy8msfb" path="res://scenes/phantom_camera_2d_setupped.tscn" id="14_ovkfs"]
 [ext_resource type="Script" uid="uid://do84xbf65qif" path="res://scripts/talk.gd" id="15_uqfdt"]
+[ext_resource type="Script" uid="uid://bj1igyevn8g64" path="res://scripts/quests/quest.gd" id="16_mce50"]
 [ext_resource type="Texture2D" uid="uid://ddvk3ukdg4a2d" path="res://assets/spritesheets/demo_tecnico/PUERTA.png" id="17_4k71t"]
+[ext_resource type="Script" uid="uid://bjli2ti8po5o" path="res://scripts/quests/quest_resource.gd" id="17_sq8m1"]
 [ext_resource type="Script" uid="uid://bsvp6e76bx107" path="res://scripts/scene_changer.gd" id="19_8uen1"]
 [ext_resource type="Texture2D" uid="uid://bpofhnoof4iy6" path="res://assets/objects/demo_tecnico/ARBOLTALADO.PNG" id="21_1tpqm"]
+[ext_resource type="Resource" uid="uid://clu0pe7crj6f7" path="res://assets/resources/quests/cigarro_lobuki.tres" id="22_2r6fr"]
+[ext_resource type="Script" uid="uid://b0gh7v5xk7w7w" path="res://scripts/item_giver.gd" id="22_uqfdt"]
+[ext_resource type="Resource" uid="uid://be2db4m15u3w5" path="res://assets/resources/items/cigarro_lobuki.tres" id="23_2r6fr"]
 [ext_resource type="Script" uid="uid://ck4xyxoy5fldl" path="res://scripts/enemies_layer.gd" id="25_jyqiw"]
 [ext_resource type="Script" uid="uid://c2d2peg3ovb8n" path="res://scripts/saves_layer.gd" id="26_kpvwu"]
 [ext_resource type="Script" uid="uid://cv43fprb0dski" path="res://scripts/spawns_layer.gd" id="28_8uen1"]
 [ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="29_kpvwu"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="35_f3wh4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1lo0"]
+size = Vector2(3690, 614)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqfdt"]
+size = Vector2(856, 3308.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2r6fr"]
+size = Vector2(6378, 351)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqvvo"]
+size = Vector2(934, 3781)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_41sgd"]
 atlas = ExtResource("10_5gik4")
@@ -93,6 +110,14 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2r6fr"]
 radius = 120.0
 height = 618.0
+
+[sub_resource type="Resource" id="Resource_76sup"]
+script = ExtResource("17_sq8m1")
+identifier = ""
+name = ""
+goal_description_list = Array[String]([])
+description_list = Array[String]([])
+metadata/_custom_type_script = "uid://bjli2ti8po5o"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_htik6"]
 atlas = ExtResource("11_41sgd")
@@ -273,6 +298,9 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_tqvvo"]
+radius = 203.376
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_76sup"]
 atlas = ExtResource("17_4k71t")
 region = Rect2(0, 0, 573, 555)
@@ -437,6 +465,24 @@ metadata/_custom_type_script = "uid://d4gnu0ogw3rcy"
 texture = ExtResource("4_ng4if")
 metadata/_edit_lock_ = true
 
+[node name="StaticBody2D" type="StaticBody2D" parent="BackgroundLayer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
+position = Vector2(572, -1558)
+shape = SubResource("RectangleShape2D_p1lo0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
+position = Vector2(2830, 255.75)
+shape = SubResource("RectangleShape2D_uqfdt")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
+position = Vector2(-82, 1985)
+shape = SubResource("RectangleShape2D_2r6fr")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
+position = Vector2(-2833, 35.5)
+shape = SubResource("RectangleShape2D_tqvvo")
+
 [node name="PlayableCharacter" parent="." instance=ExtResource("8_0xr4t")]
 position = Vector2(0, 285)
 
@@ -468,6 +514,11 @@ metadata/_custom_type_script = "uid://do84xbf65qif"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/Ranita/Talk/Area2D"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_2r6fr")
+
+[node name="Quest" type="Node2D" parent="NpcLayer/Ranita"]
+script = ExtResource("16_mce50")
+quest_resource = SubResource("Resource_76sup")
+metadata/_custom_type_script = "uid://bj1igyevn8g64"
 
 [node name="Arbol1" parent="NpcLayer" instance=ExtResource("9_273xm")]
 position = Vector2(1170, 642)
@@ -517,6 +568,29 @@ offset = Vector2(0, -193.565)
 [node name="CollisionPolygon2D" parent="NpcLayer/NpcRosita/StaticBody2D" index="0"]
 polygon = PackedVector2Array(-125, 20, -48, 27, 89, 21, 103, 7, 89, -37, 23, -48, -72, -48, -118, -12)
 
+[node name="Talk" type="Node2D" parent="NpcLayer/NpcRosita" node_paths=PackedStringArray("talking_area")]
+script = ExtResource("15_uqfdt")
+talking_area = NodePath("Area2D")
+timeline_name = "npc_rosita_demo"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="NpcLayer/NpcRosita/Talk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/NpcRosita/Talk/Area2D"]
+shape = SubResource("CircleShape2D_tqvvo")
+
+[node name="Quest" type="Node2D" parent="NpcLayer/NpcRosita"]
+script = ExtResource("16_mce50")
+quest_resource = ExtResource("22_2r6fr")
+dialogic_signal = "npc_rosita_demo"
+metadata/_custom_type_script = "uid://bj1igyevn8g64"
+
+[node name="ItemGiver" type="Node" parent="NpcLayer/NpcRosita"]
+script = ExtResource("22_uqfdt")
+item = ExtResource("23_2r6fr")
+dialogic_signal = "cigarrete_lobuki_take"
+metadata/_custom_type_script = "uid://b0gh7v5xk7w7w"
+
 [node name="ObjectLayer" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("9_h40t6")
@@ -537,6 +611,7 @@ position = Vector2(-3, -138.5)
 shape = SubResource("RectangleShape2D_pno3w")
 
 [node name="SceneChanger" type="Area2D" parent="ObjectLayer/Casa/PuertaCasa" node_paths=PackedStringArray("black_rect")]
+monitoring = false
 script = ExtResource("19_8uen1")
 target_scene = "res://scenes/maps/cabeza_demo_tecnico.tscn"
 target_marker = "EntradaCabeza"

@@ -12,15 +12,13 @@ var target_marker:String = "default"
 var from_door:bool = false
 
 const ALICIA := preload("res://assets/resources/characters/alicia.tres")
-const ESPIGA := preload("res://assets/resources/characters/espiga.tres")
-const HEVE := preload("res://assets/resources/characters/heve.tres")
 const INGENIERO_FROGELIO = preload("res://assets/resources/characters/ingeniero_frogelio.tres")
 const MALENA = preload("res://assets/resources/characters/malena.tres")
 const MIUMIU = preload("res://assets/resources/characters/miumiu.tres")
 const PROTO_SHAMAN = preload("res://assets/resources/characters/proto_shaman.tres")
 const RANASTACIO = preload("res://assets/resources/characters/ranastacio.tres")
-const TOKU = preload("res://assets/resources/characters/toku.tres")
-const YUA = preload("res://assets/resources/characters/yua.tres")
+const SABIA_RANA_PEDRO = preload("res://assets/resources/characters/demo_tecnico/sabia_rana_pedro.tres")
+const LOBUKI = preload("res://assets/resources/characters/demo_tecnico/lobuki.tres")
 
 
 var ene_1 := preload("res://assets/resources/enemies/plant_enemy.tres")
@@ -56,8 +54,8 @@ var current_arrange_enemies : Dictionary = {
 func _ready() -> void:
 	ene_1.current_hp = ene_1.max_hp
 	ene_2.current_hp = ene_2.max_hp
-	party = [MALENA, MIUMIU, PROTO_SHAMAN, RANASTACIO, TOKU, YUA]
-	set_current_characters([ALICIA, ESPIGA, HEVE, INGENIERO_FROGELIO])
+	party = [MIUMIU, PROTO_SHAMAN, LOBUKI, SABIA_RANA_PEDRO]
+	set_current_characters([ALICIA, RANASTACIO, MALENA, INGENIERO_FROGELIO])
 	enemies = [ene_1, ene_2]
 
 	if OS.is_debug_build():

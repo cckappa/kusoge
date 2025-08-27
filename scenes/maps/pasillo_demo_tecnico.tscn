@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://0tlgkod8boti"]
+[gd_scene load_steps=34 format=3 uid="uid://0tlgkod8boti"]
 
 [ext_resource type="Script" uid="uid://cxd47ile2ns4g" path="res://scripts/maps/pasillo_demo_tecnico.gd" id="1_gc2ga"]
 [ext_resource type="Script" uid="uid://5rnf247xyu5v" path="res://scripts/scene_creator_tool.gd" id="2_msnjy"]
@@ -7,8 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://c5gjy6q074yiw" path="res://assets/backgrounds/demo_tecnico/FONDO_pasill.png" id="5_3k1ha"]
 [ext_resource type="Script" uid="uid://bsvp6e76bx107" path="res://scripts/scene_changer.gd" id="6_msnjy"]
 [ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="6_vlj8a"]
-[ext_resource type="Script" uid="uid://caf516xcaglfd" path="res://scripts/playable_character.gd" id="7_yvpa3"]
-[ext_resource type="Resource" uid="uid://jr2yuolebha7" path="res://assets/resources/conejitx.tres" id="8_vwlxg"]
 [ext_resource type="Script" uid="uid://g7sf10k2338d" path="res://scripts/npc_layer.gd" id="9_br8a3"]
 [ext_resource type="Script" uid="uid://dsfklbei7r5qc" path="res://scripts/object_layer.gd" id="10_4rnfk"]
 [ext_resource type="PackedScene" uid="uid://clmbh4jnxur05" path="res://scenes/objeto.tscn" id="11_vxo0c"]
@@ -27,16 +25,10 @@
 [ext_resource type="Script" uid="uid://cv43fprb0dski" path="res://scripts/spawns_layer.gd" id="24_prxsk"]
 [ext_resource type="Script" uid="uid://c2d2peg3ovb8n" path="res://scripts/saves_layer.gd" id="25_6lhvw"]
 [ext_resource type="PackedScene" uid="uid://ci5a44r0l16fy" path="res://scenes/pause_menu.tscn" id="26_77dqh"]
-[ext_resource type="Script" uid="uid://o5vv2g2a4qjo" path="res://scripts/pause_menu.gd" id="27_7xh8c"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="28_vnmxb"]
-[ext_resource type="Script" uid="uid://cit4h4wpq0ui5" path="res://scripts/settings_menu.gd" id="29_r7qhh"]
 [ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="30_7ip4d"]
 [ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="31_xme65"]
-[ext_resource type="Script" uid="uid://84ck8i2ypykl" path="res://scripts/camera_manager.gd" id="32_jmobe"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="33_s3nkj"]
-[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="34_pek5g"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="35_sjh72"]
-[ext_resource type="Script" uid="uid://desx1xrrvf1ew" path="res://scripts/reminder_phantom_camera.gd" id="36_17k3b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8u4pw"]
 size = Vector2(4299, 401)
@@ -112,10 +104,7 @@ metadata/_custom_type_script = "uid://bsvp6e76bx107"
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/SceneChanger2"]
 polygon = PackedVector2Array(77, 149, 178, 230, 197, -39, -44, -301, -154, -251, -119, -126)
 
-[node name="PlayableCharacter" type="CharacterBody2D" parent="." groups=["main_character"] instance=ExtResource("6_vlj8a")]
-y_sort_enabled = true
-script = ExtResource("7_yvpa3")
-character_info = ExtResource("8_vwlxg")
+[node name="PlayableCharacter" parent="." instance=ExtResource("6_vlj8a")]
 
 [node name="NpcLayer" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -125,7 +114,7 @@ script = ExtResource("9_br8a3")
 y_sort_enabled = true
 script = ExtResource("10_4rnfk")
 
-[node name="MuertoAmarillo" parent="ObjectLayer" groups=["objects"] instance=ExtResource("11_vxo0c")]
+[node name="MuertoAmarillo" parent="ObjectLayer" instance=ExtResource("11_vxo0c")]
 position = Vector2(-1435, 178)
 
 [node name="Sprite2D" parent="ObjectLayer/MuertoAmarillo" index="0"]
@@ -135,7 +124,7 @@ offset = Vector2(0, -72)
 [node name="CollisionPolygon2D" parent="ObjectLayer/MuertoAmarillo/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-85, 33, -64, 73, -37, 55, 59, 50, 86, 17, 80, -2, -6, -3, -66, 2)
 
-[node name="MuertoRana" parent="ObjectLayer" groups=["objects"] instance=ExtResource("11_vxo0c")]
+[node name="MuertoRana" parent="ObjectLayer" instance=ExtResource("11_vxo0c")]
 position = Vector2(299, 142)
 
 [node name="Sprite2D" parent="ObjectLayer/MuertoRana" index="0"]
@@ -145,7 +134,7 @@ offset = Vector2(0, -3)
 [node name="CollisionPolygon2D" parent="ObjectLayer/MuertoRana/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-174, 39, -81, 51, 42, 60, 126, 22, 168, 21, 169, -7, 144, -22, 33, -28, -99, -20, -132, 9, -175, 29)
 
-[node name="MuertoAcostado" parent="ObjectLayer" groups=["objects"] instance=ExtResource("11_vxo0c")]
+[node name="MuertoAcostado" parent="ObjectLayer" instance=ExtResource("11_vxo0c")]
 position = Vector2(-314, 178)
 
 [node name="Sprite2D" parent="ObjectLayer/MuertoAcostado" index="0"]
@@ -155,7 +144,7 @@ offset = Vector2(0, -8)
 [node name="CollisionPolygon2D" parent="ObjectLayer/MuertoAcostado/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-226, 4, -148, 13, -105, 19, -74, 38, -12, 26, 48, 48, 71, 64, 138, 80, 179, 73, 235, -5, 215, -38, 65, -41, -52, -24)
 
-[node name="MuertoSentado" parent="ObjectLayer" groups=["objects"] instance=ExtResource("11_vxo0c")]
+[node name="MuertoSentado" parent="ObjectLayer" instance=ExtResource("11_vxo0c")]
 position = Vector2(1139, 128)
 
 [node name="Sprite2D" parent="ObjectLayer/MuertoSentado" index="0"]
@@ -165,7 +154,7 @@ offset = Vector2(0, -69)
 [node name="CollisionPolygon2D" parent="ObjectLayer/MuertoSentado/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-136, 90, -112, 94, -24, 45, 42, 40, 115, 92, 127, 91, 153, 39, 65, -9, -68, -12, -149, 33)
 
-[node name="MuertoAmarilloAcostado" parent="ObjectLayer" groups=["objects"] instance=ExtResource("11_vxo0c")]
+[node name="MuertoAmarilloAcostado" parent="ObjectLayer" instance=ExtResource("11_vxo0c")]
 position = Vector2(1127, 650)
 
 [node name="Sprite2D" parent="ObjectLayer/MuertoAmarilloAcostado" index="0"]
@@ -175,7 +164,7 @@ offset = Vector2(0, -8)
 [node name="CollisionPolygon2D" parent="ObjectLayer/MuertoAmarilloAcostado/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-225, 56, -170, 61, -122, 39, -49, 48, 43, 46, 112, 61, 223, 52, 212, -66, 130, -73, 23, -51, -100, -48, -155, -39, -172, 3)
 
-[node name="CraneosMultiples" parent="ObjectLayer" groups=["objects"] instance=ExtResource("11_vxo0c")]
+[node name="CraneosMultiples" parent="ObjectLayer" instance=ExtResource("11_vxo0c")]
 position = Vector2(622, 143)
 
 [node name="Sprite2D" parent="ObjectLayer/CraneosMultiples" index="0"]
@@ -185,7 +174,7 @@ offset = Vector2(0, -12.45)
 [node name="CollisionPolygon2D" parent="ObjectLayer/CraneosMultiples/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-74, 8, -44, 38, 9, 32, 64, 20, 62, -1, 35, -7, -27, -8)
 
-[node name="Craneo1" parent="ObjectLayer" groups=["objects"] instance=ExtResource("11_vxo0c")]
+[node name="Craneo1" parent="ObjectLayer" instance=ExtResource("11_vxo0c")]
 position = Vector2(-568, 591)
 
 [node name="Sprite2D" parent="ObjectLayer/Craneo1" index="0"]
@@ -195,7 +184,7 @@ offset = Vector2(0, -18.84)
 [node name="CollisionPolygon2D" parent="ObjectLayer/Craneo1/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-47, 12, -20, 28, 43, 22, 50, -1, 29, -10, -27, -10)
 
-[node name="Craneo2" parent="ObjectLayer" groups=["objects"] instance=ExtResource("11_vxo0c")]
+[node name="Craneo2" parent="ObjectLayer" instance=ExtResource("11_vxo0c")]
 position = Vector2(1319, 139)
 
 [node name="Sprite2D" parent="ObjectLayer/Craneo2" index="0"]
@@ -205,7 +194,7 @@ offset = Vector2(0, -7.15)
 [node name="CollisionPolygon2D" parent="ObjectLayer/Craneo2/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-34, 4, -12, 20, 33, 19, 38, -5, -1, -8)
 
-[node name="Craneo3" parent="ObjectLayer" groups=["objects"] instance=ExtResource("11_vxo0c")]
+[node name="Craneo3" parent="ObjectLayer" instance=ExtResource("11_vxo0c")]
 position = Vector2(355, 614)
 
 [node name="Sprite2D" parent="ObjectLayer/Craneo3" index="0"]
@@ -215,7 +204,7 @@ offset = Vector2(0, -7.94)
 [node name="CollisionPolygon2D" parent="ObjectLayer/Craneo3/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-38, 1, -13, 24, 27, 16, 38, -7, 15, -16, -33, -8)
 
-[node name="Mano1" parent="ObjectLayer" groups=["objects"] instance=ExtResource("11_vxo0c")]
+[node name="Mano1" parent="ObjectLayer" instance=ExtResource("11_vxo0c")]
 position = Vector2(-1395, 646)
 
 [node name="Sprite2D" parent="ObjectLayer/Mano1" index="0"]
@@ -225,7 +214,7 @@ offset = Vector2(0, 56.72)
 [node name="CollisionPolygon2D" parent="ObjectLayer/Mano1/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-49, 106, -13, 112, 9, 89, 2, 60, 42, 17, 40, -5, -27, 44)
 
-[node name="Mano2" parent="ObjectLayer" groups=["objects"] instance=ExtResource("11_vxo0c")]
+[node name="Mano2" parent="ObjectLayer" instance=ExtResource("11_vxo0c")]
 position = Vector2(-710, 158)
 
 [node name="Sprite2D" parent="ObjectLayer/Mano2" index="0"]
@@ -258,96 +247,27 @@ script = ExtResource("25_6lhvw")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PauseMenu" type="Control" parent="CanvasLayer" instance=ExtResource("26_77dqh")]
-process_mode = 3
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("27_7xh8c")
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("26_77dqh")]
 
-[node name="SettingsMenu" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("game_button", "accesibility_button", "audio_button", "controls_button", "video_button", "game_panel", "accesibility_panel", "audio_panel", "controls_panel", "video_panel", "close_button") instance=ExtResource("28_vnmxb")]
-process_mode = 3
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("29_r7qhh")
-game_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Game")
-accesibility_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Accesibility")
-audio_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Audio")
-controls_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Controls")
-video_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Video")
-game_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/GamePanel")
-accesibility_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel")
-audio_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel")
-controls_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel")
-video_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/VideoPanel")
-close_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/BottomButtons/ClosePause")
+[node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("28_vnmxb")]
 
-[node name="BlackRect" type="ColorRect" parent="CanvasLayer" instance=ExtResource("30_7ip4d")]
-visible = false
-modulate = Color(0, 0, 0, 1)
-top_level = true
-z_index = 3
-y_sort_enabled = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
+[node name="BlackRect" parent="CanvasLayer" instance=ExtResource("30_7ip4d")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-[node name="CameraManager" parent="." node_paths=PackedStringArray("phantom_cameras", "current_camera") instance=ExtResource("31_xme65")]
-script = ExtResource("32_jmobe")
-phantom_cameras = [NodePath("PhantomCameras/PhantomCamera2D")]
-current_camera = NodePath("PhantomCameras/PhantomCamera2D")
+[node name="CameraManager" parent="." instance=ExtResource("31_xme65")]
 
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
-zoom = Vector2(1.2, 1.2)
 process_callback = 0
-limit_left = -2356
-limit_top = -2839
-limit_right = 2365
-limit_bottom = 1787
-editor_draw_limits = true
-
-[node name="PhantomCameraHost" parent="CameraManager/Camera2D" index="0"]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("33_s3nkj")
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_gc2ga")
-disabled = true
 
 [node name="PhantomCamera2D" parent="CameraManager/PhantomCameras" index="0" node_paths=PackedStringArray("follow_target")]
-top_level = true
-script = ExtResource("34_pek5g")
-priority = 1
-follow_mode = 5
 follow_target = NodePath("../../../PlayableCharacter")
-zoom = Vector2(1.2, 1.2)
 tween_resource = SubResource("Resource_fyrvt")
-tween_on_load = false
-follow_damping = true
-follow_damping_value = Vector2(0.25, 0.25)
-draw_limits = true
-limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
-
-[node name="ReminderPhantomCamera" parent="CameraManager/PhantomCameras" index="1"]
-script = ExtResource("36_17k3b")
 
 [editable path="ObjectLayer/MuertoAmarillo"]
 [editable path="ObjectLayer/MuertoRana"]

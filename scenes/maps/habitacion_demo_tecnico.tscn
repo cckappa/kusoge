@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dbfk6io7tum1h"]
+[gd_scene load_steps=44 format=3 uid="uid://dbfk6io7tum1h"]
 
 [ext_resource type="Script" uid="uid://iyxa2juiwepc" path="res://scripts/maps/habitacion_demo_tecnico.gd" id="1_gmx2w"]
 [ext_resource type="Script" uid="uid://5rnf247xyu5v" path="res://scripts/scene_creator_tool.gd" id="2_d4xx2"]
@@ -7,8 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://dl1jide8tgpi" path="res://assets/backgrounds/demo_tecnico/fondo_habitacion.png" id="5_kwu0w"]
 [ext_resource type="Script" uid="uid://bsvp6e76bx107" path="res://scripts/scene_changer.gd" id="6_1j1x1"]
 [ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="6_rdwgu"]
-[ext_resource type="Script" uid="uid://caf516xcaglfd" path="res://scripts/playable_character.gd" id="7_wld6k"]
-[ext_resource type="Resource" uid="uid://jr2yuolebha7" path="res://assets/resources/conejitx.tres" id="8_ix8xt"]
 [ext_resource type="Script" uid="uid://g7sf10k2338d" path="res://scripts/npc_layer.gd" id="9_vbeqg"]
 [ext_resource type="Script" uid="uid://dsfklbei7r5qc" path="res://scripts/object_layer.gd" id="10_1j1x1"]
 [ext_resource type="PackedScene" uid="uid://h0q50x2317m1" path="res://scenes/npc.tscn" id="10_vbeqg"]
@@ -20,20 +18,14 @@
 [ext_resource type="Texture2D" uid="uid://cjpvk2gmey647" path="res://assets/spritesheets/demo_tecnico/candelabroizq_habitacion.png" id="14_q44w6"]
 [ext_resource type="PackedScene" uid="uid://ci5a44r0l16fy" path="res://scenes/pause_menu.tscn" id="14_u5et4"]
 [ext_resource type="PackedScene" uid="uid://clmbh4jnxur05" path="res://scenes/objeto.tscn" id="15_3y6r5"]
-[ext_resource type="Script" uid="uid://o5vv2g2a4qjo" path="res://scripts/pause_menu.gd" id="15_8vtij"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="16_k74cn"]
 [ext_resource type="Texture2D" uid="uid://ckndfgr2gggsp" path="res://assets/objects/demo_tecnico/craneo1_habitacion.png" id="16_u5et4"]
 [ext_resource type="Texture2D" uid="uid://bwl6t1hflemcw" path="res://assets/objects/demo_tecnico/craneo2_habitacion.png" id="17_8vtij"]
-[ext_resource type="Script" uid="uid://cit4h4wpq0ui5" path="res://scripts/settings_menu.gd" id="17_sky3e"]
 [ext_resource type="Texture2D" uid="uid://dxd54x5v7mp36" path="res://assets/objects/demo_tecnico/craneo3_habitacion.png" id="18_k74cn"]
 [ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="18_x3tux"]
 [ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="19_c7180"]
-[ext_resource type="Script" uid="uid://84ck8i2ypykl" path="res://scripts/camera_manager.gd" id="20_dcmex"]
 [ext_resource type="Texture2D" uid="uid://drotdyw73xb3y" path="res://assets/backgrounds/demo_tecnico/craneoslimite_habitacion.png" id="20_vkkwh"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="21_0fy3c"]
-[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="22_lvqvm"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="23_6urx6"]
-[ext_resource type="Script" uid="uid://desx1xrrvf1ew" path="res://scripts/reminder_phantom_camera.gd" id="24_0yv1h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phoxl"]
 size = Vector2(2479, 344)
@@ -191,16 +183,13 @@ metadata/_custom_type_script = "uid://bsvp6e76bx107"
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/SceneChanger"]
 polygon = PackedVector2Array(-883, 502, -823, 496, -644, 261, -663, 154, -811, 182)
 
-[node name="PlayableCharacter" type="CharacterBody2D" parent="." groups=["main_character"] instance=ExtResource("6_rdwgu")]
-y_sort_enabled = true
-script = ExtResource("7_wld6k")
-character_info = ExtResource("8_ix8xt")
+[node name="PlayableCharacter" parent="." instance=ExtResource("6_rdwgu")]
 
 [node name="NpcLayer" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("9_vbeqg")
 
-[node name="Jefe" parent="NpcLayer" groups=["npcs"] instance=ExtResource("10_vbeqg")]
+[node name="Jefe" parent="NpcLayer" instance=ExtResource("10_vbeqg")]
 position = Vector2(0, 145)
 
 [node name="AnimatedSprite2D" parent="NpcLayer/Jefe" index="0"]
@@ -216,7 +205,7 @@ polygon = PackedVector2Array(-102, 57, -11, 68, 89, 60, 111, 15, 49, -32, -43, -
 y_sort_enabled = true
 script = ExtResource("10_1j1x1")
 
-[node name="CandelabroDer" parent="ObjectLayer" groups=["npcs"] instance=ExtResource("10_vbeqg")]
+[node name="CandelabroDer" parent="ObjectLayer" instance=ExtResource("10_vbeqg")]
 position = Vector2(295, 158)
 
 [node name="AnimatedSprite2D" parent="ObjectLayer/CandelabroDer" index="0"]
@@ -228,7 +217,7 @@ offset = Vector2(0, -314)
 [node name="CollisionPolygon2D" parent="ObjectLayer/CandelabroDer/StaticBody2D" index="0"]
 polygon = PackedVector2Array(-93, 20, -42, 41, 58, 36, 59, 10, 17, -17, -41, -14)
 
-[node name="CandelabroIzq" parent="ObjectLayer" groups=["npcs"] instance=ExtResource("10_vbeqg")]
+[node name="CandelabroIzq" parent="ObjectLayer" instance=ExtResource("10_vbeqg")]
 position = Vector2(-288, 159)
 
 [node name="AnimatedSprite2D" parent="ObjectLayer/CandelabroIzq" index="0"]
@@ -240,7 +229,7 @@ offset = Vector2(0, -314)
 [node name="CollisionPolygon2D" parent="ObjectLayer/CandelabroIzq/StaticBody2D" index="0"]
 polygon = PackedVector2Array(-67, 37, 4, 39, 91, 23, 60, -5, 29, -11, -33, 0)
 
-[node name="Craneo1" parent="ObjectLayer" groups=["objects"] instance=ExtResource("15_3y6r5")]
+[node name="Craneo1" parent="ObjectLayer" instance=ExtResource("15_3y6r5")]
 position = Vector2(218, 510)
 
 [node name="Sprite2D" parent="ObjectLayer/Craneo1" index="0"]
@@ -250,7 +239,7 @@ offset = Vector2(0, -20.125)
 [node name="CollisionPolygon2D" parent="ObjectLayer/Craneo1/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-52, 12, -15, 37, 36, 30, 56, -6, 46, -17, -35, -13)
 
-[node name="Craneo2" parent="ObjectLayer" groups=["objects"] instance=ExtResource("15_3y6r5")]
+[node name="Craneo2" parent="ObjectLayer" instance=ExtResource("15_3y6r5")]
 position = Vector2(472, 165)
 
 [node name="Sprite2D" parent="ObjectLayer/Craneo2" index="0"]
@@ -260,7 +249,7 @@ offset = Vector2(0, -19)
 [node name="CollisionPolygon2D" parent="ObjectLayer/Craneo2/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-52, 7, 28, 28, 55, 8, 38, -9, -40, -10)
 
-[node name="Craneo3" parent="ObjectLayer" groups=["objects"] instance=ExtResource("15_3y6r5")]
+[node name="Craneo3" parent="ObjectLayer" instance=ExtResource("15_3y6r5")]
 position = Vector2(-473, 153)
 
 [node name="Sprite2D" parent="ObjectLayer/Craneo3" index="0"]
@@ -270,7 +259,7 @@ offset = Vector2(0, -22)
 [node name="CollisionPolygon2D" parent="ObjectLayer/Craneo3/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-62, 4, -29, 26, 27, 34, 63, 12, 56, -13, -8, -17)
 
-[node name="LimiteCraneos" parent="ObjectLayer" groups=["objects"] instance=ExtResource("15_3y6r5")]
+[node name="LimiteCraneos" parent="ObjectLayer" instance=ExtResource("15_3y6r5")]
 position = Vector2(0, 825)
 
 [node name="Sprite2D" parent="ObjectLayer/LimiteCraneos" index="0"]
@@ -300,97 +289,27 @@ script = ExtResource("13_3y6r5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PauseMenu" type="Control" parent="CanvasLayer" instance=ExtResource("14_u5et4")]
-process_mode = 3
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("15_8vtij")
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("14_u5et4")]
 
-[node name="SettingsMenu" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("game_button", "accesibility_button", "audio_button", "controls_button", "video_button", "game_panel", "accesibility_panel", "audio_panel", "controls_panel", "video_panel", "close_button") instance=ExtResource("16_k74cn")]
-process_mode = 3
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("17_sky3e")
-game_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Game")
-accesibility_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Accesibility")
-audio_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Audio")
-controls_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Controls")
-video_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Video")
-game_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/GamePanel")
-accesibility_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel")
-audio_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel")
-controls_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel")
-video_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/VideoPanel")
-close_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/BottomButtons/ClosePause")
+[node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("16_k74cn")]
 
-[node name="BlackRect" type="ColorRect" parent="CanvasLayer" instance=ExtResource("18_x3tux")]
-visible = false
-modulate = Color(0, 0, 0, 1)
-top_level = true
-z_index = 3
-y_sort_enabled = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
+[node name="BlackRect" parent="CanvasLayer" instance=ExtResource("18_x3tux")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-[node name="CameraManager" parent="." node_paths=PackedStringArray("phantom_cameras", "current_camera") instance=ExtResource("19_c7180")]
-script = ExtResource("20_dcmex")
-phantom_cameras = [NodePath("PhantomCameras/PhantomCamera2D")]
-current_camera = NodePath("PhantomCameras/PhantomCamera2D")
+[node name="CameraManager" parent="." instance=ExtResource("19_c7180")]
 
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
-zoom = Vector2(1.2, 1.2)
 process_callback = 0
-limit_left = -2356
-limit_top = -2839
-limit_right = 2365
-limit_bottom = 1787
-editor_draw_limits = true
-
-[node name="PhantomCameraHost" parent="CameraManager/Camera2D" index="0"]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("21_0fy3c")
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_1j1x1")
-disabled = true
-metadata/_edit_lock_ = true
 
 [node name="PhantomCamera2D" parent="CameraManager/PhantomCameras" index="0" node_paths=PackedStringArray("follow_target")]
-top_level = true
-script = ExtResource("22_lvqvm")
-priority = 1
-follow_mode = 5
 follow_target = NodePath("../../../PlayableCharacter")
-zoom = Vector2(1.2, 1.2)
 tween_resource = SubResource("Resource_fyrvt")
-tween_on_load = false
-follow_damping = true
-follow_damping_value = Vector2(0.25, 0.25)
-draw_limits = true
-limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
-
-[node name="ReminderPhantomCamera" parent="CameraManager/PhantomCameras" index="1"]
-script = ExtResource("24_0yv1h")
 
 [editable path="NpcLayer/Jefe"]
 [editable path="ObjectLayer/CandelabroDer"]

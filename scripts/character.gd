@@ -4,6 +4,7 @@ extends Resource
 @export_group("Character Info")
 @export var name:String
 @export var character_portrait:Texture
+@export var character_damaged:Texture
 @export var character_front:Texture
 @export var max_hp:int
 @export var unlocked:bool = false

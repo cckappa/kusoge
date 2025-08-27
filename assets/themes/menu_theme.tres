@@ -1,11 +1,21 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://ctd47cus6kna0"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://ctd47cus6kna0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jc4x"]
+bg_color = Color(0.898039, 0.101961, 0.352941, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hx2t1"]
+content_margin_left = 30.0
+content_margin_top = 10.0
+content_margin_right = 30.0
+content_margin_bottom = 10.0
 bg_color = Color(0.0615687, 0.0799688, 0.0918348, 1)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ff7ft"]
+bg_color = Color(0.665335, 0.573527, 0.589523, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xtkps"]
 bg_color = Color(0.163636, 0.827287, 0.752067, 1)
@@ -14,11 +24,23 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6lotc"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.0627451, 0.0784314, 0.0901961, 1)
+
 [resource]
-Button/font_sizes/font_size = 36
+BoxContainer/constants/separation = 8
+Button/font_sizes/font_size = 42
+Button/styles/focus = SubResource("StyleBoxFlat_3jc4x")
 Button/styles/normal = SubResource("StyleBoxFlat_hx2t1")
+Button/styles/pressed = SubResource("StyleBoxFlat_ff7ft")
 MarginContainer/constants/margin_bottom = 20
 MarginContainer/constants/margin_left = 20
 MarginContainer/constants/margin_right = 20
 MarginContainer/constants/margin_top = 20
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_xtkps")
+RichTextLabel/font_sizes/normal_font_size = 42
+RichTextLabel/styles/normal = SubResource("StyleBoxFlat_6lotc")

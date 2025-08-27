@@ -1,0 +1,12 @@
+npc_rosita: cahuates pistaches cahuates pistaches cahuates pistaches cahuates pistaches cahuates pistaches
+npc_rosita: cahuates pistaches cahuates pistaches cahuates pistaches cahuates pistaches cahuates pistaches
+if {Quests.demo_tecnico.lobuki_cigarro_quest_status} == 0.0:
+	npc_rosita: ¿Qué? ¿Quieres que te venda un cigarro a ti niña?
+	npc_rosita: sí, te salen a 5 pesos uno suelto
+	- sí deme 1 por favor
+		npc_rosita: aquí te dejo el encendedor por si quieres prenderlo
+	- ¿a cúanto la cajetilla?
+		npc_rosita: namas me queda uno suelto
+	npc_rosita: gracias, recuerda que fumar es causa de cancer
+	[signal arg_type="dict" arg="{"name":"npc_rosita_demo","next_index":1.0,"type":"goal"}"]
+	[signal arg_type="dict" arg="{"amount":1,"name":"cigarrete_lobuki_take"}"]

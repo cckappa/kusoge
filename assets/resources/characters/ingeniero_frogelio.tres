@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Character" load_steps=9 format=3 uid="uid://cvi8qisigyg8d"]
+[gd_resource type="Resource" script_class="Character" load_steps=10 format=3 uid="uid://cvi8qisigyg8d"]
 
 [ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_ol0q2"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_8e00j"]
@@ -7,12 +7,14 @@
 [ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="3_x82cd"]
 [ext_resource type="Resource" uid="uid://ckabh1vy5csrg" path="res://assets/resources/abilities/punch.tres" id="4_6j0j1"]
 [ext_resource type="Resource" uid="uid://bl6n47bckno8b" path="res://assets/resources/abilities/onepunch.tres" id="5_da2xx"]
-[ext_resource type="Texture2D" uid="uid://dmebwppdwq1ho" path="res://assets/character_portraits/ingeniero_frogelio.png" id="6_bhhax"]
+[ext_resource type="Texture2D" uid="uid://sioaiix5tv2e" path="res://assets/character_portraits/demo_tecnico/ING. FROGELIO DAÑO.PNG" id="6_l75cr"]
+[ext_resource type="Texture2D" uid="uid://f0i4d0kjxq0w" path="res://assets/character_portraits/demo_tecnico/ING. FROGELIO DYB.PNG" id="7_tgv3k"]
 
 [resource]
 script = ExtResource("3_x82cd")
 name = "Ing. Frogelio"
-character_portrait = ExtResource("6_bhhax")
+character_portrait = ExtResource("7_tgv3k")
+character_damaged = ExtResource("6_l75cr")
 max_hp = 120
 unlocked = true
 type = "NORMAL"

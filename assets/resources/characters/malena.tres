@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Character" load_steps=9 format=3 uid="uid://ha5plqow4htg"]
+[gd_resource type="Resource" script_class="Character" load_steps=10 format=3 uid="uid://ha5plqow4htg"]
 
 [ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_5g5f3"]
 [ext_resource type="Resource" uid="uid://ckabh1vy5csrg" path="res://assets/resources/abilities/punch.tres" id="2_d08up"]
@@ -7,12 +7,14 @@
 [ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="3_a5ita"]
 [ext_resource type="Resource" uid="uid://cral6nawbndl0" path="res://assets/resources/abilities/fireball.tres" id="4_afv8g"]
 [ext_resource type="Resource" uid="uid://ikrsihnyo6wj" path="res://assets/resources/abilities/electro_shock.tres" id="5_f7q1y"]
-[ext_resource type="Texture2D" uid="uid://dcjo3p3eeqstx" path="res://assets/character_portraits/malena.png" id="6_s5y6n"]
+[ext_resource type="Texture2D" uid="uid://bo2xka0hq3p6g" path="res://assets/character_portraits/demo_tecnico/malena daño.PNG" id="6_m7xyv"]
+[ext_resource type="Texture2D" uid="uid://b4rdbse7fjwq2" path="res://assets/character_portraits/demo_tecnico/malena DYB.PNG" id="7_m416p"]
 
 [resource]
 script = ExtResource("3_a5ita")
 name = "Malena"
-character_portrait = ExtResource("6_s5y6n")
+character_portrait = ExtResource("7_m416p")
+character_damaged = ExtResource("6_m7xyv")
 max_hp = 90
 unlocked = true
 type = "NORMAL"

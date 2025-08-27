@@ -14,10 +14,11 @@
 script = ExtResource("2_euhmh")
 name = "Lila"
 character_portrait = ExtResource("6_p2q1w")
+max_hp = 50
+unlocked = false
+type = "NORMAL"
 abilities = Array[ExtResource("1_wmxbo")]([ExtResource("3_1epju"), ExtResource("2_j7wsu"), ExtResource("4_8ov4w"), ExtResource("5_c4mp1")])
 loot = Array[ExtResource("7_ye45n")]([])
 min_loot = 0
 max_loot = 1
-max_hp = 50
-type = "NORMAL"
 selection = ExtResource("9_vs6d0")

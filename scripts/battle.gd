@@ -34,15 +34,17 @@ func set_current_characters() -> void:
 	Globals.current_arrange.left = Globals.current_characters[0]
 	Globals.current_arrange_allies.left = Globals.current_characters[0]
 	
-	if Globals.party.size() > 1 and Globals.current_characters[1] != null:
+	if Globals.current_characters[1] != null:
 		Globals.current_arrange.up = Globals.current_characters[1]
 		Globals.current_arrange_allies.up = Globals.current_characters[1]
-	if Globals.party.size() > 2 and Globals.current_characters[2] != null:
+	if Globals.current_characters[2] != null:
 		Globals.current_arrange.right = Globals.current_characters[2]
 		Globals.current_arrange_allies.right = Globals.current_characters[2]
-	if Globals.party.size() > 3 and Globals.current_characters[3] != null:
+	if Globals.current_characters[3] != null:
 		Globals.current_arrange.down = Globals.current_characters[3]
 		Globals.current_arrange_allies.down = Globals.current_characters[3]
+
+	print("Current Arrange:", Globals.current_arrange_allies, " -- Current Characters:", Globals.current_characters)
 
 func add_characters() -> void:
 	var key : int = 0
@@ -69,13 +71,13 @@ func set_current_enemies() -> void:
 	Globals.current_arrange_enemies.joypad_1 = enemies[0]
 	Globals.current_arrange.joypad_1 = enemies[0]
 	
-	if Globals.enemies.size() > 1 and enemies[1] != null:
+	if enemies.size() > 1 and enemies[1] != null:
 		Globals.current_arrange_enemies.joypad_2 = enemies[1]
 		Globals.current_arrange.joypad_2 = enemies[1]
-	if Globals.enemies.size() > 2 and enemies[2] != null:
+	if enemies.size() > 2 and enemies[2] != null:
 		Globals.current_arrange_enemies.joypad_3 = enemies[2]
 		Globals.current_arrange.joypad_3 = enemies[2]
-	if Globals.enemies.size() > 3 and enemies[3] != null:
+	if enemies.size() > 3 and enemies[3] != null:
 		Globals.current_arrange_enemies.joypad_4 = enemies[3]
 		Globals.current_arrange.joypad_4 = enemies[3]
 

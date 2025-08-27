@@ -1,16 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://cg1k4melt1rnk"]
+[gd_scene load_steps=4 format=3 uid="uid://cg1k4melt1rnk"]
 
 [ext_resource type="Script" uid="uid://tlpyiootj4fq" path="res://scripts/character_item.gd" id="1_iwcbr"]
 [ext_resource type="Texture2D" uid="uid://ctb2muwbi50se" path="res://assets/character_portraits/alicia.png" id="1_x5n0o"]
+[ext_resource type="Theme" uid="uid://ctd47cus6kna0" path="res://assets/themes/menu_theme.tres" id="2_82brc"]
 
 [node name="CharacterItem" type="PanelContainer"]
-offset_right = 243.0
-offset_bottom = 46.0
+offset_right = 342.0
+offset_bottom = 102.0
 script = ExtResource("1_iwcbr")
 
 [node name="SelectedButton" type="Button" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("2_82brc")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -29,7 +31,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.05
-theme_override_font_sizes/normal_font_size = 36
+theme = ExtResource("2_82brc")
 text = "Nombre personaje"
 fit_content = true
 
@@ -37,7 +39,7 @@ fit_content = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/normal_font_size = 36
+theme = ExtResource("2_82brc")
 text = "40/70"
 fit_content = true
 

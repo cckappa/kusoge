@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Character" load_steps=10 format=3 uid="uid://cbfks710yx2fn"]
+
+[ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_r35bp"]
+[ext_resource type="Resource" uid="uid://ct5dshx02d4l0" path="res://assets/resources/abilities/focused_healing.tres" id="2_n6t2g"]
+[ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_q33km"]
+[ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="3_3diml"]
+[ext_resource type="Resource" uid="uid://b4hl0uorngix0" path="res://assets/resources/abilities/patada.tres" id="3_877ac"]
+[ext_resource type="Resource" uid="uid://ckabh1vy5csrg" path="res://assets/resources/abilities/punch.tres" id="4_nligh"]
+[ext_resource type="Resource" uid="uid://bbgmx00txpaek" path="res://assets/resources/abilities/cachetada.tres" id="5_3vrwd"]
+[ext_resource type="Texture2D" uid="uid://ckxir8cbpc2qy" path="res://assets/character_portraits/demo_tecnico/SABIA RANA PEDRO DAÑO.PNG" id="6_3gjvu"]
+[ext_resource type="Texture2D" uid="uid://uavytexkk06r" path="res://assets/character_portraits/demo_tecnico/SABIA RANA PEDRO D.PNG" id="7_d4004"]
+
+[resource]
+script = ExtResource("3_3diml")
+name = "Sabia Rana Pedro"
+character_portrait = ExtResource("7_d4004")
+character_damaged = ExtResource("6_3gjvu")
+max_hp = 50
+unlocked = false
+type = "NORMAL"
+abilities = Array[ExtResource("1_r35bp")]([ExtResource("2_n6t2g"), ExtResource("3_877ac"), ExtResource("4_nligh"), ExtResource("5_3vrwd")])
+loot = Array[ExtResource("2_q33km")]([])
+min_loot = 0
+max_loot = 1
+metadata/_custom_type_script = "uid://c8058f4jc2ul3"

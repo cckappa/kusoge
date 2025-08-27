@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Character" load_steps=9 format=3 uid="uid://c2hvwf1gif31i"]
+[gd_resource type="Resource" script_class="Character" load_steps=10 format=3 uid="uid://c2hvwf1gif31i"]
 
 [ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_mc72j"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_0xkf0"]
@@ -7,12 +7,14 @@
 [ext_resource type="Resource" uid="uid://ikrsihnyo6wj" path="res://assets/resources/abilities/electro_shock.tres" id="3_wimew"]
 [ext_resource type="Resource" uid="uid://b4hl0uorngix0" path="res://assets/resources/abilities/patada.tres" id="4_x2oax"]
 [ext_resource type="Resource" uid="uid://ckabh1vy5csrg" path="res://assets/resources/abilities/punch.tres" id="5_mcxi1"]
-[ext_resource type="Texture2D" uid="uid://byfecaibyi878" path="res://assets/character_portraits/miumiu.png" id="6_6bf42"]
+[ext_resource type="Texture2D" uid="uid://cqyg3ggs88tow" path="res://assets/character_portraits/demo_tecnico/MIMIU DAÑO.PNG" id="6_pkiw3"]
+[ext_resource type="Texture2D" uid="uid://cuk6fpt5syl85" path="res://assets/character_portraits/demo_tecnico/MIMIU DYB.PNG" id="7_857rk"]
 
 [resource]
 script = ExtResource("3_onmce")
 name = "Miu Miu"
-character_portrait = ExtResource("6_6bf42")
+character_portrait = ExtResource("7_857rk")
+character_damaged = ExtResource("6_pkiw3")
 max_hp = 70
 unlocked = true
 type = "NORMAL"

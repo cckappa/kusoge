@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ci5a44r0l16fy"]
+[gd_scene load_steps=10 format=3 uid="uid://ci5a44r0l16fy"]
 
 [ext_resource type="Script" uid="uid://o5vv2g2a4qjo" path="res://scripts/pause_menu.gd" id="1_1s2dm"]
 [ext_resource type="Theme" uid="uid://ctd47cus6kna0" path="res://assets/themes/menu_theme.tres" id="2_88e76"]
@@ -7,13 +7,6 @@
 [ext_resource type="Script" uid="uid://7m5muhymwbyq" path="res://scripts/items_container.gd" id="5_cmnsq"]
 [ext_resource type="Texture2D" uid="uid://c31kt0h0ajr2y" path="res://assets/objects/cosas_0000s_0000_maceta.png" id="6_ofnjo"]
 [ext_resource type="Script" uid="uid://bnc8iwdoqe33y" path="res://scripts/quests_container.gd" id="7_1rgno"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uexag"]
-content_margin_left = 5.0
-content_margin_top = 5.0
-content_margin_right = 5.0
-content_margin_bottom = 5.0
-bg_color = Color(0.156863, 0.164706, 0.2, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88rkc"]
 content_margin_left = 5.0
@@ -61,6 +54,7 @@ custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme = ExtResource("2_88e76")
 
 [node name="Party" type="Button" parent="MarginContainer/HBoxContainer/ButtonContainer"]
 layout_mode = 2
@@ -73,6 +67,7 @@ theme = ExtResource("2_88e76")
 text = "Objetos"
 
 [node name="Spells" type="Button" parent="MarginContainer/HBoxContainer/ButtonContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_88e76")
 text = "Habilidades"
@@ -119,7 +114,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/PartyContainer/HBoxContainer/FocusedCharacter"]
-custom_minimum_size = Vector2(200, 200)
+custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/PartyContainer/HBoxContainer/FocusedCharacter/PanelContainer"]
@@ -130,8 +125,7 @@ stretch_mode = 5
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/PartyContainer/HBoxContainer/FocusedCharacter"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 36
-theme_override_styles/normal = SubResource("StyleBoxFlat_uexag")
+theme = ExtResource("2_88e76")
 text = "Nombre del personaje"
 fit_content = true
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://3w5ysq4tl3o4"]
+[gd_scene load_steps=60 format=3 uid="uid://3w5ysq4tl3o4"]
 
 [ext_resource type="Script" uid="uid://d0q32cfdk1wsf" path="res://scripts/maps/cueva_demo_tecnico.gd" id="1_n0a8t"]
 [ext_resource type="Script" uid="uid://5rnf247xyu5v" path="res://scripts/scene_creator_tool.gd" id="1_os3nl"]
@@ -15,10 +15,15 @@
 [ext_resource type="Texture2D" uid="uid://w42c684j7bkt" path="res://assets/spritesheets/demo_tecnico/LOBO.png" id="11_n0a8t"]
 [ext_resource type="Script" uid="uid://dsfklbei7r5qc" path="res://scripts/object_layer.gd" id="11_vrrpf"]
 [ext_resource type="Script" uid="uid://ck4xyxoy5fldl" path="res://scripts/enemies_layer.gd" id="12_ceigr"]
+[ext_resource type="Script" uid="uid://bj1igyevn8g64" path="res://scripts/quests/quest.gd" id="12_os3nl"]
+[ext_resource type="Resource" uid="uid://clu0pe7crj6f7" path="res://assets/resources/quests/cigarro_lobuki.tres" id="13_55pex"]
 [ext_resource type="Script" uid="uid://c2d2peg3ovb8n" path="res://scripts/saves_layer.gd" id="13_c4cm6"]
 [ext_resource type="PackedScene" uid="uid://clmbh4jnxur05" path="res://scenes/objeto.tscn" id="13_u0ndw"]
 [ext_resource type="PackedScene" uid="uid://ci5a44r0l16fy" path="res://scenes/pause_menu.tscn" id="14_c4mmd"]
+[ext_resource type="Script" uid="uid://do84xbf65qif" path="res://scripts/talk.gd" id="15_vai2h"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="16_joev4"]
+[ext_resource type="Script" uid="uid://moxcdo1lwavw" path="res://scripts/item_taker.gd" id="16_n0a8t"]
+[ext_resource type="Resource" uid="uid://be2db4m15u3w5" path="res://assets/resources/items/cigarro_lobuki.tres" id="17_u0ndw"]
 [ext_resource type="Script" uid="uid://cv43fprb0dski" path="res://scripts/spawns_layer.gd" id="18_4gaeh"]
 [ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="18_brrda"]
 [ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="19_wvs86"]
@@ -195,6 +200,9 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_55pex"]
+radius = 177.553
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_w2263"]
 atlas = ExtResource("11_4ueqp")
 region = Rect2(0, 0, 623, 401)
@@ -298,6 +306,30 @@ offset = Vector2(0, -189)
 
 [node name="CollisionPolygon2D" parent="NpcLayer/Lobito/StaticBody2D" index="0"]
 polygon = PackedVector2Array(-19, 53, -55, 5, -29, -24, 66, -55, 141, -60, 168, -5, 160, 37, 106, 102, 56, 108)
+
+[node name="Quest" type="Node2D" parent="NpcLayer/Lobito"]
+script = ExtResource("12_os3nl")
+quest_resource = ExtResource("13_55pex")
+dialogic_signal = "lobuki_cigarro_0"
+metadata/_custom_type_script = "uid://bj1igyevn8g64"
+
+[node name="Talk" type="Node2D" parent="NpcLayer/Lobito" node_paths=PackedStringArray("talking_area")]
+script = ExtResource("15_vai2h")
+talking_area = NodePath("Area2D")
+timeline_name = "lobuki_cigarro_0"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="NpcLayer/Lobito/Talk"]
+position = Vector2(40, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/Lobito/Talk/Area2D"]
+shape = SubResource("CircleShape2D_55pex")
+
+[node name="ItemTaker" type="Node" parent="NpcLayer/Lobito"]
+script = ExtResource("16_n0a8t")
+item = ExtResource("17_u0ndw")
+dialogic_signal = "cigarrete_lobuki_gives"
+metadata/_custom_type_script = "uid://moxcdo1lwavw"
 
 [node name="HadaSave" parent="NpcLayer" instance=ExtResource("10_55pex")]
 position = Vector2(0, 156)

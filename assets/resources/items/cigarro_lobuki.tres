@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://be2db4m15u3w5"]
+
+[ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="1_38moj"]
+
+[resource]
+script = ExtResource("1_38moj")
+identifier = &"cigarro_lobuki"
+display_name = "Cigarro mentolado"
+description = "Te resta un año de vida pero tiene un suave sabor a menta"
+type = "KEY"
+metadata/_custom_type_script = "uid://vwrbypy2w8xi"

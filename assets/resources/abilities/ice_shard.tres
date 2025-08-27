@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="DamageAbility" load_steps=2 format=3 uid="uid://cwgx0kx2ur8ek"]
+[gd_resource type="Resource" script_class="DamageAbility" load_steps=3 format=3 uid="uid://cwgx0kx2ur8ek"]
 
 [ext_resource type="Script" uid="uid://3uj7qdnixdle" path="res://scripts/abilities/damage_ability.gd" id="1_s4q76"]
+[ext_resource type="PackedScene" uid="uid://bj0y3cwxvctmc" path="res://scenes/ability_animations/default_attack_animation.tscn" id="1_ygynr"]
 
 [resource]
 script = ExtResource("1_s4q76")
@@ -10,3 +11,4 @@ type = "ICE"
 description = "Corta con hielo"
 wait_time = 3.0
 effect = "NEGATIVE"
+attack_animation = ExtResource("1_ygynr")
