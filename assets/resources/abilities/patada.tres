@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DamageAbility" load_steps=3 format=3 uid="uid://b4hl0uorngix0"]
 
 [ext_resource type="Script" uid="uid://3uj7qdnixdle" path="res://scripts/abilities/damage_ability.gd" id="1_5qpon"]
-[ext_resource type="PackedScene" uid="uid://bj0y3cwxvctmc" path="res://scenes/ability_animations/default_attack_animation.tscn" id="1_54xlb"]
+[ext_resource type="PackedScene" uid="uid://cvec5481ygy7e" path="res://scenes/ability_animations/patada_animation.tscn" id="1_54xlb"]
 
 [resource]
 script = ExtResource("1_5qpon")

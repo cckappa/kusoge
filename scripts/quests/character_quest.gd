@@ -24,6 +24,7 @@ func finish_quest() -> void:
 	if quest_status == QuestStatus.REACHED_GOAL:
 		quest_status = QuestStatus.FINISHED
 		print("Quest finished")
+		SignalBus.emit_signal("quest_finished", self)
 		add_reward()
 	else:
 		print("Quest not reached goal")

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SingleMapResource" load_steps=2 format=3 uid="uid://bl655l3p7jtmv"]
+
+[ext_resource type="Script" uid="uid://b21bna7stwiam" path="res://scripts/maps/single_map_resource.gd" id="1_qbcsr"]
+
+[resource]
+script = ExtResource("1_qbcsr")
+name = "demo_tecnico_hub"
+scene_path = "res://scenes/maps/demo_tecnico_hub.tscn"
+state = "default"
+metadata/_custom_type_script = "uid://b21bna7stwiam"

@@ -39,11 +39,13 @@ gdscript/warnings/untyped_declaration=2
 [dialogic]
 
 directories/dch_directory={
+"hada_save": "res://dialogic/characters/hada_save.dch",
 "lobuki": "res://dialogic/characters/lobuki.dch",
 "npc_rosita": "res://dialogic/characters/npc_rosita.dch",
 "sabia_rana_pedro": "res://dialogic/characters/sabia_rana_pedro.dch"
 }
 directories/dtl_directory={
+"hada_save_cueva_demo": "res://dialogic/timelines/demo_tecnico/hada_save_cueva_demo.dtl",
 "lila_bar_1": "res://dialogic/timelines/area_1/lila_bar_1.dtl",
 "lobuki_cigarro_0": "res://dialogic/timelines/demo_tecnico/lobuki_cigarro_0.dtl",
 "mesero_bar_1": "res://dialogic/timelines/area_1/mesero_bar_1.dtl",
@@ -227,3 +229,4 @@ common/physics_interpolation=true
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

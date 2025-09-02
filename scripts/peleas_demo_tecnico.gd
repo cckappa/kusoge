@@ -5,15 +5,20 @@ var player:PlayableCharacter
 
 func _ready() -> void:
 	player = get_tree().get_nodes_in_group("main_character")[0] as PlayableCharacter
-	Dialogic.signal_event.connect(_on_dialogic_signal_event)
+	Dialogic.signal_event.connect(_on_dialogic_signal)
 	
-func _on_dialogic_signal_event(event_name: String) -> void:
+func _on_dialogic_signal(argument:Dictionary) -> void:
+	var event_name :String = argument.name
+
 	print("Dialogic text signal received:", event_name)
 	if event_name == "batalla_1":
+		Globals.set_win_stakes("demo_tecnico_hub-batalla_1", "victory")
 		start_battle(enemies[0])
 	elif event_name == "batalla_2":
+		Globals.set_win_stakes("demo_tecnico_hub-batalla_2", "victory")
 		start_battle(enemies[1])
 	elif event_name == "batalla_3":
+		Globals.set_win_stakes("demo_tecnico_hub-batalla_3", "victory")
 		start_battle(enemies[2])
 
 

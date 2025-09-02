@@ -30,6 +30,7 @@ signal run_away()
 
 signal quest_added(quest:QuestResource)
 signal quest_goal(quest:QuestResource)
+signal quest_finished(quest:QuestResource)
 
 ## ITEMS
 

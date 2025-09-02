@@ -398,11 +398,13 @@ theme_override_constants/separation = 20
 [node name="ContinueButton" type="Button" parent="ContinueButtons"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("17_61i1y")
 text = "¿Continuar?"
 
 [node name="Quit" type="Button" parent="ContinueButtons"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("17_61i1y")
 text = "Salir"
 
 [node name="Next" type="Button" parent="."]

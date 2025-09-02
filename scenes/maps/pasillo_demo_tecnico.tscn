@@ -49,6 +49,7 @@ ease = 2
 y_sort_enabled = true
 script = ExtResource("1_gc2ga")
 black_rect = NodePath("CanvasLayer/BlackRect")
+current_scene = "res://scenes/maps/pasillo_demo_tecnico.tscn"
 audio_stream_player = NodePath("AudioStreamPlayer")
 
 [node name="SceneCreatorTool" type="Node" parent="."]
@@ -73,10 +74,10 @@ position = Vector2(0.5, 1018.5)
 shape = SubResource("RectangleShape2D_8u4pw")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D"]
-polygon = PackedVector2Array(-1970, 843, -1830, 649, -1815, 299, -1610, 50, -1599, 247, -1550, 260, -1314, -28, -1350, -510, -2116, -311, -2061, 460, -2103, 839)
+polygon = PackedVector2Array(-1970, 843, -1830, 649, -1841, 492, -1754, 358, -1638, 240, -1579, 233, -1550, 260, -1314, -28, -1350, -510, -2116, -311, -2061, 460, -2103, 839)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D"]
-polygon = PackedVector2Array(2045, 926, 1837, 649, 1827, 325, 1710, 107, 1612, 83, 1609, 260, 1536, 257, 1342, 8, 1347, -430, 1983, -474, 2356, -228, 2304, 283, 2250, 939)
+polygon = PackedVector2Array(2045, 926, 1837, 649, 1843, 560, 1742, 386, 1668, 267, 1592, 242, 1536, 257, 1342, 8, 1347, -430, 1983, -474, 2356, -228, 2304, 283, 2250, 939)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
 position = Vector2(-13.5, -44)
@@ -102,7 +103,7 @@ black_rect = NodePath("../../CanvasLayer/BlackRect")
 metadata/_custom_type_script = "uid://bsvp6e76bx107"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/SceneChanger2"]
-polygon = PackedVector2Array(77, 149, 178, 230, 197, -39, -44, -301, -154, -251, -119, -126)
+polygon = PackedVector2Array(114, 211, 178, 230, 197, -39, -44, -301, -154, -251, -120, -120)
 
 [node name="PlayableCharacter" parent="." instance=ExtResource("6_vlj8a")]
 

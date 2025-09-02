@@ -13,10 +13,6 @@ current_camera = NodePath("PhantomCameras/PhantomCamera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.2, 1.2)
-limit_left = -2356
-limit_top = -2839
-limit_right = 2365
-limit_bottom = 1787
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]

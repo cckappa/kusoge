@@ -12,7 +12,7 @@ func verify_save_directory(path: String) -> void:
 
 func save_game(path:String = SAVE_PATH + SAVE_FILE_NAME) -> void:
 	var file := FileAccess.open_encrypted_with_pass(path, FileAccess.WRITE, SECURITY_KEY)
-	
+		
 	if file == null:
 		print(FileAccess.get_open_error())
 		return
@@ -72,11 +72,16 @@ func save_game(path:String = SAVE_PATH + SAVE_FILE_NAME) -> void:
 				"y": Globals.player_position.y
 			}
 		},
+		"maps": Globals.maps,
+		"current_map": {
+			"path": Globals.current_map_path,
+		},
 		"items": serialized_items,
 		"current_characters": serialized_current_characters,
 		"party": serialized_party,
 		"dialogic_variables": dialogic_variables,
-		"current_quests": serialized_quests
+		"current_quests": serialized_quests,
+		"key_variables": Globals.key_variables
 	}
 	
 	var json_string := JSON.stringify(data, "\t")
@@ -154,4 +159,22 @@ func set_game_info(data:Dictionary) -> void:
 			quest_resource.quest_status = quest_data.quest_status  # Set the quest status
 			quest_resource.quest_goal_index = quest_data.quest_goal_index  # Set the quest status
 			Quests.current_quests[identifier] = quest_resource  # Store in current quests
-			
+
+	## MAP
+	Globals.maps = data.maps
+	Globals.current_map_path = data.current_map.path
+
+	## KEY VARIABLES
+	Globals.key_variables = data.key_variables
+
+func clear_save_file(path:String = SAVE_PATH + SAVE_FILE_NAME) -> void:
+	if FileAccess.file_exists(path):
+		var dir := DirAccess.open("res://")  # Base path doesn’t matter much for absolute paths
+		if dir:
+			var err := DirAccess.remove_absolute(path)
+			if err == OK:
+				print("Save file deleted successfully: ", path)
+			else:
+				printerr("Failed to delete save file: ", path, " Error code: ", err)
+	else:
+		print("No save file exists at: ", path)

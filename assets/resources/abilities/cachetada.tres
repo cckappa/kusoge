@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DamageAbility" load_steps=3 format=3 uid="uid://bbgmx00txpaek"]
 
-[ext_resource type="PackedScene" uid="uid://bj0y3cwxvctmc" path="res://scenes/ability_animations/default_attack_animation.tscn" id="1_1w1d5"]
+[ext_resource type="PackedScene" uid="uid://dcmbqtk7toppq" path="res://scenes/ability_animations/cachetada_animation.tscn" id="1_1w1d5"]
 [ext_resource type="Script" uid="uid://3uj7qdnixdle" path="res://scripts/abilities/damage_ability.gd" id="1_ll1y5"]
 
 [resource]

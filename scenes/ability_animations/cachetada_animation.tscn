@@ -1,0 +1,138 @@
+[gd_scene load_steps=11 format=3 uid="uid://dcmbqtk7toppq"]
+
+[ext_resource type="Script" uid="uid://dntfehfo1dqyj" path="res://scripts/ability_animations/cachetada_animation.gd" id="1_l7l8i"]
+[ext_resource type="Script" uid="uid://dxuy4bb1whoa0" path="res://scripts/landed_particles.gd" id="2_atf6l"]
+[ext_resource type="PackedScene" uid="uid://b7bvrpga1v04o" path="res://scenes/hit_particles_star.tscn" id="3_0ssbq"]
+[ext_resource type="PackedScene" uid="uid://hg6t1jbcmxp3" path="res://scenes/hit_particles_circle.tscn" id="4_kw1e0"]
+[ext_resource type="PackedScene" uid="uid://b3k38ghwf35bw" path="res://scenes/hit_particles_big_star.tscn" id="5_m7y8i"]
+[ext_resource type="PackedScene" uid="uid://j5owvy2xjpt6" path="res://scenes/hit_particles_long_circle.tscn" id="6_ijyv5"]
+[ext_resource type="Texture2D" uid="uid://c3i5itg0yf1hn" path="res://assets/animation_assets/cachetada.png" id="7_dp7jb"]
+
+[sub_resource type="Animation" id="Animation_atf6l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cachetada:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.73835]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cachetada:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1176, 1245)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cachetada:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_y3k5h"]
+resource_name = "cachetada_animation"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cachetada:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.433333, 0.451275),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.45037, 1.73835, -0.39619]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cachetada:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.433333, 0.451275),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(708, 1549), Vector2(1209, 1433), Vector2(-190, 411)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.45),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit_lands_ability"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cachetada:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l2h0l"]
+_data = {
+&"RESET": SubResource("Animation_atf6l"),
+&"cachetada_animation": SubResource("Animation_y3k5h")
+}
+
+[node name="CachetadaAnimation" type="Node2D" node_paths=PackedStringArray("landed_particles")]
+script = ExtResource("1_l7l8i")
+landed_particles = NodePath("LandedParticles")
+
+[node name="LandedParticles" type="Node2D" parent="."]
+z_index = 16
+z_as_relative = false
+script = ExtResource("2_atf6l")
+metadata/_custom_type_script = "uid://dxuy4bb1whoa0"
+
+[node name="HitParticlesStar" parent="LandedParticles" instance=ExtResource("3_0ssbq")]
+
+[node name="HitParticlesCircle" parent="LandedParticles" instance=ExtResource("4_kw1e0")]
+
+[node name="HitParticlesBigStar" parent="LandedParticles" instance=ExtResource("5_m7y8i")]
+
+[node name="HitParticlesLongCircle" parent="LandedParticles" instance=ExtResource("6_ijyv5")]
+
+[node name="Cachetada" type="Sprite2D" parent="."]
+position = Vector2(1176, 1245)
+rotation = 1.73835
+scale = Vector2(8.239, 8.23899)
+texture = ExtResource("7_dp7jb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_l2h0l")
+}
+autoplay = "cachetada_animation"

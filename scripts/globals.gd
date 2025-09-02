@@ -51,7 +51,20 @@ var current_arrange_enemies : Dictionary = {
 	"joypad_4": null
 }
 
+var full_maps_resource := preload("res://assets/resources/maps/full_maps.tres")
+var maps :Dictionary 
+
+var current_map_name:String
+var current_map_path:String
+
+var key_variables:Dictionary={}
+var win_stakes:Dictionary={
+	"key_variable_key": "",
+	"key_variable_value": ""
+}
+
 func _ready() -> void:
+	maps = full_maps_resource.get_maps_dictionary()
 	ene_1.current_hp = ene_1.max_hp
 	ene_2.current_hp = ene_2.max_hp
 	party = [MIUMIU, PROTO_SHAMAN, LOBUKI, SABIA_RANA_PEDRO]
@@ -138,3 +151,13 @@ func switch_favorite_to_friend(from_index:int, to_index:int) -> void:
 	
 	current_characters[from_index] = to_character
 	party[to_index] = from_character
+
+func set_win_stakes(key_name:String, key_value:String) -> void:
+	win_stakes.key_variable_key = key_name
+	win_stakes.key_variable_value = key_value
+
+func apply_win_stakes() -> void:
+	if win_stakes.key_variable_key != "" and win_stakes.key_variable_value != "":
+		key_variables[win_stakes.key_variable_key] = win_stakes.key_variable_value
+		win_stakes.key_variable_key = ""
+		win_stakes.key_variable_value = ""

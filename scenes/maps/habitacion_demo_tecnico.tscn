@@ -140,6 +140,7 @@ ease = 2
 y_sort_enabled = true
 script = ExtResource("1_gmx2w")
 black_rect = NodePath("CanvasLayer/BlackRect")
+current_scene = "res://scenes/maps/habitacion_demo_tecnico.tscn"
 audio_stream_player = NodePath("AudioStreamPlayer")
 
 [node name="SceneCreatorTool" type="Node" parent="."]
@@ -168,7 +169,7 @@ position = Vector2(-10, -31)
 shape = SubResource("RectangleShape2D_or2tu")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D"]
-polygon = PackedVector2Array(-1037, 865, -862, 617, -784, 257, -688, 181, -650, 276, -596, 254, -447, 99, -499, -274, -1056, -156, -1180, 368, -1155, 794)
+polygon = PackedVector2Array(-1037, 865, -862, 617, -820, 442, -693, 262, -633, 247, -596, 254, -447, 99, -499, -274, -1056, -156, -1180, 368, -1155, 794)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D"]
 polygon = PackedVector2Array(404, 56, 574, 243, 833, 584, 1055, 889, 1394, 679, 1246, -224, 529, -399, 270, -290)
@@ -181,7 +182,7 @@ black_rect = NodePath("../../CanvasLayer/BlackRect")
 metadata/_custom_type_script = "uid://bsvp6e76bx107"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/SceneChanger"]
-polygon = PackedVector2Array(-883, 502, -823, 496, -644, 261, -663, 154, -811, 182)
+polygon = PackedVector2Array(-883, 502, -876, 566, -631, 232, -663, 154, -811, 182)
 
 [node name="PlayableCharacter" parent="." instance=ExtResource("6_rdwgu")]
 

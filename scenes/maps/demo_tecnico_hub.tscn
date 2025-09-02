@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://cw14ehtvu80xx"]
+[gd_scene load_steps=111 format=3 uid="uid://cw14ehtvu80xx"]
 
 [ext_resource type="Script" uid="uid://ddv7kigla6iip" path="res://scripts/maps/demo_tecnico_hub.gd" id="1_w0bji"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="2_b27bq"]
@@ -301,6 +301,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_tqvvo"]
 radius = 203.376
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf2ti"]
+atlas = ExtResource("17_4k71t")
+region = Rect2(0, 0, 573, 555)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4h3p4"]
+atlas = ExtResource("17_4k71t")
+region = Rect2(573, 1665, 573, 555)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_76sup"]
 atlas = ExtResource("17_4k71t")
 region = Rect2(0, 0, 573, 555)
@@ -348,6 +356,22 @@ region = Rect2(573, 1665, 573, 555)
 [sub_resource type="SpriteFrames" id="SpriteFrames_nn2xs"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf2ti")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4h3p4")
+}],
+"loop": false,
+"name": &"fully_opened",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 3.51,
 "texture": SubResource("AtlasTexture_76sup")
 }, {
@@ -382,7 +406,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ngix7")
 }],
 "loop": false,
-"name": &"default",
+"name": &"opened",
 "speed": 8.0
 }]
 
@@ -390,7 +414,61 @@ animations = [{
 size = Vector2(642, 311)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mwdq3"]
-size = Vector2(337, 116)
+size = Vector2(506, 94)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76sup"]
+size = Vector2(444, 397)
+
+[sub_resource type="Animation" id="Animation_w68cj"]
+resource_name = "opening"
+length = 1.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_opened_animation"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_8j15a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u4o6e"]
+_data = {
+&"RESET": SubResource("Animation_8j15a"),
+&"opening": SubResource("Animation_w68cj")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8uen1"]
 size = Vector2(382, 141)
@@ -428,10 +506,13 @@ duration = 2.0
 transition = 1
 ease = 2
 
-[node name="DemoTecnicoHub" type="Node2D" node_paths=PackedStringArray("black_rect", "audio_stream_player")]
+[node name="DemoTecnicoHub" type="Node2D" node_paths=PackedStringArray("black_rect", "door_sprite", "door_collision", "audio_stream_player")]
 y_sort_enabled = true
 script = ExtResource("1_w0bji")
 black_rect = NodePath("CanvasLayer/BlackRect")
+door_sprite = NodePath("ObjectLayer/Casa/PuertaCasa/AnimatedSprite2D")
+door_collision = NodePath("ObjectLayer/Casa/PuertaCasa/StaticBody2D/CollisionShape2D")
+current_scene = "res://scenes/maps/demo_tecnico_hub.tscn"
 audio_stream_player = NodePath("AudioStreamPlayer")
 
 [node name="PeleasDemoTecnico" type="Node" parent="."]
@@ -604,14 +685,15 @@ position = Vector2(854, -1112)
 
 [node name="AnimatedSprite2D" parent="ObjectLayer/Casa/PuertaCasa" index="0"]
 sprite_frames = SubResource("SpriteFrames_nn2xs")
+animation = &"fully_opened"
+autoplay = "default"
 offset = Vector2(0, -251)
 
 [node name="CollisionShape2D" parent="ObjectLayer/Casa/PuertaCasa/StaticBody2D" index="1"]
-position = Vector2(-3, -138.5)
+position = Vector2(-5, -138.5)
 shape = SubResource("RectangleShape2D_pno3w")
 
 [node name="SceneChanger" type="Area2D" parent="ObjectLayer/Casa/PuertaCasa" node_paths=PackedStringArray("black_rect")]
-monitoring = false
 script = ExtResource("19_8uen1")
 target_scene = "res://scenes/maps/cabeza_demo_tecnico.tscn"
 target_marker = "EntradaCabeza"
@@ -619,8 +701,20 @@ black_rect = NodePath("../../../../CanvasLayer/BlackRect")
 metadata/_custom_type_script = "uid://bsvp6e76bx107"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/Casa/PuertaCasa/SceneChanger"]
-position = Vector2(9.5, 48)
+position = Vector2(10, -64)
 shape = SubResource("RectangleShape2D_mwdq3")
+
+[node name="Area2D" type="Area2D" parent="ObjectLayer/Casa/PuertaCasa"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/Casa/PuertaCasa/Area2D"]
+position = Vector2(4, 188.5)
+shape = SubResource("RectangleShape2D_76sup")
+
+[node name="DoorAnimationPlayer" type="AnimationPlayer" parent="ObjectLayer/Casa/PuertaCasa"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_u4o6e")
+}
 
 [node name="CasaEstructura" parent="ObjectLayer/Casa" instance=ExtResource("9_86tlv")]
 position = Vector2(914, -1137)
@@ -630,7 +724,7 @@ texture = ExtResource("11_dtajs")
 offset = Vector2(0, -711)
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/Casa/CasaEstructura/StaticBody2D" index="1"]
-polygon = PackedVector2Array(-1144, 32, -828, 26, -819, 52, -341, 44, -304, 27, -307, -44, -297, -152, 213, -148, 224, -24, 221, 46, 1144, 38, 1152, -39, 1127, -168, 801, -490, 508, -1078, 182, -1272, 34, -1297, -137, -1275, -411, -1106, -591, -892, -714, -578, -753, -464, -933, -399, -1116, -165, -1144, -68)
+polygon = PackedVector2Array(-1144, 32, -828, 26, -819, 52, -341, 44, -304, 27, -285, -4, -250, -31, 120, -29, 198, -25, 221, 46, 1144, 38, 1152, -39, 1127, -168, 801, -490, 508, -1078, 182, -1272, 34, -1297, -137, -1275, -411, -1106, -591, -892, -714, -578, -753, -464, -933, -399, -1116, -165, -1144, -68)
 
 [node name="Cueva" parent="ObjectLayer" instance=ExtResource("9_86tlv")]
 position = Vector2(-1603, -1228)
@@ -640,7 +734,7 @@ texture = ExtResource("11_f3ed0")
 offset = Vector2(0, -490)
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/Cueva/StaticBody2D" index="1"]
-polygon = PackedVector2Array(-797, 67, -401, 73, -358, 59, -365, -61, 36, -71, 36, 61, 50, 76, 267, 73, 313, 42, 538, 56, 627, 42, 749, 42, 721, -21, 598, -73, 527, -224, 230, -438, 147, -592, 7, -712, -84, -706, -221, -809, -372, -900, -660, -980, -797, -997)
+polygon = PackedVector2Array(-797, 67, -401, 73, -358, 59, -328, 18, -25, 26, 36, 61, 50, 76, 267, 73, 313, 42, 538, 56, 627, 42, 749, 42, 721, -21, 598, -73, 527, -224, 230, -438, 147, -592, 7, -712, -84, -706, -221, -809, -372, -900, -660, -980, -797, -997)
 
 [node name="SceneChanger" type="Area2D" parent="ObjectLayer/Cueva" node_paths=PackedStringArray("black_rect")]
 script = ExtResource("19_8uen1")
@@ -738,7 +832,7 @@ position = Vector2(175, 69)
 position = Vector2(-1769, -1075)
 
 [node name="EntradaCabeza" type="Marker2D" parent="SpawnsLayer"]
-position = Vector2(876, -885)
+position = Vector2(860, -1033)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -801,6 +895,8 @@ tween_on_load = false
 limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
 
 [node name="CameraZoneAreas" type="Node" parent="CameraManager"]
+
+[connection signal="body_entered" from="ObjectLayer/Casa/PuertaCasa/Area2D" to="." method="_on_area_2d_body_entered"]
 
 [editable path="NpcLayer/Ranita"]
 [editable path="NpcLayer/Arbol1"]

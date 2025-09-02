@@ -1,8 +1,8 @@
 sabia_rana_pedro: Hola bienvenidx a la zona de batallas
 sabia_rana_pedro: Selecciona la batalla a la que quieras entrar
 - Batalla 1
-	[signal arg="batalla_1"]
+	[signal arg_type="dict" arg="{"name":"batalla_1"}"]
 - Batalla 2
-	[signal arg="batalla_2"]
+	[signal arg_type="dict" arg="{"name":"batalla_2"}"]
 - Batalla 3
-	[signal arg="batalla_3"]
+	[signal arg_type="dict" arg="{"name":"batalla_3"}"]

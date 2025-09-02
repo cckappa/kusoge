@@ -11,7 +11,8 @@ signal uses_item(target:Character)
 
 @onready var progress_bar := %TextureProgressBar
 @onready var timer := $Timer
-@onready var texture_rect := %TextureRect
+@onready var portrait := %Portrait
+@onready var portrait_damaged := %PortraitDamaged
 @onready var life_bar := %LifeBar
 @onready var health_points := %HealthPoints
 @onready var selected_arrow := %SelectedArrow
@@ -42,6 +43,7 @@ const block_ability = preload("res://assets/resources/abilities/basic_armour.tre
 
 var front_texture : Texture
 var character_portrait :  Texture
+var character_portrait_damaged :  Texture
 var character : Character
 var max_hp := 0
 var current_hp := 0
@@ -58,7 +60,8 @@ var current_attack_menu:VBoxContainer
 func _ready() -> void:
 	# SignalBus.connect("item_removed", _on_item_removed)
 	SignalBus.connect("action_selected", set_current_action)
-	texture_rect.texture = character_portrait
+	portrait.texture = character_portrait
+	portrait_damaged.texture = character_portrait_damaged
 	damage_value.visible = false
 	ability_arrow.select_arrow(arrange_position, "ally")
 	pitch_effect = AudioServer.get_bus_effect(bus_index, 0) as AudioEffectPitchShift

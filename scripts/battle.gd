@@ -59,6 +59,7 @@ func add_characters() -> void:
 			character_container.size = character_container_size
 			character_container.front_texture = character.character_front
 			character_container.character_portrait = character.character_portrait
+			character_container.character_portrait_damaged = character.character_damaged
 			character_container.arrange_position = key
 			character_container.attack_list = character.abilities
 			character_portraits.add_child(character_container)

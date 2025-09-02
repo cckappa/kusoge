@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://3w5ysq4tl3o4"]
+[gd_scene load_steps=62 format=3 uid="uid://3w5ysq4tl3o4"]
 
 [ext_resource type="Script" uid="uid://d0q32cfdk1wsf" path="res://scripts/maps/cueva_demo_tecnico.gd" id="1_n0a8t"]
 [ext_resource type="Script" uid="uid://5rnf247xyu5v" path="res://scripts/scene_creator_tool.gd" id="1_os3nl"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" uid="uid://cv43fprb0dski" path="res://scripts/spawns_layer.gd" id="18_4gaeh"]
 [ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="18_brrda"]
 [ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="19_wvs86"]
+[ext_resource type="Script" uid="uid://dct4fb2oheved" path="res://scripts/save_button.gd" id="23_n0a8t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chxpl"]
 size = Vector2(1134, 335)
@@ -239,6 +240,9 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_n0a8t"]
+radius = 161.941
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2kmg"]
 size = Vector2(3840, 2160)
 
@@ -246,6 +250,7 @@ size = Vector2(3840, 2160)
 y_sort_enabled = true
 script = ExtResource("1_n0a8t")
 black_rect = NodePath("CanvasLayer/BlackRect")
+current_scene = "res://scenes/maps/cueva_demo_tecnico.tscn"
 audio_stream_player = NodePath("AudioStreamPlayer")
 
 [node name="SceneCreatorTool" type="Node" parent="."]
@@ -283,7 +288,7 @@ position = Vector2(16, -4.5)
 shape = SubResource("RectangleShape2D_chxpl")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D"]
-polygon = PackedVector2Array(-617, 283, -572, 283, -469, 130, -485, -54, -598, -276, -1030, -233, -1004, 552, -879, 646, -844, 597, -855, 347, -820, 99, -629, 24)
+polygon = PackedVector2Array(-617, 283, -572, 283, -469, 130, -485, -54, -598, -276, -1030, -233, -1004, 552, -879, 646, -815, 554, -792, 406, -738, 342, -667, 263)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D"]
 polygon = PackedVector2Array(467, 127, 882, 615, 1106, 415, 1005, 31, 484, -134)
@@ -331,18 +336,6 @@ item = ExtResource("17_u0ndw")
 dialogic_signal = "cigarrete_lobuki_gives"
 metadata/_custom_type_script = "uid://moxcdo1lwavw"
 
-[node name="HadaSave" parent="NpcLayer" instance=ExtResource("10_55pex")]
-position = Vector2(0, 156)
-
-[node name="AnimatedSprite2D" parent="NpcLayer/HadaSave" index="0"]
-sprite_frames = SubResource("SpriteFrames_wd4o3")
-autoplay = "default"
-frame_progress = 0.528099
-offset = Vector2(0, -132)
-
-[node name="CollisionPolygon2D" parent="NpcLayer/HadaSave/StaticBody2D" index="0"]
-polygon = PackedVector2Array(-303, 17, -205, 40, 67, 51, 222, 48, 303, 28, 260, -32, 71, -49, -155, -44, -249, -15)
-
 [node name="ObjectLayer" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("11_vrrpf")
@@ -364,6 +357,35 @@ script = ExtResource("12_ceigr")
 [node name="SavesLayer" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("13_c4cm6")
+
+[node name="HadaSave" parent="SavesLayer" instance=ExtResource("10_55pex")]
+position = Vector2(0, 156)
+
+[node name="AnimatedSprite2D" parent="SavesLayer/HadaSave" index="0"]
+sprite_frames = SubResource("SpriteFrames_wd4o3")
+autoplay = "default"
+frame_progress = 0.528099
+offset = Vector2(0, -132)
+
+[node name="CollisionPolygon2D" parent="SavesLayer/HadaSave/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-303, 17, -205, 40, 67, 51, 222, 48, 303, 28, 260, -32, 71, -49, -155, -44, -249, -15)
+
+[node name="Talk" type="Node2D" parent="SavesLayer/HadaSave" node_paths=PackedStringArray("talking_area")]
+position = Vector2(-17, -32)
+script = ExtResource("15_vai2h")
+talking_area = NodePath("Area2D")
+timeline_name = "hada_save_cueva_demo"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="SavesLayer/HadaSave/Talk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SavesLayer/HadaSave/Talk/Area2D"]
+shape = SubResource("CircleShape2D_n0a8t")
+
+[node name="SaveButton" type="Node2D" parent="SavesLayer/HadaSave"]
+script = ExtResource("23_n0a8t")
+dialogic_save_argument = &"hada_save_cueva_demo"
+metadata/_custom_type_script = "uid://dct4fb2oheved"
 
 [node name="SpawnsLayer" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -388,10 +410,16 @@ position = Vector2(-628, 439)
 
 [node name="CameraManager" parent="." instance=ExtResource("19_wvs86")]
 
+[node name="Camera2D" parent="CameraManager" index="0"]
+limit_left = -2356
+limit_top = -2839
+limit_right = 2365
+limit_bottom = 1787
+
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 shape = SubResource("RectangleShape2D_m2kmg")
 
 [editable path="NpcLayer/Lobito"]
-[editable path="NpcLayer/HadaSave"]
 [editable path="ObjectLayer/PiedrasFrente"]
+[editable path="SavesLayer/HadaSave"]
 [editable path="CameraManager"]
