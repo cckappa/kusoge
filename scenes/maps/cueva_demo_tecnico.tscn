@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://3w5ysq4tl3o4"]
+[gd_scene load_steps=65 format=3 uid="uid://3w5ysq4tl3o4"]
 
 [ext_resource type="Script" uid="uid://d0q32cfdk1wsf" path="res://scripts/maps/cueva_demo_tecnico.gd" id="1_n0a8t"]
 [ext_resource type="Script" uid="uid://5rnf247xyu5v" path="res://scripts/scene_creator_tool.gd" id="1_os3nl"]
@@ -23,11 +23,14 @@
 [ext_resource type="Script" uid="uid://do84xbf65qif" path="res://scripts/talk.gd" id="15_vai2h"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="16_joev4"]
 [ext_resource type="Script" uid="uid://moxcdo1lwavw" path="res://scripts/item_taker.gd" id="16_n0a8t"]
+[ext_resource type="PackedScene" uid="uid://dqi4bw7t4w0u8" path="res://scenes/add_new_character_animation.tscn" id="17_chxpl"]
 [ext_resource type="Resource" uid="uid://be2db4m15u3w5" path="res://assets/resources/items/cigarro_lobuki.tres" id="17_u0ndw"]
 [ext_resource type="Script" uid="uid://cv43fprb0dski" path="res://scripts/spawns_layer.gd" id="18_4gaeh"]
 [ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="18_brrda"]
+[ext_resource type="Resource" uid="uid://cdfwg33kesulb" path="res://assets/resources/characters/demo_tecnico/lobuki.tres" id="18_chxpl"]
 [ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="19_wvs86"]
 [ext_resource type="Script" uid="uid://dct4fb2oheved" path="res://scripts/save_button.gd" id="23_n0a8t"]
+[ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="30_6xik8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chxpl"]
 size = Vector2(1134, 335)
@@ -336,6 +339,10 @@ item = ExtResource("17_u0ndw")
 dialogic_signal = "cigarrete_lobuki_gives"
 metadata/_custom_type_script = "uid://moxcdo1lwavw"
 
+[node name="AddNewCharacterAnimation" parent="NpcLayer/Lobito" node_paths=PackedStringArray("quest") instance=ExtResource("17_chxpl")]
+quest = NodePath("../Quest")
+character = ExtResource("18_chxpl")
+
 [node name="ObjectLayer" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("11_vrrpf")
@@ -404,17 +411,13 @@ position = Vector2(-628, 439)
 
 [node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("16_joev4")]
 
+[node name="NotificationCenter" parent="CanvasLayer" instance=ExtResource("30_6xik8")]
+
 [node name="BlackRect" parent="CanvasLayer" instance=ExtResource("18_brrda")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="CameraManager" parent="." instance=ExtResource("19_wvs86")]
-
-[node name="Camera2D" parent="CameraManager" index="0"]
-limit_left = -2356
-limit_top = -2839
-limit_right = 2365
-limit_bottom = 1787
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 shape = SubResource("RectangleShape2D_m2kmg")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5pci2v2vm4qd"]
+[gd_scene load_steps=5 format=3 uid="uid://b5pci2v2vm4qd"]
 
 [ext_resource type="Script" uid="uid://bjtgbjfc1t6uj" path="res://scripts/inicio_menu.gd" id="1_7l6qo"]
+[ext_resource type="Texture2D" uid="uid://cttacv1hpf2y2" path="res://assets/screens/menu_inicio.PNG" id="2_pxxgp"]
 [ext_resource type="Theme" uid="uid://ctd47cus6kna0" path="res://assets/themes/menu_theme.tres" id="2_tpjnf"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="3_ppuyb"]
 
@@ -16,17 +17,26 @@ play = NodePath("PanelContainer/MarginContainer/VBoxContainer/Play")
 settings = NodePath("PanelContainer/MarginContainer/VBoxContainer/Settings")
 settings_menu = NodePath("SettingsMenu")
 
+[node name="Fondo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 3840.0
+offset_bottom = 2160.0
+texture = ExtResource("2_pxxgp")
+
 [node name="PanelContainer" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(512, 0)
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 71.0
-offset_top = -212.0
-offset_right = 585.0
-offset_bottom = -71.0
-grow_vertical = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -257.0
+offset_top = 98.0
+offset_right = 257.0
+offset_bottom = 629.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2

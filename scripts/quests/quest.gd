@@ -16,6 +16,7 @@ func _on_dialogic_signal(argument:Dictionary) -> void:
 			if argument.next_index != null:
 				if argument.next_index == quest_resource.quest_goal_index + 1:
 					quest_resource.reached_goal(argument.next_index)
+					SignalBus.emit_signal("add_notification", quest_resource.goal_description_list[argument.next_index], quest_resource.description_list[argument.next_index], quest_resource.quest_giver.character_portrait)
 			else:
 				printerr("argument.next_index not provided")
 		elif argument.type == "finish":

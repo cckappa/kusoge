@@ -11,12 +11,12 @@
 [ext_resource type="SpriteFrames" uid="uid://dn6f35ymsph40" path="res://assets/spritesheets/mona_sprite_frames.tres" id="9_7exwx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_khea8"]
-radius = 36.0
-height = 156.0
+radius = 51.0
+height = 172.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ifkpl"]
 radius = 40.905
-height = 92.0
+height = 130.0
 
 [sub_resource type="Animation" id="Animation_hqthg"]
 length = 0.001
@@ -462,7 +462,7 @@ animation_tree = NodePath("../../AnimationTree")
 
 [node name="CharacterSpritesheet" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("9_7exwx")
-offset = Vector2(0, -98)
+offset = Vector2(0, -180)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true

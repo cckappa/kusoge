@@ -21,6 +21,7 @@ func add_quest_to_current_quests() -> void:
 	if not Quests.current_quests.has(identifier):
 		Quests.current_quests[identifier] = self
 		SignalBus.emit_signal("quest_added", self)
+		SignalBus.emit_signal("add_notification", goal_description_list[0], description_list[0], quest_giver.character_portrait)
 	else:
 		print("Quest already in current quests:", identifier)
 

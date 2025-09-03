@@ -100,8 +100,15 @@ func create_scene() -> void:
 				get_parent().get_node("CanvasLayer").add_child(settings_menu)
 				settings_menu.owner = get_tree().edited_scene_root
 			
+			if not get_parent().get_node("CanvasLayer").has_node("NotificationCenter"):
+				print('9.3 Creating Notification Center...')
+				var notification_center_scene := load("res://scenes/notification_center.tscn")
+				var notification_center: Node = notification_center_scene.instantiate()
+				get_parent().get_node("CanvasLayer").add_child(notification_center)
+				notification_center.owner = get_tree().edited_scene_root
+			
 			if not get_parent().get_node("CanvasLayer").has_node("BlackRect"):
-				print('9.3 Creating Black Rect...')
+				print('9.4 Creating Black Rect...')
 				var black_rect_scene := load("res://scenes/black_rect.tscn")
 				var black_rect: Node = black_rect_scene.instantiate()
 				get_parent().get_node("CanvasLayer").add_child(black_rect)

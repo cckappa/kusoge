@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=3 uid="uid://cw14ehtvu80xx"]
+[gd_scene load_steps=112 format=3 uid="uid://cw14ehtvu80xx"]
 
 [ext_resource type="Script" uid="uid://ddv7kigla6iip" path="res://scripts/maps/demo_tecnico_hub.gd" id="1_w0bji"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="2_b27bq"]
@@ -48,6 +48,7 @@
 [ext_resource type="Script" uid="uid://cv43fprb0dski" path="res://scripts/spawns_layer.gd" id="28_8uen1"]
 [ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="29_kpvwu"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="35_f3wh4"]
+[ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="42_tqvvo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1lo0"]
 size = Vector2(3690, 614)
@@ -419,6 +420,21 @@ size = Vector2(506, 94)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76sup"]
 size = Vector2(444, 397)
 
+[sub_resource type="Animation" id="Animation_8j15a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_w68cj"]
 resource_name = "opening"
 length = 1.5
@@ -447,21 +463,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
-}
-
-[sub_resource type="Animation" id="Animation_8j15a"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u4o6e"]
@@ -840,6 +841,8 @@ position = Vector2(860, -1033)
 
 [node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("2_b27bq")]
 
+[node name="NotificationCenter" parent="CanvasLayer" instance=ExtResource("42_tqvvo")]
+
 [node name="BlackRect" parent="CanvasLayer" instance=ExtResource("29_kpvwu")]
 unique_name_in_owner = true
 
@@ -861,10 +864,6 @@ physics_interpolation_mode = 1
 position = Vector2(0, 285)
 zoom = Vector2(1.2, 1.2)
 process_callback = 0
-limit_left = -2356
-limit_top = -2839
-limit_right = 2365
-limit_bottom = 1787
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="CameraManager/Camera2D"]

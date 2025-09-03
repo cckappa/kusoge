@@ -40,3 +40,7 @@ signal item_removed(item:Item)
 ## CHARACTERS
 
 signal character_unlocked(character:Character)
+
+## NOTIFICATIONS
+
+signal add_notification(title:String, body:String, image:Texture)
