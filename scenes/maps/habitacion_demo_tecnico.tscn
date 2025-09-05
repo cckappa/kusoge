@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dbfk6io7tum1h"]
+[gd_scene load_steps=49 format=3 uid="uid://dbfk6io7tum1h"]
 
 [ext_resource type="Script" uid="uid://iyxa2juiwepc" path="res://scripts/maps/habitacion_demo_tecnico.gd" id="1_gmx2w"]
 [ext_resource type="Script" uid="uid://5rnf247xyu5v" path="res://scripts/scene_creator_tool.gd" id="2_d4xx2"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://h0q50x2317m1" path="res://scenes/npc.tscn" id="10_vbeqg"]
 [ext_resource type="Texture2D" uid="uid://dypnt78d1mjsp" path="res://assets/spritesheets/demo_tecnico/jefe_mapa.png" id="11_1j1x1"]
 [ext_resource type="Script" uid="uid://ck4xyxoy5fldl" path="res://scripts/enemies_layer.gd" id="11_vkkwh"]
+[ext_resource type="Script" uid="uid://do84xbf65qif" path="res://scripts/talk.gd" id="11_wld6k"]
 [ext_resource type="Script" uid="uid://cv43fprb0dski" path="res://scripts/spawns_layer.gd" id="12_q44w6"]
 [ext_resource type="Script" uid="uid://c2d2peg3ovb8n" path="res://scripts/saves_layer.gd" id="13_3y6r5"]
 [ext_resource type="Texture2D" uid="uid://dgafhxdgdujjc" path="res://assets/spritesheets/demo_tecnico/candelabroder_habitacion.png" id="13_vkkwh"]
@@ -26,6 +27,9 @@
 [ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="19_c7180"]
 [ext_resource type="Texture2D" uid="uid://drotdyw73xb3y" path="res://assets/backgrounds/demo_tecnico/craneoslimite_habitacion.png" id="20_vkkwh"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="23_6urx6"]
+[ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="24_vbeqg"]
+[ext_resource type="PackedScene" uid="uid://dqi4bw7t4w0u8" path="res://scenes/add_new_character_animation.tscn" id="26_vkkwh"]
+[ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="28_3y6r5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phoxl"]
 size = Vector2(2479, 344)
@@ -68,6 +72,9 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix8xt"]
+size = Vector2(1519, 659)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lvqvm"]
 atlas = ExtResource("13_vkkwh")
@@ -202,6 +209,19 @@ offset = Vector2(0, -135.38)
 [node name="CollisionPolygon2D" parent="NpcLayer/Jefe/StaticBody2D" index="0"]
 polygon = PackedVector2Array(-102, 57, -11, 68, 89, 60, 111, 15, 49, -32, -43, -37, -110, 11)
 
+[node name="Talk" type="Node2D" parent="NpcLayer/Jefe" node_paths=PackedStringArray("talking_area")]
+script = ExtResource("11_wld6k")
+talking_area = NodePath("Area2D")
+automatic_start = true
+timeline_name = "jefe_demo_tecnico"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="NpcLayer/Jefe/Talk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/Jefe/Talk/Area2D"]
+position = Vector2(235.5, 319.5)
+shape = SubResource("RectangleShape2D_ix8xt")
+
 [node name="ObjectLayer" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("10_1j1x1")
@@ -294,6 +314,12 @@ script = ExtResource("13_3y6r5")
 
 [node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("16_k74cn")]
 
+[node name="NotificationCenter" parent="CanvasLayer" instance=ExtResource("24_vbeqg")]
+
+[node name="AddNewCharacterAnimation" parent="CanvasLayer" instance=ExtResource("26_vkkwh")]
+
+[node name="AddNewItemAnimation" parent="CanvasLayer" instance=ExtResource("28_3y6r5")]
+
 [node name="BlackRect" parent="CanvasLayer" instance=ExtResource("18_x3tux")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -303,6 +329,10 @@ script = ExtResource("13_3y6r5")
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
+limit_left = -2356
+limit_top = -2839
+limit_right = 2365
+limit_bottom = 1787
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 position = Vector2(0, -1.5)

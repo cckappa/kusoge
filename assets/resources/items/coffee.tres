@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://bqyq6l006wa1h"]
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://bqyq6l006wa1h"]
 
 [ext_resource type="Script" uid="uid://cit3hwc5xts8m" path="res://scripts/items/heal_effect_item.gd" id="1_3v2id"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="1_6x07b"]
+[ext_resource type="Texture2D" uid="uid://pgvjh544jsbd" path="res://assets/icons/warning.png" id="1_iqirl"]
 
 [sub_resource type="Resource" id="Resource_p5ms8"]
 script = ExtResource("1_3v2id")
@@ -12,5 +13,6 @@ script = ExtResource("1_6x07b")
 identifier = &"coffee"
 display_name = "Cafecito"
 description = "Cafecito"
+icon = ExtResource("1_iqirl")
 type = "HEAL"
 item_effect = SubResource("Resource_p5ms8")

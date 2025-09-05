@@ -4,6 +4,8 @@ extends Resource
 @export var identifier:StringName
 @export var display_name:String
 @export var description:String
+@export var icon:Texture2D=preload("res://assets/icons/warning.png") # Update to a valid path or placeholder
+
 @export_enum(
 	"HEAL", 
 	"BUFF", 

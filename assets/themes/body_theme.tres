@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://c0jwmjp4t5f8k"]
+
+[ext_resource type="FontFile" uid="uid://crcm267ji36xo" path="res://assets/fonts/Averia_Sans_Libre/AveriaSansLibre-Bold.ttf" id="1_wxsv1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8fae"]
+draw_center = false
+
+[resource]
+RichTextLabel/font_sizes/normal_font_size = 64
+RichTextLabel/fonts/normal_font = ExtResource("1_wxsv1")
+RichTextLabel/styles/normal = SubResource("StyleBoxFlat_k8fae")

@@ -67,7 +67,7 @@ func add_loot_to_item_list() -> Array[Dictionary]:
 		var rand:= randi_range(min_loot, max_loot)
 		if rand > 0:
 			item.add_to_items(rand)
-			added_loot.append({"display_name": item.display_name, "total": rand})
+			added_loot.append({"resource": item, "total": rand})
 	
 	return added_loot
 	

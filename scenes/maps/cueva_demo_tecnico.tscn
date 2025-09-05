@@ -27,9 +27,9 @@
 [ext_resource type="Resource" uid="uid://be2db4m15u3w5" path="res://assets/resources/items/cigarro_lobuki.tres" id="17_u0ndw"]
 [ext_resource type="Script" uid="uid://cv43fprb0dski" path="res://scripts/spawns_layer.gd" id="18_4gaeh"]
 [ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="18_brrda"]
-[ext_resource type="Resource" uid="uid://cdfwg33kesulb" path="res://assets/resources/characters/demo_tecnico/lobuki.tres" id="18_chxpl"]
 [ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="19_wvs86"]
 [ext_resource type="Script" uid="uid://dct4fb2oheved" path="res://scripts/save_button.gd" id="23_n0a8t"]
+[ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="29_6xik8"]
 [ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="30_6xik8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chxpl"]
@@ -313,7 +313,7 @@ frame_progress = 0.545928
 offset = Vector2(0, -189)
 
 [node name="CollisionPolygon2D" parent="NpcLayer/Lobito/StaticBody2D" index="0"]
-polygon = PackedVector2Array(-19, 53, -55, 5, -29, -24, 66, -55, 141, -60, 168, -5, 160, 37, 106, 102, 56, 108)
+polygon = PackedVector2Array(-19, 53, -55, 5, -29, -24, 66, -55, 141, -60, 168, -5, 211, 46, 71, 97, 31, 61)
 
 [node name="Quest" type="Node2D" parent="NpcLayer/Lobito"]
 script = ExtResource("12_os3nl")
@@ -339,10 +339,6 @@ item = ExtResource("17_u0ndw")
 dialogic_signal = "cigarrete_lobuki_gives"
 metadata/_custom_type_script = "uid://moxcdo1lwavw"
 
-[node name="AddNewCharacterAnimation" parent="NpcLayer/Lobito" node_paths=PackedStringArray("quest") instance=ExtResource("17_chxpl")]
-quest = NodePath("../Quest")
-character = ExtResource("18_chxpl")
-
 [node name="ObjectLayer" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("11_vrrpf")
@@ -355,7 +351,7 @@ texture = ExtResource("6_u0ndw")
 offset = Vector2(0, -323)
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/PiedrasFrente/StaticBody2D" index="1"]
-polygon = PackedVector2Array(-1004, -318, -867, -217, -695, -56, -568, -35, -327, -87, -172, -52, 3, -85, 217, -120, 321, -167, 581, -137, 720, -245, 821, -339, 871, -443, 1000, -450, 1036, 5, 390, 45, -1016, 21)
+polygon = PackedVector2Array(-1004, -318, -867, -217, -695, -56, -568, -35, -327, -87, -172, -52, 3, -85, 217, -120, 321, -167, 581, -137, 818, -208, 821, -339, 871, -443, 1000, -450, 1036, 5, 390, 45, -1016, 21)
 
 [node name="EnemiesLayer" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -412,6 +408,10 @@ position = Vector2(-628, 439)
 [node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("16_joev4")]
 
 [node name="NotificationCenter" parent="CanvasLayer" instance=ExtResource("30_6xik8")]
+
+[node name="AddNewCharacterAnimation" parent="CanvasLayer" instance=ExtResource("17_chxpl")]
+
+[node name="AddNewItemAnimation" parent="CanvasLayer" instance=ExtResource("29_6xik8")]
 
 [node name="BlackRect" parent="CanvasLayer" instance=ExtResource("18_brrda")]
 

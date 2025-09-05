@@ -6,7 +6,6 @@ extends Control
 
 @onready var continue_button := %ContinueButton
 @onready var quit := %Quit
-@onready var next := %Next
 @onready var black_rect := $BlackRect
 
 var inicial_scene: String = "res://scenes/inicial.tscn"
@@ -24,7 +23,8 @@ func _ready() -> void:
 	set_current_enemies()
 	add_enemies()
 
-	SignalBus.connect("run_away", _on_next_pressed)
+	SignalBus.connect("run_away", next_pressed)
+	SignalBus.connect("loot_collected", next_pressed)
 	
 	black_rect.visible = true
 	await Functions.fade_color_rect(black_rect, "OUT", 2)
@@ -99,7 +99,7 @@ func add_enemies() -> void:
 	enemy_portraits.set_neighbours()
 
 
-func _on_next_pressed() -> void:
+func next_pressed() -> void:
 	if ProjectSettings.get_setting("application/config/version") == "demo":
 		setup_cambiar("cambiar_demo")
 	else:

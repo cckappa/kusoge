@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cmpxf2x7wrue8"]
+[gd_scene load_steps=38 format=3 uid="uid://cmpxf2x7wrue8"]
 
 [ext_resource type="Script" uid="uid://hb1tei00rib0" path="res://scripts/maps/cabeza_demo_tecnico.gd" id="1_jfxjq"]
 [ext_resource type="Script" uid="uid://5rnf247xyu5v" path="res://scripts/scene_creator_tool.gd" id="2_e8xqf"]
@@ -26,6 +26,12 @@
 [ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="18_pu5hf"]
 [ext_resource type="Texture2D" uid="uid://bhfg0okos7a4a" path="res://assets/objects/demo_tecnico/ESCULTURA IZQ.png" id="19_pu5hf"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="22_4q5a7"]
+[ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="24_xo0ap"]
+[ext_resource type="Script" uid="uid://cscct5yogwe8u" path="res://scripts/notification_center.gd" id="25_mvwv0"]
+[ext_resource type="PackedScene" uid="uid://dqi4bw7t4w0u8" path="res://scenes/add_new_character_animation.tscn" id="26_x35hd"]
+[ext_resource type="Script" uid="uid://ck2ow411sbom1" path="res://scripts/add_new_character_animation.gd" id="27_lofbv"]
+[ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="28_0b1g4"]
+[ext_resource type="Script" uid="uid://bae3eo7ywlmmf" path="res://scripts/add_new_item_animation.gd" id="29_hfk5i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nrtiv"]
 size = Vector2(652, 2863)
@@ -213,6 +219,38 @@ script = ExtResource("12_mvwv0")
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("13_x35hd")]
 
 [node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("15_0b1g4")]
+
+[node name="NotificationCenter" type="Control" parent="CanvasLayer" instance=ExtResource("24_xo0ap")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("25_mvwv0")
+
+[node name="AddNewCharacterAnimation" type="Control" parent="CanvasLayer" instance=ExtResource("26_x35hd")]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("27_lofbv")
+animation_duration = 3.0
+
+[node name="AddNewItemAnimation" type="Control" parent="CanvasLayer" instance=ExtResource("28_0b1g4")]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("29_hfk5i")
+animation_duration = 3.0
 
 [node name="BlackRect" parent="CanvasLayer" instance=ExtResource("17_l1pn7")]
 

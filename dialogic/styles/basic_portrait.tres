@@ -30,11 +30,14 @@ scene = ExtResource("4_w7ktq")
 overrides = {
 "box_distance": "50.0",
 "box_size": "Vector2(1800, 560)",
-"name_label_custom_size": "56.0",
+"custom_normal_font": "\"res://assets/fonts/Averia_Sans_Libre/AveriaSansLibre-Bold.ttf\"",
+"name_label_custom_size": "96.0",
+"name_label_customfont": "\"res://assets/fonts/Bagel_Fat_One/BagelFatOne-Regular.ttf\"",
 "name_label_use_global_size": "false",
 "portrait_bg_modulate": "Color(0, 0, 0, 0)",
 "portrait_stretch_factor": "0.5",
-"text_custom_size": "42.0",
+"text_custom_color": "Color(0.923157, 0.923991, 0.976563, 1)",
+"text_custom_size": "72.0",
 "text_use_global_color": "false",
 "text_use_global_size": "false"
 }
@@ -48,7 +51,8 @@ overrides = {}
 script = ExtResource("1_qssdv")
 scene = ExtResource("6_r8cox")
 overrides = {
-"font_size_custom": "42.0",
+"font_custom": "\"res://assets/fonts/Averia_Sans_Libre/AveriaSansLibre-Bold.ttf\"",
+"font_size_custom": "72.0",
 "font_size_use_global": "false"
 }
 

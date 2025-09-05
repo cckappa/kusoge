@@ -74,15 +74,6 @@ func _ready() -> void:
 	SignalBus.connect("ability_button_pressed", ability_pressed)
 	SignalBus.connect("item_button_pressed", item_button_pressed)
 
-
-	# for identifier:StringName in Items.item_list:
-	# 	var item_button := Button.new()
-	# 	item_button.text = "%s x%s" % [Items.item_list[identifier].resource.display_name, int(Items.item_list[identifier].total)]
-	# 	item_button.theme = menu_theme
-	# 	item_menu.add_child(item_button)
-	# 	item_button.add_to_group("submenu_item")
-	# 	item_button.connect("pressed", _on_item_button_pressed.bind(Items.item_list[identifier].resource))
-
 func _process(delta:float) -> void:
 	if timer.time_left != 0: 
 		var value_timer :int = ceil(((timer.wait_time - timer.time_left) / timer.wait_time) * 100)
@@ -150,7 +141,9 @@ func focus_arrows() -> void:
 
 func death() -> void:
 	print(character.name, " DEAD")
-	death_texture.visible = true
+	portrait_damaged.modulate = Color.hex(0x282331FF)
+	portrait_damaged.visible = true
+	portrait.visible = false
 	target_button.visible = false
 	selected_arrow.visible = false
 	selected_arrow.focus_mode = Control.FOCUS_NONE

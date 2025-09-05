@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DamageAbility" load_steps=3 format=3 uid="uid://bnkt1v88hkkjx"]
+
+[ext_resource type="PackedScene" uid="uid://cs12q6im5gih7" path="res://scenes/ability_animations/piss_animation.tscn" id="1_7buo4"]
+[ext_resource type="Script" uid="uid://3uj7qdnixdle" path="res://scripts/abilities/damage_ability.gd" id="1_vg46s"]
+
+[resource]
+script = ExtResource("1_vg46s")
+damage_points = 90
+ability_name = "Meados"
+type = "WATER"
+description = "Orina a tus enemigos y vencerás"
+wait_time = 7.0
+effect = "NEGATIVE"
+attack_animation = ExtResource("1_7buo4")
+metadata/_custom_type_script = "uid://3uj7qdnixdle"

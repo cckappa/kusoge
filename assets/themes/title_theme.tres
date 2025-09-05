@@ -1,0 +1,12 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://ddn613eu7530y"]
+
+[ext_resource type="FontFile" uid="uid://bdmps3wsxple0" path="res://assets/fonts/Bagel_Fat_One/BagelFatOne-Regular.ttf" id="1_qo4bf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7e8f"]
+draw_center = false
+
+[resource]
+default_base_scale = 88.45
+RichTextLabel/font_sizes/normal_font_size = 72
+RichTextLabel/fonts/normal_font = ExtResource("1_qo4bf")
+RichTextLabel/styles/normal = SubResource("StyleBoxFlat_x7e8f")

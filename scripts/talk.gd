@@ -2,6 +2,7 @@ class_name Talk
 extends Node2D
 
 @export var talking_area:Area2D
+@export var automatic_start:bool=false
 @export var timeline_name:String
 var talking:=false
 var talking_zone:=false
@@ -32,6 +33,8 @@ func enters_area(body:Node2D) -> void:
 	if body.is_in_group("main_character"):
 		print(body.name)
 		talking_zone = true
+		if automatic_start and !talking:
+			start_dialog()
 
 func exits_area(body:Node2D) -> void:
 	if body.is_in_group("main_character"):

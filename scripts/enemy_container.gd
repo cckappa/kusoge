@@ -63,6 +63,7 @@ func set_texture(_texture:Texture) -> void:
 func death() -> void:
 	print(character.name, " DEAD")
 	death_texture.visible = true
+	enemy_photo.modulate = Color.hex(0x282331FF)
 	target_button.visible = false
 	target_button.focus_mode = Control.FOCUS_NONE
 

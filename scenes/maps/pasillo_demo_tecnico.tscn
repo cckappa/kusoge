@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://0tlgkod8boti"]
+[gd_scene load_steps=37 format=3 uid="uid://0tlgkod8boti"]
 
 [ext_resource type="Script" uid="uid://cxd47ile2ns4g" path="res://scripts/maps/pasillo_demo_tecnico.gd" id="1_gc2ga"]
 [ext_resource type="Script" uid="uid://5rnf247xyu5v" path="res://scripts/scene_creator_tool.gd" id="2_msnjy"]
@@ -25,8 +25,11 @@
 [ext_resource type="Script" uid="uid://cv43fprb0dski" path="res://scripts/spawns_layer.gd" id="24_prxsk"]
 [ext_resource type="Script" uid="uid://c2d2peg3ovb8n" path="res://scripts/saves_layer.gd" id="25_6lhvw"]
 [ext_resource type="PackedScene" uid="uid://ci5a44r0l16fy" path="res://scenes/pause_menu.tscn" id="26_77dqh"]
+[ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="27_3i0hk"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="28_vnmxb"]
+[ext_resource type="PackedScene" uid="uid://dqi4bw7t4w0u8" path="res://scenes/add_new_character_animation.tscn" id="29_msnjy"]
 [ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="30_7ip4d"]
+[ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="31_m3kqk"]
 [ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="31_xme65"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="35_sjh72"]
 
@@ -252,6 +255,12 @@ script = ExtResource("25_6lhvw")
 
 [node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("28_vnmxb")]
 
+[node name="NotificationCenter" parent="CanvasLayer" instance=ExtResource("27_3i0hk")]
+
+[node name="AddNewCharacterAnimation" parent="CanvasLayer" instance=ExtResource("29_msnjy")]
+
+[node name="AddNewItemAnimation" parent="CanvasLayer" instance=ExtResource("31_m3kqk")]
+
 [node name="BlackRect" parent="CanvasLayer" instance=ExtResource("30_7ip4d")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -261,6 +270,10 @@ script = ExtResource("25_6lhvw")
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
+limit_left = -2356
+limit_top = -2839
+limit_right = 2365
+limit_bottom = 1787
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 position = Vector2(0, -0.5)

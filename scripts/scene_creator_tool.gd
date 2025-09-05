@@ -107,8 +107,22 @@ func create_scene() -> void:
 				get_parent().get_node("CanvasLayer").add_child(notification_center)
 				notification_center.owner = get_tree().edited_scene_root
 			
+			if not get_parent().get_node("CanvasLayer").has_node("AddNewCharacterAnimation"):
+				print('9.4 Creating Add New Character Animation...')
+				var add_new_character_animation_scene := load("res://scenes/add_new_character_animation.tscn")
+				var add_new_character_animation: Node = add_new_character_animation_scene.instantiate()
+				get_parent().get_node("CanvasLayer").add_child(add_new_character_animation)
+				add_new_character_animation.owner = get_tree().edited_scene_root
+
+			if not get_parent().get_node("CanvasLayer").has_node("AddNewItemAnimation"):
+				print('9.5 Creating Add New Item Animation...')
+				var add_new_item_animation_scene := load("res://scenes/add_new_item_animation.tscn")
+				var add_new_item_animation: Node = add_new_item_animation_scene.instantiate()
+				get_parent().get_node("CanvasLayer").add_child(add_new_item_animation)
+				add_new_item_animation.owner = get_tree().edited_scene_root
+			
 			if not get_parent().get_node("CanvasLayer").has_node("BlackRect"):
-				print('9.4 Creating Black Rect...')
+				print('9.6 Creating Black Rect...')
 				var black_rect_scene := load("res://scenes/black_rect.tscn")
 				var black_rect: Node = black_rect_scene.instantiate()
 				get_parent().get_node("CanvasLayer").add_child(black_rect)

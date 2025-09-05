@@ -1,10 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://deg6oekjklhs8"]
+[gd_scene load_steps=19 format=3 uid="uid://deg6oekjklhs8"]
 
 [ext_resource type="Script" uid="uid://durb5suil11ek" path="res://scripts/enemy_container.gd" id="1_rne6s"]
 [ext_resource type="Theme" uid="uid://ctd47cus6kna0" path="res://assets/themes/menu_theme.tres" id="2_hayad"]
 [ext_resource type="Texture2D" uid="uid://bgefprxussdta" path="res://assets/enemy_sprites/Serpra.png" id="3_y7wkr"]
+[ext_resource type="Texture2D" uid="uid://dhkdkha538w1v" path="res://assets/battle/Muerte.PNG" id="5_g3yxh"]
 [ext_resource type="Texture2D" uid="uid://jr71m17ib8jj" path="res://assets/icons/target_select.svg" id="5_qrxc3"]
-[ext_resource type="Texture2D" uid="uid://dgqpwvwksevim" path="res://assets/icons/death_tomb.png" id="6_4wkuv"]
 [ext_resource type="PackedScene" uid="uid://4hkn25062ror" path="res://scenes/crit_particles_long_circle.tscn" id="6_pb7q0"]
 [ext_resource type="AudioStream" uid="uid://btagcqpq4o02r" path="res://assets/sfx/162792__timgormly__8-bit-explosion1.mp3" id="7_aprvx"]
 [ext_resource type="PackedScene" uid="uid://diyhj67vyeuiw" path="res://scenes/heal_particles_long.tscn" id="10_o60lc"]
@@ -13,9 +13,6 @@
 [ext_resource type="AudioStream" uid="uid://yjg8t7qnv4nl" path="res://assets/sfx/691095__ikramshinwari__dfam-kick02-e-wet.mp3" id="14_x6eex"]
 [ext_resource type="AudioStream" uid="uid://brjeugobkanix" path="res://assets/sfx/637809__kyles__rope-thick-handling-rough-hairy-fishing-nets.mp3" id="15_8qgus"]
 [ext_resource type="Theme" uid="uid://bci1eig3l1g22" path="res://assets/themes/attack_letter_theme.tres" id="17_m3ka1"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y7wkr"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rshif"]
 bg_color = Color(0.953278, 0.187495, 0, 1)
@@ -104,7 +101,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.13),
 "transitions": PackedFloat32Array(2.21914, 1),
 "update": 0,
-"values": [Vector2(50, 357), Vector2(50, 215)]
+"values": [Vector2(-180, 357), Vector2(-210, 215)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -137,21 +134,21 @@ _data = {
 &"damage_animation": SubResource("Animation_3r251")
 }
 
-[node name="EnemyContainer" type="PanelContainer"]
-custom_minimum_size = Vector2(100, 159)
+[node name="EnemyContainer" type="Control"]
+custom_minimum_size = Vector2(600, 678)
+layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -300.0
-offset_top = -300.0
+offset_top = -339.0
 offset_right = 300.0
-offset_bottom = 300.0
+offset_bottom = 339.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_y7wkr")
 script = ExtResource("1_rne6s")
 
 [node name="Timer" type="Timer" parent="."]
@@ -160,6 +157,8 @@ one_shot = true
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(100, 255)
 layout_mode = 2
+offset_right = 600.0
+offset_bottom = 678.0
 
 [node name="LifeBar" type="ProgressBar" parent="VBoxContainer"]
 unique_name_in_owner = true
@@ -191,7 +190,7 @@ layout_mode = 2
 unique_name_in_owner = true
 material = SubResource("CanvasItemMaterial_c07se")
 use_parent_material = true
-custom_minimum_size = Vector2(600, 400)
+custom_minimum_size = Vector2(600, 600)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -211,10 +210,22 @@ stretch_mode = 5
 [node name="DeathTexture" type="TextureRect" parent="."]
 unique_name_in_owner = true
 visible = false
-layout_mode = 2
-texture = ExtResource("6_4wkuv")
-expand_mode = 1
-stretch_mode = 5
+modulate = Color(0.219608, 0.25098, 0.298039, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -73.0
+offset_right = 111.0
+offset_bottom = 119.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(130, 96)
+texture = ExtResource("5_g3yxh")
 
 [node name="ParticleCenter" type="Marker2D" parent="."]
 position = Vector2(270, 244)
@@ -260,6 +271,9 @@ parameters/looping = false
 z_index = 15
 z_as_relative = false
 layout_mode = 2
+anchors_preset = 0
+offset_right = 600.0
+offset_bottom = 678.0
 
 [node name="DamageValue" type="RichTextLabel" parent="DamageContainer"]
 unique_name_in_owner = true
@@ -270,13 +284,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = 57.0
-offset_right = 250.0
-offset_bottom = 169.0
+offset_left = -480.0
+offset_top = 18.0
+offset_right = 476.0
+offset_bottom = 453.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(250, 56)
+pivot_offset = Vector2(478, 217.5)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("17_m3ka1")

@@ -25,6 +25,7 @@ signal item_menu_closed(from:Character)
 signal ability_button_pressed(from:Character, attack:Ability)
 signal item_button_pressed(from:Character, item:Item)
 signal run_away()
+signal loot_collected()
 
 ## QUESTS
 

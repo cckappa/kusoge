@@ -1,11 +1,11 @@
-if {Quests.demo_tecnico.lobuki_cigarro_quest_status} <= 0.0:
+if {Quests.demo_tecnico.lobuki_cigarro_quest_status} <= 1:
 	lobuki: Q onda q rollo...
 	lobuki: ah si q interesante niña muy bien
 	lobuki: oye te interrumpo tantito es q sabes q
 	lobuki: no tendrás por ahí un cigarro q me vendas?
 	set {Quests.demo_tecnico.lobuki_cigarro_quest_status} = 0
 	[signal arg_type="dict" arg="{"name":"lobuki_cigarro_0","type":"start"}"]
-if {Quests.demo_tecnico.lobuki_cigarro_quest_status} == 1.0:
+if {Quests.demo_tecnico.lobuki_cigarro_quest_status} == 2.0:
 	lobuki: Q onda, ahí cualquier cosa tienes mi número
 	lobuki: de mientras voy a estar aquí descansando
 if Items.item_list.has("cigarro_lobuki"):
@@ -14,7 +14,7 @@ if Items.item_list.has("cigarro_lobuki"):
 		lobuki: Oye, me caíste chido ten te paso mi número cualquier cosa
 	- Sí, te lo dejo a 5 pesos
 		lobuki: Tssaa cómo así mi emprendedora jajajaj
-		Me caes bien eres muy graciosa amiga, ten te paso mi número por si ocupas algo
+		lobuki: Me caes bien eres muy graciosa amiga, ten te paso mi número por si ocupas algo
 	[signal arg_type="dict" arg="{"name":"lobuki_cigarro_0","type":"finish"}"]
 	[signal arg_type="dict" arg="{"amount":1,"name":"cigarrete_lobuki_gives"}"]
-	set {Quests.demo_tecnico.lobuki_cigarro_quest_status} = 1.0
+	set {Quests.demo_tecnico.lobuki_cigarro_quest_status} = 2.0

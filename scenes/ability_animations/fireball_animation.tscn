@@ -83,10 +83,10 @@ tracks/0/path = NodePath("Sprite2D:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 7.5, 14.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 5.5, 9.3),
+"transitions": PackedFloat32Array(0.267943, 1.8025, 1),
 "update": 0,
-"values": [Vector2(452, 2785), Vector2(630, 849), Vector2(201, 519)]
+"values": [Vector2(452, 1819), Vector2(630, 529), Vector2(201, 278)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -95,7 +95,7 @@ tracks/1/path = NodePath("Sprite2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 14.5),
+"times": PackedFloat32Array(0, 9.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [2.15374, 1.18159]
@@ -107,10 +107,10 @@ tracks/2/path = NodePath("Sprite2D:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 3.5, 9.3),
+"transitions": PackedFloat32Array(0.392292, 1.7411, 1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(0.6, 0.6), Vector2(1, 1), Vector2(0.7, 0.7)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -119,7 +119,7 @@ tracks/3/path = NodePath("Sprite2D:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 14.7),
+"times": PackedFloat32Array(0, 9.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -131,7 +131,7 @@ tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(15),
+"times": PackedFloat32Array(9.8),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -145,7 +145,7 @@ tracks/5/path = NodePath("FireballExplosion:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 14.7),
+"times": PackedFloat32Array(0, 9.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]

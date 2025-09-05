@@ -10,7 +10,7 @@
 },
 &"default_portrait": "Hada Save",
 &"description": "",
-&"display_name": "hada_save",
+&"display_name": "Salvación",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
