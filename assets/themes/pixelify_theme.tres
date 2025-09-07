@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://vyl6l7lq0h7t"]
+
+[ext_resource type="FontFile" uid="uid://dhntt63cl5ml1" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="1_8mx7y"]
+
+[resource]
+RichTextLabel/colors/default_color = Color(0.168627, 0.933333, 0.0666667, 1)
+RichTextLabel/font_sizes/normal_font_size = 84
+RichTextLabel/fonts/normal_font = ExtResource("1_8mx7y")

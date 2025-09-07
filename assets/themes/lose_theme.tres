@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bfoia834oik6"]
+
+[ext_resource type="FontFile" uid="uid://crcm267ji36xo" path="res://assets/fonts/Averia_Sans_Libre/AveriaSansLibre-Bold.ttf" id="1_ttxb4"]
+
+[resource]
+RichTextLabel/font_sizes/normal_font_size = 124
+RichTextLabel/fonts/normal_font = ExtResource("1_ttxb4")

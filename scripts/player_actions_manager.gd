@@ -9,19 +9,26 @@ extends BattleManager
 @export var animation_stagger: float = 0.7  # Delay between each item's animation start
 
 @onready var state_chart := %StateChart
-@onready var lose_text := %LoseText
 @onready var win_text := %WinText
 @onready var loot_text := %LootText
 @onready var audio_stream_player := %AudioStreamPlayer
+@onready var lose_animation_player := %LoseAnimationPlayer
 @onready var continue_buttons := %ContinueButtons
 @onready var continue_button := %ContinueButton
 @onready var quit := %Quit
 @onready var attack_menu := %AttackMenu
+@onready var ability_name_container := %AbilityNameContainer
+@onready var ally_thumbnail := %AllyThumbnail
+@onready var damage_value := %DamageValue
+@onready var icon_dagger := %IconDagger
+@onready var icon_health := %IconHealth
+@onready var time_value := %TimeValue
 @onready var item_menu := %ItemMenu
 @onready var victory_kio := %VictoryKio
 @onready var loot_container := %LootContainer
 
 var attack_button:PackedScene = preload("res://scenes/attack_button.tscn")
+var ability_name:PackedScene = preload("res://scenes/ability_name.tscn")
 var item_battle_button:PackedScene = preload("res://scenes/item_battle_button.tscn")
 var loot_item:PackedScene = preload("res://scenes/loot_item.tscn")
 
@@ -44,8 +51,8 @@ func _input(event: InputEvent) -> void:
 		menu_level = "attack"
 		SignalBus.emit_signal("attack_menu_opened")
 		await get_tree().create_timer(0.1).timeout
-		attack_menu.get_child(0).grab_focus()
-	
+		ability_name_container.get_child(0).ability_button.grab_focus()
+
 	if event.is_action_pressed("ui_accept") and menu_level == "victory":
 		victory_kio.play_hide_animation()
 
@@ -81,6 +88,7 @@ func _on_enter_state_entered() -> void:
 	interactive_stream = audio_stream_player.stream as AudioStreamInteractive
 	connect_allies()
 	connect_enemies()
+	SignalBus.connect("ability_name_focus_entered", set_ability_info)
 	victory_kio.connect("victory_finished_hiding", to_looting)
 	state_chart.send_event("setuped")
 
@@ -200,7 +208,8 @@ func _on_losing_state_entered() -> void:
 	item_menu.visible = false
 	SignalBus.emit_signal("menu_closed", ability_status.from)
 	audio_stream_player.set("parameters/switch_to_clip", "LostBattle")
-	lose_text.visible = true
+	lose_animation_player.play("lose_screen")
+	# lose_text.visible = true
 	continue_buttons.visible = true
 	continue_button.grab_focus()
 	for enemy:Character in Globals.current_arrange_enemies.values():
@@ -326,19 +335,20 @@ func character_status_select(character:Character) -> void:
 	print('from', ability_status.from.name)
 
 func set_attack_menu() -> void:
-	if attack_menu.get_child_count() > 0:
-		for child in attack_menu.get_children():
-			if child.has_connections("pressed"):
-				child.disconnect("pressed", _on_attack_button_pressed)
+	if ability_name_container.get_child_count() > 0:
+		for child in ability_name_container.get_children():
+			if child.ability_button.has_connections("pressed"):
+				child.ability_button.disconnect("pressed", _on_attack_button_pressed)
 			child.queue_free()
 
 	for attack:Ability in ability_status.from.abilities:
-		var attack_button_instance := attack_button.instantiate()
-		attack_button_instance.text = attack.ability_name
-		attack_button_instance.connect("pressed", _on_attack_button_pressed.bind(ability_status.from, attack))
-		attack_menu.add_child(attack_button_instance)
+		var ability_name_instance := ability_name.instantiate()
+		ability_name_container.add_child(ability_name_instance)
+		ability_name_instance.set_ability_info(attack)
+		ability_name_instance.ability_button.connect("pressed", _on_attack_button_pressed.bind(ability_status.from, attack))
 
 func set_item_menu() -> void:
+	ally_thumbnail.texture = ability_status.from.character_portrait
 	if item_menu.get_child_count() > 0:
 		for child in item_menu.get_children():
 			if child.has_connections("pressed"):
@@ -393,11 +403,6 @@ func play_attack_animation(ability: Ability, parent_node: Node, target:Character
 		parent_node.add_child(animation_instance)
 		
 func spawn_loot(loot_data: Array) -> void:
-	"""
-	Spawns loot items with animation
-	loot_data: Array of dictionaries containing loot information
-	Example: [{"name": "Sword", "icon": preload("res://sword.png")}, {...}]
-	"""
 	var loot_count := loot_data.size()
 	if loot_count == 0:
 		return
@@ -411,6 +416,7 @@ func spawn_loot(loot_data: Array) -> void:
 		var loot_item_instance := loot_item.instantiate()
 		if loot_item_instance:
 			loot_container.add_child(loot_item_instance)
+			loot_item_instance.item_icon = loot_data[i].resource.icon
 			loot_item_instance.item_name = loot_data[i].resource.display_name
 			loot_item_instance.item_quantity = loot_data[i].total
 			loot_item_instance.animate_loot_spawn(positions[i], i * animation_stagger)  # Stagger animations
@@ -445,3 +451,17 @@ func _calculate_arc_positions(count: int) -> Array[Vector2]:
 			positions.append(center + offset)
 	
 	return positions
+
+func set_ability_info(ability:Ability) -> void:
+	if ability.effect == "POSITIVE":
+		damage_value.text = str(ability.heal_points)
+		icon_health.visible = true
+		icon_dagger.visible = false
+	elif ability.effect == "NEGATIVE":
+		damage_value.text = str(ability.damage_points)
+		icon_health.visible = false
+		icon_dagger.visible = true
+	else:
+		damage_value.text = "0"
+	
+	time_value.text = str(ability.wait_time)

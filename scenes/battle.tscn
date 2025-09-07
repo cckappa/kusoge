@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cn7cxbug5sjey"]
+[gd_scene load_steps=48 format=3 uid="uid://cn7cxbug5sjey"]
 
 [ext_resource type="Script" uid="uid://1et7n8ftkqn" path="res://scripts/battle.gd" id="1_8mi71"]
 [ext_resource type="Script" uid="uid://bt86h2wsa5yga" path="res://scripts/battle_manager.gd" id="2_o8ur5"]
@@ -15,16 +15,27 @@
 [ext_resource type="Script" uid="uid://4nnsn5mhe72h" path="res://addons/godot_state_charts/expression_guard.gd" id="11_37w08"]
 [ext_resource type="PackedScene" uid="uid://cub1obshw672d" path="res://scenes/item_battle_button.tscn" id="12_h4dll"]
 [ext_resource type="Script" uid="uid://w1q0g87ukki2" path="res://scripts/enemy_portraits.gd" id="12_p0caf"]
+[ext_resource type="Theme" uid="uid://cgf48g2mwuu2h" path="res://assets/themes/menu_battle_background_attack_theme.tres" id="13_f0g0v"]
+[ext_resource type="Theme" uid="uid://cwfcvmj0bpwb1" path="res://assets/themes/menu_battle_theme.tres" id="13_lv4so"]
+[ext_resource type="Theme" uid="uid://vyl6l7lq0h7t" path="res://assets/themes/pixelify_theme.tres" id="14_eivww"]
+[ext_resource type="Texture2D" uid="uid://4gcpx3eh7ly4" path="res://assets/character_portraits/demo_tecnico/Alicia DYB.PNG" id="14_mpb26"]
+[ext_resource type="PackedScene" uid="uid://cyof1or2v5a5p" path="res://scenes/ability_name.tscn" id="15_4u087"]
+[ext_resource type="Texture2D" uid="uid://bv3vkq0r1hfgj" path="res://assets/battle/menu.PNG" id="15_rwtbh"]
+[ext_resource type="Theme" uid="uid://db3sptauv6wxx" path="res://assets/themes/menu_battle_attack_theme.tres" id="16_rwtbh"]
 [ext_resource type="Theme" uid="uid://ctd47cus6kna0" path="res://assets/themes/menu_theme.tres" id="17_61i1y"]
 [ext_resource type="Script" uid="uid://xfs5gruhssfn" path="res://scripts/victory_kio.gd" id="17_bi5l8"]
 [ext_resource type="Texture2D" uid="uid://bg30medshbrqt" path="res://assets/battle/star3_victory.png" id="17_fpf3k"]
 [ext_resource type="Texture2D" uid="uid://j10oria8we1o" path="res://assets/battle/star2_victory.png" id="18_bi5l8"]
 [ext_resource type="Texture2D" uid="uid://dhtpgwsxltfj3" path="res://assets/battle/star1_victory.png" id="19_jt4d8"]
+[ext_resource type="Texture2D" uid="uid://rsqps5edq51q" path="res://assets/battle/Daño.PNG" id="20_fqtyt"]
+[ext_resource type="Texture2D" uid="uid://vgmkybqdl06e" path="res://assets/battle/tiempo.PNG" id="21_8a2ah"]
 [ext_resource type="Texture2D" uid="uid://sqikgc8yjenu" path="res://assets/battle/kio_victory_2.png" id="21_jt4d8"]
 [ext_resource type="PackedScene" uid="uid://bemgcy05s4dol" path="res://scenes/loot_item.tscn" id="22_kl6ie"]
 [ext_resource type="AudioStream" uid="uid://3vetx47tyh7f" path="res://assets/music/earthbound_battle_theme.mp3" id="30_xgp4q"]
 [ext_resource type="AudioStream" uid="uid://b324qislhpfci" path="res://assets/music/victory_fanfare.mp3" id="31_681md"]
+[ext_resource type="Texture2D" uid="uid://d3xuo1pm4n8w5" path="res://assets/battle/desmotivaciones.png" id="32_fqtyt"]
 [ext_resource type="AudioStream" uid="uid://cbw1lvt4yiqbe" path="res://assets/music/lost_battle.mp3" id="32_rw4tp"]
+[ext_resource type="Theme" uid="uid://bfoia834oik6" path="res://assets/themes/lose_theme.tres" id="33_8a2ah"]
 
 [sub_resource type="Resource" id="Resource_lampa"]
 script = ExtResource("11_37w08")
@@ -37,69 +48,6 @@ expression = "alive_enemies <= 0"
 [sub_resource type="Resource" id="Resource_j3gal"]
 script = ExtResource("11_37w08")
 expression = "alive_enemies <= 0"
-
-[sub_resource type="Animation" id="Animation_1m01a"]
-resource_name = "kio_victory"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Kio:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.266667, 0.633333),
-"transitions": PackedFloat32Array(0.277392, 1),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Star1:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.233333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Star2:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Star3:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
 
 [sub_resource type="Animation" id="Animation_lv4so"]
 length = 0.001
@@ -227,11 +175,135 @@ tracks/3/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_1m01a"]
+resource_name = "kio_victory"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Kio:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.266667, 0.633333),
+"transitions": PackedFloat32Array(0.277392, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Star1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Star2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Star3:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eivww"]
 _data = {
 &"RESET": SubResource("Animation_lv4so"),
 &"hide_kio": SubResource("Animation_bi5l8"),
 &"kio_victory": SubResource("Animation_1m01a")
+}
+
+[sub_resource type="Animation" id="Animation_fqtyt"]
+resource_name = "lose_screen"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.66667),
+"transitions": PackedFloat32Array(0.482968, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8a2ah"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ikjs2"]
+_data = {
+&"RESET": SubResource("Animation_8a2ah"),
+&"lose_screen": SubResource("Animation_fqtyt")
 }
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_0bxd8"]
@@ -548,7 +620,188 @@ script = ExtResource("6_7by8j")
 [node name="Winning" type="Node" parent="BattleManager/StateChart/Root/EnemyActions"]
 script = ExtResource("6_7by8j")
 
-[node name="AttackMenu" type="VBoxContainer" parent="."]
+[node name="AttackMenu" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = 55
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 471.0
+offset_top = -250.0
+offset_right = 471.0
+offset_bottom = -250.0
+grow_vertical = 2
+
+[node name="AllyThumbnailContainer" type="PanelContainer" parent="AttackMenu"]
+layout_mode = 0
+offset_left = -350.0
+offset_top = 138.0
+offset_right = -80.0
+offset_bottom = 408.0
+theme = ExtResource("13_f0g0v")
+
+[node name="MarginContainer" type="MarginContainer" parent="AttackMenu/AllyThumbnailContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="AllyThumbnail" type="TextureRect" parent="AttackMenu/AllyThumbnailContainer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+texture = ExtResource("14_mpb26")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AbilitiesContainer" type="PanelContainer" parent="AttackMenu"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(963, 556)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = -41.0
+offset_right = 847.0
+offset_bottom = 515.0
+grow_vertical = 2
+theme = ExtResource("13_f0g0v")
+
+[node name="MarginContainer" type="MarginContainer" parent="AttackMenu/AbilitiesContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="AbilityNameContainer" type="VBoxContainer" parent="AttackMenu/AbilitiesContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="AbilityName" parent="AttackMenu/AbilitiesContainer/MarginContainer/AbilityNameContainer" instance=ExtResource("15_4u087")]
+layout_mode = 2
+
+[node name="TkioExe" type="PanelContainer" parent="AttackMenu"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -97.0
+offset_right = 654.0
+offset_bottom = 13.0
+grow_vertical = 2
+theme = ExtResource("13_lv4so")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AttackMenu/TkioExe"]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="AttackMenu/TkioExe/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 80
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AttackMenu/TkioExe/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("14_eivww")
+bbcode_enabled = true
+text = "TKiO.exe"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="AttackMenu/TkioExe/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("15_rwtbh")
+stretch_mode = 5
+
+[node name="InfoContainer" type="HBoxContainer" parent="AttackMenu"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 523.0
+offset_right = 591.0
+offset_bottom = 637.0
+
+[node name="PanelContainer" type="PanelContainer" parent="AttackMenu/InfoContainer"]
+layout_mode = 2
+theme = ExtResource("16_rwtbh")
+
+[node name="IconHealth" type="TextureRect" parent="AttackMenu/InfoContainer/PanelContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("20_fqtyt")
+expand_mode = 2
+stretch_mode = 3
+flip_h = true
+flip_v = true
+
+[node name="IconDagger" type="TextureRect" parent="AttackMenu/InfoContainer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("20_fqtyt")
+expand_mode = 2
+stretch_mode = 3
+flip_h = true
+flip_v = true
+
+[node name="MarginContainer" type="MarginContainer" parent="AttackMenu/InfoContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 125
+
+[node name="DamageValue" type="RichTextLabel" parent="AttackMenu/InfoContainer/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("14_eivww")
+bbcode_enabled = true
+text = "60"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="PanelContainer2" type="PanelContainer" parent="AttackMenu/InfoContainer"]
+layout_mode = 2
+theme = ExtResource("16_rwtbh")
+
+[node name="TextureRect" type="TextureRect" parent="AttackMenu/InfoContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("21_8a2ah")
+expand_mode = 2
+stretch_mode = 3
+flip_h = true
+flip_v = true
+
+[node name="MarginContainer" type="MarginContainer" parent="AttackMenu/InfoContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 125
+
+[node name="TimeValue" type="RichTextLabel" parent="AttackMenu/InfoContainer/PanelContainer2/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("14_eivww")
+bbcode_enabled = true
+text = "60.5"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="AttackMenuDel" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -610,35 +863,6 @@ mouse_filter = 2
 theme_override_constants/separation = 160
 alignment = 1
 script = ExtResource("3_s5yx3")
-
-[node name="ContinueButtons" type="HBoxContainer" parent="."]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -81.0
-offset_top = 15.0
-offset_right = 81.0
-offset_bottom = 55.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 20
-
-[node name="ContinueButton" type="Button" parent="ContinueButtons"]
-unique_name_in_owner = true
-layout_mode = 2
-theme = ExtResource("17_61i1y")
-text = "¿Continuar?"
-
-[node name="Quit" type="Button" parent="ContinueButtons"]
-unique_name_in_owner = true
-layout_mode = 2
-theme = ExtResource("17_61i1y")
-text = "Salir"
 
 [node name="LootText" type="RichTextLabel" parent="."]
 unique_name_in_owner = true
@@ -776,24 +1000,102 @@ theme_override_font_sizes/normal_font_size = 64
 bbcode_enabled = true
 text = "[center]GANASTE!"
 
-[node name="LoseText" type="RichTextLabel" parent="."]
+[node name="LoseScreen" type="Control" parent="."]
 unique_name_in_owner = true
 visible = false
+modulate = Color(1, 1, 1, 0)
+z_index = 4095
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="LoseScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ContinueButtons" type="HBoxContainer" parent="LoseScreen"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -261.0
-offset_top = -73.0
-offset_right = 262.0
-offset_bottom = 57.0
+offset_left = -236.0
+offset_top = 810.0
+offset_right = 236.0
+offset_bottom = 889.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 64
+theme_override_constants/separation = 20
+
+[node name="ContinueButton" type="Button" parent="LoseScreen/ContinueButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("17_61i1y")
+text = "¿Continuar?"
+
+[node name="Quit" type="Button" parent="LoseScreen/ContinueButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("17_61i1y")
+text = "Salir"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoseScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -788.0
+offset_right = 512.0
+offset_bottom = 703.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="LoseScreen/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("32_fqtyt")
+
+[node name="LoseText" type="RichTextLabel" parent="LoseScreen/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("33_8a2ah")
 bbcode_enabled = true
-text = "[center]PERDISTE :C"
+text = "[center]ASI COMO"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="LoseText2" type="RichTextLabel" parent="LoseScreen/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("33_8a2ah")
+theme_override_font_sizes/normal_font_size = 61
+bbcode_enabled = true
+text = "[center]lloro rio
+como caigo me levanto
+como amo olvido
+:("
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="LoseAnimationPlayer" type="AnimationPlayer" parent="LoseScreen"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_ikjs2")
+}
 
 [node name="BlackRect" type="ColorRect" parent="."]
 visible = false
@@ -831,5 +1133,5 @@ bus = &"Music"
 [connection signal="state_processing" from="BattleManager/StateChart/Root/EnemyActions/Selecting" to="BattleManager/EnemyActionsManager" method="_on_selecting_state_processing"]
 [connection signal="state_entered" from="BattleManager/StateChart/Root/EnemyActions/TargetSelecting" to="BattleManager/EnemyActionsManager" method="_on_target_selecting_state_entered"]
 [connection signal="state_entered" from="BattleManager/StateChart/Root/EnemyActions/Abilitying" to="BattleManager/EnemyActionsManager" method="_on_abilitying_state_entered"]
-[connection signal="pressed" from="ContinueButtons/ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="ContinueButtons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="LoseScreen/ContinueButtons/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="LoseScreen/ContinueButtons/Quit" to="." method="_on_quit_pressed"]

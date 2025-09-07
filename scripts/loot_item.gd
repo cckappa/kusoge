@@ -2,15 +2,18 @@ extends PanelContainer
 @export var spawn_duration: float = 0.6
 @export var bounce_height: float = 50.0
 
+@onready var item_sprite:= %ItemSprite
 @onready var new_item_text:= %NewItemText
 @onready var new_item_quantity:= %NewItemQuantity
 
+var item_icon:Texture2D
 var item_name:String = "Unknown Item"
 var item_quantity:int = 1
 
 func animate_loot_spawn(target_position: Vector2, delay: float) -> void:
 	"""Animates a single loot item spawn with bounce effect"""
 	# Set initial position (above target with some randomness)
+	item_sprite.texture = item_icon
 	new_item_text.text = "[center][wave amp=60 freq=3]%s" % item_name
 	new_item_quantity.text = "[center][wave amp=60 freq=3]X%s" % str(item_quantity)
 

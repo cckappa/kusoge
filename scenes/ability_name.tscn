@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyof1or2v5a5p"]
+
+[ext_resource type="Theme" uid="uid://db3sptauv6wxx" path="res://assets/themes/menu_battle_attack_theme.tres" id="1_ln5ft"]
+[ext_resource type="Script" uid="uid://n684lgyv2pef" path="res://scripts/ability_name.gd" id="2_5w8ql"]
+[ext_resource type="Texture2D" uid="uid://cvj5vyvw6ctp3" path="res://assets/battle/select_circle.png" id="2_pfdl1"]
+[ext_resource type="Theme" uid="uid://vyl6l7lq0h7t" path="res://assets/themes/pixelify_theme.tres" id="3_5w8ql"]
+
+[node name="AbilityName" type="PanelContainer"]
+size_flags_horizontal = 0
+theme = ExtResource("1_ln5ft")
+script = ExtResource("2_5w8ql")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 38
+
+[node name="AbilityButton" type="TextureButton" parent="HBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_focused = ExtResource("2_pfdl1")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_pfdl1")
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/margin_right = 64
+
+[node name="AbilityName" type="RichTextLabel" parent="HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("3_5w8ql")
+bbcode_enabled = true
+text = "[wave amp=20 freq=5 connected=1]Puñetazo ultra mega cabron"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[connection signal="focus_entered" from="HBoxContainer/MarginContainer2/AbilityButton" to="." method="_on_ability_button_focus_entered"]
+[connection signal="focus_exited" from="HBoxContainer/MarginContainer2/AbilityButton" to="." method="_on_ability_button_focus_exited"]

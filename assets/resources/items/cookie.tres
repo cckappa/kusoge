@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://fxibbhftjw5n"]
 
-[ext_resource type="Texture2D" uid="uid://pgvjh544jsbd" path="res://assets/icons/warning.png" id="1_06lqw"]
+[ext_resource type="Texture2D" uid="uid://dtqm7psr18qpb" path="res://assets/item_icons/demo_tecnico/galleta.PNG" id="1_06lqw"]
 [ext_resource type="Script" uid="uid://cit3hwc5xts8m" path="res://scripts/items/heal_effect_item.gd" id="1_krlmw"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="1_whbwt"]
 

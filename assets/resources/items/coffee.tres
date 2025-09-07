@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cit3hwc5xts8m" path="res://scripts/items/heal_effect_item.gd" id="1_3v2id"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="1_6x07b"]
-[ext_resource type="Texture2D" uid="uid://pgvjh544jsbd" path="res://assets/icons/warning.png" id="1_iqirl"]
+[ext_resource type="Texture2D" uid="uid://derwre1r0c57q" path="res://assets/item_icons/demo_tecnico/Cafecito.PNG" id="1_iqirl"]
 
 [sub_resource type="Resource" id="Resource_p5ms8"]
 script = ExtResource("1_3v2id")
