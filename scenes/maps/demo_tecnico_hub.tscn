@@ -1,4 +1,4 @@
-[gd_scene load_steps=135 format=3 uid="uid://cw14ehtvu80xx"]
+[gd_scene load_steps=141 format=3 uid="uid://cw14ehtvu80xx"]
 
 [ext_resource type="Script" uid="uid://ddv7kigla6iip" path="res://scripts/maps/demo_tecnico_hub.gd" id="1_w0bji"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="2_b27bq"]
@@ -8,17 +8,22 @@
 [ext_resource type="AudioStream" uid="uid://cge8amttf6646" path="res://assets/music/hospital.mp3" id="3_cu6af"]
 [ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="3_mr767"]
 [ext_resource type="Resource" uid="uid://owjbdndkkffa" path="res://assets/resources/enemies/gollien.tres" id="3_p1lo0"]
+[ext_resource type="Resource" uid="uid://dasxq4u7q28ri" path="res://assets/resources/enemies/humarana.tres" id="3_r2m6q"]
 [ext_resource type="AudioStream" uid="uid://dg8jfiyj6wy8a" path="res://assets/music/enemy_encounter.mp3" id="4_b27bq"]
 [ext_resource type="Resource" uid="uid://dhjur3x054uqu" path="res://assets/resources/enemies/lobo_salvaje.tres" id="4_mce50"]
 [ext_resource type="Texture2D" uid="uid://bdk20ogn4b7cn" path="res://assets/backgrounds/demo_tecnico/SUELO.PNG" id="4_ng4if"]
 [ext_resource type="Texture2D" uid="uid://be0l3u0w4cmth" path="res://assets/backgrounds/demo_tecnico/CIELO.PNG" id="5_0xr4t"]
-[ext_resource type="Resource" uid="uid://cym74q2mvjcte" path="res://assets/resources/enemies/serpra.tres" id="5_sq8m1"]
+[ext_resource type="Resource" uid="uid://b8mif5qacuo4w" path="res://assets/resources/enemies/cuchillo_salvaje.tres" id="5_ngix7"]
+[ext_resource type="Resource" uid="uid://bqogm4mw28f4y" path="res://assets/resources/enemies/delfin_salvaje.tres" id="6_nn2xs"]
 [ext_resource type="Texture2D" uid="uid://ds6mq6sdtkyar" path="res://assets/backgrounds/demo_tecnico/MONTAÑAS.PNG" id="6_wd8je"]
+[ext_resource type="Resource" uid="uid://b38b3cj2ttdxe" path="res://assets/resources/enemies/chamuco.tres" id="7_pno3w"]
 [ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="8_0xr4t"]
+[ext_resource type="Resource" uid="uid://c5yt23t4nhw7j" path="res://assets/resources/enemies/casita_salvaje.tres" id="8_1w4oy"]
 [ext_resource type="Script" uid="uid://g7sf10k2338d" path="res://scripts/npc_layer.gd" id="9_4yjoi"]
 [ext_resource type="PackedScene" uid="uid://clmbh4jnxur05" path="res://scenes/objeto.tscn" id="9_86tlv"]
 [ext_resource type="PackedScene" uid="uid://h0q50x2317m1" path="res://scenes/npc.tscn" id="9_273xm"]
 [ext_resource type="Script" uid="uid://dsfklbei7r5qc" path="res://scripts/object_layer.gd" id="9_h40t6"]
+[ext_resource type="Resource" uid="uid://bpjcrmsd44mru" path="res://assets/resources/enemies/rana_cosmica.tres" id="10_4h3p4"]
 [ext_resource type="Texture2D" uid="uid://byxrqklktxr3j" path="res://assets/spritesheets/demo_tecnico/RANASABIA.png" id="10_5gik4"]
 [ext_resource type="Texture2D" uid="uid://dw7wkdh2g5ahd" path="res://assets/objects/demo_tecnico/ROCAS.PNG" id="10_h40t6"]
 [ext_resource type="Texture2D" uid="uid://um522k3outd6" path="res://assets/spritesheets/demo_tecnico/ARBOL1.png" id="11_41sgd"]
@@ -37,12 +42,13 @@
 [ext_resource type="Script" uid="uid://do84xbf65qif" path="res://scripts/talk.gd" id="15_uqfdt"]
 [ext_resource type="Script" uid="uid://bj1igyevn8g64" path="res://scripts/quests/quest.gd" id="16_mce50"]
 [ext_resource type="Texture2D" uid="uid://ddvk3ukdg4a2d" path="res://assets/spritesheets/demo_tecnico/PUERTA.png" id="17_4k71t"]
-[ext_resource type="Script" uid="uid://bjli2ti8po5o" path="res://scripts/quests/quest_resource.gd" id="17_sq8m1"]
 [ext_resource type="Script" uid="uid://bsvp6e76bx107" path="res://scripts/scene_changer.gd" id="19_8uen1"]
 [ext_resource type="Texture2D" uid="uid://bpofhnoof4iy6" path="res://assets/objects/demo_tecnico/ARBOLTALADO.PNG" id="21_1tpqm"]
 [ext_resource type="Resource" uid="uid://clu0pe7crj6f7" path="res://assets/resources/quests/cigarro_lobuki.tres" id="22_2r6fr"]
+[ext_resource type="Resource" uid="uid://cbfks710yx2fn" path="res://assets/resources/characters/demo_tecnico/sabia_rana_pedro.tres" id="22_ngix7"]
 [ext_resource type="Script" uid="uid://b0gh7v5xk7w7w" path="res://scripts/item_giver.gd" id="22_uqfdt"]
 [ext_resource type="Resource" uid="uid://be2db4m15u3w5" path="res://assets/resources/items/cigarro_lobuki.tres" id="23_2r6fr"]
+[ext_resource type="Script" uid="uid://h7m181ddxsgc" path="res://scripts/quests/character_quest.gd" id="23_nn2xs"]
 [ext_resource type="Script" uid="uid://ck4xyxoy5fldl" path="res://scripts/enemies_layer.gd" id="25_jyqiw"]
 [ext_resource type="Texture2D" uid="uid://ckd6s4c0slfon" path="res://assets/spritesheets/demo_tecnico/lalien.png" id="25_u4o6e"]
 [ext_resource type="Texture2D" uid="uid://ds61qcg02apun" path="res://assets/spritesheets/demo_tecnico/molletes.png" id="26_asj11"]
@@ -117,13 +123,15 @@ animations = [{
 radius = 120.0
 height = 756.0
 
-[sub_resource type="Resource" id="Resource_76sup"]
-script = ExtResource("17_sq8m1")
-identifier = ""
-name = ""
-goal_description_list = Array[String]([])
-description_list = Array[String]([])
-metadata/_custom_type_script = "uid://bjli2ti8po5o"
+[sub_resource type="Resource" id="Resource_pno3w"]
+script = ExtResource("23_nn2xs")
+new_character = ExtResource("22_ngix7")
+identifier = "sabia_rana_pedro_quest"
+name = "Sabia Rana Pedro"
+goal_description_list = Array[String](["Termina el entrenamiento TKiO"])
+description_list = Array[String](["Termina las tres batallas como parte de tu entrenamiento"])
+quest_giver = ExtResource("22_ngix7")
+metadata/_custom_type_script = "uid://h7m181ddxsgc"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_htik6"]
 atlas = ExtResource("11_41sgd")
@@ -676,7 +684,7 @@ audio_stream_player = NodePath("AudioStreamPlayer")
 
 [node name="PeleasDemoTecnico" type="Node" parent="."]
 script = ExtResource("2_mwdq3")
-enemies = [[ExtResource("3_p1lo0")], [ExtResource("4_mce50"), ExtResource("5_sq8m1")], [ExtResource("4_mce50"), ExtResource("4_mce50"), ExtResource("4_mce50")]]
+enemies = [[ExtResource("3_r2m6q"), ExtResource("3_p1lo0"), ExtResource("5_ngix7")], [ExtResource("6_nn2xs"), ExtResource("7_pno3w"), ExtResource("8_1w4oy")], [ExtResource("4_mce50"), ExtResource("10_4h3p4"), ExtResource("4_mce50")]]
 
 [node name="ParallaxBackgroundLayer" type="Node2D" parent="."]
 z_index = -1
@@ -757,7 +765,8 @@ shape = SubResource("CapsuleShape2D_2r6fr")
 
 [node name="Quest" type="Node2D" parent="NpcLayer/Ranita"]
 script = ExtResource("16_mce50")
-quest_resource = SubResource("Resource_76sup")
+quest_resource = SubResource("Resource_pno3w")
+dialogic_signal = "zona_batallas_demo"
 metadata/_custom_type_script = "uid://bj1igyevn8g64"
 
 [node name="Arbol1" parent="NpcLayer" instance=ExtResource("9_273xm")]
@@ -844,7 +853,7 @@ item = ExtResource("23_2r6fr")
 dialogic_signal = "cigarrete_lobuki_take"
 metadata/_custom_type_script = "uid://b0gh7v5xk7w7w"
 
-[node name="Lalien" parent="NpcLayer" groups=["npcs"] instance=ExtResource("9_273xm")]
+[node name="Lalien" parent="NpcLayer" instance=ExtResource("9_273xm")]
 position = Vector2(-741, 887)
 
 [node name="AnimatedSprite2D" parent="NpcLayer/Lalien" index="0"]
@@ -868,7 +877,7 @@ metadata/_custom_type_script = "uid://do84xbf65qif"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/Lalien/Talk/Area2D"]
 shape = SubResource("CircleShape2D_asj11")
 
-[node name="Salome" parent="NpcLayer" groups=["npcs"] instance=ExtResource("9_273xm")]
+[node name="Salome" parent="NpcLayer" instance=ExtResource("9_273xm")]
 position = Vector2(1626, 480)
 
 [node name="AnimatedSprite2D" parent="NpcLayer/Salome" index="0"]
@@ -889,7 +898,7 @@ metadata/_custom_type_script = "uid://do84xbf65qif"
 position = Vector2(-3.5, -4.5)
 shape = SubResource("RectangleShape2D_asj11")
 
-[node name="Rigo" parent="NpcLayer" groups=["npcs"] instance=ExtResource("9_273xm")]
+[node name="Rigo" parent="NpcLayer" instance=ExtResource("9_273xm")]
 position = Vector2(1280, 1579)
 
 [node name="AnimatedSprite2D" parent="NpcLayer/Rigo" index="0"]

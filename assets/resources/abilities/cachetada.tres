@@ -5,10 +5,10 @@
 
 [resource]
 script = ExtResource("1_ll1y5")
-damage_points = 5
+damage_points = 40
 ability_name = "Cachetada"
 type = "NORMAL"
 description = "Cachetadon"
-wait_time = 2.0
+wait_time = 4.0
 effect = "NEGATIVE"
 attack_animation = ExtResource("1_1w1d5")

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=9 format=3 uid="uid://bpjcrmsd44mru"]
+
+[ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_idx8b"]
+[ext_resource type="Resource" uid="uid://cral6nawbndl0" path="res://assets/resources/abilities/fireball.tres" id="2_3mu4o"]
+[ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_fi30u"]
+[ext_resource type="Script" uid="uid://bmxggwbtvyxeb" path="res://scripts/enemy_resource.gd" id="3_3mu4o"]
+[ext_resource type="Texture2D" uid="uid://msgiexlrv1ff" path="res://assets/enemy_sprites/Rana_Cosmica.png" id="3_3vcjj"]
+[ext_resource type="Resource" uid="uid://divn1nh4qjs3p" path="res://assets/resources/abilities/rayo_cosmico.tres" id="3_p6eoc"]
+[ext_resource type="Resource" uid="uid://ct5dshx02d4l0" path="res://assets/resources/abilities/focused_healing.tres" id="4_1tthc"]
+[ext_resource type="Resource" uid="uid://bqyq6l006wa1h" path="res://assets/resources/items/coffee.tres" id="7_1tthc"]
+
+[resource]
+script = ExtResource("3_3mu4o")
+dialog = &""
+name = "Rana Cósmica"
+character_portrait = ExtResource("3_3vcjj")
+max_hp = 300
+unlocked = false
+type = "NORMAL"
+abilities = Array[ExtResource("1_idx8b")]([ExtResource("2_3mu4o"), ExtResource("3_p6eoc"), ExtResource("4_1tthc")])
+loot = Array[ExtResource("2_fi30u")]([ExtResource("7_1tthc")])
+min_loot = 0
+max_loot = 3
+metadata/_custom_type_script = "uid://bmxggwbtvyxeb"

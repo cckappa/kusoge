@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=8 format=3 uid="uid://c5yt23t4nhw7j"]
+
+[ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_ilftn"]
+[ext_resource type="Resource" uid="uid://dx4j66lt4vb35" path="res://assets/resources/abilities/cuchillazo.tres" id="2_4ltck"]
+[ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_wd485"]
+[ext_resource type="Resource" uid="uid://b4hl0uorngix0" path="res://assets/resources/abilities/patada.tres" id="3_3w4g6"]
+[ext_resource type="Script" uid="uid://bmxggwbtvyxeb" path="res://scripts/enemy_resource.gd" id="3_8kfgo"]
+[ext_resource type="Texture2D" uid="uid://vdib6tsjg4r1" path="res://assets/enemy_sprites/Casita_Salvaje.png" id="4_h61co"]
+[ext_resource type="Resource" uid="uid://bqyq6l006wa1h" path="res://assets/resources/items/coffee.tres" id="6_3w4g6"]
+
+[resource]
+script = ExtResource("3_8kfgo")
+dialog = &""
+name = "Cartel Inmoviliario"
+character_portrait = ExtResource("4_h61co")
+max_hp = 120
+unlocked = false
+type = "NORMAL"
+abilities = Array[ExtResource("1_ilftn")]([ExtResource("2_4ltck"), ExtResource("3_3w4g6")])
+loot = Array[ExtResource("2_wd485")]([ExtResource("6_3w4g6")])
+min_loot = 0
+max_loot = 2
+metadata/_custom_type_script = "uid://bmxggwbtvyxeb"

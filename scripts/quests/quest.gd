@@ -12,6 +12,7 @@ func _on_dialogic_signal(argument:Dictionary) -> void:
 	if dialogic_signal != "" and argument.name == dialogic_signal:
 		if argument.type == "start":
 			quest_resource.start_quest()
+			print("Quest started:", quest_resource.identifier)
 		elif argument.type == "goal":
 			if argument.next_index != null:
 				if argument.next_index == quest_resource.quest_goal_index + 1:

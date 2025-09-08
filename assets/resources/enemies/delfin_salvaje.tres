@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=8 format=3 uid="uid://bqogm4mw28f4y"]
+
+[ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_cvytf"]
+[ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_rdah2"]
+[ext_resource type="Resource" uid="uid://ckx56tfvcgtr8" path="res://assets/resources/abilities/escupitajo.tres" id="2_swx01"]
+[ext_resource type="Resource" uid="uid://dx4j66lt4vb35" path="res://assets/resources/abilities/cuchillazo.tres" id="3_7l60d"]
+[ext_resource type="Script" uid="uid://bmxggwbtvyxeb" path="res://scripts/enemy_resource.gd" id="3_prfuh"]
+[ext_resource type="Texture2D" uid="uid://cnrm35hi0lcxj" path="res://assets/enemy_sprites/Delfin_Salvaje.png" id="4_sn27r"]
+[ext_resource type="Resource" uid="uid://fxibbhftjw5n" path="res://assets/resources/items/cookie.tres" id="6_7l60d"]
+
+[resource]
+script = ExtResource("3_prfuh")
+dialog = &""
+name = "Delfin Salvaje"
+character_portrait = ExtResource("4_sn27r")
+max_hp = 130
+unlocked = false
+type = "NORMAL"
+abilities = Array[ExtResource("1_cvytf")]([ExtResource("2_swx01"), ExtResource("3_7l60d")])
+loot = Array[ExtResource("2_rdah2")]([ExtResource("6_7l60d")])
+min_loot = 0
+max_loot = 2
+metadata/_custom_type_script = "uid://bmxggwbtvyxeb"

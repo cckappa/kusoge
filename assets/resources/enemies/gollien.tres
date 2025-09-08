@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://b4hl0uorngix0" path="res://assets/resources/abilities/patada.tres" id="3_620wb"]
 [ext_resource type="Script" uid="uid://bmxggwbtvyxeb" path="res://scripts/enemy_resource.gd" id="3_ny0fe"]
 [ext_resource type="Resource" uid="uid://ct5dshx02d4l0" path="res://assets/resources/abilities/focused_healing.tres" id="4_lr2v5"]
-[ext_resource type="Resource" uid="uid://ikrsihnyo6wj" path="res://assets/resources/abilities/electro_shock.tres" id="5_7cv5e"]
+[ext_resource type="Resource" uid="uid://ckabh1vy5csrg" path="res://assets/resources/abilities/punch.tres" id="5_yv1bs"]
 [ext_resource type="Resource" uid="uid://bqyq6l006wa1h" path="res://assets/resources/items/coffee.tres" id="8_uhyyn"]
 
 [resource]
@@ -18,7 +18,7 @@ character_portrait = ExtResource("2_xgx72")
 max_hp = 260
 unlocked = false
 type = "NORMAL"
-abilities = Array[ExtResource("1_ny0fe")]([ExtResource("2_yv1bs"), ExtResource("3_620wb"), ExtResource("4_lr2v5"), ExtResource("5_7cv5e")])
+abilities = Array[ExtResource("1_ny0fe")]([ExtResource("2_yv1bs"), ExtResource("3_620wb"), ExtResource("4_lr2v5"), ExtResource("5_yv1bs")])
 loot = Array[ExtResource("2_wfvw7")]([ExtResource("8_uhyyn")])
 min_loot = 0
 max_loot = 2

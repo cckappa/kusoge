@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_5qpon")
-damage_points = 6
+damage_points = 40
 ability_name = "Patada"
 type = "NORMAL"
 description = "Da una patada"

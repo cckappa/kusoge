@@ -1,4 +1,21 @@
-sabia_rana_pedro: Hola bienvenidx a la zona de batallas
+if {Globals.key_variables.has("demo_tecnico_hub-batalla_1")} == true:
+	if {Globals.key_variables.has("demo_tecnico_hub-batalla_2")} == true:
+		if {Globals.key_variables.has("demo_tecnico_hub-batalla_3")} == true:
+			sabia_rana_pedro: Estoy orgulloso de que hayas vencido todas tus batallas
+			sabia_rana_pedro: demuestra tu coraje y determinación
+			sabia_rana_pedro: el camino es arduo y constante, necesitarás de toda la ayuda que puedas obtener
+			sabia_rana_pedro: tu entrenamiento ha terminado, sin embargo no dudes en contactarme.
+			if {Quests.demo_tecnico.sabia_rana_pedro_quest_status} == 0.0:
+				[signal arg_type="dict" arg="{"name":"zona_batallas_demo","type":"finish"}"]
+				set {Quests.demo_tecnico.sabia_rana_pedro_quest_status} = 1.0
+				[end_timeline]
+if {Quests.demo_tecnico.sabia_rana_pedro_quest_status} == -1.0:
+	sabia_rana_pedro: Hola bienvenida a la zona de batallas
+	sabia_rana_pedro: seré tu maestro y te entrenaré en el arte del TKiO.
+	sabia_rana_pedro: Podrás entrenar las batallas en el orden que quieras, pero están en orden de dificultad
+	[signal arg_type="dict" arg="{"name":"zona_batallas_demo","type":"start"}"]
+	set {Quests.demo_tecnico.sabia_rana_pedro_quest_status} = 0.0
+	[end_timeline]
 sabia_rana_pedro: Selecciona la batalla a la que quieras entrar
 - Batalla 1
 	[signal arg_type="dict" arg="{"name":"batalla_1"}"]

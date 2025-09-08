@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://b4hl0uorngix0" path="res://assets/resources/abilities/patada.tres" id="3_pbq7u"]
 [ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="3_x82cd"]
 [ext_resource type="Resource" uid="uid://ckabh1vy5csrg" path="res://assets/resources/abilities/punch.tres" id="4_6j0j1"]
-[ext_resource type="Resource" uid="uid://bl6n47bckno8b" path="res://assets/resources/abilities/onepunch.tres" id="5_da2xx"]
+[ext_resource type="Resource" uid="uid://vi3rd2eouv4y" path="res://assets/resources/abilities/lanzar_portafolio.tres" id="4_l75cr"]
 [ext_resource type="Texture2D" uid="uid://sioaiix5tv2e" path="res://assets/character_portraits/demo_tecnico/ING. FROGELIO DAÑO.PNG" id="6_l75cr"]
 [ext_resource type="Texture2D" uid="uid://f0i4d0kjxq0w" path="res://assets/character_portraits/demo_tecnico/ING. FROGELIO DYB.PNG" id="7_tgv3k"]
 
@@ -15,10 +15,10 @@ script = ExtResource("3_x82cd")
 name = "Ing. Frogelio"
 character_portrait = ExtResource("7_tgv3k")
 character_damaged = ExtResource("6_l75cr")
-max_hp = 120
+max_hp = 330
 unlocked = true
 type = "NORMAL"
-abilities = Array[ExtResource("1_ol0q2")]([ExtResource("2_shukk"), ExtResource("3_pbq7u"), ExtResource("4_6j0j1"), ExtResource("5_da2xx")])
+abilities = Array[ExtResource("1_ol0q2")]([ExtResource("2_shukk"), ExtResource("4_6j0j1"), ExtResource("4_l75cr"), ExtResource("3_pbq7u")])
 loot = Array[ExtResource("2_8e00j")]([])
 min_loot = 0
 max_loot = 1

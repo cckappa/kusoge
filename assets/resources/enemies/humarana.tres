@@ -1,12 +1,10 @@
-[gd_resource type="Resource" script_class="EnemyResource" load_steps=10 format=3 uid="uid://dasxq4u7q28ri"]
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=8 format=3 uid="uid://dasxq4u7q28ri"]
 
 [ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_qsxk8"]
-[ext_resource type="Resource" uid="uid://bbgmx00txpaek" path="res://assets/resources/abilities/cachetada.tres" id="2_7b7vg"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_kfn7l"]
 [ext_resource type="Resource" uid="uid://ct5dshx02d4l0" path="res://assets/resources/abilities/focused_healing.tres" id="3_a8xw1"]
+[ext_resource type="Resource" uid="uid://bghxbphfpwny3" path="res://assets/resources/abilities/rasguño.tres" id="3_olx1x"]
 [ext_resource type="Script" uid="uid://bmxggwbtvyxeb" path="res://scripts/enemy_resource.gd" id="3_sp3pd"]
-[ext_resource type="Resource" uid="uid://b4hl0uorngix0" path="res://assets/resources/abilities/patada.tres" id="4_0nk3u"]
-[ext_resource type="Resource" uid="uid://ckabh1vy5csrg" path="res://assets/resources/abilities/punch.tres" id="5_s46j1"]
 [ext_resource type="Texture2D" uid="uid://bmwyfjjmdrml1" path="res://assets/enemy_sprites/Humarana.png" id="6_w3whp"]
 [ext_resource type="Resource" uid="uid://fxibbhftjw5n" path="res://assets/resources/items/cookie.tres" id="8_rvxru"]
 
@@ -18,7 +16,7 @@ character_portrait = ExtResource("6_w3whp")
 max_hp = 50
 unlocked = false
 type = "NORMAL"
-abilities = Array[ExtResource("1_qsxk8")]([ExtResource("2_7b7vg"), ExtResource("3_a8xw1"), ExtResource("4_0nk3u"), ExtResource("5_s46j1")])
+abilities = Array[ExtResource("1_qsxk8")]([ExtResource("3_a8xw1"), ExtResource("3_olx1x")])
 loot = Array[ExtResource("2_kfn7l")]([ExtResource("8_rvxru")])
 min_loot = 1
 max_loot = 3

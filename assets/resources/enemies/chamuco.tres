@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=8 format=3 uid="uid://b38b3cj2ttdxe"]
+
+[ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_u833n"]
+[ext_resource type="Resource" uid="uid://cral6nawbndl0" path="res://assets/resources/abilities/fireball.tres" id="2_a7he3"]
+[ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_y5x1t"]
+[ext_resource type="Resource" uid="uid://dx4j66lt4vb35" path="res://assets/resources/abilities/cuchillazo.tres" id="3_ljspm"]
+[ext_resource type="Script" uid="uid://bmxggwbtvyxeb" path="res://scripts/enemy_resource.gd" id="3_tsfc5"]
+[ext_resource type="Texture2D" uid="uid://b51shjqtjbcjm" path="res://assets/enemy_sprites/Chamuco.png" id="4_l0krt"]
+[ext_resource type="Resource" uid="uid://bqyq6l006wa1h" path="res://assets/resources/items/coffee.tres" id="6_ljspm"]
+
+[resource]
+script = ExtResource("3_tsfc5")
+dialog = &""
+name = "Chamuco"
+character_portrait = ExtResource("4_l0krt")
+max_hp = 100
+unlocked = false
+type = "FIRE"
+abilities = Array[ExtResource("1_u833n")]([ExtResource("2_a7he3"), ExtResource("3_ljspm")])
+loot = Array[ExtResource("2_y5x1t")]([ExtResource("6_ljspm")])
+min_loot = 0
+max_loot = 1
+metadata/_custom_type_script = "uid://bmxggwbtvyxeb"

@@ -4,9 +4,9 @@
 [ext_resource type="Resource" uid="uid://bbgmx00txpaek" path="res://assets/resources/abilities/cachetada.tres" id="2_7qxyu"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_fd7yh"]
 [ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="3_5fc53"]
-[ext_resource type="Resource" uid="uid://ikrsihnyo6wj" path="res://assets/resources/abilities/electro_shock.tres" id="3_t5w2m"]
+[ext_resource type="Resource" uid="uid://ckx56tfvcgtr8" path="res://assets/resources/abilities/escupitajo.tres" id="3_tik4s"]
 [ext_resource type="Resource" uid="uid://ct5dshx02d4l0" path="res://assets/resources/abilities/focused_healing.tres" id="4_huxs8"]
-[ext_resource type="Resource" uid="uid://bl6n47bckno8b" path="res://assets/resources/abilities/onepunch.tres" id="5_055fv"]
+[ext_resource type="Resource" uid="uid://bghxbphfpwny3" path="res://assets/resources/abilities/rasguño.tres" id="5_68w2w"]
 [ext_resource type="Texture2D" uid="uid://4gcpx3eh7ly4" path="res://assets/character_portraits/demo_tecnico/Alicia DYB.PNG" id="6_rf4ft"]
 [ext_resource type="Texture2D" uid="uid://l38qfes82cnk" path="res://assets/character_portraits/demo_tecnico/Alicia daño.PNG" id="6_tik4s"]
 
@@ -15,10 +15,10 @@ script = ExtResource("3_5fc53")
 name = "Alicia"
 character_portrait = ExtResource("6_rf4ft")
 character_damaged = ExtResource("6_tik4s")
-max_hp = 100
+max_hp = 300
 unlocked = true
 type = "NORMAL"
-abilities = Array[ExtResource("1_mx7kx")]([ExtResource("2_7qxyu"), ExtResource("3_t5w2m"), ExtResource("4_huxs8"), ExtResource("5_055fv")])
+abilities = Array[ExtResource("1_mx7kx")]([ExtResource("4_huxs8"), ExtResource("3_tik4s"), ExtResource("2_7qxyu"), ExtResource("5_68w2w")])
 loot = Array[ExtResource("2_fd7yh")]([])
 min_loot = 0
 max_loot = 1

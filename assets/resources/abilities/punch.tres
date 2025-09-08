@@ -5,10 +5,10 @@
 
 [resource]
 script = ExtResource("1_in507")
-damage_points = 15
-ability_name = "Golpe"
+damage_points = 50
+ability_name = "Puñetazo"
 type = "NORMAL"
 description = "Es solo un golpe"
-wait_time = 3.0
+wait_time = 5.0
 effect = "NEGATIVE"
 attack_animation = ExtResource("1_evey8")

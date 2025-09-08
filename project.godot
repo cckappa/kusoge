@@ -74,7 +74,8 @@ variables={
 "ranita_quest_status": -1
 },
 "demo_tecnico": {
-"lobuki_cigarro_quest_status": -1
+"lobuki_cigarro_quest_status": -1,
+"sabia_rana_pedro_quest_status": -1
 }
 }
 }

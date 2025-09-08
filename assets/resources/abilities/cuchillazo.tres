@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DamageAbility" load_steps=3 format=3 uid="uid://dx4j66lt4vb35"]
+
+[ext_resource type="PackedScene" uid="uid://bj0y3cwxvctmc" path="res://scenes/ability_animations/default_attack_animation.tscn" id="1_cikdj"]
+[ext_resource type="Script" uid="uid://3uj7qdnixdle" path="res://scripts/abilities/damage_ability.gd" id="1_y7082"]
+
+[resource]
+script = ExtResource("1_y7082")
+damage_points = 35
+ability_name = "Cuchillazo"
+type = "NORMAL"
+description = "Cuchillazo al pecho del enemigo"
+wait_time = 5.0
+effect = "NEGATIVE"
+attack_animation = ExtResource("1_cikdj")
+metadata/_custom_type_script = "uid://3uj7qdnixdle"
