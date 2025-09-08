@@ -5,10 +5,10 @@
 
 [resource]
 script = ExtResource("1_em4tk")
-heal_points = 20
+heal_points = 80
 ability_name = "Curación"
 type = "GRASS"
 description = "Cura vida"
-wait_time = 9.0
+wait_time = 6.0
 effect = "POSITIVE"
 attack_animation = ExtResource("1_8l0q8")

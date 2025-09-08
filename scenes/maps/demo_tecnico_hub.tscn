@@ -457,7 +457,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ymowm")
 }, {
-"duration": 15.0,
+"duration": 4.0,
 "texture": SubResource("AtlasTexture_a10qg")
 }],
 "loop": true,
@@ -899,16 +899,16 @@ position = Vector2(-3.5, -4.5)
 shape = SubResource("RectangleShape2D_asj11")
 
 [node name="Rigo" parent="NpcLayer" instance=ExtResource("9_273xm")]
-position = Vector2(1280, 1579)
+position = Vector2(1179, 1538)
 
 [node name="AnimatedSprite2D" parent="NpcLayer/Rigo" index="0"]
 sprite_frames = SubResource("SpriteFrames_vp0uk")
 autoplay = "default"
-frame_progress = 0.990862
+frame_progress = 0.119091
 offset = Vector2(0, -225)
 
 [node name="CollisionPolygon2D" parent="NpcLayer/Rigo/StaticBody2D" index="0"]
-polygon = PackedVector2Array(-135, -14, -65, -123, 81, -204, 244, -201, 255, -33, 5, 106, -255, 83)
+polygon = PackedVector2Array(-210, -37, -53, -149, 118, -171, 155, -157, 266, -52, 64, 165, -207, 151)
 
 [node name="Talk" type="Node2D" parent="NpcLayer/Rigo" node_paths=PackedStringArray("talking_area")]
 script = ExtResource("15_uqfdt")
