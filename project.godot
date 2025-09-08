@@ -39,15 +39,21 @@ gdscript/warnings/untyped_declaration=2
 [dialogic]
 
 directories/dch_directory={
+"arbol_1": "res://dialogic/characters/arbol_1.dch",
 "boss_demo_tecnico": "res://dialogic/characters/boss_demo_tecnico.dch",
 "hada_save": "res://dialogic/characters/hada_save.dch",
+"lalien": "res://dialogic/characters/lalien.dch",
 "lobuki": "res://dialogic/characters/lobuki.dch",
 "npc_rosita": "res://dialogic/characters/npc_rosita.dch",
-"sabia_rana_pedro": "res://dialogic/characters/sabia_rana_pedro.dch"
+"rigo": "res://dialogic/characters/rigo.dch",
+"sabia_rana_pedro": "res://dialogic/characters/sabia_rana_pedro.dch",
+"salome": "res://dialogic/characters/salome.dch"
 }
 directories/dtl_directory={
+"arbol_1_demo_tecnico": "res://dialogic/timelines/demo_tecnico/arbol_1_demo_tecnico.dtl",
 "hada_save_cueva_demo": "res://dialogic/timelines/demo_tecnico/hada_save_cueva_demo.dtl",
 "jefe_demo_tecnico": "res://dialogic/timelines/demo_tecnico/jefe_demo_tecnico.dtl",
+"lalien_demo_tecnico": "res://dialogic/timelines/demo_tecnico/lalien_demo_tecnico.dtl",
 "lila_bar_1": "res://dialogic/timelines/area_1/lila_bar_1.dtl",
 "lobuki_cigarro_0": "res://dialogic/timelines/demo_tecnico/lobuki_cigarro_0.dtl",
 "mesero_bar_1": "res://dialogic/timelines/area_1/mesero_bar_1.dtl",
@@ -56,6 +62,8 @@ directories/dtl_directory={
 "obj_notebook_hospital": "res://dialogic/timelines/obj_notebook_hospital.dtl",
 "obj_table_hospital": "res://dialogic/timelines/obj_table_hospital.dtl",
 "rana_borracha_bar_1": "res://dialogic/timelines/area_1/rana_borracha_bar_1.dtl",
+"rigo_demo_tecnico": "res://dialogic/timelines/demo_tecnico/rigo_demo_tecnico.dtl",
+"salome_demo_tecnico": "res://dialogic/timelines/demo_tecnico/salome_demo_tecnico.dtl",
 "save_bar": "res://dialogic/timelines/area_1/save_bar.dtl",
 "zona_batallas_demo": "res://dialogic/timelines/tests/prueba_mapa/zona_batallas_demo.dtl"
 }

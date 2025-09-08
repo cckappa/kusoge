@@ -40,7 +40,7 @@ size = Vector2(4299, 401)
 size = Vector2(2933, 334)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gc2ga"]
-size = Vector2(3896, 1931)
+size = Vector2(3896, 1841)
 
 [sub_resource type="Resource" id="Resource_fyrvt"]
 script = ExtResource("35_sjh72")
@@ -270,18 +270,19 @@ script = ExtResource("25_6lhvw")
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
-limit_left = -2356
-limit_top = -2839
-limit_right = 2365
-limit_bottom = 1787
+limit_left = -1948
+limit_top = -918
+limit_right = 1948
+limit_bottom = 923
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
-position = Vector2(0, -0.5)
+position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_gc2ga")
 
 [node name="PhantomCamera2D" parent="CameraManager/PhantomCameras" index="0" node_paths=PackedStringArray("follow_target")]
 follow_target = NodePath("../../../PlayableCharacter")
 tween_resource = SubResource("Resource_fyrvt")
+limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
 
 [editable path="ObjectLayer/MuertoAmarillo"]
 [editable path="ObjectLayer/MuertoRana"]

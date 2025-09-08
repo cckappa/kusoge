@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxmilwarewua0"]
+
+[ext_resource type="Theme" uid="uid://db3sptauv6wxx" path="res://assets/themes/menu_battle_attack_theme.tres" id="1_aw1t3"]
+[ext_resource type="Script" uid="uid://lpwf1fed15vf" path="res://scripts/item_name.gd" id="2_aw1t3"]
+[ext_resource type="Texture2D" uid="uid://cvj5vyvw6ctp3" path="res://assets/battle/select_circle.png" id="3_j1p2s"]
+[ext_resource type="Theme" uid="uid://vyl6l7lq0h7t" path="res://assets/themes/pixelify_theme.tres" id="4_sbrws"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aw1t3"]
+draw_center = false
+
+[node name="ItemName" type="PanelContainer"]
+offset_right = 1569.0
+offset_bottom = 126.0
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_aw1t3")
+script = ExtResource("2_aw1t3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_aw1t3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 38
+
+[node name="ItemButton" type="TextureButton" parent="HBoxContainer/PanelContainer/HBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_focused = ExtResource("3_j1p2s")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/PanelContainer/HBoxContainer/MarginContainer2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_j1p2s")
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/margin_right = 64
+
+[node name="ItemName" type="RichTextLabel" parent="HBoxContainer/PanelContainer/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_sbrws")
+bbcode_enabled = true
+text = "[wave amp=20 freq=5 connected=1]Puñetazo ultra mega cabron"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_aw1t3")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_right = 32
+
+[node name="ItemAmount" type="RichTextLabel" parent="HBoxContainer/PanelContainer2/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_sbrws")
+bbcode_enabled = true
+text = "[wave amp=20 freq=5 connected=1]x2"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[connection signal="focus_entered" from="HBoxContainer/PanelContainer/HBoxContainer/MarginContainer2/ItemButton" to="." method="_on_item_button_focus_entered"]
+[connection signal="focus_exited" from="HBoxContainer/PanelContainer/HBoxContainer/MarginContainer2/ItemButton" to="." method="_on_item_button_focus_exited"]

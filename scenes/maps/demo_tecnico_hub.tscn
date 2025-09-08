@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://cw14ehtvu80xx"]
+[gd_scene load_steps=135 format=3 uid="uid://cw14ehtvu80xx"]
 
 [ext_resource type="Script" uid="uid://ddv7kigla6iip" path="res://scripts/maps/demo_tecnico_hub.gd" id="1_w0bji"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="2_b27bq"]
@@ -44,7 +44,10 @@
 [ext_resource type="Script" uid="uid://b0gh7v5xk7w7w" path="res://scripts/item_giver.gd" id="22_uqfdt"]
 [ext_resource type="Resource" uid="uid://be2db4m15u3w5" path="res://assets/resources/items/cigarro_lobuki.tres" id="23_2r6fr"]
 [ext_resource type="Script" uid="uid://ck4xyxoy5fldl" path="res://scripts/enemies_layer.gd" id="25_jyqiw"]
+[ext_resource type="Texture2D" uid="uid://ckd6s4c0slfon" path="res://assets/spritesheets/demo_tecnico/lalien.png" id="25_u4o6e"]
+[ext_resource type="Texture2D" uid="uid://ds61qcg02apun" path="res://assets/spritesheets/demo_tecnico/molletes.png" id="26_asj11"]
 [ext_resource type="Script" uid="uid://c2d2peg3ovb8n" path="res://scripts/saves_layer.gd" id="26_kpvwu"]
+[ext_resource type="Texture2D" uid="uid://ds1hiaa6ns1wn" path="res://assets/spritesheets/demo_tecnico/rigo.png" id="27_asj11"]
 [ext_resource type="Script" uid="uid://cv43fprb0dski" path="res://scripts/spawns_layer.gd" id="28_8uen1"]
 [ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="29_kpvwu"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="35_f3wh4"]
@@ -112,7 +115,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2r6fr"]
 radius = 120.0
-height = 618.0
+height = 756.0
 
 [sub_resource type="Resource" id="Resource_76sup"]
 script = ExtResource("17_sq8m1")
@@ -171,6 +174,10 @@ animations = [{
 "name": &"default",
 "speed": 1.0
 }]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_asj11"]
+radius = 161.0
+height = 424.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wp3ek"]
 atlas = ExtResource("12_c65f4")
@@ -301,8 +308,157 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tqvvo"]
-radius = 203.376
+[sub_resource type="CircleShape2D" id="CircleShape2D_yvcta"]
+radius = 192.44
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvktg"]
+atlas = ExtResource("25_u4o6e")
+region = Rect2(0, 0, 381, 472)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02r7b"]
+atlas = ExtResource("25_u4o6e")
+region = Rect2(381, 0, 381, 472)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_admfh"]
+atlas = ExtResource("25_u4o6e")
+region = Rect2(0, 472, 381, 472)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3dsb"]
+atlas = ExtResource("25_u4o6e")
+region = Rect2(381, 472, 381, 472)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ugpp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvktg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02r7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_admfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02r7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvktg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvktg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02r7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_admfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02r7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvktg")
+}, {
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_t3dsb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_asj11"]
+radius = 202.277
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slii2"]
+atlas = ExtResource("26_asj11")
+region = Rect2(0, 0, 275, 210)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q24vt"]
+atlas = ExtResource("26_asj11")
+region = Rect2(275, 0, 275, 210)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m805y"]
+atlas = ExtResource("26_asj11")
+region = Rect2(0, 210, 275, 210)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jg827"]
+atlas = ExtResource("26_asj11")
+region = Rect2(275, 210, 275, 210)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ymowm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slii2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q24vt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m805y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jg827")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slii2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m805y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slii2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m805y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slii2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m805y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_asj11"]
+size = Vector2(517, 235)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ugpp"]
+atlas = ExtResource("27_asj11")
+region = Rect2(0, 0, 491, 485)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymowm"]
+atlas = ExtResource("27_asj11")
+region = Rect2(491, 0, 491, 485)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a10qg"]
+atlas = ExtResource("27_asj11")
+region = Rect2(0, 485, 491, 485)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vp0uk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ugpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymowm")
+}, {
+"duration": 15.0,
+"texture": SubResource("AtlasTexture_a10qg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m4iek"]
+radius = 289.389
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cf2ti"]
 atlas = ExtResource("17_4k71t")
@@ -616,6 +772,18 @@ offset = Vector2(0, -522)
 [node name="CollisionPolygon2D" parent="NpcLayer/Arbol1/StaticBody2D" index="0"]
 polygon = PackedVector2Array(-110, 70, 6, 67, 165, 59, 122, -2, -84, -1)
 
+[node name="Talk" type="Node2D" parent="NpcLayer/Arbol1" node_paths=PackedStringArray("talking_area")]
+position = Vector2(-17, 38)
+script = ExtResource("15_uqfdt")
+talking_area = NodePath("Area2D")
+timeline_name = "arbol_1_demo_tecnico"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="NpcLayer/Arbol1/Talk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/Arbol1/Talk/Area2D"]
+shape = SubResource("CapsuleShape2D_asj11")
+
 [node name="Arbol2" parent="NpcLayer" instance=ExtResource("9_273xm")]
 position = Vector2(-890, -642)
 
@@ -640,40 +808,109 @@ offset = Vector2(0, -474)
 [node name="CollisionPolygon2D" parent="NpcLayer/Arbol3/StaticBody2D" index="0"]
 polygon = PackedVector2Array(-97, 41, -86, -3, 118, -1, 133, 32, 118, 43, -64, 51)
 
-[node name="NpcRosita" parent="NpcLayer" instance=ExtResource("9_273xm")]
-position = Vector2(399, 933)
+[node name="Chicle" parent="NpcLayer" instance=ExtResource("9_273xm")]
+position = Vector2(-1095, -534)
 
-[node name="AnimatedSprite2D" parent="NpcLayer/NpcRosita" index="0"]
+[node name="AnimatedSprite2D" parent="NpcLayer/Chicle" index="0"]
 sprite_frames = SubResource("SpriteFrames_4h3p4")
 autoplay = "default"
 frame_progress = 0.119931
 offset = Vector2(0, -193.565)
 
-[node name="CollisionPolygon2D" parent="NpcLayer/NpcRosita/StaticBody2D" index="0"]
+[node name="CollisionPolygon2D" parent="NpcLayer/Chicle/StaticBody2D" index="0"]
 polygon = PackedVector2Array(-125, 20, -48, 27, 89, 21, 103, 7, 89, -37, 23, -48, -72, -48, -118, -12)
 
-[node name="Talk" type="Node2D" parent="NpcLayer/NpcRosita" node_paths=PackedStringArray("talking_area")]
+[node name="Talk" type="Node2D" parent="NpcLayer/Chicle" node_paths=PackedStringArray("talking_area")]
 script = ExtResource("15_uqfdt")
 talking_area = NodePath("Area2D")
 timeline_name = "npc_rosita_demo"
 metadata/_custom_type_script = "uid://do84xbf65qif"
 
-[node name="Area2D" type="Area2D" parent="NpcLayer/NpcRosita/Talk"]
+[node name="Area2D" type="Area2D" parent="NpcLayer/Chicle/Talk"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/NpcRosita/Talk/Area2D"]
-shape = SubResource("CircleShape2D_tqvvo")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/Chicle/Talk/Area2D"]
+position = Vector2(-16, 0)
+shape = SubResource("CircleShape2D_yvcta")
 
-[node name="Quest" type="Node2D" parent="NpcLayer/NpcRosita"]
+[node name="Quest" type="Node2D" parent="NpcLayer/Chicle"]
 script = ExtResource("16_mce50")
 quest_resource = ExtResource("22_2r6fr")
 dialogic_signal = "npc_rosita_demo"
 metadata/_custom_type_script = "uid://bj1igyevn8g64"
 
-[node name="ItemGiver" type="Node" parent="NpcLayer/NpcRosita"]
+[node name="ItemGiver" type="Node" parent="NpcLayer/Chicle"]
 script = ExtResource("22_uqfdt")
 item = ExtResource("23_2r6fr")
 dialogic_signal = "cigarrete_lobuki_take"
 metadata/_custom_type_script = "uid://b0gh7v5xk7w7w"
+
+[node name="Lalien" parent="NpcLayer" groups=["npcs"] instance=ExtResource("9_273xm")]
+position = Vector2(-741, 887)
+
+[node name="AnimatedSprite2D" parent="NpcLayer/Lalien" index="0"]
+sprite_frames = SubResource("SpriteFrames_4ugpp")
+autoplay = "default"
+frame_progress = 0.197869
+offset = Vector2(0, -167)
+
+[node name="CollisionPolygon2D" parent="NpcLayer/Lalien/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-24, 105, 118, 45, 106, -35, 52, -42, -29, -70, -102, -68, -170, -51, -196, 3, -243, 79, -76, 81)
+
+[node name="Talk" type="Node2D" parent="NpcLayer/Lalien" node_paths=PackedStringArray("talking_area")]
+position = Vector2(60, 39)
+script = ExtResource("15_uqfdt")
+talking_area = NodePath("Area2D")
+timeline_name = "lalien_demo_tecnico"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="NpcLayer/Lalien/Talk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/Lalien/Talk/Area2D"]
+shape = SubResource("CircleShape2D_asj11")
+
+[node name="Salome" parent="NpcLayer" groups=["npcs"] instance=ExtResource("9_273xm")]
+position = Vector2(1626, 480)
+
+[node name="AnimatedSprite2D" parent="NpcLayer/Salome" index="0"]
+sprite_frames = SubResource("SpriteFrames_ymowm")
+autoplay = "default"
+frame_progress = 0.432457
+offset = Vector2(0, -97)
+
+[node name="Talk" type="Node2D" parent="NpcLayer/Salome" node_paths=PackedStringArray("talking_area")]
+script = ExtResource("15_uqfdt")
+talking_area = NodePath("Area2D")
+timeline_name = "salome_demo_tecnico"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="NpcLayer/Salome/Talk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/Salome/Talk/Area2D"]
+position = Vector2(-3.5, -4.5)
+shape = SubResource("RectangleShape2D_asj11")
+
+[node name="Rigo" parent="NpcLayer" groups=["npcs"] instance=ExtResource("9_273xm")]
+position = Vector2(1280, 1579)
+
+[node name="AnimatedSprite2D" parent="NpcLayer/Rigo" index="0"]
+sprite_frames = SubResource("SpriteFrames_vp0uk")
+autoplay = "default"
+frame_progress = 0.990862
+offset = Vector2(0, -225)
+
+[node name="CollisionPolygon2D" parent="NpcLayer/Rigo/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-135, -14, -65, -123, 81, -204, 244, -201, 255, -33, 5, 106, -255, 83)
+
+[node name="Talk" type="Node2D" parent="NpcLayer/Rigo" node_paths=PackedStringArray("talking_area")]
+script = ExtResource("15_uqfdt")
+talking_area = NodePath("Area2D")
+timeline_name = "rigo_demo_tecnico"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="NpcLayer/Rigo/Talk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/Rigo/Talk/Area2D"]
+shape = SubResource("CircleShape2D_m4iek")
 
 [node name="ObjectLayer" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -911,7 +1148,10 @@ limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
 [editable path="NpcLayer/Arbol1"]
 [editable path="NpcLayer/Arbol2"]
 [editable path="NpcLayer/Arbol3"]
-[editable path="NpcLayer/NpcRosita"]
+[editable path="NpcLayer/Chicle"]
+[editable path="NpcLayer/Lalien"]
+[editable path="NpcLayer/Salome"]
+[editable path="NpcLayer/Rigo"]
 [editable path="ObjectLayer/Casa/PuertaCasa"]
 [editable path="ObjectLayer/Casa/CasaEstructura"]
 [editable path="ObjectLayer/Cueva"]

@@ -24,11 +24,18 @@ extends BattleManager
 @onready var icon_health := %IconHealth
 @onready var time_value := %TimeValue
 @onready var item_menu := %ItemMenu
+@onready var item_name_container := %ItemNameContainer
+@onready var no_items_label := %NoItemsLabel
+@onready var item_thumbnail := %ItemThumbnail
+@onready var item_value := %ItemValue
+@onready var item_icon_dagger := %ItemIconDagger
+@onready var item_icon_health := %ItemIconHealth
 @onready var victory_kio := %VictoryKio
 @onready var loot_container := %LootContainer
 
 var attack_button:PackedScene = preload("res://scenes/attack_button.tscn")
 var ability_name:PackedScene = preload("res://scenes/ability_name.tscn")
+var item_name:PackedScene = preload("res://scenes/item_name.tscn")
 var item_battle_button:PackedScene = preload("res://scenes/item_battle_button.tscn")
 var loot_item:PackedScene = preload("res://scenes/loot_item.tscn")
 
@@ -65,8 +72,8 @@ func _input(event: InputEvent) -> void:
 		menu_level = "item"
 		SignalBus.emit_signal("item_menu_opened")
 		await get_tree().create_timer(0.1).timeout
-		if item_menu.get_child_count() > 0:
-			item_menu.get_child(0).grab_focus()
+		if item_name_container.get_child_count() > 0:
+			item_name_container.get_child(0).item_button.grab_focus()
 
 	if event.is_action_pressed("run_away") and menu_level == "base":
 		SignalBus.emit_signal("run_away")
@@ -89,6 +96,7 @@ func _on_enter_state_entered() -> void:
 	connect_allies()
 	connect_enemies()
 	SignalBus.connect("ability_name_focus_entered", set_ability_info)
+	SignalBus.connect("item_name_focus_entered", set_item_info)
 	victory_kio.connect("victory_finished_hiding", to_looting)
 	state_chart.send_event("setuped")
 
@@ -167,6 +175,8 @@ func _on_abilitying_state_entered() -> void:
 	state_chart.send_event("repeat_select")
 
 func _on_inhabilitating_state_entered() -> void:
+	var is_enemy:bool = character_to_disable.get("dialog") != null
+
 	character_to_disable.current_container.death()
 	if ability_status.from != null and character_to_disable.name == ability_status.from.name:
 		character_to_disable.current_container.disabled()
@@ -191,7 +201,7 @@ func _on_inhabilitating_state_entered() -> void:
 	if menu_level == "item":
 		print("Menu item")
 	
-	if menu_level == "base":
+	if menu_level == "base" || !is_enemy:
 		attack_menu.visible = false
 		item_menu.visible = false
 		SignalBus.emit_signal("menu_closed", ability_status.from)
@@ -335,6 +345,7 @@ func character_status_select(character:Character) -> void:
 	print('from', ability_status.from.name)
 
 func set_attack_menu() -> void:
+	ally_thumbnail.texture = ability_status.from.character_portrait
 	if ability_name_container.get_child_count() > 0:
 		for child in ability_name_container.get_children():
 			if child.ability_button.has_connections("pressed"):
@@ -348,23 +359,23 @@ func set_attack_menu() -> void:
 		ability_name_instance.ability_button.connect("pressed", _on_attack_button_pressed.bind(ability_status.from, attack))
 
 func set_item_menu() -> void:
-	ally_thumbnail.texture = ability_status.from.character_portrait
-	if item_menu.get_child_count() > 0:
-		for child in item_menu.get_children():
-			if child.has_connections("pressed"):
-				child.disconnect("pressed", _on_item_button_pressed)
+	if item_name_container.get_child_count() > 0:
+		for child in item_name_container.get_children():
+			if child.item_button.has_connections("pressed"):
+				child.item_button.disconnect("pressed", _on_item_button_pressed)
 			child.queue_free()
 
 	for identifier:StringName in Items.item_list:
-		var item_button_instance := item_battle_button.instantiate()
-		item_button_instance.text = "%s x%s" % [Items.item_list[identifier].resource.display_name, int(Items.item_list[identifier].total)]
-		item_button_instance.connect("pressed", _on_item_button_pressed.bind(ability_status.from, Items.item_list[identifier].resource))
-		item_menu.add_child(item_button_instance)
-	
-	if item_menu.get_child_count() == 0:
-		var no_items_label := Button.new()
-		no_items_label.text = "No items"
-		item_menu.add_child(no_items_label)
+		if Items.item_list[identifier].resource.type != "KEY":
+			var item_name_instance := item_name.instantiate()
+			item_name_container.add_child(item_name_instance)
+			item_name_instance.set_item_info(Items.item_list[identifier].resource, int(Items.item_list[identifier].total))
+			item_name_instance.item_button.connect("pressed", _on_item_button_pressed.bind(ability_status.from, Items.item_list[identifier].resource))
+
+	if item_name_container.get_child_count() == 0:
+		no_items_label.visible = true
+	else:
+		no_items_label.visible = false
 
 func _on_attack_button_pressed(from:Character, attack:Ability) -> void:
 	SignalBus.emit_signal("ability_button_pressed", from, attack)
@@ -465,3 +476,17 @@ func set_ability_info(ability:Ability) -> void:
 		damage_value.text = "0"
 	
 	time_value.text = str(ability.wait_time)
+
+func set_item_info(item:Item) -> void:
+	if item.type == "HEAL":
+		item_value.text = str(item.item_effect.heal_amount)
+		item_icon_health.visible = true
+		item_icon_dagger.visible = false
+	# elif item.type == "DAMAGE":
+	# 	item_value.text = str(item.damage_points)
+	# 	item_icon_health.visible = false
+	# 	item_icon_dagger.visible = true
+	else:
+		item_value.text = "0"
+	
+	item_thumbnail.texture = item.icon

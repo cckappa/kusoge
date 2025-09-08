@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cmpxf2x7wrue8"]
+[gd_scene load_steps=35 format=3 uid="uid://cmpxf2x7wrue8"]
 
 [ext_resource type="Script" uid="uid://hb1tei00rib0" path="res://scripts/maps/cabeza_demo_tecnico.gd" id="1_jfxjq"]
 [ext_resource type="Script" uid="uid://5rnf247xyu5v" path="res://scripts/scene_creator_tool.gd" id="2_e8xqf"]
@@ -27,11 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://bhfg0okos7a4a" path="res://assets/objects/demo_tecnico/ESCULTURA IZQ.png" id="19_pu5hf"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="22_4q5a7"]
 [ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="24_xo0ap"]
-[ext_resource type="Script" uid="uid://cscct5yogwe8u" path="res://scripts/notification_center.gd" id="25_mvwv0"]
 [ext_resource type="PackedScene" uid="uid://dqi4bw7t4w0u8" path="res://scenes/add_new_character_animation.tscn" id="26_x35hd"]
-[ext_resource type="Script" uid="uid://ck2ow411sbom1" path="res://scripts/add_new_character_animation.gd" id="27_lofbv"]
 [ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="28_0b1g4"]
-[ext_resource type="Script" uid="uid://bae3eo7ywlmmf" path="res://scripts/add_new_item_animation.gd" id="29_hfk5i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nrtiv"]
 size = Vector2(652, 2863)
@@ -220,37 +217,11 @@ script = ExtResource("12_mvwv0")
 
 [node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("15_0b1g4")]
 
-[node name="NotificationCenter" type="Control" parent="CanvasLayer" instance=ExtResource("24_xo0ap")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("25_mvwv0")
+[node name="NotificationCenter" parent="CanvasLayer" instance=ExtResource("24_xo0ap")]
 
-[node name="AddNewCharacterAnimation" type="Control" parent="CanvasLayer" instance=ExtResource("26_x35hd")]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("27_lofbv")
-animation_duration = 3.0
+[node name="AddNewCharacterAnimation" parent="CanvasLayer" instance=ExtResource("26_x35hd")]
 
-[node name="AddNewItemAnimation" type="Control" parent="CanvasLayer" instance=ExtResource("28_0b1g4")]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("29_hfk5i")
-animation_duration = 3.0
+[node name="AddNewItemAnimation" parent="CanvasLayer" instance=ExtResource("28_0b1g4")]
 
 [node name="BlackRect" parent="CanvasLayer" instance=ExtResource("17_l1pn7")]
 
@@ -261,6 +232,10 @@ animation_duration = 3.0
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
+limit_left = -1948
+limit_top = -918
+limit_right = 1948
+limit_bottom = 923
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 position = Vector2(0, -0.5)
@@ -269,6 +244,7 @@ shape = SubResource("RectangleShape2D_x35hd")
 [node name="PhantomCamera2D" parent="CameraManager/PhantomCameras" index="0" node_paths=PackedStringArray("follow_target")]
 follow_target = NodePath("../../../PlayableCharacter")
 tween_resource = SubResource("Resource_fyrvt")
+limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
 
 [editable path="ObjectLayer/Limite"]
 [editable path="ObjectLayer/CentroEscultura"]
