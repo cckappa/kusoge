@@ -100,8 +100,8 @@ polygon = PackedVector2Array(-125, 186, -117, 5, 62, -234, 132, -239, 127, -120)
 [node name="SceneChanger2" type="Area2D" parent="BackgroundLayer" node_paths=PackedStringArray("black_rect")]
 position = Vector2(1708, 368)
 script = ExtResource("6_msnjy")
-target_scene = "res://scenes/maps/habitacion_demo_tecnico.tscn"
-target_marker = "EntradaHabitacion"
+target_scene = "res://scenes/ending_playable_demo.tscn"
+target_marker = "Ending"
 black_rect = NodePath("../../CanvasLayer/BlackRect")
 metadata/_custom_type_script = "uid://bsvp6e76bx107"
 

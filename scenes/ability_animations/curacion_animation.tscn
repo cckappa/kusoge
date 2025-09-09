@@ -1,0 +1,152 @@
+[gd_scene load_steps=12 format=3 uid="uid://c8ja6vc07ih2c"]
+
+[ext_resource type="Script" uid="uid://bj7siqoqfuucu" path="res://scripts/ability_animations/curacion_animation.gd" id="1_6u4jp"]
+[ext_resource type="Script" uid="uid://dxuy4bb1whoa0" path="res://scripts/landed_particles.gd" id="1_k6d3k"]
+[ext_resource type="Texture2D" uid="uid://byns6ywywh7d" path="res://assets/icons/long_particle.png" id="3_6u4jp"]
+[ext_resource type="Texture2D" uid="uid://d20dfih5cfhnr" path="res://assets/icons/four_star_particle.png" id="4_qewr5"]
+
+[sub_resource type="Curve" id="Curve_c5pb4"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, -24.3179), 0.0, 0.0, 0, 0, Vector2(0.9967, 0.476837), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_g5kgv"]
+_data = [Vector2(0, 0.505618), 0.0, 0.0, 0, 0, Vector2(0.277778, 0.966292), 0.0, 0.0, 0, 0, Vector2(0.606838, 0.988764), 0.0, 0.0, 0, 0, Vector2(0.952991, 0.786517), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Gradient" id="Gradient_iu35d"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.52549)
+
+[sub_resource type="Curve" id="Curve_4a82q"]
+_data = [Vector2(0.00427351, 0.674157), 0.0, 4.62704, 0, 0, Vector2(0.217949, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.157303), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Animation" id="Animation_qewr5"]
+resource_name = "curacion_animation"
+length = 4.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(3.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit_lands_ability"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HealParticlesLong:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HealParticlesStar:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_6u4jp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HealParticlesLong:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HealParticlesStar:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_drpwj"]
+_data = {
+&"RESET": SubResource("Animation_6u4jp"),
+&"curacion_animation": SubResource("Animation_qewr5")
+}
+
+[node name="CuracionAnimation" type="Node2D" node_paths=PackedStringArray("landed_particles")]
+script = ExtResource("1_6u4jp")
+landed_particles = NodePath("LandedParticles")
+
+[node name="HealParticlesLong" type="CPUParticles2D" parent="."]
+amount = 32
+texture = ExtResource("3_6u4jp")
+lifetime = 2.18
+one_shot = true
+explosiveness = 0.15
+emission_shape = 3
+emission_rect_extents = Vector2(150, 1)
+direction = Vector2(0, -1)
+spread = 3.35
+gravity = Vector2(0, 0)
+initial_velocity_min = 220.68
+initial_velocity_max = 374.49
+radial_accel_min = 52.2
+radial_accel_max = 52.2
+angle_min = -0.9
+angle_max = 0.5
+angle_curve = SubResource("Curve_c5pb4")
+scale_amount_min = 1.2
+scale_amount_max = 2.6
+scale_amount_curve = SubResource("Curve_g5kgv")
+color = Color(0.192157, 1, 0.54902, 0.74902)
+color_ramp = SubResource("Gradient_iu35d")
+
+[node name="HealParticlesStar" type="CPUParticles2D" parent="."]
+amount = 16
+texture = ExtResource("4_qewr5")
+lifetime = 2.5
+one_shot = true
+emission_shape = 3
+emission_rect_extents = Vector2(100, 1)
+direction = Vector2(0, -1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 142.86
+initial_velocity_max = 223.61
+scale_amount_min = 2.05
+scale_amount_max = 2.05
+scale_amount_curve = SubResource("Curve_4a82q")
+color = Color(0.745098, 1, 0.772549, 1)
+
+[node name="LandedParticles" type="Node2D" parent="."]
+script = ExtResource("1_k6d3k")
+metadata/_custom_type_script = "uid://dxuy4bb1whoa0"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_drpwj")
+}
+autoplay = "curacion_animation"

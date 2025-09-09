@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_q6jwn"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_y2lvx"]
 [ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="3_288ab"]
-[ext_resource type="Resource" uid="uid://b4hl0uorngix0" path="res://assets/resources/abilities/patada.tres" id="3_t4pmj"]
 [ext_resource type="Resource" uid="uid://bbgmx00txpaek" path="res://assets/resources/abilities/cachetada.tres" id="5_8xx0q"]
 [ext_resource type="Resource" uid="uid://ckx56tfvcgtr8" path="res://assets/resources/abilities/escupitajo.tres" id="5_nva0l"]
+[ext_resource type="Resource" uid="uid://dx4j66lt4vb35" path="res://assets/resources/abilities/cuchillazo.tres" id="5_qpp82"]
 [ext_resource type="Resource" uid="uid://bnkt1v88hkkjx" path="res://assets/resources/abilities/piss.tres" id="5_tju31"]
 [ext_resource type="Texture2D" uid="uid://djkclyjbsvrpd" path="res://assets/character_portraits/demo_tecnico/RANASTASIO DAÑO.PNG" id="6_tju31"]
 [ext_resource type="Texture2D" uid="uid://cd3nnf0w48lic" path="res://assets/character_portraits/demo_tecnico/RANASTASIO DYB.PNG" id="7_nva0l"]
@@ -18,7 +18,7 @@ character_damaged = ExtResource("6_tju31")
 max_hp = 270
 unlocked = true
 type = "NORMAL"
-abilities = Array[ExtResource("1_q6jwn")]([ExtResource("5_tju31"), ExtResource("5_8xx0q"), ExtResource("3_t4pmj"), ExtResource("5_nva0l")])
+abilities = Array[ExtResource("1_q6jwn")]([ExtResource("5_tju31"), ExtResource("5_8xx0q"), ExtResource("5_nva0l"), ExtResource("5_qpp82")])
 loot = Array[ExtResource("2_y2lvx")]([])
 min_loot = 0
 max_loot = 1

@@ -1,0 +1,135 @@
+[gd_scene load_steps=11 format=3 uid="uid://tgs215rv8p8u"]
+
+[ext_resource type="Script" uid="uid://bbujeegonoffo" path="res://scripts/ability_animations/rasguño_animation.gd" id="1_ke3e7"]
+[ext_resource type="Script" uid="uid://dxuy4bb1whoa0" path="res://scripts/landed_particles.gd" id="2_757sv"]
+[ext_resource type="PackedScene" uid="uid://b7bvrpga1v04o" path="res://scenes/hit_particles_star.tscn" id="3_cr4si"]
+[ext_resource type="PackedScene" uid="uid://hg6t1jbcmxp3" path="res://scenes/hit_particles_circle.tscn" id="4_ytt2x"]
+[ext_resource type="PackedScene" uid="uid://b3k38ghwf35bw" path="res://scenes/hit_particles_big_star.tscn" id="5_agjik"]
+[ext_resource type="PackedScene" uid="uid://j5owvy2xjpt6" path="res://scenes/hit_particles_long_circle.tscn" id="6_j8ctf"]
+[ext_resource type="Texture2D" uid="uid://bn3hxv5aps5ne" path="res://assets/animation_assets/scratch.png" id="7_s2mo3"]
+
+[sub_resource type="Animation" id="Animation_rpu2q"]
+resource_name = "rasguño_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scratch:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.266667, 0.4, 0.6, 0.733333, 0.933333),
+"transitions": PackedFloat32Array(2.14355, 2, 1, 2, 1, 2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scratch:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.264833, 0.268491, 0.598465, 0.601612),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.49051, 1.49051, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Scratch:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.264547, 0.268824, 0.6, 0.604277),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.3, 1.3), Vector2(1.3, 1.3), Vector2(1, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.966667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit_lands_ability"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_jf4xe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scratch:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scratch:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Scratch:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.376471, 0.376471)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aucvq"]
+_data = {
+&"RESET": SubResource("Animation_jf4xe"),
+&"rasguño_animation": SubResource("Animation_rpu2q")
+}
+
+[node name="RasguñoAnimation" type="Node2D" node_paths=PackedStringArray("landed_particles")]
+script = ExtResource("1_ke3e7")
+landed_particles = NodePath("LandedParticles")
+
+[node name="LandedParticles" type="Node2D" parent="."]
+script = ExtResource("2_757sv")
+metadata/_custom_type_script = "uid://dxuy4bb1whoa0"
+
+[node name="HitParticlesStar" parent="LandedParticles" instance=ExtResource("3_cr4si")]
+
+[node name="HitParticlesCircle" parent="LandedParticles" instance=ExtResource("4_ytt2x")]
+
+[node name="HitParticlesBigStar" parent="LandedParticles" instance=ExtResource("5_agjik")]
+
+[node name="HitParticlesLongCircle" parent="LandedParticles" instance=ExtResource("6_j8ctf")]
+
+[node name="Scratch" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(11, -52)
+scale = Vector2(0.376471, 0.376471)
+texture = ExtResource("7_s2mo3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_aucvq")
+}
+autoplay = "rasguño_animation"

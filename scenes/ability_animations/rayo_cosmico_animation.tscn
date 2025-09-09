@@ -1,0 +1,91 @@
+[gd_scene load_steps=12 format=3 uid="uid://doe4w81lckoki"]
+
+[ext_resource type="Script" uid="uid://41o0smtbni86" path="res://scripts/ability_animations/rayo_cosmico_animation.gd" id="1_sqweu"]
+[ext_resource type="Script" uid="uid://dxuy4bb1whoa0" path="res://scripts/landed_particles.gd" id="2_qmqp8"]
+[ext_resource type="PackedScene" uid="uid://b7bvrpga1v04o" path="res://scenes/hit_particles_star.tscn" id="3_g005e"]
+[ext_resource type="PackedScene" uid="uid://hg6t1jbcmxp3" path="res://scenes/hit_particles_circle.tscn" id="4_1xqqi"]
+[ext_resource type="PackedScene" uid="uid://b3k38ghwf35bw" path="res://scenes/hit_particles_big_star.tscn" id="5_urfyi"]
+[ext_resource type="PackedScene" uid="uid://j5owvy2xjpt6" path="res://scenes/hit_particles_long_circle.tscn" id="6_mw50q"]
+[ext_resource type="PackedScene" uid="uid://cg887lkjyepr" path="res://scenes/ability_animations/rayo_cosmico_particles.tscn" id="8_1xqqi"]
+[ext_resource type="Texture2D" uid="uid://dl4dnovypk7h6" path="res://assets/animation_assets/rayo_cosmico.png" id="8_mw50q"]
+
+[sub_resource type="Animation" id="Animation_j5u2f"]
+resource_name = "rayo_cosmico_animation"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RayoCosmico:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.5, 5.36667, 5.53333),
+"transitions": PackedFloat32Array(5.85634, 1, 1, 1),
+"update": 0,
+"values": [Vector2(14, 2942), Vector2(14, 1532), Vector2(14, 1174), Vector2(14, -3581)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5.86667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit_lands_ability"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_20vam"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RayoCosmico:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(14, 2589)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4rrl2"]
+_data = {
+&"RESET": SubResource("Animation_20vam"),
+&"rayo_cosmico_animation": SubResource("Animation_j5u2f")
+}
+
+[node name="RayoCosmicoAnimation" type="Node2D" node_paths=PackedStringArray("landed_particles")]
+script = ExtResource("1_sqweu")
+landed_particles = NodePath("LandedParticles")
+
+[node name="LandedParticles" type="Node2D" parent="."]
+script = ExtResource("2_qmqp8")
+metadata/_custom_type_script = "uid://dxuy4bb1whoa0"
+
+[node name="HitParticlesStar" parent="LandedParticles" instance=ExtResource("3_g005e")]
+
+[node name="HitParticlesCircle" parent="LandedParticles" instance=ExtResource("4_1xqqi")]
+
+[node name="HitParticlesBigStar" parent="LandedParticles" instance=ExtResource("5_urfyi")]
+
+[node name="HitParticlesLongCircle" parent="LandedParticles" instance=ExtResource("6_mw50q")]
+
+[node name="RayoCosmico" type="Sprite2D" parent="."]
+position = Vector2(14, 2589)
+scale = Vector2(0.3, 2.955)
+texture = ExtResource("8_mw50q")
+
+[node name="RayoCosmicoParticles" parent="RayoCosmico" instance=ExtResource("8_1xqqi")]
+position = Vector2(0, -418.912)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4rrl2")
+}
+autoplay = "rayo_cosmico_animation"

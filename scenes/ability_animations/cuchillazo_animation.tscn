@@ -1,0 +1,136 @@
+[gd_scene load_steps=11 format=3 uid="uid://oap1evwogs6s"]
+
+[ext_resource type="Script" uid="uid://ck5wcj3pswxd4" path="res://scripts/ability_animations/cuchillazo_animation.gd" id="1_iyu5u"]
+[ext_resource type="Script" uid="uid://dxuy4bb1whoa0" path="res://scripts/landed_particles.gd" id="2_3rvq7"]
+[ext_resource type="PackedScene" uid="uid://b7bvrpga1v04o" path="res://scenes/hit_particles_star.tscn" id="3_8s230"]
+[ext_resource type="PackedScene" uid="uid://hg6t1jbcmxp3" path="res://scenes/hit_particles_circle.tscn" id="4_fidyr"]
+[ext_resource type="PackedScene" uid="uid://b3k38ghwf35bw" path="res://scenes/hit_particles_big_star.tscn" id="5_ybiq7"]
+[ext_resource type="PackedScene" uid="uid://j5owvy2xjpt6" path="res://scenes/hit_particles_long_circle.tscn" id="6_xnarb"]
+[ext_resource type="Texture2D" uid="uid://gggnjf2mqgcc" path="res://assets/animation_assets/knife.png" id="7_6qy4n"]
+
+[sub_resource type="Animation" id="Animation_5e04r"]
+resource_name = "cuchillazo_animation"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Knife:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.666667, 0.766667, 0.866667, 0.966667, 1.06667, 1.2, 1.5),
+"transitions": PackedFloat32Array(0.466517, 1, 0.307786, 1, 0.277392, 2.73208, 7.46426, 3.13834, 1),
+"update": 0,
+"values": [Vector2(10, 1720), Vector2(10, 869), Vector2(10, 1021), Vector2(10, 443), Vector2(10, 650), Vector2(10, 440), Vector2(10, 737), Vector2(10, 419), Vector2(-1305, 1671)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Knife:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.19491, 1.5),
+"transitions": PackedFloat32Array(1, 3.13834, 1),
+"update": 0,
+"values": [-3.14159, -3.14159, -5.15745]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Knife:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit_lands_ability"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_8dmw7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Knife:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10, 1720)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Knife:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.14159]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Knife:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_essxj"]
+_data = {
+&"RESET": SubResource("Animation_8dmw7"),
+&"cuchillazo_animation": SubResource("Animation_5e04r")
+}
+
+[node name="CuchillazoAnimation" type="Node2D" node_paths=PackedStringArray("landed_particles")]
+script = ExtResource("1_iyu5u")
+landed_particles = NodePath("LandedParticles")
+
+[node name="LandedParticles" type="Node2D" parent="."]
+script = ExtResource("2_3rvq7")
+metadata/_custom_type_script = "uid://dxuy4bb1whoa0"
+
+[node name="HitParticlesStar" parent="LandedParticles" instance=ExtResource("3_8s230")]
+
+[node name="HitParticlesCircle" parent="LandedParticles" instance=ExtResource("4_fidyr")]
+
+[node name="HitParticlesBigStar" parent="LandedParticles" instance=ExtResource("5_ybiq7")]
+
+[node name="HitParticlesLongCircle" parent="LandedParticles" instance=ExtResource("6_xnarb")]
+
+[node name="Knife" type="Sprite2D" parent="."]
+position = Vector2(10, 1720)
+rotation = -3.14159
+scale = Vector2(1.135, 1.135)
+texture = ExtResource("7_6qy4n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_essxj")
+}
+autoplay = "cuchillazo_animation"

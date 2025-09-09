@@ -17,6 +17,7 @@ extends BattleManager
 @onready var continue_button := %ContinueButton
 @onready var quit := %Quit
 @onready var attack_menu := %AttackMenu
+@onready var ally_thumbnail_container := %AllyThumbnailContainer
 @onready var ability_name_container := %AbilityNameContainer
 @onready var ally_thumbnail := %AllyThumbnail
 @onready var damage_value := %DamageValue
@@ -32,6 +33,7 @@ extends BattleManager
 @onready var item_icon_health := %ItemIconHealth
 @onready var victory_kio := %VictoryKio
 @onready var loot_container := %LootContainer
+@onready var cooldown_not_finished_sound := %CooldownNotFinishedSound
 
 var attack_button:PackedScene = preload("res://scenes/attack_button.tscn")
 var ability_name:PackedScene = preload("res://scenes/ability_name.tscn")
@@ -59,6 +61,7 @@ func _input(event: InputEvent) -> void:
 		SignalBus.emit_signal("attack_menu_opened")
 		await get_tree().create_timer(0.1).timeout
 		ability_name_container.get_child(0).ability_button.grab_focus()
+		Functions.set_game_speed(0.1)
 
 	if event.is_action_pressed("ui_accept") and menu_level == "victory":
 		victory_kio.play_hide_animation()
@@ -74,11 +77,13 @@ func _input(event: InputEvent) -> void:
 		await get_tree().create_timer(0.1).timeout
 		if item_name_container.get_child_count() > 0:
 			item_name_container.get_child(0).item_button.grab_focus()
+		Functions.set_game_speed(0.1)
 
 	if event.is_action_pressed("run_away") and menu_level == "base":
 		SignalBus.emit_signal("run_away")
 
 	if event.is_action_pressed("ui_cancel") and (menu_level != "victory" or menu_level == "loots"):
+		Functions.set_game_speed(1.0)
 		attack_menu.visible = false
 		item_menu.visible = false
 		SignalBus.emit_signal("menu_closed", ability_status.from)
@@ -97,10 +102,12 @@ func _on_enter_state_entered() -> void:
 	connect_enemies()
 	SignalBus.connect("ability_name_focus_entered", set_ability_info)
 	SignalBus.connect("item_name_focus_entered", set_item_info)
+	SignalBus.connect("ability_cooldown_not_finished", cooldown_not_finished)
 	victory_kio.connect("victory_finished_hiding", to_looting)
 	state_chart.send_event("setuped")
 
 func _on_selecting_state_entered() -> void:
+	Functions.set_game_speed(1.0)
 	for enemy_select in get_tree().get_nodes_in_group("selected_targets"):
 		enemy_select.focus_mode = Control.FOCUS_NONE
 
@@ -490,3 +497,12 @@ func set_item_info(item:Item) -> void:
 		item_value.text = "0"
 	
 	item_thumbnail.texture = item.icon
+
+func cooldown_not_finished() -> void:
+	print("Ability cooldown not finished")
+	cooldown_not_finished_sound.play()
+	var tween := create_tween()
+	tween.tween_property(ally_thumbnail_container, "modulate", Color.hex(0xff5c47ff), 0.01)
+	tween.tween_property(ally_thumbnail_container, "modulate", Color.hex(0xffffffff), 0.01)
+	tween.tween_property(ally_thumbnail_container, "modulate", Color.hex(0xff5c47ff), 0.02)
+	tween.tween_property(ally_thumbnail_container, "modulate", Color.hex(0xffffffff), 0.02)

@@ -1,0 +1,167 @@
+[gd_scene load_steps=13 format=3 uid="uid://d3jg4p8lblvlj"]
+
+[ext_resource type="Script" uid="uid://dhn64icxx6xts" path="res://scripts/ability_animations/escupitajo_animation.gd" id="1_a765x"]
+[ext_resource type="Script" uid="uid://dxuy4bb1whoa0" path="res://scripts/landed_particles.gd" id="2_i0d8e"]
+[ext_resource type="PackedScene" uid="uid://b7bvrpga1v04o" path="res://scenes/hit_particles_star.tscn" id="3_8vtj8"]
+[ext_resource type="PackedScene" uid="uid://hg6t1jbcmxp3" path="res://scenes/hit_particles_circle.tscn" id="4_a7fik"]
+[ext_resource type="PackedScene" uid="uid://b3k38ghwf35bw" path="res://scenes/hit_particles_big_star.tscn" id="5_j2y3n"]
+[ext_resource type="PackedScene" uid="uid://j5owvy2xjpt6" path="res://scenes/hit_particles_long_circle.tscn" id="6_uo0q1"]
+[ext_resource type="Texture2D" uid="uid://be1jsv8jqctgh" path="res://assets/animation_assets/spit.png" id="7_a7fik"]
+[ext_resource type="Texture2D" uid="uid://dtm34sofrpnpa" path="res://assets/animation_assets/splash.png" id="8_j2y3n"]
+[ext_resource type="PackedScene" uid="uid://b8knmx4v76klk" path="res://scenes/screen_battle_rule.tscn" id="9_uo0q1"]
+
+[sub_resource type="Animation" id="Animation_dmrem"]
+resource_name = "escupitajo_animation"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spit:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(2.92817, 1),
+"update": 0,
+"values": [Vector2(482, 1649), Vector2(43, 165)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Splash:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Spit:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.594799, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Splash:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.7, 1.66667),
+"transitions": PackedFloat32Array(1, 1, 2.37842, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.88, 1.88), Vector2(0.09, 0.09)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit_lands_ability"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_at50f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spit:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(482, 1649)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Splash:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Spit:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Splash:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rnjp4"]
+_data = {
+&"RESET": SubResource("Animation_at50f"),
+&"escupitajo_animation": SubResource("Animation_dmrem")
+}
+
+[node name="EscupitajoAnimation" type="Node2D" node_paths=PackedStringArray("landed_particles")]
+script = ExtResource("1_a765x")
+landed_particles = NodePath("LandedParticles")
+
+[node name="LandedParticles" type="Node2D" parent="."]
+script = ExtResource("2_i0d8e")
+metadata/_custom_type_script = "uid://dxuy4bb1whoa0"
+
+[node name="HitParticlesStar" parent="LandedParticles" instance=ExtResource("3_8vtj8")]
+
+[node name="HitParticlesCircle" parent="LandedParticles" instance=ExtResource("4_a7fik")]
+
+[node name="HitParticlesBigStar" parent="LandedParticles" instance=ExtResource("5_j2y3n")]
+
+[node name="HitParticlesLongCircle" parent="LandedParticles" instance=ExtResource("6_uo0q1")]
+
+[node name="Spit" type="Sprite2D" parent="."]
+position = Vector2(482, 1649)
+texture = ExtResource("7_a7fik")
+
+[node name="Splash" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("8_j2y3n")
+
+[node name="ScreenBattleRule" parent="." instance=ExtResource("9_uo0q1")]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rnjp4")
+}
+autoplay = "escupitajo_animation"

@@ -151,7 +151,7 @@ func death() -> void:
 	
 
 func disabled() -> void:
-	Functions.set_game_speed(1.0)
+	# Functions.set_game_speed(1.0)
 	submenu_level = 0
 	menu.visible = false
 	# attack_menu.visible = false
@@ -192,23 +192,26 @@ func check_timer() -> bool:
 		return false
 
 func ability_pressed(from: Character, ability: Ability) -> void:
-	if from == character and check_timer():
-		# close_all_menus()
-		if crits:
-			Functions.set_game_speed(game_slow_speed)
+	if from == character:
+		if check_timer():
+			# close_all_menus()
+			# if crits:
+			# 	Functions.set_game_speed(game_slow_speed)
+			# else:
+			# 	Functions.set_game_speed(1.0)
+			submenu_level = 3
+			if ability.effect == "NEGATIVE":
+				for target in get_tree().get_nodes_in_group("selected_targets"):
+					if target.visible == true:
+						target.texture_focused = TARGET_SELECT
+			elif ability.effect == "POSITIVE":
+				for target in get_tree().get_nodes_in_group("selected_targets"):
+					if target.visible == true:
+						target.texture_focused = TARGET_HEAL
+			emit_signal("ability_selected", ability, from)
+			print(ability.ability_name)
 		else:
-			Functions.set_game_speed(1.0)
-		submenu_level = 3
-		if ability.effect == "NEGATIVE":
-			for target in get_tree().get_nodes_in_group("selected_targets"):
-				if target.visible == true:
-					target.texture_focused = TARGET_SELECT
-		elif ability.effect == "POSITIVE":
-			for target in get_tree().get_nodes_in_group("selected_targets"):
-				if target.visible == true:
-					target.texture_focused = TARGET_HEAL
-		emit_signal("ability_selected", ability, from)
-		print(ability.ability_name)
+			SignalBus.emit_signal("ability_cooldown_not_finished")
 
 func item_button_pressed(from:Character, item:Item) -> void:
 	# close_all_menus()
@@ -232,7 +235,7 @@ func _on_selected_arrow_focus_exited() -> void:
 	menu.visible = false
 
 func _on_target_button_pressed() -> void:
-	Functions.set_game_speed(1.0)
+	# Functions.set_game_speed(1.0)
 	if current_action == "ABILITY":
 		emit_signal("uses_ability", character, crits)
 	elif current_action == "ITEM":

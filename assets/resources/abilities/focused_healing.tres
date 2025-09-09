@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="HealAbility" load_steps=3 format=3 uid="uid://ct5dshx02d4l0"]
 
-[ext_resource type="PackedScene" uid="uid://bj0y3cwxvctmc" path="res://scenes/ability_animations/default_attack_animation.tscn" id="1_8l0q8"]
+[ext_resource type="PackedScene" uid="uid://c8ja6vc07ih2c" path="res://scenes/ability_animations/curacion_animation.tscn" id="1_8l0q8"]
 [ext_resource type="Script" uid="uid://c4kpiwca60y5k" path="res://scripts/abilities/heal_ability.gd" id="1_em4tk"]
 
 [resource]

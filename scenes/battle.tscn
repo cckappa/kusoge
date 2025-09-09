@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://cn7cxbug5sjey"]
+[gd_scene load_steps=56 format=3 uid="uid://cn7cxbug5sjey"]
 
 [ext_resource type="Script" uid="uid://1et7n8ftkqn" path="res://scripts/battle.gd" id="1_8mi71"]
 [ext_resource type="Script" uid="uid://bt86h2wsa5yga" path="res://scripts/battle_manager.gd" id="2_o8ur5"]
@@ -40,6 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://d3xuo1pm4n8w5" path="res://assets/battle/desmotivaciones.png" id="32_fqtyt"]
 [ext_resource type="AudioStream" uid="uid://cbw1lvt4yiqbe" path="res://assets/music/lost_battle.mp3" id="32_rw4tp"]
 [ext_resource type="Theme" uid="uid://bfoia834oik6" path="res://assets/themes/lose_theme.tres" id="33_8a2ah"]
+[ext_resource type="AudioStream" uid="uid://c48ujoigwjk4j" path="res://assets/sfx/417794__lorenzothegreat__error-cropped.wav" id="38_4gblq"]
 
 [sub_resource type="Resource" id="Resource_lampa"]
 script = ExtResource("11_37w08")
@@ -651,6 +652,7 @@ offset_bottom = -250.0
 grow_vertical = 2
 
 [node name="AllyThumbnailContainer" type="PanelContainer" parent="AttackMenu"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = -350.0
 offset_top = 138.0
@@ -1316,6 +1318,12 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="CooldownNotFinishedSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("38_4gblq")
+volume_db = 7.0
+bus = &"SFX"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
