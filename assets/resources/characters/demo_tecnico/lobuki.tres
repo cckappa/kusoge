@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_ryopn"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_b2b26"]
 [ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="3_kg4eo"]
+[ext_resource type="Resource" uid="uid://dx4j66lt4vb35" path="res://assets/resources/abilities/cuchillazo.tres" id="3_uflc0"]
 [ext_resource type="Resource" uid="uid://ckabh1vy5csrg" path="res://assets/resources/abilities/punch.tres" id="4_f0cqb"]
-[ext_resource type="Resource" uid="uid://ct5dshx02d4l0" path="res://assets/resources/abilities/focused_healing.tres" id="4_uflc0"]
 [ext_resource type="Resource" uid="uid://bnkt1v88hkkjx" path="res://assets/resources/abilities/piss.tres" id="5_1ih82"]
-[ext_resource type="Resource" uid="uid://cral6nawbndl0" path="res://assets/resources/abilities/fireball.tres" id="5_gdmo2"]
+[ext_resource type="Resource" uid="uid://bghxbphfpwny3" path="res://assets/resources/abilities/rasguño.tres" id="5_f0cqb"]
 [ext_resource type="Texture2D" uid="uid://bigld7sxb6isq" path="res://assets/character_portraits/demo_tecnico/LOBUKI DAÑO.PNG" id="6_hx6f5"]
 [ext_resource type="Texture2D" uid="uid://dptxvrd0xlaxa" path="res://assets/character_portraits/demo_tecnico/LOBUKI DYB.PNG" id="7_f2xcp"]
 
@@ -18,7 +18,7 @@ character_damaged = ExtResource("6_hx6f5")
 max_hp = 330
 unlocked = false
 type = "NORMAL"
-abilities = Array[ExtResource("1_ryopn")]([ExtResource("5_1ih82"), ExtResource("5_gdmo2"), ExtResource("4_f0cqb"), ExtResource("4_uflc0")])
+abilities = Array[ExtResource("1_ryopn")]([ExtResource("5_1ih82"), ExtResource("3_uflc0"), ExtResource("4_f0cqb"), ExtResource("5_f0cqb")])
 loot = Array[ExtResource("2_b2b26")]([])
 min_loot = 0
 max_loot = 1
