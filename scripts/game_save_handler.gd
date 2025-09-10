@@ -168,6 +168,7 @@ func set_game_info(data:Dictionary) -> void:
 	Globals.key_variables = data.key_variables
 
 func clear_save_file(path:String = SAVE_PATH + SAVE_FILE_NAME) -> void:
+	clear_current_globals()
 	if FileAccess.file_exists(path):
 		var dir := DirAccess.open("res://")  # Base path doesn’t matter much for absolute paths
 		if dir:
@@ -178,3 +179,13 @@ func clear_save_file(path:String = SAVE_PATH + SAVE_FILE_NAME) -> void:
 				printerr("Failed to delete save file: ", path, " Error code: ", err)
 	else:
 		print("No save file exists at: ", path)
+
+func clear_current_globals() -> void:
+	Globals.player_position = Vector2(192,454)
+	Items.item_list.clear()
+	Quests.current_quests.clear()
+	# Globals.current_characters.clear()
+	# Globals.party.clear()
+	# Globals.maps.clear()
+	Globals.current_map_path = ""
+	Globals.key_variables.clear()

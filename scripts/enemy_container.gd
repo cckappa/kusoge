@@ -127,3 +127,6 @@ func _on_target_button_focus_entered() -> void:
 
 func _on_target_button_focus_exited() -> void:
 	crit_off()
+
+func target_focus() -> void:
+	target_button.focus_mode = Control.FOCUS_ALL

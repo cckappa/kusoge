@@ -673,14 +673,14 @@ duration = 2.0
 transition = 1
 ease = 2
 
-[node name="DemoTecnicoHub" type="Node2D" node_paths=PackedStringArray("black_rect", "door_sprite", "door_collision", "audio_stream_player")]
+[node name="DemoTecnicoHub" type="Node2D" node_paths=PackedStringArray("door_sprite", "door_collision", "audio_stream_player", "black_rect")]
 y_sort_enabled = true
 script = ExtResource("1_w0bji")
-black_rect = NodePath("CanvasLayer/BlackRect")
 door_sprite = NodePath("ObjectLayer/Casa/PuertaCasa/AnimatedSprite2D")
 door_collision = NodePath("ObjectLayer/Casa/PuertaCasa/StaticBody2D/CollisionShape2D")
 current_scene = "res://scenes/maps/demo_tecnico_hub.tscn"
 audio_stream_player = NodePath("AudioStreamPlayer")
+black_rect = NodePath("CanvasLayer/BlackRect")
 
 [node name="PeleasDemoTecnico" type="Node" parent="."]
 script = ExtResource("2_mwdq3")

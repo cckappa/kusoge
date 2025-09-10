@@ -249,12 +249,12 @@ radius = 161.941
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2kmg"]
 size = Vector2(3840, 2160)
 
-[node name="CuevaDemoTecnico" type="Node2D" node_paths=PackedStringArray("black_rect", "audio_stream_player")]
+[node name="CuevaDemoTecnico" type="Node2D" node_paths=PackedStringArray("audio_stream_player", "black_rect")]
 y_sort_enabled = true
 script = ExtResource("1_n0a8t")
-black_rect = NodePath("CanvasLayer/BlackRect")
 current_scene = "res://scenes/maps/cueva_demo_tecnico.tscn"
 audio_stream_player = NodePath("AudioStreamPlayer")
+black_rect = NodePath("CanvasLayer/BlackRect")
 
 [node name="SceneCreatorTool" type="Node" parent="."]
 script = ExtResource("1_os3nl")
@@ -420,10 +420,10 @@ position = Vector2(-628, 439)
 [node name="CameraManager" parent="." instance=ExtResource("19_wvs86")]
 
 [node name="Camera2D" parent="CameraManager" index="0"]
-limit_left = -1948
-limit_top = -918
-limit_right = 1948
-limit_bottom = 923
+limit_left = -2356
+limit_top = -2839
+limit_right = 2365
+limit_bottom = 1787
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 shape = SubResource("RectangleShape2D_m2kmg")

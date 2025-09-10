@@ -134,40 +134,45 @@ func _on_selecting_state_entered() -> void:
 
 func _on_target_selecting_state_entered() -> void:
 	print("Target selecting state entered")
-	for enemy_select in get_tree().get_nodes_in_group("selected_targets"):
-		if enemy_select.visible == true:
-			enemy_select.focus_mode = Control.FOCUS_ALL
 	
 	var enemies:Array[Character] = alive_enemies(Globals.current_arrange_enemies)
 	var allies:Array[Character] = alive_allies(Globals.current_arrange_allies)
 	if ability_status.ability != null and ability_status.ability.effect == "POSITIVE":
 		if allies.size() > 0:
+			for ally in allies:
+				ally.current_container.target_focus()
 			if ability_status.from != null and ability_status.from.current_hp > 0:
 				ability_status.from.current_container.target_selected()
 			else:
 				allies[0].current_container.target_selected()
 	elif ability_status.ability != null and ability_status.ability.effect == "NEGATIVE":
 		if enemies.size() > 0:
-				enemies[0].current_container.selected()
+			for enemy in enemies:
+				enemy.current_container.target_focus()
+
+			enemies[0].current_container.selected()
 	SignalBus.emit_signal("action_selected", "ABILITY")
 
 func _on_target_selecting_item_state_entered() -> void:
 	print("Target selecting item state entered")
-	for enemy_select in get_tree().get_nodes_in_group("selected_targets"):
-		if enemy_select.visible == true:
-			enemy_select.focus_mode = Control.FOCUS_ALL
 	
 	var enemies:Array[Character] = alive_enemies(Globals.current_arrange_enemies)
 	var allies:Array[Character] = alive_allies(Globals.current_arrange_allies)
 	if ability_status.item != null and (ability_status.item.type == "HEAL" or ability_status.item.type == "BUFF"):
 		if allies.size() > 0:
+			for ally in allies:
+				ally.current_container.target_focus()
+
 			if ability_status.from != null and ability_status.from.current_hp > 0:
 				ability_status.from.current_container.target_selected()
 			else:
 				allies[0].current_container.target_selected()
 	elif ability_status.item != null and (ability_status.item.type == "DAMAGE" or ability_status.item.type == "DEBUFF"):
 		if enemies.size() > 0:
-				enemies[0].current_container.selected()
+			for enemy in enemies:
+				enemy.current_container.target_focus()
+
+			enemies[0].current_container.selected()
 	SignalBus.emit_signal("action_selected", "ITEM")
 
 func _on_iteming_state_entered() -> void:
@@ -219,6 +224,7 @@ func _on_inhabilitating_state_entered() -> void:
 	
 
 func _on_losing_state_entered() -> void:
+	Functions.set_game_speed(1.0)
 	SignalBus.emit_signal("stop_crit")
 	menu_level = "lost"
 	attack_menu.visible = false
@@ -234,6 +240,7 @@ func _on_losing_state_entered() -> void:
 			enemy.current_container.untargeted()
 
 func _on_winning_state_entered() -> void:
+	Functions.set_game_speed(1.0)
 	SignalBus.emit_signal("stop_crit")
 	menu_level = "victory"
 	attack_menu.visible = false

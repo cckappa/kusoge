@@ -225,6 +225,7 @@ script = ExtResource("7_1rgno")
 [connection signal="pressed" from="MarginContainer/HBoxContainer/ButtonContainer/Party" to="." method="_on_party_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/ButtonContainer/Items" to="." method="_on_items_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/ButtonContainer/Quests" to="." method="_on_quests_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/ButtonContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/ItemsContainer/VBoxContainer/UseItem" to="MarginContainer/HBoxContainer/ItemsContainer" method="_on_use_item_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/ItemsContainer/VBoxContainer/TossItem" to="MarginContainer/HBoxContainer/ItemsContainer" method="_on_toss_item_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/ItemsContainer/VBoxContainer/BackItem" to="MarginContainer/HBoxContainer/ItemsContainer" method="_on_back_item_pressed"]

@@ -1,6 +1,5 @@
 extends BaseScene
 
-@export var black_rect : ColorRect
 @export var door_sprite : AnimatedSprite2D
 @export var door_collision : CollisionShape2D
 

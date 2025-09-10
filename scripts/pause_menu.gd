@@ -12,8 +12,11 @@ extends Control
 @onready var back_item := %BackItem
 @onready var items := %Items
 
+const inicio_menu : PackedScene = preload("res://scenes/inicio_menu.tscn")
+
 var on_dialogic:=false
 var menu_level:=0
+var quit_paused:=false
 
 func _ready() -> void:
 	SignalBus.connect("starts_talking", starts_talking)
@@ -27,6 +30,8 @@ func stops_talking() -> void:
 	on_dialogic = false
 
 func toggle_menu() -> void:
+	if quit_paused:
+		return
 	visible = not visible
 	
 	if visible:
@@ -46,11 +51,15 @@ func toggle_menu() -> void:
 	get_tree().paused = not get_tree().paused
 
 func _input(event:InputEvent) -> void:
+	if quit_paused:
+		return
 	if event.is_action_pressed("pause") and not on_dialogic:
 		toggle_menu()
 	
 	if event.is_action_pressed("ui_cancel"):
 		match menu_level:
+			0:
+				toggle_menu()
 			1:
 				select_first_menu()
 				close_second_menu()
@@ -105,4 +114,9 @@ func close_fourth_menu() -> void:
 		back_item.focus_mode = Control.FOCUS_ALL
 		use_item.grab_focus()
 
-
+func _on_quit_pressed() -> void:
+	quit_paused = true
+	get_tree().paused = not get_tree().paused
+	unselect_first_menu()
+	SignalBus.emit_signal("starts_talking")
+	SignalBus.emit_signal("quit_game")

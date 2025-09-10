@@ -48,12 +48,12 @@ duration = 2.0
 transition = 1
 ease = 2
 
-[node name="PasilloDemoTecnico" type="Node2D" node_paths=PackedStringArray("black_rect", "audio_stream_player")]
+[node name="PasilloDemoTecnico" type="Node2D" node_paths=PackedStringArray("audio_stream_player", "black_rect")]
 y_sort_enabled = true
 script = ExtResource("1_gc2ga")
-black_rect = NodePath("CanvasLayer/BlackRect")
 current_scene = "res://scenes/maps/pasillo_demo_tecnico.tscn"
 audio_stream_player = NodePath("AudioStreamPlayer")
+black_rect = NodePath("CanvasLayer/BlackRect")
 
 [node name="SceneCreatorTool" type="Node" parent="."]
 script = ExtResource("2_msnjy")
@@ -270,10 +270,10 @@ script = ExtResource("25_6lhvw")
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
-limit_left = -1948
-limit_top = -918
-limit_right = 1948
-limit_bottom = 923
+limit_left = -2356
+limit_top = -2839
+limit_right = 2365
+limit_bottom = 1787
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 position = Vector2(0, 2.5)

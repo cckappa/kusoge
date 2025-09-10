@@ -282,22 +282,8 @@ func crit_animation() -> void:
 	tween_d.tween_property(circle_thin, "scale", Vector2(1, 1), 0.2)
 	tween_d.tween_property(circle_thin, "self_modulate", Color(0xffffff00), 0.2)
 
-
-# func _on_item_removed(_item:Item) -> void:
-# 	reset_items()
-
-# func reset_items() -> void:
-# 	for item_button in item_menu.get_children():
-# 		item_menu.remove_child(item_button)
-# 		item_button.queue_free()
-
-# 	for identifier:StringName in Items.item_list:
-# 		var item_button := Button.new()
-# 		item_button.text = "%s x%s" % [Items.item_list[identifier].resource.display_name, int(Items.item_list[identifier].total)]
-# 		item_button.theme = menu_theme
-# 		item_menu.add_child(item_button)
-# 		item_button.add_to_group("submenu_item")
-# 		item_button.connect("pressed", _on_item_button_pressed.bind(Items.item_list[identifier].resource))
+func target_focus() -> void:
+	target_button.focus_mode = Control.FOCUS_ALL
 
 func set_current_action(action:String) -> void:
 	current_action = action

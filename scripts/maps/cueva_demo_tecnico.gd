@@ -1,7 +1,5 @@
 extends BaseScene
 
-@export var black_rect : ColorRect
-
 var battle_scene: String = "res://scenes/battle.tscn" 
 
 func _ready_scene() -> void:

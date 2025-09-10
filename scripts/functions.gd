@@ -25,15 +25,23 @@ func array_to_string(arr: Array[StringName], separator:= "") -> String:
 			s += String(i)
 	return s
 
-func fade_color_rect(rect:ColorRect, type:StringName, duration:float) -> bool:
+func fade_color_rect(rect: ColorRect, type: StringName, duration: float) -> bool:
+	if rect == null:
+		print("ColorRect is null!")
+		return false
+	
+	if not rect.is_inside_tree():
+		print("ColorRect is not in tree!")
+		return false
+		
 	match type:
 		"IN":
-			var tween := get_tree().create_tween()
+			var tween := rect.create_tween()
 			tween.tween_property(rect, "modulate", Color.hex(0x000000fe), duration).set_trans(Tween.TRANS_SINE)
 			await tween.finished
 			return true
 		"OUT":
-			var tween := get_tree().create_tween()
+			var tween := rect.create_tween()
 			tween.tween_property(rect, "modulate", Color.hex(0x00000000), duration).set_trans(Tween.TRANS_SINE)
 			await tween.finished
 			return true
