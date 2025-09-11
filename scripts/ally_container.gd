@@ -117,7 +117,6 @@ func focus_current_character(from:Character) -> void:
 	focus_arrows()
 	submenu_level = 0
 	if from == null:
-		# menu.visible = true
 		return
 	if from.current_container == self:
 		selected_arrow.grab_focus()
@@ -194,11 +193,6 @@ func check_timer() -> bool:
 func ability_pressed(from: Character, ability: Ability) -> void:
 	if from == character:
 		if check_timer():
-			# close_all_menus()
-			# if crits:
-			# 	Functions.set_game_speed(game_slow_speed)
-			# else:
-			# 	Functions.set_game_speed(1.0)
 			submenu_level = 3
 			if ability.effect == "NEGATIVE":
 				for target in get_tree().get_nodes_in_group("selected_targets"):
@@ -211,6 +205,24 @@ func ability_pressed(from: Character, ability: Ability) -> void:
 			emit_signal("ability_selected", ability, from)
 			print(ability.ability_name)
 		else:
+			var tween := create_tween()
+			tween.tween_property(progress_bar, "modulate", Color.hex(0xff5c47ff), 0.01)
+			tween.tween_property(progress_bar, "modulate", Color(0,1.65,3.15,1), 0.01)
+			tween.tween_property(progress_bar, "modulate", Color.hex(0xff5c47ff), 0.02)
+			tween.tween_property(progress_bar, "modulate", Color(0,1.65,3.15,1), 0.02)
+
+			var tween2 := create_tween()
+			tween2.tween_property(progress_bar, "scale", Vector2(1.15, 1.15), 0.01)
+			tween2.tween_property(progress_bar, "scale", Vector2(0.8, 0.8), 0.01)
+			tween2.tween_property(progress_bar, "scale", Vector2(1.15, 1.15), 0.02)
+			tween2.tween_property(progress_bar, "scale", Vector2(0.8, 0.8), 0.02)
+
+			var tween3 := create_tween()
+			tween3.tween_property(portrait, "modulate", Color.hex(0xff5c47ff), 0.01)
+			tween3.tween_property(portrait, "modulate", Color.hex(0xffffffff), 0.01)
+			tween3.tween_property(portrait, "modulate", Color.hex(0xff5c47ff), 0.02)
+			tween3.tween_property(portrait, "modulate", Color.hex(0xffffffff), 0.02)
+
 			SignalBus.emit_signal("ability_cooldown_not_finished")
 
 func item_button_pressed(from:Character, item:Item) -> void:

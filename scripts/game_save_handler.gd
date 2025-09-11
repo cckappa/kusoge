@@ -184,6 +184,7 @@ func clear_current_globals() -> void:
 	Globals.player_position = Vector2(192,454)
 	Items.item_list.clear()
 	Quests.current_quests.clear()
+	Globals.setup_globals()
 	# Globals.current_characters.clear()
 	# Globals.party.clear()
 	# Globals.maps.clear()

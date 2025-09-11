@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=3 uid="uid://cw14ehtvu80xx"]
+[gd_scene load_steps=142 format=3 uid="uid://cw14ehtvu80xx"]
 
 [ext_resource type="Script" uid="uid://ddv7kigla6iip" path="res://scripts/maps/demo_tecnico_hub.gd" id="1_w0bji"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="2_b27bq"]
@@ -637,6 +637,9 @@ _data = {
 &"opening": SubResource("Animation_w68cj")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ngix7"]
+size = Vector2(587, 134)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8uen1"]
 size = Vector2(382, 141)
 
@@ -965,6 +968,18 @@ libraries = {
 &"": SubResource("AnimationLibrary_u4o6e")
 }
 
+[node name="Talk" type="Node2D" parent="ObjectLayer/Casa/PuertaCasa" node_paths=PackedStringArray("talking_area")]
+script = ExtResource("15_uqfdt")
+talking_area = NodePath("Area2D")
+timeline_name = "puerta_ojo_demo_tecnico"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="ObjectLayer/Casa/PuertaCasa/Talk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/Casa/PuertaCasa/Talk/Area2D"]
+position = Vector2(11.5, 57)
+shape = SubResource("RectangleShape2D_ngix7")
+
 [node name="CasaEstructura" parent="ObjectLayer/Casa" instance=ExtResource("9_86tlv")]
 position = Vector2(914, -1137)
 
@@ -1084,6 +1099,7 @@ position = Vector2(-1769, -1075)
 position = Vector2(860, -1033)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_u2cg3")]
 
@@ -1116,10 +1132,10 @@ physics_interpolation_mode = 1
 position = Vector2(0, 285)
 zoom = Vector2(1.2, 1.2)
 process_callback = 0
-limit_left = -2356
-limit_top = -2839
-limit_right = 2365
-limit_bottom = 1787
+limit_left = -1741
+limit_top = -1520
+limit_right = 1741
+limit_bottom = 1519
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="CameraManager/Camera2D"]

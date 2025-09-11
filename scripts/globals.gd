@@ -64,15 +64,17 @@ var win_stakes:Dictionary={
 }
 
 func _ready() -> void:
+	setup_globals()
+	if OS.is_debug_build():
+		reset_lives()
+
+func setup_globals() -> void:
 	maps = full_maps_resource.get_maps_dictionary()
 	ene_1.current_hp = ene_1.max_hp
 	ene_2.current_hp = ene_2.max_hp
 	party = [MIUMIU, PROTO_SHAMAN, LOBUKI, SABIA_RANA_PEDRO]
 	set_current_characters([ALICIA, RANASTACIO, MALENA, INGENIERO_FROGELIO])
 	enemies = [ene_1, ene_2]
-
-	if OS.is_debug_build():
-		reset_lives()
 
 func set_current_enemies(enemy:EnemyResource, _extra_enemies:Array[EnemyResource] = []) -> void:
 	if main_enemy == null:
@@ -127,7 +129,7 @@ func reset_lives() ->void:
 func set_otk() -> void:
 	for character in current_characters:
 		if character.current_hp <= 0:
-			character.set_current_hp(1)
+			character.set_current_hp(character.max_hp)
 	clear_current_enemies()
 
 

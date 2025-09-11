@@ -77,6 +77,10 @@ layout_mode = 2
 theme = ExtResource("2_88e76")
 text = "Quests"
 
+[node name="ExitMenu" type="Button" parent="MarginContainer/HBoxContainer/ButtonContainer"]
+layout_mode = 2
+text = "Cerrar Menu"
+
 [node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/ButtonContainer"]
 layout_mode = 2
 theme = ExtResource("2_88e76")
@@ -225,6 +229,7 @@ script = ExtResource("7_1rgno")
 [connection signal="pressed" from="MarginContainer/HBoxContainer/ButtonContainer/Party" to="." method="_on_party_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/ButtonContainer/Items" to="." method="_on_items_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/ButtonContainer/Quests" to="." method="_on_quests_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/ButtonContainer/ExitMenu" to="." method="_on_exit_menu_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/ButtonContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/ItemsContainer/VBoxContainer/UseItem" to="MarginContainer/HBoxContainer/ItemsContainer" method="_on_use_item_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/ItemsContainer/VBoxContainer/TossItem" to="MarginContainer/HBoxContainer/ItemsContainer" method="_on_toss_item_pressed"]

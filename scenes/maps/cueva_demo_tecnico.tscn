@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://3w5ysq4tl3o4"]
+[gd_scene load_steps=66 format=3 uid="uid://3w5ysq4tl3o4"]
 
 [ext_resource type="Script" uid="uid://d0q32cfdk1wsf" path="res://scripts/maps/cueva_demo_tecnico.gd" id="1_n0a8t"]
 [ext_resource type="Script" uid="uid://5rnf247xyu5v" path="res://scripts/scene_creator_tool.gd" id="1_os3nl"]
@@ -34,6 +34,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chxpl"]
 size = Vector2(1134, 335)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xik8"]
+size = Vector2(302, 230)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6xik8"]
 atlas = ExtResource("11_n0a8t")
@@ -296,6 +299,19 @@ polygon = PackedVector2Array(-617, 283, -572, 283, -469, 130, -485, -54, -598, -
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D"]
 polygon = PackedVector2Array(467, 127, 882, 615, 1106, 415, 1005, 31, 484, -134)
 
+[node name="Talk" type="Node2D" parent="BackgroundLayer" node_paths=PackedStringArray("talking_area")]
+position = Vector2(-947, 579)
+script = ExtResource("15_vai2h")
+talking_area = NodePath("Area2D")
+timeline_name = "cigarros_suelo_demo_tecnico"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="BackgroundLayer/Talk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundLayer/Talk/Area2D"]
+position = Vector2(141, 105)
+shape = SubResource("RectangleShape2D_6xik8")
+
 [node name="PlayableCharacter" parent="." instance=ExtResource("7_chxpl")]
 position = Vector2(-621, 465)
 
@@ -420,10 +436,10 @@ position = Vector2(-628, 439)
 [node name="CameraManager" parent="." instance=ExtResource("19_wvs86")]
 
 [node name="Camera2D" parent="CameraManager" index="0"]
-limit_left = -2356
-limit_top = -2839
-limit_right = 2365
-limit_bottom = 1787
+limit_left = -1741
+limit_top = -1520
+limit_right = 1741
+limit_bottom = 1519
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 shape = SubResource("RectangleShape2D_m2kmg")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cmpxf2x7wrue8"]
+[gd_scene load_steps=37 format=3 uid="uid://cmpxf2x7wrue8"]
 
 [ext_resource type="Script" uid="uid://hb1tei00rib0" path="res://scripts/maps/cabeza_demo_tecnico.gd" id="1_jfxjq"]
 [ext_resource type="Script" uid="uid://5rnf247xyu5v" path="res://scripts/scene_creator_tool.gd" id="2_e8xqf"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="15_0b1g4"]
 [ext_resource type="Texture2D" uid="uid://bmhsbc3u2wgw2" path="res://assets/objects/demo_tecnico/E DERECHA.png" id="15_lofbv"]
 [ext_resource type="Texture2D" uid="uid://c0uvg86b3w6a0" path="res://assets/objects/demo_tecnico/VIRGEN IZQ.png" id="16_0b1g4"]
+[ext_resource type="Script" uid="uid://do84xbf65qif" path="res://scripts/talk.gd" id="16_8kbp0"]
 [ext_resource type="Texture2D" uid="uid://c1aodd67bhwph" path="res://assets/objects/demo_tecnico/VIRGEN DERE.png" id="17_hfk5i"]
 [ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="17_l1pn7"]
 [ext_resource type="Texture2D" uid="uid://bstiptog756dh" path="res://assets/objects/demo_tecnico/ESCULTURA DER.png" id="18_l1pn7"]
@@ -38,6 +39,9 @@ size = Vector2(737, 2872)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lofbv"]
 size = Vector2(422, 122)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8kbp0"]
+radius = 168.146
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x35hd"]
 size = Vector2(3482, 3039)
@@ -136,6 +140,18 @@ offset = Vector2(0, -347)
 [node name="CollisionPolygon2D" parent="ObjectLayer/CentroEscultura/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-353, -29, -303, 27, -178, 79, -28, 103, 101, 96, 254, 59, 320, 14, 344, -31, 285, -65, 177, -95, 25, -98, -112, -92, -199, -82, -289, -66)
 
+[node name="Talk" type="Node2D" parent="ObjectLayer/CentroEscultura" node_paths=PackedStringArray("talking_area")]
+position = Vector2(0, 100)
+script = ExtResource("16_8kbp0")
+talking_area = NodePath("Area2D")
+timeline_name = "estatua_central_demo_tecnico"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="ObjectLayer/CentroEscultura/Talk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/CentroEscultura/Talk/Area2D"]
+shape = SubResource("CircleShape2D_8kbp0")
+
 [node name="EsculturaIzq" parent="ObjectLayer" instance=ExtResource("11_trhus")]
 position = Vector2(-647, 1511)
 
@@ -160,6 +176,17 @@ offset = Vector2(0, -268)
 [node name="CollisionPolygon2D" parent="ObjectLayer/VirgenIzq/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-72, 96, 24, 92, 98, -4, 20, -31, 18, -140, -78, -95)
 
+[node name="Talk" type="Node2D" parent="ObjectLayer/VirgenIzq" node_paths=PackedStringArray("talking_area")]
+script = ExtResource("16_8kbp0")
+talking_area = NodePath("Area2D")
+timeline_name = "virgen_izq_demo_tecnico"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="ObjectLayer/VirgenIzq/Talk"]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="ObjectLayer/VirgenIzq/Talk/Area2D"]
+polygon = PackedVector2Array(-137, 150, 89, 150, 126, 101, 144, -62, 48, -121, -117, -8)
+
 [node name="VirgenDer" parent="ObjectLayer" instance=ExtResource("11_trhus")]
 position = Vector2(843, -122)
 
@@ -169,6 +196,17 @@ offset = Vector2(0, -271)
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/VirgenDer/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-97, -2, -31, 83, 80, 89, 80, -59, -21, -76, -24, -40)
+
+[node name="Talk" type="Node2D" parent="ObjectLayer/VirgenDer" node_paths=PackedStringArray("talking_area")]
+script = ExtResource("16_8kbp0")
+talking_area = NodePath("Area2D")
+timeline_name = "virgen_der_demo_tecnico"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="ObjectLayer/VirgenDer/Talk"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ObjectLayer/VirgenDer/Talk/Area2D"]
+polygon = PackedVector2Array(-21, -80, -206, -65, -112, 122, 20, 169, 160, 116)
 
 [node name="AgachadoDer" parent="ObjectLayer" instance=ExtResource("11_trhus")]
 position = Vector2(468, -437)
@@ -232,10 +270,10 @@ script = ExtResource("12_mvwv0")
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
-limit_left = -2356
-limit_top = -2839
-limit_right = 2365
-limit_bottom = 1787
+limit_left = -1741
+limit_top = -1520
+limit_right = 1741
+limit_bottom = 1519
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 position = Vector2(0, -0.5)

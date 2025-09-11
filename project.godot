@@ -51,6 +51,8 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "arbol_1_demo_tecnico": "res://dialogic/timelines/demo_tecnico/arbol_1_demo_tecnico.dtl",
+"cigarros_suelo_demo_tecnico": "res://dialogic/timelines/demo_tecnico/cigarros_suelo_demo_tecnico.dtl",
+"estatua_central_demo_tecnico": "res://dialogic/timelines/demo_tecnico/estatua_central_demo_tecnico.dtl",
 "hada_save_cueva_demo": "res://dialogic/timelines/demo_tecnico/hada_save_cueva_demo.dtl",
 "jefe_demo_tecnico": "res://dialogic/timelines/demo_tecnico/jefe_demo_tecnico.dtl",
 "lalien_demo_tecnico": "res://dialogic/timelines/demo_tecnico/lalien_demo_tecnico.dtl",
@@ -61,10 +63,13 @@ directories/dtl_directory={
 "obj_mecha": "res://dialogic/timelines/obj_mecha.dtl",
 "obj_notebook_hospital": "res://dialogic/timelines/obj_notebook_hospital.dtl",
 "obj_table_hospital": "res://dialogic/timelines/obj_table_hospital.dtl",
+"puerta_ojo_demo_tecnico": "res://dialogic/timelines/demo_tecnico/puerta_ojo_demo_tecnico.dtl",
 "rana_borracha_bar_1": "res://dialogic/timelines/area_1/rana_borracha_bar_1.dtl",
 "rigo_demo_tecnico": "res://dialogic/timelines/demo_tecnico/rigo_demo_tecnico.dtl",
 "salome_demo_tecnico": "res://dialogic/timelines/demo_tecnico/salome_demo_tecnico.dtl",
 "save_bar": "res://dialogic/timelines/area_1/save_bar.dtl",
+"virgen_der_demo_tecnico": "res://dialogic/timelines/demo_tecnico/virgen_der_demo_tecnico.dtl",
+"virgen_izq_demo_tecnico": "res://dialogic/timelines/demo_tecnico/virgen_izq_demo_tecnico.dtl",
 "zona_batallas_demo": "res://dialogic/timelines/tests/prueba_mapa/zona_batallas_demo.dtl"
 }
 variables={
@@ -79,7 +84,7 @@ variables={
 }
 }
 }
-layout/style_list=["res://dialogic/styles/basic_portrait.tres"]
+layout/style_list=["res://dialogic/styles/basic_portrait.tres", "res://dialogic/styles/object_info.tres"]
 layout/default_style="res://dialogic/styles/basic_portrait.tres"
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01

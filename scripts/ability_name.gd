@@ -15,3 +15,4 @@ func _on_ability_button_focus_entered() -> void:
 
 func _on_ability_button_focus_exited() -> void:
 	ability_name.text = ability.ability_name
+

@@ -15,7 +15,6 @@ if {Quests.demo_tecnico.sabia_rana_pedro_quest_status} == -1.0:
 	sabia_rana_pedro: Podrás entrenar las batallas en el orden que quieras, pero están en orden de dificultad
 	[signal arg_type="dict" arg="{"name":"zona_batallas_demo","type":"start"}"]
 	set {Quests.demo_tecnico.sabia_rana_pedro_quest_status} = 0.0
-	[end_timeline]
 sabia_rana_pedro: Selecciona la batalla a la que quieras entrar
 - Batalla 1
 	[signal arg_type="dict" arg="{"name":"batalla_1"}"]
@@ -23,3 +22,5 @@ sabia_rana_pedro: Selecciona la batalla a la que quieras entrar
 	[signal arg_type="dict" arg="{"name":"batalla_2"}"]
 - Batalla 3
 	[signal arg_type="dict" arg="{"name":"batalla_3"}"]
+- Ahora no quiero peleas
+	sabia_rana_pedro: No te preocupes, vuelve cuando tu quieras aquí estaré todo el evento del pixelatl

@@ -15,7 +15,7 @@ extends Control
 const inicio_menu : PackedScene = preload("res://scenes/inicio_menu.tscn")
 
 var on_dialogic:=false
-var menu_level:=0
+var menu_level:=-1
 var quit_paused:=false
 
 func _ready() -> void:
@@ -46,7 +46,7 @@ func toggle_menu() -> void:
 		use_item.focus_mode = Control.FOCUS_NONE
 		toss_item.focus_mode = Control.FOCUS_NONE
 		back_item.focus_mode = Control.FOCUS_NONE
-		menu_level = 0
+		menu_level = -1
 	
 	get_tree().paused = not get_tree().paused
 
@@ -56,7 +56,7 @@ func _input(event:InputEvent) -> void:
 	if event.is_action_pressed("pause") and not on_dialogic:
 		toggle_menu()
 	
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_cancel") and not on_dialogic:
 		match menu_level:
 			0:
 				toggle_menu()
@@ -92,6 +92,7 @@ func _on_quests_pressed() -> void:
 		quests_container.get_child(0).focus()
 
 func select_first_menu() -> void:
+	menu_level = 0
 	for button in button_container.get_children():
 		button.focus_mode = Control.FOCUS_ALL
 	button_container.get_child(0).grab_focus()
@@ -120,3 +121,7 @@ func _on_quit_pressed() -> void:
 	unselect_first_menu()
 	SignalBus.emit_signal("starts_talking")
 	SignalBus.emit_signal("quit_game")
+
+
+func _on_exit_menu_pressed() -> void:
+	toggle_menu()
