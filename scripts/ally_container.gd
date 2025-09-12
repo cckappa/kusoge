@@ -17,6 +17,7 @@ signal uses_item(target:Character)
 @onready var health_points := %HealthPoints
 @onready var selected_arrow := %SelectedArrow
 @onready var ability_arrow := %AbilityArrow
+@onready var fake_arrow:= %FakeArrow
 @onready var death_texture := %DeathTexture
 @onready var menu := %Menu
 @onready var target_button := %TargetButton
@@ -138,6 +139,9 @@ func focus_arrows() -> void:
 	for arrow in get_tree().get_nodes_in_group("selected_arrows"):
 		arrow.focus_mode = Control.FOCUS_ALL
 
+func hide_fake_arrow() -> void:
+	fake_arrow.visible = false
+
 func death() -> void:
 	print(character.name, " DEAD")
 	portrait_damaged.modulate = Color.hex(0x282331FF)
@@ -193,6 +197,7 @@ func check_timer() -> bool:
 func ability_pressed(from: Character, ability: Ability) -> void:
 	if from == character:
 		if check_timer():
+			fake_arrow.visible = true
 			submenu_level = 3
 			if ability.effect == "NEGATIVE":
 				for target in get_tree().get_nodes_in_group("selected_targets"):

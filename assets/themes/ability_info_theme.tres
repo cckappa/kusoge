@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cs5k0r1lxqa1r"]
+
+[ext_resource type="FontFile" uid="uid://dduog4mrlv1ky" path="res://assets/fonts/Mochiy_Pop_One/MochiyPopOne-Regular.ttf" id="1_wwn50"]
+
+[resource]
+RichTextLabel/colors/default_color = Color(0.168627, 0.933333, 0.0666667, 1)
+RichTextLabel/font_sizes/normal_font_size = 67
+RichTextLabel/fonts/normal_font = ExtResource("1_wwn50")

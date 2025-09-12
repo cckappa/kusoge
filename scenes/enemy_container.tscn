@@ -1,25 +1,22 @@
-[gd_scene load_steps=19 format=3 uid="uid://deg6oekjklhs8"]
+[gd_scene load_steps=22 format=3 uid="uid://deg6oekjklhs8"]
 
 [ext_resource type="Script" uid="uid://durb5suil11ek" path="res://scripts/enemy_container.gd" id="1_rne6s"]
 [ext_resource type="Theme" uid="uid://ctd47cus6kna0" path="res://assets/themes/menu_theme.tres" id="2_hayad"]
+[ext_resource type="StyleBox" uid="uid://b4i0xc72nhrgs" path="res://assets/themes/style_box_flat_health_background.tres" id="3_c07se"]
 [ext_resource type="Texture2D" uid="uid://bgefprxussdta" path="res://assets/enemy_sprites/Serpra.png" id="3_y7wkr"]
+[ext_resource type="StyleBox" uid="uid://dc7hsb33gpqk5" path="res://assets/themes/style_box_flat_health_front.tres" id="4_3r251"]
+[ext_resource type="Texture2D" uid="uid://u86wqrsgcbl1" path="res://assets/icons/radial_timer_background.png" id="5_de1d0"]
 [ext_resource type="Texture2D" uid="uid://dhkdkha538w1v" path="res://assets/battle/Muerte.PNG" id="5_g3yxh"]
 [ext_resource type="Texture2D" uid="uid://jr71m17ib8jj" path="res://assets/icons/target_select.svg" id="5_qrxc3"]
 [ext_resource type="PackedScene" uid="uid://4hkn25062ror" path="res://scenes/crit_particles_long_circle.tscn" id="6_pb7q0"]
 [ext_resource type="AudioStream" uid="uid://btagcqpq4o02r" path="res://assets/sfx/162792__timgormly__8-bit-explosion1.mp3" id="7_aprvx"]
+[ext_resource type="Texture2D" uid="uid://buj4nrlqipl5o" path="res://assets/icons/radial_timer_disc.png" id="7_deu02"]
 [ext_resource type="PackedScene" uid="uid://diyhj67vyeuiw" path="res://scenes/heal_particles_long.tscn" id="10_o60lc"]
 [ext_resource type="PackedScene" uid="uid://mls25pts3d18" path="res://scenes/heal_particles_star.tscn" id="11_7ghmc"]
 [ext_resource type="AudioStream" uid="uid://xomtmhux1icj" path="res://assets/sfx/563662__eminyildirim__healing-spell.mp3" id="13_w60pi"]
 [ext_resource type="AudioStream" uid="uid://yjg8t7qnv4nl" path="res://assets/sfx/691095__ikramshinwari__dfam-kick02-e-wet.mp3" id="14_x6eex"]
 [ext_resource type="AudioStream" uid="uid://brjeugobkanix" path="res://assets/sfx/637809__kyles__rope-thick-handling-rough-hairy-fishing-nets.mp3" id="15_8qgus"]
 [ext_resource type="Theme" uid="uid://bci1eig3l1g22" path="res://assets/themes/attack_letter_theme.tres" id="17_m3ka1"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rshif"]
-bg_color = Color(0.953278, 0.187495, 0, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_c07se"]
 blend_mode = 1
@@ -167,20 +164,32 @@ z_as_relative = false
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme = ExtResource("2_hayad")
-theme_override_styles/fill = SubResource("StyleBoxFlat_rshif")
+theme_override_styles/background = ExtResource("3_c07se")
+theme_override_styles/fill = ExtResource("4_3r251")
 value = 80.0
 show_percentage = false
 
-[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="ProgressBar" type="TextureProgressBar" parent="VBoxContainer/Control"]
 unique_name_in_owner = true
+modulate = Color(0, 1.657, 3.15, 1)
 z_index = 16
 z_as_relative = false
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-theme = ExtResource("2_hayad")
-value = 100.0
+layout_mode = 1
+offset_left = 442.0
+offset_top = -24.0
+offset_right = 1042.0
+offset_bottom = 231.0
+scale = Vector2(0.755, 0.755)
+pivot_offset = Vector2(127.5, 127.5)
 rounded = true
-show_percentage = false
+fill_mode = 5
+radial_center_offset = Vector2(-2, 0)
+texture_under = ExtResource("5_de1d0")
+texture_progress = ExtResource("7_deu02")
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(100, 255)

@@ -77,6 +77,8 @@ func _input(event: InputEvent) -> void:
 		if item_name_container.get_child_count() > 0:
 			await get_tree().process_frame
 			item_name_container.get_child(0).item_button.grab_focus()
+		else:
+			pass
 		Functions.set_game_speed(0.1)
 		get_viewport().set_input_as_handled()
 
@@ -120,6 +122,9 @@ func _on_selecting_state_entered() -> void:
 	
 	var allies:Array[Character] = alive_allies(Globals.current_arrange_allies)
 	if allies.size() > 0:
+		for ally in allies:
+			ally.current_container.hide_fake_arrow()
+
 		if ability_status.from != null:
 			if ability_status.from.current_container.submenu_level == 2:
 				pass

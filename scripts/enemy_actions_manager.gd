@@ -5,6 +5,7 @@ extends Node
 var time_elapsed := 0.0
 var check_interval := 1.0  # Check every 1 second
 var character_to_disable:Character
+var enter_battle_wait_time := 5.0
 
 var ability_status:={
 	"ability":null,
@@ -16,8 +17,9 @@ var ability_status:={
 ### STATE ENTERS
 
 func _on_enter_state_entered() -> void:
-	pass
-	#state_chart.send_event("enemy_select")
+	var enemies:Array[Character] = alive_enemies(Globals.current_arrange_enemies)
+	for enemy : Character in enemies:
+		enemy.current_container.reset_timer(enter_battle_wait_time)
 
 func _on_selecting_state_entered() -> void:
 	pass # Replace with function body.

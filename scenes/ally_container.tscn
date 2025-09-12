@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://li0a5rq7wt7u"]
+[gd_scene load_steps=37 format=3 uid="uid://li0a5rq7wt7u"]
 
 [ext_resource type="Script" uid="uid://cm53j7285f7l8" path="res://scripts/ally_container.gd" id="1_fh84y"]
 [ext_resource type="Texture2D" uid="uid://cdulpvixtxapj" path="res://assets/icons/selected_arrow.svg" id="2_8b1ki"]
@@ -6,14 +6,17 @@
 [ext_resource type="Script" uid="uid://dgck8aux5nf8r" path="res://scripts/selected_arrow.gd" id="3_mbva7"]
 [ext_resource type="Texture2D" uid="uid://4gcpx3eh7ly4" path="res://assets/character_portraits/demo_tecnico/Alicia DYB.PNG" id="3_wh2qf"]
 [ext_resource type="Texture2D" uid="uid://l38qfes82cnk" path="res://assets/character_portraits/demo_tecnico/Alicia daño.PNG" id="4_4i8le"]
+[ext_resource type="Script" uid="uid://qucqeisf67fo" path="res://scripts/fake_arrow.gd" id="4_8qofy"]
 [ext_resource type="Texture2D" uid="uid://b2h5yxmm73g2m" path="res://assets/icons/left_arrow.png" id="5_chbk5"]
 [ext_resource type="Texture2D" uid="uid://jr71m17ib8jj" path="res://assets/icons/target_select.svg" id="5_h36vx"]
 [ext_resource type="Script" uid="uid://dulholl7frx4p" path="res://scripts/ability_arrow.gd" id="6_vv1c1"]
 [ext_resource type="Texture2D" uid="uid://3u75myl0alnt" path="res://assets/icons/circle_crit.svg" id="7_fa4ii"]
 [ext_resource type="Texture2D" uid="uid://dgqpwvwksevim" path="res://assets/icons/death_tomb.png" id="8_2n5jn"]
+[ext_resource type="StyleBox" uid="uid://b4i0xc72nhrgs" path="res://assets/themes/style_box_flat_health_background.tres" id="8_65wtp"]
 [ext_resource type="FontFile" uid="uid://dduog4mrlv1ky" path="res://assets/fonts/Mochiy_Pop_One/MochiyPopOne-Regular.ttf" id="8_kp65j"]
 [ext_resource type="Texture2D" uid="uid://6j1rxxcilfca" path="res://assets/icons/particle_pop_circle_thick.svg" id="8_tt1g2"]
 [ext_resource type="Texture2D" uid="uid://d6uwsam2mcwy" path="res://assets/icons/particle_pop_circle_thin.svg" id="9_7dsxs"]
+[ext_resource type="StyleBox" uid="uid://dc7hsb33gpqk5" path="res://assets/themes/style_box_flat_health_front.tres" id="9_8qofy"]
 [ext_resource type="Texture2D" uid="uid://u86wqrsgcbl1" path="res://assets/icons/radial_timer_background.png" id="10_2i6ux"]
 [ext_resource type="Texture2D" uid="uid://dgsgpr4m766ne" path="res://assets/icons/radial_timer_slice.png" id="11_65wtp"]
 [ext_resource type="PackedScene" uid="uid://4hkn25062ror" path="res://scenes/crit_particles_long_circle.tscn" id="11_guey6"]
@@ -33,17 +36,6 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4i8le"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kp65j"]
-bg_color = Color(0.803922, 0.803922, 0.819608, 0.482353)
-skew = Vector2(0.415, 0)
-shadow_color = Color(0, 0, 0, 0.976471)
-shadow_size = 6
-shadow_offset = Vector2(6, 6)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yon3c"]
-bg_color = Color(0, 0.898039, 0.560784, 1)
-skew = Vector2(0.415, 0)
 
 [sub_resource type="Theme" id="Theme_2i6ux"]
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
@@ -261,6 +253,19 @@ stretch_mode = 5
 script = ExtResource("3_mbva7")
 amount_hovering = 12
 
+[node name="FakeArrow" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 167.0
+offset_top = -78.0
+offset_right = 232.0
+offset_bottom = -13.0
+texture = ExtResource("2_8b1ki")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("4_8qofy")
+
 [node name="PanelContainer" type="PanelContainer" parent="."]
 z_as_relative = false
 layout_mode = 2
@@ -317,8 +322,8 @@ custom_minimum_size = Vector2(0, 54)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("3_8ksiu")
-theme_override_styles/background = SubResource("StyleBoxFlat_kp65j")
-theme_override_styles/fill = SubResource("StyleBoxFlat_yon3c")
+theme_override_styles/background = ExtResource("8_65wtp")
+theme_override_styles/fill = ExtResource("9_8qofy")
 value = 80.0
 show_percentage = false
 

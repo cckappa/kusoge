@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://cn7cxbug5sjey"]
+[gd_scene load_steps=62 format=3 uid="uid://cn7cxbug5sjey"]
 
 [ext_resource type="Script" uid="uid://1et7n8ftkqn" path="res://scripts/battle.gd" id="1_8mi71"]
 [ext_resource type="Script" uid="uid://bt86h2wsa5yga" path="res://scripts/battle_manager.gd" id="2_o8ur5"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://bg30medshbrqt" path="res://assets/battle/star3_victory.png" id="17_fpf3k"]
 [ext_resource type="Texture2D" uid="uid://j10oria8we1o" path="res://assets/battle/star2_victory.png" id="18_bi5l8"]
 [ext_resource type="Texture2D" uid="uid://dhtpgwsxltfj3" path="res://assets/battle/star1_victory.png" id="19_jt4d8"]
+[ext_resource type="Theme" uid="uid://cs5k0r1lxqa1r" path="res://assets/themes/ability_info_theme.tres" id="19_sattt"]
 [ext_resource type="Texture2D" uid="uid://rsqps5edq51q" path="res://assets/battle/Daño.PNG" id="20_fqtyt"]
 [ext_resource type="Texture2D" uid="uid://cxtv36krjuatl" path="res://assets/battle/botiquin2.PNG" id="20_r0ctv"]
 [ext_resource type="Texture2D" uid="uid://vgmkybqdl06e" path="res://assets/battle/tiempo.PNG" id="21_8a2ah"]
@@ -35,12 +36,14 @@
 [ext_resource type="PackedScene" uid="uid://bemgcy05s4dol" path="res://scenes/loot_item.tscn" id="22_kl6ie"]
 [ext_resource type="StyleBox" uid="uid://chcenb1wwg3ux" path="res://assets/themes/background_menu_battle_item_style_box_texture.tres" id="23_1rdfn"]
 [ext_resource type="PackedScene" uid="uid://cxmilwarewua0" path="res://scenes/item_name.tscn" id="23_r0ctv"]
+[ext_resource type="Texture2D" uid="uid://c0vxa3mojrjho" path="res://assets/battle/atras.png" id="24_jid5g"]
 [ext_resource type="AudioStream" uid="uid://3vetx47tyh7f" path="res://assets/music/earthbound_battle_theme.mp3" id="30_xgp4q"]
 [ext_resource type="AudioStream" uid="uid://b324qislhpfci" path="res://assets/music/victory_fanfare.mp3" id="31_681md"]
 [ext_resource type="Texture2D" uid="uid://d3xuo1pm4n8w5" path="res://assets/battle/desmotivaciones.png" id="32_fqtyt"]
 [ext_resource type="AudioStream" uid="uid://cbw1lvt4yiqbe" path="res://assets/music/lost_battle.mp3" id="32_rw4tp"]
 [ext_resource type="Theme" uid="uid://bfoia834oik6" path="res://assets/themes/lose_theme.tres" id="33_8a2ah"]
 [ext_resource type="AudioStream" uid="uid://c48ujoigwjk4j" path="res://assets/sfx/417794__lorenzothegreat__error-cropped.wav" id="38_4gblq"]
+[ext_resource type="Texture2D" uid="uid://c365pfhq0jymn" path="res://assets/battle/batalla.png" id="40_1i0gj"]
 
 [sub_resource type="Resource" id="Resource_lampa"]
 script = ExtResource("11_37w08")
@@ -320,6 +323,115 @@ tracks/1/keys = {
 _data = {
 &"RESET": SubResource("Animation_8a2ah"),
 &"lose_screen": SubResource("Animation_fqtyt")
+}
+
+[sub_resource type="Animation" id="Animation_1i0gj"]
+resource_name = "battle_start"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.533333, 0.8),
+"transitions": PackedFloat32Array(0.217638, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.533333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.733333, 3),
+"transitions": PackedFloat32Array(0.812253, 0.183011),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gmkwt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1925, 522)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_drx85"]
+_data = {
+&"RESET": SubResource("Animation_gmkwt"),
+&"battle_start": SubResource("Animation_1i0gj")
 }
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_0bxd8"]
@@ -654,10 +766,10 @@ grow_vertical = 2
 [node name="AllyThumbnailContainer" type="PanelContainer" parent="AttackMenu"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = -350.0
-offset_top = 138.0
-offset_right = -80.0
-offset_bottom = 408.0
+offset_left = -321.0
+offset_top = 355.0
+offset_right = -51.0
+offset_bottom = 625.0
 theme = ExtResource("13_f0g0v")
 
 [node name="MarginContainer" type="MarginContainer" parent="AttackMenu/AllyThumbnailContainer"]
@@ -704,6 +816,87 @@ theme_override_constants/separation = 0
 [node name="AbilityName" parent="AttackMenu/AbilitiesContainer/MarginContainer/AbilityNameContainer" instance=ExtResource("15_4u087")]
 layout_mode = 2
 
+[node name="InfoContainer" type="HBoxContainer" parent="AttackMenu"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = 516.0
+offset_right = 550.0
+offset_bottom = 626.0
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="AttackMenu/InfoContainer"]
+layout_mode = 2
+theme = ExtResource("16_rwtbh")
+
+[node name="IconHealth" type="TextureRect" parent="AttackMenu/InfoContainer/PanelContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("20_r0ctv")
+expand_mode = 2
+stretch_mode = 3
+flip_h = true
+flip_v = true
+
+[node name="IconDagger" type="TextureRect" parent="AttackMenu/InfoContainer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("20_fqtyt")
+expand_mode = 2
+stretch_mode = 3
+flip_h = true
+flip_v = true
+
+[node name="MarginContainer" type="MarginContainer" parent="AttackMenu/InfoContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 120
+
+[node name="DamageValue" type="RichTextLabel" parent="AttackMenu/InfoContainer/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("19_sattt")
+bbcode_enabled = true
+text = "60"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="PanelContainer2" type="PanelContainer" parent="AttackMenu/InfoContainer"]
+layout_mode = 2
+theme = ExtResource("16_rwtbh")
+
+[node name="TextureRect" type="TextureRect" parent="AttackMenu/InfoContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("21_8a2ah")
+expand_mode = 2
+stretch_mode = 3
+flip_h = true
+flip_v = true
+
+[node name="MarginContainer" type="MarginContainer" parent="AttackMenu/InfoContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 125
+
+[node name="TimeValue" type="RichTextLabel" parent="AttackMenu/InfoContainer/PanelContainer2/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("19_sattt")
+bbcode_enabled = true
+text = "60.5"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
 [node name="TkioExe" type="PanelContainer" parent="AttackMenu"]
 layout_mode = 1
 anchors_preset = 4
@@ -741,82 +934,13 @@ layout_mode = 2
 texture = ExtResource("15_rwtbh")
 stretch_mode = 5
 
-[node name="InfoContainer" type="HBoxContainer" parent="AttackMenu"]
+[node name="BackTexture" type="TextureRect" parent="AttackMenu"]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 523.0
-offset_right = 591.0
-offset_bottom = 637.0
-
-[node name="PanelContainer" type="PanelContainer" parent="AttackMenu/InfoContainer"]
-layout_mode = 2
-theme = ExtResource("16_rwtbh")
-
-[node name="IconHealth" type="TextureRect" parent="AttackMenu/InfoContainer/PanelContainer"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-size_flags_horizontal = 8
-texture = ExtResource("20_r0ctv")
-expand_mode = 2
-stretch_mode = 3
-flip_h = true
-flip_v = true
-
-[node name="IconDagger" type="TextureRect" parent="AttackMenu/InfoContainer/PanelContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 8
-texture = ExtResource("20_fqtyt")
-expand_mode = 2
-stretch_mode = 3
-flip_h = true
-flip_v = true
-
-[node name="MarginContainer" type="MarginContainer" parent="AttackMenu/InfoContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_right = 125
-
-[node name="DamageValue" type="RichTextLabel" parent="AttackMenu/InfoContainer/PanelContainer/MarginContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("14_eivww")
-bbcode_enabled = true
-text = "60"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="PanelContainer2" type="PanelContainer" parent="AttackMenu/InfoContainer"]
-layout_mode = 2
-theme = ExtResource("16_rwtbh")
-
-[node name="TextureRect" type="TextureRect" parent="AttackMenu/InfoContainer/PanelContainer2"]
-layout_mode = 2
-size_flags_horizontal = 8
-texture = ExtResource("21_8a2ah")
-expand_mode = 2
-stretch_mode = 3
-flip_h = true
-flip_v = true
-
-[node name="MarginContainer" type="MarginContainer" parent="AttackMenu/InfoContainer/PanelContainer2"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_right = 125
-
-[node name="TimeValue" type="RichTextLabel" parent="AttackMenu/InfoContainer/PanelContainer2/MarginContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("14_eivww")
-bbcode_enabled = true
-text = "60.5"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
+offset_left = 1053.0
+offset_top = 472.0
+offset_right = 1402.0
+offset_bottom = 612.0
+texture = ExtResource("24_jid5g")
 
 [node name="ItemMenu" type="Control" parent="."]
 unique_name_in_owner = true
@@ -970,6 +1094,10 @@ text = "60"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
+
+[node name="BackTexture" type="TextureRect" parent="ItemMenu/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("24_jid5g")
 
 [node name="TkioExe" type="PanelContainer" parent="ItemMenu"]
 layout_mode = 1
@@ -1304,6 +1432,30 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_ikjs2")
 }
+
+[node name="BattleTexture" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -962.5
+offset_top = -261.0
+offset_right = 962.5
+offset_bottom = 261.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(962.5, 261)
+texture = ExtResource("40_1i0gj")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BattleTexture"]
+libraries = {
+&"": SubResource("AnimationLibrary_drx85")
+}
+autoplay = "battle_start"
 
 [node name="BlackRect" type="ColorRect" parent="."]
 visible = false
