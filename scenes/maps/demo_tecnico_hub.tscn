@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=3 uid="uid://cw14ehtvu80xx"]
+[gd_scene load_steps=146 format=3 uid="uid://cw14ehtvu80xx"]
 
 [ext_resource type="Script" uid="uid://ddv7kigla6iip" path="res://scripts/maps/demo_tecnico_hub.gd" id="1_w0bji"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="2_b27bq"]
@@ -60,6 +60,10 @@
 [ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="42_tqvvo"]
 [ext_resource type="PackedScene" uid="uid://dqi4bw7t4w0u8" path="res://scenes/add_new_character_animation.tscn" id="43_76sup"]
 [ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="44_w68cj"]
+[ext_resource type="Texture2D" uid="uid://cu3symbef1adw" path="res://assets/objects/demo_tecnico/1roca_mapa.png" id="46_4h3p4"]
+[ext_resource type="Texture2D" uid="uid://c2fclseuebpey" path="res://assets/objects/demo_tecnico/2roca_mapa.png" id="47_cf2ti"]
+[ext_resource type="Texture2D" uid="uid://dfx4uk7g3jxfc" path="res://assets/objects/demo_tecnico/3roca_mapa.png" id="48_gvktg"]
+[ext_resource type="Texture2D" uid="uid://60n8w544ebmn" path="res://assets/objects/demo_tecnico/4roca_mapa.png" id="49_02r7b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1lo0"]
 size = Vector2(3690, 614)
@@ -71,7 +75,7 @@ size = Vector2(856, 3308.5)
 size = Vector2(6378, 351)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqvvo"]
-size = Vector2(934, 3781)
+size = Vector2(993, 3781)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_41sgd"]
 atlas = ExtResource("10_5gik4")
@@ -731,7 +735,7 @@ position = Vector2(-82, 1985)
 shape = SubResource("RectangleShape2D_2r6fr")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
-position = Vector2(-2833, 35.5)
+position = Vector2(-2803.5, 35.5)
 shape = SubResource("RectangleShape2D_tqvvo")
 
 [node name="PlayableCharacter" parent="." instance=ExtResource("8_0xr4t")]
@@ -1062,6 +1066,7 @@ offset = Vector2(0, -1600)
 polygon = PackedVector2Array(-2408, -1080, -2308, -1021, -2173, -824, -2022, -776, -1828, -620, -1711, -627, -1583, -576, -1348, -427, -1283, -413, -1138, -451, -1031, -420, -951, -334, -862, -341, -779, -310, -686, -199, -599, -192, -516, -258, -406, -289, -354, -199, -261, -130, -43, -89, 98, -75, 271, -185, 433, -251, 626, -258, 778, -230, 996, -189, 1117, -161, 1275, -185, 1351, -268, 1403, -358, 1527, -451, 1662, -500, 1817, -614, 1855, -738, 1855, -845, 1904, -976, 1952, -1080, 2004, -1169, 2045, -1245, 2062, -1359, 2062, -1535, 2056, -1632, 2052, -1722, 2094, -1843, 2159, -1936, 2225, -2026, 2308, -2195, 2356, -2364, 2373, -2561, 2390, -2681, 2366, -2858, 2366, -3009, 2387, -3127, 2501, -3158, 2511, -610, 2487, 70, -886, 105, -2436, 70)
 
 [node name="Rocas" parent="ObjectLayer" instance=ExtResource("9_86tlv")]
+visible = false
 position = Vector2(-2148, 422)
 
 [node name="Sprite2D" parent="ObjectLayer/Rocas" index="0"]
@@ -1073,6 +1078,46 @@ position = Vector2(0, -65)
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/Rocas/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-253, 343, 5, 267, 225, 119, 134, -11, -75, -117, -60, -227, 164, -645, 92, -736, 123, -892, 24, -983, 96, -1081, 35, -1214, 142, -1355, 100, -1484, 16, -1689, -257, -1738)
+
+[node name="Roca1" parent="ObjectLayer" groups=["objects"] instance=ExtResource("9_86tlv")]
+position = Vector2(-2147, 480)
+
+[node name="Sprite2D" parent="ObjectLayer/Roca1" index="0"]
+texture = ExtResource("46_4h3p4")
+offset = Vector2(0, -183)
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/Roca1/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-251, 209, -72, 178, 143, 79, 225, -8, 6, -114, -251, -119)
+
+[node name="Roca2" parent="ObjectLayer" groups=["objects"] instance=ExtResource("9_86tlv")]
+position = Vector2(-2149, -501)
+
+[node name="Sprite2D" parent="ObjectLayer/Roca2" index="0"]
+texture = ExtResource("47_cf2ti")
+offset = Vector2(0, 150)
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/Roca2/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-253, 635, -30, 609, 136, 308, 180, 217, 134, -45, 19, -130, -261, -112)
+
+[node name="Roca3" parent="ObjectLayer" groups=["objects"] instance=ExtResource("9_86tlv")]
+position = Vector2(-2206, -737)
+
+[node name="Sprite2D" parent="ObjectLayer/Roca3" index="0"]
+texture = ExtResource("48_gvktg")
+offset = Vector2(0, -16)
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/Roca3/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-204, 132, 63, 130, 159, 19, 139, -24, 24, -61, -65, -88, -196, -80)
+
+[node name="Roca4" parent="ObjectLayer" groups=["objects"] instance=ExtResource("9_86tlv")]
+position = Vector2(-2187, -1002)
+
+[node name="Sprite2D" parent="ObjectLayer/Roca4" index="0"]
+texture = ExtResource("49_02r7b")
+offset = Vector2(0, -220)
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/Roca4/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-224, 156, -29, 163, 103, 126, 174, 19, 143, -61, -92, -113, -220, -96)
 
 [node name="EnemiesLayer" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -1132,10 +1177,10 @@ physics_interpolation_mode = 1
 position = Vector2(0, 285)
 zoom = Vector2(1.2, 1.2)
 process_callback = 0
-limit_left = -1741
-limit_top = -1520
-limit_right = 1741
-limit_bottom = 1519
+limit_left = -2356
+limit_top = -2839
+limit_right = 2365
+limit_bottom = 1787
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="CameraManager/Camera2D"]
@@ -1186,3 +1231,7 @@ limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
 [editable path="ObjectLayer/ArbolTalado"]
 [editable path="ObjectLayer/Arboles"]
 [editable path="ObjectLayer/Rocas"]
+[editable path="ObjectLayer/Roca1"]
+[editable path="ObjectLayer/Roca2"]
+[editable path="ObjectLayer/Roca3"]
+[editable path="ObjectLayer/Roca4"]
