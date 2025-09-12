@@ -1,5 +1,8 @@
-npc_rosita: cahuates pistaches cahuates pistaches cahuates pistaches cahuates pistaches cahuates pistaches
-npc_rosita: cahuates pistaches cahuates pistaches cahuates pistaches cahuates pistaches cahuates pistaches
+npc_rosita: cahuates cahuates cahuates cahuates cahuates pistaches cahuates pistaches
+- ¿A cuánto la bolsa?
+	npc_rosita: a diez la bolsita
+- ...
+	npc_rosita: cahuates cahuates cahuates cahuates cahuates pistaches cahuates pistaches
 if {Quests.demo_tecnico.lobuki_cigarro_quest_status} == 0.0:
 	npc_rosita: ¿Qué? ¿Quieres que te venda un cigarro a ti niña?
 	npc_rosita: sí, te salen a 5 pesos uno suelto

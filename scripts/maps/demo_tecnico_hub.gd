@@ -4,6 +4,7 @@ extends BaseScene
 @export var door_collision : CollisionShape2D
 
 @onready var door_animation_player:= %DoorAnimationPlayer
+@onready var talk_door:= %TalkDoor
 
 var battle_scene: String = "res://scenes/battle.tscn" 
 
@@ -16,6 +17,7 @@ func _ready_scene() -> void:
 		"door_opened":
 			door_sprite.play("fully_opened")
 			door_collision.disabled = true
+			talk_door.get_child(0).monitoring = false
 		_:
 			pass
 

@@ -60,6 +60,7 @@ directories/dtl_directory={
 "lobuki_cigarro_0": "res://dialogic/timelines/demo_tecnico/lobuki_cigarro_0.dtl",
 "mesero_bar_1": "res://dialogic/timelines/area_1/mesero_bar_1.dtl",
 "npc_rosita_demo": "res://dialogic/timelines/demo_tecnico/npc_rosita_demo.dtl",
+"numero_casa_demo_tecnico": "res://dialogic/timelines/demo_tecnico/numero_casa_demo_tecnico.dtl",
 "obj_mecha": "res://dialogic/timelines/obj_mecha.dtl",
 "obj_notebook_hospital": "res://dialogic/timelines/obj_notebook_hospital.dtl",
 "obj_table_hospital": "res://dialogic/timelines/obj_table_hospital.dtl",
