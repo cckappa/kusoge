@@ -12,11 +12,11 @@ var target_marker:String = "default"
 var from_door:bool = false
 
 const ALICIA := preload("res://assets/resources/characters/alicia.tres")
-const INGENIERO_FROGELIO = preload("res://assets/resources/characters/ingeniero_frogelio.tres")
-const MALENA = preload("res://assets/resources/characters/malena.tres")
-const MIUMIU = preload("res://assets/resources/characters/miumiu.tres")
-const PROTO_SHAMAN = preload("res://assets/resources/characters/proto_shaman.tres")
-const RANASTACIO = preload("res://assets/resources/characters/ranastacio.tres")
+const INGENIERO_FROGELIO = preload("res://assets/resources/characters/demo_tecnico/ingeniero_frogelio.tres")
+const MALENA = preload("res://assets/resources/characters/demo_tecnico/malena.tres")
+const MIUMIU = preload("res://assets/resources/characters/demo_tecnico/miumiu.tres")
+const PROTO_SHAMAN = preload("res://assets/resources/characters/demo_tecnico/proto_shaman.tres")
+const RANASTACIO = preload("res://assets/resources/characters/demo_tecnico/ranastacio.tres")
 const SABIA_RANA_PEDRO = preload("res://assets/resources/characters/demo_tecnico/sabia_rana_pedro.tres")
 const LOBUKI = preload("res://assets/resources/characters/demo_tecnico/lobuki.tres")
 

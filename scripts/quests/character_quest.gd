@@ -6,6 +6,7 @@ extends QuestResource
 func start_quest() -> void:
 	if quest_status == QuestStatus.AVAILABLE:
 		quest_status = QuestStatus.STARTED
+
 		add_quest_to_current_quests()
 		print("Quest started")
 	else:

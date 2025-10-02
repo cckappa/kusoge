@@ -12,7 +12,8 @@
 
 [resource]
 script = ExtResource("3_5fc53")
-name = "Alicia"
+identifier = "alicia"
+section_folder = "root"
 character_portrait = ExtResource("6_rf4ft")
 character_damaged = ExtResource("6_tik4s")
 max_hp = 300

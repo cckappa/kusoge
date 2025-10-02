@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Character" load_steps=10 format=3 uid="uid://bvpnaj7mub7a7"]
+
+[ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_hfu4i"]
+[ext_resource type="Resource" uid="uid://bnkt1v88hkkjx" path="res://assets/resources/abilities/piss.tres" id="2_owuk7"]
+[ext_resource type="Resource" uid="uid://bbgmx00txpaek" path="res://assets/resources/abilities/cachetada.tres" id="3_vh5cb"]
+[ext_resource type="Resource" uid="uid://ckx56tfvcgtr8" path="res://assets/resources/abilities/escupitajo.tres" id="4_40jv5"]
+[ext_resource type="Resource" uid="uid://dx4j66lt4vb35" path="res://assets/resources/abilities/cuchillazo.tres" id="5_4djv1"]
+[ext_resource type="Texture2D" uid="uid://djkclyjbsvrpd" path="res://assets/character_portraits/demo_tecnico/RANASTASIO DAÑO.PNG" id="6_kamsy"]
+[ext_resource type="Texture2D" uid="uid://cd3nnf0w48lic" path="res://assets/character_portraits/demo_tecnico/RANASTASIO DYB.PNG" id="7_ch0ct"]
+[ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="8_tgns4"]
+[ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="9_pr17l"]
+
+[resource]
+script = ExtResource("9_pr17l")
+identifier = "ranastacio"
+section_folder = "demo_tecnico"
+character_portrait = ExtResource("7_ch0ct")
+character_damaged = ExtResource("6_kamsy")
+max_hp = 270
+unlocked = true
+type = "NORMAL"
+abilities = Array[ExtResource("1_hfu4i")]([ExtResource("2_owuk7"), ExtResource("3_vh5cb"), ExtResource("4_40jv5"), ExtResource("5_4djv1")])
+loot = Array[ExtResource("8_tgns4")]([])
+min_loot = 0
+max_loot = 1

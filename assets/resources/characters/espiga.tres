@@ -11,7 +11,8 @@
 
 [resource]
 script = ExtResource("3_apdnw")
-name = "Espiga"
+identifier = ""
+section_folder = ""
 character_portrait = ExtResource("6_r1spq")
 max_hp = 70
 unlocked = false

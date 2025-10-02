@@ -1,13 +1,12 @@
 [gd_resource type="Resource" script_class="CharacterQuest" load_steps=3 format=3 uid="uid://cdodr052w1u4g"]
 
-[ext_resource type="Resource" uid="uid://bvpnaj7mub7a7" path="res://assets/resources/characters/ranastacio.tres" id="1_5p25o"]
+[ext_resource type="Resource" uid="uid://bvpnaj7mub7a7" path="res://assets/resources/characters/demo_tecnico/ranastacio.tres" id="1_5p25o"]
 [ext_resource type="Script" uid="uid://h7m181ddxsgc" path="res://scripts/quests/character_quest.gd" id="1_m763d"]
 
 [resource]
 script = ExtResource("1_m763d")
 new_character = ExtResource("1_5p25o")
 identifier = "ranaborracha_area1_1"
-name = "Rana Borracha"
-goal_description_list = Array[String](["Encuentra a su novia.", "Consigue electrolitos orales.", "Regresa con la Rana"])
-description_list = Array[String](["Su novia tiene un vestigo negro y una sonrisa bonita", "Puedes conseguir electrolitos en cualquier tienda de conveniencia.", "Vuelve al bar a darle los electrolitos a la Rana."])
 quest_giver = ExtResource("1_5p25o")
+quest_section_folder = ""
+quest_description_length = 1

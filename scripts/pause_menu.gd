@@ -1,6 +1,6 @@
 extends Control
 
-@onready var button_container := %ButtonContainer
+@onready var button_container := %PauseButtonContainer
 @onready var party_container := %PartyContainer
 @onready var items_container := %ItemsContainer
 @onready var quests_container := %QuestsContainer
@@ -77,7 +77,7 @@ func _on_party_pressed() -> void:
 	unselect_first_menu()
 	favorite_container.get_child(0).selected_button.grab_focus()
 
-func _on_items_pressed() -> void:
+func _on_items_button_pressed() -> void:
 	menu_level = 1
 	items_container.visible = true
 	unselect_first_menu()
@@ -123,5 +123,5 @@ func _on_quit_pressed() -> void:
 	SignalBus.emit_signal("quit_game")
 
 
-func _on_exit_menu_pressed() -> void:
+func _on_resume_pressed() -> void:
 	toggle_menu()

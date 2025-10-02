@@ -1,16 +1,16 @@
-npc_rosita: cahuates cahuates cahuates cahuates cahuates pistaches cahuates pistaches
-- ¿A cuánto la bolsa?
-	npc_rosita: a diez la bolsita
-- ...
-	npc_rosita: cahuates cahuates cahuates cahuates cahuates pistaches cahuates pistaches
+npc_rosita: cahuates cahuates cahuates cahuates cahuates pistaches cahuates pistaches #id:57
+- ¿A cuánto la bolsa? #id:58
+	npc_rosita: a diez la bolsita #id:59
+- ... #id:5a
+	npc_rosita: cahuates cahuates cahuates cahuates cahuates pistaches cahuates pistaches #id:5b
 if {Quests.demo_tecnico.lobuki_cigarro_quest_status} == 0.0:
-	npc_rosita: ¿Qué? ¿Quieres que te venda un cigarro a ti niña?
-	npc_rosita: sí, te salen a 5 pesos uno suelto
-	- sí deme 1 por favor
-		npc_rosita: aquí te dejo el encendedor por si quieres prenderlo
-	- ¿a cúanto la cajetilla?
-		npc_rosita: namas me queda uno suelto
-	npc_rosita: gracias, recuerda que fumar es causa de cancer
+	npc_rosita: ¿Qué? ¿Quieres que te venda un cigarro a ti niña? #id:5c
+	npc_rosita: sí, te salen a 5 pesos uno suelto #id:5d
+	- sí deme 1 por favor #id:5e
+		npc_rosita: aquí te dejo el encendedor por si quieres prenderlo #id:5f
+	- ¿a cúanto la cajetilla? #id:60
+		npc_rosita: namas me queda uno suelto #id:61
+	npc_rosita: gracias, recuerda que fumar es causa de cancer #id:62
 	set {Quests.demo_tecnico.lobuki_cigarro_quest_status} = 1.0
 	[signal arg_type="dict" arg="{"name":"npc_rosita_demo","next_index":1.0,"type":"goal"}"]
 	[signal arg_type="dict" arg="{"amount":1,"name":"cigarrete_lobuki_take"}"]

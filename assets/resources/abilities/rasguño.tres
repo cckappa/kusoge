@@ -6,9 +6,8 @@
 [resource]
 script = ExtResource("1_xa7dl")
 damage_points = 35
-ability_name = "Rasguño"
+identifier = "scratch"
 type = "NORMAL"
-description = "Rasguño con uñas largas"
 wait_time = 3.0
 effect = "NEGATIVE"
 attack_animation = ExtResource("1_fygye")

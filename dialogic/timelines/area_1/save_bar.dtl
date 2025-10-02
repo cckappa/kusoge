@@ -1,5 +1,5 @@
-Ver que una cucaracha se está comiendo los cacahuates del piso te llena de determinación.
-¿Quieres guardar la partida?
-- Sí
+Ver que una cucaracha se está comiendo los cacahuates del piso te llena de determinación. #id:3a
+¿Quieres guardar la partida? #id:3b
+- Sí #id:3c
 	[signal arg_type="dict" arg="{"name":"save_bar"}"]
-- No
+- No #id:3d

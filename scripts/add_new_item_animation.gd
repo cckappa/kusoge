@@ -4,6 +4,7 @@ extends Control
 
 @onready var item_sprite:= %ItemSprite
 @onready var new_item_text:= %NewItemText
+@onready var new_item_text2:= %NewItemText2
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 var bbtext_start:String = "[center][wave amp=60 freq=3]"
@@ -11,6 +12,8 @@ var bbtext_end:String = "[/wave][/center]"
 
 func _ready() -> void:
 	SignalBus.connect("item_added", item_added)
+	new_item_text2.text = tr("add_new_item_animation/new_item")
+	
 
 func set_info(item: Item) -> void:
 	item_sprite.texture = item.icon

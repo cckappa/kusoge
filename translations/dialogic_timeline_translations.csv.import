@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://c8848237vmmiv"
+
+[deps]
+
+files=["res://translations/dialogic_timeline_translations.en.translation"]
+
+source_file="res://translations/dialogic_timeline_translations.csv"
+dest_files=["res://translations/dialogic_timeline_translations.en.translation"]
+
+[params]
+
+compress=true
+delimiter=0

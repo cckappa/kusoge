@@ -6,9 +6,8 @@
 [resource]
 script = ExtResource("1_m7k6t")
 damage_points = 100
-ability_name = "Rayo Cósmico"
+identifier = "rayo_cosmico"
 type = "ELECTRIC"
-description = "Rayo Cósmico, sale de la energía vital del personaje"
 wait_time = 30.0
 effect = "NEGATIVE"
 attack_animation = ExtResource("1_dfcwg")

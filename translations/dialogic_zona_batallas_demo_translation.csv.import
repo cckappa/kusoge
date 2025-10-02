@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b3vapoljl0fbm"
+
+[deps]
+
+files=["res://translations/dialogic_zona_batallas_demo_translation.en.translation", "res://translations/dialogic_zona_batallas_demo_translation.es.translation"]
+
+source_file="res://translations/dialogic_zona_batallas_demo_translation.csv"
+dest_files=["res://translations/dialogic_zona_batallas_demo_translation.en.translation", "res://translations/dialogic_zona_batallas_demo_translation.es.translation"]
+
+[params]
+
+compress=true
+delimiter=0

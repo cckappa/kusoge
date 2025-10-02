@@ -1,0 +1,9 @@
+keys,en,es
+Text/42/text,"Hey girl do you need anything?","Ay, hola bb, ¿se te ofrece algo?"
+Choice/43/text,Save Game,Guardar la partida
+Choice/43/disabled_text,
+Text/44/text,What do you mean by saving the game? Are you okay?,¿Cómo que guardar la partida? de qué hablas ¿estás bien?
+Text/45/text,"oh no, that's embarrassing, let me tweet this lol","ay no qué oso, déjame twiteo esto jajajaja"
+Choice/46/text,"No thanks", "No, nada"
+Choice/46/disabled_text,
+Text/47/text,girl make up your mind,Ay bb decídete

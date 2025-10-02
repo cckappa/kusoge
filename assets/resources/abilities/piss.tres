@@ -6,9 +6,8 @@
 [resource]
 script = ExtResource("1_vg46s")
 damage_points = 90
-ability_name = "Meados"
+identifier = "piss"
 type = "WATER"
-description = "Orina a tus enemigos y vencerás"
 wait_time = 7.0
 effect = "NEGATIVE"
 attack_animation = ExtResource("1_7buo4")

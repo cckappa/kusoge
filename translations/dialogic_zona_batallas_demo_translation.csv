@@ -1,0 +1,18 @@
+keys,en,es
+Text/74/text,I'm proud that you have overcome all your battles,Estoy orgulloso de que hayas vencido todas tus batallas
+Text/75/text,it shows your courage and determination,demuestra tu coraje y determinación
+Text/76/text,"The road is arduous and challenging, you will need all the help you can get.","el camino es arduo y constante, necesitarás de toda la ayuda que puedas obtener"
+Text/77/text,"your training is complete, however do not hesitate to contact me.","tu entrenamiento ha terminado, sin embargo no dudes en contactarme."
+Text/78/text,"Hello welcome to the battle zone.","Hola bienvenida a la zona de batallas."
+Text/79/text,"I will be your teacher and train you in the art of TKiO.","seré tu maestro y te entrenaré en el arte del TKiO."
+Text/7a/text,"You can train the battles in any order you want, but they are in order of difficulty.","Podrás entrenar las batallas en el orden que quieras, pero están en orden de dificultad."
+Text/7b/text,"Select the battle you want to enter.","Selecciona la batalla a la que quieras entrar."
+Choice/7c/text,"Battle 1","Batalla 1"
+Choice/7c/disabled_text,
+Choice/7d/text,"Battle 2","Batalla 2"
+Choice/7d/disabled_text,
+Choice/7e/text,"Battle 3","Batalla 3"
+Choice/7e/disabled_text,
+Choice/7f/text,"I don't want to fight right now.","Ahora no quiero peleas."
+Choice/7f/disabled_text,
+Text/80/text,"Don't worry, come back whenever you want, I'll be here.","No te preocupes, vuelve cuando tú quieras, aquí estaré."

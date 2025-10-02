@@ -11,8 +11,7 @@ heal_amount = 200
 [resource]
 script = ExtResource("1_whbwt")
 identifier = &"cookie"
-display_name = "Galleta"
-description = "Es una galleta de avena."
+section_folder = "demo_tecnico"
 icon = ExtResource("1_06lqw")
 type = "HEAL"
 item_effect = SubResource("Resource_kgw1t")

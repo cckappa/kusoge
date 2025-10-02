@@ -11,7 +11,8 @@
 
 [resource]
 script = ExtResource("3_fng45")
-name = "Yua"
+identifier = ""
+section_folder = ""
 character_portrait = ExtResource("6_xr2sm")
 max_hp = 80
 unlocked = false

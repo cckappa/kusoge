@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5pci2v2vm4qd"]
+[gd_scene load_steps=6 format=3 uid="uid://b5pci2v2vm4qd"]
 
 [ext_resource type="Script" uid="uid://bjtgbjfc1t6uj" path="res://scripts/inicio_menu.gd" id="1_7l6qo"]
 [ext_resource type="Texture2D" uid="uid://cttacv1hpf2y2" path="res://assets/screens/menu_inicio.PNG" id="2_pxxgp"]
 [ext_resource type="Theme" uid="uid://ctd47cus6kna0" path="res://assets/themes/menu_theme.tres" id="2_tpjnf"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="3_ppuyb"]
+[ext_resource type="Script" uid="uid://boe63qshwoiu6" path="res://scripts/inicio_menu_buttons.gd" id="4_mmojk"]
 
 [node name="InicioMenu" type="Control" node_paths=PackedStringArray("play", "settings", "settings_menu")]
 layout_mode = 3
@@ -13,8 +14,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7l6qo")
-play = NodePath("PanelContainer/MarginContainer/VBoxContainer/Play")
-settings = NodePath("PanelContainer/MarginContainer/VBoxContainer/Settings")
+play = NodePath("PanelContainer/MarginContainer/InicioMenuButtons/Play")
+settings = NodePath("PanelContainer/MarginContainer/InicioMenuButtons/Settings")
 settings_menu = NodePath("SettingsMenu")
 
 [node name="Fondo" type="TextureRect" parent="."]
@@ -33,8 +34,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -257.0
 offset_top = 98.0
-offset_right = 257.0
-offset_bottom = 629.0
+offset_right = 255.0
+offset_bottom = 542.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -42,27 +43,32 @@ grow_vertical = 2
 layout_mode = 2
 theme = ExtResource("2_tpjnf")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="InicioMenuButtons" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
+script = ExtResource("4_mmojk")
 
-[node name="Play" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Play" type="Button" parent="PanelContainer/MarginContainer/InicioMenuButtons"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 150
 text = "Jugar"
 
-[node name="Settings" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Settings" type="Button" parent="PanelContainer/MarginContainer/InicioMenuButtons"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Opciones
 "
 
-[node name="Credits" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Créditos"
-
-[node name="BorrarPartida" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="BorrarPartida" type="Button" parent="PanelContainer/MarginContainer/InicioMenuButtons"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Borrar Partida
+"
+
+[node name="Exit" type="Button" parent="PanelContainer/MarginContainer/InicioMenuButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Salir
 "
 
 [node name="SettingsMenu" parent="." instance=ExtResource("3_ppuyb")]
@@ -84,4 +90,5 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/BorrarPartida" to="." method="_on_borrar_partida_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/InicioMenuButtons/BorrarPartida" to="." method="_on_borrar_partida_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/InicioMenuButtons/Exit" to="." method="_on_exit_pressed"]

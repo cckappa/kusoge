@@ -1,0 +1,9 @@
+keys,en,es
+demo_tecnico/sabia_rana_pedro_quest/name,"Wise Frog Pedro","Sabia Rana Pedro"
+demo_tecnico/sabia_rana_pedro_quest/goal/0,"Finish the TKiO training","Termina el entrenamiento TKiO"
+demo_tecnico/sabia_rana_pedro_quest/description/0,"Complete the three battles as part of your training","Termina las tres batallas como parte de tu entrenamiento"
+demo_tecnico/lobuki_cigarro_quest/name,"Menthol cigarette for Lobuki","Cigarro mentolado de Lobuki"
+demo_tecnico/lobuki_cigarro_quest/goal/0,"Get a cigarette","Consigue un cigarro"
+demo_tecnico/lobuki_cigarro_quest/goal/1,"Give the cigarette to Lobuki","Entrega el cigarro a Lobuki"
+demo_tecnico/lobuki_cigarro_quest/description/0,"Lobuki likes menthol cigarettes, find one and bring it back.","A Lobuki le gustan los cigarros mentolados, consigue uno y traelo de vuelta."
+demo_tecnico/lobuki_cigarro_quest/description/1,"Lobuki is inside the cave","Lobuki está dentro de la cueva"

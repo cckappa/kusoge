@@ -12,6 +12,8 @@
 
 [resource]
 script = ExtResource("3_kg4eo")
+identifier = "lobuki"
+section_folder = "demo_tecnico"
 name = "Lobuki"
 character_portrait = ExtResource("7_f2xcp")
 character_damaged = ExtResource("6_hx6f5")

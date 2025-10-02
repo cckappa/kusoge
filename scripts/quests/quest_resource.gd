@@ -2,10 +2,25 @@ class_name QuestResource
 extends Resource
 
 @export var identifier:String
-@export var name:String
-@export var goal_description_list:Array[String]
-@export var description_list:Array[String]
 @export var quest_giver:Character
+@export var quest_section_folder:String
+@export var quest_description_length:int=1
+
+var name:String:
+	get:
+		return tr("%s/%s/name" % [quest_section_folder, identifier])
+var goal_description_list:Array[String]:
+	get:
+		var descriptions :Array[String] = []
+		for i in quest_description_length:
+			descriptions.append(tr("%s/%s/goal/%d" % [quest_section_folder, identifier, i]))
+		return descriptions
+var description_list:Array[String]:
+	get:
+		var descriptions :Array[String] = []
+		for i in quest_description_length:
+			descriptions.append(tr("%s/%s/description/%d" % [quest_section_folder, identifier, i]))
+		return descriptions
 
 enum QuestStatus {
 	AVAILABLE,

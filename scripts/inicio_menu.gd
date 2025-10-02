@@ -45,3 +45,7 @@ func open_settings() -> void:
 
 func _on_borrar_partida_pressed() -> void:
 	GameSaveHandler.clear_save_file()
+
+
+func _on_exit_pressed() -> void:
+	get_tree().quit()

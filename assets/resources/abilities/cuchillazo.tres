@@ -6,9 +6,8 @@
 [resource]
 script = ExtResource("1_y7082")
 damage_points = 35
-ability_name = "Cuchillazo"
+identifier = "cuchillazo"
 type = "NORMAL"
-description = "Cuchillazo al pecho del enemigo"
 wait_time = 5.0
 effect = "NEGATIVE"
 attack_animation = ExtResource("1_cikdj")

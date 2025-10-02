@@ -1,20 +1,20 @@
 if {Quests.demo_tecnico.lobuki_cigarro_quest_status} <= 1:
-	lobuki: Q onda q rollo...
-	lobuki: ah si q interesante niña muy bien
-	lobuki: oye te interrumpo tantito es q sabes q
-	lobuki: no tendrás por ahí un cigarro q me vendas?
+	lobuki: Q onda q rollo... #id:4b
+	lobuki: ah si q interesante niña muy bien #id:4c
+	lobuki: oye te interrumpo tantito es q sabes q #id:4d
+	lobuki: no tendrás por ahí un cigarro q me vendas? #id:4e
 	set {Quests.demo_tecnico.lobuki_cigarro_quest_status} = 0
 	[signal arg_type="dict" arg="{"name":"lobuki_cigarro_0","type":"start"}"]
 if {Quests.demo_tecnico.lobuki_cigarro_quest_status} == 2.0:
-	lobuki: Q onda, ahí cualquier cosa tienes mi número
-	lobuki: de mientras voy a estar aquí descansando
+	lobuki: Q onda, ahí cualquier cosa tienes mi número #id:4f
+	lobuki: de mientras voy a estar aquí descansando #id:50
 if Items.item_list.has("cigarro_lobuki"):
-	- Sí, ntp te lo regalo
-		lobuki: A huevo muchas gracias!
-		lobuki: Oye, me caíste chido ten te paso mi número cualquier cosa
-	- Sí, te lo dejo a 5 pesos
-		lobuki: Tssaa cómo así mi emprendedora jajajaj
-		lobuki: Me caes bien eres muy graciosa amiga, ten te paso mi número por si ocupas algo
+	- Sí, ntp te lo regalo #id:51
+		lobuki: A huevo muchas gracias! #id:52
+		lobuki: Oye, me caíste chido ten te paso mi número cualquier cosa #id:53
+	- Sí, te lo dejo a 5 pesos #id:54
+		lobuki: Tssaa cómo así mi emprendedora jajajaj #id:55
+		lobuki: Me caes bien eres muy graciosa amiga, ten te paso mi número por si ocupas algo #id:56
 	[signal arg_type="dict" arg="{"name":"lobuki_cigarro_0","type":"finish"}"]
 	[signal arg_type="dict" arg="{"amount":1,"name":"cigarrete_lobuki_gives"}"]
 	set {Quests.demo_tecnico.lobuki_cigarro_quest_status} = 2.0

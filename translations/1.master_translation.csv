@@ -1,0 +1,13 @@
+keys,en,es
+inicio_menu/play,Play,Jugar
+inicio_menu/options,Options,Opciones
+inicio_menu/erase_save,Erase Save File,Eliminar Partida
+inicio_menu/exit,Exit,Salir
+pause_menu/party,Party,Contactos
+pause_menu/items_button,Items,Objetos
+pause_menu/quests,Quests,Misiones
+pause_menu/resume,Resume,Reanudar
+pause_menu/exit,Exit,Salir
+add_new_item_animation/new_item,[center]New Item!,[center]¡Objeto agregado al inventario!
+add_new_character_animation/new_character,[center]New Character Unlocked!,[center]¡Nuevo personaje desbloqueado!
+battle/no_item_label,[wave amp=20 freq=5 connected=1]You have no items,[wave amp=20 freq=5 connected=1]No tienes ningún objeto

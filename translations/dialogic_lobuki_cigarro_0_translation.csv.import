@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bqhdt6mnxgpea"
+
+[deps]
+
+files=["res://translations/dialogic_lobuki_cigarro_0_translation.en.translation", "res://translations/dialogic_lobuki_cigarro_0_translation.es.translation"]
+
+source_file="res://translations/dialogic_lobuki_cigarro_0_translation.csv"
+dest_files=["res://translations/dialogic_lobuki_cigarro_0_translation.en.translation", "res://translations/dialogic_lobuki_cigarro_0_translation.es.translation"]
+
+[params]
+
+compress=true
+delimiter=0

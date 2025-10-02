@@ -12,6 +12,7 @@ var bbtext_end:String = "[/rainbow][/wave][/center]"
 
 func _ready() -> void:
 	SignalBus.connect("character_unlocked", character_unlocked)
+	new_character_text.text = tr("add_new_character_animation/new_character")
 
 func play_animation() -> void:
 	animation_player.play("new_character_animation")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://ci5a44r0l16fy"]
+[gd_scene load_steps=11 format=3 uid="uid://ci5a44r0l16fy"]
 
 [ext_resource type="Script" uid="uid://o5vv2g2a4qjo" path="res://scripts/pause_menu.gd" id="1_1s2dm"]
 [ext_resource type="Theme" uid="uid://ctd47cus6kna0" path="res://assets/themes/menu_theme.tres" id="2_88e76"]
+[ext_resource type="Script" uid="uid://d8bicn5jtjcj" path="res://scripts/pause_button_container.gd" id="3_88e76"]
 [ext_resource type="Script" uid="uid://n6sc31err5iu" path="res://scripts/party_container.gd" id="3_knqa7"]
 [ext_resource type="Texture2D" uid="uid://ctb2muwbi50se" path="res://assets/character_portraits/alicia.png" id="4_71k7c"]
 [ext_resource type="Script" uid="uid://7m5muhymwbyq" path="res://scripts/items_container.gd" id="5_cmnsq"]
@@ -48,40 +49,40 @@ theme_override_constants/margin_bottom = 100
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="ButtonContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="PauseButtonContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource("2_88e76")
+script = ExtResource("3_88e76")
 
-[node name="Party" type="Button" parent="MarginContainer/HBoxContainer/ButtonContainer"]
+[node name="Party" type="Button" parent="MarginContainer/HBoxContainer/PauseButtonContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("2_88e76")
 text = "Contactos"
 
-[node name="Items" type="Button" parent="MarginContainer/HBoxContainer/ButtonContainer"]
+[node name="ItemsButton" type="Button" parent="MarginContainer/HBoxContainer/PauseButtonContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("2_88e76")
 text = "Objetos"
 
-[node name="Spells" type="Button" parent="MarginContainer/HBoxContainer/ButtonContainer"]
-visible = false
-layout_mode = 2
-theme = ExtResource("2_88e76")
-text = "Habilidades"
-
-[node name="Quests" type="Button" parent="MarginContainer/HBoxContainer/ButtonContainer"]
+[node name="Quests" type="Button" parent="MarginContainer/HBoxContainer/PauseButtonContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("2_88e76")
 text = "Quests"
 
-[node name="ExitMenu" type="Button" parent="MarginContainer/HBoxContainer/ButtonContainer"]
+[node name="Resume" type="Button" parent="MarginContainer/HBoxContainer/PauseButtonContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Cerrar Menu"
+text = "Reanudar"
 
-[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/ButtonContainer"]
+[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/PauseButtonContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("2_88e76")
 text = "Salir"
@@ -226,11 +227,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 0
 script = ExtResource("7_1rgno")
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/ButtonContainer/Party" to="." method="_on_party_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/ButtonContainer/Items" to="." method="_on_items_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/ButtonContainer/Quests" to="." method="_on_quests_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/ButtonContainer/ExitMenu" to="." method="_on_exit_menu_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/ButtonContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/PauseButtonContainer/Party" to="." method="_on_party_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/PauseButtonContainer/ItemsButton" to="." method="_on_items_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/PauseButtonContainer/Quests" to="." method="_on_quests_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/PauseButtonContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/PauseButtonContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/ItemsContainer/VBoxContainer/UseItem" to="MarginContainer/HBoxContainer/ItemsContainer" method="_on_use_item_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/ItemsContainer/VBoxContainer/TossItem" to="MarginContainer/HBoxContainer/ItemsContainer" method="_on_toss_item_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/ItemsContainer/VBoxContainer/BackItem" to="MarginContainer/HBoxContainer/ItemsContainer" method="_on_back_item_pressed"]

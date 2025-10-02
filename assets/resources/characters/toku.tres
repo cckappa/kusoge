@@ -11,7 +11,8 @@
 
 [resource]
 script = ExtResource("3_daufi")
-name = "Toku"
+identifier = ""
+section_folder = ""
 character_portrait = ExtResource("6_oty8e")
 max_hp = 60
 unlocked = false

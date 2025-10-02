@@ -1,0 +1,26 @@
+keys,en,es
+Text/1d/text,¿Qué te sirvo bb?
+Text/1e/text,"Tenemos cervezas lagers, ale, trigo o si quieres tambien te paso el menu para que veas los cocteles."
+Choice/1f/text,"muchas gracias, estoy bien"
+Choice/1f/disabled_text,
+Text/20/text,"Vale, si cambias de opinión aquí estoy"
+Choice/21/text,"muchas gracias, estoy bien"
+Choice/21/disabled_text,
+Choice/22/text,tendrás electrolitos?
+Choice/22/disabled_text,
+Text/23/text,"Sí, mira tengo sabor fresa, uva, mango, maracuya y coco."
+Text/24/text,"Ah no, coco ya no tengo"
+Text/25/text,o si no te puedo preparar un suero con limon.
+Choice/26/text,fresa
+Choice/26/disabled_text,
+Choice/27/text,uva
+Choice/27/disabled_text,
+Choice/28/text,mango
+Choice/28/disabled_text,
+Choice/29/text,maracuya
+Choice/29/disabled_text,
+Choice/2a/text,coco
+Choice/2a/disabled_text,
+Choice/2b/text,suero de limon
+Choice/2b/disabled_text,
+Text/2c/text,"va, sale enseguida!"

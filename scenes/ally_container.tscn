@@ -24,9 +24,9 @@
 [ext_resource type="PackedScene" uid="uid://diyhj67vyeuiw" path="res://scenes/heal_particles_long.tscn" id="14_lrqhl"]
 [ext_resource type="AudioStream" uid="uid://btagcqpq4o02r" path="res://assets/sfx/162792__timgormly__8-bit-explosion1.mp3" id="14_yn0qb"]
 [ext_resource type="PackedScene" uid="uid://mls25pts3d18" path="res://scenes/heal_particles_star.tscn" id="15_q4kgi"]
-[ext_resource type="Texture2D" uid="uid://b7yxx8gb07n1n" path="res://assets/icons/fight_menu.png" id="16_4i8le"]
 [ext_resource type="AudioStream" uid="uid://xomtmhux1icj" path="res://assets/sfx/563662__eminyildirim__healing-spell.mp3" id="17_6ud7a"]
 [ext_resource type="AudioStream" uid="uid://cp7ukw7yg8emv" path="res://assets/sfx/387137-584244_djfroyd_smokinghotdog.mp3" id="20_6a6ab"]
+[ext_resource type="Texture2D" uid="uid://dmm0pw127alwu" path="res://assets/battle/fight_menu_en.png" id="21_8qofy"]
 [ext_resource type="AudioStream" uid="uid://yjg8t7qnv4nl" path="res://assets/sfx/691095__ikramshinwari__dfam-kick02-e-wet.mp3" id="21_fh58w"]
 [ext_resource type="AudioStream" uid="uid://brjeugobkanix" path="res://assets/sfx/637809__kyles__rope-thick-handling-rough-hairy-fishing-nets.mp3" id="23_2grme"]
 [ext_resource type="Theme" uid="uid://bci1eig3l1g22" path="res://assets/themes/attack_letter_theme.tres" id="25_4i8le"]
@@ -487,7 +487,7 @@ offset_left = 262.0
 offset_top = -175.0
 offset_right = 842.0
 offset_bottom = 201.0
-texture = ExtResource("16_4i8le")
+texture = ExtResource("21_8qofy")
 
 [node name="ParticleCenter" type="Marker2D" parent="."]
 position = Vector2(199, 321)
@@ -540,10 +540,10 @@ parameters/looping = false
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 0
-offset_left = -265.0
-offset_top = 163.0
-offset_right = 667.0
-offset_bottom = 598.0
+offset_left = -38.0
+offset_top = 255.0
+offset_right = 894.0
+offset_bottom = 690.0
 rotation = -2.78031
 scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(466, 217)

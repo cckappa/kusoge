@@ -6,9 +6,8 @@
 [resource]
 script = ExtResource("1_ajjaw")
 damage_points = 20
-ability_name = "Electroshok"
+identifier = "electroshock"
 type = "ELECTRIC"
-description = "Choque electrico"
 wait_time = 6.0
 effect = "NEGATIVE"
 attack_animation = ExtResource("1_a6h4v")

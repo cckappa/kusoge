@@ -6,9 +6,8 @@
 [resource]
 script = ExtResource("1_fpvtv")
 damage_points = 60
-ability_name = "Lanzar Portafolio"
+identifier = "lanzar_portafolio"
 type = "NORMAL"
-description = "Lanzas tu portafolio importante con documentos clasificados de la empresa"
 wait_time = 10.0
 effect = "NEGATIVE"
 attack_animation = ExtResource("1_tdmly")

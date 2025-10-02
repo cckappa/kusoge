@@ -11,7 +11,8 @@
 
 [resource]
 script = ExtResource("3_3qnf4")
-name = "Heve"
+identifier = ""
+section_folder = ""
 character_portrait = ExtResource("6_myuup")
 max_hp = 75
 unlocked = false

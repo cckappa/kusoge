@@ -1,21 +1,21 @@
-¿Qué te sirvo bb?
-Tenemos cervezas lagers, ale, trigo o si quieres tambien te paso el menu para que veas los cocteles.
+¿Qué te sirvo bb? #id:1d
+Tenemos cervezas lagers, ale, trigo o si quieres tambien te paso el menu para que veas los cocteles. #id:1e
 if {Quests.area_1.ranita_quest_status} < 1.0:
-	- muchas gracias, estoy bien
-		Vale, si cambias de opinión aquí estoy
+	- muchas gracias, estoy bien #id:1f
+		Vale, si cambias de opinión aquí estoy #id:20
 elif {Quests.area_1.ranita_quest_status} == 1.0:
-	- muchas gracias, estoy bien
-	- tendrás electrolitos?
-		Sí, mira tengo sabor fresa, uva, mango, maracuya y coco.
-		Ah no, coco ya no tengo
-		o si no te puedo preparar un suero con limon.
-		- fresa
-		- uva
-		- mango
-		- maracuya
-		- coco
-		- suero de limon
-		va, sale enseguida!
+	- muchas gracias, estoy bien #id:21
+	- tendrás electrolitos? #id:22
+		Sí, mira tengo sabor fresa, uva, mango, maracuya y coco. #id:23
+		Ah no, coco ya no tengo #id:24
+		o si no te puedo preparar un suero con limon. #id:25
+		- fresa #id:26
+		- uva #id:27
+		- mango #id:28
+		- maracuya #id:29
+		- coco #id:2a
+		- suero de limon #id:2b
+		va, sale enseguida! #id:2c
 		[signal arg_type="dict" arg="{"name":"mesero_bar_q_1","next_index":2,"type":"goal"}"]
 		[signal arg_type="dict" arg="{"amount":1,"name":"mesero_bar_i_1"}"]
 		set {Quests.area_1.ranita_quest_status} = 2.0

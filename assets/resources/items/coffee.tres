@@ -11,8 +11,7 @@ heal_amount = 100
 [resource]
 script = ExtResource("1_6x07b")
 identifier = &"coffee"
-display_name = "Cafecito"
-description = "Cafecito"
+section_folder = "demo_tecnico"
 icon = ExtResource("1_iqirl")
 type = "HEAL"
 item_effect = SubResource("Resource_p5ms8")

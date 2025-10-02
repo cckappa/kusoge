@@ -7,8 +7,7 @@
 script = ExtResource("2_wiska")
 new_character = ExtResource("1_falgk")
 identifier = "lobuki_cigarro_quest"
-name = "Cigarro para Lobuki"
-goal_description_list = Array[String](["Consigue un cigarro", "Entrega el cigarro a Lobuki"])
-description_list = Array[String](["A Lobuki le gustan los cigarros mentolados, consigue uno y traelo de vuelta.", "Lobuki está dentro de la cueva"])
 quest_giver = ExtResource("1_falgk")
+quest_section_folder = "demo_tecnico"
+quest_description_length = 2
 metadata/_custom_type_script = "uid://h7m181ddxsgc"

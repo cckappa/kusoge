@@ -1,0 +1,15 @@
+keys,en,es
+Text/4b/text,Hey what's up?,Q onda q rollo...
+Text/4c/text,wow that's like super interesting,ah si q interesante niña muy bien
+Text/4d/text,just wanted to ask,oye te interrumpo tantito es q sabes q
+Text/4e/text,do you happen to have a cigarette you could sell me?,no tendrás por ahí un cigarro q me vendas?
+Text/4f/text,"Hey, you've got my number if you need anything","Q onda, ahí cualquier cosa tienes mi número"
+Text/50/text,meanwhile I'll be chilling here, de mientras voy a estar aquí descansando
+Choice/51/text,"Yeah, you can have it","Sí, ntp te lo regalo"
+Choice/51/disabled_text,
+Text/52/text,Awesome thanks!,A huevo muchas gracias!
+Text/53/text,"Hey, you seem cool, let me give you my number just in case","Oye, me caíste chido ten te paso mi número cualquier cosa"
+Choice/54/text,"Yeah, I'll sell it to you for 2 dollars","Sí, te lo dejo a 5 pesos"
+Choice/54/disabled_text,
+Text/55/text,Nah whacha mean 2 dollars lol,Tssaa cómo así mi emprendedora jajajaj
+Text/56/text,"You're really funny, you can have my number if you need anything","Me caes bien eres muy graciosa amiga, ten te paso mi número por si ocupas algo"

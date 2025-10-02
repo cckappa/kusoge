@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://c62fwxffx1jf4"
+
+[deps]
+
+files=["res://translations/dialogic_mesero_bar_1_translation.en.translation", "res://translations/dialogic_mesero_bar_1_translation.es.translation"]
+
+source_file="res://translations/dialogic_mesero_bar_1_translation.csv"
+dest_files=["res://translations/dialogic_mesero_bar_1_translation.en.translation", "res://translations/dialogic_mesero_bar_1_translation.es.translation"]
+
+[params]
+
+compress=true
+delimiter=0

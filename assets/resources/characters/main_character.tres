@@ -12,7 +12,8 @@
 
 [resource]
 script = ExtResource("2_euhmh")
-name = "Lila"
+identifier = ""
+section_folder = ""
 character_portrait = ExtResource("6_p2q1w")
 max_hp = 50
 unlocked = false

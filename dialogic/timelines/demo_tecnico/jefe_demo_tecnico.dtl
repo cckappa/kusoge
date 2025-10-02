@@ -1,2 +1,2 @@
-boss_demo_tecnico: Hola, soy malvado
+boss_demo_tecnico: Hola, soy malvado #id:48
 [signal arg_type="dict" arg="{"name":"batalla_jefe_demo"}"]

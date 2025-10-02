@@ -6,9 +6,8 @@
 [resource]
 script = ExtResource("1_nunj3")
 damage_points = 100
-ability_name = "One Punch"
+identifier = "one_punch"
 type = "EARTH"
-description = "Pegas a la tierra y se muere"
 wait_time = 35.0
 effect = "NEGATIVE"
 attack_animation = ExtResource("1_l7vqp")

@@ -1,24 +1,24 @@
 if {Quests.area_1.ranita_quest_status} < 3.0:
-	ASJDacm shh shh...
-	que pdo y mi mourrit?
+	ASJDacm shh shh... #id:2d
+	que pdo y mi mourrit? #id:2e
 if {Quests.area_1.ranita_quest_status} == -1.0:
-	aiudame a buscarlaw por faabwaa jajaja
-	- mmm si te ayudo, como venia vestida?
-		a guevo, traia un vesitod negro y tieen muy bnoitas onrisa
-		se llama lila
+	aiudame a buscarlaw por faabwaa jajaja #id:2f
+	- mmm si te ayudo, como venia vestida? #id:30
+		a guevo, traia un vesitod negro y tieen muy bnoitas onrisa #id:31
+		se llama lila #id:32
 		[signal arg_type="dict" arg="{"name":"rana_borracha_quest_1","type":"start"}"]
 		set {Quests.area_1.ranita_quest_status} = 0
-	- nel, ando haciendo otras cosas
+	- nel, ando haciendo otras cosas #id:33
 elif {Quests.area_1.ranita_quest_status} == 0.0:
-	su nmbre es lila, traia un vesitod negro y tieen muy bnoitas onrisa
+	su nmbre es lila, traia un vesitod negro y tieen muy bnoitas onrisa #id:34
 if {Quests.area_1.ranita_quest_status} < 2.0:
-	bwaaa *vomita*
+	bwaaa *vomita* #id:35
 if Items.item_list.has("electrolito_uva"):
-	nmmms a huevo con esto ya me aliviano
-	muchas gracias we, oye y supiste algo de mi morrita?
-	a huevo si, te paso mi contacto
+	nmmms a huevo con esto ya me aliviano #id:36
+	muchas gracias we, oye y supiste algo de mi morrita? #id:37
+	a huevo si, te paso mi contacto #id:38
 	[signal arg_type="dict" arg="{"name":"mesero_bar_q_1","type":"finish"}"]
 	[signal arg_type="dict" arg="{"amount":1.0,"name":"rana_borracha_irm_1"}"]
 	set {Quests.area_1.ranita_quest_status} = 3.0
 if {Quests.area_1.ranita_quest_status} == 3.0:
-	Gracias we, por tu culpa ya me cortaron
+	Gracias we, por tu culpa ya me cortaron #id:39

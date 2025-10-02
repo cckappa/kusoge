@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bf6drto7v832j"
+
+[deps]
+
+files=["res://translations/2.quests_goals.en.translation", "res://translations/2.quests_goals.es.translation"]
+
+source_file="res://translations/2.quests_goals.csv"
+dest_files=["res://translations/2.quests_goals.en.translation", "res://translations/2.quests_goals.es.translation"]
+
+[params]
+
+compress=true
+delimiter=0

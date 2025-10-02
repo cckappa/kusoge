@@ -1,0 +1,7 @@
+keys,en,es
+Text/3a/text,Ver que una cucaracha se está comiendo los cacahuates del piso te llena de determinación.
+Text/3b/text,¿Quieres guardar la partida?
+Choice/3c/text,Sí
+Choice/3c/disabled_text,
+Choice/3d/text,No
+Choice/3d/disabled_text,

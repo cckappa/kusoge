@@ -1,0 +1,17 @@
+keys,en,es
+Text/57/text,candys and nuts,cahuates cahuates cahuates cahuates cahuates pistaches cahuates pistaches
+Choice/58/text,How much is the bag?,¿A cuánto la bolsa?
+Choice/58/disabled_text,
+Text/59/text,It's ten for the little bag,a diez la bolsita
+Choice/5a/text,...,...
+Choice/5a/disabled_text,
+Text/5b/text,candys and nuts,cahuates cahuates cahuates cahuates cahuates pistaches cahuates pistaches
+Text/5c/text,A cigarette? for you?,¿Qué? ¿Quieres que te venda un cigarro a ti niña?
+Text/5d/text,"sure, whatever it's 2 bucks","sí, te salen a 5 pesos uno suelto"
+Choice/5e/text,yeah give me one please,sí deme 1 por favor
+Choice/5e/disabled_text,
+Text/5f/text,here's the lighter,aquí te dejo el encendedor por si quieres prenderlo
+Choice/60/text,How much is the pack?,¿a cúanto la cajetilla?
+Choice/60/disabled_text,
+Text/61/text,there's only one left,namas me queda uno suelto
+Text/62/text,"thanks, remember that smoking causes cancer","gracias, recuerda que fumar es causa de cancer"

@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_38moj")
 identifier = &"cigarro_lobuki"
+section_folder = "demo_tecnico"
 display_name = "Cigarro mentolado"
 description = "Te resta un año de vida pero tiene un suave sabor a menta"
 icon = ExtResource("1_6u1j1")

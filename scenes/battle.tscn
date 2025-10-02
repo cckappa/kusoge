@@ -36,14 +36,14 @@
 [ext_resource type="PackedScene" uid="uid://bemgcy05s4dol" path="res://scenes/loot_item.tscn" id="22_kl6ie"]
 [ext_resource type="StyleBox" uid="uid://chcenb1wwg3ux" path="res://assets/themes/background_menu_battle_item_style_box_texture.tres" id="23_1rdfn"]
 [ext_resource type="PackedScene" uid="uid://cxmilwarewua0" path="res://scenes/item_name.tscn" id="23_r0ctv"]
-[ext_resource type="Texture2D" uid="uid://c0vxa3mojrjho" path="res://assets/battle/atras.png" id="24_jid5g"]
+[ext_resource type="Texture2D" uid="uid://bj3bqucon1652" path="res://assets/battle/back_en.png" id="24_gmkwt"]
 [ext_resource type="AudioStream" uid="uid://3vetx47tyh7f" path="res://assets/music/earthbound_battle_theme.mp3" id="30_xgp4q"]
 [ext_resource type="AudioStream" uid="uid://b324qislhpfci" path="res://assets/music/victory_fanfare.mp3" id="31_681md"]
 [ext_resource type="Texture2D" uid="uid://d3xuo1pm4n8w5" path="res://assets/battle/desmotivaciones.png" id="32_fqtyt"]
 [ext_resource type="AudioStream" uid="uid://cbw1lvt4yiqbe" path="res://assets/music/lost_battle.mp3" id="32_rw4tp"]
 [ext_resource type="Theme" uid="uid://bfoia834oik6" path="res://assets/themes/lose_theme.tres" id="33_8a2ah"]
 [ext_resource type="AudioStream" uid="uid://c48ujoigwjk4j" path="res://assets/sfx/417794__lorenzothegreat__error-cropped.wav" id="38_4gblq"]
-[ext_resource type="Texture2D" uid="uid://c365pfhq0jymn" path="res://assets/battle/batalla.png" id="40_1i0gj"]
+[ext_resource type="Texture2D" uid="uid://bn0sgboycgtx7" path="res://assets/battle/batalla_en.png" id="40_1i0gj"]
 
 [sub_resource type="Resource" id="Resource_lampa"]
 script = ExtResource("11_37w08")
@@ -325,6 +325,57 @@ _data = {
 &"lose_screen": SubResource("Animation_fqtyt")
 }
 
+[sub_resource type="Animation" id="Animation_gmkwt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1925, 522)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_1i0gj"]
 resource_name = "battle_start"
 length = 3.0
@@ -375,57 +426,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(0.812253, 0.183011),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_gmkwt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1925, 522)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_drx85"]
@@ -940,7 +940,7 @@ offset_left = 1053.0
 offset_top = 472.0
 offset_right = 1402.0
 offset_bottom = 612.0
-texture = ExtResource("24_jid5g")
+texture = ExtResource("24_gmkwt")
 
 [node name="ItemMenu" type="Control" parent="."]
 unique_name_in_owner = true
@@ -1012,7 +1012,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("14_eivww")
 bbcode_enabled = true
-text = "[wave amp=20 freq=5 connected=1]No tienes ningún objeto"
+text = "battle/no_item_label"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1097,7 +1097,7 @@ autowrap_mode = 0
 
 [node name="BackTexture" type="TextureRect" parent="ItemMenu/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("24_jid5g")
+texture = ExtResource("24_gmkwt")
 
 [node name="TkioExe" type="PanelContainer" parent="ItemMenu"]
 layout_mode = 1
@@ -1139,7 +1139,6 @@ stretch_mode = 5
 
 [node name="AttackMenuDel" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5

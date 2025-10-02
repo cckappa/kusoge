@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bux5f7c45dm6j"
+
+[deps]
+
+files=["res://translations/dialogic_save_bar_translation.en.translation", "res://translations/dialogic_save_bar_translation.es.translation"]
+
+source_file="res://translations/dialogic_save_bar_translation.csv"
+dest_files=["res://translations/dialogic_save_bar_translation.en.translation", "res://translations/dialogic_save_bar_translation.es.translation"]
+
+[params]
+
+compress=true
+delimiter=0

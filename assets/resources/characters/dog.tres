@@ -13,7 +13,8 @@
 
 [resource]
 script = ExtResource("2_ia3gp")
-name = "Perro"
+identifier = ""
+section_folder = ""
 character_portrait = ExtResource("5_womdx")
 character_front = ExtResource("4_sveyr")
 max_hp = 50

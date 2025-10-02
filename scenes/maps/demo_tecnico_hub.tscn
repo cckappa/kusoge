@@ -130,10 +130,9 @@ height = 756.0
 script = ExtResource("23_nn2xs")
 new_character = ExtResource("22_ngix7")
 identifier = "sabia_rana_pedro_quest"
-name = "Sabia Rana Pedro"
-goal_description_list = Array[String](["Termina el entrenamiento TKiO"])
-description_list = Array[String](["Termina las tres batallas como parte de tu entrenamiento"])
 quest_giver = ExtResource("22_ngix7")
+quest_section_folder = "demo_tecnico"
+quest_description_length = 1
 metadata/_custom_type_script = "uid://h7m181ddxsgc"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_htik6"]
@@ -1202,10 +1201,6 @@ physics_interpolation_mode = 1
 position = Vector2(0, 285)
 zoom = Vector2(1.2, 1.2)
 process_callback = 0
-limit_left = -2356
-limit_top = -2839
-limit_right = 2365
-limit_bottom = 1787
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="CameraManager/Camera2D"]

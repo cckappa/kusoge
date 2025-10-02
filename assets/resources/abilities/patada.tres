@@ -6,9 +6,8 @@
 [resource]
 script = ExtResource("1_5qpon")
 damage_points = 40
-ability_name = "Patada"
+identifier = "patada"
 type = "NORMAL"
-description = "Da una patada"
 wait_time = 6.0
 effect = "NEGATIVE"
 attack_animation = ExtResource("1_54xlb")

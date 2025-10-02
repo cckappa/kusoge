@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cpukuxlbec83g"
+
+[deps]
+
+files=["res://translations/dialogic_puerta_ojo_demo_tecnico_translation.en.translation", "res://translations/dialogic_puerta_ojo_demo_tecnico_translation.es.translation"]
+
+source_file="res://translations/dialogic_puerta_ojo_demo_tecnico_translation.csv"
+dest_files=["res://translations/dialogic_puerta_ojo_demo_tecnico_translation.en.translation", "res://translations/dialogic_puerta_ojo_demo_tecnico_translation.es.translation"]
+
+[params]
+
+compress=true
+delimiter=0

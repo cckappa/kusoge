@@ -2,7 +2,14 @@ class_name Character
 extends Resource
 
 @export_group("Character Info")
-@export var name:String
+@export var identifier:String
+@export var section_folder:String
+var name:String:
+	get:
+		return tr("%s/%s/name" % [section_folder,identifier])
+var description:String:
+	get:
+		return tr("%s/%s/description" % [section_folder,identifier])
 @export var character_portrait:Texture
 @export var character_damaged:Texture
 @export var character_front:Texture

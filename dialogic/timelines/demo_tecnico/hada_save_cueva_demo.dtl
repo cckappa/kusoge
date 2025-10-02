@@ -1,7 +1,7 @@
-hada_save: Ay, hola bb, ¿se te ofrece algo?
-- Guardar la partida
-	hada_save: ¿Cómo que guardar la partida? de que hablas ¿estás bien?
-	hada_save: ay no que oso, déjame twiteo esto jajajaja
+hada_save: Ay, hola bb, ¿se te ofrece algo? #id:42
+- Guardar la partida #id:43
+	hada_save: ¿Cómo que guardar la partida? de que hablas ¿estás bien? #id:44
+	hada_save: ay no que oso, déjame twiteo esto jajajaja #id:45
 	[signal arg_type="dict" arg="{"name":"hada_save_cueva_demo"}"]
-- No, nada
-	hada_save: Ay bb decídete
+- No, nada #id:46
+	hada_save: Ay bb decídete #id:47

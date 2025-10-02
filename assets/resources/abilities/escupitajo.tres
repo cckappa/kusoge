@@ -6,9 +6,8 @@
 [resource]
 script = ExtResource("1_o06i0")
 damage_points = 40
-ability_name = "Escupitajo"
+identifier = "escupitajo"
 type = "WATER"
-description = "Escupitajo bien cargado"
 wait_time = 4.0
 effect = "NEGATIVE"
 attack_animation = ExtResource("1_b7nlv")

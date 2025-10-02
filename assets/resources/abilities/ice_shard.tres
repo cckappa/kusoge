@@ -6,9 +6,8 @@
 [resource]
 script = ExtResource("1_s4q76")
 damage_points = 20
-ability_name = "Hielito"
+identifier = "ice_shard"
 type = "ICE"
-description = "Corta con hielo"
 wait_time = 3.0
 effect = "NEGATIVE"
 attack_animation = ExtResource("1_ygynr")

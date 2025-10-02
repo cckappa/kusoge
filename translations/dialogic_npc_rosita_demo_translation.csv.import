@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://jy8bobn50x26"
+
+[deps]
+
+files=["res://translations/dialogic_npc_rosita_demo_translation.en.translation", "res://translations/dialogic_npc_rosita_demo_translation.es.translation"]
+
+source_file="res://translations/dialogic_npc_rosita_demo_translation.csv"
+dest_files=["res://translations/dialogic_npc_rosita_demo_translation.en.translation", "res://translations/dialogic_npc_rosita_demo_translation.es.translation"]
+
+[params]
+
+compress=true
+delimiter=0
