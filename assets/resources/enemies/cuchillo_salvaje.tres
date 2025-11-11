@@ -9,7 +9,8 @@
 [resource]
 script = ExtResource("3_ow5cn")
 dialog = &""
-name = "Cuchillo Salvaje"
+identifier = ""
+section_folder = ""
 character_portrait = ExtResource("3_4bd2y")
 max_hp = 300
 unlocked = false

@@ -11,7 +11,8 @@
 [resource]
 script = ExtResource("3_sp3pd")
 dialog = &""
-name = "Humaraña"
+identifier = ""
+section_folder = ""
 character_portrait = ExtResource("6_w3whp")
 max_hp = 50
 unlocked = false
