@@ -11,7 +11,8 @@
 [resource]
 script = ExtResource("3_8kfgo")
 dialog = &""
-name = "Cartel Inmoviliario"
+identifier = ""
+section_folder = ""
 character_portrait = ExtResource("4_h61co")
 max_hp = 120
 unlocked = false

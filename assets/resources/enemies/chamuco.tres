@@ -11,7 +11,8 @@
 [resource]
 script = ExtResource("3_tsfc5")
 dialog = &""
-name = "Chamuco"
+identifier = ""
+section_folder = ""
 character_portrait = ExtResource("4_l0krt")
 max_hp = 100
 unlocked = false

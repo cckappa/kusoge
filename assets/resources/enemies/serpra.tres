@@ -12,7 +12,8 @@
 [resource]
 script = ExtResource("3_bbq64")
 dialog = &""
-name = "Serpra"
+identifier = ""
+section_folder = ""
 character_portrait = ExtResource("6_atrar")
 max_hp = 60
 unlocked = false

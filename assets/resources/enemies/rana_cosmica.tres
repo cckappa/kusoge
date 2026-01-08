@@ -12,7 +12,8 @@
 [resource]
 script = ExtResource("3_3mu4o")
 dialog = &""
-name = "Rana Cósmica"
+identifier = ""
+section_folder = ""
 character_portrait = ExtResource("3_3vcjj")
 max_hp = 300
 unlocked = false

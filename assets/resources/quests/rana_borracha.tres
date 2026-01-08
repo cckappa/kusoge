@@ -1,12 +1,17 @@
-[gd_resource type="Resource" script_class="CharacterQuest" load_steps=3 format=3 uid="uid://cdodr052w1u4g"]
+[gd_resource type="Resource" script_class="CharacterQuest" load_steps=4 format=3 uid="uid://cdodr052w1u4g"]
 
-[ext_resource type="Resource" uid="uid://bvpnaj7mub7a7" path="res://assets/resources/characters/demo_tecnico/ranastacio.tres" id="1_5p25o"]
 [ext_resource type="Script" uid="uid://h7m181ddxsgc" path="res://scripts/quests/character_quest.gd" id="1_m763d"]
+
+[sub_resource type="Resource" id="Resource_v6vjh"]
+metadata/__load_path__ = "res://assets/resources/characters/ranastacio.tres"
+
+[sub_resource type="Resource" id="Resource_5p25o"]
+metadata/__load_path__ = "res://assets/resources/characters/ranastacio.tres"
 
 [resource]
 script = ExtResource("1_m763d")
-new_character = ExtResource("1_5p25o")
+new_character = SubResource("Resource_v6vjh")
 identifier = "ranaborracha_area1_1"
-quest_giver = ExtResource("1_5p25o")
+quest_giver = SubResource("Resource_5p25o")
 quest_section_folder = ""
 quest_description_length = 1

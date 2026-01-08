@@ -11,7 +11,8 @@
 [resource]
 script = ExtResource("3_prfuh")
 dialog = &""
-name = "Delfin Salvaje"
+identifier = ""
+section_folder = ""
 character_portrait = ExtResource("4_sn27r")
 max_hp = 130
 unlocked = false
