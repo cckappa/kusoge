@@ -72,3 +72,43 @@ func set_game_speed(speed:float) -> void:
 	else:
 		pitch_effect.pitch_scale = 0.98
 		AudioServer.set_bus_effect_enabled(bus_index, 1, true)
+
+
+func ran_from_current_scene() -> bool:
+	var root := get_tree().root
+	var child_count := root.get_child_count()
+	
+	# When running with F6: root has autoloads + 1 scene
+	# When running with F5: root has autoloads + main scene (which may load other scenes)
+	
+	# Get the last child (the actual game scene, after autoloads)
+	var main_scene := root.get_child(child_count - 1)
+	
+	# Check if this scene is the project's main scene
+	var project_main_scene :String= ProjectSettings.get_setting("application/run/main_scene")
+	
+	# If the current scene's file path doesn't match the project main scene, it's F6
+	if main_scene.scene_file_path != project_main_scene:
+		return true
+	
+	return false
+	# var STARTED_FROM_MAIN := false
+	# var tree := get_tree()
+	# var main_scene_path :String= ProjectSettings.get_setting("application/run/main_scene")
+	
+	# # # Get the file path of the current active scene
+	# var current_scene_path :String= tree.current_scene.scene_file_path
+
+	# if main_scene_path == current_scene_path:
+	# 	# # Code here runs when launched with "Run Project" (F5)
+	# 	STARTED_FROM_MAIN = true
+	# 	print("Launched with Run Project (F5)")
+	# else:
+	# 	# Code here runs when launched with "Run Current Scene" (F6)
+	# 	print("Launched with Run Current Scene (F6)")
+	# print("Current Scene Path: ", get_tree().current_scene)
+	# print("Self: ", self)
+	# if get_tree().current_scene == self:
+	# 	return true
+	# else:
+	# 	return false

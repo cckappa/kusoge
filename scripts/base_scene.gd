@@ -34,15 +34,22 @@ func set_map_information() -> void:
 	Globals.current_map_path = current_scene
 
 func set_character_position() -> void:
+	set_marker()
 	if not Globals.from_door:
 		return
 
+	Globals.from_door = false
+
+func set_marker() -> void:
 	if Globals.target_marker == "default":
 		var default_marker := get_node("SpawnsLayer/DefaultMarker")
 		if default_marker:
 			playable_character = get_node("PlayableCharacter")
 			playable_character.position = default_marker.position
 			# print("Default marker position set to:", Globals.target_marker)
+		else:
+			print("Default marker not found.")
+			return
 	else:
 		var target_marker := get_node("SpawnsLayer/" + Globals.target_marker)
 		if not target_marker:
@@ -52,8 +59,6 @@ func set_character_position() -> void:
 		playable_character.position = target_marker.position
 		Globals.target_marker = "default"  # Reset to default after setting position
 		# print("Target marker position set to:", Globals.target_marker)
-
-	Globals.from_door = false
 
 func quit_game() -> void:
 	print("Quitting to main menu...")

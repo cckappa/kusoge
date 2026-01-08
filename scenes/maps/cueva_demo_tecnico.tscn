@@ -436,10 +436,10 @@ position = Vector2(-628, 439)
 [node name="CameraManager" parent="." instance=ExtResource("19_wvs86")]
 
 [node name="Camera2D" parent="CameraManager" index="0"]
-limit_left = -2356
-limit_top = -2839
-limit_right = 2365
-limit_bottom = 1787
+limit_left = -2559
+limit_top = -1761
+limit_right = 2548
+limit_bottom = 2334
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 shape = SubResource("RectangleShape2D_m2kmg")

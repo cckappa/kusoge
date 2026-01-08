@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cel1jfamiy0ik"]
+
+[node name="GrayNpc" type="Node2D" groups=["npcs"]]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.97283, 0.885118, 0.650278, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 41.875
+theme_override_colors/font_color = Color(0.0231524, 0.236902, 0.431717, 1)
+theme_override_font_sizes/font_size = 30
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]

@@ -1,0 +1,508 @@
+[gd_scene load_steps=27 format=3 uid="uid://ccuxn1yu1w4gs"]
+
+[ext_resource type="Script" uid="uid://bjl5rxdnkabg5" path="res://scripts/maps/bosque_puertos.gd" id="1_56fi2"]
+[ext_resource type="Script" uid="uid://5rnf247xyu5v" path="res://scripts/scene_creator_tool.gd" id="2_uhavg"]
+[ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="3_r4u86"]
+[ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="4_q4ste"]
+[ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="5_ad6ig"]
+[ext_resource type="Texture2D" uid="uid://di5i74nlxohku" path="res://assets/backgrounds/bosque_puerto/bosque_puerto.png" id="5_r4u86"]
+[ext_resource type="Script" uid="uid://bsvp6e76bx107" path="res://scripts/scene_changer.gd" id="6_nd730"]
+[ext_resource type="Script" uid="uid://g7sf10k2338d" path="res://scripts/npc_layer.gd" id="8_ins7l"]
+[ext_resource type="PackedScene" uid="uid://cel1jfamiy0ik" path="res://scenes/gray_box_npc.tscn" id="8_mtya5"]
+[ext_resource type="Script" uid="uid://dsfklbei7r5qc" path="res://scripts/object_layer.gd" id="9_0436o"]
+[ext_resource type="PackedScene" uid="uid://ckc0rqj4d6b16" path="res://scenes/gray_box.tscn" id="9_iaq81"]
+[ext_resource type="Script" uid="uid://ck4xyxoy5fldl" path="res://scripts/enemies_layer.gd" id="10_qy1xt"]
+[ext_resource type="Script" uid="uid://cv43fprb0dski" path="res://scripts/spawns_layer.gd" id="11_v7jbp"]
+[ext_resource type="Script" uid="uid://c2d2peg3ovb8n" path="res://scripts/saves_layer.gd" id="12_4wkgf"]
+[ext_resource type="PackedScene" uid="uid://ci5a44r0l16fy" path="res://scenes/pause_menu.tscn" id="13_a3k7p"]
+[ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="15_sv4pg"]
+[ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="17_hmfgu"]
+[ext_resource type="PackedScene" uid="uid://dqi4bw7t4w0u8" path="res://scenes/add_new_character_animation.tscn" id="19_ihc4e"]
+[ext_resource type="AudioStream" uid="uid://3vetx47tyh7f" path="res://assets/music/earthbound_battle_theme.mp3" id="21_44c0o"]
+[ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="21_x7miu"]
+[ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="23_8dadf"]
+[ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="24_be18e"]
+
+[sub_resource type="Gradient" id="Gradient_mtya5"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nd730"]
+gradient = SubResource("Gradient_mtya5")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44c0o"]
+size = Vector2(483, 186)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2kmg"]
+size = Vector2(6951, 3655)
+
+[node name="BosquePuertos" type="Node2D" node_paths=PackedStringArray("audio_stream_player", "black_rect")]
+y_sort_enabled = true
+script = ExtResource("1_56fi2")
+current_scene = "res://scenes/maps/bosque_puertos.tscn"
+audio_stream_player = NodePath("AudioStreamPlayer")
+black_rect = NodePath("CanvasLayer/BlackRect")
+
+[node name="SceneCreatorTool" type="Node" parent="."]
+script = ExtResource("2_uhavg")
+metadata/_custom_type_script = "uid://5rnf247xyu5v"
+
+[node name="ParallaxBackgroundLayer" type="Node2D" parent="."]
+z_index = -1
+script = ExtResource("3_r4u86")
+
+[node name="BackgroundLayer" type="Node2D" parent="."]
+z_index = -1
+script = ExtResource("4_q4ste")
+
+[node name="BosquePuerto" type="Sprite2D" parent="BackgroundLayer"]
+visible = false
+texture = ExtResource("5_r4u86")
+
+[node name="FondoBlanco" type="Sprite2D" parent="BackgroundLayer"]
+position = Vector2(-12.0002, 8.5)
+scale = Vector2(27.2344, 3729)
+texture = SubResource("GradientTexture1D_nd730")
+
+[node name="SceneChanger" type="Area2D" parent="BackgroundLayer" node_paths=PackedStringArray("black_rect")]
+position = Vector2(-875, -1780)
+script = ExtResource("6_nd730")
+target_scene = "res://scenes/maps/mapa_1.tscn"
+target_marker = "SalidaArbustosSN"
+black_rect = NodePath("../../CanvasLayer/BlackRect")
+metadata/_custom_type_script = "uid://bsvp6e76bx107"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundLayer/SceneChanger"]
+position = Vector2(27.5, 3)
+shape = SubResource("RectangleShape2D_44c0o")
+
+[node name="PlayableCharacter" parent="." instance=ExtResource("5_ad6ig")]
+
+[node name="NpcLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("8_ins7l")
+
+[node name="GrayNpc" parent="NpcLayer" instance=ExtResource("8_mtya5")]
+position = Vector2(1087, -561)
+
+[node name="Polygon2D" parent="NpcLayer/GrayNpc" index="0"]
+polygon = PackedVector2Array(-105, 3, 101, 3, 106, -299, -102, -285)
+
+[node name="Label" parent="NpcLayer/GrayNpc" index="1"]
+offset_left = -31.0
+offset_top = -251.0
+offset_right = 30.0
+offset_bottom = -209.125
+text = "NPC"
+
+[node name="CollisionPolygon2D" parent="NpcLayer/GrayNpc/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-105, -8, -79, 40, 58, 46, 104, -3, 81, -51, -105, -57)
+
+[node name="GrayNpc3" parent="NpcLayer" instance=ExtResource("8_mtya5")]
+position = Vector2(1701, 1448)
+
+[node name="Polygon2D" parent="NpcLayer/GrayNpc3" index="0"]
+polygon = PackedVector2Array(-128, 27, 122, 23, 126, -378, -116, -387)
+
+[node name="Label" parent="NpcLayer/GrayNpc3" index="1"]
+offset_left = -31.0
+offset_top = -251.0
+offset_right = 30.0
+offset_bottom = -209.125
+text = "NPC"
+
+[node name="CollisionPolygon2D" parent="NpcLayer/GrayNpc3/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-133, 6, -82, 81, 64, 69, 135, 31, 110, -73, -128, -69)
+
+[node name="GrayNpc2" parent="NpcLayer" instance=ExtResource("8_mtya5")]
+position = Vector2(2323, 784)
+
+[node name="Polygon2D" parent="NpcLayer/GrayNpc2" index="0"]
+polygon = PackedVector2Array(-105, 3, 101, 3, 118, -487, -107, -491)
+
+[node name="Label" parent="NpcLayer/GrayNpc2" index="1"]
+offset_left = -31.0
+offset_top = -251.0
+offset_right = 30.0
+offset_bottom = -209.125
+text = "NPC"
+
+[node name="CollisionPolygon2D" parent="NpcLayer/GrayNpc2/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-105, -8, -79, 40, 58, 46, 104, -3, 118, -178, -120, -165)
+
+[node name="ObjectLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("9_0436o")
+
+[node name="GrayPlantas" parent="ObjectLayer" instance=ExtResource("9_iaq81")]
+position = Vector2(0, 138)
+
+[node name="Polygon2D" parent="ObjectLayer/GrayPlantas" index="0"]
+color = Color(0.813258, 0.813258, 0.813258, 1)
+offset = Vector2(0, -129.975)
+polygon = PackedVector2Array(40, 648, 53, -186, 248, -145, 282, -92, 537, -105, 733, 43, 901, -24, 941, -186, 1567, -193, 2172, -663, 2240, 137, 1547, 265, 1049, 911, 477, 891, 208, 642)
+
+[node name="Label" parent="ObjectLayer/GrayPlantas" index="1"]
+offset_left = 632.0
+offset_top = 390.0
+offset_right = 764.0
+offset_bottom = 431.875
+text = "PLANTAS"
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/GrayPlantas/StaticBody2D" index="1"]
+position = Vector2(0, -130)
+polygon = PackedVector2Array(40, 628, 43, -96, 233, -99, 316, 39, 592, 1, 786, 111, 937, 32, 1003, -110, 1628, -127, 1896, -468, 2253, -603, 2219, 265, 2219, 265, 1399, 413, 1055, 897, 470, 891, 208, 635)
+
+[node name="GrayPlantas2" parent="ObjectLayer" instance=ExtResource("9_iaq81")]
+position = Vector2(580, -1639)
+
+[node name="Polygon2D" parent="ObjectLayer/GrayPlantas2" index="0"]
+color = Color(0.813258, 0.813258, 0.813258, 1)
+offset = Vector2(0, 310)
+polygon = PackedVector2Array(-1241, -517, -1231, -6, -1029, -6, -817, -183, 1160, -168, 1362, 4, 1690, 24, 1675, -522)
+
+[node name="Label" parent="ObjectLayer/GrayPlantas2" index="1"]
+offset_left = -25.0
+offset_top = -328.0
+offset_right = 107.0
+offset_bottom = -286.125
+text = "PLANTAS"
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/GrayPlantas2/StaticBody2D" index="1"]
+position = Vector2(0, 299)
+polygon = PackedVector2Array(-1231, -492, -1236, -22, -1039, -11, -802, -188, 1155, -163, 1377, 9, 1711, 4, 1711, 4, 1650, -542)
+
+[node name="GrayPlantas3" parent="ObjectLayer" instance=ExtResource("9_iaq81")]
+position = Vector2(1941, -1354)
+
+[node name="Polygon2D" parent="ObjectLayer/GrayPlantas3" index="0"]
+color = Color(0.813258, 0.813258, 0.813258, 1)
+polygon = PackedVector2Array(-3, -37, -8, 934, 391, 929, 351, -67)
+
+[node name="Label" parent="ObjectLayer/GrayPlantas3" index="1"]
+offset_left = -25.0
+offset_top = -328.0
+offset_right = 107.0
+offset_bottom = -286.125
+text = "PLANTAS"
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/GrayPlantas3/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-3, -47, -8, 949, 447, 908, 325, -52)
+
+[node name="GrayPlantas4" parent="ObjectLayer" instance=ExtResource("9_iaq81")]
+position = Vector2(-891, 415)
+
+[node name="Polygon2D" parent="ObjectLayer/GrayPlantas4" index="0"]
+color = Color(0.813258, 0.813258, 0.813258, 1)
+polygon = PackedVector2Array(11, -573, -184, -257, -595, -250, -595, 295, -238, 443, -245, 1210, -245, 1472, 865, 1485, 838, 1075, 838, 1075, 468, 685, 556, 476, 314, 52, 374, -156, 246, -250, 233, -600)
+
+[node name="Label" parent="ObjectLayer/GrayPlantas4" index="1"]
+offset_left = -32.0
+offset_top = -45.0
+offset_right = 100.0
+offset_bottom = -3.125
+text = "PLANTAS"
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/GrayPlantas4/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-245, 1425, -238, 429, -595, 322, -601, -170, -178, -190, 65, -439, 199, -371, 273, -109, 287, 46, 549, 490, 468, 725, 811, 1068, 852, 1458)
+
+[node name="GrayPlantas5" parent="ObjectLayer" instance=ExtResource("9_iaq81")]
+position = Vector2(-279, 1761)
+
+[node name="Polygon2D" parent="ObjectLayer/GrayPlantas5" index="0"]
+color = Color(0.813258, 0.813258, 0.813258, 1)
+polygon = PackedVector2Array(-3016, -1159, -2996, -412, -2774, -123, -722, -130, 199, -244, 1128, -136, 1363, -244, 1774, -83, 2009, -157, 2083, -56, 2527, -62, 2991, -251, 3422, -157, 3644, -520, 3657, -1172, 3799, -1152, 3785, 126, -3238, 119, -3306, -1186)
+
+[node name="Label" parent="ObjectLayer/GrayPlantas5" index="1"]
+offset_left = -32.0
+offset_top = -45.0
+offset_right = 100.0
+offset_bottom = -3.125
+text = "PLANTAS"
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/GrayPlantas5/StaticBody2D" index="1"]
+position = Vector2(2947, 0)
+polygon = PackedVector2Array(-5963, -1146, -5943, -372, -5762, -62, -3811, -76, -3797, -184, -2828, -305, -2660, -177, -1833, -76, -1537, -136, -1207, -36, -1019, -56, -676, 5, -57, -136, 495, -116, 704, -520, 683, -1226, 872, -1200, 838, 139, -6185, 146, -6219, -1200)
+
+[node name="GrayPlantas6" parent="ObjectLayer" instance=ExtResource("9_iaq81")]
+position = Vector2(-3076, -992)
+
+[node name="Polygon2D" parent="ObjectLayer/GrayPlantas6" index="0"]
+position = Vector2(0, 175)
+color = Color(0.813258, 0.813258, 0.813258, 1)
+polygon = PackedVector2Array(341, 1141, 596, 1154, 623, 912, 704, 905, 684, 636, 590, 636, 428, 408, 327, -77, -76, -568, -426, -823, -581, -400, -500, 515)
+
+[node name="Label" parent="ObjectLayer/GrayPlantas6" index="1"]
+offset_left = -32.0
+offset_top = -45.0
+offset_right = 100.0
+offset_bottom = -3.125
+text = "PLANTAS"
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/GrayPlantas6/StaticBody2D" index="1"]
+position = Vector2(2952, 188)
+polygon = PackedVector2Array(-2600, 1127, -2337, 1127, -2337, 919, -2236, 912, -2250, 650, -2351, 650, -2532, 408, -2606, -77, -2929, -494, -3521, -460, -3474, 488)
+
+[node name="GrayPlantas7" parent="ObjectLayer" instance=ExtResource("9_iaq81")]
+position = Vector2(-2035, -1643)
+
+[node name="Polygon2D" parent="ObjectLayer/GrayPlantas7" index="0"]
+color = Color(0.813258, 0.813258, 0.813258, 1)
+polygon = PackedVector2Array(-863, 125, 536, 119, 812, 435, 993, 455, 980, -245, -1267, -204)
+
+[node name="Label" parent="ObjectLayer/GrayPlantas7" index="1"]
+offset_left = -32.0
+offset_top = -45.0
+offset_right = 100.0
+offset_bottom = -3.125
+text = "PLANTAS"
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/GrayPlantas7/StaticBody2D" index="1"]
+position = Vector2(2947, 0)
+polygon = PackedVector2Array(-3503, 124, -2430, 135, -2118, 452, -1952, 441, -1968, -237, -4365, -204, -3653, 274)
+
+[node name="GrayArbol" parent="ObjectLayer" instance=ExtResource("9_iaq81")]
+position = Vector2(-80, -654)
+
+[node name="Polygon2D" parent="ObjectLayer/GrayArbol" index="0"]
+polygon = PackedVector2Array(-68, -1, 75, -12, 84, -366, 224, -375, 224, -697, -210, -697, -213, -406, -76, -392)
+
+[node name="Label" parent="ObjectLayer/GrayArbol" index="1"]
+offset_left = -31.0
+offset_top = -539.0
+offset_right = 68.0
+offset_bottom = -497.125
+text = "ARBOL"
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/GrayArbol/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-76, -7, 78, -7, 81, -69, -79, -78)
+
+[node name="GrayArbol2" parent="ObjectLayer" instance=ExtResource("9_iaq81")]
+position = Vector2(591, -328)
+
+[node name="Polygon2D" parent="ObjectLayer/GrayArbol2" index="0"]
+polygon = PackedVector2Array(-68, -1, 75, -12, 84, -366, 224, -375, 224, -697, -210, -697, -213, -406, -76, -392)
+
+[node name="Label" parent="ObjectLayer/GrayArbol2" index="1"]
+offset_left = -31.0
+offset_top = -539.0
+offset_right = 68.0
+offset_bottom = -497.125
+text = "ARBOL"
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/GrayArbol2/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-76, -7, 78, -7, 81, -69, -79, -78)
+
+[node name="GrayArbol3" parent="ObjectLayer" instance=ExtResource("9_iaq81")]
+position = Vector2(-1794, -1040)
+
+[node name="Polygon2D" parent="ObjectLayer/GrayArbol3" index="0"]
+polygon = PackedVector2Array(-68, -1, 75, -12, 67, -284, 196, -296, 192, -539, -167, -539, -163, -296, -71, -275)
+
+[node name="Label" parent="ObjectLayer/GrayArbol3" index="1"]
+offset_left = -60.0
+offset_top = -430.0
+offset_right = 39.0
+offset_bottom = -388.125
+text = "ARBOL"
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/GrayArbol3/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-76, -7, 78, -7, 81, -69, -79, -78)
+
+[node name="GrayCasaCampanha" parent="ObjectLayer" instance=ExtResource("9_iaq81")]
+position = Vector2(1473, -1026)
+
+[node name="Polygon2D" parent="ObjectLayer/GrayCasaCampanha" index="0"]
+polygon = PackedVector2Array(-285, 25, 289, 16, 133, -292, -129, -278)
+
+[node name="Label" parent="ObjectLayer/GrayCasaCampanha" index="1"]
+offset_left = -119.0
+offset_top = -115.0
+offset_right = 159.0
+offset_bottom = -73.125
+text = "CASA DE CAMPAÑA"
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/GrayCasaCampanha/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-304, 30, 294, 21, 206, -131, -230, -117)
+
+[node name="GrayArbolCaido" parent="ObjectLayer" instance=ExtResource("9_iaq81")]
+position = Vector2(-2005, -518)
+
+[node name="Polygon2D" parent="ObjectLayer/GrayArbolCaido" index="0"]
+polygon = PackedVector2Array(-90, 34, 6, -25, 177, 218, 290, 163, 390, 360, 111, 564, -23, 376, 52, 301)
+
+[node name="Label" parent="ObjectLayer/GrayArbolCaido" index="1"]
+offset_left = 92.0
+offset_top = 292.0
+offset_right = 293.0
+offset_bottom = 333.875
+text = "ARBOL CAIDO"
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/GrayArbolCaido/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-87, 40, 50, 314, -26, 382, 111, 561, 388, 356, 293, 177, 168, 204, 16, -13)
+
+[node name="GrayNaveEstrellada" parent="ObjectLayer" instance=ExtResource("9_iaq81")]
+position = Vector2(-2456, -955)
+
+[node name="Polygon2D" parent="ObjectLayer/GrayNaveEstrellada" index="0"]
+polygon = PackedVector2Array(-84, 238, 165, 245, 568, 353, 703, 164, 171, -421, -421, -710, -515, -697, -865, -946, -865, -946, -1107, -952, -1100, -643, -683, -360, -663, -219)
+
+[node name="Label" parent="ObjectLayer/GrayNaveEstrellada" index="1"]
+text = "NAVE ESTRELLADA"
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/GrayNaveEstrellada/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-98, 232, 178, 225, 575, 333, 689, 151, 306, -259, -474, -555, -717, -401, -690, -239)
+
+[node name="GrayAutoDescompuesto" parent="ObjectLayer" instance=ExtResource("9_iaq81")]
+position = Vector2(-2139, 1328)
+
+[node name="Polygon2D" parent="ObjectLayer/GrayAutoDescompuesto" index="0"]
+polygon = PackedVector2Array(-403, 5, 407, 9, 424, -242, 295, -242, 295, -329, -240, -350, -278, -258, -395, -250)
+
+[node name="Label" parent="ObjectLayer/GrayAutoDescompuesto" index="1"]
+offset_left = -125.0
+offset_top = -138.0
+offset_right = 206.0
+offset_bottom = -96.125
+text = "AUTO DESCOMPUESTO"
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/GrayAutoDescompuesto/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-403, -12, -390, -158, 403, -158, 407, 5)
+
+[node name="GrayEdificio" parent="ObjectLayer" instance=ExtResource("9_iaq81")]
+position = Vector2(2826, 646)
+
+[node name="Polygon2D" parent="ObjectLayer/GrayEdificio" index="0"]
+polygon = PackedVector2Array(-793, 2, 707, 2, 721, -2527, -800, -2527, -793, -671, -1466, -644, -1466, -644, -1459, -32)
+
+[node name="Label" parent="ObjectLayer/GrayEdificio" index="1"]
+offset_left = 296.0
+offset_top = -175.0
+offset_right = 421.0
+offset_bottom = -133.125
+text = "EDIFICIO"
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/GrayEdificio/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-1473, -435, -1452, -18, -275, 42, -289, -650, 203, -644, 243, -25, 721, -25, 687, -1956, -807, -1861, -800, -684, -1479, -650)
+
+[node name="GrayEdificio2" parent="ObjectLayer" instance=ExtResource("9_iaq81")]
+position = Vector2(-3061, 639)
+
+[node name="Polygon2D" parent="ObjectLayer/GrayEdificio2" index="0"]
+polygon = PackedVector2Array(-456, 23, 371, -4, 358, -980, -450, -966)
+
+[node name="Label" parent="ObjectLayer/GrayEdificio2" index="1"]
+offset_left = -13.0
+offset_top = -585.0
+offset_right = 112.0
+offset_bottom = -543.125
+text = "EDIFICIO"
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/GrayEdificio2/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-456, 9, -171, 11, -158, -482, 193, -482, 205, 19, 378, 9, 378, -677, 378, -677, -445, -663)
+
+[node name="GrayEdificioDerecho" parent="ObjectLayer" instance=ExtResource("9_iaq81")]
+position = Vector2(2825, 668)
+
+[node name="Polygon2D" parent="ObjectLayer/GrayEdificioDerecho" index="0"]
+color = Color(0.381703, 0.381703, 0.381703, 1)
+polygon = PackedVector2Array(-270, 6, -285, -682, 200, -666, 235, -14)
+
+[node name="Label" parent="ObjectLayer/GrayEdificioDerecho" index="1"]
+offset_left = -60.0
+offset_top = -334.0
+offset_right = 54.0
+offset_bottom = -292.125
+text = "PUERTA"
+
+[node name="GrayEdificioIzquierdo" parent="ObjectLayer" instance=ExtResource("9_iaq81")]
+position = Vector2(-3033, 658)
+
+[node name="Polygon2D" parent="ObjectLayer/GrayEdificioIzquierdo" index="0"]
+color = Color(0.381703, 0.381703, 0.381703, 1)
+polygon = PackedVector2Array(-195, -10, -200, -480, 174, -485, 179, -4)
+
+[node name="Label" parent="ObjectLayer/GrayEdificioIzquierdo" index="1"]
+offset_left = -60.0
+offset_top = -334.0
+offset_right = 54.0
+offset_bottom = -292.125
+text = "PUERTA"
+
+[node name="EnemiesLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("10_qy1xt")
+
+[node name="SpawnsLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("11_v7jbp")
+
+[node name="DefaultMarker" type="Marker2D" parent="SpawnsLayer"]
+position = Vector2(-351, -371)
+
+[node name="SalidaArbustosSN" type="Marker2D" parent="SpawnsLayer"]
+position = Vector2(-846, -1468)
+
+[node name="SavesLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("12_4wkgf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("13_a3k7p")]
+
+[node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("15_sv4pg")]
+
+[node name="NotificationCenter" parent="CanvasLayer" instance=ExtResource("17_hmfgu")]
+
+[node name="AddNewCharacterAnimation" parent="CanvasLayer" instance=ExtResource("19_ihc4e")]
+
+[node name="AddNewItemAnimation" parent="CanvasLayer" instance=ExtResource("21_x7miu")]
+
+[node name="BlackRect" parent="CanvasLayer" instance=ExtResource("23_8dadf")]
+unique_name_in_owner = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_44c0o")
+autoplay = true
+bus = &"Music"
+
+[node name="CameraManager" parent="." instance=ExtResource("24_be18e")]
+
+[node name="Camera2D" parent="CameraManager" index="0"]
+physics_interpolation_mode = 1
+process_callback = 0
+limit_left = -2559
+limit_top = -1761
+limit_right = 2548
+limit_bottom = 2334
+
+[node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
+position = Vector2(1.5, -14.5)
+shape = SubResource("RectangleShape2D_m2kmg")
+
+[node name="PhantomCamera2D" parent="CameraManager/PhantomCameras" index="0" node_paths=PackedStringArray("follow_target")]
+follow_target = NodePath("../../../PlayableCharacter")
+limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
+
+[editable path="NpcLayer/GrayNpc"]
+[editable path="NpcLayer/GrayNpc3"]
+[editable path="NpcLayer/GrayNpc2"]
+[editable path="ObjectLayer/GrayPlantas"]
+[editable path="ObjectLayer/GrayPlantas2"]
+[editable path="ObjectLayer/GrayPlantas3"]
+[editable path="ObjectLayer/GrayPlantas4"]
+[editable path="ObjectLayer/GrayPlantas5"]
+[editable path="ObjectLayer/GrayPlantas6"]
+[editable path="ObjectLayer/GrayPlantas7"]
+[editable path="ObjectLayer/GrayArbol"]
+[editable path="ObjectLayer/GrayArbol2"]
+[editable path="ObjectLayer/GrayArbol3"]
+[editable path="ObjectLayer/GrayCasaCampanha"]
+[editable path="ObjectLayer/GrayArbolCaido"]
+[editable path="ObjectLayer/GrayNaveEstrellada"]
+[editable path="ObjectLayer/GrayAutoDescompuesto"]
+[editable path="ObjectLayer/GrayEdificio"]
+[editable path="ObjectLayer/GrayEdificio2"]
+[editable path="ObjectLayer/GrayEdificioDerecho"]
+[editable path="ObjectLayer/GrayEdificioIzquierdo"]
+[editable path="CameraManager"]
