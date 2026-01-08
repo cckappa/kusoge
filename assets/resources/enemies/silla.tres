@@ -14,7 +14,8 @@
 [resource]
 script = ExtResource("7_0wntd")
 dialog = &""
-name = "Silla"
+identifier = ""
+section_folder = ""
 character_portrait = ExtResource("6_bk21b")
 max_hp = 35
 unlocked = false

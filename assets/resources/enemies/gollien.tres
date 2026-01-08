@@ -13,7 +13,8 @@
 [resource]
 script = ExtResource("3_ny0fe")
 dialog = &""
-name = "Gollien"
+identifier = ""
+section_folder = ""
 character_portrait = ExtResource("2_xgx72")
 max_hp = 260
 unlocked = false

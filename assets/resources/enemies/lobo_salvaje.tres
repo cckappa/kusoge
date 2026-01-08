@@ -11,7 +11,8 @@
 [resource]
 script = ExtResource("3_yrk0f")
 dialog = &""
-name = "Lobo Salvaje"
+identifier = ""
+section_folder = ""
 character_portrait = ExtResource("6_8p0g4")
 max_hp = 120
 unlocked = false

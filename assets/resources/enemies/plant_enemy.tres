@@ -14,7 +14,8 @@
 [resource]
 script = ExtResource("2_opljk")
 dialog = &"plantita_enemy"
-name = "Plantita"
+identifier = ""
+section_folder = ""
 character_portrait = ExtResource("2_87wx5")
 max_hp = 50
 unlocked = false

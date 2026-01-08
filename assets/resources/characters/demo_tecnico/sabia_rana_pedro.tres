@@ -14,7 +14,6 @@
 script = ExtResource("3_3diml")
 identifier = "sabia_rana_pedro"
 section_folder = "demo_tecnico"
-name = "Sabia Rana Pedro"
 character_portrait = ExtResource("7_d4004")
 character_damaged = ExtResource("6_3gjvu")
 max_hp = 240
