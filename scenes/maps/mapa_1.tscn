@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://bxc3hkext44dh"]
+[gd_scene load_steps=87 format=3 uid="uid://bxc3hkext44dh"]
 
 [ext_resource type="Script" uid="uid://scqhq767iwu5" path="res://scripts/maps/mapa_1.gd" id="1_n6v26"]
 [ext_resource type="Script" uid="uid://5rnf247xyu5v" path="res://scripts/scene_creator_tool.gd" id="2_8u5fy"]
@@ -24,9 +24,11 @@
 [ext_resource type="Texture2D" uid="uid://j1rh08p2mboo" path="res://assets/spritesheets/mapa_1/dealer.png" id="16_4k4qq"]
 [ext_resource type="Texture2D" uid="uid://ctdvinam3hmh4" path="res://assets/backgrounds/mapa_1/PLANTASFONDO.png" id="16_16kg6"]
 [ext_resource type="Texture2D" uid="uid://bhcydgvg07mr4" path="res://assets/spritesheets/mapa_1/nudista.png" id="17_4tp5c"]
+[ext_resource type="Texture2D" uid="uid://d4dyudfkwechg" path="res://assets/spritesheets/mapa_1/obrerojulio.png" id="17_5gsod"]
 [ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="17_fan3t"]
 [ext_resource type="Texture2D" uid="uid://b1kagwy2q5g8t" path="res://assets/objects/mapa_1/MICASA.png" id="17_uu7om"]
 [ext_resource type="Texture2D" uid="uid://saq6n6xle4l2" path="res://assets/backgrounds/mapa_1/MURO.png" id="18_5gsod"]
+[ext_resource type="Texture2D" uid="uid://c6401bl8x7u6g" path="res://assets/spritesheets/mapa_1/raniro.png" id="18_8jdy6"]
 [ext_resource type="PackedScene" uid="uid://dqi4bw7t4w0u8" path="res://scenes/add_new_character_animation.tscn" id="19_5gsod"]
 [ext_resource type="Texture2D" uid="uid://dbdn41ql5rffo" path="res://assets/objects/mapa_1/TIENDA.png" id="19_8jdy6"]
 [ext_resource type="Texture2D" uid="uid://bd8d4vc2uc5qk" path="res://assets/objects/mapa_1/CAJAS.png" id="20_evh1l"]
@@ -198,6 +200,102 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jdy6"]
+atlas = ExtResource("17_5gsod")
+region = Rect2(0, 0, 321, 465)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evh1l"]
+atlas = ExtResource("17_5gsod")
+region = Rect2(321, 0, 321, 465)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsl2b"]
+atlas = ExtResource("17_5gsod")
+region = Rect2(0, 465, 321, 465)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k63vj"]
+atlas = ExtResource("17_5gsod")
+region = Rect2(642, 465, 321, 465)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5msf4"]
+atlas = ExtResource("17_5gsod")
+region = Rect2(963, 465, 321, 465)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a0hy0"]
+animations = [{
+"frames": [{
+"duration": 7.51,
+"texture": SubResource("AtlasTexture_8jdy6")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_evh1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsl2b")
+}, {
+"duration": 1.7,
+"texture": SubResource("AtlasTexture_k63vj")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_5msf4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0hy0"]
+atlas = ExtResource("18_8jdy6")
+region = Rect2(0, 0, 373, 446)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuwfx"]
+atlas = ExtResource("18_8jdy6")
+region = Rect2(373, 0, 373, 446)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_midba"]
+atlas = ExtResource("18_8jdy6")
+region = Rect2(746, 0, 373, 446)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h47d4"]
+atlas = ExtResource("18_8jdy6")
+region = Rect2(0, 446, 373, 446)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yadkp"]
+atlas = ExtResource("18_8jdy6")
+region = Rect2(373, 446, 373, 446)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0xxp"]
+atlas = ExtResource("18_8jdy6")
+region = Rect2(746, 446, 373, 446)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_im2it"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_a0hy0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuwfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_midba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h47d4")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_yadkp")
+}, {
+"duration": 1.1,
+"texture": SubResource("AtlasTexture_h0xxp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fan3t"]
+size = Vector2(257, 78)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_4tp5c"]
 radius = 25.0799
 
@@ -315,6 +413,30 @@ offset = Vector2(0, -270)
 [node name="CollisionPolygon2D" parent="NpcLayer/Nudista/StaticBody2D" index="0"]
 polygon = PackedVector2Array(17, 19, 142, 23, 238, -15, 173, -150, 0, -139, -72, -136, -207, -153, -221, -12, -93, 6)
 
+[node name="ObreroJulio" parent="NpcLayer" groups=["npcs"] instance=ExtResource("14_5msf4")]
+position = Vector2(-198, 1325)
+
+[node name="AnimatedSprite2D" parent="NpcLayer/ObreroJulio" index="0"]
+sprite_frames = SubResource("SpriteFrames_a0hy0")
+autoplay = "default"
+frame_progress = 0.579697
+offset = Vector2(0, -200)
+
+[node name="CollisionPolygon2D" parent="NpcLayer/ObreroJulio/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-134, 5, -97, 57, 40, 51, 83, -9, 31, -54, -100, -49)
+
+[node name="Raniro" parent="NpcLayer" groups=["npcs"] instance=ExtResource("14_5msf4")]
+position = Vector2(1287, 1005)
+
+[node name="AnimatedSprite2D" parent="NpcLayer/Raniro" index="0"]
+sprite_frames = SubResource("SpriteFrames_im2it")
+autoplay = "default"
+frame_progress = 0.804074
+offset = Vector2(0, -189)
+
+[node name="CollisionPolygon2D" parent="NpcLayer/Raniro/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-76, -20, -43, -49, 82, -53, 133, -10, 103, 27, -43, 29)
+
 [node name="ObjectLayer" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("9_y8e7j")
@@ -357,7 +479,19 @@ texture = ExtResource("19_8jdy6")
 offset = Vector2(0, -778)
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/Tienda/StaticBody2D" index="1"]
-polygon = PackedVector2Array(-816, -6, -408, -6, -402, -97, -145, -91, -141, -6, 684, -12, 718, -9, 687, -574, -816, -609)
+polygon = PackedVector2Array(-816, -6, -408, -6, -388, -63, -172, -63, -141, -6, 684, -12, 718, -9, 687, -574, -816, -609)
+
+[node name="SceneChanger" type="Area2D" parent="ObjectLayer/Tienda" node_paths=PackedStringArray("black_rect")]
+position = Vector2(-273, -41)
+script = ExtResource("10_fan3t")
+target_scene = "res://scenes/maps/tienda_mapa_1.tscn"
+target_marker = "EntradaTiendaMapa1"
+black_rect = NodePath("../../../CanvasLayer/BlackRect")
+metadata/_custom_type_script = "uid://bsvp6e76bx107"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/Tienda/SceneChanger"]
+position = Vector2(-1.5, -3)
+shape = SubResource("RectangleShape2D_fan3t")
 
 [node name="Cajas" parent="ObjectLayer" instance=ExtResource("15_77cal")]
 position = Vector2(-710, 896)
@@ -488,6 +622,9 @@ position = Vector2(-560, 1153)
 [node name="SalidaArbustosSN" type="Marker2D" parent="SpawnsLayer"]
 position = Vector2(105, 2189)
 
+[node name="EntradaTiendaMapa1" type="Marker2D" parent="SpawnsLayer"]
+position = Vector2(-1308, 949)
+
 [node name="SavesLayer" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("12_16kg6")
@@ -534,6 +671,8 @@ limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
 [editable path="NpcLayer/Cosito"]
 [editable path="NpcLayer/Dealer"]
 [editable path="NpcLayer/Nudista"]
+[editable path="NpcLayer/ObreroJulio"]
+[editable path="NpcLayer/Raniro"]
 [editable path="ObjectLayer/PlantasFondo"]
 [editable path="ObjectLayer/MiCasa"]
 [editable path="ObjectLayer/Muro"]

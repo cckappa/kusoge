@@ -57,6 +57,7 @@ directories/dtl_directory={
 "jefe_demo_tecnico": "res://dialogic/timelines/demo_tecnico/jefe_demo_tecnico.dtl",
 "lalien_demo_tecnico": "res://dialogic/timelines/demo_tecnico/lalien_demo_tecnico.dtl",
 "lila_bar_1": "res://dialogic/timelines/area_1/lila_bar_1.dtl",
+"lobo_salvaje_intro_fight_1": "res://dialogic/timelines/demo_tecnico/fight_enemies_dialogs/lobo_salvaje_intro_fight_1.dtl",
 "lobuki_cigarro_0": "res://dialogic/timelines/demo_tecnico/lobuki_cigarro_0.dtl",
 "mesero_bar_1": "res://dialogic/timelines/area_1/mesero_bar_1.dtl",
 "npc_rosita_demo": "res://dialogic/timelines/demo_tecnico/npc_rosita_demo.dtl",
@@ -69,6 +70,7 @@ directories/dtl_directory={
 "rigo_demo_tecnico": "res://dialogic/timelines/demo_tecnico/rigo_demo_tecnico.dtl",
 "salome_demo_tecnico": "res://dialogic/timelines/demo_tecnico/salome_demo_tecnico.dtl",
 "save_bar": "res://dialogic/timelines/area_1/save_bar.dtl",
+"serpra_intro_fight_1": "res://dialogic/timelines/demo_tecnico/fight_enemies_dialogs/serpra_intro_fight_1.dtl",
 "virgen_der_demo_tecnico": "res://dialogic/timelines/demo_tecnico/virgen_der_demo_tecnico.dtl",
 "virgen_izq_demo_tecnico": "res://dialogic/timelines/demo_tecnico/virgen_izq_demo_tecnico.dtl",
 "zona_batallas_demo": "res://dialogic/timelines/tests/prueba_mapa/zona_batallas_demo.dtl"
@@ -142,6 +144,7 @@ enemies="Enemies group"
 selected_arrows=""
 selected_targets=""
 npcs=""
+battle=""
 
 [gui]
 

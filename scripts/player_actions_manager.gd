@@ -34,6 +34,7 @@ extends BattleManager
 @onready var victory_kio := %VictoryKio
 @onready var loot_container := %LootContainer
 @onready var cooldown_not_finished_sound := %CooldownNotFinishedSound
+@onready var ally_portraits := %AllyPortraits
 
 var attack_button:PackedScene = preload("res://scenes/attack_button.tscn")
 var ability_name:PackedScene = preload("res://scenes/ability_name.tscn")
@@ -43,6 +44,7 @@ var loot_item:PackedScene = preload("res://scenes/loot_item.tscn")
 
 var character_to_disable:Character
 var interactive_stream:AudioStreamInteractive
+var talking:bool=false
 
 var ability_status:={
 	"ability":null,
@@ -55,10 +57,14 @@ var ability_status:={
 var menu_level := "base"
 
 func _input(event: InputEvent) -> void:
+	if talking:
+		return
+
 	if event.is_action_pressed("ui_accept") and menu_level == "base":
 		attack_menu.visible = true
 		menu_level = "attack"
 		SignalBus.emit_signal("attack_menu_opened")
+		ability_status.from.current_container.check_timer()
 		ability_name_container.get_child(0).ability_button.grab_focus()
 		Functions.set_game_speed(0.1)
 		get_viewport().set_input_as_handled()
@@ -101,6 +107,8 @@ func _input(event: InputEvent) -> void:
 ### STATE ENTERS
 
 func _on_enter_state_entered() -> void:
+	SignalBus.connect("starts_talking", _on_starts_talking)
+	SignalBus.connect("stops_talking", _on_stops_talking)
 	interactive_stream = audio_stream_player.stream as AudioStreamInteractive
 	connect_allies()
 	connect_enemies()
@@ -520,3 +528,19 @@ func cooldown_not_finished() -> void:
 	tween.tween_property(ally_thumbnail_container, "modulate", Color.hex(0xffffffff), 0.01)
 	tween.tween_property(ally_thumbnail_container, "modulate", Color.hex(0xff5c47ff), 0.02)
 	tween.tween_property(ally_thumbnail_container, "modulate", Color.hex(0xffffffff), 0.02)
+
+func _on_starts_talking() -> void:
+	talking = true
+	if ability_status.from != null:
+		ability_status.from.current_container.menu.visible = false
+	else:
+		ally_portraits.get_child(0).menu.visible = false
+
+
+
+func _on_stops_talking() -> void:
+	talking = false
+	if ability_status.from.current_container != null:
+		ability_status.from.current_container.selected()
+	else:
+		ally_portraits.get_child(0).selected()

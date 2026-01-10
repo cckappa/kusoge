@@ -6,6 +6,9 @@ var time_elapsed := 0.0
 var check_interval := 1.0  # Check every 1 second
 var character_to_disable:Character
 var enter_battle_wait_time := 5.0
+var intro_dialogs:Array[EnemyFightDialog]
+var current_intro_dialog:=-1
+var talking:bool=false
 
 var ability_status:={
 	"ability":null,
@@ -17,9 +20,15 @@ var ability_status:={
 ### STATE ENTERS
 
 func _on_enter_state_entered() -> void:
+	SignalBus.connect("starts_talking", _on_starts_talking)
+	SignalBus.connect("stops_talking", _on_stops_talking)
 	var enemies:Array[Character] = alive_enemies(Globals.current_arrange_enemies)
 	for enemy : Character in enemies:
 		enemy.current_container.reset_timer(enter_battle_wait_time)
+		if enemy.get_intro_dialog() != null:
+			intro_dialogs.append(enemy.get_intro_dialog())
+	if intro_dialogs.size() > 0:
+		advance_intro_dialog()
 
 func _on_selecting_state_entered() -> void:
 	pass # Replace with function body.
@@ -54,6 +63,9 @@ func _on_selecting_state_processing(_delta:float) -> void:
 	time_elapsed += _delta
 	if time_elapsed >= check_interval:
 		time_elapsed = 0.0  # Reset timer
+		if talking:
+			print("Enemy talking, skipping action selection")
+			return
 		var enemies : Array[Character] = alive_enemies(Globals.current_arrange_enemies)
 		if enemies.size() > 0:
 			var enemy : Character = enemies.pick_random()
@@ -91,3 +103,41 @@ func input_ability(ability:Ability, from:Character, target:Character) -> void:
 			pass
 		else:
 			ability.use_ability(target)
+
+func advance_intro_dialog() -> void:
+	if current_intro_dialog < intro_dialogs.size() - 1:
+		current_intro_dialog += 1
+		print("Advancing intro dialog: ", current_intro_dialog)
+		play_intro_dialog()
+
+func play_intro_dialog() -> void:
+	var dialog := intro_dialogs[current_intro_dialog]
+	print("Playing dialog: %s" % dialog.dialogic_name)
+	start_dialog(dialog)
+
+func start_dialog(dialog:EnemyFightDialog) -> void:
+	var timeline_name := dialog.dialogic_name
+	print("Starting dialog: %s" % timeline_name)
+	SignalBus.emit_signal("starts_talking")
+	if dialog.dialog_type == EnemyFightDialog.DialogType.INTRO:
+		Dialogic.timeline_ended.connect(_on_timeline_intro_ended)
+	else:
+		Dialogic.timeline_ended.connect(_on_timeline_ended)
+	Dialogic.start(timeline_name)
+
+func _on_timeline_ended() -> void:
+	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
+	SignalBus.emit_signal("stops_talking")
+	print("termina de hablar")
+
+func _on_timeline_intro_ended() -> void:
+	Dialogic.timeline_ended.disconnect(_on_timeline_intro_ended)
+	SignalBus.emit_signal("stops_talking")
+	advance_intro_dialog()
+
+func _on_starts_talking() -> void:
+	talking = true
+
+func _on_stops_talking() -> void:
+	talking = false
+	print("termina de hablar")

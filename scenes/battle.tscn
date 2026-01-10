@@ -496,7 +496,7 @@ black_rect = NodePath("../../BlackRect")
 [node name="EnemyActionsManager" type="Node" parent="BattleManager"]
 script = ExtResource("9_iipir")
 
-[node name="StateChart" type="Node" parent="BattleManager"]
+[node name="StateChart" type="Node" parent="BattleManager" groups=["battle"]]
 unique_name_in_owner = true
 script = ExtResource("3_rw2uy")
 track_in_editor = true

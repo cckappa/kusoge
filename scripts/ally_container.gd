@@ -56,16 +56,18 @@ var reverb_effect:AudioEffectReverb
 var crits := false
 var current_action:String = ""
 var current_attack_menu:VBoxContainer
+var talking:bool=false
 
 
 func _ready() -> void:
 	# SignalBus.connect("item_removed", _on_item_removed)
 	SignalBus.connect("action_selected", set_current_action)
+	SignalBus.connect("starts_talking", _on_starts_talking)
+	SignalBus.connect("stops_talking", _on_stops_talking)
 	portrait.texture = character_portrait
 	portrait_damaged.texture = character_portrait_damaged
 	damage_value.visible = false
 	ability_arrow.select_arrow(arrange_position, "ally")
-	pitch_effect = AudioServer.get_bus_effect(bus_index, 0) as AudioEffectPitchShift
 	reverb_effect = AudioServer.get_bus_effect(bus_index, 1) as AudioEffectReverb
 	SignalBus.connect("crits_signal", crit_enabled)
 	SignalBus.connect("stop_crit", crit_disabled)
@@ -187,7 +189,8 @@ func check_timer() -> bool:
 		return true
 	elif(progress_bar.value > 68 and progress_bar.value < 80):
 		timer.stop()
-		progress_bar.value = 100
+		var p_tween := get_tree().create_tween()
+		p_tween.tween_property(progress_bar, "value", 100.0, 0.01)
 		SignalBus.emit_signal("crits_signal")
 		crit_animation()
 		return true
@@ -246,7 +249,8 @@ func item_button_pressed(from:Character, item:Item) -> void:
 
 func _on_selected_arrow_focus_entered() -> void:
 	emit_signal("character_selected", character)
-	menu.visible = true
+	if not talking:
+		menu.visible = true
 
 func _on_selected_arrow_focus_exited() -> void:
 	menu.visible = false
@@ -304,3 +308,12 @@ func target_focus() -> void:
 
 func set_current_action(action:String) -> void:
 	current_action = action
+
+func _on_starts_talking() -> void:
+	talking = true
+	menu.visible = false
+	selected_arrow.visible = false
+
+func _on_stops_talking() -> void:
+	talking = false
+	selected_arrow.visible = true

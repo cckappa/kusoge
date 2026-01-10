@@ -21,8 +21,8 @@ const SABIA_RANA_PEDRO = preload("res://assets/resources/characters/demo_tecnico
 const LOBUKI = preload("res://assets/resources/characters/demo_tecnico/lobuki.tres")
 
 
-var ene_1 := preload("res://assets/resources/enemies/plant_enemy.tres")
-var ene_2 := preload("res://assets/resources/enemies/silla.tres")
+var ene_1 := preload("res://assets/resources/enemies/serpra.tres")
+var ene_2 := preload("res://assets/resources/enemies/lobo_salvaje.tres")
 var enemies:Array[Character]
 var crit_multiplier:= 1.5
 

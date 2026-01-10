@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyResource" load_steps=9 format=3 uid="uid://cym74q2mvjcte"]
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=11 format=3 uid="uid://cym74q2mvjcte"]
 
 [ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_yoklo"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_bft4o"]
@@ -7,11 +7,20 @@
 [ext_resource type="Resource" uid="uid://bghxbphfpwny3" path="res://assets/resources/abilities/rasguño.tres" id="4_lig8e"]
 [ext_resource type="Resource" uid="uid://ct5dshx02d4l0" path="res://assets/resources/abilities/focused_healing.tres" id="5_5m0ee"]
 [ext_resource type="Texture2D" uid="uid://bgefprxussdta" path="res://assets/enemy_sprites/Serpra.png" id="6_atrar"]
+[ext_resource type="Script" uid="uid://bsp5qx4xq3r8" path="res://scripts/enemy_fight_dialog.gd" id="6_lig8e"]
 [ext_resource type="Resource" uid="uid://fxibbhftjw5n" path="res://assets/resources/items/cookie.tres" id="8_o73sw"]
+
+[sub_resource type="Resource" id="Resource_7u56j"]
+script = ExtResource("6_lig8e")
+dialogic_name = &"serpra_intro_fight_1"
+life_value_trigger = 0
+time_value_trigger = 0
+dialog_type = 0
+metadata/_custom_type_script = "uid://bsp5qx4xq3r8"
 
 [resource]
 script = ExtResource("3_bbq64")
-dialog = &""
+enemy_fight_dialogs = Array[ExtResource("6_lig8e")]([SubResource("Resource_7u56j")])
 identifier = ""
 section_folder = ""
 character_portrait = ExtResource("6_atrar")

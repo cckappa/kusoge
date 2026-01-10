@@ -1,16 +1,25 @@
-[gd_resource type="Resource" script_class="EnemyResource" load_steps=8 format=3 uid="uid://dhjur3x054uqu"]
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=10 format=3 uid="uid://dhjur3x054uqu"]
 
 [ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_me4su"]
 [ext_resource type="Resource" uid="uid://bghxbphfpwny3" path="res://assets/resources/abilities/rasguño.tres" id="2_2memt"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_7o7er"]
 [ext_resource type="Resource" uid="uid://bnkt1v88hkkjx" path="res://assets/resources/abilities/piss.tres" id="3_oc4wk"]
 [ext_resource type="Script" uid="uid://bmxggwbtvyxeb" path="res://scripts/enemy_resource.gd" id="3_yrk0f"]
+[ext_resource type="Script" uid="uid://bsp5qx4xq3r8" path="res://scripts/enemy_fight_dialog.gd" id="5_oc4wk"]
 [ext_resource type="Texture2D" uid="uid://cbiwxsyrcx41q" path="res://assets/enemy_sprites/Lobo_Salvaje.png" id="6_8p0g4"]
 [ext_resource type="Resource" uid="uid://bqyq6l006wa1h" path="res://assets/resources/items/coffee.tres" id="8_v1u11"]
 
+[sub_resource type="Resource" id="Resource_vjonj"]
+script = ExtResource("5_oc4wk")
+dialogic_name = &"lobo_salvaje_intro_fight_1"
+life_value_trigger = 0
+time_value_trigger = 0
+dialog_type = 0
+metadata/_custom_type_script = "uid://bsp5qx4xq3r8"
+
 [resource]
 script = ExtResource("3_yrk0f")
-dialog = &""
+enemy_fight_dialogs = Array[ExtResource("5_oc4wk")]([SubResource("Resource_vjonj")])
 identifier = ""
 section_folder = ""
 character_portrait = ExtResource("6_8p0g4")
