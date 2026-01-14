@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyResource" load_steps=10 format=3 uid="uid://owjbdndkkffa"]
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=11 format=3 uid="uid://owjbdndkkffa"]
 
 [ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_ny0fe"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_wfvw7"]
@@ -8,11 +8,12 @@
 [ext_resource type="Script" uid="uid://bmxggwbtvyxeb" path="res://scripts/enemy_resource.gd" id="3_ny0fe"]
 [ext_resource type="Resource" uid="uid://ct5dshx02d4l0" path="res://assets/resources/abilities/focused_healing.tres" id="4_lr2v5"]
 [ext_resource type="Resource" uid="uid://ckabh1vy5csrg" path="res://assets/resources/abilities/punch.tres" id="5_yv1bs"]
+[ext_resource type="Script" uid="uid://bsp5qx4xq3r8" path="res://scripts/enemy_fight_dialog.gd" id="7_620wb"]
 [ext_resource type="Resource" uid="uid://bqyq6l006wa1h" path="res://assets/resources/items/coffee.tres" id="8_uhyyn"]
 
 [resource]
 script = ExtResource("3_ny0fe")
-dialog = &""
+enemy_fight_dialogs = Array[ExtResource("7_620wb")]([])
 identifier = ""
 section_folder = ""
 character_portrait = ExtResource("2_xgx72")

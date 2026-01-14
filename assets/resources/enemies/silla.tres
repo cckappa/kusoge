@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyResource" load_steps=11 format=3 uid="uid://bj1qxnf612jjk"]
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=12 format=3 uid="uid://bj1qxnf612jjk"]
 
 [ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_qttdh"]
 [ext_resource type="Resource" uid="uid://b4hl0uorngix0" path="res://assets/resources/abilities/patada.tres" id="2_j4p4u"]
@@ -8,12 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://cw1m73ubd2qs6" path="res://assets/objects/cosas_0000s_0001_silla1.png" id="6_bk21b"]
 [ext_resource type="Script" uid="uid://bmxggwbtvyxeb" path="res://scripts/enemy_resource.gd" id="7_0wntd"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="7_2dmjf"]
+[ext_resource type="Script" uid="uid://bsp5qx4xq3r8" path="res://scripts/enemy_fight_dialog.gd" id="7_6vds6"]
 [ext_resource type="Resource" uid="uid://bqyq6l006wa1h" path="res://assets/resources/items/coffee.tres" id="8_3xkva"]
 [ext_resource type="Resource" uid="uid://bnsdg5ny4ckdx" path="res://assets/resources/selections/basic_select.tres" id="8_v4e78"]
 
 [resource]
 script = ExtResource("7_0wntd")
-dialog = &""
+enemy_fight_dialogs = Array[ExtResource("7_6vds6")]([])
 identifier = ""
 section_folder = ""
 character_portrait = ExtResource("6_bk21b")

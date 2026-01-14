@@ -48,7 +48,7 @@
 [ext_resource type="Texture2D" uid="uid://k3up7bap8gtu" path="res://assets/backgrounds/mapa_1/RAMAS.png" id="34_4tp5c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uu7om"]
-size = Vector2(567, 186)
+size = Vector2(496, 130)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4k4qq"]
 atlas = ExtResource("15_a0hy0")
@@ -358,7 +358,7 @@ script = ExtResource("4_wot31")
 position = Vector2(0, 1319)
 texture = ExtResource("9_olsw7")
 
-[node name="SceneChanger" type="Area2D" parent="BackgroundLayer" node_paths=PackedStringArray("black_rect")]
+[node name="SceneChangerBosque" type="Area2D" parent="BackgroundLayer" node_paths=PackedStringArray("black_rect")]
 position = Vector2(70, 2343)
 script = ExtResource("10_fan3t")
 target_scene = "res://scenes/maps/bosque_puertos.tscn"
@@ -366,8 +366,20 @@ target_marker = "SalidaArbustosSN"
 black_rect = NodePath("../../CanvasLayer/BlackRect")
 metadata/_custom_type_script = "uid://bsvp6e76bx107"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundLayer/SceneChanger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundLayer/SceneChangerBosque"]
 position = Vector2(27.5, 3)
+shape = SubResource("RectangleShape2D_uu7om")
+
+[node name="SceneChangerTemplo" type="Area2D" parent="BackgroundLayer" node_paths=PackedStringArray("black_rect")]
+position = Vector2(1787, 240)
+script = ExtResource("10_fan3t")
+target_scene = "res://scenes/maps/afuera_templo.tscn"
+target_marker = "PasoTemploSur"
+black_rect = NodePath("../../CanvasLayer/BlackRect")
+metadata/_custom_type_script = "uid://bsvp6e76bx107"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundLayer/SceneChangerTemplo"]
+position = Vector2(18, -2)
 shape = SubResource("RectangleShape2D_uu7om")
 
 [node name="PlayableCharacter" parent="." instance=ExtResource("5_k67js")]
@@ -413,7 +425,7 @@ offset = Vector2(0, -270)
 [node name="CollisionPolygon2D" parent="NpcLayer/Nudista/StaticBody2D" index="0"]
 polygon = PackedVector2Array(17, 19, 142, 23, 238, -15, 173, -150, 0, -139, -72, -136, -207, -153, -221, -12, -93, 6)
 
-[node name="ObreroJulio" parent="NpcLayer" groups=["npcs"] instance=ExtResource("14_5msf4")]
+[node name="ObreroJulio" parent="NpcLayer" instance=ExtResource("14_5msf4")]
 position = Vector2(-198, 1325)
 
 [node name="AnimatedSprite2D" parent="NpcLayer/ObreroJulio" index="0"]
@@ -425,7 +437,7 @@ offset = Vector2(0, -200)
 [node name="CollisionPolygon2D" parent="NpcLayer/ObreroJulio/StaticBody2D" index="0"]
 polygon = PackedVector2Array(-134, 5, -97, 57, 40, 51, 83, -9, 31, -54, -100, -49)
 
-[node name="Raniro" parent="NpcLayer" groups=["npcs"] instance=ExtResource("14_5msf4")]
+[node name="Raniro" parent="NpcLayer" instance=ExtResource("14_5msf4")]
 position = Vector2(1287, 1005)
 
 [node name="AnimatedSprite2D" parent="NpcLayer/Raniro" index="0"]
@@ -624,6 +636,9 @@ position = Vector2(105, 2189)
 
 [node name="EntradaTiendaMapa1" type="Marker2D" parent="SpawnsLayer"]
 position = Vector2(-1308, 949)
+
+[node name="PasoTemploSur" type="Marker2D" parent="SpawnsLayer"]
+position = Vector2(1816, 420)
 
 [node name="SavesLayer" type="Node2D" parent="."]
 y_sort_enabled = true

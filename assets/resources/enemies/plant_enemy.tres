@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyResource" load_steps=11 format=3 uid="uid://sv50sqn41x38"]
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=12 format=3 uid="uid://sv50sqn41x38"]
 
 [ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_lir8g"]
 [ext_resource type="Resource" uid="uid://ckabh1vy5csrg" path="res://assets/resources/abilities/punch.tres" id="2_85u7y"]
@@ -7,13 +7,14 @@
 [ext_resource type="Resource" uid="uid://cral6nawbndl0" path="res://assets/resources/abilities/fireball.tres" id="3_uw8ds"]
 [ext_resource type="Resource" uid="uid://ct5dshx02d4l0" path="res://assets/resources/abilities/focused_healing.tres" id="4_2w1jk"]
 [ext_resource type="Resource" uid="uid://bbgmx00txpaek" path="res://assets/resources/abilities/cachetada.tres" id="5_bbh8f"]
+[ext_resource type="Script" uid="uid://bsp5qx4xq3r8" path="res://scripts/enemy_fight_dialog.gd" id="7_5e0vy"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="7_5nkik"]
 [ext_resource type="Resource" uid="uid://bnsdg5ny4ckdx" path="res://assets/resources/selections/basic_select.tres" id="8_d18rp"]
 [ext_resource type="Resource" uid="uid://fxibbhftjw5n" path="res://assets/resources/items/cookie.tres" id="8_y47sw"]
 
 [resource]
 script = ExtResource("2_opljk")
-dialog = &"plantita_enemy"
+enemy_fight_dialogs = Array[ExtResource("7_5e0vy")]([])
 identifier = ""
 section_folder = ""
 character_portrait = ExtResource("2_87wx5")

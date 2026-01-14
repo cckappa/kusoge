@@ -23,11 +23,11 @@
 [ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="23_8dadf"]
 [ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="24_be18e"]
 
-[sub_resource type="Gradient" id="Gradient_mtya5"]
+[sub_resource type="Gradient" id="Gradient_44c0o"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_nd730"]
-gradient = SubResource("Gradient_mtya5")
+gradient = SubResource("Gradient_44c0o")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44c0o"]
 size = Vector2(483, 186)
