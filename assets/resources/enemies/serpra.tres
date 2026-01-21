@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyResource" load_steps=11 format=3 uid="uid://cym74q2mvjcte"]
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=14 format=3 uid="uid://cym74q2mvjcte"]
 
 [ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_yoklo"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_bft4o"]
@@ -12,19 +12,39 @@
 
 [sub_resource type="Resource" id="Resource_7u56j"]
 script = ExtResource("6_lig8e")
-dialogic_name = &"serpra_intro_fight_1"
+dialogic_name = "serpra_intro_fight_1"
 life_value_trigger = 0
-time_value_trigger = 0
 dialog_type = 0
+metadata/_custom_type_script = "uid://bsp5qx4xq3r8"
+
+[sub_resource type="Resource" id="Resource_lig8e"]
+script = ExtResource("6_lig8e")
+dialogic_name = "serpra_health_fight_1"
+life_value_trigger = 100
+dialog_type = 2
+metadata/_custom_type_script = "uid://bsp5qx4xq3r8"
+
+[sub_resource type="Resource" id="Resource_qyid8"]
+script = ExtResource("6_lig8e")
+dialogic_name = "serpra_health_fight_2"
+life_value_trigger = 30
+dialog_type = 2
+metadata/_custom_type_script = "uid://bsp5qx4xq3r8"
+
+[sub_resource type="Resource" id="Resource_5m0ee"]
+script = ExtResource("6_lig8e")
+dialogic_name = "serpra_victory_1"
+life_value_trigger = 0
+dialog_type = 1
 metadata/_custom_type_script = "uid://bsp5qx4xq3r8"
 
 [resource]
 script = ExtResource("3_bbq64")
-enemy_fight_dialogs = Array[ExtResource("6_lig8e")]([SubResource("Resource_7u56j")])
-identifier = ""
+enemy_fight_dialogs = Array[ExtResource("6_lig8e")]([SubResource("Resource_7u56j"), SubResource("Resource_lig8e"), SubResource("Resource_qyid8"), SubResource("Resource_5m0ee")])
+identifier = "serpra"
 section_folder = ""
 character_portrait = ExtResource("6_atrar")
-max_hp = 60
+max_hp = 110
 unlocked = false
 type = "NORMAL"
 abilities = Array[ExtResource("1_yoklo")]([ExtResource("5_5m0ee"), ExtResource("3_m1n1h"), ExtResource("4_lig8e")])

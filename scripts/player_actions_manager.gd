@@ -107,8 +107,10 @@ func _input(event: InputEvent) -> void:
 ### STATE ENTERS
 
 func _on_enter_state_entered() -> void:
+	Functions.set_dialogic_auto_advance(true)
 	SignalBus.connect("starts_talking", _on_starts_talking)
 	SignalBus.connect("stops_talking", _on_stops_talking)
+	SignalBus.connect("enemy_victory_dialogs_ended", _on_enemy_victory_dialogs_ended)
 	interactive_stream = audio_stream_player.stream as AudioStreamInteractive
 	connect_allies()
 	connect_enemies()
@@ -245,14 +247,8 @@ func _on_losing_state_entered() -> void:
 	attack_menu.visible = false
 	item_menu.visible = false
 	# SignalBus.emit_signal("menu_closed", ability_status.from)
-	audio_stream_player.set("parameters/switch_to_clip", "LostBattle")
-	lose_animation_player.play("lose_screen")
-	# lose_text.visible = true
-	continue_buttons.visible = true
-	continue_button.grab_focus()
-	for enemy:Character in Globals.current_arrange_enemies.values():
-		if enemy != null:
-			enemy.current_container.untargeted()
+	SignalBus.emit_signal("enemy_victory_dialogs_started")
+	
 
 func _on_winning_state_entered() -> void:
 	Functions.set_game_speed(1.0)
@@ -530,7 +526,10 @@ func cooldown_not_finished() -> void:
 	tween.tween_property(ally_thumbnail_container, "modulate", Color.hex(0xffffffff), 0.02)
 
 func _on_starts_talking() -> void:
+	Functions.set_game_speed(1.0)
 	talking = true
+	for ability in get_tree().get_nodes_in_group("ability_animations"):
+		ability.animation_player.pause()
 	if ability_status.from != null:
 		ability_status.from.current_container.menu.visible = false
 	else:
@@ -540,7 +539,19 @@ func _on_starts_talking() -> void:
 
 func _on_stops_talking() -> void:
 	talking = false
+	for ability in get_tree().get_nodes_in_group("ability_animations"):
+		ability.animation_player.play()
 	if ability_status.from.current_container != null:
 		ability_status.from.current_container.selected()
 	else:
 		ally_portraits.get_child(0).selected()
+
+func _on_enemy_victory_dialogs_ended() -> void:
+	audio_stream_player.set("parameters/switch_to_clip", "LostBattle")
+	lose_animation_player.play("lose_screen")
+	# lose_text.visible = true
+	continue_buttons.visible = true
+	continue_button.grab_focus()
+	for enemy:Character in Globals.current_arrange_enemies.values():
+		if enemy != null:
+			enemy.current_container.untargeted()

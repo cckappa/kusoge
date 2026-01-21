@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfjjrcbql6y71"]
+
+[ext_resource type="Script" uid="uid://dtuksflrq3jm4" path="res://scripts/cutscenes/intro_cutscene.gd" id="1_1iurh"]
+[ext_resource type="Script" uid="uid://bsvp6e76bx107" path="res://scripts/scene_changer.gd" id="2_iwduf"]
+[ext_resource type="Texture2D" uid="uid://4gcpx3eh7ly4" path="res://assets/character_portraits/demo_tecnico/Alicia DYB.PNG" id="2_jfsk7"]
+[ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="3_jfsk7"]
+
+[sub_resource type="Animation" id="Animation_lgoyb"]
+resource_name = "play"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AliciaDyb:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.93),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1968, 2606), Vector2(1796, 827)]
+}
+
+[sub_resource type="Animation" id="Animation_jfsk7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AliciaDyb:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1968, 2606)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ofjb"]
+_data = {
+&"RESET": SubResource("Animation_jfsk7"),
+&"play": SubResource("Animation_lgoyb")
+}
+
+[node name="IntroCutscene" type="Control" node_paths=PackedStringArray("scene_changer", "animation_player")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1iurh")
+scene_changer = NodePath("SceneChanger")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="AliciaDyb" type="Sprite2D" parent="."]
+position = Vector2(1968, 2606)
+scale = Vector2(2, 2)
+texture = ExtResource("2_jfsk7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8ofjb")
+}
+
+[node name="SceneChanger" type="Area2D" parent="." node_paths=PackedStringArray("black_rect")]
+script = ExtResource("2_iwduf")
+target_scene = "res://scenes/maps/demo_tecnico_hub.tscn"
+target_marker = "DefaultMarker"
+black_rect = NodePath("../BlackRect")
+metadata/_custom_type_script = "uid://bsvp6e76bx107"
+
+[node name="BlackRect" parent="." instance=ExtResource("3_jfsk7")]
+visible = true
+modulate = Color(0, 0, 0, 0)
+layout_mode = 1

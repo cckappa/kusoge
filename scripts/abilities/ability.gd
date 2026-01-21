@@ -11,7 +11,14 @@ extends Resource
 	"ICE", 
 	"WIND", 
 	"GRASS") var type: String = "NORMAL"
-@export var wait_time: float = 1.0
+@export var base_wait_time: float = 1.0
+var wait_time: float:
+	get:
+		for trinket in Globals.trinkets:
+			if trinket is CooldownTrinket:
+				return trinket.apply_effect(self)
+		return base_wait_time
+
 @export_enum(
 	"NEGATIVE",
 	"POSITIVE"

@@ -63,6 +63,11 @@ var win_stakes:Dictionary={
 	"key_variable_value": ""
 }
 
+var trinkets:Array[Trinket]=[
+	load("res://assets/resources/trinkets/blue_labubu.tres"),
+	load("res://assets/resources/trinkets/green_frog.tres")
+]
+
 func _ready() -> void:
 	setup_globals()
 	if OS.is_debug_build():

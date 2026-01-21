@@ -57,7 +57,9 @@ directories/dtl_directory={
 "jefe_demo_tecnico": "res://dialogic/timelines/demo_tecnico/jefe_demo_tecnico.dtl",
 "lalien_demo_tecnico": "res://dialogic/timelines/demo_tecnico/lalien_demo_tecnico.dtl",
 "lila_bar_1": "res://dialogic/timelines/area_1/lila_bar_1.dtl",
+"lobo_salvaje_defeat_1": "res://dialogic/timelines/demo_tecnico/fight_enemies_dialogs/lobo_salvaje_defeat_1.dtl",
 "lobo_salvaje_intro_fight_1": "res://dialogic/timelines/demo_tecnico/fight_enemies_dialogs/lobo_salvaje_intro_fight_1.dtl",
+"lobo_salvaje_victory_1": "res://dialogic/timelines/demo_tecnico/fight_enemies_dialogs/lobo_salvaje_victory_1.dtl",
 "lobuki_cigarro_0": "res://dialogic/timelines/demo_tecnico/lobuki_cigarro_0.dtl",
 "mesero_bar_1": "res://dialogic/timelines/area_1/mesero_bar_1.dtl",
 "npc_rosita_demo": "res://dialogic/timelines/demo_tecnico/npc_rosita_demo.dtl",
@@ -70,7 +72,10 @@ directories/dtl_directory={
 "rigo_demo_tecnico": "res://dialogic/timelines/demo_tecnico/rigo_demo_tecnico.dtl",
 "salome_demo_tecnico": "res://dialogic/timelines/demo_tecnico/salome_demo_tecnico.dtl",
 "save_bar": "res://dialogic/timelines/area_1/save_bar.dtl",
+"serpra_health_fight_1": "res://dialogic/timelines/demo_tecnico/fight_enemies_dialogs/serpra_health_fight_1.dtl",
+"serpra_health_fight_2": "res://dialogic/timelines/demo_tecnico/fight_enemies_dialogs/serpra_health_fight_2.dtl",
 "serpra_intro_fight_1": "res://dialogic/timelines/demo_tecnico/fight_enemies_dialogs/serpra_intro_fight_1.dtl",
+"serpra_victory_1": "res://dialogic/timelines/demo_tecnico/fight_enemies_dialogs/serpra_victory_1.dtl",
 "virgen_der_demo_tecnico": "res://dialogic/timelines/demo_tecnico/virgen_der_demo_tecnico.dtl",
 "virgen_izq_demo_tecnico": "res://dialogic/timelines/demo_tecnico/virgen_izq_demo_tecnico.dtl",
 "zona_batallas_demo": "res://dialogic/timelines/tests/prueba_mapa/zona_batallas_demo.dtl"
@@ -90,11 +95,11 @@ variables={
 layout/style_list=["res://dialogic/styles/basic_portrait.tres", "res://dialogic/styles/object_info.tres"]
 layout/default_style="res://dialogic/styles/basic_portrait.tres"
 extensions_folder="res://addons/dialogic_additions"
-text/letter_speed=0.01
+text/letter_speed=0.02
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.1
 text/advance_delay=0.1
-text/autoadvance_per_character_delay=0.1
+text/autoadvance_per_character_delay=0.02
 text/autoadvance_ignored_characters_enabled=true
 audio/max_channels=4.0
 animations/join_default_length=0.5
@@ -121,12 +126,14 @@ translation/locales=["en", "es"]
 translation/intern/save_mode=0
 translation/intern/file_mode=1
 translation/intern/translation_folder="res://translations"
+text/autoadvance_fixed_delay=0.2
+text/autoadvance_enabled=false
+text/autocolor_names=false
 
 [display]
 
 window/size/viewport_width=3840
 window/size/viewport_height=2160
-window/size/mode=3
 window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
@@ -145,6 +152,7 @@ selected_arrows=""
 selected_targets=""
 npcs=""
 battle=""
+ability_animations=""
 
 [gui]
 

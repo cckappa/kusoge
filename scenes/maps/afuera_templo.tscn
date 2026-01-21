@@ -100,11 +100,10 @@ shape = SubResource("RectangleShape2D_um3c8")
 y_sort_enabled = true
 script = ExtResource("8_iykdy")
 
-[node name="GrayNpc" parent="NpcLayer" groups=["npcs"] instance=ExtResource("8_2ahog")]
+[node name="GrayNpc" parent="NpcLayer" instance=ExtResource("8_2ahog")]
 position = Vector2(-891, 811)
 
 [node name="Polygon2D" parent="NpcLayer/GrayNpc" index="0"]
-color = Color(0.97283, 0.885118, 0.650278, 1)
 polygon = PackedVector2Array(-57, 0, 52, -2, 50, -229, -55, -229)
 
 [node name="Label" parent="NpcLayer/GrayNpc" index="1"]
@@ -112,8 +111,6 @@ offset_left = -24.0
 offset_top = -113.0
 offset_right = 37.0
 offset_bottom = -71.125
-theme_override_colors/font_color = Color(0.0231524, 0.236902, 0.431717, 1)
-theme_override_font_sizes/font_size = 30
 text = "NPC"
 
 [node name="CollisionShape2D" parent="NpcLayer/GrayNpc/StaticBody2D" index="1"]
@@ -154,11 +151,10 @@ text = "NPC"
 position = Vector2(-5, -12)
 shape = SubResource("RectangleShape2D_xlpnb")
 
-[node name="GrayNpc3" parent="NpcLayer" groups=["npcs"] instance=ExtResource("8_2ahog")]
+[node name="GrayNpc3" parent="NpcLayer" instance=ExtResource("8_2ahog")]
 position = Vector2(1650, 1337)
 
 [node name="Polygon2D" parent="NpcLayer/GrayNpc3" index="0"]
-color = Color(0.97283, 0.885118, 0.650278, 1)
 polygon = PackedVector2Array(-78, 8, 80, 0, 64, -197, -45, -192, -45, -80, -78, -38)
 
 [node name="Label" parent="NpcLayer/GrayNpc3" index="1"]
@@ -166,19 +162,16 @@ offset_left = -20.0
 offset_top = -79.0
 offset_right = 41.0
 offset_bottom = -37.125
-theme_override_colors/font_color = Color(0.0231524, 0.236902, 0.431717, 1)
-theme_override_font_sizes/font_size = 30
 text = "NPC"
 
 [node name="CollisionShape2D" parent="NpcLayer/GrayNpc3/StaticBody2D" index="1"]
 position = Vector2(-1.5, -17)
 shape = SubResource("RectangleShape2D_2ahog")
 
-[node name="GrayNpc4" parent="NpcLayer" groups=["npcs"] instance=ExtResource("8_2ahog")]
+[node name="GrayNpc4" parent="NpcLayer" instance=ExtResource("8_2ahog")]
 position = Vector2(-1377, -314)
 
 [node name="Polygon2D" parent="NpcLayer/GrayNpc4" index="0"]
-color = Color(0.97283, 0.885118, 0.650278, 1)
 polygon = PackedVector2Array(-157, 0, 150, 0, 150, -69, 88, -96, 74, -165, 5, -183, -2, -214, -119, -224, -168, -76)
 
 [node name="Label" parent="NpcLayer/GrayNpc4" index="1"]
@@ -186,8 +179,6 @@ offset_left = -41.0
 offset_top = -104.0
 offset_right = 20.0
 offset_bottom = -62.125
-theme_override_colors/font_color = Color(0.0231524, 0.236902, 0.431717, 1)
-theme_override_font_sizes/font_size = 30
 text = "NPC"
 
 [node name="CollisionShape2D" parent="NpcLayer/GrayNpc4/StaticBody2D" index="1"]
@@ -232,11 +223,10 @@ shape = SubResource("RectangleShape2D_xlpnb")
 y_sort_enabled = true
 script = ExtResource("9_pcvqa")
 
-[node name="EdificiosRight" parent="ObjectLayer" groups=["objects"] instance=ExtResource("9_pdyal")]
+[node name="EdificiosRight" parent="ObjectLayer" instance=ExtResource("9_pdyal")]
 position = Vector2(2014, 989)
 
 [node name="Polygon2D" parent="ObjectLayer/EdificiosRight" index="0"]
-color = Color(0.529067, 0.529067, 0.529067, 1)
 polygon = PackedVector2Array(197, 1424, -144, 1406, -144, 475, -81, 287, -591, 287, -591, -80, -368, -448, -376, -841, -233, -1361, -72, -1379, -81, -1540, 107, -1531, 107, -1397, 277, -1325)
 
 [node name="Label" parent="ObjectLayer/EdificiosRight" index="1"]
@@ -244,52 +234,39 @@ offset_left = -147.0
 offset_top = -114.0
 offset_right = -5.0
 offset_bottom = -72.125
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 text = "EDIFICIOS"
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/EdificiosRight/StaticBody2D" index="1"]
 polygon = PackedVector2Array(205, 1432, -145, 1418, -145, 476, -71, 288, -609, 288, -596, -82, -367, -445, -381, -862, -239, -1347, -105, -1394, -78, -1515, 110, -1522, 110, -1394, 225, -1367)
 
-[node name="EdificiosBottom" parent="ObjectLayer" groups=["objects"] instance=ExtResource("9_pdyal")]
+[node name="EdificiosBottom" parent="ObjectLayer" instance=ExtResource("9_pdyal")]
 position = Vector2(-537, 2157)
 
 [node name="Polygon2D" parent="ObjectLayer/EdificiosBottom" index="0"]
-color = Color(0.529067, 0.529067, 0.529067, 1)
 polygon = PackedVector2Array(-1624, -520, -20, -496, 53, -186, 696, -202, 704, -316, 1445, -316, 1445, 229, -1030, 245)
 
 [node name="Label" parent="ObjectLayer/EdificiosBottom" index="1"]
-offset_right = 40.0
-offset_bottom = 22.3333
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 text = "EDIFICIOS "
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/EdificiosBottom/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-1640, -512, -37, -512, 37, -178, 688, -202, 712, -333, 1429, -316, 1461, 245, -1078, 302)
 
-[node name="EdificiosLeft" parent="ObjectLayer" groups=["objects"] instance=ExtResource("9_pdyal")]
+[node name="EdificiosLeft" parent="ObjectLayer" instance=ExtResource("9_pdyal")]
 position = Vector2(-1791, 562)
 
 [node name="Polygon2D" parent="ObjectLayer/EdificiosLeft" index="0"]
-color = Color(0.529067, 0.529067, 0.529067, 1)
 polygon = PackedVector2Array(-427, 1034, -329, 1091, 477, 1091, 452, -32, 306, -569, 135, -586, 159, -1514, 29, -2035, -459, -2043)
 
 [node name="Label" parent="ObjectLayer/EdificiosLeft" index="1"]
-offset_right = 40.0
-offset_bottom = 22.3333
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 text = "EDIFICIOS"
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/EdificiosLeft/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-435, 1042, -321, 1099, 460, 1116, 460, -40, 290, -561, 127, -586, 151, -1571, 13, -2018, -459, -2026)
 
-[node name="EdificiosTop" parent="ObjectLayer" groups=["objects"] instance=ExtResource("9_pdyal")]
+[node name="EdificiosTop" parent="ObjectLayer" instance=ExtResource("9_pdyal")]
 position = Vector2(-8, -2027)
 
 [node name="Polygon2D" parent="ObjectLayer/EdificiosTop" index="0"]
-color = Color(0.529067, 0.529067, 0.529067, 1)
 polygon = PackedVector2Array(-2185, -15, 1290, 17, 1299, -886, -2234, -895)
 
 [node name="Label" parent="ObjectLayer/EdificiosTop" index="1"]
@@ -297,14 +274,12 @@ offset_left = -472.0
 offset_top = -366.0
 offset_right = -330.0
 offset_bottom = -324.125
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 text = "EDIFICIOS"
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/EdificiosTop/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-2202, -32, -349, 8, -311, -81, -144, -92, -94, -3, 1266, 1, 1274, -878, -2251, -886)
 
-[node name="PuertaEdificiosTop" parent="ObjectLayer" groups=["objects"] instance=ExtResource("9_pdyal")]
+[node name="PuertaEdificiosTop" parent="ObjectLayer" instance=ExtResource("9_pdyal")]
 position = Vector2(-261, -2024)
 
 [node name="Polygon2D" parent="ObjectLayer/PuertaEdificiosTop" index="0"]
@@ -316,11 +291,9 @@ offset_left = -22.0
 offset_top = -156.0
 offset_right = 92.0
 offset_bottom = -114.125
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 text = "PUERTA"
 
-[node name="EdificiosTopRight" parent="ObjectLayer" groups=["objects"] instance=ExtResource("9_pdyal")]
+[node name="EdificiosTopRight" parent="ObjectLayer" instance=ExtResource("9_pdyal")]
 position = Vector2(1669, -1083)
 
 [node name="Polygon2D" parent="ObjectLayer/EdificiosTopRight" index="0"]
@@ -332,18 +305,15 @@ offset_left = -8.0
 offset_top = -838.0
 offset_right = 134.0
 offset_bottom = -796.125
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 text = "EDIFICIOS"
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/EdificiosTopRight/StaticBody2D" index="1"]
 polygon = PackedVector2Array(574, -15, -12, -7, -419, -951, -427, -1814, 623, -1822)
 
-[node name="EstatuaLeft" parent="ObjectLayer" groups=["objects"] instance=ExtResource("9_pdyal")]
+[node name="EstatuaLeft" parent="ObjectLayer" instance=ExtResource("9_pdyal")]
 position = Vector2(-708, 1473)
 
 [node name="Polygon2D" parent="ObjectLayer/EstatuaLeft" index="0"]
-color = Color(0.529067, 0.529067, 0.529067, 1)
 polygon = PackedVector2Array(-153, -11, 164, -5, 164, -67, 92, -83, 70, -395, 47, -445, 53, -684, -31, -678, -53, -445, -81, -411, -81, -78, -153, -61)
 
 [node name="Label" parent="ObjectLayer/EstatuaLeft" index="1"]
@@ -351,8 +321,6 @@ offset_left = -56.0
 offset_top = -250.0
 offset_right = 74.0
 offset_bottom = -208.125
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 text = "ESTATUA"
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/EstatuaLeft/StaticBody2D" index="1"]
@@ -374,11 +342,10 @@ text = "ESTATUA"
 [node name="CollisionPolygon2D" parent="ObjectLayer/EstatuaRight/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-161, -8, 166, 2, 163, -61, 87, -86, -85, -77, -154, -58)
 
-[node name="Fuente" parent="ObjectLayer" groups=["objects"] instance=ExtResource("9_pdyal")]
+[node name="Fuente" parent="ObjectLayer" instance=ExtResource("9_pdyal")]
 position = Vector2(0, 1371)
 
 [node name="Polygon2D" parent="ObjectLayer/Fuente" index="0"]
-color = Color(0.529067, 0.529067, 0.529067, 1)
 polygon = PackedVector2Array(-298, -35, -43, 9, 186, -16, 277, -41, 277, -257, 198, -352, 104, -370, 73, -612, -78, -606, -81, -380, -203, -352, -301, -261)
 
 [node name="Label" parent="ObjectLayer/Fuente" index="1"]
@@ -386,35 +353,27 @@ offset_left = -41.0
 offset_top = -198.0
 offset_right = 72.0
 offset_bottom = -156.125
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 text = "FUENTE"
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/Fuente/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-288, -47, -141, -9, 82, -6, 286, -41, 179, -107, 7, -122, -194, -116)
 
-[node name="Plantas" parent="ObjectLayer" groups=["objects"] instance=ExtResource("9_pdyal")]
+[node name="Plantas" parent="ObjectLayer" instance=ExtResource("9_pdyal")]
 position = Vector2(-9, 2707)
 
 [node name="Polygon2D" parent="ObjectLayer/Plantas" index="0"]
-color = Color(0.529067, 0.529067, 0.529067, 1)
 polygon = PackedVector2Array(-2258, -1099, -2130, -1049, -1541, -321, 1033, -332, 1161, -215, 1172, -4, 1656, -10, 1767, -304, 1895, -399, 2240, -410, 2229, 207, -2197, 191, -2197, 191)
 
 [node name="Label" parent="ObjectLayer/Plantas" index="1"]
-offset_right = 40.0
-offset_bottom = 22.3333
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 text = "PLANTAS"
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/Plantas/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-2280, -1116, -2166, -1069, -1567, -322, 915, -349, 1063, -316, 1158, -242, 1171, -13, 1682, -6, 1783, -336, 1891, -403, 2241, -403, 2220, 182, -2200, 182)
 
-[node name="Templo" parent="ObjectLayer" groups=["objects"] instance=ExtResource("9_pdyal")]
+[node name="Templo" parent="ObjectLayer" instance=ExtResource("9_pdyal")]
 position = Vector2(13, 605)
 
 [node name="Polygon2D" parent="ObjectLayer/Templo" index="0"]
-color = Color(0.529067, 0.529067, 0.529067, 1)
 polygon = PackedVector2Array(-1, -10, -271, -3, -762, -165, -755, -535, -943, -562, -937, -165, -1017, -158, -1078, -185, -1051, -952, -923, -1692, -977, -1934, -863, -2028, -809, -2270, -755, -2035, -634, -1907, -674, -1759, -297, -1773, -223, -1968, -116, -1988, -143, -2089, -55, -2277, 19, -2284, 113, -2102, 93, -2015, 173, -1988, 281, -1759, 624, -1732, 604, -1927, 739, -2048, 786, -2250, 846, -2008, 927, -1941, 873, -1719, 1014, -932, 1035, -185, 954, -158, 893, -185, 887, -535, 725, -541, 718, -192, 389, -17)
 
 [node name="Label" parent="ObjectLayer/Templo" index="1"]
@@ -422,8 +381,6 @@ offset_left = -33.0
 offset_top = -781.0
 offset_right = 87.0
 offset_bottom = -739.125
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 text = "TEMPLO"
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/Templo/StaticBody2D" index="1"]
@@ -435,7 +392,7 @@ polygon = PackedVector2Array(907, -192, 988, -165, 1075, -185, 1021, -245, 920, 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="ObjectLayer/Templo/StaticBody2D" index="3"]
 polygon = PackedVector2Array(-755, -178, -297, 3, -229, -95, 194, -112, 222, -12, 369, -44, 691, -165, 718, -521, 954, -757, 934, -1470, 806, -1712, -75, -1625, -809, -1725, -957, -1403, -957, -811, -755, -535)
 
-[node name="PuertaTemplo" parent="ObjectLayer" groups=["objects"] instance=ExtResource("9_pdyal")]
+[node name="PuertaTemplo" parent="ObjectLayer" instance=ExtResource("9_pdyal")]
 position = Vector2(0, 634)
 
 [node name="Polygon2D" parent="ObjectLayer/PuertaTemplo" index="0"]
@@ -447,15 +404,12 @@ offset_left = -47.0
 offset_top = -246.0
 offset_right = 67.0
 offset_bottom = -204.125
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 text = "PUERTA"
 
-[node name="AutoRoto" parent="ObjectLayer" groups=["objects"] instance=ExtResource("9_pdyal")]
+[node name="AutoRoto" parent="ObjectLayer" instance=ExtResource("9_pdyal")]
 position = Vector2(-1473, -1695)
 
 [node name="Polygon2D" parent="ObjectLayer/AutoRoto" index="0"]
-color = Color(0.529067, 0.529067, 0.529067, 1)
 polygon = PackedVector2Array(-359, 50, 321, 43, 327, -166, 220, -206, 200, -266, -191, -260, -211, -199, -332, -179)
 
 [node name="Label" parent="ObjectLayer/AutoRoto" index="1"]
@@ -463,8 +417,6 @@ offset_left = -54.0
 offset_top = -121.0
 offset_right = 120.0
 offset_bottom = -79.125
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 text = "AUTO ROTO"
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/AutoRoto/StaticBody2D" index="1"]
@@ -486,11 +438,10 @@ text = "AUTO ROTO"
 [node name="CollisionPolygon2D" parent="ObjectLayer/AutoRoto2/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-348, 47, 189, 5, 175, -92, -87, -96, -353, -68)
 
-[node name="Arbusto" parent="ObjectLayer" groups=["objects"] instance=ExtResource("9_pdyal")]
+[node name="Arbusto" parent="ObjectLayer" instance=ExtResource("9_pdyal")]
 position = Vector2(-1398, -770)
 
 [node name="Polygon2D" parent="ObjectLayer/Arbusto" index="0"]
-color = Color(0.529067, 0.529067, 0.529067, 1)
 polygon = PackedVector2Array(-164, 9, 178, 6, 129, -127, 83, -143, 45, -215, -107, -196)
 
 [node name="Label" parent="ObjectLayer/Arbusto" index="1"]
@@ -498,8 +449,6 @@ offset_left = -53.0
 offset_top = -84.0
 offset_right = 86.0
 offset_bottom = -42.125
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 text = "ARBUSTO"
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/Arbusto/StaticBody2D" index="1"]
@@ -521,11 +470,10 @@ text = "ARBUSTO"
 [node name="CollisionPolygon2D" parent="ObjectLayer/Arbusto2/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-4, 5, 176, 0, 164, -26, -1, -43)
 
-[node name="Basura" parent="ObjectLayer" groups=["objects"] instance=ExtResource("9_pdyal")]
+[node name="Basura" parent="ObjectLayer" instance=ExtResource("9_pdyal")]
 position = Vector2(-1207, -1018)
 
 [node name="Polygon2D" parent="ObjectLayer/Basura" index="0"]
-color = Color(0.529067, 0.529067, 0.529067, 1)
 polygon = PackedVector2Array(-90, 1, 104, 7, 95, -199, -65, -190)
 
 [node name="Label" parent="ObjectLayer/Basura" index="1"]
@@ -533,8 +481,6 @@ offset_left = -37.0
 offset_top = -111.0
 offset_right = 81.0
 offset_bottom = -69.125
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 text = "BASURA"
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/Basura/StaticBody2D" index="1"]
@@ -556,7 +502,7 @@ text = "BASURA"
 [node name="CollisionPolygon2D" parent="ObjectLayer/Basura2/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-93, -2, 112, -2, 101, -39, -82, -39)
 
-[node name="Basura3" parent="ObjectLayer" groups=["objects"] instance=ExtResource("9_pdyal")]
+[node name="Basura3" parent="ObjectLayer" instance=ExtResource("9_pdyal")]
 position = Vector2(-1866, -2013)
 
 [node name="Polygon2D" parent="ObjectLayer/Basura3" index="0"]
@@ -568,14 +514,12 @@ offset_left = -31.0
 offset_top = -135.0
 offset_right = 87.0
 offset_bottom = -93.125
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 text = "BASURA"
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/Basura3/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-234, 8, 286, 22, 295, -79, -257, -70)
 
-[node name="Poste" parent="ObjectLayer" groups=["objects"] instance=ExtResource("9_pdyal")]
+[node name="Poste" parent="ObjectLayer" instance=ExtResource("9_pdyal")]
 position = Vector2(-956, -1912)
 
 [node name="Polygon2D" parent="ObjectLayer/Poste" index="0"]
@@ -587,8 +531,6 @@ offset_left = -41.0
 offset_top = -510.0
 offset_right = 52.0
 offset_bottom = -468.125
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 text = "POSTE"
 
 [node name="CollisionShape2D" parent="ObjectLayer/Poste/StaticBody2D" index="0"]
@@ -634,10 +576,10 @@ script = ExtResource("12_msymi")
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
-limit_left = -2559
-limit_top = -1761
-limit_right = 2548
-limit_bottom = 2334
+limit_left = -2356
+limit_top = -2839
+limit_right = 2365
+limit_bottom = 1787
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 position = Vector2(4, 6.5)

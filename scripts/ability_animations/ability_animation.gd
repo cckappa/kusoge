@@ -4,10 +4,12 @@ class_name AbilityAnimation
 signal landed_ability()
 
 @export var landed_particles:Node2D
+@onready var animation_player:AnimationPlayer=$AnimationPlayer
 
 func _ready() -> void:
 	z_index = 15
 	z_as_relative = false
+	add_to_group("ability_animations")
 
 func emit_lands_ability() -> void:
 	emit_signal("landed_ability")

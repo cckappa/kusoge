@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DamageMultiplierTrinket" load_steps=3 format=3 uid="uid://osdsa4pkkm1i"]
+
+[ext_resource type="Texture2D" uid="uid://pgvjh544jsbd" path="res://assets/icons/warning.png" id="1_gu4kk"]
+[ext_resource type="Script" uid="uid://cmmkrs8u2qswr" path="res://scripts/trinkets/damage_multiplier_trinket.gd" id="2_lxntb"]
+
+[resource]
+script = ExtResource("2_lxntb")
+damage_multiplier = 1.5
+type = "WATER"
+identifier = &"blue_labubu"
+section_folder = ""
+icon = ExtResource("1_gu4kk")
+metadata/_custom_type_script = "uid://cmmkrs8u2qswr"

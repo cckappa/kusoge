@@ -471,10 +471,10 @@ bus = &"Music"
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
-limit_left = -2559
-limit_top = -1761
-limit_right = 2548
-limit_bottom = 2334
+limit_left = -2356
+limit_top = -2839
+limit_right = 2365
+limit_bottom = 1787
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 position = Vector2(1.5, -14.5)

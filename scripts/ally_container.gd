@@ -310,10 +310,12 @@ func set_current_action(action:String) -> void:
 	current_action = action
 
 func _on_starts_talking() -> void:
+	timer.paused = true
 	talking = true
 	menu.visible = false
 	selected_arrow.visible = false
 
 func _on_stops_talking() -> void:
+	timer.paused = false
 	talking = false
 	selected_arrow.visible = true

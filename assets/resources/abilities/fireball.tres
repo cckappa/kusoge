@@ -8,6 +8,7 @@ script = ExtResource("1_wqa6t")
 damage_points = 70
 identifier = "fireball"
 type = "FIRE"
+base_wait_time = 23.0
 wait_time = 23.0
 effect = "NEGATIVE"
 attack_animation = ExtResource("1_bo5c0")

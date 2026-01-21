@@ -8,6 +8,7 @@ script = ExtResource("1_em4tk")
 heal_points = 80
 identifier = "focused_healing"
 type = "GRASS"
+base_wait_time = 6.0
 wait_time = 6.0
 effect = "POSITIVE"
 attack_animation = ExtResource("1_8l0q8")

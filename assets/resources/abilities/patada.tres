@@ -8,6 +8,7 @@ script = ExtResource("1_5qpon")
 damage_points = 40
 identifier = "patada"
 type = "NORMAL"
+base_wait_time = 6.0
 wait_time = 6.0
 effect = "NEGATIVE"
 attack_animation = ExtResource("1_54xlb")

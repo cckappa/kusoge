@@ -8,6 +8,7 @@ script = ExtResource("1_m7k6t")
 damage_points = 100
 identifier = "rayo_cosmico"
 type = "ELECTRIC"
+base_wait_time = 30.0
 wait_time = 30.0
 effect = "NEGATIVE"
 attack_animation = ExtResource("1_dfcwg")

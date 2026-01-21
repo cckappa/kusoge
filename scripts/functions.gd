@@ -4,6 +4,7 @@ extends Node
 
 var pitch_effect:AudioEffectPitchShift
 var reverb_effect:AudioEffectReverb
+var stored_dialogic_events: Array = []
 
 func _ready()->void:
 	pitch_effect = AudioServer.get_bus_effect(bus_index, 0) as AudioEffectPitchShift
@@ -112,3 +113,54 @@ func ran_from_current_scene() -> bool:
 	# 	return true
 	# else:
 	# 	return false
+
+# func set_dialogic_auto_advance(enabled:bool) -> void:
+# 	# Dialogic.Inputs.auto_advance.enabled_until_user_input = not enabled
+# 	# Dialogic.Inputs.auto_advance.enabled_until_next_event = enabled
+# 	# Dialogic.Inputs.auto_advance = not enabled
+# 	Dialogic.Inputs.auto_advance.enabled_forced = enabled
+# 	Dialogic.Inputs.manual_advance.system_enabled = not enabled
+# 	Dialogic.Inputs.auto_skip.disable_on_user_input = not enabled
+# 	# Dialogic.Inputs.auto_skip.enabled = enabled
+# 	# Dialogic.Inputs.auto_skip.time_per_event = 3.0 if enabled else 0.1
+# 	# Dialogic.Inputs.manual_advance.disabled_until_next_event = enabled
+# 	# Dialogic.Inputs.auto_skip.
+
+# func set_dialogic_auto_advance(enabled: bool) -> void:
+# 	if enabled:
+# 		Dialogic.Inputs.auto_advance.enabled_forced = true
+# 		Dialogic.Inputs.auto_advance.enabled_until_user_input = false  # Don't disable on input
+# 		Dialogic.Inputs.manual_advance.system_enabled = true
+# 	else:
+# 		Dialogic.Inputs.auto_advance.enabled_forced = false
+# 		Dialogic.Inputs.auto_advance.enabled_until_user_input = true
+# 		Dialogic.Inputs.manual_advance.system_enabled = false
+
+func set_dialogic_auto_advance(enabled: bool) -> void:
+	# var events := InputMap.action_get_events("dialogic_default_action")
+	if enabled:
+		# Enable auto-advance
+		Dialogic.Inputs.auto_advance.enabled_forced = true
+		Dialogic.Inputs.auto_advance.enabled_until_user_input = false
+		
+		# Disable the dialogic_default_action input
+		# InputMap.action_set_deadzone("dialogic_default_action", 1.0)
+		# Or completely erase it temporarily
+		# Store and erase the input events
+		stored_dialogic_events = InputMap.action_get_events("dialogic_default_action")
+		InputMap.action_erase_events("dialogic_default_action")
+		# InputMap.action_erase_events("dialogic_default_action")
+	else:
+		# Disable auto-advance
+		Dialogic.Inputs.auto_advance.enabled_forced = false
+		Dialogic.Inputs.auto_advance.enabled_until_user_input = true
+		
+		# Restore the input events
+		for event:InputEvent in stored_dialogic_events:
+			InputMap.action_add_event("dialogic_default_action", event)
+		stored_dialogic_events.clear()
+		# Re-enable the input
+		# InputMap.action_set_deadzone("dialogic_default_action", 0.5)
+		# for event in events:
+		# 	InputMap.action_add_event("dialogic_default_action", event)
+		

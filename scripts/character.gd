@@ -35,7 +35,6 @@ var description:String:
 @export var selection:Selection
 
 var current_hp:=-1
-var armor_percent:=0.0
 var current_abilities:Array[Ability]
 var current_container:CharacterContainer
 var disabled:bool=false
@@ -47,7 +46,7 @@ func set_current_hp(hp:int=-1) -> void:
 		current_hp = hp
 
 func reduce_health(hp:int, crit:bool=false) -> void:
-	current_hp = clamp(current_hp - (hp - armor_percent), 0, max_hp)
+	current_hp = clamp(current_hp - hp, 0, max_hp)
 	if current_hp <= 0:
 		disabled = true
 
@@ -59,13 +58,6 @@ func increase_health(hp:int, crit:bool=false) -> void:
 	
 	if current_container != null:
 		current_container.set_health(current_hp, "HEAL", crit)
-
-func add_armor(armor:float, crit:bool=false) -> void:
-	armor_percent = armor
-
-func reset_armor() -> void:
-	armor_percent = 0.0
-	print("armor reset: ", armor_percent)
 
 func add_loot_to_item_list() -> Array[Dictionary]:
 	var added_loot:Array[Dictionary]

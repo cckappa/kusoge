@@ -30,6 +30,10 @@ signal ability_button_pressed(from:Character, attack:Ability)
 signal item_button_pressed(from:Character, item:Item)
 signal run_away()
 signal loot_collected()
+signal enemy_health_trigger_dialog(character:Character, dialog:EnemyFightDialog)
+signal enemy_victory_dialogs_started()
+signal enemy_victory_dialogs_ended()
+
 
 ## QUESTS
 

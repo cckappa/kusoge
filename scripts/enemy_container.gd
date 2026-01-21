@@ -24,13 +24,26 @@ signal disable_character(character:Character)
 var current_hp := 0.0
 var character : Character
 var crits := false
+var changing_life_bar_value := false
+var health_trigger_dialogs:Array[EnemyFightDialog]
+var tween_hp:Tween
 
 func _ready() -> void:
 	SignalBus.connect("crits_signal", crit_enabled)
 	SignalBus.connect("stop_crit", crit_disabled)
+	SignalBus.connect("starts_talking", _on_starts_talking)
+	SignalBus.connect("stops_talking", _on_stops_talking)
 	damage_value.visible = false
+	health_trigger_dialogs = character.get_health_trigger_dialogs()
 
 func _process(delta:float) -> void:
+	if changing_life_bar_value and health_trigger_dialogs.size() > 0:
+		for health_trigger_dialog:EnemyFightDialog in health_trigger_dialogs:
+			if not health_trigger_dialog.triggered and life_bar.value <= health_trigger_dialog.life_value_trigger:
+				health_trigger_dialog.triggered = true
+				SignalBus.emit_signal("enemy_health_trigger_dialog", character, health_trigger_dialog)
+				print("Health Trigger Dialog for ", character.name)
+			
 	if timer.time_left != 0:
 		var value_timer :int = ceil(((timer.wait_time - timer.time_left) / timer.wait_time) * 100)
 		progress_bar.value = value_timer
@@ -46,14 +59,16 @@ func set_health(hp:int, effect:StringName,_crit:bool=false) -> void:
 	elif effect == "HEAL":
 		heal_animation(_crit)
 	
-	#SignalBus.emit_signal("stop_crit")
+	changing_life_bar_value = true
 	damage_value.text = "[center]%s" % str(int(current_hp - hp))
-	var tween := get_tree().create_tween()
-	tween.tween_property(life_bar, "value", hp, 0.5)
+	tween_hp = get_tree().create_tween()
+	tween_hp.tween_property(life_bar, "value", hp, 0.5)
 	current_hp = hp
-	await tween.finished
+	await tween_hp.finished
+	changing_life_bar_value = false
 	print(current_hp, '-', character.name)
 	SignalBus.emit_signal("stop_crit")
+	tween_hp = null
 	if current_hp <= 0:
 		emit_signal("disable_character", character)
 
@@ -130,3 +145,13 @@ func _on_target_button_focus_exited() -> void:
 
 func target_focus() -> void:
 	target_button.focus_mode = Control.FOCUS_ALL
+
+func _on_starts_talking() -> void:
+	if tween_hp != null:
+		tween_hp.pause()
+	timer.paused = true
+
+func _on_stops_talking() -> void:
+	if tween_hp != null:
+		tween_hp.play()
+	timer.paused = false

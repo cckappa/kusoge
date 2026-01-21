@@ -12,6 +12,7 @@ var playable_character: Node2D
 var camera2D: PhantomCamera2D
 
 func _ready() -> void:
+	Functions.set_dialogic_auto_advance(false)
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 	SignalBus.connect("starts_fighting", add_fight)
 	SignalBus.connect("quit_game", quit_game)

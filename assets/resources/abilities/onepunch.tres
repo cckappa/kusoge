@@ -8,6 +8,7 @@ script = ExtResource("1_nunj3")
 damage_points = 100
 identifier = "one_punch"
 type = "EARTH"
+base_wait_time = 35.0
 wait_time = 35.0
 effect = "NEGATIVE"
 attack_animation = ExtResource("1_l7vqp")

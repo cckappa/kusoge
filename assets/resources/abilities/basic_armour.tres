@@ -5,9 +5,9 @@
 [resource]
 script = ExtResource("1_cs2hj")
 block_points_percent = 60.0
-ability_name = "Bloqueo"
+identifier = ""
 type = "NORMAL"
-description = "Agrega 60% de armadura"
+base_wait_time = 4.0
 wait_time = 4.0
 effect = "NEGATIVE"
 metadata/_custom_type_script = "uid://bc6leosjb4r46"

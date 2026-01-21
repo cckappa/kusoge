@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CooldownTrinket" load_steps=3 format=3 uid="uid://droq8j4clh035"]
+
+[ext_resource type="Texture2D" uid="uid://pgvjh544jsbd" path="res://assets/icons/warning.png" id="1_uu8qh"]
+[ext_resource type="Script" uid="uid://dcupyl5lpw4qv" path="res://scripts/trinkets/cooldown_trinket.gd" id="2_0otrg"]
+
+[resource]
+script = ExtResource("2_0otrg")
+cooldown_reduction = 5.0
+identifier = &"green_frog"
+section_folder = ""
+icon = ExtResource("1_uu8qh")
+type = "GRASS"
+metadata/_custom_type_script = "uid://dcupyl5lpw4qv"
