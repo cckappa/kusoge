@@ -9,6 +9,5 @@ damage_points = 40
 identifier = "cachetada"
 type = "NORMAL"
 base_wait_time = 4.0
-wait_time = 4.0
 effect = "NEGATIVE"
 attack_animation = ExtResource("1_1w1d5")

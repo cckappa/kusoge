@@ -9,7 +9,6 @@ damage_points = 35
 identifier = "cuchillazo"
 type = "NORMAL"
 base_wait_time = 5.0
-wait_time = 5.0
 effect = "NEGATIVE"
 attack_animation = ExtResource("1_cikdj")
 metadata/_custom_type_script = "uid://3uj7qdnixdle"

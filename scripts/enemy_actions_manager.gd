@@ -36,7 +36,8 @@ func _on_enter_state_entered() -> void:
 	for enemy : Character in enemies:
 		enemy.current_container.reset_timer(enter_battle_wait_time)
 		if enemy.get_intro_dialog() != null:
-			intro_dialogs.append(enemy.get_intro_dialog())
+			if enemy.get_intro_dialog() not in intro_dialogs:
+				intro_dialogs.append(enemy.get_intro_dialog())
 		if enemy.get_victory_dialog() != null:
 			victory_dialogs.append({"character":enemy, "dialog":enemy.get_victory_dialog()})
 	if intro_dialogs.size() > 0:
