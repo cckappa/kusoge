@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwijht2q5rb8f"]
+
+[ext_resource type="Shader" uid="uid://c1c767rm41e3t" path="res://assets/shaders/menu_tamagotchi.gdshader" id="1_ajekn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_02r7b"]
+shader = ExtResource("1_ajekn")
+shader_parameter/blur_amount = 2.6
+
+[node name="BlurEffect" type="ColorRect"]
+z_index = 1
+material = SubResource("ShaderMaterial_02r7b")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

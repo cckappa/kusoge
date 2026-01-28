@@ -138,10 +138,11 @@ window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/addons/wigglebone/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [global_group]
 

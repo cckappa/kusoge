@@ -1,0 +1,141 @@
+[gd_scene load_steps=6 format=3 uid="uid://but6w2vlvlpex"]
+
+[ext_resource type="PackedScene" uid="uid://cx5vmbvvaonsr" path="res://scenes/menu/tamagotchi.tscn" id="1_fx8xj"]
+[ext_resource type="Script" uid="uid://bi2663o6grh2i" path="res://scripts/menu/menu_tamagotchi.gd" id="1_utfs3"]
+[ext_resource type="Script" uid="uid://f44vuw1735px" path="res://addons/addons/wigglebone/wiggle_rotation_modifier_3d.gd" id="3_kh3as"]
+[ext_resource type="Script" uid="uid://dflm38dq2gb47" path="res://addons/addons/wigglebone/wiggle_rotation_properties_3d.gd" id="4_ostpk"]
+
+[sub_resource type="Resource" id="Resource_jt4y7"]
+script = ExtResource("4_ostpk")
+spring_freq = 1.7
+angular_damp = 5.0
+force_scale = 180.0
+linear_scale = 360.0
+swing_span = 1.0472
+gravity = Vector3(0, 9.81, 0)
+metadata/_custom_type_script = "uid://dflm38dq2gb47"
+
+[node name="MenuTamagotchi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_utfs3")
+
+[node name="Tamagotchi" parent="." instance=ExtResource("1_fx8xj")]
+
+[node name="DMWBWiggleRotationModifier3D" type="SkeletonModifier3D" parent="Tamagotchi/AnimatableBody3D/tamagotchi2/Armature/Skeleton3D" index="21"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+transform = Transform3D(3.73895e-07, -1.40448e-07, -1, 5.96046e-08, -1, 1.40448e-07, -1, -5.96047e-08, -3.73895e-07, 4.95011e-09, 0.817444, -2.38295e-08)
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+active = true
+influence = 1.0
+script = ExtResource("3_kh3as")
+bone_name = "Full"
+properties = SubResource("Resource_jt4y7")
+handle_distance = 0.44
+metadata/_custom_type_script = "uid://f44vuw1735px"
+
+[node name="ButtonTierra" type="Button" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_left = 2178.0
+offset_top = 1019.0
+offset_right = 2264.0
+offset_bottom = 1059.0
+mouse_filter = 2
+text = "TIERRA"
+
+[node name="ButtonOptions" type="Button" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_left = 2215.0
+offset_top = 950.0
+offset_right = 2301.0
+offset_bottom = 990.0
+mouse_filter = 2
+text = "OPTIONS"
+
+[node name="ButtonBack" type="Button" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_left = 1669.0
+offset_top = 950.0
+offset_right = 1755.0
+offset_bottom = 990.0
+mouse_filter = 2
+text = "BACK"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -20.0
+offset_right = 152.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonItems" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+text = "ITEMS"
+
+[node name="ButtonTrinkets" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+text = "TRINKETS"
+
+[node name="ButtonQuests" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+text = "QUESTS"
+
+[node name="ButtonCorazon" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+text = "CORAZON"
+
+[connection signal="focus_entered" from="ButtonTierra" to="." method="_on_button_tierra_focus_entered"]
+[connection signal="focus_exited" from="ButtonTierra" to="." method="_on_button_tierra_focus_exited"]
+[connection signal="focus_entered" from="ButtonOptions" to="." method="_on_button_options_focus_entered"]
+[connection signal="focus_exited" from="ButtonOptions" to="." method="_on_button_options_focus_exited"]
+[connection signal="focus_entered" from="ButtonBack" to="." method="_on_button_back_focus_entered"]
+[connection signal="focus_exited" from="ButtonBack" to="." method="_on_button_back_focus_exited"]
+[connection signal="focus_entered" from="HBoxContainer/ButtonItems" to="." method="_on_button_items_focus_entered"]
+[connection signal="focus_exited" from="HBoxContainer/ButtonItems" to="." method="_on_button_items_focus_exited"]
+[connection signal="focus_entered" from="HBoxContainer/ButtonTrinkets" to="." method="_on_button_trinkets_focus_entered"]
+[connection signal="focus_exited" from="HBoxContainer/ButtonTrinkets" to="." method="_on_button_trinkets_focus_exited"]
+[connection signal="focus_entered" from="HBoxContainer/ButtonQuests" to="." method="_on_button_quests_focus_entered"]
+[connection signal="focus_exited" from="HBoxContainer/ButtonQuests" to="." method="_on_button_quests_focus_exited"]
+[connection signal="focus_entered" from="HBoxContainer/ButtonCorazon" to="." method="_on_button_corazon_focus_entered"]
+[connection signal="focus_exited" from="HBoxContainer/ButtonCorazon" to="." method="_on_button_corazon_focus_exited"]
+
+[editable path="Tamagotchi"]
+[editable path="Tamagotchi/AnimatableBody3D/tamagotchi2"]

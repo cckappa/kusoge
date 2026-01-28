@@ -1,4 +1,4 @@
-[gd_scene load_steps=146 format=3 uid="uid://cw14ehtvu80xx"]
+[gd_scene load_steps=148 format=3 uid="uid://cw14ehtvu80xx"]
 
 [ext_resource type="Script" uid="uid://ddv7kigla6iip" path="res://scripts/maps/demo_tecnico_hub.gd" id="1_w0bji"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="2_b27bq"]
@@ -63,6 +63,8 @@
 [ext_resource type="Texture2D" uid="uid://c2fclseuebpey" path="res://assets/objects/demo_tecnico/2roca_mapa.png" id="47_cf2ti"]
 [ext_resource type="Texture2D" uid="uid://dfx4uk7g3jxfc" path="res://assets/objects/demo_tecnico/3roca_mapa.png" id="48_gvktg"]
 [ext_resource type="Texture2D" uid="uid://60n8w544ebmn" path="res://assets/objects/demo_tecnico/4roca_mapa.png" id="49_02r7b"]
+[ext_resource type="PackedScene" uid="uid://but6w2vlvlpex" path="res://scenes/menu/menu_tamagotchi.tscn" id="52_4h3p4"]
+[ext_resource type="PackedScene" uid="uid://bwijht2q5rb8f" path="res://scenes/menu/blur_effect.tscn" id="59_gvktg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1lo0"]
 size = Vector2(3690, 614)
@@ -1170,6 +1172,22 @@ position = Vector2(860, -1033)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 128
 
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
+z_index = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(3840, 2160)
+render_target_update_mode = 4
+
+[node name="MenuTamagotchi" parent="CanvasLayer/SubViewportContainer/SubViewport" instance=ExtResource("52_4h3p4")]
+
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_u2cg3")]
 
 [node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("2_b27bq")]
@@ -1179,6 +1197,8 @@ layer = 128
 [node name="AddNewCharacterAnimation" parent="CanvasLayer" instance=ExtResource("43_76sup")]
 
 [node name="AddNewItemAnimation" parent="CanvasLayer" instance=ExtResource("44_w68cj")]
+
+[node name="BlurEffect" parent="CanvasLayer" instance=ExtResource("59_gvktg")]
 
 [node name="BlackRect" parent="CanvasLayer" instance=ExtResource("29_kpvwu")]
 unique_name_in_owner = true
@@ -1201,6 +1221,10 @@ physics_interpolation_mode = 1
 position = Vector2(0, 285)
 zoom = Vector2(1.2, 1.2)
 process_callback = 0
+limit_left = -2356
+limit_top = -2839
+limit_right = 2365
+limit_bottom = 1787
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="CameraManager/Camera2D"]
