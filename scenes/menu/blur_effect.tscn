@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwijht2q5rb8f"]
+[gd_scene load_steps=4 format=3 uid="uid://bwijht2q5rb8f"]
 
 [ext_resource type="Shader" uid="uid://c1c767rm41e3t" path="res://assets/shaders/menu_tamagotchi.gdshader" id="1_ajekn"]
+[ext_resource type="Script" uid="uid://do6bjkxtx2bbi" path="res://scripts/menu/blur_effect.gd" id="2_pk550"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_02r7b"]
 shader = ExtResource("1_ajekn")
@@ -14,3 +15,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_pk550")

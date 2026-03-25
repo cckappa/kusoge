@@ -86,12 +86,12 @@ func create_scene() -> void:
 			canvas_layer.owner = get_tree().edited_scene_root
 
 		if get_parent().has_node("CanvasLayer"):
-			if not get_parent().get_node("CanvasLayer").has_node("PauseMenu"):
-				print('9.1 Creating Pause Menu...')
-				var pause_menu_scene := load("res://scenes/pause_menu.tscn")
-				var pause_menu: Node = pause_menu_scene.instantiate()
-				get_parent().get_node("CanvasLayer").add_child(pause_menu)
-				pause_menu.owner = get_tree().edited_scene_root
+			if not get_parent().get_node("CanvasLayer").has_node("MenuSubViewport"):
+				print('9.1 Creating Menu Sub Viewport...')
+				var menu_sub_viewport_scene := load("res://scenes/menu/menu_sub_viewport.tscn")
+				var menu_sub_viewport: Node = menu_sub_viewport_scene.instantiate()
+				get_parent().get_node("CanvasLayer").add_child(menu_sub_viewport)
+				menu_sub_viewport.owner = get_tree().edited_scene_root
 			
 			if not get_parent().get_node("CanvasLayer").has_node("SettingsMenu"):
 				print('9.2 Creating Settings Menu...')

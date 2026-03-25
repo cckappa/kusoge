@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx88hvib56f0"]
+
+[ext_resource type="PackedScene" uid="uid://but6w2vlvlpex" path="res://scenes/menu/menu_tamagotchi.tscn" id="1_6y8p8"]
+[ext_resource type="Script" uid="uid://bof2iweysicw2" path="res://scripts/menu/menu_sub_viewport.gd" id="1_v71ah"]
+[ext_resource type="PackedScene" uid="uid://bwijht2q5rb8f" path="res://scenes/menu/blur_effect.tscn" id="2_v71ah"]
+
+[node name="MenuSubViewport" type="SubViewportContainer"]
+process_mode = 3
+z_index = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v71ah")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+process_mode = 3
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(3840, 2160)
+render_target_update_mode = 4
+
+[node name="MenuTamagotchi" parent="SubViewport" node_paths=PackedStringArray("menu_sub_viewport") instance=ExtResource("1_6y8p8")]
+menu_sub_viewport = NodePath("../..")
+
+[node name="BlurEffect" parent="." instance=ExtResource("2_v71ah")]
+z_index = -1
+layout_mode = 2
+script = null

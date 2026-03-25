@@ -1,9 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://but6w2vlvlpex"]
+[gd_scene load_steps=13 format=3 uid="uid://but6w2vlvlpex"]
 
 [ext_resource type="PackedScene" uid="uid://cx5vmbvvaonsr" path="res://scenes/menu/tamagotchi.tscn" id="1_fx8xj"]
 [ext_resource type="Script" uid="uid://bi2663o6grh2i" path="res://scripts/menu/menu_tamagotchi.gd" id="1_utfs3"]
 [ext_resource type="Script" uid="uid://f44vuw1735px" path="res://addons/addons/wigglebone/wiggle_rotation_modifier_3d.gd" id="3_kh3as"]
 [ext_resource type="Script" uid="uid://dflm38dq2gb47" path="res://addons/addons/wigglebone/wiggle_rotation_properties_3d.gd" id="4_ostpk"]
+[ext_resource type="Theme" uid="uid://ivmeqy3td87i" path="res://assets/themes/menu_pixelify.tres" id="5_jt4y7"]
+[ext_resource type="Texture2D" uid="uid://dvly3xwpepgo7" path="res://assets/menu/pov_screen_pausa.jpg" id="5_ostpk"]
+[ext_resource type="PackedScene" uid="uid://dtgg7s2k7nbud" path="res://scenes/menu/header_bar.tscn" id="6_ywdls"]
+[ext_resource type="Texture2D" uid="uid://o68qjlc00xhn" path="res://assets/menu/corazon_menu.png" id="8_cyhmj"]
+[ext_resource type="Texture2D" uid="uid://rsqps5edq51q" path="res://assets/battle/Daño.PNG" id="9_8ex31"]
+[ext_resource type="Texture2D" uid="uid://vgmkybqdl06e" path="res://assets/battle/tiempo.PNG" id="10_ptl4c"]
 
 [sub_resource type="Resource" id="Resource_jt4y7"]
 script = ExtResource("4_ostpk")
@@ -15,7 +21,16 @@ swing_span = 1.0472
 gravity = Vector3(0, 9.81, 0)
 metadata/_custom_type_script = "uid://dflm38dq2gb47"
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfkmc"]
+bg_color = Color(0, 1, 1, 1)
+border_width_bottom = 3
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
 [node name="MenuTamagotchi" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,6 +40,8 @@ grow_vertical = 2
 script = ExtResource("1_utfs3")
 
 [node name="Tamagotchi" parent="." instance=ExtResource("1_fx8xj")]
+unique_name_in_owner = true
+process_mode = 3
 
 [node name="DMWBWiggleRotationModifier3D" type="SkeletonModifier3D" parent="Tamagotchi/AnimatableBody3D/tamagotchi2/Armature/Skeleton3D" index="21"]
 _import_path = NodePath("")
@@ -50,7 +67,15 @@ properties = SubResource("Resource_jt4y7")
 handle_distance = 0.44
 metadata/_custom_type_script = "uid://f44vuw1735px"
 
-[node name="ButtonTierra" type="Button" parent="."]
+[node name="ButtonsTamagotchi" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonTierra" type="Button" parent="ButtonsTamagotchi"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
@@ -61,7 +86,7 @@ offset_bottom = 1059.0
 mouse_filter = 2
 text = "TIERRA"
 
-[node name="ButtonOptions" type="Button" parent="."]
+[node name="ButtonOptions" type="Button" parent="ButtonsTamagotchi"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
@@ -72,7 +97,7 @@ offset_bottom = 990.0
 mouse_filter = 2
 text = "OPTIONS"
 
-[node name="ButtonBack" type="Button" parent="."]
+[node name="ButtonBack" type="Button" parent="ButtonsTamagotchi"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
@@ -83,7 +108,7 @@ offset_bottom = 990.0
 mouse_filter = 2
 text = "BACK"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="ButtonsTamagotchi"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -98,44 +123,502 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ButtonItems" type="Button" parent="HBoxContainer"]
+[node name="ButtonItems" type="Button" parent="ButtonsTamagotchi/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 text = "ITEMS"
 
-[node name="ButtonTrinkets" type="Button" parent="HBoxContainer"]
+[node name="ButtonTrinkets" type="Button" parent="ButtonsTamagotchi/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 text = "TRINKETS"
 
-[node name="ButtonQuests" type="Button" parent="HBoxContainer"]
+[node name="ButtonQuests" type="Button" parent="ButtonsTamagotchi/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 text = "QUESTS"
 
-[node name="ButtonCorazon" type="Button" parent="HBoxContainer"]
+[node name="ButtonCorazon" type="Button" parent="ButtonsTamagotchi/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 text = "CORAZON"
 
-[connection signal="focus_entered" from="ButtonTierra" to="." method="_on_button_tierra_focus_entered"]
-[connection signal="focus_exited" from="ButtonTierra" to="." method="_on_button_tierra_focus_exited"]
-[connection signal="focus_entered" from="ButtonOptions" to="." method="_on_button_options_focus_entered"]
-[connection signal="focus_exited" from="ButtonOptions" to="." method="_on_button_options_focus_exited"]
-[connection signal="focus_entered" from="ButtonBack" to="." method="_on_button_back_focus_entered"]
-[connection signal="focus_exited" from="ButtonBack" to="." method="_on_button_back_focus_exited"]
-[connection signal="focus_entered" from="HBoxContainer/ButtonItems" to="." method="_on_button_items_focus_entered"]
-[connection signal="focus_exited" from="HBoxContainer/ButtonItems" to="." method="_on_button_items_focus_exited"]
-[connection signal="focus_entered" from="HBoxContainer/ButtonTrinkets" to="." method="_on_button_trinkets_focus_entered"]
-[connection signal="focus_exited" from="HBoxContainer/ButtonTrinkets" to="." method="_on_button_trinkets_focus_exited"]
-[connection signal="focus_entered" from="HBoxContainer/ButtonQuests" to="." method="_on_button_quests_focus_entered"]
-[connection signal="focus_exited" from="HBoxContainer/ButtonQuests" to="." method="_on_button_quests_focus_exited"]
-[connection signal="focus_entered" from="HBoxContainer/ButtonCorazon" to="." method="_on_button_corazon_focus_entered"]
-[connection signal="focus_exited" from="HBoxContainer/ButtonCorazon" to="." method="_on_button_corazon_focus_exited"]
+[node name="Layouts" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PovContainer" type="PanelContainer" parent="Layouts"]
+layout_mode = 0
+offset_left = 311.0
+offset_top = 254.0
+offset_right = 1238.0
+offset_bottom = 1060.0
+theme = ExtResource("5_jt4y7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Layouts/PovContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="HeaderBar" parent="Layouts/PovContainer/VBoxContainer" instance=ExtResource("6_ywdls")]
+layout_mode = 2
+title_text = "PAUSA"
+
+[node name="PovScreen" type="TextureRect" parent="Layouts/PovContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_ostpk")
+
+[node name="PartyContainer" type="PanelContainer" parent="Layouts"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 405.0
+offset_top = -1126.0
+offset_right = 1338.0
+offset_bottom = -309.0
+grow_vertical = 0
+theme = ExtResource("5_jt4y7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Layouts/PartyContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="HeaderBar" parent="Layouts/PartyContainer/VBoxContainer" instance=ExtResource("6_ywdls")]
+layout_mode = 2
+title_text = "STATS"
+
+[node name="PanelContainer" type="PanelContainer" parent="Layouts/PartyContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+theme_override_styles/panel = SubResource("StyleBoxFlat_qfkmc")
+
+[node name="MarginContainer" type="MarginContainer" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_cyhmj")
+expand_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "12/130"
+fit_content = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "C:\\ATAQUES>_"
+fit_content = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "- Escupitajo"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("9_8ex31")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("10_ptl4c")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "- Escupitajo"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("9_8ex31")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("10_ptl4c")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "- Escupitajo"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("9_8ex31")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("10_ptl4c")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "- Escupitajo"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+texture = ExtResource("9_8ex31")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+texture = ExtResource("10_ptl4c")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemsContainer" type="PanelContainer" parent="Layouts"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 737.0
+offset_top = -1015.0
+offset_right = 1670.0
+offset_bottom = -198.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_jt4y7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Layouts/ItemsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="HeaderBar" parent="Layouts/ItemsContainer/VBoxContainer" instance=ExtResource("6_ywdls")]
+layout_mode = 2
+title_text = "ITEMS"
+
+[node name="PanelContainer" type="PanelContainer" parent="Layouts/ItemsContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+theme_override_styles/panel = SubResource("StyleBoxFlat_qfkmc")
+
+[node name="MarginContainer" type="MarginContainer" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_cyhmj")
+expand_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "12/130"
+fit_content = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "C:\\ITEMS>_"
+fit_content = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "- Galleta"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("9_8ex31")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("10_ptl4c")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "- Cafecito"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("9_8ex31")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("10_ptl4c")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "- Pastel"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("9_8ex31")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("10_ptl4c")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "- Bomba"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+texture = ExtResource("9_8ex31")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+texture = ExtResource("10_ptl4c")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+theme = ExtResource("5_jt4y7")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[connection signal="focus_entered" from="ButtonsTamagotchi/ButtonTierra" to="." method="_on_button_tierra_focus_entered"]
+[connection signal="focus_exited" from="ButtonsTamagotchi/ButtonTierra" to="." method="_on_button_tierra_focus_exited"]
+[connection signal="focus_entered" from="ButtonsTamagotchi/ButtonOptions" to="." method="_on_button_options_focus_entered"]
+[connection signal="focus_exited" from="ButtonsTamagotchi/ButtonOptions" to="." method="_on_button_options_focus_exited"]
+[connection signal="focus_entered" from="ButtonsTamagotchi/ButtonBack" to="." method="_on_button_back_focus_entered"]
+[connection signal="focus_exited" from="ButtonsTamagotchi/ButtonBack" to="." method="_on_button_back_focus_exited"]
+[connection signal="pressed" from="ButtonsTamagotchi/ButtonBack" to="." method="_on_button_back_pressed"]
+[connection signal="focus_entered" from="ButtonsTamagotchi/HBoxContainer/ButtonItems" to="." method="_on_button_items_focus_entered"]
+[connection signal="focus_exited" from="ButtonsTamagotchi/HBoxContainer/ButtonItems" to="." method="_on_button_items_focus_exited"]
+[connection signal="focus_entered" from="ButtonsTamagotchi/HBoxContainer/ButtonTrinkets" to="." method="_on_button_trinkets_focus_entered"]
+[connection signal="focus_exited" from="ButtonsTamagotchi/HBoxContainer/ButtonTrinkets" to="." method="_on_button_trinkets_focus_exited"]
+[connection signal="focus_entered" from="ButtonsTamagotchi/HBoxContainer/ButtonQuests" to="." method="_on_button_quests_focus_entered"]
+[connection signal="focus_exited" from="ButtonsTamagotchi/HBoxContainer/ButtonQuests" to="." method="_on_button_quests_focus_exited"]
+[connection signal="focus_entered" from="ButtonsTamagotchi/HBoxContainer/ButtonCorazon" to="." method="_on_button_corazon_focus_entered"]
+[connection signal="focus_exited" from="ButtonsTamagotchi/HBoxContainer/ButtonCorazon" to="." method="_on_button_corazon_focus_exited"]
 
 [editable path="Tamagotchi"]
 [editable path="Tamagotchi/AnimatableBody3D/tamagotchi2"]
