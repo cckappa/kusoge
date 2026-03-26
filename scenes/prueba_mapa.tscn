@@ -263,10 +263,10 @@ metadata/_custom_type_script = "uid://84ck8i2ypykl"
 [node name="Camera2D" type="Camera2D" parent="CameraManager"]
 position = Vector2(53, 96)
 zoom = Vector2(1.2, 1.2)
-limit_left = -1952
-limit_top = -938
-limit_right = 1952
-limit_bottom = 938
+limit_left = -1714
+limit_top = -4724
+limit_right = 2144
+limit_bottom = 2427
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="CameraManager/Camera2D"]

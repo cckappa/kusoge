@@ -270,10 +270,6 @@ script = ExtResource("25_6lhvw")
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
-limit_left = -1741
-limit_top = -1520
-limit_right = 1741
-limit_bottom = 1519
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 position = Vector2(0, 2.5)

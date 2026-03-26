@@ -32,4 +32,3 @@ func change_scene_to_target(body:Node2D) -> void:
 	await Functions.fade_color_rect(black_rect, "IN", 0.5)
 	get_tree().change_scene_to_file(target_scene)
 	disconnect("body_entered", _on_body_entered)
-

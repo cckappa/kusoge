@@ -17,6 +17,8 @@ func start_dialog() -> void:
 	SignalBus.emit_signal("starts_talking")
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
 	Dialogic.start(timeline_name)
+	print("ui_accept held: ", Input.is_action_pressed("ui_accept"))
+	print("talks held: ", Input.is_action_pressed("talks"))
 
 func _on_timeline_ended() -> void:
 	talking = false
@@ -34,7 +36,20 @@ func enters_area(body:Node2D) -> void:
 		print(body.name)
 		talking_zone = true
 		if automatic_start and !talking:
-			start_dialog()
+			var press := InputEventAction.new()
+			press.action = "talks"
+			press.pressed = true
+			Input.parse_input_event(press)
+			
+			await get_tree().process_frame
+			await get_tree().process_frame
+			await get_tree().process_frame
+			await get_tree().process_frame
+			
+			Input.action_release("talks")
+			
+			print("automatic start of dialog")
+			# start_dialog()
 
 func exits_area(body:Node2D) -> void:
 	if body.is_in_group("main_character"):

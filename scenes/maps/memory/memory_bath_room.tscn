@@ -1,0 +1,164 @@
+[gd_scene load_steps=27 format=3 uid="uid://br10vawpq7xgv"]
+
+[ext_resource type="Script" uid="uid://dhlregga0r5he" path="res://scripts/maps/memory/memory_bath_room.gd" id="1_00f8n"]
+[ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="2_lqcts"]
+[ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="3_jhdwj"]
+[ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="4_v8axb"]
+[ext_resource type="PackedScene" uid="uid://ckc0rqj4d6b16" path="res://scenes/gray_box.tscn" id="4_ypdf6"]
+[ext_resource type="Script" uid="uid://g7sf10k2338d" path="res://scripts/npc_layer.gd" id="7_ukew4"]
+[ext_resource type="Script" uid="uid://dsfklbei7r5qc" path="res://scripts/object_layer.gd" id="8_wou6y"]
+[ext_resource type="Script" uid="uid://ck4xyxoy5fldl" path="res://scripts/enemies_layer.gd" id="9_6itj8"]
+[ext_resource type="Script" uid="uid://bsvp6e76bx107" path="res://scripts/scene_changer.gd" id="10_akndc"]
+[ext_resource type="Script" uid="uid://cv43fprb0dski" path="res://scripts/spawns_layer.gd" id="10_ixdf3"]
+[ext_resource type="Script" uid="uid://c2d2peg3ovb8n" path="res://scripts/saves_layer.gd" id="11_pldok"]
+[ext_resource type="PackedScene" uid="uid://bx88hvib56f0" path="res://scenes/menu/menu_sub_viewport.tscn" id="12_sr4pl"]
+[ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="14_04oki"]
+[ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="16_rtf4s"]
+[ext_resource type="PackedScene" uid="uid://dqi4bw7t4w0u8" path="res://scenes/add_new_character_animation.tscn" id="18_7idum"]
+[ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="20_qetrv"]
+[ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="22_32o11"]
+[ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="23_v1x27"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="27_lmcyj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukew4"]
+size = Vector2(257, 676)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wou6y"]
+size = Vector2(257, 676)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6itj8"]
+size = Vector2(798, 148)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ixdf3"]
+size = Vector2(798, 148)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pldok"]
+size = Vector2(358, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2kmg"]
+size = Vector2(3840, 2160)
+
+[sub_resource type="Resource" id="Resource_fyrvt"]
+script = ExtResource("27_lmcyj")
+duration = 2.0
+transition = 1
+ease = 2
+
+[node name="memory_bath_room" type="Node2D" node_paths=PackedStringArray("audio_stream_player", "black_rect")]
+y_sort_enabled = true
+script = ExtResource("1_00f8n")
+current_scene = "res://scenes/maps/memory/memory_bath_room.tscn"
+audio_stream_player = NodePath("AudioStreamPlayer")
+black_rect = NodePath("CanvasLayer/BlackRect")
+
+[node name="ParallaxBackgroundLayer" type="Node2D" parent="."]
+z_index = -1
+script = ExtResource("2_lqcts")
+
+[node name="BackgroundLayer" type="Node2D" parent="."]
+z_index = -1
+script = ExtResource("3_jhdwj")
+
+[node name="GrayBox" parent="BackgroundLayer" instance=ExtResource("4_ypdf6")]
+
+[node name="Polygon2D" parent="BackgroundLayer/GrayBox" index="0"]
+polygon = PackedVector2Array(-312, 150, 320, 165, 284, -467, -307, -487)
+
+[node name="CollisionShape2D" parent="BackgroundLayer/GrayBox/StaticBody2D" index="0"]
+position = Vector2(-425, -164)
+shape = SubResource("RectangleShape2D_ukew4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BackgroundLayer/GrayBox/StaticBody2D" index="1"]
+position = Vector2(429, -156)
+shape = SubResource("RectangleShape2D_wou6y")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BackgroundLayer/GrayBox/StaticBody2D" index="2"]
+position = Vector2(-22, -542)
+shape = SubResource("RectangleShape2D_6itj8")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BackgroundLayer/GrayBox/StaticBody2D" index="3"]
+position = Vector2(-22, 229)
+shape = SubResource("RectangleShape2D_ixdf3")
+
+[node name="PlayableCharacter" parent="." instance=ExtResource("4_v8axb")]
+
+[node name="NpcLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("7_ukew4")
+
+[node name="ObjectLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("8_wou6y")
+
+[node name="Puerta" parent="ObjectLayer" instance=ExtResource("4_ypdf6")]
+position = Vector2(92, -467)
+
+[node name="Polygon2D" parent="ObjectLayer/Puerta" index="0"]
+color = Color(0.385493, 0.385492, 0.385492, 1)
+polygon = PackedVector2Array(-275, 40, -219, -293, 44, -278, 74, 40)
+
+[node name="SceneChanger" type="Area2D" parent="ObjectLayer/Puerta" node_paths=PackedStringArray("black_rect")]
+script = ExtResource("10_akndc")
+target_scene = "res://scenes/maps/memory/memory_sala_room.tscn"
+target_marker = "EntradaBathRoom"
+black_rect = NodePath("../../../CanvasLayer/BlackRect")
+metadata/_custom_type_script = "uid://bsvp6e76bx107"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/Puerta/SceneChanger"]
+position = Vector2(-99, -9)
+shape = SubResource("RectangleShape2D_pldok")
+
+[node name="EnemiesLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("9_6itj8")
+
+[node name="SpawnsLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("10_ixdf3")
+
+[node name="DefaultMarker" type="Marker2D" parent="SpawnsLayer"]
+
+[node name="EntradaBathRoom" type="Marker2D" parent="SpawnsLayer"]
+position = Vector2(0, -338)
+
+[node name="SavesLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("11_pldok")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MenuSubViewport" parent="CanvasLayer" instance=ExtResource("12_sr4pl")]
+visible = false
+
+[node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("14_04oki")]
+
+[node name="NotificationCenter" parent="CanvasLayer" instance=ExtResource("16_rtf4s")]
+
+[node name="AddNewCharacterAnimation" parent="CanvasLayer" instance=ExtResource("18_7idum")]
+
+[node name="AddNewItemAnimation" parent="CanvasLayer" instance=ExtResource("20_qetrv")]
+
+[node name="BlackRect" parent="CanvasLayer" instance=ExtResource("22_32o11")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="CameraManager" parent="." instance=ExtResource("23_v1x27")]
+
+[node name="Camera2D" parent="CameraManager" index="0"]
+physics_interpolation_mode = 1
+process_callback = 0
+limit_left = -1920
+limit_top = -1410
+limit_right = 1920
+limit_bottom = 1080
+
+[node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
+shape = SubResource("RectangleShape2D_m2kmg")
+
+[node name="PhantomCamera2D" parent="CameraManager/PhantomCameras" index="0" node_paths=PackedStringArray("follow_target")]
+follow_target = NodePath("../../../PlayableCharacter")
+tween_resource = SubResource("Resource_fyrvt")
+
+[editable path="BackgroundLayer/GrayBox"]
+[editable path="ObjectLayer/Puerta"]
+[editable path="CameraManager"]

@@ -61,6 +61,18 @@ directories/dtl_directory={
 "lobo_salvaje_intro_fight_1": "res://dialogic/timelines/demo_tecnico/fight_enemies_dialogs/lobo_salvaje_intro_fight_1.dtl",
 "lobo_salvaje_victory_1": "res://dialogic/timelines/demo_tecnico/fight_enemies_dialogs/lobo_salvaje_victory_1.dtl",
 "lobuki_cigarro_0": "res://dialogic/timelines/demo_tecnico/lobuki_cigarro_0.dtl",
+"memory_depto_101_1": "res://dialogic/timelines/memory_scene_1/memory_depto_101_1.dtl",
+"memory_depto_102_1": "res://dialogic/timelines/memory_scene_1/memory_depto_102_1.dtl",
+"memory_depto_201_1": "res://dialogic/timelines/memory_scene_1/memory_depto_201_1.dtl",
+"memory_depto_202_1": "res://dialogic/timelines/memory_scene_1/memory_depto_202_1.dtl",
+"memory_lucia_1": "res://dialogic/timelines/memory_scene_1/memory_lucia_1.dtl",
+"memory_madera_1": "res://dialogic/timelines/memory_scene_1/memory_madera_1.dtl",
+"memory_mom_1": "res://dialogic/timelines/memory_scene_1/memory_mom_1.dtl",
+"memory_mom_2": "res://dialogic/timelines/memory_scene_1/memory_mom_2.dtl",
+"memory_mom_3": "res://dialogic/timelines/memory_scene_1/memory_mom_3.dtl",
+"memory_puerta_llaves_1": "res://dialogic/timelines/memory_scene_1/memory_puerta_llaves_1.dtl",
+"memory_puerta_papas_1": "res://dialogic/timelines/memory_scene_1/memory_puerta_papas_1.dtl",
+"memory_puerta_vecino_1": "res://dialogic/timelines/memory_scene_1/memory_puerta_vecino_1.dtl",
 "mesero_bar_1": "res://dialogic/timelines/area_1/mesero_bar_1.dtl",
 "npc_rosita_demo": "res://dialogic/timelines/demo_tecnico/npc_rosita_demo.dtl",
 "numero_casa_demo_tecnico": "res://dialogic/timelines/demo_tecnico/numero_casa_demo_tecnico.dtl",
@@ -129,6 +141,7 @@ translation/intern/translation_folder="res://translations"
 text/autoadvance_fixed_delay=0.2
 text/autoadvance_enabled=false
 text/autocolor_names=false
+text/input_action="talks"
 
 [display]
 

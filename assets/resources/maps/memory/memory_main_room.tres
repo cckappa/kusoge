@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SingleMapResource" load_steps=2 format=3 uid="uid://ckyq53wgrya40"]
+
+[ext_resource type="Script" uid="uid://b21bna7stwiam" path="res://scripts/maps/single_map_resource.gd" id="1_vj2gr"]
+
+[resource]
+script = ExtResource("1_vj2gr")
+name = "memory_main_room"
+scene_path = "res://scenes/maps/memory/memory_main_room.tscn"
+state = "default"
+metadata/_custom_type_script = "uid://b21bna7stwiam"

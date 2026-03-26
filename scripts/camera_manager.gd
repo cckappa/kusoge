@@ -11,6 +11,10 @@ func _ready() -> void:
 
 	for area in camera_zone_areas:
 		area.connect("body_entered", _on_camera_zone_entered.bind(area))
+		if area.zone_type == 1: # ZONA
+			area.connect("body_exited", _on_camera_zone_exited.bind(area))
+	
+	print(camera_zone_areas)
 
 func switch_camera(from_camera: PhantomCamera2D, to_camera: PhantomCamera2D) -> void:
 	if from_camera and to_camera:
@@ -42,4 +46,25 @@ func _on_camera_zone_entered(body: Node, area: CameraZoneArea) -> void:
 			return
 		
 		# print("Camera zone entered by main character:", body.name, "Switching from camera: ", from_camera.name, " to ", to_camera.name)
+		switch_camera(from_camera, to_camera)
+	
+func _on_camera_zone_exited(body: Node, area: CameraZoneArea) -> void:
+	if body.is_in_group("main_character"):
+		var from_camera : PhantomCamera2D = null
+		var to_camera : PhantomCamera2D = null
+		if not area.camera_a or not area.camera_b:
+			printerr("Camera zone area does not have both cameras assigned.")
+			return
+
+		if current_camera == area.camera_a:
+			from_camera = area.camera_a
+			to_camera = area.camera_b
+		elif current_camera == area.camera_b:
+			from_camera = area.camera_b
+			to_camera = area.camera_a
+		else:
+			printerr("Current camera is not part of the camera zone area.")
+			return
+		
+		# print("Camera zone exited by main character:", body.name, "Switching back from camera: ", from_camera.name, " to ", to_camera.name)
 		switch_camera(from_camera, to_camera)

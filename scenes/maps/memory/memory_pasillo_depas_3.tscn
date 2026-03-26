@@ -1,0 +1,272 @@
+[gd_scene load_steps=33 format=3 uid="uid://cfkr2w5frhpaj"]
+
+[ext_resource type="Script" uid="uid://b2lqqslgicdes" path="res://scripts/maps/memory/memory_pasillo_depas_3.gd" id="1_hufn2"]
+[ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="2_cafgm"]
+[ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="3_ybdpl"]
+[ext_resource type="PackedScene" uid="uid://ckc0rqj4d6b16" path="res://scenes/gray_box.tscn" id="4_0lqix"]
+[ext_resource type="Script" uid="uid://do84xbf65qif" path="res://scripts/talk.gd" id="5_po6fc"]
+[ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="6_vbm4o"]
+[ext_resource type="Script" uid="uid://g7sf10k2338d" path="res://scripts/npc_layer.gd" id="7_e0ct6"]
+[ext_resource type="Script" uid="uid://dsfklbei7r5qc" path="res://scripts/object_layer.gd" id="8_pu5wk"]
+[ext_resource type="Script" uid="uid://bsvp6e76bx107" path="res://scripts/scene_changer.gd" id="9_fe2al"]
+[ext_resource type="Script" uid="uid://ck4xyxoy5fldl" path="res://scripts/enemies_layer.gd" id="10_uvvph"]
+[ext_resource type="Script" uid="uid://cv43fprb0dski" path="res://scripts/spawns_layer.gd" id="11_bpt1t"]
+[ext_resource type="Script" uid="uid://c2d2peg3ovb8n" path="res://scripts/saves_layer.gd" id="12_1yxvx"]
+[ext_resource type="PackedScene" uid="uid://bx88hvib56f0" path="res://scenes/menu/menu_sub_viewport.tscn" id="13_q76rg"]
+[ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="14_dko16"]
+[ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="15_q4tn1"]
+[ext_resource type="PackedScene" uid="uid://dqi4bw7t4w0u8" path="res://scenes/add_new_character_animation.tscn" id="16_l86t1"]
+[ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="17_5cyki"]
+[ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="18_lvj7c"]
+[ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="19_65u0e"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="20_uaf15"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3oaj"]
+size = Vector2(151, 828)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpcyd"]
+size = Vector2(559, 557)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t54c0"]
+size = Vector2(1247.5, 622.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onp4k"]
+size = Vector2(645, 828)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3f6g"]
+size = Vector2(728, 645)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fgd5"]
+size = Vector2(215, 868)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wlbn2"]
+size = Vector2(215, 868)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvc0i"]
+size = Vector2(138, 460)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jg2sj"]
+size = Vector2(607, 127)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hufn2"]
+size = Vector2(501, 116)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y12ve"]
+size = Vector2(3840, 2490)
+
+[sub_resource type="Resource" id="Resource_6fx5v"]
+script = ExtResource("20_uaf15")
+duration = 2.0
+transition = 1
+ease = 2
+
+[node name="MemoryPasilloDepas3" type="Node2D" node_paths=PackedStringArray("audio_stream_player", "black_rect")]
+script = ExtResource("1_hufn2")
+current_scene = "res://scenes/maps/memory/memory_pasillo_depas_3.tscn"
+audio_stream_player = NodePath("AudioStreamPlayer")
+black_rect = NodePath("CanvasLayer/BlackRect")
+
+[node name="ParallaxBackgroundLayer" type="Node2D" parent="."]
+z_index = -1
+script = ExtResource("2_cafgm")
+
+[node name="BackgroundLayer" type="Node2D" parent="."]
+z_index = -1
+script = ExtResource("3_ybdpl")
+
+[node name="GrayBox" parent="BackgroundLayer" instance=ExtResource("4_0lqix")]
+
+[node name="Polygon2D" parent="BackgroundLayer/GrayBox" index="0"]
+polygon = PackedVector2Array(-887, -354, -220, -354, -215, -788, 270, -799, 245, -364, 821, -359, 821, 91, -908, 96)
+
+[node name="CollisionShape2D" parent="BackgroundLayer/GrayBox/StaticBody2D" index="0"]
+position = Vector2(-912.5, 508)
+shape = SubResource("RectangleShape2D_n3oaj")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="BackgroundLayer/GrayBox/StaticBody2D" index="1"]
+position = Vector2(-576.5, 493.5)
+shape = SubResource("RectangleShape2D_gpcyd")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="BackgroundLayer/GrayBox/StaticBody2D" index="2"]
+position = Vector2(313.25, 404.75)
+shape = SubResource("RectangleShape2D_t54c0")
+
+[node name="CollisionPolygon2D" parent="BackgroundLayer/GrayBox/StaticBody2D" index="3"]
+position = Vector2(1187, 481)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BackgroundLayer/GrayBox/StaticBody2D" index="4"]
+position = Vector2(564.5, -758)
+shape = SubResource("RectangleShape2D_onp4k")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BackgroundLayer/GrayBox/StaticBody2D" index="5"]
+position = Vector2(-579, -678.5)
+shape = SubResource("RectangleShape2D_x3f6g")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BackgroundLayer/GrayBox/StaticBody2D" index="6"]
+position = Vector2(-1002, -178)
+shape = SubResource("RectangleShape2D_6fgd5")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="BackgroundLayer/GrayBox/StaticBody2D" index="7"]
+position = Vector2(956, -211)
+shape = SubResource("RectangleShape2D_wlbn2")
+
+[node name="PuertaCasa" parent="BackgroundLayer/GrayBox" instance=ExtResource("4_0lqix")]
+position = Vector2(-906, -152)
+
+[node name="Polygon2D" parent="BackgroundLayer/GrayBox/PuertaCasa" index="0"]
+position = Vector2(-6.99995, 290)
+scale = Vector2(0.173653, 5.67901)
+color = Color(0.381703, 0.381703, 0.381703, 1)
+polygon = PackedVector2Array(-235, -7, -235, -88, 266, -88, 260, -12)
+
+[node name="Talk" type="Node2D" parent="BackgroundLayer/GrayBox/PuertaCasa" node_paths=PackedStringArray("talking_area")]
+script = ExtResource("5_po6fc")
+talking_area = NodePath("Area2D")
+timeline_name = "memory_depto_101_1"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="BackgroundLayer/GrayBox/PuertaCasa/Talk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundLayer/GrayBox/PuertaCasa/Talk/Area2D"]
+position = Vector2(15, 13)
+shape = SubResource("RectangleShape2D_nvc0i")
+
+[node name="PuertaCasa2" parent="BackgroundLayer/GrayBox" instance=ExtResource("4_0lqix")]
+position = Vector2(849, -152)
+
+[node name="Polygon2D" parent="BackgroundLayer/GrayBox/PuertaCasa2" index="0"]
+position = Vector2(-6.99995, 290)
+scale = Vector2(0.173653, 5.67901)
+color = Color(0.381703, 0.381703, 0.381703, 1)
+polygon = PackedVector2Array(-235, -7, -235, -88, 266, -88, 260, -12)
+
+[node name="Talk" type="Node2D" parent="BackgroundLayer/GrayBox/PuertaCasa2" node_paths=PackedStringArray("talking_area")]
+position = Vector2(-61, 0)
+script = ExtResource("5_po6fc")
+talking_area = NodePath("Area2D")
+timeline_name = "memory_depto_102_1"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="BackgroundLayer/GrayBox/PuertaCasa2/Talk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundLayer/GrayBox/PuertaCasa2/Talk/Area2D"]
+position = Vector2(15, 13)
+shape = SubResource("RectangleShape2D_nvc0i")
+
+[node name="PlayableCharacter" parent="." instance=ExtResource("6_vbm4o")]
+
+[node name="NpcLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("7_e0ct6")
+
+[node name="ObjectLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("8_pu5wk")
+
+[node name="EscalerasArriba" parent="ObjectLayer" instance=ExtResource("4_0lqix")]
+position = Vector2(-596, 101)
+
+[node name="Polygon2D" parent="ObjectLayer/EscalerasArriba" index="0"]
+color = Color(0.703808, 0.703808, 0.703808, 1)
+polygon = PackedVector2Array(-272, -7, 299, -12, 380, 377, -151, 413)
+
+[node name="SceneChanger" type="Area2D" parent="ObjectLayer/EscalerasArriba" node_paths=PackedStringArray("black_rect")]
+script = ExtResource("9_fe2al")
+target_scene = "res://scenes/maps/memory/memory_pasillo_depas_2.tscn"
+target_marker = "EscalerasPiso2"
+black_rect = NodePath("../../../CanvasLayer/BlackRect")
+metadata/_custom_type_script = "uid://bsvp6e76bx107"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/EscalerasArriba/SceneChanger"]
+position = Vector2(36.5, 56.5)
+shape = SubResource("RectangleShape2D_jg2sj")
+
+[node name="SalidaPueblo" parent="ObjectLayer" groups=["objects"] instance=ExtResource("4_0lqix")]
+position = Vector2(30, -703)
+
+[node name="Polygon2D" parent="ObjectLayer/SalidaPueblo" index="0"]
+color = Color(0.529067, 0.529067, 0.529067, 1)
+
+[node name="Label" parent="ObjectLayer/SalidaPueblo" index="1"]
+offset_right = 40.0
+offset_bottom = 22.3333
+theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+
+[node name="SceneChanger" type="Area2D" parent="ObjectLayer/SalidaPueblo" node_paths=PackedStringArray("black_rect")]
+script = ExtResource("9_fe2al")
+target_scene = "res://scenes/maps/memory/memory_plaza_principal.tscn"
+target_marker = "EntradaDepas"
+black_rect = NodePath("../../../CanvasLayer/BlackRect")
+metadata/_custom_type_script = "uid://bsvp6e76bx107"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/SalidaPueblo/SceneChanger"]
+position = Vector2(-5.5, -68)
+shape = SubResource("RectangleShape2D_hufn2")
+
+[node name="EnemiesLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("10_uvvph")
+
+[node name="SpawnsLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("11_bpt1t")
+
+[node name="DefaultMarker" type="Marker2D" parent="SpawnsLayer"]
+position = Vector2(-20, -82)
+
+[node name="EscalerasPiso2" type="Marker2D" parent="SpawnsLayer"]
+position = Vector2(-576, 14)
+
+[node name="EntradaDepas" type="Marker2D" parent="SpawnsLayer"]
+position = Vector2(20, -633)
+
+[node name="SavesLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("12_1yxvx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MenuSubViewport" parent="CanvasLayer" instance=ExtResource("13_q76rg")]
+visible = false
+
+[node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("14_dko16")]
+
+[node name="NotificationCenter" parent="CanvasLayer" instance=ExtResource("15_q4tn1")]
+metadata/_edit_lock_ = true
+
+[node name="AddNewCharacterAnimation" parent="CanvasLayer" instance=ExtResource("16_l86t1")]
+metadata/_edit_lock_ = true
+
+[node name="AddNewItemAnimation" parent="CanvasLayer" instance=ExtResource("17_5cyki")]
+metadata/_edit_lock_ = true
+
+[node name="BlackRect" parent="CanvasLayer" instance=ExtResource("18_lvj7c")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="CameraManager" parent="." instance=ExtResource("19_65u0e")]
+
+[node name="Camera2D" parent="CameraManager" index="0"]
+physics_interpolation_mode = 1
+process_callback = 0
+limit_left = -1920
+limit_top = -1410
+limit_right = 1920
+limit_bottom = 1080
+
+[node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
+position = Vector2(0, -165)
+shape = SubResource("RectangleShape2D_y12ve")
+
+[node name="PhantomCamera2D" parent="CameraManager/PhantomCameras" index="0" node_paths=PackedStringArray("follow_target")]
+follow_target = NodePath("../../../PlayableCharacter")
+tween_resource = SubResource("Resource_6fx5v")
+limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
+
+[editable path="BackgroundLayer/GrayBox"]
+[editable path="BackgroundLayer/GrayBox/PuertaCasa"]
+[editable path="BackgroundLayer/GrayBox/PuertaCasa2"]
+[editable path="ObjectLayer/EscalerasArriba"]
+[editable path="ObjectLayer/SalidaPueblo"]
+[editable path="CameraManager"]

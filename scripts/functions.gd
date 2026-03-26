@@ -143,6 +143,8 @@ func set_dialogic_auto_advance(enabled: bool) -> void:
 		Dialogic.Inputs.auto_advance.enabled_forced = true
 		Dialogic.Inputs.auto_advance.enabled_until_user_input = false
 		
+		# Dialogic.Inputs.auto_skip.enabled = true
+		# Dialogic.Inputs.manual_advance.system_enabled = true
 		# Disable the dialogic_default_action input
 		# InputMap.action_set_deadzone("dialogic_default_action", 1.0)
 		# Or completely erase it temporarily
@@ -154,7 +156,8 @@ func set_dialogic_auto_advance(enabled: bool) -> void:
 		# Disable auto-advance
 		Dialogic.Inputs.auto_advance.enabled_forced = false
 		Dialogic.Inputs.auto_advance.enabled_until_user_input = true
-		
+		Dialogic.Inputs.auto_skip.enabled = false
+		Dialogic.Inputs.manual_advance.system_enabled = false
 		# Restore the input events
 		for event:InputEvent in stored_dialogic_events:
 			InputMap.action_add_event("dialogic_default_action", event)

@@ -1,0 +1,4 @@
+[shake rate=10.0 level=20 connected=1]ALICIAAAAAAAAAAAA[/shake]
+te busca Lucía
+que si vas a salir
+[signal arg_type="dict" arg="{"name":"remove_mom_npc"}"]

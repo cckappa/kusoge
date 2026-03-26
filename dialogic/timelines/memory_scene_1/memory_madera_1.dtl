@@ -1,0 +1,6 @@
+[style name="object_info"]
+un pedazo de madera para cubrir la entrada a tu guarida
+- mover
+	[signal arg_type="dict" arg="{"name":"abrir_guarida"}"]
+- ignorar
+	luego vengo

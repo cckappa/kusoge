@@ -11,6 +11,7 @@ signal quit_game
 ## OVERWORLD
 
 signal wild_enemy_encounter
+signal play_world_animation(event_name:String)
 
 ## FIGHTING
 
