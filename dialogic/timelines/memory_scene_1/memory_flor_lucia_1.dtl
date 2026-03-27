@@ -1,0 +1,4 @@
+[style name="object_info"]
+te vamos a cuidar mucho florecita no te preocupes
+Obtienes una flor bonita
+set {MapStates.memory.flor_recogida} = true

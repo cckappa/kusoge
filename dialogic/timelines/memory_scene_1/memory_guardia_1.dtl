@@ -1,0 +1,5 @@
+epale
+no te acerques tanto al jardín
+prohibido pisar el pasto
+[signal arg_type="dict" arg="{"name":"empuja_alicia"}"]
+[wait time="0.5"]

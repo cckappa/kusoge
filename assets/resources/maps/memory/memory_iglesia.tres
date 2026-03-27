@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SingleMapResource" load_steps=2 format=3 uid="uid://ue4ciu246obr"]
+
+[ext_resource type="Script" uid="uid://b21bna7stwiam" path="res://scripts/maps/single_map_resource.gd" id="1_amtgy"]
+
+[resource]
+script = ExtResource("1_amtgy")
+name = "memory_iglesia"
+scene_path = "res://assets/resources/maps/memory/memory_iglesia.tres"
+state = "default"
+metadata/_custom_type_script = "uid://b21bna7stwiam"

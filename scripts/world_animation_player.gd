@@ -8,8 +8,10 @@ func _ready() -> void:
 func _on_dialogic_signal(argument:Dictionary) -> void:
 	var event_name :String = argument.name
 	print("Dialogic text signal received:", event_name)
-	play(event_name)
+	if has_animation(event_name):
+		play(event_name)
 
 func _on_play_world_animation(event_name: String) -> void:
 	print("Play world animation signal received:", event_name)
-	play(event_name)
+	if has_animation(event_name):
+		play(event_name)

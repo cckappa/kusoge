@@ -159,12 +159,12 @@ func switch_favorite_to_friend(from_index:int, to_index:int) -> void:
 	current_characters[from_index] = to_character
 	party[to_index] = from_character
 
-func set_win_stakes(key_name:String, key_value:String) -> void:
+func set_win_stakes(key_name:String, key_value:bool) -> void:
 	win_stakes.key_variable_key = key_name
 	win_stakes.key_variable_value = key_value
 
 func apply_win_stakes() -> void:
-	if win_stakes.key_variable_key != "" and win_stakes.key_variable_value != "":
+	if win_stakes.key_variable_key != null and win_stakes.key_variable_value != null:
 		key_variables[win_stakes.key_variable_key] = win_stakes.key_variable_value
-		win_stakes.key_variable_key = ""
-		win_stakes.key_variable_value = ""
+		win_stakes.key_variable_key = null
+		win_stakes.key_variable_value = null

@@ -1,0 +1,303 @@
+[gd_scene load_steps=33 format=3 uid="uid://bv1q5tgci00es"]
+
+[ext_resource type="Script" uid="uid://cwnvkotvy8o2h" path="res://scripts/maps/memory/memory_bosque.gd" id="1_28gx2"]
+[ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="2_mo1di"]
+[ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="3_og0mq"]
+[ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="4_ediyk"]
+[ext_resource type="PackedScene" uid="uid://ckc0rqj4d6b16" path="res://scenes/gray_box.tscn" id="4_mo1di"]
+[ext_resource type="Script" uid="uid://g7sf10k2338d" path="res://scripts/npc_layer.gd" id="7_5i431"]
+[ext_resource type="PackedScene" uid="uid://cel1jfamiy0ik" path="res://scenes/gray_box_npc.tscn" id="7_hex38"]
+[ext_resource type="Script" uid="uid://dsfklbei7r5qc" path="res://scripts/object_layer.gd" id="8_op4ra"]
+[ext_resource type="Script" uid="uid://do84xbf65qif" path="res://scripts/talk.gd" id="8_ruxbm"]
+[ext_resource type="Script" uid="uid://ck4xyxoy5fldl" path="res://scripts/enemies_layer.gd" id="9_nml0u"]
+[ext_resource type="Script" uid="uid://cv43fprb0dski" path="res://scripts/spawns_layer.gd" id="10_1tj43"]
+[ext_resource type="Script" uid="uid://bsvp6e76bx107" path="res://scripts/scene_changer.gd" id="10_og0mq"]
+[ext_resource type="Script" uid="uid://c2d2peg3ovb8n" path="res://scripts/saves_layer.gd" id="11_f8cnp"]
+[ext_resource type="PackedScene" uid="uid://bx88hvib56f0" path="res://scenes/menu/menu_sub_viewport.tscn" id="12_7pkft"]
+[ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="14_0u16h"]
+[ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="16_j2bgb"]
+[ext_resource type="PackedScene" uid="uid://dqi4bw7t4w0u8" path="res://scenes/add_new_character_animation.tscn" id="18_7bd12"]
+[ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="20_u3aen"]
+[ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="22_yyoey"]
+[ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="23_3lpro"]
+[ext_resource type="Script" uid="uid://84ck8i2ypykl" path="res://scripts/camera_manager.gd" id="24_ng7wx"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="25_e5v87"]
+[ext_resource type="Script" uid="uid://calbsshdno2ur" path="res://scripts/fight_manager.gd" id="26_k5rjg"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="26_v54ky"]
+[ext_resource type="Script" uid="uid://wk0pglf3r6ow" path="res://scripts/fights/fight_resource.gd" id="27_28gx2"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="27_cnm2b"]
+[ext_resource type="Script" uid="uid://desx1xrrvf1ew" path="res://scripts/reminder_phantom_camera.gd" id="28_68taj"]
+[ext_resource type="Resource" uid="uid://dd0mifygs2lxs" path="res://assets/resources/fights/memory/memory_pelea_basura.tres" id="28_mo1di"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5rjg"]
+size = Vector2(148, 824)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ediyk"]
+size = Vector2(304, 1022)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2kmg"]
+size = Vector2(7955, 4854.5)
+
+[sub_resource type="Resource" id="Resource_fyrvt"]
+script = ExtResource("27_cnm2b")
+duration = 2.0
+transition = 1
+ease = 2
+
+[node name="MemoryBosque" type="Node2D" node_paths=PackedStringArray("audio_stream_player", "black_rect")]
+y_sort_enabled = true
+script = ExtResource("1_28gx2")
+current_scene = "res://scenes/maps/memory/memory_bosque.tscn"
+audio_stream_player = NodePath("AudioStreamPlayer")
+black_rect = NodePath("CanvasLayer/BlackRect")
+
+[node name="ParallaxBackgroundLayer" type="Node2D" parent="."]
+z_index = -1
+script = ExtResource("2_mo1di")
+
+[node name="BackgroundLayer" type="Node2D" parent="."]
+z_index = -1
+script = ExtResource("3_og0mq")
+
+[node name="GrayBox" parent="BackgroundLayer" instance=ExtResource("4_mo1di")]
+position = Vector2(-1369, -217)
+
+[node name="Polygon2D" parent="BackgroundLayer/GrayBox" index="0"]
+polygon = PackedVector2Array(2812, -516, 1541, -369, 280, -635, -1099, -1492, -1050, -1127, -1778, -832, -1365, -477, -1906, -132, -1168, 163, -1700, 508, -1099, 705, -1473, 981, -872, 1109, -1187, 1404, -84, 1700, 1403, 1651, 3038, 863, 3698, 409, 4368, 597, 4594, -191, 3639, -575)
+
+[node name="PlayableCharacter" parent="." instance=ExtResource("4_ediyk")]
+
+[node name="NpcLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("7_5i431")
+
+[node name="NpcBasura" parent="NpcLayer" groups=["npcs"] instance=ExtResource("7_hex38")]
+unique_name_in_owner = true
+position = Vector2(-1519, -656)
+
+[node name="Polygon2D" parent="NpcLayer/NpcBasura" index="0"]
+color = Color(0.97283, 0.885118, 0.650278, 1)
+polygon = PackedVector2Array(-85, 3, -107, -143, -57, -254, 71, -249, 121, -127, 132, -4)
+
+[node name="Label" parent="NpcLayer/NpcBasura" index="1"]
+offset_left = -21.0
+offset_top = -127.0
+offset_right = 40.0
+offset_bottom = -85.125
+theme_override_colors/font_color = Color(0.0231524, 0.236902, 0.431717, 1)
+theme_override_font_sizes/font_size = 30
+text = "NPC"
+
+[node name="CollisionPolygon2D" parent="NpcLayer/NpcBasura/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-84, 0, 130, -7, 127, -66, -101, -86)
+
+[node name="Talk" type="Node2D" parent="NpcLayer/NpcBasura" node_paths=PackedStringArray("talking_area")]
+position = Vector2(442, 72)
+script = ExtResource("8_ruxbm")
+talking_area = NodePath("Area2D")
+automatic_start = true
+timeline_name = "memory_basura_alerta_1"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="NpcLayer/NpcBasura/Talk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/NpcBasura/Talk/Area2D"]
+position = Vector2(64, 402)
+shape = SubResource("RectangleShape2D_k5rjg")
+
+[node name="NpcBasura2" parent="NpcLayer" instance=ExtResource("7_hex38")]
+position = Vector2(-1961, -14)
+
+[node name="Polygon2D" parent="NpcLayer/NpcBasura2" index="0"]
+polygon = PackedVector2Array(-85, 3, -107, -143, -57, -254, 71, -249, 121, -127, 132, -4)
+
+[node name="Label" parent="NpcLayer/NpcBasura2" index="1"]
+offset_left = -21.0
+offset_top = -127.0
+offset_bottom = -85.125
+text = "NPC"
+
+[node name="CollisionPolygon2D" parent="NpcLayer/NpcBasura2/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-84, 0, 130, -7, 127, -66, -101, -86)
+
+[node name="ObjectLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("8_op4ra")
+
+[node name="EntradaBosque" parent="ObjectLayer" instance=ExtResource("4_mo1di")]
+position = Vector2(2916, -89)
+rotation = 0.285874
+
+[node name="SceneChanger" type="Area2D" parent="ObjectLayer/EntradaBosque" node_paths=PackedStringArray("black_rect")]
+script = ExtResource("10_og0mq")
+target_scene = "res://scenes/maps/memory/memory_plaza_principal.tscn"
+target_marker = "EntradaBosque"
+black_rect = NodePath("../../../CanvasLayer/BlackRect")
+metadata/_custom_type_script = "uid://bsvp6e76bx107"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/EntradaBosque/SceneChanger"]
+position = Vector2(52, 12)
+shape = SubResource("RectangleShape2D_ediyk")
+
+[node name="ParteBosque" parent="ObjectLayer" groups=["objects"] instance=ExtResource("4_mo1di")]
+position = Vector2(1885, -484)
+
+[node name="Polygon2D" parent="ObjectLayer/ParteBosque" index="0"]
+color = Color(0.351563, 0.351563, 0.351563, 1)
+polygon = PackedVector2Array(-335, 6, 259, -17, 626, -117, 676, -395, 521, -578, 365, -528, 271, -439, 254, -612, 243, -723, -2, -856, -274, -890, -363, -756, -563, -801, -725, -762, -730, -756, -930, -539, -919, -378, -725, -239, -725, -239, -647, -89, -480, -6)
+
+[node name="Label" parent="ObjectLayer/ParteBosque" index="1"]
+offset_right = 40.0
+offset_bottom = 22.3333
+theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/ParteBosque/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-629, -81, -378, 4, 191, 10, 643, -167, 625, -369, -35, -283, -647, -308, -690, -234)
+
+[node name="ParteBosque2" parent="ObjectLayer" instance=ExtResource("4_mo1di")]
+position = Vector2(643, -160)
+
+[node name="Polygon2D" parent="ObjectLayer/ParteBosque2" index="0"]
+color = Color(0.412152, 0.412152, 0.412152, 1)
+polygon = PackedVector2Array(-335, 6, 259, -17, 626, -117, 676, -395, 521, -578, 365, -528, 271, -439, 254, -612, 243, -723, -2, -856, -274, -890, -363, -756, -563, -801, -725, -762, -730, -756, -930, -539, -919, -378, -725, -239, -725, -239, -647, -89, -480, -6)
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/ParteBosque2/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-629, -81, -378, 4, 191, 10, 643, -167, 625, -369, -35, -283, -647, -308, -690, -234)
+
+[node name="ParteBosque3" parent="ObjectLayer" instance=ExtResource("4_mo1di")]
+position = Vector2(-629, -472)
+
+[node name="Polygon2D" parent="ObjectLayer/ParteBosque3" index="0"]
+color = Color(0.321728, 0.321728, 0.321728, 1)
+polygon = PackedVector2Array(-335, 6, 259, -17, 626, -117, 676, -395, 521, -578, 365, -528, 271, -439, 254, -612, 243, -723, -2, -856, -274, -890, -363, -756, -563, -801, -725, -762, -730, -756, -930, -539, -919, -378, -725, -239, -725, -239, -647, -89, -480, -6)
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/ParteBosque3/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-629, -81, -378, 4, 191, 10, 643, -167, 625, -369, -35, -283, -647, -308, -690, -234)
+
+[node name="ParteBosque4" parent="ObjectLayer" instance=ExtResource("4_mo1di")]
+position = Vector2(-268, 1424)
+
+[node name="Polygon2D" parent="ObjectLayer/ParteBosque4" index="0"]
+color = Color(0.412152, 0.412152, 0.412152, 1)
+polygon = PackedVector2Array(-335, 6, 259, -17, 626, -117, 676, -395, 521, -578, 365, -528, 271, -439, 254, -612, 243, -723, -2, -856, -274, -890, -363, -756, -563, -801, -725, -762, -730, -756, -930, -539, -919, -378, -725, -239, -725, -239, -647, -89, -480, -6)
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/ParteBosque4/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-629, -81, -378, 4, 191, 10, 643, -167, 625, -369, -35, -283, -647, -308, -690, -234)
+
+[node name="ParteBosque5" parent="ObjectLayer" instance=ExtResource("4_mo1di")]
+position = Vector2(759, 1155)
+
+[node name="Polygon2D" parent="ObjectLayer/ParteBosque5" index="0"]
+color = Color(0.332881, 0.332881, 0.332881, 1)
+polygon = PackedVector2Array(-335, 6, 259, -17, 626, -117, 676, -395, 521, -578, 365, -528, 271, -439, 254, -612, 243, -723, -2, -856, -274, -890, -363, -756, -563, -801, -725, -762, -730, -756, -930, -539, -919, -378, -725, -239, -725, -239, -647, -89, -480, -6)
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/ParteBosque5/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-629, -81, -378, 4, 191, 10, 643, -167, 625, -369, -35, -283, -647, -308, -690, -234)
+
+[node name="ParteBosque6" parent="ObjectLayer" instance=ExtResource("4_mo1di")]
+position = Vector2(-1027, 476)
+
+[node name="Polygon2D" parent="ObjectLayer/ParteBosque6" index="0"]
+color = Color(0.370364, 0.370364, 0.370364, 1)
+polygon = PackedVector2Array(-335, 6, 259, -17, 626, -117, 676, -395, 521, -578, 365, -528, 271, -439, 254, -612, 243, -723, -2, -856, -274, -890, -363, -756, -563, -801, -725, -762, -730, -756, -930, -539, -919, -378, -725, -239, -725, -239, -647, -89, -480, -6)
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/ParteBosque6/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-629, -81, -378, 4, 191, 10, 643, -167, 625, -369, -35, -283, -647, -308, -690, -234)
+
+[node name="EnemiesLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("9_nml0u")
+
+[node name="SpawnsLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("10_1tj43")
+
+[node name="DefaultMarker" type="Marker2D" parent="SpawnsLayer"]
+position = Vector2(200, 125)
+
+[node name="EntradaBosque" type="Marker2D" parent="SpawnsLayer"]
+position = Vector2(2591, -286)
+
+[node name="SavesLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("11_f8cnp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MenuSubViewport" parent="CanvasLayer" instance=ExtResource("12_7pkft")]
+visible = false
+
+[node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("14_0u16h")]
+
+[node name="NotificationCenter" parent="CanvasLayer" instance=ExtResource("16_j2bgb")]
+metadata/_edit_lock_ = true
+
+[node name="AddNewCharacterAnimation" parent="CanvasLayer" instance=ExtResource("18_7bd12")]
+metadata/_edit_lock_ = true
+
+[node name="AddNewItemAnimation" parent="CanvasLayer" instance=ExtResource("20_u3aen")]
+metadata/_edit_lock_ = true
+
+[node name="BlackRect" parent="CanvasLayer" instance=ExtResource("22_yyoey")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="CameraManager" parent="." node_paths=PackedStringArray("phantom_cameras", "current_camera") instance=ExtResource("23_3lpro")]
+script = ExtResource("24_ng7wx")
+phantom_cameras = [NodePath("PhantomCameras/PhantomCamera2D")]
+current_camera = NodePath("PhantomCameras/PhantomCamera2D")
+
+[node name="Camera2D" parent="CameraManager" index="0"]
+physics_interpolation_mode = 1
+zoom = Vector2(1.2, 1.2)
+process_callback = 0
+limit_left = -3978
+limit_top = -2427
+limit_right = 3978
+limit_bottom = 2427
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" parent="CameraManager/Camera2D" index="0"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("25_e5v87")
+
+[node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
+shape = SubResource("RectangleShape2D_m2kmg")
+disabled = true
+metadata/_edit_lock_ = true
+
+[node name="PhantomCamera2D" parent="CameraManager/PhantomCameras" index="0" node_paths=PackedStringArray("follow_target")]
+top_level = true
+script = ExtResource("26_v54ky")
+priority = 1
+follow_mode = 5
+follow_target = NodePath("../../../PlayableCharacter")
+zoom = Vector2(1.2, 1.2)
+tween_resource = SubResource("Resource_fyrvt")
+tween_on_load = false
+follow_damping = true
+follow_damping_value = Vector2(0.25, 0.25)
+draw_limits = true
+limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
+
+[node name="ReminderPhantomCamera" parent="CameraManager/PhantomCameras" index="1"]
+script = ExtResource("28_68taj")
+
+[node name="FightManager" type="Node" parent="."]
+script = ExtResource("26_k5rjg")
+fights = Array[ExtResource("27_28gx2")]([ExtResource("28_mo1di")])
+metadata/_custom_type_script = "uid://calbsshdno2ur"
+
+[editable path="BackgroundLayer/GrayBox"]
+[editable path="NpcLayer/NpcBasura"]
+[editable path="NpcLayer/NpcBasura2"]
+[editable path="ObjectLayer/EntradaBosque"]
+[editable path="ObjectLayer/ParteBosque"]
+[editable path="ObjectLayer/ParteBosque2"]
+[editable path="ObjectLayer/ParteBosque3"]
+[editable path="ObjectLayer/ParteBosque4"]
+[editable path="ObjectLayer/ParteBosque5"]
+[editable path="ObjectLayer/ParteBosque6"]
+[editable path="CameraManager"]

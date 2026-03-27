@@ -29,6 +29,8 @@ Globals="*res://scripts/globals.gd"
 Items="*res://scripts/items.gd"
 Quests="*res://scripts/quests.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+Console="*res://addons/console/console.gd"
+ConsoleCommands="*res://scripts/console_commands.gd"
 
 [debug]
 
@@ -61,11 +63,19 @@ directories/dtl_directory={
 "lobo_salvaje_intro_fight_1": "res://dialogic/timelines/demo_tecnico/fight_enemies_dialogs/lobo_salvaje_intro_fight_1.dtl",
 "lobo_salvaje_victory_1": "res://dialogic/timelines/demo_tecnico/fight_enemies_dialogs/lobo_salvaje_victory_1.dtl",
 "lobuki_cigarro_0": "res://dialogic/timelines/demo_tecnico/lobuki_cigarro_0.dtl",
+"memory_basura_alerta_1": "res://dialogic/timelines/memory_scene_1/memory_basura_alerta_1.dtl",
 "memory_depto_101_1": "res://dialogic/timelines/memory_scene_1/memory_depto_101_1.dtl",
 "memory_depto_102_1": "res://dialogic/timelines/memory_scene_1/memory_depto_102_1.dtl",
 "memory_depto_201_1": "res://dialogic/timelines/memory_scene_1/memory_depto_201_1.dtl",
 "memory_depto_202_1": "res://dialogic/timelines/memory_scene_1/memory_depto_202_1.dtl",
+"memory_flor_1": "res://dialogic/timelines/memory_scene_1/memory_flor_1.dtl",
+"memory_flor_lucia_1": "res://dialogic/timelines/memory_scene_1/memory_flor_lucia_1.dtl",
+"memory_guardia_1": "res://dialogic/timelines/memory_scene_1/memory_guardia_1.dtl",
+"memory_guardia_2": "res://dialogic/timelines/memory_scene_1/memory_guardia_2.dtl",
 "memory_lucia_1": "res://dialogic/timelines/memory_scene_1/memory_lucia_1.dtl",
+"memory_lucia_guarida_1": "res://dialogic/timelines/memory_scene_1/memory_lucia_guarida_1.dtl",
+"memory_maceta_rota_depas_2_1": "res://dialogic/timelines/memory_scene_1/memory_maceta_rota_depas_2_1.dtl",
+"memory_macetas_depas_3_1": "res://dialogic/timelines/memory_scene_1/memory_macetas_depas_3_1.dtl",
 "memory_madera_1": "res://dialogic/timelines/memory_scene_1/memory_madera_1.dtl",
 "memory_mom_1": "res://dialogic/timelines/memory_scene_1/memory_mom_1.dtl",
 "memory_mom_2": "res://dialogic/timelines/memory_scene_1/memory_mom_2.dtl",
@@ -93,6 +103,15 @@ directories/dtl_directory={
 "zona_batallas_demo": "res://dialogic/timelines/tests/prueba_mapa/zona_batallas_demo.dtl"
 }
 variables={
+"MapStates": {
+"memory": {
+"conseguir_objetos_guarida": false,
+"flor_recogida": false,
+"guarida_abierta": false,
+"maceta_recogida": false,
+"peleas_callejeras": "default"
+}
+},
 "Quests": {
 "area_1": {
 "lila_bar_status": "not_knows_name",
@@ -155,7 +174,7 @@ window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/addons/wigglebone/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/addons/wigglebone/plugin.cfg", "res://addons/console/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [global_group]
 

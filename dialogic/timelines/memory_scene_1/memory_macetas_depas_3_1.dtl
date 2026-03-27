@@ -1,0 +1,8 @@
+[style name="object_info"]
+if {MapStates.memory.conseguir_objetos_guarida} == false:
+	Las plantas de la señora Margarita son muy bonitas y frondosas
+	me gustaría ser como ella y tener mis plantitas así de bonitas
+else:
+	Están muy bonitas esas macetas
+	pero no le puedes robar así como así a la señora Margarita
+	siempre anda presumiendo sus macetas

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cfkr2w5frhpaj"]
+[gd_scene load_steps=34 format=3 uid="uid://cfkr2w5frhpaj"]
 
 [ext_resource type="Script" uid="uid://b2lqqslgicdes" path="res://scripts/maps/memory/memory_pasillo_depas_3.gd" id="1_hufn2"]
 [ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="2_cafgm"]
@@ -50,6 +50,9 @@ size = Vector2(607, 127)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hufn2"]
 size = Vector2(501, 116)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cafgm"]
+size = Vector2(264, 188)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y12ve"]
 size = Vector2(3840, 2490)
@@ -181,17 +184,8 @@ metadata/_custom_type_script = "uid://bsvp6e76bx107"
 position = Vector2(36.5, 56.5)
 shape = SubResource("RectangleShape2D_jg2sj")
 
-[node name="SalidaPueblo" parent="ObjectLayer" groups=["objects"] instance=ExtResource("4_0lqix")]
+[node name="SalidaPueblo" parent="ObjectLayer" instance=ExtResource("4_0lqix")]
 position = Vector2(30, -703)
-
-[node name="Polygon2D" parent="ObjectLayer/SalidaPueblo" index="0"]
-color = Color(0.529067, 0.529067, 0.529067, 1)
-
-[node name="Label" parent="ObjectLayer/SalidaPueblo" index="1"]
-offset_right = 40.0
-offset_bottom = 22.3333
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 
 [node name="SceneChanger" type="Area2D" parent="ObjectLayer/SalidaPueblo" node_paths=PackedStringArray("black_rect")]
 script = ExtResource("9_fe2al")
@@ -203,6 +197,40 @@ metadata/_custom_type_script = "uid://bsvp6e76bx107"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/SalidaPueblo/SceneChanger"]
 position = Vector2(-5.5, -68)
 shape = SubResource("RectangleShape2D_hufn2")
+
+[node name="Macetas" parent="ObjectLayer" instance=ExtResource("4_0lqix")]
+position = Vector2(-634, -459)
+
+[node name="Polygon2D" parent="ObjectLayer/Macetas" index="0"]
+color = Color(0.41598, 0.41598, 0.41598, 1)
+polygon = PackedVector2Array(-67, 5, 25, 1, 58, -91, -101, -91)
+
+[node name="Polygon2D2" type="Polygon2D" parent="ObjectLayer/Macetas"]
+position = Vector2(4, 14)
+color = Color(0.695503, 0.695503, 0.695503, 1)
+polygon = PackedVector2Array(-35, -99, -31, -158, -60, -166, -64, -208, -35, -232, 16, -224, 26, -201, 14, -189, 0, -173, -9, -162, -9, -162, -13.243, -133.572, 29, -158, 7, -120, -14, -119, -19, -95)
+
+[node name="Polygon2D3" type="Polygon2D" parent="ObjectLayer/Macetas"]
+position = Vector2(171, -2)
+color = Color(0.454524, 0.454524, 0.454524, 1)
+polygon = PackedVector2Array(-67, 5, 25, 1, 58, -91, -101, -91)
+
+[node name="Polygon2D4" type="Polygon2D" parent="ObjectLayer/Macetas"]
+position = Vector2(175, 12)
+color = Color(0.695503, 0.695503, 0.695503, 1)
+polygon = PackedVector2Array(-35, -99, -34, -135, -51, -135, -60, -154, -31.9436, -144.082, -31, -158, -60, -166, -64, -208, -35, -232, 6, -216, 5, -182, -13, -166, 25, -164, 6, -152, -18, -154, -19, -95)
+
+[node name="Talk" type="Node2D" parent="ObjectLayer/Macetas" node_paths=PackedStringArray("talking_area")]
+script = ExtResource("5_po6fc")
+talking_area = NodePath("Area2D")
+timeline_name = "memory_macetas_depas_3_1"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="ObjectLayer/Macetas/Talk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/Macetas/Talk/Area2D"]
+position = Vector2(92, 84)
+shape = SubResource("RectangleShape2D_cafgm")
 
 [node name="EnemiesLayer" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -250,10 +278,10 @@ metadata/_edit_lock_ = true
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
-limit_left = -1920
-limit_top = -1410
-limit_right = 1920
-limit_bottom = 1080
+limit_left = -1701
+limit_top = -3539
+limit_right = 3785
+limit_bottom = 1750
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 position = Vector2(0, -165)
@@ -269,4 +297,5 @@ limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
 [editable path="BackgroundLayer/GrayBox/PuertaCasa2"]
 [editable path="ObjectLayer/EscalerasArriba"]
 [editable path="ObjectLayer/SalidaPueblo"]
+[editable path="ObjectLayer/Macetas"]
 [editable path="CameraManager"]

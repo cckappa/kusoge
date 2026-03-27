@@ -101,14 +101,18 @@ func add_enemies() -> void:
 
 func next_pressed() -> void:
 	if ProjectSettings.get_setting("application/config/version") == "demo":
+		setup_cambiar("cambiar_principal")
+	elif ProjectSettings.get_setting("application/config/version") == "demo_tecnico":
 		setup_cambiar("cambiar_demo")
 	else:
-		setup_cambiar("cambiar_principal")
+		setup_cambiar("cambiar_main")
 
 func _on_continue_button_pressed() -> void:
 	Globals.set_otk()
 	Globals.clear_current_enemies()
 	if ProjectSettings.get_setting("application/config/version") == "demo":
+		setup_cambiar("cambiar_principal")
+	elif ProjectSettings.get_setting("application/config/version") == "demo_tecnico":
 		setup_cambiar("cambiar_demo")
 	else:
 		setup_cambiar("cambiar_principal")
@@ -120,10 +124,10 @@ func _on_quit_pressed() -> void:
 
 func setup_cambiar(scene:StringName) -> void:
 	await Functions.fade_color_rect(black_rect, "IN", 2)
-	call_deferred(scene)
+	call_deferred('cambiar_principal')
 
 func cambiar_principal() -> void:
-	get_tree().change_scene_to_file(inicial_scene)
+	get_tree().change_scene_to_file(Globals.current_map_path)
 
 func cambiar_main() -> void:
 	get_tree().change_scene_to_file(main_scene)

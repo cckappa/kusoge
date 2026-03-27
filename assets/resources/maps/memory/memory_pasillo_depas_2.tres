@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SingleMapResource" load_steps=2 format=3 uid="uid://chcsx2eknp2ku"]
+
+[ext_resource type="Script" uid="uid://b21bna7stwiam" path="res://scripts/maps/single_map_resource.gd" id="1_drllp"]
+
+[resource]
+script = ExtResource("1_drllp")
+name = "memory_pasillo_depas_2"
+scene_path = "res://scenes/maps/memory/memory_pasillo_depas_2.tscn"
+state = "default"
+metadata/_custom_type_script = "uid://b21bna7stwiam"

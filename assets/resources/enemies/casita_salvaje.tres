@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyResource" load_steps=8 format=3 uid="uid://c5yt23t4nhw7j"]
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=9 format=3 uid="uid://c5yt23t4nhw7j"]
 
 [ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_ilftn"]
 [ext_resource type="Resource" uid="uid://dx4j66lt4vb35" path="res://assets/resources/abilities/cuchillazo.tres" id="2_4ltck"]
@@ -6,11 +6,12 @@
 [ext_resource type="Resource" uid="uid://b4hl0uorngix0" path="res://assets/resources/abilities/patada.tres" id="3_3w4g6"]
 [ext_resource type="Script" uid="uid://bmxggwbtvyxeb" path="res://scripts/enemy_resource.gd" id="3_8kfgo"]
 [ext_resource type="Texture2D" uid="uid://vdib6tsjg4r1" path="res://assets/enemy_sprites/Casita_Salvaje.png" id="4_h61co"]
+[ext_resource type="Script" uid="uid://bsp5qx4xq3r8" path="res://scripts/enemy_fight_dialog.gd" id="5_h61co"]
 [ext_resource type="Resource" uid="uid://bqyq6l006wa1h" path="res://assets/resources/items/coffee.tres" id="6_3w4g6"]
 
 [resource]
 script = ExtResource("3_8kfgo")
-dialog = &""
+enemy_fight_dialogs = Array[ExtResource("5_h61co")]([])
 identifier = ""
 section_folder = ""
 character_portrait = ExtResource("4_h61co")

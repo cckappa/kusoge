@@ -1,0 +1,8 @@
+[style name="object_info"]
+if {MapStates.memory.conseguir_objetos_guarida} == false:
+	Esa maceta está en el suelo desde la semana pasada y nadie la recoge
+else:
+	Les haré un favor al recogerla, con tantita cinta adhesiva queda
+	set {MapStates.memory.maceta_recogida} = true
+	[signal arg_type="dict" arg="{"name":"maceta_recogida"}"]
+	Obtienes una maceta rota

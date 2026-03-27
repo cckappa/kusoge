@@ -6,7 +6,7 @@ extends Node2D
 @export var audio_stream_player: AudioStreamPlayer
 @export var black_rect: ColorRect
 
-
+# var battle_scene: String = "res://scenes/battle.tscn" 
 const BATTLE = preload("res://scenes/battle.tscn")
 var playable_character: Node2D
 var camera2D: PhantomCamera2D
@@ -14,8 +14,10 @@ var camera2D: PhantomCamera2D
 func _ready() -> void:
 	Functions.set_dialogic_auto_advance(false)
 	process_mode = Node.PROCESS_MODE_PAUSABLE
+	playable_character = get_node("PlayableCharacter")
 	SignalBus.connect("starts_fighting", add_fight)
 	SignalBus.connect("quit_game", quit_game)
+	SignalBus.connect("wild_enemy_encounter", setup_battle)
 	if y_sort_enabled != true:
 		y_sort_enabled = true
 
@@ -45,18 +47,18 @@ func set_marker() -> void:
 	if Globals.target_marker == "default":
 		var default_marker := get_node("SpawnsLayer/DefaultMarker")
 		if default_marker:
-			playable_character = get_node("PlayableCharacter")
 			playable_character.position = default_marker.position
 			# print("Default marker position set to:", Globals.target_marker)
 		else:
 			print("Default marker not found.")
 			return
+	elif Globals.target_marker == "":
+		playable_character.position = Globals.player_position
 	else:
 		var target_marker := get_node("SpawnsLayer/" + Globals.target_marker)
 		if not target_marker:
 			# print("Target marker not found:", Globals.target_marker)
 			return
-		playable_character = get_node("PlayableCharacter")
 		playable_character.position = target_marker.position
 		Globals.target_marker = "default"  # Reset to default after setting position
 		# print("Target marker position set to:", Globals.target_marker)
@@ -68,3 +70,14 @@ func quit_game() -> void:
 	await Functions.fade_color_rect(black_rect, "IN", 2)
 	print("Changing to main menu scene...")
 	get_tree().change_scene_to_file("res://scenes/inicio_menu.tscn")
+
+func setup_battle() -> void:
+	audio_stream_player.set("parameters/switch_to_clip", "EnemyEncounter")
+	black_rect.visible = true
+	print("Setting up battle...")
+
+	await Functions.fade_color_rect(black_rect, "IN", 0.5)
+	call_deferred("start_battle")
+
+func start_battle() -> void:
+	get_tree().change_scene_to_file("res://scenes/battle.tscn")

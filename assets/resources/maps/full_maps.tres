@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MapsResource" load_steps=7 format=3 uid="uid://di2nk2hyg1lrk"]
+[gd_resource type="Resource" script_class="MapsResource" load_steps=11 format=3 uid="uid://di2nk2hyg1lrk"]
 
 [ext_resource type="Script" uid="uid://b21bna7stwiam" path="res://scripts/maps/single_map_resource.gd" id="1_4pqwd"]
 [ext_resource type="Script" uid="uid://3m4nlppaoqfp" path="res://scripts/maps/maps_resource.gd" id="2_j4sry"]
@@ -6,8 +6,12 @@
 [ext_resource type="Resource" uid="uid://ckyq53wgrya40" path="res://assets/resources/maps/memory/memory_main_room.tres" id="3_n8n2s"]
 [ext_resource type="Resource" uid="uid://c45eion14ii2w" path="res://assets/resources/maps/memory/memory_sala_room.tres" id="4_cmt2y"]
 [ext_resource type="Resource" uid="uid://bq0y8vdf4g3cr" path="res://assets/resources/maps/memory/memory_pasillo_depas.tres" id="5_5dlcu"]
+[ext_resource type="Resource" uid="uid://bvd7um388i0nx" path="res://assets/resources/maps/memory/memory_plaza_principal.tres" id="6_2ak7w"]
+[ext_resource type="Resource" uid="uid://chcsx2eknp2ku" path="res://assets/resources/maps/memory/memory_pasillo_depas_2.tres" id="7_bkr7l"]
+[ext_resource type="Resource" uid="uid://ue4ciu246obr" path="res://assets/resources/maps/memory/memory_iglesia.tres" id="8_efbti"]
+[ext_resource type="Resource" uid="uid://batcyqwfv8fgm" path="res://assets/resources/maps/memory/memory_bosque.tres" id="9_2r3xq"]
 
 [resource]
 script = ExtResource("2_j4sry")
-maps = Array[ExtResource("1_4pqwd")]([ExtResource("2_n8n2s"), ExtResource("3_n8n2s"), ExtResource("4_cmt2y"), ExtResource("5_5dlcu")])
+maps = Array[ExtResource("1_4pqwd")]([ExtResource("2_n8n2s"), ExtResource("3_n8n2s"), ExtResource("4_cmt2y"), ExtResource("5_5dlcu"), ExtResource("6_2ak7w"), ExtResource("7_bkr7l"), ExtResource("8_efbti"), ExtResource("9_2r3xq")])
 metadata/_custom_type_script = "uid://3m4nlppaoqfp"

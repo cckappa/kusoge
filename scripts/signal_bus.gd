@@ -12,6 +12,7 @@ signal quit_game
 
 signal wild_enemy_encounter
 signal play_world_animation(event_name:String)
+signal start_fight(fight_identifier:StringName)
 
 ## FIGHTING
 

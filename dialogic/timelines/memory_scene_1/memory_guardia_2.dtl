@@ -1,0 +1,22 @@
+if {MapStates.memory.peleas_callejeras} == "default":
+	me encanta mi trabajo
+	solo me quedo aqui
+	todos los días
+	mirando y protegiendo la iglesia
+	mi parte favorita es ahuyentar a los vagos
+	ah y las peleas callejeras
+elif {MapStates.memory.peleas_callejeras} == "peleas":
+	¿QUEEE??? PELEAS CALLEJERAS?!!
+	DÓNDE?????!!!!
+	[signal arg_type="dict" arg="{"name":"ver_peleas"}"]
+elif {MapStates.memory.peleas_callejeras} == "peleas_vuelve":
+	ash
+	fui y ya se habían ido
+	¿enserio?
+	creo que no vi bien entonces
+	VOOOOYYYYYYYY
+	[signal arg_type="dict" arg="{"name":"ver_peleas"}"]
+elif {MapStates.memory.peleas_callejeras} == "guardia_pendejo":
+	de vuelta a la chamba
+	todo en orden como siempre
+	ten un buen día

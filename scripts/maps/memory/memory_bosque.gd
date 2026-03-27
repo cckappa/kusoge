@@ -1,20 +1,25 @@
-#ARCHIVO BASE
+#ARCHIVO FULL
 extends BaseScene
 
-@onready var maceta_rota := %MacetaRota
+@onready var npc_basura := %NpcBasura
 
 func _ready_scene() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal)
+	
+	if Globals.win_stakes.get("sillas_basura"):
+		Globals.maps.memory_bosque.state = "sillas_basura"
 
 	# Set the map state based on the global variable
 	# Se crea un mapa en assets/resources/maps/full_maps.tres
 	# Lo guardas y ya puedes acceder a el con Globals.maps
 	# set_status_nombre_de_estado()
-	match Globals.maps.memory_pasillo_depas_2.state:
+	match Globals.maps.memory_bosque.state:
 		"default":
 			pass
-		"maceta_recogida":
-			set_status_maceta_recogida()
+		"alerta_basura":
+			npc_basura.find_child("Area2D").monitoring = false
+		"sillas_basura":
+			pass
 		_:
 			pass
 
@@ -26,11 +31,6 @@ func _on_dialogic_signal(argument:Dictionary) -> void:
 	var event_name :String = argument.name
 
 	print("Dialogic text signal received:", event_name)
-	if event_name == "maceta_recogida":
-		set_status_maceta_recogida()
-		Globals.maps.memory_pasillo_depas_2.state = "maceta_recogida"
-
-func set_status_maceta_recogida() -> void:
-	maceta_rota.find_child("Area2D").monitoring = false
-	maceta_rota.find_child("CollisionShape2D").disabled = true
-	maceta_rota.visible = false
+	if event_name == "alerta_basura":
+		npc_basura.find_child("Area2D").monitoring = false
+		Globals.maps.memory_bosque.state = "alerta_basura"

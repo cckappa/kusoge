@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="FightResource" load_steps=6 format=3 uid="uid://dd0mifygs2lxs"]
+
+[ext_resource type="Script" uid="uid://bmxggwbtvyxeb" path="res://scripts/enemy_resource.gd" id="1_tyl6i"]
+[ext_resource type="Resource" uid="uid://cym74q2mvjcte" path="res://assets/resources/enemies/serpra.tres" id="2_1fvea"]
+[ext_resource type="Script" uid="uid://wk0pglf3r6ow" path="res://scripts/fights/fight_resource.gd" id="2_etarn"]
+[ext_resource type="Script" uid="uid://ifqsfamlb3pd" path="res://scripts/fights/stakes_resource.gd" id="3_etarn"]
+
+[sub_resource type="Resource" id="Resource_1fvea"]
+script = ExtResource("3_etarn")
+key_name = &"sillas_basura"
+key_value = true
+metadata/_custom_type_script = "uid://ifqsfamlb3pd"
+
+[resource]
+script = ExtResource("2_etarn")
+identifier = &"memory_pelea_basura"
+target_marker = &""
+stakes = SubResource("Resource_1fvea")
+enemies = Array[ExtResource("1_tyl6i")]([ExtResource("2_1fvea"), ExtResource("2_1fvea")])
+metadata/_custom_type_script = "uid://wk0pglf3r6ow"

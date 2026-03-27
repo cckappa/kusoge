@@ -12,13 +12,13 @@ func _on_dialogic_signal(argument:Dictionary) -> void:
 
 	print("Dialogic text signal received:", event_name)
 	if event_name == "batalla_1":
-		Globals.set_win_stakes("demo_tecnico_hub-batalla_1", "victory")
+		Globals.set_win_stakes("demo_tecnico_hub-batalla_1", true)
 		start_battle(enemies[0])
 	elif event_name == "batalla_2":
-		Globals.set_win_stakes("demo_tecnico_hub-batalla_2", "victory")
+		Globals.set_win_stakes("demo_tecnico_hub-batalla_2", true)
 		start_battle(enemies[1])
 	elif event_name == "batalla_3":
-		Globals.set_win_stakes("demo_tecnico_hub-batalla_3", "victory")
+		Globals.set_win_stakes("demo_tecnico_hub-batalla_3", true)
 		start_battle(enemies[2])
 
 
