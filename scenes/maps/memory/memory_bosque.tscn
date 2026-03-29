@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bv1q5tgci00es"]
+[gd_scene load_steps=31 format=3 uid="uid://bv1q5tgci00es"]
 
 [ext_resource type="Script" uid="uid://cwnvkotvy8o2h" path="res://scripts/maps/memory/memory_bosque.gd" id="1_28gx2"]
 [ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="2_mo1di"]
@@ -20,17 +20,19 @@
 [ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="20_u3aen"]
 [ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="22_yyoey"]
 [ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="23_3lpro"]
-[ext_resource type="Script" uid="uid://84ck8i2ypykl" path="res://scripts/camera_manager.gd" id="24_ng7wx"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="25_e5v87"]
 [ext_resource type="Script" uid="uid://calbsshdno2ur" path="res://scripts/fight_manager.gd" id="26_k5rjg"]
-[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="26_v54ky"]
 [ext_resource type="Script" uid="uid://wk0pglf3r6ow" path="res://scripts/fights/fight_resource.gd" id="27_28gx2"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="27_cnm2b"]
-[ext_resource type="Script" uid="uid://desx1xrrvf1ew" path="res://scripts/reminder_phantom_camera.gd" id="28_68taj"]
 [ext_resource type="Resource" uid="uid://dd0mifygs2lxs" path="res://assets/resources/fights/memory/memory_pelea_basura.tres" id="28_mo1di"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k5rjg"]
 size = Vector2(148, 824)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ruxbm"]
+radius = 152.266
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hex38"]
+radius = 152.266
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ediyk"]
 size = Vector2(304, 1022)
@@ -71,21 +73,17 @@ polygon = PackedVector2Array(2812, -516, 1541, -369, 280, -635, -1099, -1492, -1
 y_sort_enabled = true
 script = ExtResource("7_5i431")
 
-[node name="NpcBasura" parent="NpcLayer" groups=["npcs"] instance=ExtResource("7_hex38")]
+[node name="NpcBasura" parent="NpcLayer" instance=ExtResource("7_hex38")]
 unique_name_in_owner = true
 position = Vector2(-1519, -656)
 
 [node name="Polygon2D" parent="NpcLayer/NpcBasura" index="0"]
-color = Color(0.97283, 0.885118, 0.650278, 1)
 polygon = PackedVector2Array(-85, 3, -107, -143, -57, -254, 71, -249, 121, -127, 132, -4)
 
 [node name="Label" parent="NpcLayer/NpcBasura" index="1"]
 offset_left = -21.0
 offset_top = -127.0
-offset_right = 40.0
 offset_bottom = -85.125
-theme_override_colors/font_color = Color(0.0231524, 0.236902, 0.431717, 1)
-theme_override_font_sizes/font_size = 30
 text = "NPC"
 
 [node name="CollisionPolygon2D" parent="NpcLayer/NpcBasura/StaticBody2D" index="0"]
@@ -105,6 +103,18 @@ metadata/_custom_type_script = "uid://do84xbf65qif"
 position = Vector2(64, 402)
 shape = SubResource("RectangleShape2D_k5rjg")
 
+[node name="Talk2" type="Node2D" parent="NpcLayer/NpcBasura" node_paths=PackedStringArray("talking_area")]
+script = ExtResource("8_ruxbm")
+talking_area = NodePath("Area2D")
+timeline_name = "memory_basura_sorpresa_npc1_1"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="NpcLayer/NpcBasura/Talk2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/NpcBasura/Talk2/Area2D"]
+shape = SubResource("CircleShape2D_ruxbm")
+one_way_collision_margin = 128.0
+
 [node name="NpcBasura2" parent="NpcLayer" instance=ExtResource("7_hex38")]
 position = Vector2(-1961, -14)
 
@@ -119,6 +129,17 @@ text = "NPC"
 
 [node name="CollisionPolygon2D" parent="NpcLayer/NpcBasura2/StaticBody2D" index="0"]
 polygon = PackedVector2Array(-84, 0, 130, -7, 127, -66, -101, -86)
+
+[node name="Talk" type="Node2D" parent="NpcLayer/NpcBasura2" node_paths=PackedStringArray("talking_area")]
+script = ExtResource("8_ruxbm")
+talking_area = NodePath("Area2D")
+timeline_name = "memory_basura_sorpresa_npc2_1"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="NpcLayer/NpcBasura2/Talk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/NpcBasura2/Talk/Area2D"]
+shape = SubResource("CircleShape2D_hex38")
 
 [node name="ObjectLayer" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -139,18 +160,12 @@ metadata/_custom_type_script = "uid://bsvp6e76bx107"
 position = Vector2(52, 12)
 shape = SubResource("RectangleShape2D_ediyk")
 
-[node name="ParteBosque" parent="ObjectLayer" groups=["objects"] instance=ExtResource("4_mo1di")]
+[node name="ParteBosque" parent="ObjectLayer" instance=ExtResource("4_mo1di")]
 position = Vector2(1885, -484)
 
 [node name="Polygon2D" parent="ObjectLayer/ParteBosque" index="0"]
 color = Color(0.351563, 0.351563, 0.351563, 1)
 polygon = PackedVector2Array(-335, 6, 259, -17, 626, -117, 676, -395, 521, -578, 365, -528, 271, -439, 254, -612, 243, -723, -2, -856, -274, -890, -363, -756, -563, -801, -725, -762, -730, -756, -930, -539, -919, -378, -725, -239, -725, -239, -647, -89, -480, -6)
-
-[node name="Label" parent="ObjectLayer/ParteBosque" index="1"]
-offset_right = 40.0
-offset_bottom = 22.3333
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/ParteBosque/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-629, -81, -378, 4, 191, 10, 643, -167, 625, -369, -35, -283, -647, -308, -690, -234)
@@ -243,47 +258,22 @@ metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-[node name="CameraManager" parent="." node_paths=PackedStringArray("phantom_cameras", "current_camera") instance=ExtResource("23_3lpro")]
-script = ExtResource("24_ng7wx")
-phantom_cameras = [NodePath("PhantomCameras/PhantomCamera2D")]
-current_camera = NodePath("PhantomCameras/PhantomCamera2D")
+[node name="CameraManager" parent="." instance=ExtResource("23_3lpro")]
 
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
-zoom = Vector2(1.2, 1.2)
 process_callback = 0
-limit_left = -3978
-limit_top = -2427
-limit_right = 3978
-limit_bottom = 2427
-editor_draw_limits = true
-
-[node name="PhantomCameraHost" parent="CameraManager/Camera2D" index="0"]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("25_e5v87")
+limit_left = -2936
+limit_top = -3322
+limit_right = 5020
+limit_bottom = 1533
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 shape = SubResource("RectangleShape2D_m2kmg")
-disabled = true
-metadata/_edit_lock_ = true
 
 [node name="PhantomCamera2D" parent="CameraManager/PhantomCameras" index="0" node_paths=PackedStringArray("follow_target")]
-top_level = true
-script = ExtResource("26_v54ky")
-priority = 1
-follow_mode = 5
 follow_target = NodePath("../../../PlayableCharacter")
-zoom = Vector2(1.2, 1.2)
 tween_resource = SubResource("Resource_fyrvt")
-tween_on_load = false
-follow_damping = true
-follow_damping_value = Vector2(0.25, 0.25)
-draw_limits = true
-limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
-
-[node name="ReminderPhantomCamera" parent="CameraManager/PhantomCameras" index="1"]
-script = ExtResource("28_68taj")
 
 [node name="FightManager" type="Node" parent="."]
 script = ExtResource("26_k5rjg")

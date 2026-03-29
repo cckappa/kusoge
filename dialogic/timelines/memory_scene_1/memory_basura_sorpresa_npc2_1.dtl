@@ -1,0 +1,10 @@
+if {MapStates.memory.basura_alertada} == false:
+	AAAAAAAAH
+	de dónde saliste?!
+	no, no estamos tirando basura en el bosque
+	[signal arg_type="dict" arg="{"name":"alerta_basura"}"]
+	[signal arg_type="dict" arg="{"name":"memory_pelea_basura"}"]
+	set {MapStates.memory.basura_alertada} = true
+else:
+	oh, entonces solo estás pasando por aca?
+	ya ves Samuel? te dije que no era nada grave

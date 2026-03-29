@@ -159,10 +159,10 @@ camera_zone_areas = [NodePath("CameraZoneAreas/CameraZoneArea")]
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
-limit_left = -3978
-limit_top = -2427
-limit_right = 3978
-limit_bottom = 2427
+limit_left = -2936
+limit_top = -3322
+limit_right = 5020
+limit_bottom = 1533
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 position = Vector2(215, -1148.5)

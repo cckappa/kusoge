@@ -1,12 +1,10 @@
-[gd_scene load_steps=44 format=3 uid="uid://0sy557gwqnpc"]
+[gd_scene load_steps=33 format=3 uid="uid://0sy557gwqnpc"]
 
 [ext_resource type="Script" uid="uid://b7mjubqyjovau" path="res://scripts/maps/memory/memory_iglesia.gd" id="1_r64wl"]
 [ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="2_r8n15"]
 [ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="3_23v47"]
 [ext_resource type="PackedScene" uid="uid://ckc0rqj4d6b16" path="res://scenes/gray_box.tscn" id="4_23v47"]
 [ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="4_k8lqm"]
-[ext_resource type="Script" uid="uid://caf516xcaglfd" path="res://scripts/playable_character.gd" id="5_2cia2"]
-[ext_resource type="Resource" uid="uid://jr2yuolebha7" path="res://assets/resources/conejitx.tres" id="6_ghmi1"]
 [ext_resource type="Script" uid="uid://g7sf10k2338d" path="res://scripts/npc_layer.gd" id="7_26hyn"]
 [ext_resource type="Script" uid="uid://dsfklbei7r5qc" path="res://scripts/object_layer.gd" id="8_0anqm"]
 [ext_resource type="PackedScene" uid="uid://cel1jfamiy0ik" path="res://scenes/gray_box_npc.tscn" id="9_2cia2"]
@@ -16,22 +14,13 @@
 [ext_resource type="Script" uid="uid://c2d2peg3ovb8n" path="res://scripts/saves_layer.gd" id="11_1hs3y"]
 [ext_resource type="PackedScene" uid="uid://bx88hvib56f0" path="res://scenes/menu/menu_sub_viewport.tscn" id="12_4c8ni"]
 [ext_resource type="Script" uid="uid://bsvp6e76bx107" path="res://scripts/scene_changer.gd" id="12_26hyn"]
-[ext_resource type="Script" uid="uid://bof2iweysicw2" path="res://scripts/menu/menu_sub_viewport.gd" id="13_yo3pq"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="14_0qcto"]
-[ext_resource type="Script" uid="uid://cit4h4wpq0ui5" path="res://scripts/settings_menu.gd" id="15_cy8wn"]
 [ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="16_u6ixf"]
-[ext_resource type="Script" uid="uid://cscct5yogwe8u" path="res://scripts/notification_center.gd" id="17_rl7pl"]
 [ext_resource type="PackedScene" uid="uid://dqi4bw7t4w0u8" path="res://scenes/add_new_character_animation.tscn" id="18_tpt0w"]
-[ext_resource type="Script" uid="uid://ck2ow411sbom1" path="res://scripts/add_new_character_animation.gd" id="19_04247"]
 [ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="20_m18dm"]
-[ext_resource type="Script" uid="uid://bae3eo7ywlmmf" path="res://scripts/add_new_item_animation.gd" id="21_4mquw"]
 [ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="22_vd7nr"]
 [ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="23_tteot"]
-[ext_resource type="Script" uid="uid://84ck8i2ypykl" path="res://scripts/camera_manager.gd" id="24_nb57t"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="25_274ei"]
-[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="26_2e5t1"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="27_ngif6"]
-[ext_resource type="Script" uid="uid://desx1xrrvf1ew" path="res://scripts/reminder_phantom_camera.gd" id="28_xg16f"]
 [ext_resource type="Script" uid="uid://c1jeqou5gv2cf" path="res://scripts/world_animation_player.gd" id="32_ghmi1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_26hyn"]
@@ -57,6 +46,93 @@ script = ExtResource("27_ngif6")
 duration = 2.0
 transition = 1
 ease = 2
+
+[sub_resource type="Animation" id="Animation_0anqm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NpcLayer/Guardia:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-150, -873)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NpcLayer/Guardia/Talk2/Area2D:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NpcLayer/Guardia/Talk/Area2D:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ObjectLayer/Flor/Talk/Area2D:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ObjectLayer/Flor/Talk2/Area2D:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("NpcLayer/Guardia:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ObjectLayer/Flor/Talk3/Area2D:monitoring")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_26hyn"]
 resource_name = "ver_peleas"
@@ -147,93 +223,6 @@ tracks/6/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_0anqm"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("NpcLayer/Guardia:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-150, -873)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("NpcLayer/Guardia/Talk2/Area2D:monitoring")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("NpcLayer/Guardia/Talk/Area2D:monitoring")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ObjectLayer/Flor/Talk/Area2D:monitoring")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("ObjectLayer/Flor/Talk2/Area2D:monitoring")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("NpcLayer/Guardia:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("ObjectLayer/Flor/Talk3/Area2D:monitoring")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_25irs"]
 _data = {
 &"RESET": SubResource("Animation_0anqm"),
@@ -255,33 +244,22 @@ script = ExtResource("2_r8n15")
 z_index = -1
 script = ExtResource("3_23v47")
 
-[node name="GrayBox" parent="BackgroundLayer" groups=["objects"] instance=ExtResource("4_23v47")]
+[node name="GrayBox" parent="BackgroundLayer" instance=ExtResource("4_23v47")]
 
 [node name="Polygon2D" parent="BackgroundLayer/GrayBox" index="0"]
-color = Color(0.529067, 0.529067, 0.529067, 1)
 polygon = PackedVector2Array(-1149, 830, -617, -118, -727, -546, -1314, -925, -1553, -1941, -1296, -2864, -837, -2405, -391, -2895, -176, -2289, 741, -2956, 851, -2344, 1059, -2919, 1261, -2203, 1512, -2895, 1719, -2252, 1995, -2760, 2331, -2038, 2655, -2705, 3034, -2130, 3242, -2607, 3609, -1671, 3432, -907, 3255, 41, 2313, 261, 1560, 720, 148, 1368)
 
-[node name="Label" parent="BackgroundLayer/GrayBox" index="1"]
-offset_right = 40.0
-offset_bottom = 22.3333
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-
-[node name="PlayableCharacter" type="CharacterBody2D" parent="." groups=["main_character"] instance=ExtResource("4_k8lqm")]
+[node name="PlayableCharacter" parent="." instance=ExtResource("4_k8lqm")]
 unique_name_in_owner = true
-y_sort_enabled = true
-script = ExtResource("5_2cia2")
-character_info = ExtResource("6_ghmi1")
 
 [node name="NpcLayer" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("7_26hyn")
 
-[node name="Guardia" parent="NpcLayer" groups=["npcs"] instance=ExtResource("9_2cia2")]
+[node name="Guardia" parent="NpcLayer" instance=ExtResource("9_2cia2")]
 position = Vector2(-150, -873)
 
 [node name="Polygon2D" parent="NpcLayer/Guardia" index="0"]
-color = Color(0.97283, 0.885118, 0.650278, 1)
 polygon = PackedVector2Array(-88, -5, -115, -322, 13, -437, 211, -451, 151, -10)
 
 [node name="Label" parent="NpcLayer/Guardia" index="1"]
@@ -289,8 +267,6 @@ offset_left = -14.0
 offset_top = -211.0
 offset_right = 121.0
 offset_bottom = -169.125
-theme_override_colors/font_color = Color(0.0231524, 0.236902, 0.431717, 1)
-theme_override_font_sizes/font_size = 30
 text = "GUARDIA"
 
 [node name="CollisionPolygon2D" parent="NpcLayer/Guardia/StaticBody2D" index="0"]
@@ -325,32 +301,20 @@ shape = SubResource("CircleShape2D_2cia2")
 y_sort_enabled = true
 script = ExtResource("8_0anqm")
 
-[node name="Iglesia" parent="ObjectLayer" groups=["objects"] instance=ExtResource("4_23v47")]
+[node name="Iglesia" parent="ObjectLayer" instance=ExtResource("4_23v47")]
 position = Vector2(1164, -912)
 
 [node name="Polygon2D" parent="ObjectLayer/Iglesia" index="0"]
 color = Color(0.687215, 0.687215, 0.687215, 1)
 polygon = PackedVector2Array(-764, 178, 758, 373, 1206, 7, 1271, -677, 1328, -2435, 1523, -2444, 1320, -2672, 840, -2484, 1076, -2379, 897, -1825, 636, -1849, 392, -2631, 131, -2786, -365, -2533, -487, -1955, -788, -1972, -788, -1972, -813, -2419, -715, -2574, -894, -2753, -1301, -2517, -1073, -2354, -1130, -685, -984, 15)
 
-[node name="Label" parent="ObjectLayer/Iglesia" index="1"]
-offset_right = 40.0
-offset_bottom = 22.3333
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-
-[node name="JardinIzq" parent="ObjectLayer" groups=["objects"] instance=ExtResource("4_23v47")]
+[node name="JardinIzq" parent="ObjectLayer" instance=ExtResource("4_23v47")]
 position = Vector2(-619, -1967)
 
 [node name="Polygon2D" parent="ObjectLayer/JardinIzq" index="0"]
 color = Color(0.67069, 0.67069, 0.67069, 1)
 offset = Vector2(0, 720)
 polygon = PackedVector2Array(-526, 159, 441, 39, 473, -26, 555, -865, -539, -908)
-
-[node name="Label" parent="ObjectLayer/JardinIzq" index="1"]
-offset_right = 40.0
-offset_bottom = 22.3333
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/JardinIzq/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-535, 493, -523, 882, 450, 741, 515, 237, 518, -99, -501, -128)
@@ -365,22 +329,13 @@ polygon = PackedVector2Array(-389, -10, 376, 161, 514, -881, -397, -1134)
 [node name="CollisionPolygon2D" parent="ObjectLayer/JardinDer/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-388, -29, 374, 160, 507, -852, -377, -1119)
 
-[node name="Flor" parent="ObjectLayer" groups=["objects"] instance=ExtResource("4_23v47")]
+[node name="Flor" parent="ObjectLayer" instance=ExtResource("4_23v47")]
 position = Vector2(-737, -1292)
-
-[node name="Polygon2D" parent="ObjectLayer/Flor" index="0"]
-color = Color(0.529067, 0.529067, 0.529067, 1)
 
 [node name="Polygon2D2" type="Polygon2D" parent="ObjectLayer/Flor"]
 position = Vector2(-122, -11)
 color = Color(0.82606, 0.82606, 0.82606, 1)
 polygon = PackedVector2Array(132, 26, 143, -111, 124, -120, 115, -95, 92, -91, 87, -111, 123, -130, 123, -149, 68, -155, 71, -201, 109, -191, 135, -152, 147, -154, 124, -202, 143, -248, 189, -205, 162, -156, 175, -155, 209, -184, 255, -180, 240, -151, 201, -143, 177, -139, 177, -125, 205, -120, 210, -96, 182, -101, 171, -117, 157, -109, 156, -49, 176, -74, 208, -68, 175, -27, 156, -36, 151, 21)
-
-[node name="Label" parent="ObjectLayer/Flor" index="2"]
-offset_right = 40.0
-offset_bottom = 22.3333
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 
 [node name="Talk" type="Node2D" parent="ObjectLayer/Flor" node_paths=PackedStringArray("talking_area")]
 position = Vector2(-281, 110)
@@ -421,17 +376,8 @@ monitoring = false
 position = Vector2(37, 109)
 shape = SubResource("RectangleShape2D_ghmi1")
 
-[node name="EntradaIglesia" parent="ObjectLayer" groups=["objects"] instance=ExtResource("4_23v47")]
+[node name="EntradaIglesia" parent="ObjectLayer" instance=ExtResource("4_23v47")]
 position = Vector2(-526, 893)
-
-[node name="Polygon2D" parent="ObjectLayer/EntradaIglesia" index="0"]
-color = Color(0.529067, 0.529067, 0.529067, 1)
-
-[node name="Label" parent="ObjectLayer/EntradaIglesia" index="1"]
-offset_right = 40.0
-offset_bottom = 22.3333
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 
 [node name="SceneChanger" type="Area2D" parent="ObjectLayer/EntradaIglesia" node_paths=PackedStringArray("black_rect")]
 rotation = 0.397935
@@ -465,132 +411,37 @@ script = ExtResource("11_1hs3y")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="MenuSubViewport" type="SubViewportContainer" parent="CanvasLayer" instance=ExtResource("12_4c8ni")]
-process_mode = 3
+[node name="MenuSubViewport" parent="CanvasLayer" instance=ExtResource("12_4c8ni")]
 visible = false
-z_index = 2
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("13_yo3pq")
 
-[node name="SettingsMenu" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("game_button", "accesibility_button", "audio_button", "controls_button", "video_button", "game_panel", "accesibility_panel", "audio_panel", "controls_panel", "video_panel", "close_button") instance=ExtResource("14_0qcto")]
-process_mode = 3
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("15_cy8wn")
-game_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Game")
-accesibility_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Accesibility")
-audio_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Audio")
-controls_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Controls")
-video_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Video")
-game_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/GamePanel")
-accesibility_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel")
-audio_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel")
-controls_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel")
-video_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/VideoPanel")
-close_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/BottomButtons/ClosePause")
+[node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("14_0qcto")]
 
-[node name="NotificationCenter" type="Control" parent="CanvasLayer" instance=ExtResource("16_u6ixf")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("17_rl7pl")
+[node name="NotificationCenter" parent="CanvasLayer" instance=ExtResource("16_u6ixf")]
 metadata/_edit_lock_ = true
 
-[node name="AddNewCharacterAnimation" type="Control" parent="CanvasLayer" instance=ExtResource("18_tpt0w")]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("19_04247")
-animation_duration = 3.0
+[node name="AddNewCharacterAnimation" parent="CanvasLayer" instance=ExtResource("18_tpt0w")]
 metadata/_edit_lock_ = true
 
-[node name="AddNewItemAnimation" type="Control" parent="CanvasLayer" instance=ExtResource("20_m18dm")]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("21_4mquw")
-animation_duration = 3.0
+[node name="AddNewItemAnimation" parent="CanvasLayer" instance=ExtResource("20_m18dm")]
 metadata/_edit_lock_ = true
 
-[node name="BlackRect" type="ColorRect" parent="CanvasLayer" instance=ExtResource("22_vd7nr")]
-visible = false
-modulate = Color(0, 0, 0, 1)
-top_level = true
-z_index = 3
-y_sort_enabled = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
+[node name="BlackRect" parent="CanvasLayer" instance=ExtResource("22_vd7nr")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-[node name="CameraManager" parent="." node_paths=PackedStringArray("phantom_cameras", "current_camera") instance=ExtResource("23_tteot")]
-script = ExtResource("24_nb57t")
-phantom_cameras = [NodePath("PhantomCameras/PhantomCamera2D")]
-current_camera = NodePath("PhantomCameras/PhantomCamera2D")
+[node name="CameraManager" parent="." instance=ExtResource("23_tteot")]
 
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
-zoom = Vector2(1.2, 1.2)
 process_callback = 0
-limit_left = -3978
-limit_top = -2427
-limit_right = 3978
-limit_bottom = 2427
-editor_draw_limits = true
-
-[node name="PhantomCameraHost" parent="CameraManager/Camera2D" index="0"]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("25_274ei")
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 position = Vector2(1042, -894.5)
 shape = SubResource("RectangleShape2D_m2kmg")
-disabled = true
-metadata/_edit_lock_ = true
 
 [node name="PhantomCamera2D" parent="CameraManager/PhantomCameras" index="0" node_paths=PackedStringArray("follow_target")]
-top_level = true
-script = ExtResource("26_2e5t1")
-priority = 1
-follow_mode = 5
 follow_target = NodePath("../../../PlayableCharacter")
-zoom = Vector2(1.2, 1.2)
 tween_resource = SubResource("Resource_fyrvt")
-tween_on_load = false
-follow_damping = true
-follow_damping_value = Vector2(0.25, 0.25)
-draw_limits = true
-limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
-
-[node name="ReminderPhantomCamera" parent="CameraManager/PhantomCameras" index="1"]
-script = ExtResource("28_xg16f")
 
 [node name="WorldAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

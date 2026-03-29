@@ -64,6 +64,8 @@ directories/dtl_directory={
 "lobo_salvaje_victory_1": "res://dialogic/timelines/demo_tecnico/fight_enemies_dialogs/lobo_salvaje_victory_1.dtl",
 "lobuki_cigarro_0": "res://dialogic/timelines/demo_tecnico/lobuki_cigarro_0.dtl",
 "memory_basura_alerta_1": "res://dialogic/timelines/memory_scene_1/memory_basura_alerta_1.dtl",
+"memory_basura_sorpresa_npc1_1": "res://dialogic/timelines/memory_scene_1/memory_basura_sorpresa_npc1_1.dtl",
+"memory_basura_sorpresa_npc2_1": "res://dialogic/timelines/memory_scene_1/memory_basura_sorpresa_npc2_1.dtl",
 "memory_depto_101_1": "res://dialogic/timelines/memory_scene_1/memory_depto_101_1.dtl",
 "memory_depto_102_1": "res://dialogic/timelines/memory_scene_1/memory_depto_102_1.dtl",
 "memory_depto_201_1": "res://dialogic/timelines/memory_scene_1/memory_depto_201_1.dtl",
@@ -105,11 +107,13 @@ directories/dtl_directory={
 variables={
 "MapStates": {
 "memory": {
+"basura_alertada": false,
 "conseguir_objetos_guarida": false,
 "flor_recogida": false,
 "guarida_abierta": false,
 "maceta_recogida": false,
-"peleas_callejeras": "default"
+"peleas_callejeras": "default",
+"sillitas_recogidas": false
 }
 },
 "Quests": {
@@ -174,7 +178,7 @@ window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/addons/wigglebone/plugin.cfg", "res://addons/console/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/addons/wigglebone/plugin.cfg", "res://addons/console/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/obsidian_var_graph/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [global_group]
 

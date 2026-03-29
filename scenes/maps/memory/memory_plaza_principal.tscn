@@ -165,46 +165,6 @@ tracks/2/keys = {
 "values": [Vector2(-422, 0), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_mj5ya"]
-resource_name = "guarida_cerrada"
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ObjectLayer/Madera/StaticBody2D/CollisionPolygon2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ObjectLayer/Madera/Polygon2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ObjectLayer/Madera/Polygon2D:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="Animation" id="Animation_bsdc7"]
 resource_name = "guarida_abierta"
 step = 0.1
@@ -243,6 +203,46 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-422, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mj5ya"]
+resource_name = "guarida_cerrada"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ObjectLayer/Madera/StaticBody2D/CollisionPolygon2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ObjectLayer/Madera/Polygon2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ObjectLayer/Madera/Polygon2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sydsr"]
@@ -375,17 +375,8 @@ metadata/_custom_type_script = "uid://bsvp6e76bx107"
 position = Vector2(12, 18)
 shape = SubResource("RectangleShape2D_w40rs")
 
-[node name="EntradaIglesia" parent="ObjectLayer" groups=["objects"] instance=ExtResource("4_l20no")]
+[node name="EntradaIglesia" parent="ObjectLayer" instance=ExtResource("4_l20no")]
 position = Vector2(1657, -1535)
-
-[node name="Polygon2D" parent="ObjectLayer/EntradaIglesia" index="0"]
-color = Color(0.529067, 0.529067, 0.529067, 1)
-
-[node name="Label" parent="ObjectLayer/EntradaIglesia" index="1"]
-offset_right = 40.0
-offset_bottom = 22.3333
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 
 [node name="SceneChanger" type="Area2D" parent="ObjectLayer/EntradaIglesia" node_paths=PackedStringArray("black_rect")]
 script = ExtResource("10_4jpor")
@@ -398,17 +389,8 @@ metadata/_custom_type_script = "uid://bsvp6e76bx107"
 position = Vector2(-25, -64.5)
 shape = SubResource("RectangleShape2D_j86bj")
 
-[node name="EntradaBosque" parent="ObjectLayer" groups=["objects"] instance=ExtResource("4_l20no")]
+[node name="EntradaBosque" parent="ObjectLayer" instance=ExtResource("4_l20no")]
 position = Vector2(-1990, -406)
-
-[node name="Polygon2D" parent="ObjectLayer/EntradaBosque" index="0"]
-color = Color(0.529067, 0.529067, 0.529067, 1)
-
-[node name="Label" parent="ObjectLayer/EntradaBosque" index="1"]
-offset_right = 40.0
-offset_bottom = 22.3333
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 
 [node name="SceneChanger" type="Area2D" parent="ObjectLayer/EntradaBosque" node_paths=PackedStringArray("black_rect")]
 script = ExtResource("10_4jpor")
@@ -473,10 +455,10 @@ metadata/_edit_lock_ = true
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
-limit_left = -3978
-limit_top = -2427
-limit_right = 3978
-limit_bottom = 2427
+limit_left = -2936
+limit_top = -3322
+limit_right = 5020
+limit_bottom = 1533
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 position = Vector2(-87.5, -347.5)

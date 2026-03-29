@@ -1,0 +1,19 @@
+if {MapStates.memory.basura_alertada} == false:
+	ALV DE DONDE SALISTE!?!
+	mierda
+	ya sabes demasiado!
+	[signal arg_type="dict" arg="{"name":"alerta_basura"}"]
+	[signal arg_type="dict" arg="{"name":"memory_pelea_basura"}"]
+	set {MapStates.memory.basura_alertada} = true
+else:
+	if {MapStates.memory.sillitas_recogidas} == false:
+		vaya, tienes agallas
+		¿qué, esas sillitas todas mugrosas, con olor a pipi y las patas rotas?
+		sí llévatelas no hay problema
+		set {MapStates.memory.sillitas_recogidas} = true
+		obtienes unas sillitas de plástico
+	else:
+		bueno ya tienes lo que buscabas
+		ahora a tus asuntos de niña
+		ah
+		y no le digas a nadie lo que estamos haciendo aquí
