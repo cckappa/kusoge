@@ -1,4 +1,4 @@
-if {MapStates.memory.peleas_callejeras} == "default":
+if {MapStates.memory.flor_recogida} == false:
 	me encanta mi trabajo
 	solo me quedo aqui
 	todos los días
@@ -9,12 +9,16 @@ if {MapStates.memory.peleas_callejeras} == "default":
 	o mejor aún
 	la pena de muerte
 	ja ja jaja ja
-elif {MapStates.memory.peleas_callejeras} == "peleas_vuelve":
-	ash
-	fui y no encontré a nadie
-	pero aquí todo en orden
-
-if {MapStates.memory.sillitas_recogidas} == true:
-	¿QUEEE??? ALGUIEN ESTÁ TIRANDO BASURA?!!
-	DÓNDE?????!!!!
-	[signal arg_type="dict" arg="{"name":"ver_peleas"}"]
+	if {MapStates.memory.sillitas_recogidas} == true:
+		¿QUEEE??? ALGUIEN ESTÁ TIRANDO BASURA?!!
+		DÓNDE?????!!!!
+		[signal arg_type="dict" arg="{"animation":"ver_peleas"}"]
+else:
+	solo un día normal en mi trabajo
+	no ocurrió nada extraordinario hoy
+	pero si de casualidad ves una flor por ahí tirada
+	puedes avisarme
+	es que quiza el viento se llevó la flor favorita del padre
+	y si no la encuentro me voy a meter en problemas
+	pero lo más probable es que ahorita aparezca
+	no es mi culpa que haya desaparecido

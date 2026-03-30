@@ -20,12 +20,19 @@ func _ready_scene() -> void:
 			world_animation_player.play("guarida_cerrada")
 		_:
 			pass
+	
+	if Globals.maps.memory_iglesia.state == "recoge_flor":
+		pass
 
 	black_rect.visible = true
 	await Functions.fade_color_rect(black_rect, "OUT", 2)
 
 	
 func _on_dialogic_signal(argument:Dictionary) -> void:
+	if not argument.has("name"):
+		print("Dialogic signal received without 'name' key:", argument)
+		return
+
 	var event_name :String = argument.name
 
 	print("Dialogic text signal received:", event_name)

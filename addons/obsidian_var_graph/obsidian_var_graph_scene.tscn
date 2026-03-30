@@ -100,6 +100,22 @@ size_flags_horizontal = 3
 placeholder_text = "values"
 expand_to_text_length = true
 
+[node name="Dialogic" type="LineEdit" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "dialogic_timeline_name"
+expand_to_text_length = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0.427493, 0.427493, 0.427493, 1)
+theme_override_font_sizes/normal_font_size = 12
+text = "map_name.state para guardar estados de mapas*"
+fit_content = true
+scroll_active = false
+
 [node name="Submit" type="Button" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0

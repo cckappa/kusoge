@@ -1,10 +1,25 @@
 if {MapStates.memory.basura_alertada} == false:
-	AAAAAAAAH
-	de dónde saliste?!
-	no, no estamos tirando basura en el bosque
-	[signal arg_type="dict" arg="{"name":"alerta_basura"}"]
-	[signal arg_type="dict" arg="{"name":"memory_pelea_basura"}"]
-	set {MapStates.memory.basura_alertada} = true
+	if {MapStates.memory.sillitas_recogidas} == false:
+		AAAAAAAAH
+		de dónde saliste?!
+		no, no estamos tirando basura en el bosque
+		[signal arg_type="dict" arg="{"name":"alerta_basura"}"]
+		set {MapStates.memory.basura_alertada} = true
+	else:
+		que bueno que elegiste las sillas
+		conseguir unas sillitas con esa calidad es muy difícil
+		solo no le digas a nadie de donde las sacaste
+		van a querer venir con nosostros a comprar
+		y te dimos las últimas que teníamos
 else:
-	oh, entonces solo estás pasando por aca?
-	ya ves Samuel? te dije que no era nada grave
+	if {MapStates.memory.sillitas_recogidas} == false:
+		¿qué estás buscando por aca niña?
+		nada en especial?
+		oh, entonces solo estás pasando por aca?
+		ya ves Samuel? te dije que no era nada grave
+	else:
+		que bueno que elegiste las sillas
+		conseguir unas sillitas con esa calidad es muy difícil
+		solo no le digas a nadie de donde las sacaste
+		van a querer venir con nosostros a comprar
+		y te dimos las últimas que teníamos

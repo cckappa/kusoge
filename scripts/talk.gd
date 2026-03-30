@@ -4,10 +4,17 @@ extends Node2D
 @export var talking_area:Area2D
 @export var automatic_start:bool=false
 @export var timeline_name:String
+@export var disabled:bool=false
+
 var talking:=false
 var talking_zone:=false
 
 func _ready() -> void:
+	if disabled:
+		talking_area.monitoring = false
+	else:
+		talking_area.monitoring = true
+	
 	talking_area.connect("body_entered", enters_area)
 	talking_area.connect("body_exited", exits_area)
 	SignalBus.connect("changing_scene", _on_changing_scene)
@@ -58,3 +65,7 @@ func exits_area(body:Node2D) -> void:
 
 func _on_changing_scene() -> void:
 	talking_area.monitoring = false
+
+func set_disabled(value:bool) -> void:
+	disabled = value
+	talking_area.monitoring = !value

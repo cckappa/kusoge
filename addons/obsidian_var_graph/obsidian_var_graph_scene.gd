@@ -7,6 +7,7 @@ extends Control
 @onready var type_value:= %TypeValue
 @onready var start_value := %StartValue
 @onready var values := %Values
+@onready var dialogic := %Dialogic
 
 @onready var var_name := %VarName
 @onready var found_vars := %FoundVars
@@ -50,11 +51,12 @@ func _on_submit_pressed() -> void:
 				return
 	else:
 		# Create file with header
-		content = "| var_name | type | start_value | values | links |\n"
-		content += "| -------- | ---- | ----------- | ------ | ----- |\n"
+		content = "| var_name | type | start_value | values | links | dialogic |\n"
+		content += "| -------- | ---- | ----------- | ------ | ----- | -------- |\n"
 
 	# Append the new row
-	var new_row := "| " + v_name + " | " + v_type + " | " + s_value + " | " + vals + " |  |"
+	var d_value :String= dialogic.text.strip_edges()
+	var new_row := "| " + v_name + " | " + v_type + " | " + s_value + " | " + vals + " |  | " + d_value + " |"
 	content = content.strip_edges() + "\n" + new_row + "\n"
 
 	var out := FileAccess.open(full_path, FileAccess.WRITE)
@@ -70,6 +72,7 @@ func _on_submit_pressed() -> void:
 	var_name_input.text = ""
 	start_value.text = ""
 	values.text = ""
+	dialogic.text = ""
 
 func _on_find_bar_pressed() -> void:
 	var search_term :String= var_name.text.strip_edges()
@@ -82,10 +85,17 @@ func _on_find_bar_pressed() -> void:
 	var dir_path := "res://assets/obsidian_vars/tkio/maps/"
 	var results := _search_md_tables(dir_path, search_term)
 
+	# Clear previous search results
+	for node in get_tree().get_nodes_in_group("search_result"):
+		node.queue_free()
+	
+	found_vars.text = ""
+
 	if results.is_empty():
 		found_vars.text = "[i]No matches found for:[/i] [b]" + search_term + "[/b]"
 		return
-
+	
+	# Display search results
 	found_vars.text = "[b]Results for:[/b] " + search_term + "\n" + str(results.size()) + " match(es) found."
 
 	var container := found_vars.get_parent()
@@ -100,7 +110,8 @@ func _on_find_bar_pressed() -> void:
 		text += "[color=gray]" + result["file"] + "[/color]\n"
 		text += "[color=aqua]type:[/color]         " + result["type"] + "\n"
 		text += "[color=aqua]start_value:[/color]  " + result["start_value"] + "\n"
-		text += "[color=aqua]values:[/color]       " + result["values"]
+		text += "[color=aqua]values:[/color]       " + result["values"] + "\n"
+		text += "[color=aqua]dialogic:[/color]     " + result["dialogic"] + "\n"
 		label.text = text
 		container.add_child(label)
 
@@ -193,6 +204,7 @@ func _parse_md_table(file_path: String, search_term: String) -> Array:
 				"start_value": row.get("start_value", ""),
 				"values":      row.get("values", ""),
 				"links":       row.get("links", ""),
+				"dialogic":    row.get("dialogic", ""),
 			})
 
 	file.close()

@@ -6,7 +6,11 @@ func _ready() -> void:
 	SignalBus.connect("play_world_animation", _on_play_world_animation)
 
 func _on_dialogic_signal(argument:Dictionary) -> void:
-	var event_name :String = argument.name
+	if not argument.has("animation"):
+		print("Dialogic signal received without 'animation' key:", argument)
+		return
+
+	var event_name :String = argument.animation
 	print("Dialogic text signal received:", event_name)
 	if has_animation(event_name):
 		play(event_name)

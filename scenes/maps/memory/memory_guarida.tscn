@@ -159,10 +159,6 @@ camera_zone_areas = [NodePath("CameraZoneAreas/CameraZoneArea")]
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
-limit_left = -2936
-limit_top = -3322
-limit_right = 5020
-limit_bottom = 1533
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 position = Vector2(215, -1148.5)
@@ -173,7 +169,7 @@ follow_target = NodePath("../../../PlayableCharacter")
 tween_resource = SubResource("Resource_fyrvt")
 
 [node name="PhantomCamera2D2" parent="CameraManager/PhantomCameras" index="1" node_paths=PackedStringArray("follow_target") instance=ExtResource("30_7sruv")]
-position = Vector2(6, -3293)
+position = Vector2(20, -3210)
 follow_target = NodePath("../../CameraZoneAreas/CameraZoneArea/Marker2D")
 tween_on_load = false
 limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
@@ -187,7 +183,7 @@ zone_type = 1
 metadata/_custom_type_script = "uid://bkkj2ica6jpjl"
 
 [node name="Marker2D" type="Marker2D" parent="CameraManager/CameraZoneAreas/CameraZoneArea"]
-position = Vector2(-417, -660)
+position = Vector2(-403, -577)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager/CameraZoneAreas/CameraZoneArea"]
 position = Vector2(25.5, 115.5)

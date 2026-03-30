@@ -19,6 +19,10 @@ func _ready_scene() -> void:
 
 
 func _on_dialogic_signal(argument:Dictionary) -> void:
+	if not argument.has("name"):
+		print("Dialogic signal received without 'name' key:", argument)
+		return
+
 	var event_name :String = argument.name
 
 	print("Dialogic text signal received:", event_name)

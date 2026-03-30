@@ -22,6 +22,10 @@ func _ready_scene() -> void:
 	await Functions.fade_color_rect(black_rect, "OUT", 2)
 
 func _on_dialogic_signal(argument:Dictionary) -> void:
+	if not argument.has("name"):
+		print("Dialogic signal received without 'name' key:", argument)
+		return
+
 	var event_name :String = argument.name
 
 	print("Dialogic text signal received:", event_name)

@@ -10,7 +10,11 @@ func _ready() -> void:
 	SignalBus.connect("start_fight", _on_start_fight)
 	
 func _on_dialogic_signal(argument:Dictionary) -> void:
-	var event_name :String = argument.name
+	if not argument.has("fight"):
+		print("Dialogic signal received without 'fight' key:", argument)
+		return
+
+	var event_name :String = argument.fight
 
 	print("Dialogic text signal received:", event_name)
 	if fights.size() == 0:

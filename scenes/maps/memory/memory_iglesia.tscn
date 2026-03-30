@@ -330,6 +330,7 @@ polygon = PackedVector2Array(-389, -10, 376, 161, 514, -881, -397, -1134)
 polygon = PackedVector2Array(-388, -29, 374, 160, 507, -852, -377, -1119)
 
 [node name="Flor" parent="ObjectLayer" instance=ExtResource("4_23v47")]
+unique_name_in_owner = true
 position = Vector2(-737, -1292)
 
 [node name="Polygon2D2" type="Polygon2D" parent="ObjectLayer/Flor"]

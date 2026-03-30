@@ -2,6 +2,7 @@
 extends BaseScene
 
 var empuja_alicia: bool = false
+@onready var flor := %Flor
 
 func _ready_scene() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal)
@@ -13,6 +14,8 @@ func _ready_scene() -> void:
 	match Globals.maps.memory_iglesia.state:
 		"default":
 			pass
+		"recoge_flor":
+			set_status_recoge_flor()
 		_:
 			pass
 
@@ -25,6 +28,10 @@ func _physics_process(_delta: float) -> void:
 		playable_character.move_and_slide()
 	
 func _on_dialogic_signal(argument:Dictionary) -> void:
+	if not argument.has("name"):
+		print("Dialogic signal received without 'name' key:", argument)
+		return
+
 	var event_name :String = argument.name
 
 	print("Dialogic text signal received:", event_name)
@@ -32,3 +39,12 @@ func _on_dialogic_signal(argument:Dictionary) -> void:
 		empuja_alicia = true
 		await get_tree().create_timer(0.3).timeout
 		empuja_alicia = false
+	if event_name == "recoge_flor":
+		set_status_recoge_flor()
+		Globals.maps.memory_iglesia.state = "recoge_flor"
+
+func set_status_recoge_flor() -> void:
+	flor.visible = false
+	flor.find_child("Talk").set_disabled(true)
+	flor.find_child("Talk2").set_disabled(true)
+	flor.find_child("Talk3").set_disabled(true)

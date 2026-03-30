@@ -3,6 +3,7 @@ if {MapStates.memory.guarida_abierta} == false:
 	un pedazo de madera para cubrir la entrada a tu guarida
 	- mover
 		[signal arg_type="dict" arg="{"name":"abrir_guarida"}"]
+		[signal arg_type="dict" arg="{"animation":"abrir_guarida"}"]
 		set {MapStates.memory.guarida_abierta} = true
 	- ignorar
 		luego vengo
@@ -10,5 +11,6 @@ else:
 	¿quieres cerrar tu guarida?
 	- sí, cerrar
 		[signal arg_type="dict" arg="{"name":"cerrar_guarida"}"]
+		[signal arg_type="dict" arg="{"animation":"cerrar_guarida"}"]
 		set {MapStates.memory.guarida_abierta} = false
 	- nah, vuelvo rápido

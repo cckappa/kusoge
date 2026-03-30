@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bv1q5tgci00es"]
+[gd_scene load_steps=28 format=3 uid="uid://bv1q5tgci00es"]
 
 [ext_resource type="Script" uid="uid://cwnvkotvy8o2h" path="res://scripts/maps/memory/memory_bosque.gd" id="1_28gx2"]
 [ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="2_mo1di"]
@@ -20,10 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="20_u3aen"]
 [ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="22_yyoey"]
 [ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="23_3lpro"]
-[ext_resource type="Script" uid="uid://calbsshdno2ur" path="res://scripts/fight_manager.gd" id="26_k5rjg"]
-[ext_resource type="Script" uid="uid://wk0pglf3r6ow" path="res://scripts/fights/fight_resource.gd" id="27_28gx2"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="27_cnm2b"]
-[ext_resource type="Resource" uid="uid://dd0mifygs2lxs" path="res://assets/resources/fights/memory/memory_pelea_basura.tres" id="28_mo1di"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k5rjg"]
 size = Vector2(148, 824)
@@ -263,10 +260,6 @@ metadata/_edit_lock_ = true
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
-limit_left = -2936
-limit_top = -3322
-limit_right = 5020
-limit_bottom = 1533
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 shape = SubResource("RectangleShape2D_m2kmg")
@@ -274,11 +267,6 @@ shape = SubResource("RectangleShape2D_m2kmg")
 [node name="PhantomCamera2D" parent="CameraManager/PhantomCameras" index="0" node_paths=PackedStringArray("follow_target")]
 follow_target = NodePath("../../../PlayableCharacter")
 tween_resource = SubResource("Resource_fyrvt")
-
-[node name="FightManager" type="Node" parent="."]
-script = ExtResource("26_k5rjg")
-fights = Array[ExtResource("27_28gx2")]([ExtResource("28_mo1di")])
-metadata/_custom_type_script = "uid://calbsshdno2ur"
 
 [editable path="BackgroundLayer/GrayBox"]
 [editable path="NpcLayer/NpcBasura"]

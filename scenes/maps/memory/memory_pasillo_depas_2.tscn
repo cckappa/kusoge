@@ -208,7 +208,7 @@ metadata/_custom_type_script = "uid://bsvp6e76bx107"
 position = Vector2(54, -54.5)
 shape = SubResource("RectangleShape2D_7b27k")
 
-[node name="Macetas" parent="ObjectLayer" groups=["objects"] instance=ExtResource("3_27q7h")]
+[node name="Macetas" parent="ObjectLayer" instance=ExtResource("3_27q7h")]
 position = Vector2(564, -393)
 
 [node name="Polygon2D" parent="ObjectLayer/Macetas" index="0"]
@@ -232,25 +232,13 @@ position = Vector2(175, 12)
 color = Color(0.695503, 0.695503, 0.695503, 1)
 polygon = PackedVector2Array(-35, -99, -34, -135, -51, -135, -60, -154, -31.9436, -144.082, -31, -158, -60, -166, -64, -208, -35, -232, 6, -216, 5, -182, -13, -166, 25, -164, 6, -152, -18, -154, -19, -95)
 
-[node name="Label" parent="ObjectLayer/Macetas" index="4"]
-offset_right = 40.0
-offset_bottom = 22.3333
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-
-[node name="MacetaRota" parent="ObjectLayer" groups=["objects"] instance=ExtResource("3_27q7h")]
+[node name="MacetaRota" parent="ObjectLayer" instance=ExtResource("3_27q7h")]
 unique_name_in_owner = true
 position = Vector2(615, -305)
 
 [node name="Polygon2D" parent="ObjectLayer/MacetaRota" index="0"]
 color = Color(0.408329, 0.408329, 0.408329, 1)
 polygon = PackedVector2Array(-55, 6, 7, -20, -7, -48, -30, -56, -50, -26, -89, -52, -54, -42, -34, -76, -12, -63, -30, -107, -115, -56)
-
-[node name="Label" parent="ObjectLayer/MacetaRota" index="1"]
-offset_right = 40.0
-offset_bottom = 22.3333
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 
 [node name="CollisionShape2D" parent="ObjectLayer/MacetaRota/StaticBody2D" index="0"]
 position = Vector2(-45.5, -20.5)
@@ -314,10 +302,10 @@ metadata/_edit_lock_ = true
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
-limit_left = -1701
-limit_top = -3539
-limit_right = 3785
-limit_bottom = 1750
+limit_left = -1920
+limit_top = -1080
+limit_right = 1920
+limit_bottom = 1080
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 shape = SubResource("RectangleShape2D_y12ve")

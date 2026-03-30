@@ -8,7 +8,21 @@
         "type": "tabs",
         "children": [
           {
-            "id": "2c58027029098505",
+            "id": "c8e38c806da80be1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "maps/memory/memory_plaza_principal.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "memory_plaza_principal"
+            }
+          },
+          {
+            "id": "381ff827d192e1d4",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -20,23 +34,8 @@
               "icon": "lucide-file",
               "title": "memory_iglesia"
             }
-          },
-          {
-            "id": "3f21a82eac609090",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "maps/memory/memory_bosque.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "memory_bosque"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -109,7 +108,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 323.5
+    "width": 339.5
   },
   "right": {
     "id": "5251a3a8ecebf71a",
@@ -125,6 +124,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "maps/memory/memory_plaza_principal.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -134,20 +134,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
-            }
-          },
-          {
-            "id": "0cfc85fbc146768f",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Backlinks for memory_plaza_principal"
             }
           },
           {
@@ -204,8 +191,27 @@
               "title": "Outline of memory_nuevo"
             }
           }
-        ],
-        "currentTab": 1
+        ]
+      },
+      {
+        "id": "6fb3bc869d95e7c8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0cfc85fbc146768f",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "maps/memory/memory_plaza_principal.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from memory_plaza_principal"
+            }
+          }
+        ]
       }
     ],
     "direction": "horizontal",
@@ -222,21 +228,27 @@
       "bases:Create new base": false
     }
   },
-  "active": "314ff7bde5c937e5",
+  "active": "c8e38c806da80be1",
   "lastOpenFiles": [
-    "maps/memory/memory_bosque.md",
-    "maps/memory/memory_nuevo.md",
-    "maps/memory/memory_bosque.md7059344559.tmp",
-    "maps/memory/memory_bosque.md7037295079.tmp",
-    "maps/memory/memory_bosque.md7003561156.tmp",
-    "maps/memory/memory_bosque.md6864225462.tmp",
-    "maps/memory/memory_bosque.md6851758552.tmp",
-    "maps/memory/memory_bosque.md6126181243.tmp",
     "maps/memory/memory_iglesia.md",
-    "maps/memory/memory_bosque.md6110131338.tmp",
-    "maps/memory/memory_iglesia.md6002679913.tmp",
-    "maps/memory/memory_iglesia.md5984431939.tmp",
-    "maps/memory/memory_bosque.md5952778705.tmp",
+    "maps/memory/memory_plaza_principal.md",
+    "maps/memory/memory_guarida.md",
+    "maps/memory/memory_guarida.md8820020446.tmp",
+    "maps/memory/memory_bosque.md8456281942.tmp",
+    "maps/memory/memory_iglesia.md6876875019.tmp",
+    "maps/memory/memory_iglesia.md5531805968.tmp",
+    "maps/memory/memory_pasillo_depas_2.md",
+    "maps/memory/memory_plaza_principal.md923039816.tmp",
+    "memory_pasillo_depas_3.md",
+    "maps/memory/memory_guarida.md638718779.tmp",
+    "maps/memory/memory_pasillo_depas_2.md493783146.tmp",
+    "maps/memory/memory_guarida.md444199268.tmp",
+    "maps/memory/memory_pasillo_depas.md",
+    "maps/memory/memory_main_room.md",
+    "maps/memory/memory_bosque.md",
+    "maps/memory/memory_iglesia.md2733659459.tmp",
+    "maps/memory/memory_bosque.md2182085233.tmp",
+    "maps/memory/memory_nuevo.md",
     "maps/test/memory_iglesia.md",
     "TKIO-VARS.canvas",
     "maps/memory/Untitled 1.md",

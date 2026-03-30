@@ -1,4 +1,9 @@
 [style name="object_info"]
-te vamos a cuidar mucho florecita no te preocupes
-Obtienes una flor bonita
-set {MapStates.memory.flor_recogida} = true
+if {MapStates.memory.maceta_recogida} == true:
+	te vamos a cuidar mucho florecita no te preocupes
+	Obtienes una flor bonita
+	set {MapStates.memory.flor_recogida} = true
+	[signal arg_type="dict" arg="{"name":"recoge_flor"}"]
+else:
+	de lejos no se alcanzaba a apreciar lo bonita que es esta flor
+	que suerte que se fue ese molesto guardia 

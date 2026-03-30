@@ -4,3 +4,4 @@ te dije que no teníamos que tirar agentes contaminantes en un área que no est�
 si nos encuentran podemos pasar de 30 días a 2 años en prisión según lo establecido en la ley inciso L. del artículo #340.89.c2
 qué dices? cállate no es nadie!
 [signal arg_type="dict" arg="{"name":"alerta_basura"}"]
+set {MapStates.memory.basura_alertada} = true

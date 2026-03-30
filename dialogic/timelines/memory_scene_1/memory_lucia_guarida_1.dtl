@@ -4,6 +4,19 @@ pero siento que le falta mmm
 no sé
 nuestro toque personal
 no crees?
-unas [color=#00ff58]sillitas[/color] se me ocurre
-uuuuu y también una [color=#00ff58]macetita[/color] con una [color=#00ff58]flor[/color]
+if {MapStates.memory.sillitas_recogidas} == false:
+	unas [color=#00ff58]sillitas[/color] se me ocurre
+else:
+	if {MapStates.memory.sillitas_acomodadas} == false:
+		unas [color=#00ff58]sillitas[/color] se me ocurre
+		y tú de donde sacaste esas sillas?
+		mmm
+		SON PERFECTAS!
+		deja las acomodo por aca
+		set {MapStates.memory.sillitas_acomodadas} = true
+	else:
+		ya tenemos las [color=#00ff58]sillitas[/color] acomodadas
+		y mmm qué más
+
+ah uuuuu y también una [color=#00ff58]macetita[/color] con una [color=#00ff58]flor[/color]
 set {MapStates.memory.conseguir_objetos_guarida} = true
