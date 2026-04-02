@@ -68,7 +68,8 @@ func add_fight() -> void:
 	add_child(battle_scene)
 
 func set_map_information() -> void:
-	Globals.current_map_path = single_map_resource.resource_path
+	Globals.current_map_path = single_map_resource.scene_path
+	print("Current map set to:", single_map_resource.map_name, " at path: ", single_map_resource.scene_path)
 	if Globals.maps.has(single_map_resource.map_name) and room_state != "default":
 		Globals.maps[single_map_resource.map_name].state = room_state	
 		

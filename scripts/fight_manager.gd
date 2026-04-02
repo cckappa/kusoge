@@ -6,10 +6,10 @@ var player:PlayableCharacter
 
 func _ready() -> void:
 	player = get_tree().get_nodes_in_group("main_character")[0] as PlayableCharacter
-	Dialogic.signal_event.connect(_on_dialogic_signal)
+	Dialogic.signal_event.connect(_fight_dialogic_signal)
 	SignalBus.connect("start_fight", _on_start_fight)
 	
-func _on_dialogic_signal(argument:Dictionary) -> void:
+func _fight_dialogic_signal(argument:Dictionary) -> void:
 	if not argument.has("fight"):
 		print("Dialogic signal received without 'fight' key:", argument)
 		return

@@ -52,27 +52,7 @@ func animate_loot_spawn(target_position: Vector2, delay: float) -> void:
 
 	var rotation_tween2 := tween.tween_property(self, "rotation", 0.0, spawn_duration * 0.4)
 	rotation_tween2.set_delay(delay + spawn_duration * 0.6)
-	# # Create tween
-	# var tween := get_tree().create_tween()
-	# tween.set_parallel(true)  # Allow multiple animations simultaneously
-	
-	# # Delay before starting animation
-	# # await get_tree().create_timer(delay).timeout
-	
-	# # Fade in and scale up
-	# tween.tween_property(self, "modulate:a", 1.0, spawn_duration * 0.3)
-	# tween.tween_property(self, "scale", Vector2.ONE, spawn_duration * 0.4)\
-	# 	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
-	
-	# # # Bounce animation (drop down then bounce up slightly)
-	# # var bounce_tween := tween.tween_method(
-	# # 	update_bounce_position.bind(start_position, target_position),0.0, 1.0, spawn_duration
-	# # )
-	# # bounce_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
-	
-	# # # Optional: Add a subtle rotation wobble
-	# tween.tween_property(self, "rotation", randf_range(-0.1, 0.1), spawn_duration * 0.6)
-	# tween.tween_property(self, "rotation", 0.0, spawn_duration * 0.4)
+
 
 func update_bounce_position(start_pos: Vector2, target_pos: Vector2, progress: float) -> void:
 	"""Updates item position during bounce animation"""

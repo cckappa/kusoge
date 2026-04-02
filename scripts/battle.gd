@@ -127,7 +127,9 @@ func setup_cambiar(scene:StringName) -> void:
 	call_deferred('cambiar_principal')
 
 func cambiar_principal() -> void:
+	print("Changing to scene...", Globals.current_map_path)
 	get_tree().change_scene_to_file(Globals.current_map_path)
+	print("NOW scene...", Globals.current_map_path)
 
 func cambiar_main() -> void:
 	get_tree().change_scene_to_file(main_scene)
