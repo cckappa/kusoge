@@ -6,7 +6,7 @@ extends Resource
 func get_maps_dictionary() -> Dictionary:
 	var map_dict: Dictionary = {}
 	for map in maps:
-		map_dict[map.name] = {
+		map_dict[map.map_name] = {
 			"scene_path": map.scene_path,
 			"state": map.state
 		}

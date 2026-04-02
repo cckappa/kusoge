@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://bv1q5tgci00es"]
+[gd_scene load_steps=29 format=3 uid="uid://bv1q5tgci00es"]
 
 [ext_resource type="Script" uid="uid://cwnvkotvy8o2h" path="res://scripts/maps/memory/memory_bosque.gd" id="1_28gx2"]
 [ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="2_mo1di"]
+[ext_resource type="Resource" uid="uid://batcyqwfv8fgm" path="res://assets/resources/maps/memory/memory_bosque.tres" id="2_xitid"]
 [ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="3_og0mq"]
 [ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="4_ediyk"]
 [ext_resource type="PackedScene" uid="uid://ckc0rqj4d6b16" path="res://scenes/gray_box.tscn" id="4_mo1di"]
@@ -43,12 +44,10 @@ duration = 2.0
 transition = 1
 ease = 2
 
-[node name="MemoryBosque" type="Node2D" node_paths=PackedStringArray("audio_stream_player", "black_rect")]
+[node name="MemoryBosque" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_28gx2")
-current_scene = "res://scenes/maps/memory/memory_bosque.tscn"
-audio_stream_player = NodePath("AudioStreamPlayer")
-black_rect = NodePath("CanvasLayer/BlackRect")
+single_map_resource = ExtResource("2_xitid")
 
 [node name="ParallaxBackgroundLayer" type="Node2D" parent="."]
 z_index = -1

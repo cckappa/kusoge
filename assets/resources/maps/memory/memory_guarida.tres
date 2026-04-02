@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SingleMapResource" load_steps=2 format=3 uid="uid://dv0tb248il6l"]
+
+[ext_resource type="Script" uid="uid://b21bna7stwiam" path="res://scripts/maps/single_map_resource.gd" id="1_10c44"]
+
+[resource]
+script = ExtResource("1_10c44")
+name = "memory_guarida"
+scene_path = "res://scenes/maps/memory/memory_guarida.tscn"
+state = "default"
+metadata/_custom_type_script = "uid://b21bna7stwiam"

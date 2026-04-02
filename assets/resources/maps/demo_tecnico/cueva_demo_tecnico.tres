@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SingleMapResource" load_steps=2 format=3 uid="uid://cesh62x2vxabe"]
+
+[ext_resource type="Script" uid="uid://b21bna7stwiam" path="res://scripts/maps/single_map_resource.gd" id="1_8v4tu"]
+
+[resource]
+script = ExtResource("1_8v4tu")
+scene_path = "res://scenes/maps/cueva_demo_tecnico.tscn"
+state = "default"
+metadata/_custom_type_script = "uid://b21bna7stwiam"

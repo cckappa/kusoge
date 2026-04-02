@@ -1,7 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://0sy557gwqnpc"]
+[gd_scene load_steps=34 format=3 uid="uid://0sy557gwqnpc"]
 
 [ext_resource type="Script" uid="uid://b7mjubqyjovau" path="res://scripts/maps/memory/memory_iglesia.gd" id="1_r64wl"]
 [ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="2_r8n15"]
+[ext_resource type="Resource" uid="uid://ue4ciu246obr" path="res://assets/resources/maps/memory/memory_iglesia.tres" id="2_vgcdi"]
 [ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="3_23v47"]
 [ext_resource type="PackedScene" uid="uid://ckc0rqj4d6b16" path="res://scenes/gray_box.tscn" id="4_23v47"]
 [ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="4_k8lqm"]
@@ -229,12 +230,10 @@ _data = {
 &"ver_peleas": SubResource("Animation_26hyn")
 }
 
-[node name="MemoryIglesia" type="Node2D" node_paths=PackedStringArray("audio_stream_player", "black_rect")]
+[node name="MemoryIglesia" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_r64wl")
-current_scene = "res://scenes/maps/memory/memory_iglesia.tscn"
-audio_stream_player = NodePath("AudioStreamPlayer")
-black_rect = NodePath("CanvasLayer/BlackRect")
+single_map_resource = ExtResource("2_vgcdi")
 
 [node name="ParallaxBackgroundLayer" type="Node2D" parent="."]
 z_index = -1

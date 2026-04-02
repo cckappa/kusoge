@@ -1,8 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://ctgrroafgitn5"]
+[gd_scene load_steps=32 format=3 uid="uid://ctgrroafgitn5"]
 
 [ext_resource type="Script" uid="uid://5rnf247xyu5v" path="res://scripts/scene_creator_tool.gd" id="1_7ufwd"]
 [ext_resource type="Script" uid="uid://ckp0h74w4b5ak" path="res://scripts/maps/memory/memory_main_room.gd" id="1_xsnwr"]
 [ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="2_58vf6"]
+[ext_resource type="Resource" uid="uid://dx8its14hi84" path="res://assets/resources/maps/memory/memory_main_room.tres" id="2_vnmqw"]
 [ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="3_tlmkp"]
 [ext_resource type="PackedScene" uid="uid://ckc0rqj4d6b16" path="res://scenes/gray_box.tscn" id="4_58vf6"]
 [ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="4_xsnwr"]
@@ -50,12 +51,10 @@ duration = 2.0
 transition = 1
 ease = 2
 
-[node name="MemoryMainRoom" type="Node2D" node_paths=PackedStringArray("audio_stream_player", "black_rect")]
+[node name="MemoryMainRoom" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_xsnwr")
-current_scene = "res://scenes/maps/memory/memory_main_room.tscn"
-audio_stream_player = NodePath("AudioStreamPlayer")
-black_rect = NodePath("CanvasLayer/BlackRect")
+single_map_resource = ExtResource("2_vnmqw")
 
 [node name="SceneCreatorTool" type="Node" parent="."]
 script = ExtResource("1_7ufwd")
@@ -187,10 +186,6 @@ unique_name_in_owner = true
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
-limit_left = -1920
-limit_top = -1410
-limit_right = 1920
-limit_bottom = 1080
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 position = Vector2(0, -210)

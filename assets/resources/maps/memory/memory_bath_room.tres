@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SingleMapResource" load_steps=2 format=3 uid="uid://cpi73if3742pg"]
+
+[ext_resource type="Script" uid="uid://b21bna7stwiam" path="res://scripts/maps/single_map_resource.gd" id="1_0ca4s"]
+
+[resource]
+script = ExtResource("1_0ca4s")
+name = "memory_bath_room"
+scene_path = "res://scenes/maps/memory/memory_bath_room.tscn"
+state = "default"
+metadata/_custom_type_script = "uid://b21bna7stwiam"

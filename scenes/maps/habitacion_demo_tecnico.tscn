@@ -1,7 +1,8 @@
-[gd_scene load_steps=49 format=3 uid="uid://dbfk6io7tum1h"]
+[gd_scene load_steps=50 format=3 uid="uid://dbfk6io7tum1h"]
 
 [ext_resource type="Script" uid="uid://iyxa2juiwepc" path="res://scripts/maps/habitacion_demo_tecnico.gd" id="1_gmx2w"]
 [ext_resource type="Script" uid="uid://5rnf247xyu5v" path="res://scripts/scene_creator_tool.gd" id="2_d4xx2"]
+[ext_resource type="Resource" uid="uid://claohow0a0xv0" path="res://assets/resources/maps/demo_tecnico/habitacion_demo_tecnico.tres" id="2_ix8xt"]
 [ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="3_ooqyf"]
 [ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="4_8q45v"]
 [ext_resource type="Texture2D" uid="uid://dl1jide8tgpi" path="res://assets/backgrounds/demo_tecnico/fondo_habitacion.png" id="5_kwu0w"]
@@ -143,12 +144,10 @@ duration = 2.0
 transition = 1
 ease = 2
 
-[node name="HabitacionDemoTecnico" type="Node2D" node_paths=PackedStringArray("audio_stream_player", "black_rect")]
+[node name="HabitacionDemoTecnico" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_gmx2w")
-current_scene = "res://scenes/maps/habitacion_demo_tecnico.tscn"
-audio_stream_player = NodePath("AudioStreamPlayer")
-black_rect = NodePath("CanvasLayer/BlackRect")
+single_map_resource = ExtResource("2_ix8xt")
 
 [node name="SceneCreatorTool" type="Node" parent="."]
 script = ExtResource("2_d4xx2")
@@ -330,6 +329,10 @@ script = ExtResource("13_3y6r5")
 physics_interpolation_mode = 1
 position = Vector2(0, -5.99994)
 process_callback = 0
+limit_left = -1948
+limit_top = -1340
+limit_right = 1948
+limit_bottom = 894
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 position = Vector2(0, -223)

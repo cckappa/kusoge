@@ -1,3 +1,4 @@
+@tool
 extends BaseScene
 
 @export var door_sprite : AnimatedSprite2D

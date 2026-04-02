@@ -1,7 +1,8 @@
-[gd_scene load_steps=41 format=3 uid="uid://c47uwciuueqkw"]
+[gd_scene load_steps=44 format=3 uid="uid://c47uwciuueqkw"]
 
 [ext_resource type="Script" uid="uid://wc6ha3ekjqtp" path="res://scripts/maps/memory/memory_plaza_principal.gd" id="1_clncr"]
 [ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="2_axlg8"]
+[ext_resource type="Resource" uid="uid://bvd7um388i0nx" path="res://assets/resources/maps/memory/memory_plaza_principal.tres" id="2_bsdc7"]
 [ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="3_l20no"]
 [ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="4_4jpor"]
 [ext_resource type="PackedScene" uid="uid://ckc0rqj4d6b16" path="res://scenes/gray_box.tscn" id="4_l20no"]
@@ -99,6 +100,100 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("NpcLayer/Gatito:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(102, -1278)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NpcLayer/NinoGrosero1:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(301, 313)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("NpcLayer/NinoGrosero2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(488, 174)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ObjectLayer/Fuente/Talk:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("NpcLayer/NinoGrosero1/Talk:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("NpcLayer/NinoGrosero2/Talk:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("NpcLayer/Gatito:position:x")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-533, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("NpcLayer/Gatito:position:y")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(59, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="Animation" id="Animation_w40rs"]
@@ -261,21 +356,125 @@ tracks/2/keys = {
 "values": [0.0]
 }
 
+[sub_resource type="Animation" id="Animation_xjcry"]
+resource_name = "set_puestos_molestar_gatito"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NpcLayer/Gatito:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-533, 59)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NpcLayer/NinoGrosero1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-664, 204)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NpcLayer/NinoGrosero2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(668, 196)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ObjectLayer/Fuente/Talk:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NpcLayer/NinoGrosero1/Talk:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("NpcLayer/NinoGrosero2/Talk:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_iiqht"]
+resource_name = "juegan_con_gatito"
+length = 6.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NpcLayer/Gatito:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-533, -0.25, 0, 0.4, 185.94, 703, -0.5, -309.386, 0.25, 0, 703, -0.25, 0, 0.25, 0, -543, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.3, 3.22079, 5.33641)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NpcLayer/Gatito:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 3, 0, 0, 3, 0),
+"points": PackedFloat32Array(59, -0.25, 0, 0.2, -292.901, -737.971, -0.8, 0, 0.8, 0, 49, -0.0999999, -133.738, 0.25, 0, 49, -0.25, 0, 0.17921, -246.896, -758.546, -0.671364, -3.46942, 0.671364, 3.46942, 58, -0.136408, -204.461, 0.25, 0),
+"times": PackedFloat32Array(0, 1.2, 2.3, 3.22079, 4.33386, 5.33641)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sydsr"]
 _data = {
 &"RESET": SubResource("Animation_tnuel"),
 &"abrir_guarida": SubResource("Animation_w40rs"),
 &"cerrar_guarida": SubResource("Animation_j86bj"),
 &"guarida_abierta": SubResource("Animation_bsdc7"),
-&"guarida_cerrada": SubResource("Animation_mj5ya")
+&"guarida_cerrada": SubResource("Animation_mj5ya"),
+&"juegan_con_gatito": SubResource("Animation_iiqht"),
+&"set_puestos_molestar_gatito": SubResource("Animation_xjcry")
 }
 
-[node name="memory_plaza_principal" type="Node2D" node_paths=PackedStringArray("audio_stream_player", "black_rect")]
+[node name="memory_plaza_principal" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_clncr")
-current_scene = "res://scenes/maps/memory/memory_plaza_principal.tscn"
-audio_stream_player = NodePath("AudioStreamPlayer")
-black_rect = NodePath("CanvasLayer/BlackRect")
+single_map_resource = ExtResource("2_bsdc7")
+room_state = "flor_recogida"
 
 [node name="ParallaxBackgroundLayer" type="Node2D" parent="."]
 z_index = -1
@@ -297,11 +496,10 @@ polygon = PackedVector2Array(-1601, 790, -183, 959, -175, 1440, 350, 1448, 276, 
 y_sort_enabled = true
 script = ExtResource("7_w40rs")
 
-[node name="Gatito" parent="NpcLayer" groups=["npcs"] instance=ExtResource("7_mj5ya")]
-position = Vector2(102, -1278)
+[node name="Gatito" parent="NpcLayer" instance=ExtResource("7_mj5ya")]
+position = Vector2(-533, 59)
 
 [node name="Polygon2D" parent="NpcLayer/Gatito" index="0"]
-color = Color(0.97283, 0.885118, 0.650278, 1)
 offset = Vector2(0, -10)
 polygon = PackedVector2Array(-106, 14, 31, 11, 25, -39, -1, -45, 3, -58, 22, -55, 41, -75, 46, -121, 17, -108, -16, -117, -28, -155, -44, -121, -59, -83, -42, -69, -46, -51, -83, -49, -91, -73, -101, -109, -83, -114, -77, -134, -98, -144, -122, -126, -120, -96, -99, -55, -98, -34, -103, -10)
 
@@ -310,8 +508,6 @@ offset_left = -82.0
 offset_top = -50.0
 offset_right = 27.0
 offset_bottom = -8.125
-theme_override_colors/font_color = Color(0.0231524, 0.236902, 0.431717, 1)
-theme_override_font_sizes/font_size = 30
 text = "GATITO"
 
 [node name="CollisionShape2D" parent="NpcLayer/Gatito/StaticBody2D" index="1"]
@@ -330,11 +526,10 @@ metadata/_custom_type_script = "uid://do84xbf65qif"
 position = Vector2(-40, -12)
 shape = SubResource("CircleShape2D_mj5ya")
 
-[node name="NinoGrosero1" parent="NpcLayer" groups=["npcs"] instance=ExtResource("7_mj5ya")]
+[node name="NinoGrosero1" parent="NpcLayer" instance=ExtResource("7_mj5ya")]
 position = Vector2(301, 313)
 
 [node name="Polygon2D" parent="NpcLayer/NinoGrosero1" index="0"]
-color = Color(0.97283, 0.885118, 0.650278, 1)
 offset = Vector2(0, -33)
 polygon = PackedVector2Array(-57, 40, -57, 40, 123, 24, 135, -93, 73, -210, -28, -202, -82, -110, -82, -110)
 
@@ -343,8 +538,6 @@ offset_left = -21.0
 offset_top = -117.0
 offset_right = 84.0
 offset_bottom = -75.125
-theme_override_colors/font_color = Color(0.0231524, 0.236902, 0.431717, 1)
-theme_override_font_sizes/font_size = 30
 text = "NIÑO 1"
 
 [node name="CollisionShape2D" parent="NpcLayer/NinoGrosero1/StaticBody2D" index="1"]
@@ -515,7 +708,7 @@ metadata/_custom_type_script = "uid://bsvp6e76bx107"
 position = Vector2(-53, 24.5)
 shape = SubResource("RectangleShape2D_mj5ya")
 
-[node name="Fuente" parent="ObjectLayer" groups=["objects"] instance=ExtResource("4_l20no")]
+[node name="Fuente" parent="ObjectLayer" instance=ExtResource("4_l20no")]
 position = Vector2(-17, 167)
 
 [node name="Polygon2D" parent="ObjectLayer/Fuente" index="0"]
@@ -528,8 +721,6 @@ offset_left = -83.0
 offset_top = -250.0
 offset_right = 198.0
 offset_bottom = -208.125
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 text = "FUENTE O ESTATUA"
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/Fuente/StaticBody2D" index="1"]

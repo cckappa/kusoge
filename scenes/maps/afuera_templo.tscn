@@ -46,12 +46,9 @@ radius = 36.4006
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2kmg"]
 size = Vector2(4338, 5757)
 
-[node name="AfueraTemplo" type="Node2D" node_paths=PackedStringArray("audio_stream_player", "black_rect")]
+[node name="AfueraTemplo" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_i4a0l")
-current_scene = "res://scenes/maps/afuera_templo.tscn"
-audio_stream_player = NodePath("AudioStreamPlayer")
-black_rect = NodePath("CanvasLayer/BlackRect")
 
 [node name="SceneCreatorTool" type="Node" parent="."]
 script = ExtResource("2_n00j2")
@@ -576,6 +573,10 @@ script = ExtResource("12_msymi")
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
+limit_left = -2356
+limit_top = -2839
+limit_right = 2365
+limit_bottom = 1787
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 position = Vector2(4, 6.5)

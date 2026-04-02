@@ -93,48 +93,6 @@ func ran_from_current_scene() -> bool:
 		return true
 	
 	return false
-	# var STARTED_FROM_MAIN := false
-	# var tree := get_tree()
-	# var main_scene_path :String= ProjectSettings.get_setting("application/run/main_scene")
-	
-	# # # Get the file path of the current active scene
-	# var current_scene_path :String= tree.current_scene.scene_file_path
-
-	# if main_scene_path == current_scene_path:
-	# 	# # Code here runs when launched with "Run Project" (F5)
-	# 	STARTED_FROM_MAIN = true
-	# 	print("Launched with Run Project (F5)")
-	# else:
-	# 	# Code here runs when launched with "Run Current Scene" (F6)
-	# 	print("Launched with Run Current Scene (F6)")
-	# print("Current Scene Path: ", get_tree().current_scene)
-	# print("Self: ", self)
-	# if get_tree().current_scene == self:
-	# 	return true
-	# else:
-	# 	return false
-
-# func set_dialogic_auto_advance(enabled:bool) -> void:
-# 	# Dialogic.Inputs.auto_advance.enabled_until_user_input = not enabled
-# 	# Dialogic.Inputs.auto_advance.enabled_until_next_event = enabled
-# 	# Dialogic.Inputs.auto_advance = not enabled
-# 	Dialogic.Inputs.auto_advance.enabled_forced = enabled
-# 	Dialogic.Inputs.manual_advance.system_enabled = not enabled
-# 	Dialogic.Inputs.auto_skip.disable_on_user_input = not enabled
-# 	# Dialogic.Inputs.auto_skip.enabled = enabled
-# 	# Dialogic.Inputs.auto_skip.time_per_event = 3.0 if enabled else 0.1
-# 	# Dialogic.Inputs.manual_advance.disabled_until_next_event = enabled
-# 	# Dialogic.Inputs.auto_skip.
-
-# func set_dialogic_auto_advance(enabled: bool) -> void:
-# 	if enabled:
-# 		Dialogic.Inputs.auto_advance.enabled_forced = true
-# 		Dialogic.Inputs.auto_advance.enabled_until_user_input = false  # Don't disable on input
-# 		Dialogic.Inputs.manual_advance.system_enabled = true
-# 	else:
-# 		Dialogic.Inputs.auto_advance.enabled_forced = false
-# 		Dialogic.Inputs.auto_advance.enabled_until_user_input = true
-# 		Dialogic.Inputs.manual_advance.system_enabled = false
 
 func set_dialogic_auto_advance(enabled: bool) -> void:
 	# var events := InputMap.action_get_events("dialogic_default_action")

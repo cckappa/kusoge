@@ -1,6 +1,7 @@
-[gd_scene load_steps=146 format=3 uid="uid://cw14ehtvu80xx"]
+[gd_scene load_steps=147 format=3 uid="uid://cw14ehtvu80xx"]
 
 [ext_resource type="Script" uid="uid://ddv7kigla6iip" path="res://scripts/maps/demo_tecnico_hub.gd" id="1_w0bji"]
+[ext_resource type="Resource" uid="uid://dcj32vi68o7vl" path="res://assets/resources/maps/demo_tecnico/demo_tecnico_hub.tres" id="2_4h3p4"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="2_b27bq"]
 [ext_resource type="Script" uid="uid://dspbirfebckws" path="res://scripts/peleas_demo_tecnico.gd" id="2_mwdq3"]
 [ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="3_7yfwg"]
@@ -705,14 +706,12 @@ duration = 2.0
 transition = 1
 ease = 2
 
-[node name="DemoTecnicoHub" type="Node2D" node_paths=PackedStringArray("door_sprite", "door_collision", "audio_stream_player", "black_rect")]
+[node name="DemoTecnicoHub" type="Node2D" node_paths=PackedStringArray("door_sprite", "door_collision")]
 y_sort_enabled = true
 script = ExtResource("1_w0bji")
 door_sprite = NodePath("ObjectLayer/Casa/PuertaCasa/AnimatedSprite2D")
 door_collision = NodePath("ObjectLayer/Casa/PuertaCasa/StaticBody2D/CollisionShape2D")
-current_scene = "res://scenes/maps/demo_tecnico_hub.tscn"
-audio_stream_player = NodePath("AudioStreamPlayer")
-black_rect = NodePath("CanvasLayer/BlackRect")
+single_map_resource = ExtResource("2_4h3p4")
 
 [node name="PeleasDemoTecnico" type="Node" parent="."]
 script = ExtResource("2_mwdq3")
@@ -1202,10 +1201,10 @@ physics_interpolation_mode = 1
 position = Vector2(0, 285)
 zoom = Vector2(1.2, 1.2)
 process_callback = 0
-limit_left = -2936
-limit_top = -3322
-limit_right = 5020
-limit_bottom = 1533
+limit_left = -2356
+limit_top = -2839
+limit_right = 2365
+limit_bottom = 1787
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="CameraManager/Camera2D"]

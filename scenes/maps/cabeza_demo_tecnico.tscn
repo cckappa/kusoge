@@ -1,6 +1,7 @@
-[gd_scene load_steps=37 format=3 uid="uid://cmpxf2x7wrue8"]
+[gd_scene load_steps=38 format=3 uid="uid://cmpxf2x7wrue8"]
 
 [ext_resource type="Script" uid="uid://hb1tei00rib0" path="res://scripts/maps/cabeza_demo_tecnico.gd" id="1_jfxjq"]
+[ext_resource type="Resource" uid="uid://bip53g2ehtdu2" path="res://assets/resources/maps/demo_tecnico/cabeza_demo_tecnico.tres" id="2_dsln5"]
 [ext_resource type="Script" uid="uid://5rnf247xyu5v" path="res://scripts/scene_creator_tool.gd" id="2_e8xqf"]
 [ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="3_t2ne4"]
 [ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="4_15t8m"]
@@ -52,12 +53,10 @@ duration = 2.0
 transition = 1
 ease = 2
 
-[node name="CabezaDemoTecnico" type="Node2D" node_paths=PackedStringArray("audio_stream_player", "black_rect")]
+[node name="CabezaDemoTecnico" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_jfxjq")
-current_scene = "res://scenes/maps/cabeza_demo_tecnico.tscn"
-audio_stream_player = NodePath("AudioStreamPlayer")
-black_rect = NodePath("CanvasLayer/BlackRect")
+single_map_resource = ExtResource("2_dsln5")
 
 [node name="SceneCreatorTool" type="Node" parent="."]
 script = ExtResource("2_e8xqf")
@@ -270,6 +269,10 @@ script = ExtResource("12_mvwv0")
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
+limit_left = -2356
+limit_top = -2839
+limit_right = 2365
+limit_bottom = 1787
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 position = Vector2(0, -0.5)

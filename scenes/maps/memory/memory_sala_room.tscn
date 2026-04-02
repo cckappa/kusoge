@@ -1,6 +1,7 @@
-[gd_scene load_steps=33 format=3 uid="uid://dhxvl62l418nb"]
+[gd_scene load_steps=34 format=3 uid="uid://dhxvl62l418nb"]
 
 [ext_resource type="Script" uid="uid://duujur5nlc247" path="res://scripts/maps/memory/memory_sala_room.gd" id="1_6ygiv"]
+[ext_resource type="Resource" uid="uid://c45eion14ii2w" path="res://assets/resources/maps/memory/memory_sala_room.tres" id="2_85jjy"]
 [ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="2_yhj1l"]
 [ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="3_vrp7u"]
 [ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="4_6ygiv"]
@@ -58,12 +59,10 @@ duration = 2.0
 transition = 1
 ease = 2
 
-[node name="MemorySalaRoom" type="Node2D" node_paths=PackedStringArray("audio_stream_player", "black_rect")]
+[node name="MemorySalaRoom" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_6ygiv")
-current_scene = "res://scenes/maps/memory/memory_sala_room.tscn"
-audio_stream_player = NodePath("AudioStreamPlayer")
-black_rect = NodePath("CanvasLayer/BlackRect")
+single_map_resource = ExtResource("2_85jjy")
 
 [node name="ParallaxBackgroundLayer" type="Node2D" parent="."]
 z_index = -1
@@ -266,10 +265,10 @@ visible = false
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
-limit_left = -1920
-limit_top = -1410
-limit_right = 1920
-limit_bottom = 1080
+limit_left = -2356
+limit_top = -2839
+limit_right = 2365
+limit_bottom = 1787
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 position = Vector2(0, -120)

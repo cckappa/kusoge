@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SingleMapResource" load_steps=2 format=3 uid="uid://ckyq53wgrya40"]
+[gd_resource type="Resource" script_class="SingleMapResource" load_steps=2 format=3 uid="uid://dx8its14hi84"]
 
 [ext_resource type="Script" uid="uid://b21bna7stwiam" path="res://scripts/maps/single_map_resource.gd" id="1_vj2gr"]
 

@@ -8,21 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "c8e38c806da80be1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "maps/memory/memory_plaza_principal.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "memory_plaza_principal"
-            }
-          },
-          {
-            "id": "381ff827d192e1d4",
+            "id": "a70f5e7cf130dcb1",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -124,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "maps/memory/memory_plaza_principal.md",
+                "file": "maps/memory/memory_iglesia.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -134,7 +120,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for memory_plaza_principal"
+              "title": "Backlinks for memory_iglesia"
             }
           },
           {
@@ -203,12 +189,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "maps/memory/memory_plaza_principal.md",
+                "file": "maps/memory/memory_iglesia.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from memory_plaza_principal"
+              "title": "Outgoing links from memory_iglesia"
             }
           }
         ]
@@ -228,8 +214,9 @@
       "bases:Create new base": false
     }
   },
-  "active": "c8e38c806da80be1",
+  "active": "a70f5e7cf130dcb1",
   "lastOpenFiles": [
+    "maps/memory/memory_pasillo_depas_2.md",
     "maps/memory/memory_iglesia.md",
     "maps/memory/memory_plaza_principal.md",
     "maps/memory/memory_guarida.md",
@@ -237,7 +224,6 @@
     "maps/memory/memory_bosque.md8456281942.tmp",
     "maps/memory/memory_iglesia.md6876875019.tmp",
     "maps/memory/memory_iglesia.md5531805968.tmp",
-    "maps/memory/memory_pasillo_depas_2.md",
     "maps/memory/memory_plaza_principal.md923039816.tmp",
     "memory_pasillo_depas_3.md",
     "maps/memory/memory_guarida.md638718779.tmp",

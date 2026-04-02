@@ -1,6 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://br10vawpq7xgv"]
+[gd_scene load_steps=28 format=3 uid="uid://br10vawpq7xgv"]
 
 [ext_resource type="Script" uid="uid://dhlregga0r5he" path="res://scripts/maps/memory/memory_bath_room.gd" id="1_00f8n"]
+[ext_resource type="Resource" uid="uid://cpi73if3742pg" path="res://assets/resources/maps/memory/memory_bath_room.tres" id="2_6tb8k"]
 [ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="2_lqcts"]
 [ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="3_jhdwj"]
 [ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="4_v8axb"]
@@ -44,12 +45,10 @@ duration = 2.0
 transition = 1
 ease = 2
 
-[node name="memory_bath_room" type="Node2D" node_paths=PackedStringArray("audio_stream_player", "black_rect")]
+[node name="MemoryBathRoom" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_00f8n")
-current_scene = "res://scenes/maps/memory/memory_bath_room.tscn"
-audio_stream_player = NodePath("AudioStreamPlayer")
-black_rect = NodePath("CanvasLayer/BlackRect")
+single_map_resource = ExtResource("2_6tb8k")
 
 [node name="ParallaxBackgroundLayer" type="Node2D" parent="."]
 z_index = -1
@@ -147,10 +146,6 @@ visible = false
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
-limit_left = -1920
-limit_top = -1410
-limit_right = 1920
-limit_bottom = 1080
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 shape = SubResource("RectangleShape2D_m2kmg")

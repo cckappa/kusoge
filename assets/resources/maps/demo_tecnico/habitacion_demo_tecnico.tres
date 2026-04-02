@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SingleMapResource" load_steps=2 format=3 uid="uid://claohow0a0xv0"]
+
+[ext_resource type="Script" uid="uid://b21bna7stwiam" path="res://scripts/maps/single_map_resource.gd" id="1_wnd52"]
+
+[resource]
+script = ExtResource("1_wnd52")
+scene_path = "res://scenes/maps/habitacion_demo_tecnico.tscn"
+state = "default"
+metadata/_custom_type_script = "uid://b21bna7stwiam"

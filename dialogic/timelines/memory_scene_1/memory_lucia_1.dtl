@@ -3,5 +3,6 @@ jajajajaj que onda todo bien?
 eso pues vamonos que ese fuerte no se va a construir solo
 creo...
 ¡última en llegar es un huevo podrido!
+[signal arg_type="dict" arg="{"animation":"huevo_podrido"}"]
 [signal arg_type="dict" arg="{"name":"huevo_podrido"}"]
 [wait time="2.0" hide_text="false"]

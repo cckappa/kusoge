@@ -168,3 +168,7 @@ func apply_win_stakes() -> void:
 		key_variables[win_stakes.key_variable_key] = win_stakes.key_variable_value
 		win_stakes.key_variable_key = null
 		win_stakes.key_variable_value = null
+
+func set_map_state(map_name: StringName, state_name: StringName) -> void:
+	Globals.maps[map_name].state = state_name
+	print("Map state updated:", map_name, "->", state_name)

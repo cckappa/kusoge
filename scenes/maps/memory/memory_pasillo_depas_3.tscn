@@ -1,7 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://cfkr2w5frhpaj"]
+[gd_scene load_steps=35 format=3 uid="uid://cfkr2w5frhpaj"]
 
 [ext_resource type="Script" uid="uid://b2lqqslgicdes" path="res://scripts/maps/memory/memory_pasillo_depas_3.gd" id="1_hufn2"]
 [ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="2_cafgm"]
+[ext_resource type="Resource" uid="uid://bb7uybsi04su4" path="res://assets/resources/maps/memory/memory_pasillo_depas_3.tres" id="2_ybdpl"]
 [ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="3_ybdpl"]
 [ext_resource type="PackedScene" uid="uid://ckc0rqj4d6b16" path="res://scenes/gray_box.tscn" id="4_0lqix"]
 [ext_resource type="Script" uid="uid://do84xbf65qif" path="res://scripts/talk.gd" id="5_po6fc"]
@@ -63,11 +64,9 @@ duration = 2.0
 transition = 1
 ease = 2
 
-[node name="MemoryPasilloDepas3" type="Node2D" node_paths=PackedStringArray("audio_stream_player", "black_rect")]
+[node name="MemoryPasilloDepas3" type="Node2D"]
 script = ExtResource("1_hufn2")
-current_scene = "res://scenes/maps/memory/memory_pasillo_depas_3.tscn"
-audio_stream_player = NodePath("AudioStreamPlayer")
-black_rect = NodePath("CanvasLayer/BlackRect")
+single_map_resource = ExtResource("2_ybdpl")
 
 [node name="ParallaxBackgroundLayer" type="Node2D" parent="."]
 z_index = -1
@@ -278,10 +277,10 @@ metadata/_edit_lock_ = true
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
-limit_left = -1701
-limit_top = -3539
-limit_right = 3785
-limit_bottom = 1750
+limit_left = -2356
+limit_top = -2839
+limit_right = 2365
+limit_bottom = 1787
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 position = Vector2(0, -165)

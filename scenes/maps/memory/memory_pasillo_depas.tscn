@@ -1,6 +1,7 @@
-[gd_scene load_steps=37 format=3 uid="uid://dd1bij2lnw52g"]
+[gd_scene load_steps=38 format=3 uid="uid://dd1bij2lnw52g"]
 
 [ext_resource type="Script" uid="uid://bxs7hmt631tt7" path="res://scripts/maps/memory/memory_pasillo_depas.gd" id="1_xfo7k"]
+[ext_resource type="Resource" uid="uid://bq0y8vdf4g3cr" path="res://assets/resources/maps/memory/memory_pasillo_depas.tres" id="2_c7tor"]
 [ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="2_s3tth"]
 [ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="3_db0xo"]
 [ext_resource type="PackedScene" uid="uid://ckc0rqj4d6b16" path="res://scenes/gray_box.tscn" id="4_203sv"]
@@ -145,12 +146,10 @@ _data = {
 &"huevo_podrido": SubResource("Animation_vpxn5")
 }
 
-[node name="MemoryPasilloDepas" type="Node2D" node_paths=PackedStringArray("audio_stream_player", "black_rect")]
+[node name="MemoryPasilloDepas" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_xfo7k")
-current_scene = "res://scenes/maps/memory/memory_pasillo_depas.tscn"
-audio_stream_player = NodePath("AudioStreamPlayer")
-black_rect = NodePath("CanvasLayer/BlackRect")
+single_map_resource = ExtResource("2_c7tor")
 
 [node name="ParallaxBackgroundLayer" type="Node2D" parent="."]
 z_index = -1
@@ -335,10 +334,6 @@ metadata/_edit_lock_ = true
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
-limit_left = -1701
-limit_top = -3539
-limit_right = 3785
-limit_bottom = 1750
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 shape = SubResource("RectangleShape2D_m2kmg")

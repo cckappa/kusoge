@@ -1,7 +1,8 @@
-[gd_scene load_steps=66 format=3 uid="uid://3w5ysq4tl3o4"]
+[gd_scene load_steps=67 format=3 uid="uid://3w5ysq4tl3o4"]
 
 [ext_resource type="Script" uid="uid://d0q32cfdk1wsf" path="res://scripts/maps/cueva_demo_tecnico.gd" id="1_n0a8t"]
 [ext_resource type="Script" uid="uid://5rnf247xyu5v" path="res://scripts/scene_creator_tool.gd" id="1_os3nl"]
+[ext_resource type="Resource" uid="uid://cesh62x2vxabe" path="res://assets/resources/maps/demo_tecnico/cueva_demo_tecnico.tres" id="2_quom2"]
 [ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="2_wd4o3"]
 [ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="3_vai2h"]
 [ext_resource type="Texture2D" uid="uid://dk2g0sgely260" path="res://assets/backgrounds/demo_tecnico/FONDO.png" id="4_55pex"]
@@ -252,12 +253,10 @@ radius = 161.941
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2kmg"]
 size = Vector2(3840, 2160)
 
-[node name="CuevaDemoTecnico" type="Node2D" node_paths=PackedStringArray("audio_stream_player", "black_rect")]
+[node name="CuevaDemoTecnico" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_n0a8t")
-current_scene = "res://scenes/maps/cueva_demo_tecnico.tscn"
-audio_stream_player = NodePath("AudioStreamPlayer")
-black_rect = NodePath("CanvasLayer/BlackRect")
+single_map_resource = ExtResource("2_quom2")
 
 [node name="SceneCreatorTool" type="Node" parent="."]
 script = ExtResource("1_os3nl")
@@ -434,6 +433,12 @@ position = Vector2(-628, 439)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="CameraManager" parent="." instance=ExtResource("19_wvs86")]
+
+[node name="Camera2D" parent="CameraManager" index="0"]
+limit_left = -2356
+limit_top = -2839
+limit_right = 2365
+limit_bottom = 1787
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 shape = SubResource("RectangleShape2D_m2kmg")
