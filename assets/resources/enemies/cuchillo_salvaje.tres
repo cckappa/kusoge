@@ -1,14 +1,15 @@
-[gd_resource type="Resource" script_class="EnemyResource" load_steps=6 format=3 uid="uid://b8mif5qacuo4w"]
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=7 format=3 uid="uid://b8mif5qacuo4w"]
 
 [ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_866x0"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_klhrg"]
 [ext_resource type="Resource" uid="uid://dx4j66lt4vb35" path="res://assets/resources/abilities/cuchillazo.tres" id="2_ow5cn"]
 [ext_resource type="Texture2D" uid="uid://twh518ibskqo" path="res://assets/enemy_sprites/Cuchillo_Salvaje.png" id="3_4bd2y"]
 [ext_resource type="Script" uid="uid://bmxggwbtvyxeb" path="res://scripts/enemy_resource.gd" id="3_ow5cn"]
+[ext_resource type="Script" uid="uid://bsp5qx4xq3r8" path="res://scripts/enemy_fight_dialog.gd" id="4_4bd2y"]
 
 [resource]
 script = ExtResource("3_ow5cn")
-dialog = &""
+enemy_fight_dialogs = Array[ExtResource("4_4bd2y")]([])
 identifier = ""
 section_folder = ""
 character_portrait = ExtResource("3_4bd2y")

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=7 format=3 uid="uid://dme334efssmlh"]
+
+[ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_46fcq"]
+[ext_resource type="Script" uid="uid://bsp5qx4xq3r8" path="res://scripts/enemy_fight_dialog.gd" id="2_kktfe"]
+[ext_resource type="Texture2D" uid="uid://dqelip61rsfg0" path="res://assets/missing_texture.png" id="2_q2g66"]
+[ext_resource type="Resource" uid="uid://b4hl0uorngix0" path="res://assets/resources/abilities/patada.tres" id="2_slgah"]
+[ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="3_q2g66"]
+[ext_resource type="Script" uid="uid://bmxggwbtvyxeb" path="res://scripts/enemy_resource.gd" id="4_slgah"]
+
+[resource]
+script = ExtResource("4_slgah")
+enemy_fight_dialogs = Array[ExtResource("2_kktfe")]([])
+identifier = "nino_malo_2"
+section_folder = ""
+character_portrait = ExtResource("2_q2g66")
+max_hp = 50
+unlocked = false
+type = "NORMAL"
+abilities = Array[ExtResource("1_46fcq")]([ExtResource("2_slgah")])
+loot = Array[ExtResource("3_q2g66")]([])
+min_loot = 0
+max_loot = 0
+metadata/_custom_type_script = "uid://bmxggwbtvyxeb"

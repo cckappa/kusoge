@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "maps/memory/memory_plaza_principal.md",
+                "file": "maps/memory/memory_iglesia.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "memory_plaza_principal"
+              "title": "memory_iglesia"
             }
           }
         ]
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "maps/memory/memory_plaza_principal.md",
+                "file": "maps/memory/memory_iglesia.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +120,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for memory_plaza_principal"
+              "title": "Backlinks for memory_iglesia"
             }
           },
           {
@@ -189,12 +189,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "maps/memory/memory_plaza_principal.md",
+                "file": "maps/memory/memory_iglesia.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from memory_plaza_principal"
+              "title": "Outgoing links from memory_iglesia"
             }
           }
         ]
@@ -216,10 +216,10 @@
   },
   "active": "a70f5e7cf130dcb1",
   "lastOpenFiles": [
+    "maps/memory/memory_plaza_principal.md",
     "maps/memory/memory_guarida.md",
     "maps/memory/memory_iglesia.md",
     "maps/memory/memory_pasillo_depas_2.md",
-    "maps/memory/memory_plaza_principal.md",
     "maps/memory/memory_guarida.md8820020446.tmp",
     "maps/memory/memory_bosque.md8456281942.tmp",
     "maps/memory/memory_iglesia.md6876875019.tmp",

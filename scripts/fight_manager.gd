@@ -24,7 +24,7 @@ func _fight_dialogic_signal(argument:Dictionary) -> void:
 	for fight in fights:
 		print(fight.identifier)
 		if event_name == fight.identifier:
-			Globals.set_win_stakes(fight.stakes.key_name, fight.stakes.key_value)
+			Globals.set_stakes(fight.stakes)
 			Globals.target_marker = fight.target_marker
 			start_battle(fight.enemies)
 
@@ -36,7 +36,7 @@ func _on_start_fight(fight_identifier:StringName) -> void:
 
 	for fight in fights:
 		if fight_identifier == fight.identifier:
-			Globals.set_win_stakes(fight.stakes.key_name, fight.stakes.key_value)
+			Globals.set_stakes(fight.stakes)
 			Globals.target_marker = fight.target_marker
 			start_battle(fight.enemies)
 

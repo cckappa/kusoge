@@ -9,6 +9,7 @@ extends Node2D
 
 var talking:=false
 var talking_zone:=false
+var automatic_start_triggered:=false
 
 func _ready() -> void:
 	talking_area.connect("body_entered", enters_area)
@@ -32,7 +33,7 @@ func _on_timeline_ended() -> void:
 		set_disabled(true)
 
 func _input(event:InputEvent) -> void:
-	if event.is_action_pressed("talks") and talking_zone and !talking:
+	if event.is_action_pressed("talks") and talking_zone and !talking and not automatic_start_triggered:
 		start_dialog()
 		print("empieza a hablar")
 
@@ -55,6 +56,7 @@ func enters_area(body:Node2D) -> void:
 			Input.action_release("talks")
 			
 			print("automatic start of dialog")
+			automatic_start_triggered = true
 			# start_dialog()
 
 func exits_area(body:Node2D) -> void:

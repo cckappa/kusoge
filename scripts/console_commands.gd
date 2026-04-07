@@ -2,9 +2,12 @@ extends Node
 
 func _ready() -> void:
 	# Register the console command
+	# Los valores de las variables se pasan como strings, luego se convierten al tipo correcto como dentro de la función console_set_dialogic_variable
+
 	Console.add_command("dialogic", console_set_dialogic_variable, ["VARIABLE_PATH.VARIABLE_PATH.VARIABLE_NAME", "VALUE", "TYPE"], 2, "Cambia el valor de una variable de Dialogic. El formato de VARIABLE_PATH es: FOLDER_NAME.VARIABLE_NAME o FOLDER_NAME.SUBFOLDER_NAME.VARIABLE_NAME. El tipo puede ser INT, FLOAT, BOOL o STRING.")
 	Console.add_command("roomstate", console_set_room_state, ["ROOM_NAME", "STATE_NAME"], 2, "Cambia el estado de una habitación para testing.")
 	Console.add_command("goto", console_go_to_room, ["TARGET_SCENE", "TARGET_MARKER"], 1, "Cambia a la escena especificada. TARGET_MARKER es opcional y por defecto es 'DefaultMarker'.")
+	Console.add_command("overwrite", console_set_overwrite_state, ["OVERWRITE_VALUE"], 1, "Cambia overwrite value en Globals para poder usar room_state en base_scene.")
 
 func console_set_dialogic_variable(var_path: String, value: Variant, type: String) -> void:
 	var var_paths := var_path.split(".")
@@ -40,7 +43,12 @@ func console_set_room_state(room_name: String, state_name: String) -> void:
 		print("Room not found:", room_name)
 
 func console_go_to_room(target_scene: String, target_marker: String = "DefaultMarker") -> void:
+	print("Going to scene:", target_scene, " with marker:", target_marker)
 	SignalBus.emit_signal("changing_scene")
 	Globals.from_door = true
 	Globals.target_marker = target_marker
 	get_tree().change_scene_to_file(target_scene)
+
+func console_set_overwrite_state(overwrite_value: String) -> void:
+	Globals.overwrite_map_state = overwrite_value.to_lower() in ["true", "1", "yes"]
+	print("Set overwrite_map_state to: ", overwrite_value, " (current value in Globals: ", Globals.overwrite_map_state, ")")

@@ -246,6 +246,7 @@ func _on_losing_state_entered() -> void:
 	menu_level = "lost"
 	attack_menu.visible = false
 	item_menu.visible = false
+	Globals.apply_stakes()
 	# SignalBus.emit_signal("menu_closed", ability_status.from)
 	SignalBus.emit_signal("enemy_victory_dialogs_started")
 	
@@ -257,7 +258,7 @@ func _on_winning_state_entered() -> void:
 	attack_menu.visible = false
 	item_menu.visible = false
 	SignalBus.emit_signal("menu_closed", ability_status.from)
-	Globals.apply_win_stakes()
+	Globals.apply_stakes()
 	audio_stream_player.set("parameters/switch_to_clip", "VictoryFanfare")
 	var winning_allies:Array[Character] = alive_allies(Globals.current_arrange_allies)
 	for ally in winning_allies:

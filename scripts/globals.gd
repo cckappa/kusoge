@@ -56,11 +56,16 @@ var maps :Dictionary
 
 var current_map_name:String
 var current_map_path:String
+var overwrite_map_state: bool = true
 
 var key_variables:Dictionary={}
-var win_stakes:Dictionary={
-	"key_variable_key": "",
-	"key_variable_value": ""
+var current_stakes:Dictionary={
+	"type": null,
+	"key_variable_key": null,
+	"key_variable_value": null,
+	"map_name": null,
+	"win_map_value": null,
+	"lose_map_value": null
 }
 
 var trinkets:Array[Trinket]=[
@@ -159,15 +164,41 @@ func switch_favorite_to_friend(from_index:int, to_index:int) -> void:
 	current_characters[from_index] = to_character
 	party[to_index] = from_character
 
-func set_win_stakes(key_name:String, key_value:bool) -> void:
-	win_stakes.key_variable_key = key_name
-	win_stakes.key_variable_value = key_value
+func set_stakes(stakes:StakesResource) -> void:
+	current_stakes.type = stakes.type
+	match stakes.type:
+		"key":
+				current_stakes.key_variable_key = stakes.key_name
+				current_stakes.key_variable_value = stakes.key_value
+		"map_state":
+				current_stakes.map_name = stakes.map_name
+				current_stakes.win_map_value = stakes.win_map_value
+				current_stakes.lose_map_value = stakes.lose_map_value
+		"multiple":
+				current_stakes.key_variable_key = stakes.key_name
+				current_stakes.key_variable_value = stakes.key_value
+				current_stakes.map_name = stakes.map_name
+				current_stakes.win_map_value = stakes.win_map_value
+				current_stakes.lose_map_value = stakes.lose_map_value
+	
 
-func apply_win_stakes() -> void:
-	if win_stakes.key_variable_key != null and win_stakes.key_variable_value != null:
-		key_variables[win_stakes.key_variable_key] = win_stakes.key_variable_value
-		win_stakes.key_variable_key = null
-		win_stakes.key_variable_value = null
+func apply_stakes() -> void:
+	match current_stakes.type:
+		"key":
+			if current_stakes.key_variable_key != null and current_stakes.key_variable_value != null:
+				key_variables[current_stakes.key_variable_key] = current_stakes.key_variable_value
+				current_stakes.key_variable_key = null
+				current_stakes.key_variable_value = null
+		"map_state":
+			if current_stakes.map_name != null and current_stakes.win_map_value != null:
+				set_map_state(current_stakes.map_name, current_stakes.win_map_value)
+		"multiple":
+				if current_stakes.key_variable_key != null and current_stakes.key_variable_value != null:
+					key_variables[current_stakes.key_variable_key] = current_stakes.key_variable_value
+					current_stakes.key_variable_key = null
+					current_stakes.key_variable_value = null
+				if current_stakes.map_name != null and current_stakes.win_map_value != null:
+					set_map_state(current_stakes.map_name, current_stakes.win_map_value)
 
 func set_map_state(map_name: StringName, state_name: StringName) -> void:
 	Globals.maps[map_name].state = state_name

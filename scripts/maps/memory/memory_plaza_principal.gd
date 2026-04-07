@@ -12,8 +12,7 @@ func _ready_scene() -> void:
 	await Functions.fade_color_rect(black_rect, "OUT", 2)
 
 func map_state_logic() -> void:
-	# camara_focus_lucia.find_child("Talk").set_disabled(true)
-	# camara_focus_lucia.find_child("StaticBody2D").find_child("CollisionPolygon2D").disabled = true
+	print("Overwrite: ", Globals.overwrite_map_state)
 	match Globals.maps[single_map_resource.map_name].state:
 		"default":
 			pass
@@ -25,6 +24,11 @@ func map_state_logic() -> void:
 		"flor_recogida":
 			world_animation_player.play("guarida_abierta")
 			world_animation_player.play("set_puestos_molestar_gatito")
+		"gana_pelea_gatito":
+			print("Gana pelea gatito state logic executed, overwrite: ", Globals.overwrite_map_state)
+			world_animation_player.play("set_gana_pelea_gatito")
+		"pierde_pelea_gatito":
+			pass
 		_:
 			pass
 	

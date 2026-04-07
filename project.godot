@@ -29,8 +29,8 @@ Globals="*res://scripts/globals.gd"
 Items="*res://scripts/items.gd"
 Quests="*res://scripts/quests.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
-Console="*res://addons/console/console.gd"
 ConsoleCommands="*res://scripts/console_commands.gd"
+Console="*res://addons/console/console.gd"
 
 [debug]
 
@@ -86,6 +86,7 @@ directories/dtl_directory={
 "memory_mom_1": "res://dialogic/timelines/memory_scene_1/memory_mom_1.dtl",
 "memory_mom_2": "res://dialogic/timelines/memory_scene_1/memory_mom_2.dtl",
 "memory_mom_3": "res://dialogic/timelines/memory_scene_1/memory_mom_3.dtl",
+"memory_nino_1_pelea_1": "res://dialogic/timelines/memory_scene_1/memory_nino_1_pelea_1.dtl",
 "memory_nino_grosero_1_1": "res://dialogic/timelines/memory_scene_1/memory_nino_grosero_1_1.dtl",
 "memory_nino_grosero_2_1": "res://dialogic/timelines/memory_scene_1/memory_nino_grosero_2_1.dtl",
 "memory_puerta_llaves_1": "res://dialogic/timelines/memory_scene_1/memory_puerta_llaves_1.dtl",

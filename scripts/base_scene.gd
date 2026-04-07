@@ -69,8 +69,8 @@ func add_fight() -> void:
 
 func set_map_information() -> void:
 	Globals.current_map_path = single_map_resource.scene_path
-	print("Current map set to:", single_map_resource.map_name, " at path: ", single_map_resource.scene_path)
-	if Globals.maps.has(single_map_resource.map_name) and room_state != "default":
+	print("Current map set to:", single_map_resource.map_name, " at path: ", single_map_resource.scene_path, " overwrite state: ", Globals.overwrite_map_state)
+	if Globals.maps.has(single_map_resource.map_name) and Globals.overwrite_map_state == true:
 		Globals.maps[single_map_resource.map_name].state = room_state	
 		
 

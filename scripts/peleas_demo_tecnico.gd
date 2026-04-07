@@ -2,23 +2,32 @@ extends Node
 
 @export var enemies:Array
 var player:PlayableCharacter
+var demo_1_stakes:StakesResource
+var demo_2_stakes:StakesResource
+var demo_3_stakes:StakesResource
 
 func _ready() -> void:
 	player = get_tree().get_nodes_in_group("main_character")[0] as PlayableCharacter
 	Dialogic.signal_event.connect(_on_dialogic_signal)
+	demo_1_stakes.key_name = "demo_tecnico_hub-batalla_1"
+	demo_1_stakes.key_value = true
+	demo_2_stakes.key_name = "demo_tecnico_hub-batalla_2"
+	demo_2_stakes.key_value = true
+	demo_3_stakes.key_name = "demo_tecnico_hub-batalla_3"
+	demo_3_stakes.key_value = true
 	
 func _on_dialogic_signal(argument:Dictionary) -> void:
 	var event_name :String = argument.name
 
 	print("Dialogic text signal received:", event_name)
 	if event_name == "batalla_1":
-		Globals.set_win_stakes("demo_tecnico_hub-batalla_1", true)
+		Globals.set_stakes(demo_1_stakes)
 		start_battle(enemies[0])
 	elif event_name == "batalla_2":
-		Globals.set_win_stakes("demo_tecnico_hub-batalla_2", true)
+		Globals.set_stakes(demo_2_stakes)
 		start_battle(enemies[1])
 	elif event_name == "batalla_3":
-		Globals.set_win_stakes("demo_tecnico_hub-batalla_3", true)
+		Globals.set_stakes(demo_3_stakes)
 		start_battle(enemies[2])
 
 

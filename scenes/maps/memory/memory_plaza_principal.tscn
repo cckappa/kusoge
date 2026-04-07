@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://c47uwciuueqkw"]
+[gd_scene load_steps=54 format=3 uid="uid://c47uwciuueqkw"]
 
 [ext_resource type="Script" uid="uid://wc6ha3ekjqtp" path="res://scripts/maps/memory/memory_plaza_principal.gd" id="1_clncr"]
 [ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="2_axlg8"]
@@ -24,8 +24,9 @@
 [ext_resource type="Script" uid="uid://calbsshdno2ur" path="res://scripts/fight_manager.gd" id="24_xjcry"]
 [ext_resource type="Script" uid="uid://wk0pglf3r6ow" path="res://scripts/fights/fight_resource.gd" id="25_sjrv7"]
 [ext_resource type="Script" uid="uid://bmxggwbtvyxeb" path="res://scripts/enemy_resource.gd" id="26_xcwwi"]
-[ext_resource type="Resource" uid="uid://cym74q2mvjcte" path="res://assets/resources/enemies/serpra.tres" id="27_axlg8"]
+[ext_resource type="Resource" uid="uid://bj5ouo0g6ynd6" path="res://assets/resources/enemies/memory/nino_malo_1.tres" id="27_axlg8"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="27_ktgac"]
+[ext_resource type="Resource" uid="uid://dme334efssmlh" path="res://assets/resources/enemies/memory/nino_malo_2.tres" id="28_4jpor"]
 [ext_resource type="Script" uid="uid://ifqsfamlb3pd" path="res://scripts/fights/stakes_resource.gd" id="28_l20no"]
 [ext_resource type="Script" uid="uid://c1jeqou5gv2cf" path="res://scripts/world_animation_player.gd" id="32_lmgfs"]
 
@@ -560,6 +561,22 @@ tracks/7/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_l20no"]
+resource_name = "set_gana_pelea_gatito"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NpcLayer/Gatito:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-100, 526)]
+}
+
 [sub_resource type="Animation" id="Animation_xjcry"]
 resource_name = "set_puestos_molestar_gatito"
 length = 0.1
@@ -706,13 +723,18 @@ _data = {
 &"guarida_abierta": SubResource("Animation_bsdc7"),
 &"guarida_cerrada": SubResource("Animation_mj5ya"),
 &"juegan_con_gatito": SubResource("Animation_iiqht"),
+&"set_gana_pelea_gatito": SubResource("Animation_l20no"),
 &"set_puestos_molestar_gatito": SubResource("Animation_xjcry")
 }
 
 [sub_resource type="Resource" id="Resource_4jpor"]
 script = ExtResource("28_l20no")
 key_name = &"gana_pelea_gatito"
-key_value = false
+key_value = true
+map_name = &"memory_plaza_principal"
+win_map_value = &"gana_pelea_gatito"
+lose_map_value = &"pierde_pelea_gatito"
+type = "multiple"
 metadata/_custom_type_script = "uid://ifqsfamlb3pd"
 
 [sub_resource type="Resource" id="Resource_axlg8"]
@@ -720,7 +742,7 @@ script = ExtResource("25_sjrv7")
 identifier = &"pelea_gatito"
 target_marker = &"PeleaGatito"
 stakes = SubResource("Resource_4jpor")
-enemies = Array[ExtResource("26_xcwwi")]([ExtResource("27_axlg8"), ExtResource("27_axlg8")])
+enemies = Array[ExtResource("26_xcwwi")]([ExtResource("27_axlg8"), ExtResource("28_4jpor")])
 metadata/_custom_type_script = "uid://wk0pglf3r6ow"
 
 [node name="memory_plaza_principal" type="Node2D"]
@@ -990,18 +1012,9 @@ metadata/_custom_type_script = "uid://do84xbf65qif"
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ObjectLayer/Fuente/Talk/Area2D"]
 polygon = PackedVector2Array(-246, -7, -279, 82, -18, 165, 360, 104, 332, -63)
 
-[node name="LanzanGatitosTrigger" parent="ObjectLayer" groups=["objects"] instance=ExtResource("4_l20no")]
+[node name="LanzanGatitosTrigger" parent="ObjectLayer" instance=ExtResource("4_l20no")]
 unique_name_in_owner = true
 position = Vector2(1276, -925)
-
-[node name="Polygon2D" parent="ObjectLayer/LanzanGatitosTrigger" index="0"]
-color = Color(0.529067, 0.529067, 0.529067, 1)
-
-[node name="Label" parent="ObjectLayer/LanzanGatitosTrigger" index="1"]
-offset_right = 40.0
-offset_bottom = 22.3333
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 
 [node name="Talk" type="Node2D" parent="ObjectLayer/LanzanGatitosTrigger" node_paths=PackedStringArray("talking_area")]
 script = ExtResource("10_w6q62")
@@ -1017,18 +1030,9 @@ metadata/_custom_type_script = "uid://do84xbf65qif"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/LanzanGatitosTrigger/Talk/Area2D"]
 shape = SubResource("CircleShape2D_bsdc7")
 
-[node name="CamaraFocusLucia" parent="ObjectLayer" groups=["objects"] instance=ExtResource("4_l20no")]
+[node name="CamaraFocusLucia" parent="ObjectLayer" instance=ExtResource("4_l20no")]
 unique_name_in_owner = true
 position = Vector2(542, -501)
-
-[node name="Polygon2D" parent="ObjectLayer/CamaraFocusLucia" index="0"]
-color = Color(0.529067, 0.529067, 0.529067, 1)
-
-[node name="Label" parent="ObjectLayer/CamaraFocusLucia" index="1"]
-offset_right = 40.0
-offset_bottom = 22.3333
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/CamaraFocusLucia/StaticBody2D" index="1"]
 polygon = PackedVector2Array(199, -1009, -664, 43, -1574, 277, -2309, -311, -81, -1276)
