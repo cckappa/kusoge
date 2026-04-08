@@ -33,7 +33,7 @@ func _on_timeline_ended() -> void:
 		set_disabled(true)
 
 func _input(event:InputEvent) -> void:
-	if event.is_action_pressed("talks") and talking_zone and !talking and not automatic_start_triggered:
+	if event.is_action_pressed("talks") and talking_zone and !talking and not automatic_start_triggered and not disabled:
 		start_dialog()
 		print("empieza a hablar")
 

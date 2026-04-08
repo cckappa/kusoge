@@ -2,9 +2,9 @@ extends Node
 
 @export var enemies:Array
 var player:PlayableCharacter
-var demo_1_stakes:StakesResource
-var demo_2_stakes:StakesResource
-var demo_3_stakes:StakesResource
+var demo_1_stakes:StakesResource= StakesResource.new()
+var demo_2_stakes:StakesResource= StakesResource.new()
+var demo_3_stakes:StakesResource= StakesResource.new()
 
 func _ready() -> void:
 	player = get_tree().get_nodes_in_group("main_character")[0] as PlayableCharacter

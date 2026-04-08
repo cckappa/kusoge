@@ -1170,7 +1170,6 @@ position = Vector2(860, -1033)
 layer = 128
 
 [node name="MenuSubViewport" parent="CanvasLayer" instance=ExtResource("52_1w4oy")]
-visible = false
 
 [node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("2_b27bq")]
 

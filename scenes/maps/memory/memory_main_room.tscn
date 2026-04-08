@@ -104,7 +104,7 @@ position = Vector2(483, -2)
 color = Color(0.972549, 0.886275, 0.65098, 1)
 polygon = PackedVector2Array(-99, 6, -150, -178, 39, -302, 223, -127, 117, 24)
 
-[node name="Label" parent="NpcLayer/MomNpc" index="1"]
+[node name="Label" parent="NpcLayer/MomNpc" index="2"]
 offset_left = -5.0
 offset_top = -138.0
 offset_right = 74.0
@@ -166,7 +166,6 @@ script = ExtResource("11_7tigv")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MenuSubViewport" parent="CanvasLayer" instance=ExtResource("12_arw8t")]
-visible = false
 
 [node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("14_0nn7d")]
 
@@ -186,6 +185,10 @@ unique_name_in_owner = true
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
+limit_left = -2356
+limit_top = -2839
+limit_right = 2365
+limit_bottom = 1787
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 position = Vector2(0, -210)

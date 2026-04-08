@@ -1,9 +1,15 @@
-[gd_scene format=3 uid="uid://ckc0rqj4d6b16"]
+[gd_scene load_steps=2 format=3 uid="uid://ckc0rqj4d6b16"]
+
+[ext_resource type="Script" uid="uid://bhg6tus2nlmgr" path="res://scripts/gray_box.gd" id="1_xjn40"]
 
 [node name="GrayBox" type="Node2D" groups=["objects"]]
+script = ExtResource("1_xjn40")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0.529067, 0.529067, 0.529067, 1)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0

@@ -190,16 +190,36 @@ func apply_stakes() -> void:
 				current_stakes.key_variable_key = null
 				current_stakes.key_variable_value = null
 		"map_state":
-			if current_stakes.map_name != null and current_stakes.win_map_value != null:
-				set_map_state(current_stakes.map_name, current_stakes.win_map_value)
+			if current_stakes.map_name != null and (current_stakes.win_map_value != null or current_stakes.lose_map_value != null):
+				if current_stakes.win_map_value != null:
+						set_map_state(current_stakes.map_name, current_stakes.win_map_value)
+				elif current_stakes.lose_map_value != null:
+						set_map_state(current_stakes.map_name, current_stakes.lose_map_value)
+				current_stakes.map_name = null
+				current_stakes.win_map_value = null
+				current_stakes.lose_map_value = null
 		"multiple":
 				if current_stakes.key_variable_key != null and current_stakes.key_variable_value != null:
 					key_variables[current_stakes.key_variable_key] = current_stakes.key_variable_value
 					current_stakes.key_variable_key = null
 					current_stakes.key_variable_value = null
-				if current_stakes.map_name != null and current_stakes.win_map_value != null:
-					set_map_state(current_stakes.map_name, current_stakes.win_map_value)
+				if current_stakes.map_name != null and (current_stakes.win_map_value != null or current_stakes.lose_map_value != null):
+					if current_stakes.win_map_value != null:
+						set_map_state(current_stakes.map_name, current_stakes.win_map_value)
+					elif current_stakes.lose_map_value != null:
+						set_map_state(current_stakes.map_name, current_stakes.lose_map_value)
+					current_stakes.map_name = null
+					current_stakes.win_map_value = null
+					current_stakes.lose_map_value = null
 
 func set_map_state(map_name: StringName, state_name: StringName) -> void:
 	Globals.maps[map_name].state = state_name
 	print("Map state updated:", map_name, "->", state_name)
+
+func set_key_variable(key: StringName, value:Variant) -> void:
+	if Globals.key_variables.has(key):
+		print("Key variable updated:", key, "->", value, " (was: ", Globals.key_variables[key], ")")
+		Globals.key_variables[key] = value
+	else:
+		Globals.key_variables[key] = value
+		print("Key variable set:", key, "->", value)

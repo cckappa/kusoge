@@ -8,6 +8,7 @@ func _ready() -> void:
 	Console.add_command("roomstate", console_set_room_state, ["ROOM_NAME", "STATE_NAME"], 2, "Cambia el estado de una habitación para testing.")
 	Console.add_command("goto", console_go_to_room, ["TARGET_SCENE", "TARGET_MARKER"], 1, "Cambia a la escena especificada. TARGET_MARKER es opcional y por defecto es 'DefaultMarker'.")
 	Console.add_command("overwrite", console_set_overwrite_state, ["OVERWRITE_VALUE"], 1, "Cambia overwrite value en Globals para poder usar room_state en base_scene.")
+	Console.add_command("keyvar", console_set_key_variable, ["KEY", "VALUE", "TYPE"], 2, "Cambia el valor de una variable clave en Globals. El tipo puede ser INT, FLOAT, BOOL o STRING.")
 
 func console_set_dialogic_variable(var_path: String, value: Variant, type: String) -> void:
 	var var_paths := var_path.split(".")
@@ -52,3 +53,20 @@ func console_go_to_room(target_scene: String, target_marker: String = "DefaultMa
 func console_set_overwrite_state(overwrite_value: String) -> void:
 	Globals.overwrite_map_state = overwrite_value.to_lower() in ["true", "1", "yes"]
 	print("Set overwrite_map_state to: ", overwrite_value, " (current value in Globals: ", Globals.overwrite_map_state, ")")
+
+func console_set_key_variable(key: String, value: Variant, type: String = "STRING") -> void:
+	match type.to_upper():
+		"INT":
+			value = int(value)
+		"FLOAT":
+			value = float(value)
+		"BOOL":
+			value = value.to_lower() in ["true", "1", "yes"]
+		"STRING":
+			pass
+		_:
+			print("Invalid type specified. Use INT, FLOAT, BOOL, or STRING.")
+			return
+
+	Globals.key_variables[key] = value
+	print("Set key variable:", key, " to value:", value)

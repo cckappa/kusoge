@@ -7,11 +7,15 @@ extends BaseScene
 @onready var npc_basura := %NpcBasura
 
 func _ready_scene() -> void:
-	if Globals.win_stakes.get("sillas_basura"):
+	if Globals.key_variables.get("sillas_basura"):
 		Globals.set_map_state(single_map_resource.map_name, "sillas_basura")
 
 	black_rect.visible = true
 	await Functions.fade_color_rect(black_rect, "OUT", 2)
+
+func key_variable_logic() -> void:
+	if Globals.key_variables.has("sillas_basura") and Globals.key_variables["sillas_basura"] == true:
+		pass
 
 func map_state_logic() -> void:
 	match Globals.maps[single_map_resource.map_name].state:

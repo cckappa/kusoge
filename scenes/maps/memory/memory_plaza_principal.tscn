@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://c47uwciuueqkw"]
+[gd_scene load_steps=58 format=3 uid="uid://c47uwciuueqkw"]
 
 [ext_resource type="Script" uid="uid://wc6ha3ekjqtp" path="res://scripts/maps/memory/memory_plaza_principal.gd" id="1_clncr"]
 [ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="2_axlg8"]
@@ -62,6 +62,9 @@ size = Vector2(406, 695)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bsdc7"]
 radius = 297.486
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l20no"]
+size = Vector2(662, 227)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2kmg"]
 size = Vector2(3858, 7151)
@@ -300,6 +303,148 @@ tracks/18/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("NpcLayer/Lucia:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/20/type = "bezier"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("NpcLayer/Lucia:position:x")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-523, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/21/type = "bezier"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("NpcLayer/Lucia:position:y")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(502, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("NpcLayer/Lucia:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(459, 427)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("NpcLayer/NinoGrosero1:modulate")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("NpcLayer/NinoGrosero2:modulate")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("ObjectLayer/GanaGatito/Talk:disabled")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("NpcLayer/Lucia:modulate")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("NpcLayer/Gatito:modulate")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("NpcLayer/Gatito:visible")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("NpcLayer/NinoGrosero1:visible")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("NpcLayer/NinoGrosero2:visible")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_w40rs"]
 resource_name = "abrir_guarida"
@@ -381,8 +526,145 @@ tracks/2/keys = {
 "values": [Vector2(-422, 0), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_lmgfs"]
+resource_name = "final_memory_plaza_principal"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NpcLayer/Lucia:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NpcLayer/Gatito:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NpcLayer/NinoGrosero1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("NpcLayer/NinoGrosero2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NpcLayer/NinoGrosero2/Talk:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("NpcLayer/NinoGrosero1/Talk:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("NpcLayer/Gatito/Talk:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ObjectLayer/CamaraFocusLucia/Talk2:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ObjectLayer/CamaraFocusLucia/Talk:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ObjectLayer/CamaraFocusLucia/StaticBody2D/CollisionPolygon2D:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ObjectLayer/LanzanGatitosTrigger/Talk:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_bsdc7"]
 resource_name = "guarida_abierta"
+length = 0.1
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -423,6 +705,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_mj5ya"]
 resource_name = "guarida_cerrada"
+length = 0.1
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -560,6 +843,205 @@ tracks/7/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("NpcLayer/Lucia:position:x")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-523, -0.25, 0, 0.25, 0, -523, -0.25, 0, 0.49, -3.25262, 593, -0.6, 4.15509, 0.25, 0, 593, -0.25, 0, 0.53, 34.724, -523, -0.555337, 34.9585, 0.25, 0),
+"times": PackedFloat32Array(0, 1.31, 2.7, 4.2, 5.58534)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("NpcLayer/Lucia:position:y")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(502, -0.25, 0, 0.25, 0, 502, -0.25, 0, 0.49, 148.651, 498, -0.25, 0, 0.25, 0, 498, -0.25, 0, 0.33, 160.293, 502, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.31, 2.7, 4.2, 5.58534)
+}
+
+[sub_resource type="Animation" id="Animation_w6q62"]
+resource_name = "lucia_corre_guarida"
+length = 6.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ObjectLayer/CamaraFocusLucia/Talk2:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ObjectLayer/LanzanGatitosTrigger/Talk:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ObjectLayer/CamaraFocusLucia/StaticBody2D/CollisionPolygon2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ObjectLayer/CamaraFocusLucia/Talk:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NpcLayer/Lucia:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.4, 3, 3.41, 3.57, 3.88, 4.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(459, 427), Vector2(-514, 452), Vector2(-723, -805), Vector2(-522, -1075), Vector2(-541, -1212), Vector2(-784, -1292), Vector2(-696, -2286)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("NpcLayer/Gatito:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.7, 3.2, 3.88976, 4.6, 5, 5.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(347, 471), Vector2(-589, 513), Vector2(-572, -899), Vector2(-462, -1110), Vector2(-655, -1312), Vector2(-747, -1464), Vector2(-655, -2319)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("NpcLayer/Lucia:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(4.31866, 4.78808),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("NpcLayer/Gatito:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(5.28311, 5.76106),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4jpor"]
+resource_name = "ninos_salen_corriendo"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NpcLayer/NinoGrosero1:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.666667, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-426, 246), Vector2(6, 770), Vector2(29, 1675)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NpcLayer/NinoGrosero2:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.966667, 1.86667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-602, 149), Vector2(32, 756), Vector2(-55, 1726)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NpcLayer/NinoGrosero2/Talk:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("NpcLayer/NinoGrosero1/Talk:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NpcLayer/NinoGrosero1:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.933333, 1.36667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("NpcLayer/NinoGrosero2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.3, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_l20no"]
 resource_name = "set_gana_pelea_gatito"
@@ -574,7 +1056,127 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-100, 526)]
+"values": [Vector2(347, 471)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NpcLayer/Lucia:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NpcLayer/Lucia:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(459, 427)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("NpcLayer/NinoGrosero1:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-426, 246)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NpcLayer/NinoGrosero2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-602, 149)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("NpcLayer/Gatito/Talk:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("NpcLayer/NinoGrosero1/Talk:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("NpcLayer/NinoGrosero2/Talk:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ObjectLayer/GanaGatito:invisible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ObjectLayer/CamaraFocusLucia:invisible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ObjectLayer/LanzanGatitosTrigger:invisible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_xjcry"]
@@ -695,7 +1297,7 @@ tracks/9/path = NodePath(".")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0.1),
+"times": PackedFloat32Array(0.05),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -720,9 +1322,12 @@ _data = {
 &"RESET": SubResource("Animation_tnuel"),
 &"abrir_guarida": SubResource("Animation_w40rs"),
 &"cerrar_guarida": SubResource("Animation_j86bj"),
+&"final_memory_plaza_principal": SubResource("Animation_lmgfs"),
 &"guarida_abierta": SubResource("Animation_bsdc7"),
 &"guarida_cerrada": SubResource("Animation_mj5ya"),
 &"juegan_con_gatito": SubResource("Animation_iiqht"),
+&"lucia_corre_guarida": SubResource("Animation_w6q62"),
+&"ninos_salen_corriendo": SubResource("Animation_4jpor"),
 &"set_gana_pelea_gatito": SubResource("Animation_l20no"),
 &"set_puestos_molestar_gatito": SubResource("Animation_xjcry")
 }
@@ -778,7 +1383,7 @@ position = Vector2(150, -1245)
 offset = Vector2(0, -10)
 polygon = PackedVector2Array(-106, 14, 31, 11, 25, -39, -1, -45, 3, -58, 22, -55, 41, -75, 46, -121, 17, -108, -16, -117, -28, -155, -44, -121, -59, -83, -42, -69, -46, -51, -83, -49, -91, -73, -101, -109, -83, -114, -77, -134, -98, -144, -122, -126, -120, -96, -99, -55, -98, -34, -103, -10)
 
-[node name="Label" parent="NpcLayer/Gatito" index="1"]
+[node name="Label" parent="NpcLayer/Gatito" index="2"]
 offset_left = -82.0
 offset_top = -50.0
 offset_right = 27.0
@@ -808,7 +1413,7 @@ position = Vector2(301, 313)
 offset = Vector2(0, -33)
 polygon = PackedVector2Array(-57, 40, -57, 40, 123, 24, 135, -93, 73, -210, -28, -202, -82, -110, -82, -110)
 
-[node name="Label" parent="NpcLayer/NinoGrosero1" index="1"]
+[node name="Label" parent="NpcLayer/NinoGrosero1" index="2"]
 offset_left = -21.0
 offset_top = -117.0
 offset_right = 84.0
@@ -837,7 +1442,7 @@ position = Vector2(488, 174)
 offset = Vector2(0, -33)
 polygon = PackedVector2Array(-57, 40, -57, 40, 123, 24, 135, -93, 73, -210, -28, -202, -82, -110, -82, -110)
 
-[node name="Label" parent="NpcLayer/NinoGrosero2" index="1"]
+[node name="Label" parent="NpcLayer/NinoGrosero2" index="2"]
 offset_left = -21.0
 offset_top = -117.0
 offset_right = 84.0
@@ -859,6 +1464,24 @@ metadata/_custom_type_script = "uid://do84xbf65qif"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/NinoGrosero2/Talk/Area2D"]
 shape = SubResource("CircleShape2D_sjrv7")
+
+[node name="Lucia" parent="NpcLayer" instance=ExtResource("7_mj5ya")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(459, 427)
+
+[node name="Polygon2D" parent="NpcLayer/Lucia" index="0"]
+polygon = PackedVector2Array(-96, 6, -115, -208, -68, -365, 30, -377, 89, -230, 71, -1)
+
+[node name="Label" parent="NpcLayer/Lucia" index="2"]
+offset_left = -54.0
+offset_top = -179.0
+offset_right = 33.0
+offset_bottom = -137.125
+text = "LUCÍA"
+
+[node name="CollisionPolygon2D" parent="NpcLayer/Lucia/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-93, 6, 71, 3, 74, -70, -105, -70)
 
 [node name="ObjectLayer" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -991,7 +1614,7 @@ color = Color(0.347817, 0.347817, 0.347817, 1)
 offset = Vector2(0, -170)
 polygon = PackedVector2Array(-363, 132, -74, 193, 438, 138, 482, -241, 388, -279, 238, -302, 238, -302, 226, -424, 360, -463, 399, -491, 399, -541, 388, -624, 326, -624, 226, -541, 99, -491, 26, -496, -96, -580, -118, -585, -157, -591, -218, -485, -213, -435, 76, -380, 87, -318, 76, -263, 32, -241, 4, -235, -79, -229, -324, -257, -324, -257, -446, -74)
 
-[node name="Label" parent="ObjectLayer/Fuente" index="1"]
+[node name="Label" parent="ObjectLayer/Fuente" index="2"]
 offset_left = -83.0
 offset_top = -250.0
 offset_right = 198.0
@@ -1052,6 +1675,7 @@ metadata/_custom_type_script = "uid://do84xbf65qif"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ObjectLayer/CamaraFocusLucia/Talk/Area2D"]
 polygon = PackedVector2Array(-660, -40, -236, -101, 717, 157, 1173, 430, 1173, 575)
+disabled = true
 
 [node name="Talk2" type="Node2D" parent="ObjectLayer/CamaraFocusLucia" node_paths=PackedStringArray("talking_area")]
 script = ExtResource("10_w6q62")
@@ -1067,6 +1691,25 @@ metadata/_custom_type_script = "uid://do84xbf65qif"
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ObjectLayer/CamaraFocusLucia/Talk2/Area2D"]
 polygon = PackedVector2Array(-770, 24, 1201, 747, 1170, 944, -1059, 105)
 
+[node name="GanaGatito" parent="ObjectLayer" instance=ExtResource("4_l20no")]
+unique_name_in_owner = true
+position = Vector2(0, 450)
+
+[node name="Talk" type="Node2D" parent="ObjectLayer/GanaGatito" node_paths=PackedStringArray("talking_area")]
+script = ExtResource("10_w6q62")
+talking_area = NodePath("Area2D")
+automatic_start = true
+timeline_name = "memory_gana_gatito_1"
+disabled = true
+talk_type = 1
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="ObjectLayer/GanaGatito/Talk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/GanaGatito/Talk/Area2D"]
+position = Vector2(-5, 15.5)
+shape = SubResource("RectangleShape2D_l20no")
+
 [node name="EnemiesLayer" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("9_sydsr")
@@ -1076,7 +1719,7 @@ y_sort_enabled = true
 script = ExtResource("10_d84yq")
 
 [node name="DefaultMarker" type="Marker2D" parent="SpawnsLayer"]
-position = Vector2(1589, -1254)
+position = Vector2(-807, -1517)
 
 [node name="EntradaDepas" type="Marker2D" parent="SpawnsLayer"]
 position = Vector2(63, 1215)
@@ -1100,7 +1743,6 @@ script = ExtResource("11_kyqry")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MenuSubViewport" parent="CanvasLayer" instance=ExtResource("12_dtr7p")]
-visible = false
 
 [node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("14_u8q45")]
 
@@ -1122,6 +1764,10 @@ metadata/_edit_lock_ = true
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
+limit_left = -2356
+limit_top = -2839
+limit_right = 2365
+limit_bottom = 1787
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 position = Vector2(-87.5, -347.5)
@@ -1148,6 +1794,7 @@ metadata/_custom_type_script = "uid://calbsshdno2ur"
 [editable path="NpcLayer/Gatito"]
 [editable path="NpcLayer/NinoGrosero1"]
 [editable path="NpcLayer/NinoGrosero2"]
+[editable path="NpcLayer/Lucia"]
 [editable path="ObjectLayer/Madera"]
 [editable path="ObjectLayer/Mercado"]
 [editable path="ObjectLayer/Mercado2"]
@@ -1160,4 +1807,5 @@ metadata/_custom_type_script = "uid://calbsshdno2ur"
 [editable path="ObjectLayer/Fuente"]
 [editable path="ObjectLayer/LanzanGatitosTrigger"]
 [editable path="ObjectLayer/CamaraFocusLucia"]
+[editable path="ObjectLayer/GanaGatito"]
 [editable path="CameraManager"]

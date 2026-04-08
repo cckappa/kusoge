@@ -1,0 +1,120 @@
+[gd_scene load_steps=20 format=3 uid="uid://c8sixydgkptlt"]
+
+[ext_resource type="Script" uid="uid://b561nu0hsguw7" path="res://scripts/maps/memory/memory_test_pane.gd" id="1_ki5ur"]
+[ext_resource type="Resource" uid="uid://mec1euorkw3j" path="res://assets/resources/maps/memory/memory_test_pane.tres" id="2_riakf"]
+[ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="2_t1l1r"]
+[ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="3_p5go2"]
+[ext_resource type="PackedScene" uid="uid://ckc0rqj4d6b16" path="res://scenes/gray_box.tscn" id="4_en07a"]
+[ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="6_cxe6i"]
+[ext_resource type="PackedScene" uid="uid://cel1jfamiy0ik" path="res://scenes/gray_box_npc.tscn" id="8_1nabw"]
+[ext_resource type="Script" uid="uid://g7sf10k2338d" path="res://scripts/npc_layer.gd" id="9_bqy17"]
+[ext_resource type="Script" uid="uid://dsfklbei7r5qc" path="res://scripts/object_layer.gd" id="10_24aev"]
+[ext_resource type="Script" uid="uid://ck4xyxoy5fldl" path="res://scripts/enemies_layer.gd" id="11_1saxd"]
+[ext_resource type="Script" uid="uid://cv43fprb0dski" path="res://scripts/spawns_layer.gd" id="12_lexs5"]
+[ext_resource type="Script" uid="uid://c2d2peg3ovb8n" path="res://scripts/saves_layer.gd" id="13_10wns"]
+[ext_resource type="PackedScene" uid="uid://bx88hvib56f0" path="res://scenes/menu/menu_sub_viewport.tscn" id="14_tabkt"]
+[ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="16_3q45r"]
+[ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="18_a7j7m"]
+[ext_resource type="PackedScene" uid="uid://dqi4bw7t4w0u8" path="res://scenes/add_new_character_animation.tscn" id="20_8ywhn"]
+[ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="22_dl2al"]
+[ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="24_gmga0"]
+[ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="25_65xmb"]
+
+[node name="MemoryTestPane" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_ki5ur")
+single_map_resource = ExtResource("2_riakf")
+
+[node name="ParallaxBackgroundLayer" type="Node2D" parent="."]
+z_index = -1
+script = ExtResource("2_t1l1r")
+
+[node name="BackgroundLayer" type="Node2D" parent="."]
+z_index = -1
+script = ExtResource("3_p5go2")
+
+[node name="GrayBox" parent="BackgroundLayer" instance=ExtResource("4_en07a")]
+
+[node name="Polygon2D" parent="BackgroundLayer/GrayBox" index="0"]
+polygon = PackedVector2Array(-181, -1269, -579, -2168, -780, -859, -1802, -1214, -1174, -315, -1790, 364, -475, 126, 64, 860, 535, -119, 1289, 89, 798, -507, 813, -1040, 394, -786, 131, -2021)
+
+[node name="PlayableCharacter" parent="." instance=ExtResource("6_cxe6i")]
+
+[node name="NpcLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("9_bqy17")
+
+[node name="GrayNpc" parent="NpcLayer" instance=ExtResource("8_1nabw")]
+position = Vector2(686, -497)
+
+[node name="Polygon2D" parent="NpcLayer/GrayNpc" index="0"]
+polygon = PackedVector2Array(-135, 19, -124, -281, -2, -409, 120, -342, 115, -14)
+
+[node name="Label" parent="NpcLayer/GrayNpc" index="2"]
+offset_left = -50.0
+offset_top = -178.0
+offset_right = 69.0
+offset_bottom = -136.125
+text = "RAMIRO"
+
+[node name="ObjectLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("10_24aev")
+
+[node name="Silla" parent="ObjectLayer" instance=ExtResource("4_en07a")]
+position = Vector2(381, -616)
+
+[node name="Polygon2D" parent="ObjectLayer/Silla" index="0"]
+color = Color(0.281187, 0.281187, 0.281187, 1)
+polygon = PackedVector2Array(-116, -10, -116, -106, 63, -106, 122, -304, 182, -281, 145, -28, 90, -65, 67, 31, -71, -70, -80, 8)
+
+[node name="EnemiesLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("11_1saxd")
+
+[node name="SpawnsLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("12_lexs5")
+
+[node name="DefaultMarker" type="Marker2D" parent="SpawnsLayer"]
+
+[node name="SavesLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("13_10wns")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MenuSubViewport" parent="CanvasLayer" instance=ExtResource("14_tabkt")]
+
+[node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("16_3q45r")]
+
+[node name="NotificationCenter" parent="CanvasLayer" instance=ExtResource("18_a7j7m")]
+
+[node name="AddNewCharacterAnimation" parent="CanvasLayer" instance=ExtResource("20_8ywhn")]
+
+[node name="AddNewItemAnimation" parent="CanvasLayer" instance=ExtResource("22_dl2al")]
+
+[node name="BlackRect" parent="CanvasLayer" instance=ExtResource("24_gmga0")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="CameraManager" parent="." instance=ExtResource("25_65xmb")]
+
+[node name="Camera2D" parent="CameraManager" index="0"]
+physics_interpolation_mode = 1
+process_callback = 0
+limit_left = -2356
+limit_top = -2839
+limit_right = 2365
+limit_bottom = 1787
+
+[node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
+position = Vector2(137.5, -859.5)
+
+[node name="PhantomCamera2D" parent="CameraManager/PhantomCameras" index="0" node_paths=PackedStringArray("follow_target")]
+follow_target = NodePath("../../../PlayableCharacter")
+
+[editable path="BackgroundLayer/GrayBox"]
+[editable path="NpcLayer/GrayNpc"]
+[editable path="ObjectLayer/Silla"]
+[editable path="CameraManager"]

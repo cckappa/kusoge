@@ -30,10 +30,12 @@ func _ready() -> void:
 	if y_sort_enabled != true:
 		y_sort_enabled = true
 
+	set_dev_tools()
 	set_map_information()
 
 	set_character_position()
 	map_state_logic()
+	key_variable_logic()
 	_ready_scene()
 
 func add_to_maps_resource() -> void:
@@ -69,9 +71,11 @@ func add_fight() -> void:
 
 func set_map_information() -> void:
 	Globals.current_map_path = single_map_resource.scene_path
-	print("Current map set to:", single_map_resource.map_name, " at path: ", single_map_resource.scene_path, " overwrite state: ", Globals.overwrite_map_state)
+
 	if Globals.maps.has(single_map_resource.map_name) and Globals.overwrite_map_state == true:
 		Globals.maps[single_map_resource.map_name].state = room_state	
+
+	print("Current map set to:", single_map_resource.map_name, " with state: ", Globals.maps[single_map_resource.map_name].state, " overwrite state: ", Globals.overwrite_map_state)
 		
 
 func set_character_position() -> void:
@@ -133,6 +137,9 @@ func map_state_logic() -> void:
 func dialogic_logic(event_name: String) -> void:
 	pass
 
+func key_variable_logic()-> void:
+	pass
+
 func _find_resource_in_maps_dir(map_name: String, path: String) -> bool:
 	var dir := DirAccess.open(path)
 	if not dir:
@@ -151,3 +158,12 @@ func _find_resource_in_maps_dir(map_name: String, path: String) -> bool:
 		file_name = dir.get_next()
 	dir.list_dir_end()
 	return false
+
+func set_dev_tools() -> void:
+	if OS.is_debug_build():
+		var dev_ui_scene: PackedScene = preload("res://scenes/dev_ui.tscn")
+		var dev_ui_instance: Node = dev_ui_scene.instantiate()
+		var canvas_node :CanvasLayer= get_tree().get_current_scene().find_child("CanvasLayer")
+		if canvas_node:
+			print("Adding Dev UI to CanvasLayer")
+			canvas_node.add_child.call_deferred(dev_ui_instance)

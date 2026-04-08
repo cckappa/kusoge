@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MapsResource" load_steps=18 format=3 uid="uid://di2nk2hyg1lrk"]
+[gd_resource type="Resource" script_class="MapsResource" load_steps=19 format=3 uid="uid://di2nk2hyg1lrk"]
 
 [ext_resource type="Script" uid="uid://b21bna7stwiam" path="res://scripts/maps/single_map_resource.gd" id="1_4pqwd"]
 [ext_resource type="Script" uid="uid://3m4nlppaoqfp" path="res://scripts/maps/maps_resource.gd" id="2_j4sry"]
@@ -17,8 +17,9 @@
 [ext_resource type="Resource" uid="uid://cesh62x2vxabe" path="res://assets/resources/maps/demo_tecnico/cueva_demo_tecnico.tres" id="14_ohgpw"]
 [ext_resource type="Resource" uid="uid://claohow0a0xv0" path="res://assets/resources/maps/demo_tecnico/habitacion_demo_tecnico.tres" id="15_4o71w"]
 [ext_resource type="Resource" uid="uid://cnryrsf8fyv51" path="res://assets/resources/maps/demo_tecnico/pasillo_demo_tecnico.tres" id="16_fc284"]
+[ext_resource type="Resource" uid="uid://mec1euorkw3j" path="res://assets/resources/maps/memory/memory_test_pane.tres" id="17_u6dw6"]
 
 [resource]
 script = ExtResource("2_j4sry")
-maps = Array[ExtResource("1_4pqwd")]([ExtResource("4_cmt2y"), ExtResource("5_5dlcu"), ExtResource("6_2ak7w"), ExtResource("7_bkr7l"), ExtResource("8_efbti"), ExtResource("9_2r3xq"), ExtResource("10_j0h75"), ExtResource("3_n8n2s"), ExtResource("11_tfge4"), ExtResource("12_imjvb"), ExtResource("13_o5xmp"), ExtResource("14_ohgpw"), ExtResource("2_n8n2s"), ExtResource("15_4o71w"), ExtResource("16_fc284")])
+maps = Array[ExtResource("1_4pqwd")]([ExtResource("4_cmt2y"), ExtResource("5_5dlcu"), ExtResource("6_2ak7w"), ExtResource("7_bkr7l"), ExtResource("8_efbti"), ExtResource("9_2r3xq"), ExtResource("10_j0h75"), ExtResource("3_n8n2s"), ExtResource("11_tfge4"), ExtResource("12_imjvb"), ExtResource("13_o5xmp"), ExtResource("14_ohgpw"), ExtResource("2_n8n2s"), ExtResource("15_4o71w"), ExtResource("16_fc284"), ExtResource("17_u6dw6")])
 metadata/_custom_type_script = "uid://3m4nlppaoqfp"

@@ -1,0 +1,9 @@
+tomen eso cobardes
+métanse con alguien de su tamaño
+[signal arg_type="dict" arg="{"animation":"ninos_salen_corriendo"}"]
+[wait time="2.0" hide_text="false"]
+eres la mejor, vente vamos a acomodar nuestra guarida
+[signal arg_type="dict" arg="{"animation":"guarida_abierta"}"]
+[wait time="0.5"]
+[signal arg_type="dict" arg="{"animation":"lucia_corre_guarida"}"]
+[signal arg_type="dict" arg="{"name":"final_memory_plaza_principal"}"]

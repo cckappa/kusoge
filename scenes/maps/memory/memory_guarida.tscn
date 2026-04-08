@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ck5nthipox8ie"]
+[gd_scene load_steps=38 format=3 uid="uid://ck5nthipox8ie"]
 
 [ext_resource type="Script" uid="uid://dkws0ts8dsioa" path="res://scripts/maps/memory/memory_guarida.gd" id="1_bgcrg"]
 [ext_resource type="Resource" uid="uid://dv0tb248il6l" path="res://assets/resources/maps/memory/memory_guarida.tres" id="2_mygun"]
@@ -22,11 +22,21 @@
 [ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="20_n3fea"]
 [ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="22_rsc8u"]
 [ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="23_ja6lo"]
+[ext_resource type="Script" uid="uid://c1jeqou5gv2cf" path="res://scripts/world_animation_player.gd" id="25_4vq3u"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="27_od8tb"]
 [ext_resource type="PackedScene" uid="uid://bfmoovgy8msfb" path="res://scenes/phantom_camera_2d_setupped.tscn" id="30_7sruv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4vq3u"]
 radius = 152.003
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gova5"]
+size = Vector2(519, 234)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4vq3u"]
+size = Vector2(140, 62)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gova5"]
+radius = 107.042
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7sruv"]
 size = Vector2(653, 239)
@@ -42,6 +52,246 @@ ease = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pw1kt"]
 size = Vector2(1481, 407)
+
+[sub_resource type="Animation" id="Animation_gova5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NpcLayer/Lucia/Talk:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NpcLayer/SillitaLucia:invisible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NpcLayer/Gatito:invisible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("NpcLayer/SillitaAliciaJoven:invisible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NpcLayer/SillitaAlicia:invisible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("NpcLayer/SillitaLuciaJoven:invisible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ObjectLayer/MacetaFlorBien:invisible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ObjectLayer/MacetaCenicero:invisible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("NpcLayer/SillitaAliciaJoven:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("NpcLayer/SillitaLuciaJoven:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("NpcLayer/Lucia/TalkEnding:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_kjliu"]
+resource_name = "aparece_silla"
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NpcLayer/SillitaAliciaJoven")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"set_invisible"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NpcLayer/SillitaAliciaJoven:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1.6, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NpcLayer/SillitaLuciaJoven")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"set_invisible"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("NpcLayer/SillitaLuciaJoven:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1.6, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4vq3u"]
+resource_name = "set_ending"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NpcLayer/Lucia/Talk:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NpcLayer/Gatito")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"set_invisible"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NpcLayer/Lucia/TalkEnding:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gova5"]
+_data = {
+&"RESET": SubResource("Animation_gova5"),
+&"aparece_silla": SubResource("Animation_kjliu"),
+&"set_ending": SubResource("Animation_4vq3u")
+}
 
 [node name="MemoryGuarida" type="Node2D"]
 y_sort_enabled = true
@@ -74,7 +324,7 @@ position = Vector2(893, -2512)
 [node name="Polygon2D" parent="NpcLayer/Lucia" index="0"]
 polygon = PackedVector2Array(-96, 6, -115, -208, -68, -365, 30, -377, 89, -230, 71, -1)
 
-[node name="Label" parent="NpcLayer/Lucia" index="1"]
+[node name="Label" parent="NpcLayer/Lucia" index="2"]
 offset_left = -54.0
 offset_top = -179.0
 offset_right = 33.0
@@ -96,6 +346,107 @@ metadata/_custom_type_script = "uid://do84xbf65qif"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/Lucia/Talk/Area2D"]
 shape = SubResource("CircleShape2D_4vq3u")
 
+[node name="TalkEnding" type="Node2D" parent="NpcLayer/Lucia" node_paths=PackedStringArray("talking_area")]
+position = Vector2(-63, -31)
+script = ExtResource("8_mygun")
+talking_area = NodePath("Area2D")
+automatic_start = true
+timeline_name = "memory_lucia_ending_1"
+disabled = true
+talk_type = 1
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="NpcLayer/Lucia/TalkEnding"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/Lucia/TalkEnding/Area2D"]
+position = Vector2(-278.5, 4)
+shape = SubResource("RectangleShape2D_gova5")
+debug_color = Color(0.927097, 0.0474737, 0.650727, 0.42)
+
+[node name="Gatito" parent="NpcLayer" instance=ExtResource("7_0ioxs")]
+position = Vector2(743, -2485)
+
+[node name="Polygon2D" parent="NpcLayer/Gatito" index="0"]
+offset = Vector2(0, -10)
+polygon = PackedVector2Array(-106, 14, 31, 11, 25, -39, -1, -45, 3, -58, 22, -55, 41, -75, 46, -121, 17, -108, -16, -117, -28, -155, -44, -121, -59, -83, -42, -69, -46, -51, -83, -49, -91, -73, -101, -109, -83, -114, -77, -134, -98, -144, -122, -126, -120, -96, -99, -55, -98, -34, -103, -10)
+
+[node name="Label" parent="NpcLayer/Gatito" index="2"]
+offset_left = -82.0
+offset_top = -50.0
+offset_right = 27.0
+offset_bottom = -8.125
+text = "GATITO"
+
+[node name="CollisionShape2D" parent="NpcLayer/Gatito/StaticBody2D" index="1"]
+position = Vector2(-40, -27)
+shape = SubResource("RectangleShape2D_4vq3u")
+
+[node name="Talk" type="Node2D" parent="NpcLayer/Gatito" node_paths=PackedStringArray("talking_area")]
+script = ExtResource("8_mygun")
+talking_area = NodePath("Area2D")
+timeline_name = "memory_gatito_plaza_1"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="NpcLayer/Gatito/Talk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/Gatito/Talk/Area2D"]
+position = Vector2(-40, -12)
+shape = SubResource("CircleShape2D_gova5")
+
+[node name="SillitaAliciaJoven" parent="NpcLayer" instance=ExtResource("7_0ioxs")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(152, -2481)
+
+[node name="Polygon2D" parent="NpcLayer/SillitaAliciaJoven" index="0"]
+polygon = PackedVector2Array(-108, 110, -46, 114, -61, 61, 37, 54, 65, 106, 123, 106, 80, 39, 149, -8, 190, 52, 209, 31, 160, -70, 85, -55, -18, -220, -115, -231, -130, -117, -96, -32, -136, -55, -203, -40)
+
+[node name="Label" parent="NpcLayer/SillitaAliciaJoven" index="2"]
+offset_left = -126.0
+offset_top = -51.0
+offset_right = 111.0
+offset_bottom = -9.125
+text = "ALICIA SENTADA JOVEN"
+
+[node name="SillitaAlicia" parent="NpcLayer" instance=ExtResource("7_0ioxs")]
+position = Vector2(152, -2481)
+
+[node name="Polygon2D" parent="NpcLayer/SillitaAlicia" index="0"]
+polygon = PackedVector2Array(-108, 110, -46, 114, -61, 61, 37, 54, 65, 106, 123, 106, 80, 39, 149, -8, 190, 52, 209, 31, 160, -70, 85, -55, -18, -220, -115, -231, -130, -117, -96, -32, -136, -55, -203, -40)
+
+[node name="Label" parent="NpcLayer/SillitaAlicia" index="2"]
+offset_left = -126.0
+offset_top = -51.0
+offset_right = 111.0
+offset_bottom = -9.125
+text = "ALICIA SENTADA"
+
+[node name="SillitaLuciaJoven" parent="NpcLayer" instance=ExtResource("7_0ioxs")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(855, -2508)
+
+[node name="Polygon2D" parent="NpcLayer/SillitaLuciaJoven" index="0"]
+polygon = PackedVector2Array(-102, 49, -63, 66, -46, 4, 7, 43, 10, 152, 78, 133, 67, 68, 155, 64, 168, 126, 213, 109, 207, 32, 200, -180, 78, -163, 55, -127, 74, -197, 136, -189, 89, -238, 5, -202, -8, -65, -55, -52)
+
+[node name="Label" parent="NpcLayer/SillitaLuciaJoven" index="2"]
+offset_left = -12.0
+offset_top = -56.0
+offset_right = 218.0
+offset_bottom = -14.125
+text = "LUCIA SENTADA JOVEN"
+
+[node name="SillitaLucia" parent="NpcLayer" instance=ExtResource("7_0ioxs")]
+position = Vector2(855, -2508)
+
+[node name="Polygon2D" parent="NpcLayer/SillitaLucia" index="0"]
+polygon = PackedVector2Array(-102, 49, -63, 66, -46, 4, 7, 43, 10, 152, 78, 133, 67, 68, 155, 64, 168, 126, 213, 109, 207, 32, 200, -180, 78, -163, 55, -127, 74, -197, 136, -189, 89, -238, 5, -202, -8, -65, -55, -52)
+
+[node name="Label" parent="NpcLayer/SillitaLucia" index="2"]
+offset_left = -12.0
+offset_top = -56.0
+offset_right = 218.0
+offset_bottom = -14.125
+text = "LUCIA SENTADA JOVEN"
+
 [node name="ObjectLayer" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("8_ais5j")
@@ -113,6 +464,35 @@ metadata/_custom_type_script = "uid://bsvp6e76bx107"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/EntradaGuarida/SceneChanger"]
 position = Vector2(51, 76)
 shape = SubResource("RectangleShape2D_7sruv")
+
+[node name="MacetaFlorBien" parent="ObjectLayer" instance=ExtResource("9_wt3fu")]
+position = Vector2(358, -2420)
+
+[node name="Polygon2D" parent="ObjectLayer/MacetaFlorBien" index="0"]
+color = Color(0.347817, 0.347817, 0.347817, 1)
+polygon = PackedVector2Array(-31, 30, 35, 30, 48, -33, 95, -45, 80, -65, 20, -67, 20, -116, 61, -120, 84, -170, 61, -219, -36, -243, -85, -189, -72, -138, -72, -138, -21, -123, -16, -78, -76, -69, -76, -41, -46, -30)
+
+[node name="Label" parent="ObjectLayer/MacetaFlorBien" index="2"]
+offset_left = -64.0
+offset_top = -69.0
+offset_right = 85.0
+offset_bottom = 17.75
+text = "MACETA 
+CON FLOR"
+
+[node name="MacetaCenicero" parent="ObjectLayer" instance=ExtResource("9_wt3fu")]
+position = Vector2(358, -2420)
+
+[node name="Polygon2D" parent="ObjectLayer/MacetaCenicero" index="0"]
+color = Color(0.347817, 0.347817, 0.347817, 1)
+polygon = PackedVector2Array(-31, 30, 35, 30, 48, -33, 95, -45, 80, -65, -76, -69, -76, -41, -46, -30)
+
+[node name="Label" parent="ObjectLayer/MacetaCenicero" index="2"]
+offset_left = -64.0
+offset_top = -69.0
+offset_right = 85.0
+offset_bottom = 17.75
+text = "MACETA CENICERO"
 
 [node name="EnemiesLayer" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -135,7 +515,6 @@ script = ExtResource("11_gon8d")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MenuSubViewport" parent="CanvasLayer" instance=ExtResource("12_1at3i")]
-visible = false
 
 [node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("14_x7rpf")]
 
@@ -172,8 +551,8 @@ follow_target = NodePath("../../../PlayableCharacter")
 tween_resource = SubResource("Resource_fyrvt")
 
 [node name="PhantomCamera2D2" parent="CameraManager/PhantomCameras" index="1" node_paths=PackedStringArray("follow_target") instance=ExtResource("30_7sruv")]
-position = Vector2(20, -3210)
-follow_target = NodePath("../../CameraZoneAreas/CameraZoneArea/Marker2D")
+position = Vector2(80, -3201)
+follow_target = NodePath("../../CameraZoneAreas/CameraZoneArea/PhantomCameraMarker2D")
 tween_on_load = false
 limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
 
@@ -185,14 +564,29 @@ camera_b = NodePath("../../PhantomCameras/PhantomCamera2D2")
 zone_type = 1
 metadata/_custom_type_script = "uid://bkkj2ica6jpjl"
 
-[node name="Marker2D" type="Marker2D" parent="CameraManager/CameraZoneAreas/CameraZoneArea"]
-position = Vector2(-403, -577)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager/CameraZoneAreas/CameraZoneArea"]
 position = Vector2(25.5, 115.5)
 shape = SubResource("RectangleShape2D_pw1kt")
+metadata/_edit_lock_ = true
+
+[node name="PhantomCameraMarker2D" type="Marker2D" parent="CameraManager/CameraZoneAreas/CameraZoneArea"]
+position = Vector2(-343, -568)
+
+[node name="WorldAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gova5")
+}
+script = ExtResource("25_4vq3u")
+metadata/_custom_type_script = "uid://c1jeqou5gv2cf"
 
 [editable path="BackgroundLayer/GrayBox"]
 [editable path="NpcLayer/Lucia"]
+[editable path="NpcLayer/Gatito"]
+[editable path="NpcLayer/SillitaAliciaJoven"]
+[editable path="NpcLayer/SillitaAlicia"]
+[editable path="NpcLayer/SillitaLuciaJoven"]
+[editable path="NpcLayer/SillitaLucia"]
 [editable path="ObjectLayer/EntradaGuarida"]
+[editable path="ObjectLayer/MacetaFlorBien"]
+[editable path="ObjectLayer/MacetaCenicero"]
 [editable path="CameraManager"]

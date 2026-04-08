@@ -11,7 +11,7 @@ var battle_scene: String = "res://scenes/battle.tscn"
 
 func _ready_scene() -> void:
 
-	match Globals.maps.demo_tecnico_hub.state:
+	match Globals.maps[single_map_resource.map_name].state:
 		"default":
 			pass
 		"door_opened":
@@ -30,12 +30,12 @@ func start_battle() -> void:
 
 
 func _on_area_2d_body_entered(body: Node) -> void:
-	if body.is_in_group("main_character") and Globals.maps.demo_tecnico_hub.state == "default":
-		if (Globals.key_variables.has("demo_tecnico_hub-batalla_1") and Globals.key_variables["demo_tecnico_hub-batalla_1"] == "victory") \
-		and (Globals.key_variables.has("demo_tecnico_hub-batalla_2") and Globals.key_variables["demo_tecnico_hub-batalla_2"] == "victory") \
-		and (Globals.key_variables.has("demo_tecnico_hub-batalla_3") and Globals.key_variables["demo_tecnico_hub-batalla_3"] == "victory"):
+	if body.is_in_group("main_character") and Globals.maps[single_map_resource.map_name].state == "default":
+		if (Globals.key_variables.has("demo_tecnico_hub-batalla_1") and Globals.key_variables["demo_tecnico_hub-batalla_1"] == true) \
+		and (Globals.key_variables.has("demo_tecnico_hub-batalla_2") and Globals.key_variables["demo_tecnico_hub-batalla_2"] == true) \
+		and (Globals.key_variables.has("demo_tecnico_hub-batalla_3") and Globals.key_variables["demo_tecnico_hub-batalla_3"] == true):
 			door_animation_player.play("opening")
-			Globals.maps.demo_tecnico_hub.state = "door_opened"
+			Globals.maps[single_map_resource.map_name].state = "door_opened"
 			
 
 func play_opened_animation() -> void:

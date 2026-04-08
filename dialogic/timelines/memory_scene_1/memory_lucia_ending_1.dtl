@@ -1,0 +1,11 @@
+mira que bonito lugar
+acomodemos las cosas antes de que te venga a buscar tu mamá
+te ayudo con las sillas
+[signal arg_type="dict" arg="{"animation":"aparece_silla"}"]
+[wait time="1.0"]
+de donde las sacaste? huelen chistoso jajaja
+y por aca puede ir nuestra flor
+[signal arg_type="dict" arg="{"animation":"aparece_flor"}"]
+[wait time="1.0"]
+ahora si a disfrutar la vista
+miau miau

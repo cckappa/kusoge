@@ -6,6 +6,7 @@
 
 [node name="MenuSubViewport" type="SubViewportContainer"]
 process_mode = 3
+visible = false
 z_index = 2
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,11 +16,12 @@ grow_vertical = 2
 script = ExtResource("1_v71ah")
 
 [node name="SubViewport" type="SubViewport" parent="."]
+unique_name_in_owner = true
 process_mode = 3
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(3840, 2160)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="MenuTamagotchi" parent="SubViewport" node_paths=PackedStringArray("menu_sub_viewport") instance=ExtResource("1_6y8p8")]
 menu_sub_viewport = NodePath("../..")

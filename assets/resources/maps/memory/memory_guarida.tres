@@ -4,7 +4,6 @@
 
 [resource]
 script = ExtResource("1_10c44")
-name = "memory_guarida"
 scene_path = "res://scenes/maps/memory/memory_guarida.tscn"
 state = "default"
 metadata/_custom_type_script = "uid://b21bna7stwiam"

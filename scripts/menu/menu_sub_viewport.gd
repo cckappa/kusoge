@@ -1,5 +1,7 @@
 extends SubViewportContainer
 
+@onready var sub_viewport := %SubViewport
+
 var on_dialogic := false
 var quit_paused := false
 signal toggle_menu_signal(_is_visible:bool)
@@ -8,6 +10,7 @@ func _ready() -> void:
 	SignalBus.connect("starts_talking", starts_talking)
 	SignalBus.connect("stops_talking", stops_talking)
 	visible = false
+		
 
 func _input(event:InputEvent) -> void:
 	if quit_paused:
