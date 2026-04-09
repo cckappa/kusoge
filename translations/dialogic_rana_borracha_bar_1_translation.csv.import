@@ -6,12 +6,14 @@ uid="uid://csrcavwgdxhkf"
 
 [deps]
 
-files=["res://translations/dialogic_rana_borracha_bar_1_translation.en.translation", "res://translations/dialogic_rana_borracha_bar_1_translation.es.translation"]
+files=["res://translations/dialogic_rana_borracha_bar_1_translation.en.translation", "res://translations/dialogic_rana_borracha_bar_1_translation.en.translation"]
 
 source_file="res://translations/dialogic_rana_borracha_bar_1_translation.csv"
-dest_files=["res://translations/dialogic_rana_borracha_bar_1_translation.en.translation", "res://translations/dialogic_rana_borracha_bar_1_translation.es.translation"]
+dest_files=["res://translations/dialogic_rana_borracha_bar_1_translation.en.translation", "res://translations/dialogic_rana_borracha_bar_1_translation.en.translation"]
 
 [params]
 
 compress=true
 delimiter=0
+unescape_keys=false
+unescape_translations=true

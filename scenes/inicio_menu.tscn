@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5pci2v2vm4qd"]
+[gd_scene format=3 uid="uid://b5pci2v2vm4qd"]
 
 [ext_resource type="Script" uid="uid://bjtgbjfc1t6uj" path="res://scripts/inicio_menu.gd" id="1_7l6qo"]
 [ext_resource type="Texture2D" uid="uid://cttacv1hpf2y2" path="res://assets/screens/menu_inicio.PNG" id="2_pxxgp"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="3_ppuyb"]
 [ext_resource type="Script" uid="uid://boe63qshwoiu6" path="res://scripts/inicio_menu_buttons.gd" id="4_mmojk"]
 
-[node name="InicioMenu" type="Control" node_paths=PackedStringArray("play", "settings", "settings_menu")]
+[node name="InicioMenu" type="Control" unique_id=143250398 node_paths=PackedStringArray("play", "settings", "settings_menu")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,13 +18,13 @@ play = NodePath("PanelContainer/MarginContainer/InicioMenuButtons/Play")
 settings = NodePath("PanelContainer/MarginContainer/InicioMenuButtons/Settings")
 settings_menu = NodePath("SettingsMenu")
 
-[node name="Fondo" type="TextureRect" parent="."]
+[node name="Fondo" type="TextureRect" parent="." unique_id=1252302605]
 layout_mode = 0
 offset_right = 3840.0
 offset_bottom = 2160.0
 texture = ExtResource("2_pxxgp")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1457322219]
 custom_minimum_size = Vector2(512, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -39,43 +39,43 @@ offset_bottom = 542.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=702205085]
 layout_mode = 2
 theme = ExtResource("2_tpjnf")
 
-[node name="InicioMenuButtons" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="InicioMenuButtons" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1319197610]
 layout_mode = 2
 script = ExtResource("4_mmojk")
 
-[node name="Play" type="Button" parent="PanelContainer/MarginContainer/InicioMenuButtons"]
+[node name="Play" type="Button" parent="PanelContainer/MarginContainer/InicioMenuButtons" unique_id=1380469249]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 150
 text = "Jugar"
 
-[node name="Settings" type="Button" parent="PanelContainer/MarginContainer/InicioMenuButtons"]
+[node name="Settings" type="Button" parent="PanelContainer/MarginContainer/InicioMenuButtons" unique_id=1296423708]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "Opciones
 "
 
-[node name="BorrarPartida" type="Button" parent="PanelContainer/MarginContainer/InicioMenuButtons"]
+[node name="BorrarPartida" type="Button" parent="PanelContainer/MarginContainer/InicioMenuButtons" unique_id=1837316022]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Borrar Partida
 "
 
-[node name="Exit" type="Button" parent="PanelContainer/MarginContainer/InicioMenuButtons"]
+[node name="Exit" type="Button" parent="PanelContainer/MarginContainer/InicioMenuButtons" unique_id=1574469585]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Salir
 "
 
-[node name="SettingsMenu" parent="." instance=ExtResource("3_ppuyb")]
+[node name="SettingsMenu" parent="." unique_id=1860614313 instance=ExtResource("3_ppuyb")]
 layout_mode = 1
 
-[node name="BlackRect" type="ColorRect" parent="."]
+[node name="BlackRect" type="ColorRect" parent="." unique_id=1476090665]
 unique_name_in_owner = true
 visible = false
 modulate = Color(0, 0, 0, 1)

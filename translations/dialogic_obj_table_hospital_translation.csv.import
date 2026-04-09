@@ -6,12 +6,14 @@ uid="uid://lndgeomosy8s"
 
 [deps]
 
-files=["res://translations/dialogic_obj_table_hospital_translation.en.translation", "res://translations/dialogic_obj_table_hospital_translation.es.translation"]
+files=["res://translations/dialogic_obj_table_hospital_translation.en.translation", "res://translations/dialogic_obj_table_hospital_translation.en.translation"]
 
 source_file="res://translations/dialogic_obj_table_hospital_translation.csv"
-dest_files=["res://translations/dialogic_obj_table_hospital_translation.en.translation", "res://translations/dialogic_obj_table_hospital_translation.es.translation"]
+dest_files=["res://translations/dialogic_obj_table_hospital_translation.en.translation", "res://translations/dialogic_obj_table_hospital_translation.en.translation"]
 
 [params]
 
 compress=true
 delimiter=0
+unescape_keys=false
+unescape_translations=true

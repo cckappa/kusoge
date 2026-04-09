@@ -15,3 +15,5 @@ dest_files=["res://translations/dialogic_lobuki_cigarro_0_translation.en.transla
 
 compress=true
 delimiter=0
+unescape_keys=false
+unescape_translations=true

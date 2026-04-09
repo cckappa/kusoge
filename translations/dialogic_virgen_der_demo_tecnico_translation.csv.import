@@ -15,3 +15,5 @@ dest_files=["res://translations/dialogic_virgen_der_demo_tecnico_translation.en.
 
 compress=true
 delimiter=0
+unescape_keys=false
+unescape_translations=true

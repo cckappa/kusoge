@@ -15,3 +15,5 @@ dest_files=["res://translations/dialogic_lalien_demo_tecnico_translation.en.tran
 
 compress=true
 delimiter=0
+unescape_keys=false
+unescape_translations=true

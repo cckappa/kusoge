@@ -12,6 +12,12 @@ var started_game: bool = false
 
 func _ready()->void:
 	print("Inicio menu ready")
+	Steam.steamInitEx(4047020)
+	var steam_running := Steam.isSteamRunning()
+	if not steam_running:
+		print("Steam is not running. Please start Steam to play the game.")
+		return
+	
 	play.connect("pressed", start_game)
 	play.grab_focus()
 	settings.connect("pressed", open_settings)

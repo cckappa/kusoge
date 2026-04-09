@@ -15,3 +15,5 @@ dest_files=["res://translations/dialogic_zona_batallas_demo_translation.en.trans
 
 compress=true
 delimiter=0
+unescape_keys=false
+unescape_translations=true

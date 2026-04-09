@@ -15,3 +15,5 @@ dest_files=["res://translations/dialogic_hada_save_cueva_demo_translation.en.tra
 
 compress=true
 delimiter=0
+unescape_keys=false
+unescape_translations=true

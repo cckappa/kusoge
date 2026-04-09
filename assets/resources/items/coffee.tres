@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://bqyq6l006wa1h"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bqyq6l006wa1h"]
 
 [ext_resource type="Script" uid="uid://cit3hwc5xts8m" path="res://scripts/items/heal_effect_item.gd" id="1_3v2id"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="1_6x07b"]
@@ -13,5 +13,4 @@ script = ExtResource("1_6x07b")
 identifier = &"coffee"
 section_folder = "demo_tecnico"
 icon = ExtResource("1_iqirl")
-type = "HEAL"
 item_effect = SubResource("Resource_p5ms8")

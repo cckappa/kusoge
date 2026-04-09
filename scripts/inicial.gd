@@ -1,3 +1,4 @@
+@tool
 extends BaseScene
 
 var battle_scene: String = "res://scenes/battle.tscn" 

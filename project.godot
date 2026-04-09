@@ -8,14 +8,22 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="kusoge"
 config/version="demo"
 config/tags=PackedStringArray("current")
 run/main_scene="res://scenes/inicio_menu.tscn"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://kusoge_icon.png"
+
+[audio]
+
+buses/default_bus_layout="uid://bdj1st8qc4em2"
 
 [autoload]
 
@@ -28,9 +36,9 @@ Functions="*res://scripts/functions.gd"
 Globals="*res://scripts/globals.gd"
 Items="*res://scripts/items.gd"
 Quests="*res://scripts/quests.gd"
-PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+PhantomCameraManager="*uid://duq6jhf6unyis"
 ConsoleCommands="*res://scripts/console_commands.gd"
-Console="*res://addons/console/console.gd"
+Console="*uid://ouiu5xh1cs8n"
 
 [debug]
 
@@ -189,7 +197,7 @@ window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/addons/wigglebone/plugin.cfg", "res://addons/console/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/obsidian_var_graph/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/addons/wigglebone/plugin.cfg", "res://addons/console/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/godotsteam/plugin.cfg", "res://addons/obsidian_var_graph/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [global_group]
 
@@ -354,3 +362,10 @@ common/physics_interpolation=true
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+
+[steam]
+
+initialization/app_id=4047020
+initialization/initialize_on_startup=true
+initialization/embed_callbacks=false
+multiplayer_peer/max_channels=4

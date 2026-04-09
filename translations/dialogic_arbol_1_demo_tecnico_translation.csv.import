@@ -15,3 +15,5 @@ dest_files=["res://translations/dialogic_arbol_1_demo_tecnico_translation.en.tra
 
 compress=true
 delimiter=0
+unescape_keys=false
+unescape_translations=true

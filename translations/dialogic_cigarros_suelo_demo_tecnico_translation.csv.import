@@ -15,3 +15,5 @@ dest_files=["res://translations/dialogic_cigarros_suelo_demo_tecnico_translation
 
 compress=true
 delimiter=0
+unescape_keys=false
+unescape_translations=true
