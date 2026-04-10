@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c8sixydgkptlt"]
+[gd_scene format=3 uid="uid://c8sixydgkptlt"]
 
 [ext_resource type="Script" uid="uid://b561nu0hsguw7" path="res://scripts/maps/memory/memory_test_pane.gd" id="1_ki5ur"]
 [ext_resource type="Resource" uid="uid://mec1euorkw3j" path="res://assets/resources/maps/memory/memory_test_pane.tres" id="2_riakf"]
@@ -20,31 +20,31 @@
 [ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="24_gmga0"]
 [ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="25_65xmb"]
 
-[node name="MemoryTestPane" type="Node2D"]
+[node name="MemoryTestPane" type="Node2D" unique_id=1784569927]
 y_sort_enabled = true
 script = ExtResource("1_ki5ur")
 single_map_resource = ExtResource("2_riakf")
 
-[node name="ParallaxBackgroundLayer" type="Node2D" parent="."]
+[node name="ParallaxBackgroundLayer" type="Node2D" parent="." unique_id=2057084048]
 z_index = -1
 script = ExtResource("2_t1l1r")
 
-[node name="BackgroundLayer" type="Node2D" parent="."]
+[node name="BackgroundLayer" type="Node2D" parent="." unique_id=1710827674]
 z_index = -1
 script = ExtResource("3_p5go2")
 
-[node name="GrayBox" parent="BackgroundLayer" instance=ExtResource("4_en07a")]
+[node name="GrayBox" parent="BackgroundLayer" unique_id=1046043215 instance=ExtResource("4_en07a")]
 
 [node name="Polygon2D" parent="BackgroundLayer/GrayBox" index="0"]
 polygon = PackedVector2Array(-181, -1269, -579, -2168, -780, -859, -1802, -1214, -1174, -315, -1790, 364, -475, 126, 64, 860, 535, -119, 1289, 89, 798, -507, 813, -1040, 394, -786, 131, -2021)
 
-[node name="PlayableCharacter" parent="." instance=ExtResource("6_cxe6i")]
+[node name="PlayableCharacter" parent="." unique_id=919925922 instance=ExtResource("6_cxe6i")]
 
-[node name="NpcLayer" type="Node2D" parent="."]
+[node name="NpcLayer" type="Node2D" parent="." unique_id=1997827217]
 y_sort_enabled = true
 script = ExtResource("9_bqy17")
 
-[node name="GrayNpc" parent="NpcLayer" instance=ExtResource("8_1nabw")]
+[node name="GrayNpc" parent="NpcLayer" unique_id=1783807440 instance=ExtResource("8_1nabw")]
 position = Vector2(686, -497)
 
 [node name="Polygon2D" parent="NpcLayer/GrayNpc" index="0"]
@@ -57,56 +57,55 @@ offset_right = 69.0
 offset_bottom = -136.125
 text = "RAMIRO"
 
-[node name="ObjectLayer" type="Node2D" parent="."]
+[node name="ObjectLayer" type="Node2D" parent="." unique_id=672426872]
 y_sort_enabled = true
 script = ExtResource("10_24aev")
 
-[node name="Silla" parent="ObjectLayer" instance=ExtResource("4_en07a")]
+[node name="Silla" parent="ObjectLayer" unique_id=639351139 instance=ExtResource("4_en07a")]
 position = Vector2(381, -616)
 
 [node name="Polygon2D" parent="ObjectLayer/Silla" index="0"]
 color = Color(0.281187, 0.281187, 0.281187, 1)
 polygon = PackedVector2Array(-116, -10, -116, -106, 63, -106, 122, -304, 182, -281, 145, -28, 90, -65, 67, 31, -71, -70, -80, 8)
 
-[node name="EnemiesLayer" type="Node2D" parent="."]
+[node name="EnemiesLayer" type="Node2D" parent="." unique_id=99737618]
 y_sort_enabled = true
 script = ExtResource("11_1saxd")
 
-[node name="SpawnsLayer" type="Node2D" parent="."]
+[node name="SpawnsLayer" type="Node2D" parent="." unique_id=1790141831]
 y_sort_enabled = true
 script = ExtResource("12_lexs5")
 
-[node name="DefaultMarker" type="Marker2D" parent="SpawnsLayer"]
+[node name="EntradaGuarida" type="Marker2D" parent="SpawnsLayer" unique_id=66459740]
+position = Vector2(-188, -1380)
 
-[node name="SavesLayer" type="Node2D" parent="."]
+[node name="DefaultMarker" type="Marker2D" parent="SpawnsLayer" unique_id=1550516198]
+
+[node name="SavesLayer" type="Node2D" parent="." unique_id=1101721657]
 y_sort_enabled = true
 script = ExtResource("13_10wns")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1934481707]
 
-[node name="MenuSubViewport" parent="CanvasLayer" instance=ExtResource("14_tabkt")]
+[node name="MenuSubViewport" parent="CanvasLayer" unique_id=57106418 instance=ExtResource("14_tabkt")]
 
-[node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("16_3q45r")]
+[node name="SettingsMenu" parent="CanvasLayer" unique_id=685426753 instance=ExtResource("16_3q45r")]
 
-[node name="NotificationCenter" parent="CanvasLayer" instance=ExtResource("18_a7j7m")]
+[node name="NotificationCenter" parent="CanvasLayer" unique_id=1375590023 instance=ExtResource("18_a7j7m")]
 
-[node name="AddNewCharacterAnimation" parent="CanvasLayer" instance=ExtResource("20_8ywhn")]
+[node name="AddNewCharacterAnimation" parent="CanvasLayer" unique_id=164109582 instance=ExtResource("20_8ywhn")]
 
-[node name="AddNewItemAnimation" parent="CanvasLayer" instance=ExtResource("22_dl2al")]
+[node name="AddNewItemAnimation" parent="CanvasLayer" unique_id=666909200 instance=ExtResource("22_dl2al")]
 
-[node name="BlackRect" parent="CanvasLayer" instance=ExtResource("24_gmga0")]
+[node name="BlackRect" parent="CanvasLayer" unique_id=55091630 instance=ExtResource("24_gmga0")]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=614282029]
 
-[node name="CameraManager" parent="." instance=ExtResource("25_65xmb")]
+[node name="CameraManager" parent="." unique_id=422098045 instance=ExtResource("25_65xmb")]
 
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
-limit_left = -2356
-limit_top = -2839
-limit_right = 2365
-limit_bottom = 1787
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 position = Vector2(137.5, -859.5)

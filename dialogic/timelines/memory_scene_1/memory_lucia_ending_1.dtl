@@ -9,3 +9,7 @@ y por aca puede ir nuestra flor
 [wait time="1.0"]
 ahora si a disfrutar la vista
 miau miau
+[wait time="4.0"]
+[signal arg_type="dict" arg="{"animation":"avanza_futuro"}"]
+[wait time="10.0"]
+[signal arg_type="dict" arg="{"animation":"termina_ending","name":"termina_ending"}"]

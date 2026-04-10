@@ -34,8 +34,8 @@ func _ready() -> void:
 	set_map_information()
 
 	set_character_position()
-	map_state_logic()
 	key_variable_logic()
+	map_state_logic()
 	_ready_scene()
 
 func add_to_maps_resource() -> void:

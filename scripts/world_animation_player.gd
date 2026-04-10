@@ -19,3 +19,4 @@ func _on_play_world_animation(event_name: String) -> void:
 	print("Play world animation signal received:", event_name)
 	if has_animation(event_name):
 		play(event_name)
+		print("Playing world animation: ", event_name)

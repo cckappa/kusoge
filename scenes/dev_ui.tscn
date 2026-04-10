@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://barfrhhyld8ci"]
+[gd_scene format=3 uid="uid://barfrhhyld8ci"]
 
 [ext_resource type="Script" uid="uid://bwmw3i3t5nhwm" path="res://scripts/dev_ui.gd" id="1_anunw"]
 
-[node name="DevUi" type="Control"]
+[node name="DevUi" type="Control" unique_id=522150306]
 z_index = 999
 layout_mode = 3
 anchors_preset = 15
@@ -14,7 +14,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_anunw")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1060972399]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -22,10 +22,11 @@ offset_bottom = 31.0
 grow_horizontal = 2
 alignment = 2
 
-[node name="OverwriteButton" type="CheckButton" parent="HBoxContainer"]
+[node name="OverwriteButton" type="CheckButton" parent="HBoxContainer" unique_id=1894983034]
 unique_name_in_owner = true
 z_index = 4096
 layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 56
 text = "Overwrite Scene "
 

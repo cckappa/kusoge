@@ -2,6 +2,7 @@
 extends BaseScene
 
 @onready var world_animation_player := $WorldAnimationPlayer
+@onready var scene_changer := %SceneChanger
 
 func _ready_scene() -> void:
 	black_rect.visible = true
@@ -22,9 +23,9 @@ func map_state_logic() -> void:
 	
 func dialogic_logic(event_name: String) -> void:
 	print("Dialogic text signal received:", event_name)
-	if event_name == "event_name":
-		set_status_name()
+	if event_name == "termina_ending":
+		set_termina_ending()
 		# Globals.set_map_state(single_map_resource.map_name, "event_name")
 
-func set_status_name() -> void:
-	pass
+func set_termina_ending() -> void:
+	scene_changer.target_scene = "res://scenes/maps/memory/memory_test_pane.tscn"

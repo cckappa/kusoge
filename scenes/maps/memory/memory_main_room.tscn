@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://ctgrroafgitn5"]
+[gd_scene format=3 uid="uid://ctgrroafgitn5"]
 
 [ext_resource type="Script" uid="uid://5rnf247xyu5v" path="res://scripts/scene_creator_tool.gd" id="1_7ufwd"]
 [ext_resource type="Script" uid="uid://ckp0h74w4b5ak" path="res://scripts/maps/memory/memory_main_room.gd" id="1_xsnwr"]
@@ -49,26 +49,25 @@ size = Vector2(3840, 2202)
 script = ExtResource("27_npbm4")
 duration = 2.0
 transition = 1
-ease = 2
 
-[node name="MemoryMainRoom" type="Node2D"]
+[node name="MemoryMainRoom" type="Node2D" unique_id=536985279]
 y_sort_enabled = true
 script = ExtResource("1_xsnwr")
 single_map_resource = ExtResource("2_vnmqw")
 
-[node name="SceneCreatorTool" type="Node" parent="."]
+[node name="SceneCreatorTool" type="Node" parent="." unique_id=65565302]
 script = ExtResource("1_7ufwd")
 metadata/_custom_type_script = "uid://5rnf247xyu5v"
 
-[node name="ParallaxBackgroundLayer" type="Node2D" parent="."]
+[node name="ParallaxBackgroundLayer" type="Node2D" parent="." unique_id=1934576144]
 z_index = -1
 script = ExtResource("2_58vf6")
 
-[node name="BackgroundLayer" type="Node2D" parent="."]
+[node name="BackgroundLayer" type="Node2D" parent="." unique_id=192950299]
 z_index = -1
 script = ExtResource("3_tlmkp")
 
-[node name="GrayBox" parent="BackgroundLayer" instance=ExtResource("4_58vf6")]
+[node name="GrayBox" parent="BackgroundLayer" unique_id=528163483 instance=ExtResource("4_58vf6")]
 
 [node name="Polygon2D" parent="BackgroundLayer/GrayBox" index="0"]
 polygon = PackedVector2Array(851, -846, -88, -855, -121, 273, 865, 294)
@@ -77,25 +76,25 @@ polygon = PackedVector2Array(851, -846, -88, -855, -121, 273, 865, 294)
 position = Vector2(415.5, 410)
 shape = SubResource("RectangleShape2D_tlmkp")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="BackgroundLayer/GrayBox/StaticBody2D" index="1"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BackgroundLayer/GrayBox/StaticBody2D" index="1" unique_id=1369325572]
 position = Vector2(378, -968)
 shape = SubResource("RectangleShape2D_xsnwr")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="BackgroundLayer/GrayBox/StaticBody2D" index="2"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BackgroundLayer/GrayBox/StaticBody2D" index="2" unique_id=1280824270]
 position = Vector2(-235, -274.5)
 shape = SubResource("RectangleShape2D_a8y2q")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="BackgroundLayer/GrayBox/StaticBody2D" index="3"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BackgroundLayer/GrayBox/StaticBody2D" index="3" unique_id=925628370]
 position = Vector2(984, -307.5)
 shape = SubResource("RectangleShape2D_gxgp8")
 
-[node name="PlayableCharacter" parent="." instance=ExtResource("4_xsnwr")]
+[node name="PlayableCharacter" parent="." unique_id=746187433 instance=ExtResource("4_xsnwr")]
 
-[node name="NpcLayer" type="Node2D" parent="."]
+[node name="NpcLayer" type="Node2D" parent="." unique_id=382532384]
 y_sort_enabled = true
 script = ExtResource("7_uh4ye")
 
-[node name="MomNpc" parent="NpcLayer" instance=ExtResource("8_e63xx")]
+[node name="MomNpc" parent="NpcLayer" unique_id=1675621519 instance=ExtResource("8_e63xx")]
 unique_name_in_owner = true
 visible = false
 position = Vector2(483, -2)
@@ -111,84 +110,80 @@ offset_right = 74.0
 offset_bottom = -96.125
 text = "MOM"
 
-[node name="Talk" type="Node2D" parent="NpcLayer/MomNpc" node_paths=PackedStringArray("talking_area")]
+[node name="Talk" type="Node2D" parent="NpcLayer/MomNpc" unique_id=887119448 node_paths=PackedStringArray("talking_area")]
 script = ExtResource("9_vnmqw")
 talking_area = NodePath("Area2D")
 automatic_start = true
 timeline_name = "memory_mom_1"
 metadata/_custom_type_script = "uid://do84xbf65qif"
 
-[node name="Area2D" type="Area2D" parent="NpcLayer/MomNpc/Talk"]
+[node name="Area2D" type="Area2D" parent="NpcLayer/MomNpc/Talk" unique_id=887256169]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/MomNpc/Talk/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/MomNpc/Talk/Area2D" unique_id=1618897642]
 shape = SubResource("CircleShape2D_p5jfc")
 
-[node name="ObjectLayer" type="Node2D" parent="."]
+[node name="ObjectLayer" type="Node2D" parent="." unique_id=370879206]
 y_sort_enabled = true
 script = ExtResource("8_pn54w")
 
-[node name="Puerta" parent="ObjectLayer" instance=ExtResource("4_58vf6")]
+[node name="Puerta" parent="ObjectLayer" unique_id=618503024 instance=ExtResource("4_58vf6")]
 position = Vector2(460, -809)
 
 [node name="Polygon2D" parent="ObjectLayer/Puerta" index="0"]
 color = Color(0.385493, 0.385492, 0.385492, 1)
 polygon = PackedVector2Array(-275, 40, -219, -293, 44, -278, 74, 40)
 
-[node name="SceneChanger" type="Area2D" parent="ObjectLayer/Puerta" node_paths=PackedStringArray("black_rect")]
+[node name="SceneChanger" type="Area2D" parent="ObjectLayer/Puerta" unique_id=1668379697 node_paths=PackedStringArray("black_rect")]
 script = ExtResource("10_tlmkp")
 target_scene = "res://scenes/maps/memory/memory_sala_room.tscn"
 target_marker = "EntradaMainRoom"
 black_rect = NodePath("../../../CanvasLayer/BlackRect")
 metadata/_custom_type_script = "uid://bsvp6e76bx107"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/Puerta/SceneChanger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/Puerta/SceneChanger" unique_id=1737509387]
 position = Vector2(-99, -9)
 shape = SubResource("RectangleShape2D_uh4ye")
 
-[node name="EnemiesLayer" type="Node2D" parent="."]
+[node name="EnemiesLayer" type="Node2D" parent="." unique_id=193056845]
 y_sort_enabled = true
 script = ExtResource("9_rhnve")
 
-[node name="SpawnsLayer" type="Node2D" parent="."]
+[node name="SpawnsLayer" type="Node2D" parent="." unique_id=1927152767]
 y_sort_enabled = true
 script = ExtResource("10_ffai3")
 
-[node name="DefaultMarker" type="Marker2D" parent="SpawnsLayer"]
+[node name="DefaultMarker" type="Marker2D" parent="SpawnsLayer" unique_id=551904950]
 position = Vector2(483, -9)
 
-[node name="EntradaMainRoom" type="Marker2D" parent="SpawnsLayer"]
+[node name="EntradaMainRoom" type="Marker2D" parent="SpawnsLayer" unique_id=1938687895]
 position = Vector2(374, -677)
 
-[node name="SavesLayer" type="Node2D" parent="."]
+[node name="SavesLayer" type="Node2D" parent="." unique_id=1594468943]
 y_sort_enabled = true
 script = ExtResource("11_7tigv")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1482676317]
 
-[node name="MenuSubViewport" parent="CanvasLayer" instance=ExtResource("12_arw8t")]
+[node name="MenuSubViewport" parent="CanvasLayer" unique_id=1469266770 instance=ExtResource("12_arw8t")]
 
-[node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("14_0nn7d")]
+[node name="SettingsMenu" parent="CanvasLayer" unique_id=410864025 instance=ExtResource("14_0nn7d")]
 
-[node name="NotificationCenter" parent="CanvasLayer" instance=ExtResource("16_mrrar")]
+[node name="NotificationCenter" parent="CanvasLayer" unique_id=2041590612 instance=ExtResource("16_mrrar")]
 
-[node name="AddNewCharacterAnimation" parent="CanvasLayer" instance=ExtResource("18_uulgk")]
+[node name="AddNewCharacterAnimation" parent="CanvasLayer" unique_id=637787420 instance=ExtResource("18_uulgk")]
 
-[node name="AddNewItemAnimation" parent="CanvasLayer" instance=ExtResource("20_jfp83")]
+[node name="AddNewItemAnimation" parent="CanvasLayer" unique_id=554444430 instance=ExtResource("20_jfp83")]
 
-[node name="BlackRect" parent="CanvasLayer" instance=ExtResource("22_wkn1m")]
+[node name="BlackRect" parent="CanvasLayer" unique_id=1185853242 instance=ExtResource("22_wkn1m")]
 unique_name_in_owner = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1527439531]
 
-[node name="CameraManager" parent="." instance=ExtResource("23_t70io")]
+[node name="CameraManager" parent="." unique_id=1308283292 instance=ExtResource("23_t70io")]
 
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1
 process_callback = 0
-limit_left = -2356
-limit_top = -2839
-limit_right = 2365
-limit_bottom = 1787
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 position = Vector2(0, -210)

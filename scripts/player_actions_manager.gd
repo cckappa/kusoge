@@ -45,6 +45,7 @@ var loot_item:PackedScene = preload("res://scenes/loot_item.tscn")
 var character_to_disable:Character
 var interactive_stream:AudioStreamInteractive
 var talking:bool=false
+var game_speed:float = 0.2
 
 var ability_status:={
 	"ability":null,
@@ -66,7 +67,7 @@ func _input(event: InputEvent) -> void:
 		SignalBus.emit_signal("attack_menu_opened")
 		ability_status.from.current_container.check_timer()
 		ability_name_container.get_child(0).ability_button.grab_focus()
-		Functions.set_game_speed(0.1)
+		Functions.set_game_speed(game_speed)
 		get_viewport().set_input_as_handled()
 
 	if event.is_action_pressed("ui_accept") and menu_level == "victory":
@@ -85,7 +86,7 @@ func _input(event: InputEvent) -> void:
 			item_name_container.get_child(0).item_button.grab_focus()
 		else:
 			pass
-		Functions.set_game_speed(0.1)
+		Functions.set_game_speed(1.0)
 		get_viewport().set_input_as_handled()
 
 	if event.is_action_pressed("run_away") and menu_level == "base":
@@ -151,6 +152,7 @@ func _on_selecting_state_entered() -> void:
 
 func _on_target_selecting_state_entered() -> void:
 	print("Target selecting state entered")
+	Functions.set_game_speed(1.0)
 	
 	var enemies:Array[Character] = alive_enemies(Globals.current_arrange_enemies)
 	var allies:Array[Character] = alive_allies(Globals.current_arrange_allies)
@@ -172,6 +174,7 @@ func _on_target_selecting_state_entered() -> void:
 
 func _on_target_selecting_item_state_entered() -> void:
 	print("Target selecting item state entered")
+	Functions.set_game_speed(1.0)
 	
 	var enemies:Array[Character] = alive_enemies(Globals.current_arrange_enemies)
 	var allies:Array[Character] = alive_allies(Globals.current_arrange_allies)

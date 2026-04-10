@@ -1,3 +1,4 @@
+@tool
 extends Node
 
 @onready var bus_index := AudioServer.get_bus_index("Music")

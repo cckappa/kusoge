@@ -14,19 +14,16 @@ func _ready_scene() -> void:
 
 func key_variable_logic() -> void:
 	if Globals.key_variables.has("guarida_abierta") and Globals.key_variables["guarida_abierta"] == true:
-		world_animation_player.play("guarida_abierta")
+		set_guarida_abierta()
 	else:
-		world_animation_player.play("guarida_cerrada")
+		set_guarida_cerrada()
 
 func map_state_logic() -> void:
 	match Globals.maps[single_map_resource.map_name].state:
 		"default":
 			pass
-			# world_animation_player.play("RESET")
 		"flor_recogida":
-			# world_animation_player.play("guarida_abierta")
-			world_animation_player.play("set_puestos_molestar_gatito")
-			print("Flor recogida, mapa actualizado a flor_recogida")
+			SignalBus.emit_signal("play_world_animation", "set_puestos_molestar_gatito")
 		"gana_pelea_gatito":
 			gana_gatito.find_child("Talk").disabled = false
 			world_animation_player.play("set_gana_pelea_gatito")
@@ -50,3 +47,13 @@ func dialogic_logic(event_name: String) -> void:
 func play_juegan_con_gatito() -> void:
 	world_animation_player.play("juegan_con_gatito")
 	print("Playing juegan_con_gatito animation")
+
+func set_guarida_abierta() -> void:
+	madera.find_child("CollisionPolygon2D").position = Vector2(-422.0, 0)
+	madera.find_child("Polygon2D").position = Vector2(-300, -11)
+	madera.find_child("Polygon2D").rotation = deg_to_rad(-56.6)
+
+func set_guarida_cerrada() -> void:
+	madera.find_child("CollisionPolygon2D").position = Vector2(0, 0)
+	madera.find_child("Polygon2D").position = Vector2(0, 0)
+	madera.find_child("Polygon2D").rotation = 0
