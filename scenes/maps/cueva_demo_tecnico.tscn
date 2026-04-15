@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://3w5ysq4tl3o4"]
+[gd_scene format=3 uid="uid://3w5ysq4tl3o4"]
 
 [ext_resource type="Script" uid="uid://d0q32cfdk1wsf" path="res://scripts/maps/cueva_demo_tecnico.gd" id="1_n0a8t"]
 [ext_resource type="Script" uid="uid://5rnf247xyu5v" path="res://scripts/scene_creator_tool.gd" id="1_os3nl"]
@@ -24,6 +24,8 @@
 [ext_resource type="Script" uid="uid://do84xbf65qif" path="res://scripts/talk.gd" id="15_vai2h"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="16_joev4"]
 [ext_resource type="Script" uid="uid://moxcdo1lwavw" path="res://scripts/item_taker.gd" id="16_n0a8t"]
+[ext_resource type="Script" uid="uid://ca7mt0w3ffvhe" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="16_vrrpf"]
+[ext_resource type="Script" uid="uid://cvyrqhq08dmm3" path="res://scripts/show_input.gd" id="17_ceigr"]
 [ext_resource type="PackedScene" uid="uid://dqi4bw7t4w0u8" path="res://scenes/add_new_character_animation.tscn" id="17_chxpl"]
 [ext_resource type="Resource" uid="uid://be2db4m15u3w5" path="res://assets/resources/items/cigarro_lobuki.tres" id="17_u0ndw"]
 [ext_resource type="Script" uid="uid://cv43fprb0dski" path="res://scripts/spawns_layer.gd" id="18_4gaeh"]
@@ -38,6 +40,13 @@ size = Vector2(1134, 335)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xik8"]
 size = Vector2(302, 230)
+
+[sub_resource type="Texture2D" id="Texture2D_vrrpf"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("16_vrrpf")
+path = "talks"
+metadata/_custom_type_script = "uid://ca7mt0w3ffvhe"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6xik8"]
 atlas = ExtResource("11_n0a8t")
@@ -211,6 +220,13 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_55pex"]
 radius = 177.553
 
+[sub_resource type="Texture2D" id="Texture2D_c4cm6"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("16_vrrpf")
+path = "talks"
+metadata/_custom_type_script = "uid://ca7mt0w3ffvhe"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_w2263"]
 atlas = ExtResource("11_4ueqp")
 region = Rect2(0, 0, 623, 401)
@@ -250,75 +266,88 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_n0a8t"]
 radius = 161.941
 
+[sub_resource type="Texture2D" id="Texture2D_c4mmd"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("16_vrrpf")
+path = "talks"
+metadata/_custom_type_script = "uid://ca7mt0w3ffvhe"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2kmg"]
 size = Vector2(3840, 2160)
 
-[node name="CuevaDemoTecnico" type="Node2D"]
+[node name="CuevaDemoTecnico" type="Node2D" unique_id=488817035]
 y_sort_enabled = true
 script = ExtResource("1_n0a8t")
 single_map_resource = ExtResource("2_quom2")
 
-[node name="SceneCreatorTool" type="Node" parent="."]
+[node name="SceneCreatorTool" type="Node" parent="." unique_id=1890355290]
 script = ExtResource("1_os3nl")
 metadata/_custom_type_script = "uid://5rnf247xyu5v"
 
-[node name="ParallaxBackgroundLayer" type="Node2D" parent="."]
+[node name="ParallaxBackgroundLayer" type="Node2D" parent="." unique_id=1638347301]
 z_index = -1
 script = ExtResource("2_wd4o3")
 
-[node name="BackgroundLayer" type="Node2D" parent="."]
+[node name="BackgroundLayer" type="Node2D" parent="." unique_id=757565667]
 z_index = -1
 script = ExtResource("3_vai2h")
 
-[node name="Fondo" type="Sprite2D" parent="BackgroundLayer"]
+[node name="Fondo" type="Sprite2D" parent="BackgroundLayer" unique_id=706814698]
 texture = ExtResource("4_55pex")
 
-[node name="Cueva" type="Sprite2D" parent="BackgroundLayer"]
+[node name="Cueva" type="Sprite2D" parent="BackgroundLayer" unique_id=2011263897]
 texture = ExtResource("5_n0a8t")
 
-[node name="SceneChanger" type="Area2D" parent="BackgroundLayer/Cueva" node_paths=PackedStringArray("black_rect")]
+[node name="SceneChanger" type="Area2D" parent="BackgroundLayer/Cueva" unique_id=275854801 node_paths=PackedStringArray("black_rect")]
 script = ExtResource("7_4gaeh")
 target_scene = "res://scenes/maps/demo_tecnico_hub.tscn"
 target_marker = "EntradaCueva"
 black_rect = NodePath("../../../CanvasLayer/BlackRect")
 metadata/_custom_type_script = "uid://bsvp6e76bx107"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/Cueva/SceneChanger"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/Cueva/SceneChanger" unique_id=1175777670]
 polygon = PackedVector2Array(-850, 447, -761, 470, -624, 304, -624, 44, -656, 30, -818, 104, -850, 296)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="BackgroundLayer"]
+[node name="StaticBody2D" type="StaticBody2D" parent="BackgroundLayer" unique_id=1947243324]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D" unique_id=1672924308]
 position = Vector2(16, -4.5)
 shape = SubResource("RectangleShape2D_chxpl")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=475026694]
 polygon = PackedVector2Array(-617, 283, -572, 283, -469, 130, -485, -54, -598, -276, -1030, -233, -1004, 552, -879, 646, -815, 554, -792, 406, -738, 342, -667, 263)
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=805999299]
 polygon = PackedVector2Array(467, 127, 882, 615, 1106, 415, 1005, 31, 484, -134)
 
-[node name="Talk" type="Node2D" parent="BackgroundLayer" node_paths=PackedStringArray("talking_area")]
+[node name="Talk" type="Node2D" parent="BackgroundLayer" unique_id=425450522 node_paths=PackedStringArray("talking_area")]
 position = Vector2(-947, 579)
 script = ExtResource("15_vai2h")
 talking_area = NodePath("Area2D")
 timeline_name = "cigarros_suelo_demo_tecnico"
 metadata/_custom_type_script = "uid://do84xbf65qif"
 
-[node name="Area2D" type="Area2D" parent="BackgroundLayer/Talk"]
+[node name="Area2D" type="Area2D" parent="BackgroundLayer/Talk" unique_id=1904151815]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundLayer/Talk/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundLayer/Talk/Area2D" unique_id=1285253863]
 position = Vector2(141, 105)
 shape = SubResource("RectangleShape2D_6xik8")
 
-[node name="PlayableCharacter" parent="." instance=ExtResource("7_chxpl")]
+[node name="ShowInput" type="Sprite2D" parent="BackgroundLayer/Talk" unique_id=1841451539]
+position = Vector2(54, -185)
+texture = SubResource("Texture2D_vrrpf")
+script = ExtResource("17_ceigr")
+metadata/_custom_type_script = "uid://cvyrqhq08dmm3"
+
+[node name="PlayableCharacter" parent="." unique_id=1947602330 instance=ExtResource("7_chxpl")]
 position = Vector2(-621, 465)
 
-[node name="NpcLayer" type="Node2D" parent="."]
+[node name="NpcLayer" type="Node2D" parent="." unique_id=1198622048]
 y_sort_enabled = true
 script = ExtResource("10_0g27c")
 
-[node name="Lobito" parent="NpcLayer" instance=ExtResource("10_55pex")]
+[node name="Lobito" parent="NpcLayer" unique_id=1932100479 instance=ExtResource("10_55pex")]
 position = Vector2(508, 407)
 
 [node name="AnimatedSprite2D" parent="NpcLayer/Lobito" index="0"]
@@ -330,35 +359,41 @@ offset = Vector2(0, -189)
 [node name="CollisionPolygon2D" parent="NpcLayer/Lobito/StaticBody2D" index="0"]
 polygon = PackedVector2Array(-19, 53, -55, 5, -29, -24, 66, -55, 141, -60, 168, -5, 211, 46, 71, 97, 31, 61)
 
-[node name="Quest" type="Node2D" parent="NpcLayer/Lobito"]
+[node name="Quest" type="Node2D" parent="NpcLayer/Lobito" unique_id=1131178270]
 script = ExtResource("12_os3nl")
 quest_resource = ExtResource("13_55pex")
 dialogic_signal = "lobuki_cigarro_0"
 metadata/_custom_type_script = "uid://bj1igyevn8g64"
 
-[node name="Talk" type="Node2D" parent="NpcLayer/Lobito" node_paths=PackedStringArray("talking_area")]
+[node name="Talk" type="Node2D" parent="NpcLayer/Lobito" unique_id=1236630513 node_paths=PackedStringArray("talking_area")]
 script = ExtResource("15_vai2h")
 talking_area = NodePath("Area2D")
 timeline_name = "lobuki_cigarro_0"
 metadata/_custom_type_script = "uid://do84xbf65qif"
 
-[node name="Area2D" type="Area2D" parent="NpcLayer/Lobito/Talk"]
+[node name="Area2D" type="Area2D" parent="NpcLayer/Lobito/Talk" unique_id=25787047]
 position = Vector2(40, 3)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/Lobito/Talk/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/Lobito/Talk/Area2D" unique_id=987339835]
 shape = SubResource("CircleShape2D_55pex")
 
-[node name="ItemTaker" type="Node" parent="NpcLayer/Lobito"]
+[node name="ShowInput" type="Sprite2D" parent="NpcLayer/Lobito/Talk" unique_id=245233131]
+position = Vector2(111, -454)
+texture = SubResource("Texture2D_c4cm6")
+script = ExtResource("17_ceigr")
+metadata/_custom_type_script = "uid://cvyrqhq08dmm3"
+
+[node name="ItemTaker" type="Node" parent="NpcLayer/Lobito" unique_id=1323240480]
 script = ExtResource("16_n0a8t")
 item = ExtResource("17_u0ndw")
 dialogic_signal = "cigarrete_lobuki_gives"
 metadata/_custom_type_script = "uid://moxcdo1lwavw"
 
-[node name="ObjectLayer" type="Node2D" parent="."]
+[node name="ObjectLayer" type="Node2D" parent="." unique_id=864926928]
 y_sort_enabled = true
 script = ExtResource("11_vrrpf")
 
-[node name="PiedrasFrente" parent="ObjectLayer" instance=ExtResource("13_u0ndw")]
+[node name="PiedrasFrente" parent="ObjectLayer" unique_id=1262249863 instance=ExtResource("13_u0ndw")]
 position = Vector2(0, 818)
 
 [node name="Sprite2D" parent="ObjectLayer/PiedrasFrente" index="0"]
@@ -368,15 +403,15 @@ offset = Vector2(0, -323)
 [node name="CollisionPolygon2D" parent="ObjectLayer/PiedrasFrente/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-1004, -318, -867, -217, -695, -56, -568, -35, -327, -87, -172, -52, 3, -85, 217, -120, 321, -167, 581, -137, 818, -208, 821, -339, 871, -443, 1000, -450, 1036, 5, 390, 45, -1016, 21)
 
-[node name="EnemiesLayer" type="Node2D" parent="."]
+[node name="EnemiesLayer" type="Node2D" parent="." unique_id=1521005982]
 y_sort_enabled = true
 script = ExtResource("12_ceigr")
 
-[node name="SavesLayer" type="Node2D" parent="."]
+[node name="SavesLayer" type="Node2D" parent="." unique_id=2007865816]
 y_sort_enabled = true
 script = ExtResource("13_c4cm6")
 
-[node name="HadaSave" parent="SavesLayer" instance=ExtResource("10_55pex")]
+[node name="HadaSave" parent="SavesLayer" unique_id=1673696133 instance=ExtResource("10_55pex")]
 position = Vector2(0, 156)
 
 [node name="AnimatedSprite2D" parent="SavesLayer/HadaSave" index="0"]
@@ -388,57 +423,62 @@ offset = Vector2(0, -132)
 [node name="CollisionPolygon2D" parent="SavesLayer/HadaSave/StaticBody2D" index="0"]
 polygon = PackedVector2Array(-303, 17, -205, 40, 67, 51, 222, 48, 303, 28, 260, -32, 71, -49, -155, -44, -249, -15)
 
-[node name="Talk" type="Node2D" parent="SavesLayer/HadaSave" node_paths=PackedStringArray("talking_area")]
+[node name="Talk" type="Node2D" parent="SavesLayer/HadaSave" unique_id=1337173165 node_paths=PackedStringArray("talking_area")]
 position = Vector2(-17, -32)
 script = ExtResource("15_vai2h")
 talking_area = NodePath("Area2D")
 timeline_name = "hada_save_cueva_demo"
 metadata/_custom_type_script = "uid://do84xbf65qif"
 
-[node name="Area2D" type="Area2D" parent="SavesLayer/HadaSave/Talk"]
+[node name="Area2D" type="Area2D" parent="SavesLayer/HadaSave/Talk" unique_id=289013269]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SavesLayer/HadaSave/Talk/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SavesLayer/HadaSave/Talk/Area2D" unique_id=937601244]
 shape = SubResource("CircleShape2D_n0a8t")
 
-[node name="SaveButton" type="Node2D" parent="SavesLayer/HadaSave"]
+[node name="ShowInput" type="Sprite2D" parent="SavesLayer/HadaSave/Talk" unique_id=473543698]
+position = Vector2(-11, -371)
+texture = SubResource("Texture2D_c4mmd")
+script = ExtResource("17_ceigr")
+metadata/_custom_type_script = "uid://cvyrqhq08dmm3"
+
+[node name="SaveButton" type="Node2D" parent="SavesLayer/HadaSave" unique_id=1581483897]
 script = ExtResource("23_n0a8t")
 dialogic_save_argument = &"hada_save_cueva_demo"
 metadata/_custom_type_script = "uid://dct4fb2oheved"
 
-[node name="SpawnsLayer" type="Node2D" parent="."]
+[node name="SpawnsLayer" type="Node2D" parent="." unique_id=962499191]
 y_sort_enabled = true
 script = ExtResource("18_4gaeh")
 metadata/_custom_type_script = "uid://cv43fprb0dski"
 
-[node name="DefaultMarker" type="Marker2D" parent="SpawnsLayer"]
+[node name="DefaultMarker" type="Marker2D" parent="SpawnsLayer" unique_id=343029153]
 position = Vector2(-14, 402)
 
-[node name="EntradaCueva" type="Marker2D" parent="SpawnsLayer"]
+[node name="EntradaCueva" type="Marker2D" parent="SpawnsLayer" unique_id=1947436228]
 position = Vector2(-628, 439)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=942976466]
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("14_c4mmd")]
+[node name="PauseMenu" parent="CanvasLayer" unique_id=437761292 instance=ExtResource("14_c4mmd")]
+metadata/_edit_lock_ = true
 
-[node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("16_joev4")]
+[node name="SettingsMenu" parent="CanvasLayer" unique_id=371702260 instance=ExtResource("16_joev4")]
+metadata/_edit_lock_ = true
 
-[node name="NotificationCenter" parent="CanvasLayer" instance=ExtResource("30_6xik8")]
+[node name="NotificationCenter" parent="CanvasLayer" unique_id=960985354 instance=ExtResource("30_6xik8")]
+metadata/_edit_lock_ = true
 
-[node name="AddNewCharacterAnimation" parent="CanvasLayer" instance=ExtResource("17_chxpl")]
+[node name="AddNewCharacterAnimation" parent="CanvasLayer" unique_id=1298839809 instance=ExtResource("17_chxpl")]
+metadata/_edit_lock_ = true
 
-[node name="AddNewItemAnimation" parent="CanvasLayer" instance=ExtResource("29_6xik8")]
+[node name="AddNewItemAnimation" parent="CanvasLayer" unique_id=325338057 instance=ExtResource("29_6xik8")]
+metadata/_edit_lock_ = true
 
-[node name="BlackRect" parent="CanvasLayer" instance=ExtResource("18_brrda")]
+[node name="BlackRect" parent="CanvasLayer" unique_id=1369938301 instance=ExtResource("18_brrda")]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=145332053]
 
-[node name="CameraManager" parent="." instance=ExtResource("19_wvs86")]
-
-[node name="Camera2D" parent="CameraManager" index="0"]
-limit_left = -2356
-limit_top = -2839
-limit_right = 2365
-limit_bottom = 1787
+[node name="CameraManager" parent="." unique_id=1376107199 instance=ExtResource("19_wvs86")]
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
 shape = SubResource("RectangleShape2D_m2kmg")

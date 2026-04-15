@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://cn7cxbug5sjey"]
+[gd_scene format=3 uid="uid://cn7cxbug5sjey"]
 
 [ext_resource type="Script" uid="uid://1et7n8ftkqn" path="res://scripts/battle.gd" id="1_8mi71"]
 [ext_resource type="Script" uid="uid://bt86h2wsa5yga" path="res://scripts/battle_manager.gd" id="2_o8ur5"]
@@ -463,7 +463,7 @@ Vector2i(0, 2): {
 }
 }
 
-[node name="Battle" type="Control" node_paths=PackedStringArray("character_portraits", "enemy_portraits")]
+[node name="Battle" type="Control" unique_id=1081239655 node_paths=PackedStringArray("character_portraits", "enemy_portraits")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -474,7 +474,7 @@ script = ExtResource("1_8mi71")
 character_portraits = NodePath("FightContainer/AllyPortraits")
 enemy_portraits = NodePath("FightContainer/EnemyPortraits")
 
-[node name="BackgroundImage" type="TextureRect" parent="."]
+[node name="BackgroundImage" type="TextureRect" parent="." unique_id=1987137093]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -483,272 +483,272 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_p0caf")
 
-[node name="BattleManager" type="Node" parent="."]
+[node name="BattleManager" type="Node" parent="." unique_id=1003879736]
 script = ExtResource("2_o8ur5")
 
-[node name="BattleActionsManager" type="Node" parent="BattleManager"]
+[node name="BattleActionsManager" type="Node" parent="BattleManager" unique_id=476467828]
 script = ExtResource("3_crp7d")
 
-[node name="PlayerActionsManager" type="Node" parent="BattleManager" node_paths=PackedStringArray("black_rect")]
+[node name="PlayerActionsManager" type="Node" parent="BattleManager" unique_id=1191929215 node_paths=PackedStringArray("black_rect")]
 script = ExtResource("3_76qsu")
 black_rect = NodePath("../../BlackRect")
 
-[node name="EnemyActionsManager" type="Node" parent="BattleManager"]
+[node name="EnemyActionsManager" type="Node" parent="BattleManager" unique_id=1166844687]
 script = ExtResource("9_iipir")
 
-[node name="StateChart" type="Node" parent="BattleManager" groups=["battle"]]
+[node name="StateChart" type="Node" parent="BattleManager" unique_id=77203383 groups=["battle"]]
 unique_name_in_owner = true
 script = ExtResource("3_rw2uy")
 track_in_editor = true
 
-[node name="Root" type="Node" parent="BattleManager/StateChart"]
+[node name="Root" type="Node" parent="BattleManager/StateChart" unique_id=2091193078]
 script = ExtResource("4_pxudf")
 
-[node name="PlayerActions" type="Node" parent="BattleManager/StateChart/Root"]
+[node name="PlayerActions" type="Node" parent="BattleManager/StateChart/Root" unique_id=307908994]
 script = ExtResource("5_3uyq7")
 initial_state = NodePath("Enter")
 
-[node name="Enter" type="Node" parent="BattleManager/StateChart/Root/PlayerActions"]
+[node name="Enter" type="Node" parent="BattleManager/StateChart/Root/PlayerActions" unique_id=1750177854]
 script = ExtResource("6_7by8j")
 
-[node name="ToSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Enter"]
+[node name="ToSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Enter" unique_id=1442314240]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Selecting")
 event = &"setuped"
 delay_in_seconds = "0.0"
 
-[node name="Selecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions"]
+[node name="Selecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions" unique_id=2035066481]
 script = ExtResource("6_7by8j")
 
-[node name="ToTargetSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Selecting"]
+[node name="ToTargetSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Selecting" unique_id=1977446408]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../TargetSelecting")
 event = &"target_select"
 delay_in_seconds = "0.0"
 
-[node name="ToInhabilitating" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Selecting"]
+[node name="ToInhabilitating" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Selecting" unique_id=1113148783]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Inhabilitating")
 event = &"inhabilitated"
 delay_in_seconds = "0.0"
 
-[node name="ToTargetSelectingItem" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Selecting"]
+[node name="ToTargetSelectingItem" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Selecting" unique_id=416631642]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../TargetSelectingItem")
 event = &"target_select_item"
 delay_in_seconds = "0.0"
 
-[node name="TargetSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions"]
+[node name="TargetSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions" unique_id=299485558]
 script = ExtResource("6_7by8j")
 
-[node name="ToAbilitying" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/TargetSelecting"]
+[node name="ToAbilitying" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/TargetSelecting" unique_id=1101375351]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Abilitying")
 event = &"using_ability"
 delay_in_seconds = "0.0"
 
-[node name="ToInhabilitating" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/TargetSelecting"]
+[node name="ToInhabilitating" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/TargetSelecting" unique_id=1633073206]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Inhabilitating")
 event = &"inhabilitated"
 delay_in_seconds = "0.0"
 
-[node name="ToSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/TargetSelecting"]
+[node name="ToSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/TargetSelecting" unique_id=1661458557]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Selecting")
 event = &"repeat_select"
 delay_in_seconds = "0.0"
 
-[node name="TargetSelectingItem" type="Node" parent="BattleManager/StateChart/Root/PlayerActions"]
+[node name="TargetSelectingItem" type="Node" parent="BattleManager/StateChart/Root/PlayerActions" unique_id=951857467]
 script = ExtResource("6_7by8j")
 
-[node name="ToInhabilitating" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/TargetSelectingItem"]
+[node name="ToInhabilitating" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/TargetSelectingItem" unique_id=634286970]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Inhabilitating")
 event = &"inhabilitated"
 delay_in_seconds = "0.0"
 
-[node name="ToSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/TargetSelectingItem"]
+[node name="ToSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/TargetSelectingItem" unique_id=2109415194]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Selecting")
 event = &"repeat_select"
 delay_in_seconds = "0.0"
 
-[node name="ToIteming" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/TargetSelectingItem"]
+[node name="ToIteming" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/TargetSelectingItem" unique_id=312297628]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Iteming")
 event = &"using_item"
 delay_in_seconds = "0.0"
 
-[node name="Abilitying" type="Node" parent="BattleManager/StateChart/Root/PlayerActions"]
+[node name="Abilitying" type="Node" parent="BattleManager/StateChart/Root/PlayerActions" unique_id=739772398]
 script = ExtResource("6_7by8j")
 
-[node name="ToSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Abilitying"]
+[node name="ToSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Abilitying" unique_id=837072602]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Selecting")
 event = &"repeat_select"
 delay_in_seconds = "0.0"
 
-[node name="ToInhabilitating" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Abilitying"]
+[node name="ToInhabilitating" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Abilitying" unique_id=1562239581]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Inhabilitating")
 event = &"inhabilitated"
 delay_in_seconds = "0.0"
 
-[node name="Iteming" type="Node" parent="BattleManager/StateChart/Root/PlayerActions"]
+[node name="Iteming" type="Node" parent="BattleManager/StateChart/Root/PlayerActions" unique_id=386109923]
 script = ExtResource("6_7by8j")
 
-[node name="ToInhabilitating" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Iteming"]
+[node name="ToInhabilitating" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Iteming" unique_id=1921220103]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Inhabilitating")
 event = &"inhabilitated"
 delay_in_seconds = "0.0"
 
-[node name="ToSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Iteming"]
+[node name="ToSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Iteming" unique_id=201193138]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Selecting")
 event = &"repeat_select"
 delay_in_seconds = "0.0"
 
-[node name="Inhabilitating" type="Node" parent="BattleManager/StateChart/Root/PlayerActions"]
+[node name="Inhabilitating" type="Node" parent="BattleManager/StateChart/Root/PlayerActions" unique_id=720150569]
 script = ExtResource("6_7by8j")
 
-[node name="ToLosing" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Inhabilitating"]
+[node name="ToLosing" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Inhabilitating" unique_id=1293363852]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Losing")
 event = &"lost"
 guard = SubResource("Resource_lampa")
 delay_in_seconds = "0.0"
 
-[node name="ToSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Inhabilitating"]
+[node name="ToSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Inhabilitating" unique_id=2064923390]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Selecting")
 event = &"repeat_select"
 delay_in_seconds = "0.0"
 
-[node name="ToWinning" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Inhabilitating"]
+[node name="ToWinning" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Inhabilitating" unique_id=1800236352]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Winning")
 event = &"wins"
 guard = SubResource("Resource_bmx0w")
 delay_in_seconds = "0.0"
 
-[node name="ToTargetSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Inhabilitating"]
+[node name="ToTargetSelecting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Inhabilitating" unique_id=1455833925]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../TargetSelecting")
 event = &"target_select"
 delay_in_seconds = "0.0"
 
-[node name="ToTargetSelectingItem" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Inhabilitating"]
+[node name="ToTargetSelectingItem" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Inhabilitating" unique_id=112189081]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../TargetSelectingItem")
 event = &"target_select_item"
 delay_in_seconds = "0.0"
 
-[node name="Losing" type="Node" parent="BattleManager/StateChart/Root/PlayerActions"]
+[node name="Losing" type="Node" parent="BattleManager/StateChart/Root/PlayerActions" unique_id=2105366847]
 script = ExtResource("6_7by8j")
 
-[node name="Winning" type="Node" parent="BattleManager/StateChart/Root/PlayerActions"]
+[node name="Winning" type="Node" parent="BattleManager/StateChart/Root/PlayerActions" unique_id=304423497]
 script = ExtResource("6_7by8j")
 
-[node name="ToLooting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Winning"]
+[node name="ToLooting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions/Winning" unique_id=1472201795]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Looting")
 event = &"loots"
 delay_in_seconds = "0.0"
 
-[node name="Looting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions"]
+[node name="Looting" type="Node" parent="BattleManager/StateChart/Root/PlayerActions" unique_id=1722452815]
 script = ExtResource("6_7by8j")
 
-[node name="EnemyActions" type="Node" parent="BattleManager/StateChart/Root"]
+[node name="EnemyActions" type="Node" parent="BattleManager/StateChart/Root" unique_id=1126674157]
 script = ExtResource("5_3uyq7")
 initial_state = NodePath("Enter")
 
-[node name="Enter" type="Node" parent="BattleManager/StateChart/Root/EnemyActions"]
+[node name="Enter" type="Node" parent="BattleManager/StateChart/Root/EnemyActions" unique_id=1111241924]
 script = ExtResource("6_7by8j")
 
-[node name="ToSelecting" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/Enter"]
+[node name="ToSelecting" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/Enter" unique_id=43534215]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Selecting")
 event = &"setuped"
 delay_in_seconds = "0.0"
 
-[node name="Selecting" type="Node" parent="BattleManager/StateChart/Root/EnemyActions"]
+[node name="Selecting" type="Node" parent="BattleManager/StateChart/Root/EnemyActions" unique_id=1128298375]
 script = ExtResource("6_7by8j")
 
-[node name="ToTargetSelecting" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/Selecting"]
+[node name="ToTargetSelecting" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/Selecting" unique_id=1051601516]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../TargetSelecting")
 event = &"enemy_target"
 delay_in_seconds = "0.0"
 
-[node name="ToLosing" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/Selecting"]
+[node name="ToLosing" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/Selecting" unique_id=1251474621]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Losing")
 event = &"lost"
 guard = SubResource("Resource_lampa")
 delay_in_seconds = "0.0"
 
-[node name="ToWinning" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/Selecting"]
+[node name="ToWinning" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/Selecting" unique_id=2131766158]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Winning")
 event = &"wins"
 guard = SubResource("Resource_j3gal")
 delay_in_seconds = "0.0"
 
-[node name="TargetSelecting" type="Node" parent="BattleManager/StateChart/Root/EnemyActions"]
+[node name="TargetSelecting" type="Node" parent="BattleManager/StateChart/Root/EnemyActions" unique_id=184889750]
 script = ExtResource("6_7by8j")
 
-[node name="ToAbilitying" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/TargetSelecting"]
+[node name="ToAbilitying" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/TargetSelecting" unique_id=112684601]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Abilitying")
 event = &"enemy_using_ability"
 delay_in_seconds = "0.0"
 
-[node name="ToLosing" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/TargetSelecting"]
+[node name="ToLosing" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/TargetSelecting" unique_id=1723974698]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Losing")
 event = &"lost"
 guard = SubResource("Resource_lampa")
 delay_in_seconds = "0.0"
 
-[node name="ToWinning" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/TargetSelecting"]
+[node name="ToWinning" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/TargetSelecting" unique_id=1122916370]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Winning")
 event = &"wins"
 guard = SubResource("Resource_j3gal")
 delay_in_seconds = "0.0"
 
-[node name="Abilitying" type="Node" parent="BattleManager/StateChart/Root/EnemyActions"]
+[node name="Abilitying" type="Node" parent="BattleManager/StateChart/Root/EnemyActions" unique_id=605923553]
 script = ExtResource("6_7by8j")
 
-[node name="ToSelecting" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/Abilitying"]
+[node name="ToSelecting" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/Abilitying" unique_id=1245580481]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Selecting")
 event = &"enemy_repeat_select"
 delay_in_seconds = "0.0"
 
-[node name="ToLosing" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/Abilitying"]
+[node name="ToLosing" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/Abilitying" unique_id=1695034978]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Losing")
 event = &"lost"
 guard = SubResource("Resource_lampa")
 delay_in_seconds = "0.0"
 
-[node name="ToWinning" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/Abilitying"]
+[node name="ToWinning" type="Node" parent="BattleManager/StateChart/Root/EnemyActions/Abilitying" unique_id=51968861]
 script = ExtResource("8_xgf7e")
 to = NodePath("../../Winning")
 event = &"wins"
 guard = SubResource("Resource_j3gal")
 delay_in_seconds = "0.0"
 
-[node name="Losing" type="Node" parent="BattleManager/StateChart/Root/EnemyActions"]
+[node name="Losing" type="Node" parent="BattleManager/StateChart/Root/EnemyActions" unique_id=1262352274]
 script = ExtResource("6_7by8j")
 
-[node name="Winning" type="Node" parent="BattleManager/StateChart/Root/EnemyActions"]
+[node name="Winning" type="Node" parent="BattleManager/StateChart/Root/EnemyActions" unique_id=2120232077]
 script = ExtResource("6_7by8j")
 
-[node name="AttackMenu" type="Control" parent="."]
+[node name="AttackMenu" type="Control" parent="." unique_id=1376293867]
 unique_name_in_owner = true
 visible = false
 z_index = 55
@@ -763,7 +763,7 @@ offset_right = 471.0
 offset_bottom = -250.0
 grow_vertical = 2
 
-[node name="AllyThumbnailContainer" type="PanelContainer" parent="AttackMenu"]
+[node name="AllyThumbnailContainer" type="PanelContainer" parent="AttackMenu" unique_id=180272352]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = -321.0
@@ -772,14 +772,14 @@ offset_right = -51.0
 offset_bottom = 625.0
 theme = ExtResource("13_f0g0v")
 
-[node name="MarginContainer" type="MarginContainer" parent="AttackMenu/AllyThumbnailContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="AttackMenu/AllyThumbnailContainer" unique_id=1249315051]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = -3
 
-[node name="AllyThumbnail" type="TextureRect" parent="AttackMenu/AllyThumbnailContainer/MarginContainer"]
+[node name="AllyThumbnail" type="TextureRect" parent="AttackMenu/AllyThumbnailContainer/MarginContainer" unique_id=1639446744]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
@@ -787,7 +787,7 @@ texture = ExtResource("14_mpb26")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="AbilitiesContainer" type="PanelContainer" parent="AttackMenu"]
+[node name="AbilitiesContainer" type="PanelContainer" parent="AttackMenu" unique_id=595930625]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(963, 556)
 layout_mode = 1
@@ -801,22 +801,22 @@ offset_bottom = 515.0
 grow_vertical = 2
 theme = ExtResource("13_f0g0v")
 
-[node name="MarginContainer" type="MarginContainer" parent="AttackMenu/AbilitiesContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="AttackMenu/AbilitiesContainer" unique_id=1071413191]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="AbilityNameContainer" type="VBoxContainer" parent="AttackMenu/AbilitiesContainer/MarginContainer"]
+[node name="AbilityNameContainer" type="VBoxContainer" parent="AttackMenu/AbilitiesContainer/MarginContainer" unique_id=199923543]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="AbilityName" parent="AttackMenu/AbilitiesContainer/MarginContainer/AbilityNameContainer" instance=ExtResource("15_4u087")]
+[node name="AbilityName" parent="AttackMenu/AbilitiesContainer/MarginContainer/AbilityNameContainer" unique_id=1796115453 instance=ExtResource("15_4u087")]
 layout_mode = 2
 
-[node name="InfoContainer" type="HBoxContainer" parent="AttackMenu"]
+[node name="InfoContainer" type="HBoxContainer" parent="AttackMenu" unique_id=1000488413]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -827,11 +827,11 @@ offset_right = 550.0
 offset_bottom = 626.0
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="AttackMenu/InfoContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="AttackMenu/InfoContainer" unique_id=1339779088]
 layout_mode = 2
 theme = ExtResource("16_rwtbh")
 
-[node name="IconHealth" type="TextureRect" parent="AttackMenu/InfoContainer/PanelContainer"]
+[node name="IconHealth" type="TextureRect" parent="AttackMenu/InfoContainer/PanelContainer" unique_id=1311844278]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -842,7 +842,7 @@ stretch_mode = 3
 flip_h = true
 flip_v = true
 
-[node name="IconDagger" type="TextureRect" parent="AttackMenu/InfoContainer/PanelContainer"]
+[node name="IconDagger" type="TextureRect" parent="AttackMenu/InfoContainer/PanelContainer" unique_id=1110639539]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
@@ -852,12 +852,12 @@ stretch_mode = 3
 flip_h = true
 flip_v = true
 
-[node name="MarginContainer" type="MarginContainer" parent="AttackMenu/InfoContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="AttackMenu/InfoContainer/PanelContainer" unique_id=1986502036]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 120
 
-[node name="DamageValue" type="RichTextLabel" parent="AttackMenu/InfoContainer/PanelContainer/MarginContainer"]
+[node name="DamageValue" type="RichTextLabel" parent="AttackMenu/InfoContainer/PanelContainer/MarginContainer" unique_id=1807758902]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
@@ -868,11 +868,11 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="PanelContainer2" type="PanelContainer" parent="AttackMenu/InfoContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="AttackMenu/InfoContainer" unique_id=1387262005]
 layout_mode = 2
 theme = ExtResource("16_rwtbh")
 
-[node name="TextureRect" type="TextureRect" parent="AttackMenu/InfoContainer/PanelContainer2"]
+[node name="TextureRect" type="TextureRect" parent="AttackMenu/InfoContainer/PanelContainer2" unique_id=1778401268]
 layout_mode = 2
 size_flags_horizontal = 8
 texture = ExtResource("21_8a2ah")
@@ -881,12 +881,12 @@ stretch_mode = 3
 flip_h = true
 flip_v = true
 
-[node name="MarginContainer" type="MarginContainer" parent="AttackMenu/InfoContainer/PanelContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="AttackMenu/InfoContainer/PanelContainer2" unique_id=1263977410]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 125
 
-[node name="TimeValue" type="RichTextLabel" parent="AttackMenu/InfoContainer/PanelContainer2/MarginContainer"]
+[node name="TimeValue" type="RichTextLabel" parent="AttackMenu/InfoContainer/PanelContainer2/MarginContainer" unique_id=552105920]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
@@ -897,7 +897,7 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="TkioExe" type="PanelContainer" parent="AttackMenu"]
+[node name="TkioExe" type="PanelContainer" parent="AttackMenu" unique_id=375745260]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -908,16 +908,16 @@ offset_bottom = 13.0
 grow_vertical = 2
 theme = ExtResource("13_lv4so")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="AttackMenu/TkioExe"]
+[node name="HBoxContainer" type="HBoxContainer" parent="AttackMenu/TkioExe" unique_id=1040608963]
 layout_mode = 2
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="AttackMenu/TkioExe/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="AttackMenu/TkioExe/HBoxContainer" unique_id=259647916]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 80
 
-[node name="RichTextLabel" type="RichTextLabel" parent="AttackMenu/TkioExe/HBoxContainer/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="AttackMenu/TkioExe/HBoxContainer/MarginContainer" unique_id=703729906]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -929,12 +929,12 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="TextureRect" type="TextureRect" parent="AttackMenu/TkioExe/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="AttackMenu/TkioExe/HBoxContainer" unique_id=762413708]
 layout_mode = 2
 texture = ExtResource("15_rwtbh")
 stretch_mode = 5
 
-[node name="BackTexture" type="TextureRect" parent="AttackMenu"]
+[node name="BackTexture" type="TextureRect" parent="AttackMenu" unique_id=911773681]
 layout_mode = 0
 offset_left = 1053.0
 offset_top = 472.0
@@ -942,7 +942,7 @@ offset_right = 1402.0
 offset_bottom = 612.0
 texture = ExtResource("24_gmkwt")
 
-[node name="ItemMenu" type="Control" parent="."]
+[node name="ItemMenu" type="Control" parent="." unique_id=119345095]
 unique_name_in_owner = true
 visible = false
 z_index = 55
@@ -956,58 +956,58 @@ offset_right = 40.0
 offset_bottom = 20.0
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ItemMenu"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ItemMenu" unique_id=524068751]
 clip_contents = true
-layout_mode = 2
+layout_mode = 0
 offset_left = 224.0
 offset_top = -763.0
 offset_right = 2155.0
 offset_bottom = 473.0
 theme_override_constants/separation = 0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ItemMenu/HBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="ItemMenu/HBoxContainer" unique_id=1378457345]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("23_1rdfn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_1rdfn")
 follow_focus = true
 horizontal_scroll_mode = 0
 
-[node name="ItemsContainer" type="PanelContainer" parent="ItemMenu/HBoxContainer/ScrollContainer"]
+[node name="ItemsContainer" type="PanelContainer" parent="ItemMenu/HBoxContainer/ScrollContainer" unique_id=901936483]
 custom_minimum_size = Vector2(1066, 1236)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_r0ctv")
 
-[node name="MarginContainer" type="MarginContainer" parent="ItemMenu/HBoxContainer/ScrollContainer/ItemsContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ItemMenu/HBoxContainer/ScrollContainer/ItemsContainer" unique_id=959467076]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="ItemNameContainer" type="VBoxContainer" parent="ItemMenu/HBoxContainer/ScrollContainer/ItemsContainer/MarginContainer"]
+[node name="ItemNameContainer" type="VBoxContainer" parent="ItemMenu/HBoxContainer/ScrollContainer/ItemsContainer/MarginContainer" unique_id=1728754152]
 unique_name_in_owner = true
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 0
 
-[node name="ItemName" parent="ItemMenu/HBoxContainer/ScrollContainer/ItemsContainer/MarginContainer/ItemNameContainer" instance=ExtResource("23_r0ctv")]
+[node name="ItemName" parent="ItemMenu/HBoxContainer/ScrollContainer/ItemsContainer/MarginContainer/ItemNameContainer" unique_id=1685106912 instance=ExtResource("23_r0ctv")]
 layout_mode = 2
 
-[node name="NoItemsLabel" type="PanelContainer" parent="ItemMenu/HBoxContainer/ScrollContainer/ItemsContainer/MarginContainer"]
+[node name="NoItemsLabel" type="PanelContainer" parent="ItemMenu/HBoxContainer/ScrollContainer/ItemsContainer/MarginContainer" unique_id=307864379]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("16_rwtbh")
 
-[node name="MarginContainer" type="MarginContainer" parent="ItemMenu/HBoxContainer/ScrollContainer/ItemsContainer/MarginContainer/NoItemsLabel"]
+[node name="MarginContainer" type="MarginContainer" parent="ItemMenu/HBoxContainer/ScrollContainer/ItemsContainer/MarginContainer/NoItemsLabel" unique_id=166277424]
 layout_mode = 2
 size_flags_horizontal = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_right = 32
 
-[node name="ItemName" type="RichTextLabel" parent="ItemMenu/HBoxContainer/ScrollContainer/ItemsContainer/MarginContainer/NoItemsLabel/MarginContainer"]
+[node name="ItemName" type="RichTextLabel" parent="ItemMenu/HBoxContainer/ScrollContainer/ItemsContainer/MarginContainer/NoItemsLabel/MarginContainer" unique_id=1566624928]
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("14_eivww")
@@ -1017,32 +1017,32 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="ItemMenu/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ItemMenu/HBoxContainer" unique_id=1830136794]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/margin_top = 190
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ItemMenu/HBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ItemMenu/HBoxContainer/MarginContainer" unique_id=19290637]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 18
 
-[node name="ItemThumbnailContainer" type="PanelContainer" parent="ItemMenu/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="ItemThumbnailContainer" type="PanelContainer" parent="ItemMenu/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1724731995]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 theme = ExtResource("13_f0g0v")
 theme_override_styles/panel = SubResource("StyleBoxFlat_r0ctv")
 
-[node name="MarginContainer" type="MarginContainer" parent="ItemMenu/HBoxContainer/MarginContainer/VBoxContainer/ItemThumbnailContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ItemMenu/HBoxContainer/MarginContainer/VBoxContainer/ItemThumbnailContainer" unique_id=1995076134]
 layout_mode = 2
 theme_override_constants/margin_left = 41
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 40
 
-[node name="ItemThumbnail" type="TextureRect" parent="ItemMenu/HBoxContainer/MarginContainer/VBoxContainer/ItemThumbnailContainer/MarginContainer"]
+[node name="ItemThumbnail" type="TextureRect" parent="ItemMenu/HBoxContainer/MarginContainer/VBoxContainer/ItemThumbnailContainer/MarginContainer" unique_id=1027100956]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
@@ -1050,15 +1050,15 @@ texture = ExtResource("22_ikjs2")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="ItemMenu/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ItemMenu/HBoxContainer/MarginContainer/VBoxContainer" unique_id=2127058017]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 
-[node name="PanelContainer" type="PanelContainer" parent="ItemMenu/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="ItemMenu/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1500715315]
 layout_mode = 2
 theme = ExtResource("16_rwtbh")
 
-[node name="ItemIconHealth" type="TextureRect" parent="ItemMenu/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer"]
+[node name="ItemIconHealth" type="TextureRect" parent="ItemMenu/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer" unique_id=989855346]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -1069,7 +1069,7 @@ stretch_mode = 3
 flip_h = true
 flip_v = true
 
-[node name="ItemIconDagger" type="TextureRect" parent="ItemMenu/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer"]
+[node name="ItemIconDagger" type="TextureRect" parent="ItemMenu/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer" unique_id=1598516603]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
@@ -1079,12 +1079,12 @@ stretch_mode = 3
 flip_h = true
 flip_v = true
 
-[node name="MarginContainer" type="MarginContainer" parent="ItemMenu/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ItemMenu/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer" unique_id=854272209]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 125
 
-[node name="ItemValue" type="RichTextLabel" parent="ItemMenu/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/MarginContainer"]
+[node name="ItemValue" type="RichTextLabel" parent="ItemMenu/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/MarginContainer" unique_id=980092137]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
@@ -1095,11 +1095,11 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="BackTexture" type="TextureRect" parent="ItemMenu/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="BackTexture" type="TextureRect" parent="ItemMenu/HBoxContainer/MarginContainer/VBoxContainer" unique_id=831956203]
 layout_mode = 2
 texture = ExtResource("24_gmkwt")
 
-[node name="TkioExe" type="PanelContainer" parent="ItemMenu"]
+[node name="TkioExe" type="PanelContainer" parent="ItemMenu" unique_id=77214713]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1111,16 +1111,16 @@ offset_bottom = -732.0
 grow_vertical = 2
 theme = ExtResource("13_lv4so")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ItemMenu/TkioExe"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ItemMenu/TkioExe" unique_id=2093101217]
 layout_mode = 2
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="ItemMenu/TkioExe/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ItemMenu/TkioExe/HBoxContainer" unique_id=620685857]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 80
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ItemMenu/TkioExe/HBoxContainer/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="ItemMenu/TkioExe/HBoxContainer/MarginContainer" unique_id=1926780217]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -1132,12 +1132,12 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="TextureRect" type="TextureRect" parent="ItemMenu/TkioExe/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="ItemMenu/TkioExe/HBoxContainer" unique_id=1407111157]
 layout_mode = 2
 texture = ExtResource("15_rwtbh")
 stretch_mode = 5
 
-[node name="AttackMenuDel" type="VBoxContainer" parent="."]
+[node name="AttackMenuDel" type="VBoxContainer" parent="." unique_id=1439218481]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 4
@@ -1150,7 +1150,7 @@ offset_bottom = 111.0
 grow_vertical = 2
 alignment = 1
 
-[node name="ItemMenuDel" type="VBoxContainer" parent="."]
+[node name="ItemMenuDel" type="VBoxContainer" parent="." unique_id=600345091]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -1166,10 +1166,10 @@ offset_bottom = 63.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="ItemBattleButton" parent="ItemMenuDel" instance=ExtResource("12_h4dll")]
+[node name="ItemBattleButton" parent="ItemMenuDel" unique_id=1753755779 instance=ExtResource("12_h4dll")]
 layout_mode = 2
 
-[node name="FightContainer" type="VBoxContainer" parent="."]
+[node name="FightContainer" type="VBoxContainer" parent="." unique_id=1500437851]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1184,14 +1184,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 150
 
-[node name="EnemyPortraits" type="HBoxContainer" parent="FightContainer"]
+[node name="EnemyPortraits" type="HBoxContainer" parent="FightContainer" unique_id=1313605069]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 80
 alignment = 1
 script = ExtResource("12_p0caf")
 
-[node name="AllyPortraits" type="HBoxContainer" parent="FightContainer"]
+[node name="AllyPortraits" type="HBoxContainer" parent="FightContainer" unique_id=753165847]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
@@ -1199,7 +1199,7 @@ theme_override_constants/separation = 160
 alignment = 1
 script = ExtResource("3_s5yx3")
 
-[node name="LootText" type="RichTextLabel" parent="."]
+[node name="LootText" type="RichTextLabel" parent="." unique_id=1348161403]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -1220,7 +1220,7 @@ text = "Recibes:
 fit_content = true
 vertical_alignment = 1
 
-[node name="VictoryKio" type="Control" parent="."]
+[node name="VictoryKio" type="Control" parent="." unique_id=762873690]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -1231,7 +1231,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("17_bi5l8")
 
-[node name="Star3" type="TextureRect" parent="VictoryKio"]
+[node name="Star3" type="TextureRect" parent="VictoryKio" unique_id=229107537]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -1247,7 +1247,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("17_fpf3k")
 
-[node name="Star2" type="TextureRect" parent="VictoryKio"]
+[node name="Star2" type="TextureRect" parent="VictoryKio" unique_id=2128709519]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -1263,7 +1263,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("18_bi5l8")
 
-[node name="Star1" type="TextureRect" parent="VictoryKio"]
+[node name="Star1" type="TextureRect" parent="VictoryKio" unique_id=728138062]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -1279,7 +1279,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("19_jt4d8")
 
-[node name="Kio" type="TextureRect" parent="VictoryKio"]
+[node name="Kio" type="TextureRect" parent="VictoryKio" unique_id=1000271690]
 z_index = 50
 z_as_relative = false
 layout_mode = 1
@@ -1297,12 +1297,10 @@ grow_vertical = 2
 pivot_offset = Vector2(839, 857)
 texture = ExtResource("21_jt4d8")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="VictoryKio"]
-libraries = {
-&"": SubResource("AnimationLibrary_eivww")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VictoryKio" unique_id=2105430822]
+libraries/ = SubResource("AnimationLibrary_eivww")
 
-[node name="LootContainer" type="Control" parent="."]
+[node name="LootContainer" type="Control" parent="." unique_id=979262782]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -1312,11 +1310,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="LootItem" parent="LootContainer" instance=ExtResource("22_kl6ie")]
+[node name="LootItem" parent="LootContainer" unique_id=1634937235 instance=ExtResource("22_kl6ie")]
 visible = false
 layout_mode = 1
 
-[node name="WinText" type="RichTextLabel" parent="."]
+[node name="WinText" type="RichTextLabel" parent="." unique_id=1871979892]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -1335,7 +1333,7 @@ theme_override_font_sizes/normal_font_size = 64
 bbcode_enabled = true
 text = "[center]GANASTE!"
 
-[node name="LoseScreen" type="Control" parent="."]
+[node name="LoseScreen" type="Control" parent="." unique_id=1691920630]
 unique_name_in_owner = true
 visible = false
 modulate = Color(1, 1, 1, 0)
@@ -1349,7 +1347,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ColorRect" type="ColorRect" parent="LoseScreen"]
+[node name="ColorRect" type="ColorRect" parent="LoseScreen" unique_id=724944358]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1358,7 +1356,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="ContinueButtons" type="HBoxContainer" parent="LoseScreen"]
+[node name="ContinueButtons" type="HBoxContainer" parent="LoseScreen" unique_id=528300104]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -1374,19 +1372,19 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="ContinueButton" type="Button" parent="LoseScreen/ContinueButtons"]
+[node name="ContinueButton" type="Button" parent="LoseScreen/ContinueButtons" unique_id=267816702]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("17_61i1y")
 text = "¿Continuar?"
 
-[node name="Quit" type="Button" parent="LoseScreen/ContinueButtons"]
+[node name="Quit" type="Button" parent="LoseScreen/ContinueButtons" unique_id=199200862]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("17_61i1y")
 text = "Salir"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LoseScreen"]
+[node name="VBoxContainer" type="VBoxContainer" parent="LoseScreen" unique_id=1197314207]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1400,11 +1398,11 @@ offset_bottom = 703.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="LoseScreen/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="LoseScreen/VBoxContainer" unique_id=1289481480]
 layout_mode = 2
 texture = ExtResource("32_fqtyt")
 
-[node name="LoseText" type="RichTextLabel" parent="LoseScreen/VBoxContainer"]
+[node name="LoseText" type="RichTextLabel" parent="LoseScreen/VBoxContainer" unique_id=712865735]
 layout_mode = 2
 theme = ExtResource("33_8a2ah")
 bbcode_enabled = true
@@ -1413,7 +1411,7 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="LoseText2" type="RichTextLabel" parent="LoseScreen/VBoxContainer"]
+[node name="LoseText2" type="RichTextLabel" parent="LoseScreen/VBoxContainer" unique_id=984209499]
 layout_mode = 2
 theme = ExtResource("33_8a2ah")
 theme_override_font_sizes/normal_font_size = 61
@@ -1426,13 +1424,11 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="LoseAnimationPlayer" type="AnimationPlayer" parent="LoseScreen"]
+[node name="LoseAnimationPlayer" type="AnimationPlayer" parent="LoseScreen" unique_id=971059515]
 unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_ikjs2")
-}
+libraries/ = SubResource("AnimationLibrary_ikjs2")
 
-[node name="BattleTexture" type="TextureRect" parent="."]
+[node name="BattleTexture" type="TextureRect" parent="." unique_id=328311130]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -1450,13 +1446,11 @@ pivot_offset = Vector2(962.5, 261)
 texture = ExtResource("40_1i0gj")
 expand_mode = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="BattleTexture"]
-libraries = {
-&"": SubResource("AnimationLibrary_drx85")
-}
-autoplay = "battle_start"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BattleTexture" unique_id=15689487]
+libraries/ = SubResource("AnimationLibrary_drx85")
+autoplay = &"battle_start"
 
-[node name="BlackRect" type="ColorRect" parent="."]
+[node name="BlackRect" type="ColorRect" parent="." unique_id=1761474155]
 visible = false
 modulate = Color(0, 0, 0, 1)
 z_index = 4096
@@ -1470,13 +1464,13 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="CooldownNotFinishedSound" type="AudioStreamPlayer" parent="."]
+[node name="CooldownNotFinishedSound" type="AudioStreamPlayer" parent="." unique_id=78943230]
 unique_name_in_owner = true
 stream = ExtResource("38_4gblq")
 volume_db = 7.0
 bus = &"SFX"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2118470728]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamInteractive_0bxd8")
 autoplay = true

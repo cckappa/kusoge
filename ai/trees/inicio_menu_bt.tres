@@ -1,0 +1,25 @@
+[gd_resource type="BehaviorTree" format=3 uid="uid://dsarrq668pfp2"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_gah3b"]
+
+[sub_resource type="BBNode" id="BBNode_lmovl"]
+saved_value = NodePath("InicioMenuBTPlayerManager")
+resource_name = "InicioMenuBTPlayerManager"
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_yddrv"]
+node = SubResource("BBNode_lmovl")
+method = &"ready_scene"
+
+[sub_resource type="BTRunLimit" id="BTRunLimit_p0hcp"]
+children = [SubResource("BTCallMethod_yddrv")]
+
+[sub_resource type="BTSelector" id="BTSelector_kbrto"]
+custom_name = "Selector - Ready"
+children = [SubResource("BTRunLimit_p0hcp")]
+
+[sub_resource type="BTSelector" id="BTSelector_ug8rx"]
+children = [SubResource("BTSelector_kbrto")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_gah3b")
+root_task = SubResource("BTSelector_ug8rx")

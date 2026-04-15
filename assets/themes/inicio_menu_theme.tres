@@ -1,0 +1,21 @@
+[gd_resource type="Theme" format=3 uid="uid://0mfrataxbvwd"]
+
+[ext_resource type="FontFile" uid="uid://cugoftt3cwwba" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Medium.ttf" id="1_ivj1k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_306uy"]
+bg_color = Color(1, 1, 1, 1)
+skew = Vector2(0.3, 0)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[resource]
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 90
+MarginContainer/constants/margin_right = 90
+MarginContainer/constants/margin_top = 10
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_306uy")
+RichTextLabel/colors/default_color = Color(0.011764706, 0.05490196, 0.6156863, 1)
+RichTextLabel/font_sizes/normal_font_size = 80
+RichTextLabel/fonts/normal_font = ExtResource("1_ivj1k")

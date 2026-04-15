@@ -10,11 +10,13 @@ extends Node2D
 var talking:=false
 var talking_zone:=false
 var automatic_start_triggered:=false
+var show_input :ShowInput
 
 func _ready() -> void:
 	talking_area.connect("body_entered", enters_area)
 	talking_area.connect("body_exited", exits_area)
 	SignalBus.connect("changing_scene", _on_changing_scene)
+	show_input = find_child("ShowInput")
 
 func start_dialog() -> void:
 	talking = true
@@ -41,6 +43,8 @@ func enters_area(body:Node2D) -> void:
 	print("body entered: ", body.name, " disabled: ", disabled)
 	if body.is_in_group("main_character") and not disabled:
 		print(body.name)
+		if show_input:
+			show_input.appear_input_label()
 		talking_zone = true
 		if automatic_start and !talking:
 			var press := InputEventAction.new()
@@ -62,6 +66,8 @@ func enters_area(body:Node2D) -> void:
 func exits_area(body:Node2D) -> void:
 	if body.is_in_group("main_character"):
 		print(body.name)
+		if show_input:
+			show_input.disappear_input_label()
 		talking_zone = false
 
 func _on_changing_scene() -> void:
