@@ -6,7 +6,7 @@ var current_size: Vector2
 var current_position: Vector2
 var y_offset: float = 50
 var min_scale: Vector2 = Vector2(0.7, 0.7)
-var tween_time: float = 0.2
+var tween_time: float = 0.1
 
 func _ready() -> void:
 	panel_container.size = Vector2(0,0)

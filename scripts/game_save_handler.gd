@@ -190,3 +190,21 @@ func clear_current_globals() -> void:
 	# Globals.maps.clear()
 	Globals.current_map_path = ""
 	Globals.key_variables.clear()
+
+func save_file_exists(path:String = SAVE_PATH + SAVE_FILE_NAME) -> bool:
+	if FileAccess.file_exists(path):
+		var file := FileAccess.open_encrypted_with_pass(path, FileAccess.READ, SECURITY_KEY)
+		if file == null:
+			print(FileAccess.get_open_error())
+			return false
+		
+		var content := file.get_as_text()
+		file.close()
+		
+		var data:Dictionary = JSON.parse_string(content)
+		if data == null:
+			return false
+		
+		return true
+	else:
+		return false

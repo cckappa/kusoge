@@ -6,6 +6,7 @@ const demo_scene := preload("res://scenes/maps/demo_tecnico_hub.tscn")
 # @export var settings:Button
 # @export var settings_menu:Control
 
+@onready var inicio_menu_limbo_hsm:LimboHSM=$InicioMenuLimboHSM
 @onready var black_rect := %BlackRect
 @onready var intro_screen := $IntroScreen
 
@@ -19,6 +20,7 @@ func _ready()->void:
 	# settings.connect("pressed", open_settings)
 	black_rect.visible = true
 	await Functions.fade_color_rect(black_rect, "OUT", 2)
+	inicio_menu_limbo_hsm.dispatch("to_menu_base")
 	# state_chart.send_event("to_start")
 
 func start_game()->void:

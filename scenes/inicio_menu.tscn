@@ -18,6 +18,22 @@
 [ext_resource type="Texture2D" uid="uid://cct23hch36waw" path="res://assets/menu/boton_nueva_partida_hover.png" id="10_itqfo"]
 [ext_resource type="Texture2D" uid="uid://gp4xsm5kefwq" path="res://assets/menu/boton_opciones.png" id="11_44vma"]
 [ext_resource type="Texture2D" uid="uid://cn2lxubm2ujkx" path="res://assets/menu/boton_opciones_hover.png" id="12_0vwjp"]
+[ext_resource type="Script" uid="uid://ckil47h5j165g" path="res://scripts/menu/menu_juego_nuevo.gd" id="17_rkj46"]
+[ext_resource type="FontFile" uid="uid://c4mm3of2mc8o5" path="res://addons/phantom_camera/fonts/Nunito-Black.ttf" id="18_i32qi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i32qi"]
+bg_color = Color(0, 0.101960786, 0.5529412, 0.80784315)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.9019608, 0.7529412, 0.9137255, 0.43529412)
+shadow_size = 10
+shadow_offset = Vector2(0, 10)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_i32qi"]
+color = Color(0, 0, 0, 0)
+thickness = 0
 
 [node name="InicioMenu" type="Control" unique_id=143250398]
 layout_mode = 3
@@ -52,7 +68,9 @@ texture = ExtResource("3_jyb51")
 [node name="InicioMenuLimboHSM" type="LimboHSM" parent="." unique_id=946494846 node_paths=PackedStringArray("limbo_initial_state")]
 blackboard_plan = ExtResource("3_nw3sr")
 script = ExtResource("5_w345p")
-limbo_initial_state = NodePath("MenuBase")
+limbo_initial_state = NodePath("InitState")
+
+[node name="InitState" type="LimboState" parent="InicioMenuLimboHSM" unique_id=2020440826]
 
 [node name="MenuBase" type="LimboState" parent="InicioMenuLimboHSM" unique_id=1738118470]
 blackboard_plan = ExtResource("3_nw3sr")
@@ -77,6 +95,7 @@ offset_top = -751.0
 offset_right = 1426.0
 offset_bottom = 17.0
 grow_vertical = 0
+mouse_filter = 2
 texture_normal = ExtResource("5_4aaea")
 texture_hover = ExtResource("6_w345p")
 texture_focused = ExtResource("6_w345p")
@@ -109,9 +128,11 @@ offset_left = 347.0
 offset_top = 831.0
 offset_right = 919.0
 offset_bottom = 1318.0
+mouse_filter = 2
 texture_normal = ExtResource("7_atvji")
 texture_hover = ExtResource("8_rkj46")
 texture_focused = ExtResource("8_rkj46")
+script = ExtResource("9_atvji")
 
 [node name="PanelContainer" type="PanelContainer" parent="InicioMenuLimboHSM/MenuBase/Control/Quit" unique_id=1405356436]
 layout_mode = 0
@@ -147,16 +168,18 @@ offset_right = -846.0
 offset_bottom = -136.0
 grow_horizontal = 0
 grow_vertical = 0
+mouse_filter = 2
 texture_normal = ExtResource("9_i32qi")
 texture_hover = ExtResource("10_itqfo")
 texture_focused = ExtResource("10_itqfo")
+script = ExtResource("9_atvji")
 
 [node name="PanelContainer" type="PanelContainer" parent="InicioMenuLimboHSM/MenuBase/Control/PartidaNueva" unique_id=1996922412]
 layout_mode = 0
 offset_left = -31.0
-offset_top = -85.0
+offset_top = -58.0
 offset_right = 639.0
-offset_bottom = 32.0
+offset_bottom = 59.0
 theme = ExtResource("9_w345p")
 
 [node name="MarginContainer" type="MarginContainer" parent="InicioMenuLimboHSM/MenuBase/Control/PartidaNueva/PanelContainer" unique_id=255340852]
@@ -186,16 +209,18 @@ offset_right = -63.0
 offset_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 0
+mouse_filter = 2
 texture_normal = ExtResource("11_44vma")
 texture_hover = ExtResource("12_0vwjp")
 texture_focused = ExtResource("12_0vwjp")
+script = ExtResource("9_atvji")
 
 [node name="PanelContainer" type="PanelContainer" parent="InicioMenuLimboHSM/MenuBase/Control/Options" unique_id=938864725]
 layout_mode = 0
 offset_left = 56.0
-offset_top = -123.0
+offset_top = -74.0
 offset_right = 600.0
-offset_bottom = -6.0
+offset_bottom = 43.0
 theme = ExtResource("9_w345p")
 
 [node name="MarginContainer" type="MarginContainer" parent="InicioMenuLimboHSM/MenuBase/Control/Options/PanelContainer" unique_id=1906461048]
@@ -211,11 +236,86 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="PartidaNuevaHSM" type="LimboHSM" parent="InicioMenuLimboHSM" unique_id=1895245932]
+[node name="MenuJuegoNuevo" type="LimboState" parent="InicioMenuLimboHSM" unique_id=491477165]
+script = ExtResource("17_rkj46")
 
-[node name="ConfirmaBorrar" type="LimboState" parent="InicioMenuLimboHSM/PartidaNuevaHSM" unique_id=216583606]
+[node name="Control" type="Control" parent="InicioMenuLimboHSM/MenuJuegoNuevo" unique_id=473686964]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Salir" type="LimboState" parent="InicioMenuLimboHSM" unique_id=1699663686]
+[node name="PanelContainer" type="PanelContainer" parent="InicioMenuLimboHSM/MenuJuegoNuevo/Control" unique_id=1935339483]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -694.0
+offset_top = -87.0
+offset_right = 695.0
+offset_bottom = 563.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_w345p")
+theme_override_styles/panel = SubResource("StyleBoxFlat_i32qi")
+
+[node name="MarginContainer" type="MarginContainer" parent="InicioMenuLimboHSM/MenuJuegoNuevo/Control/PanelContainer" unique_id=288527355]
+layout_mode = 2
+theme = ExtResource("9_w345p")
+theme_override_constants/margin_top = 90
+theme_override_constants/margin_bottom = 90
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InicioMenuLimboHSM/MenuJuegoNuevo/Control/PanelContainer/MarginContainer" unique_id=952759071]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="InicioMenuLimboHSM/MenuJuegoNuevo/Control/PanelContainer/MarginContainer/VBoxContainer" unique_id=1109296114]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("9_w345p")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("18_i32qi")
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "[center]¿Seguro que quieres iniciar una partida nueva?[/center]
+[center]Todo tu progreso se perderá.[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="HSeparator" type="HSeparator" parent="InicioMenuLimboHSM/MenuJuegoNuevo/Control/PanelContainer/MarginContainer/VBoxContainer" unique_id=851324746]
+layout_mode = 2
+theme_override_constants/separation = 74
+theme_override_styles/separator = SubResource("StyleBoxLine_i32qi")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InicioMenuLimboHSM/MenuJuegoNuevo/Control/PanelContainer/MarginContainer/VBoxContainer" unique_id=1481540477]
+layout_mode = 2
+alignment = 1
+
+[node name="Volver" type="Button" parent="InicioMenuLimboHSM/MenuJuegoNuevo/Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1094130222]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("9_w345p")
+text = "VOLVER"
+
+[node name="VSeparator" type="VSeparator" parent="InicioMenuLimboHSM/MenuJuegoNuevo/Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1079451850]
+layout_mode = 2
+theme_override_constants/separation = 101
+
+[node name="IniciarPartidaNueva" type="Button" parent="InicioMenuLimboHSM/MenuJuegoNuevo/Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1508556400]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("9_w345p")
+text = "PARTIDA NUEVA"
+
+[node name="MenuOpciones" type="LimboState" parent="InicioMenuLimboHSM" unique_id=1183079089]
+
+[node name="StartedGame" type="LimboState" parent="InicioMenuLimboHSM" unique_id=1256093424]
+
+[node name="QuittedGame" type="LimboState" parent="InicioMenuLimboHSM" unique_id=820507902]
 
 [node name="SettingsMenu" parent="." unique_id=1860614313 instance=ExtResource("3_ppuyb")]
 layout_mode = 1
@@ -243,3 +343,13 @@ layout_mode = 1
 [connection signal="focus_entered" from="InicioMenuLimboHSM/MenuBase/Control/Play" to="InicioMenuLimboHSM/MenuBase/Control/Play" method="_on_focus_entered"]
 [connection signal="focus_exited" from="InicioMenuLimboHSM/MenuBase/Control/Play" to="InicioMenuLimboHSM/MenuBase/Control/Play" method="_on_focus_exited"]
 [connection signal="pressed" from="InicioMenuLimboHSM/MenuBase/Control/Play" to="InicioMenuLimboHSM/MenuBase" method="_on_play_pressed"]
+[connection signal="focus_entered" from="InicioMenuLimboHSM/MenuBase/Control/Quit" to="InicioMenuLimboHSM/MenuBase/Control/Quit" method="_on_focus_entered"]
+[connection signal="focus_exited" from="InicioMenuLimboHSM/MenuBase/Control/Quit" to="InicioMenuLimboHSM/MenuBase/Control/Quit" method="_on_focus_exited"]
+[connection signal="pressed" from="InicioMenuLimboHSM/MenuBase/Control/Quit" to="InicioMenuLimboHSM/MenuBase" method="_on_quit_pressed"]
+[connection signal="focus_entered" from="InicioMenuLimboHSM/MenuBase/Control/PartidaNueva" to="InicioMenuLimboHSM/MenuBase/Control/PartidaNueva" method="_on_focus_entered"]
+[connection signal="focus_exited" from="InicioMenuLimboHSM/MenuBase/Control/PartidaNueva" to="InicioMenuLimboHSM/MenuBase/Control/PartidaNueva" method="_on_focus_exited"]
+[connection signal="pressed" from="InicioMenuLimboHSM/MenuBase/Control/PartidaNueva" to="InicioMenuLimboHSM/MenuBase" method="_on_partida_nueva_pressed"]
+[connection signal="focus_entered" from="InicioMenuLimboHSM/MenuBase/Control/Options" to="InicioMenuLimboHSM/MenuBase/Control/Options" method="_on_focus_entered"]
+[connection signal="focus_exited" from="InicioMenuLimboHSM/MenuBase/Control/Options" to="InicioMenuLimboHSM/MenuBase/Control/Options" method="_on_focus_exited"]
+[connection signal="pressed" from="InicioMenuLimboHSM/MenuJuegoNuevo/Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Volver" to="InicioMenuLimboHSM/MenuJuegoNuevo" method="_on_volver_pressed"]
+[connection signal="pressed" from="InicioMenuLimboHSM/MenuJuegoNuevo/Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/IniciarPartidaNueva" to="InicioMenuLimboHSM/MenuJuegoNuevo" method="_on_iniciar_partida_nueva_pressed"]
