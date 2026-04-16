@@ -15,6 +15,10 @@ func _enter() -> void:
 	blackboard.get_var("pov_container").move_party()
 	party_grid_container.get_child(0).grab_focus()
 
+func _input(event:InputEvent) -> void:
+	if event.is_action_pressed("back") and is_active():
+		dispatch("to_party_hidden_state")
+
 func _free_children() -> void:
 	for child in full_party_grid_container.get_children():
 		child.queue_free()

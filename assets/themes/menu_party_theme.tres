@@ -1,6 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://crmca0mrbuhyc"]
 
-[ext_resource type="FontFile" uid="uid://cugoftt3cwwba" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Medium.ttf" id="1_dfutt"]
+[ext_resource type="FontFile" uid="uid://ch5xxlkb4rbs7" path="res://assets/fonts/437_Rainbow_100_re_66/Ac437_Rainbow100_re_66.ttf" id="1_dfutt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jv0nc"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

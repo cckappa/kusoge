@@ -5,6 +5,7 @@ func _setup() -> void:
 
 func _enter() -> void:
 	set_visibility(false)
+	blackboard.get_var("pov_container").move_init()
 	get_tree().paused = false
 
 func _input(event:InputEvent) -> void:
@@ -13,7 +14,8 @@ func _input(event:InputEvent) -> void:
 
 func _exit() -> void:
 	set_visibility(true)
-	get_tree().paused = true
+	if get_tree() != null:
+		get_tree().paused = true
 
 func set_visibility(_visible:bool) -> void:
 	blackboard.get_var("tamagotchi").visible = _visible

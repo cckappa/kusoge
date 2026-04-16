@@ -24,6 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://c284iahmhbm3n" path="res://scenes/menu/menu_party_member_container.tscn" id="16_5aw48"]
 [ext_resource type="Script" uid="uid://b0utgo4glektp" path="res://scripts/menu/pov_container.gd" id="16_dinic"]
 [ext_resource type="Script" uid="uid://v1fvmdslx0x0" path="res://scripts/menu/member_description_control.gd" id="16_yl3w3"]
+[ext_resource type="PackedScene" uid="uid://dhn52stl8orqn" path="res://scenes/menu/info_habilidad_container.tscn" id="18_0snb7"]
+[ext_resource type="FontFile" uid="uid://bdmps3wsxple0" path="res://assets/fonts/Bagel_Fat_One/BagelFatOne-Regular.ttf" id="19_tfody"]
 
 [sub_resource type="Resource" id="Resource_0snb7"]
 script = ExtResource("5_mtv8o")
@@ -37,6 +39,8 @@ bg_color = Color(0.003921569, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfody"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0snb7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmn4q"]
 bg_color = Color(0, 1, 1, 1)
@@ -109,6 +113,7 @@ menu_sub_viewport = NodePath("../../..")
 script = ExtResource("7_duuv3")
 
 [node name="MenuTamagotchiBaseState" type="LimboState" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM" unique_id=1599853498]
+unique_name_in_owner = true
 script = ExtResource("7_o2re4")
 
 [node name="ButtonsTamagotchi" type="Control" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiBaseState" unique_id=154432876]
@@ -367,7 +372,7 @@ layout_mode = 0
 offset_left = 1990.0
 offset_top = 641.0
 offset_right = 2790.0
-offset_bottom = 1700.0
+offset_bottom = 1664.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_yl3w3")
 
 [node name="ColorRect" type="ColorRect" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoContainer" unique_id=1073757021]
@@ -472,10 +477,93 @@ bbcode_enabled = true
 text = "Lorem ipsum dolor sit amet"
 fit_content = true
 
+[node name="InfoHabilidadesContainer" type="PanelContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl" unique_id=619136644]
+layout_mode = 0
+offset_left = 2774.0
+offset_top = 778.0
+offset_right = 3534.0
+offset_bottom = 1385.0
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoHabilidadesContainer" unique_id=1233492292]
+layout_mode = 2
+color = Color(0, 0, 0.13333334, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoHabilidadesContainer" unique_id=2117707404]
+layout_mode = 2
+
+[node name="HoveringEffect" type="Node" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoHabilidadesContainer/VBoxContainer" unique_id=1037688513]
+script = ExtResource("13_ldva5")
+metadata/_custom_type_script = "uid://cpopq75r5iwyw"
+
+[node name="HeaderBar" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoHabilidadesContainer/VBoxContainer" unique_id=415364420 instance=ExtResource("9_dinic")]
+layout_mode = 2
+title_text = "HABILIDADES"
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoHabilidadesContainer/VBoxContainer" unique_id=1279114175]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="InfoHabilidadesVBox" type="VBoxContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoHabilidadesContainer/VBoxContainer/MarginContainer" unique_id=1385144481]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 45
+
+[node name="InfoHabilidadContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoHabilidadesContainer/VBoxContainer/MarginContainer/InfoHabilidadesVBox" unique_id=1747630235 instance=ExtResource("18_0snb7")]
+layout_mode = 2
+
+[node name="InfoVidaContainer" type="PanelContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl" unique_id=1265483965]
+layout_mode = 0
+offset_left = 1874.0
+offset_top = 742.0
+offset_right = 2174.0
+offset_bottom = 922.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0snb7")
+
+[node name="CenterContainer" type="CenterContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoVidaContainer" unique_id=29730292]
+layout_mode = 2
+
+[node name="VidaProgressBar" type="TextureProgressBar" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoVidaContainer/CenterContainer" unique_id=2016842230]
+unique_name_in_owner = true
+layout_mode = 2
+value = 53.0
+fill_mode = 3
+texture_under = ExtResource("11_0tps1")
+texture_progress = ExtResource("11_0tps1")
+tint_under = Color(0.1852448, 0.07957173, 0.15386033, 1)
+tint_over = Color(1, 0.25882354, 1, 1)
+
+[node name="TextureRect" type="TextureRect" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoVidaContainer/CenterContainer" unique_id=615925427]
+visible = false
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+texture = ExtResource("11_0tps1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="InfoVidaText" type="RichTextLabel" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoVidaContainer/CenterContainer" unique_id=1162592659]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("15_5aw48")
+theme_override_colors/default_color = Color(0.93, 0.903495, 0.7533, 1)
+theme_override_fonts/normal_font = ExtResource("19_tfody")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]65"
+fit_content = true
+
+[node name="HoveringEffect" type="Node" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoVidaContainer/CenterContainer" unique_id=112700255]
+script = ExtResource("13_ldva5")
+metadata/_custom_type_script = "uid://cpopq75r5iwyw"
+
 [node name="BlurEffect" parent="." unique_id=251510813 instance=ExtResource("2_v71ah")]
 z_index = -1
 layout_mode = 2
 script = null
+metadata/_edit_lock_ = true
 
 [node name="Layouts" type="Control" parent="." unique_id=751758756]
 z_index = -1
@@ -484,10 +572,10 @@ layout_mode = 2
 [node name="PovContainer" type="PanelContainer" parent="Layouts" unique_id=1745083630]
 unique_name_in_owner = true
 layout_mode = 1
-offset_left = 469.0
-offset_top = 202.0
-offset_right = 1402.0
-offset_bottom = 1019.0
+offset_left = 1484.0
+offset_top = 687.0
+offset_right = 2417.0
+offset_bottom = 1504.0
 theme = ExtResource("8_5aw48")
 script = ExtResource("16_dinic")
 

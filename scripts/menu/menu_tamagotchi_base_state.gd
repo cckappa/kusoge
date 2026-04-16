@@ -45,6 +45,7 @@ func _setup() -> void:
 
 func _enter() -> void:
 	button_corazon.grab_focus()
+	blackboard.get_var("pov_container").move_base()
 
 func _input(event:InputEvent) -> void:
 	if event.is_action_pressed("pause") and not blackboard.get_var("talking") and is_active():

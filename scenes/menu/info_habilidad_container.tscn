@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dhn52stl8orqn"]
+
+[ext_resource type="Theme" uid="uid://crmca0mrbuhyc" path="res://assets/themes/menu_party_theme.tres" id="1_8qnqe"]
+[ext_resource type="Script" uid="uid://lqtc3055yaqc" path="res://scripts/menu/info_habilidad_container.gd" id="1_qt4rv"]
+
+[node name="InfoHabilidadContainer" type="VBoxContainer" unique_id=1747630235]
+script = ExtResource("1_qt4rv")
+
+[node name="HabilidadText" type="RichTextLabel" parent="." unique_id=1791760083]
+custom_minimum_size = Vector2(720, 0)
+layout_mode = 2
+theme = ExtResource("1_8qnqe")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "Puñetazo limpio"
+fit_content = true
+
+[node name="InfoHabilidadText" type="RichTextLabel" parent="." unique_id=364042760]
+custom_minimum_size = Vector2(720, 0)
+layout_mode = 2
+theme = ExtResource("1_8qnqe")
+theme_override_colors/default_color = Color(0.003921569, 1, 0.15686275, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "_.-` d(30) x 2.3s '-._"
+fit_content = true

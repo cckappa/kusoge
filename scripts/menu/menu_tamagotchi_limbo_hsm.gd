@@ -5,7 +5,8 @@ extends LimboHSM
 
 @onready var hidden_state:LimboState=$MenuTamagotchiHiddenState
 @onready var base_state:LimboState=$MenuTamagotchiBaseState
-@onready var party_hsm:LimboState=%MenuTamagotchiPartyLimboHSM
+@onready var party_hsm:LimboState=$MenuTamagotchiPartyLimboHSM
+@onready var party_hidden_state:LimboState=$MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyHiddenState
 
 @onready var tamagotchi:=%Tamagotchi
 @onready var party_control:Control=%PartyControl
@@ -25,6 +26,8 @@ func _set_transitions() -> void:
 	add_transition(hidden_state, base_state, "to_base_state")
 	add_transition(base_state, hidden_state, "to_hidden_state")
 	add_transition(base_state, party_hsm, "to_party_hsm")
+	add_transition(party_hsm, base_state, "to_base_state")
+
 
 func _set_blackboard() -> void:
 	blackboard.set_var("talking", false)
@@ -32,6 +35,8 @@ func _set_blackboard() -> void:
 	blackboard.set_var("party_control", party_control)
 	blackboard.set_var("member_description_control", member_description_control)
 	blackboard.set_var("pov_container", pov_container)
+	blackboard.set_var("party_hsm", party_hsm)
+	blackboard.set_var("hsm", self)
 
 func starts_talking() -> void:
 	blackboard.set_var("talking", true)
