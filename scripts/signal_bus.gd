@@ -55,3 +55,6 @@ signal character_unlocked(character:Character)
 ## NOTIFICATIONS
 
 signal add_notification(title:String, body:String, image:Texture)
+
+## MENU
+signal menu_party_character_focus_entered(character:Character)

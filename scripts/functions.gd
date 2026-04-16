@@ -113,7 +113,7 @@ func set_dialogic_auto_advance(enabled: bool) -> void:
 		# InputMap.action_erase_events("dialogic_default_action")
 	else:
 		# Disable auto-advance
-		Dialogic.Inputs.auto_advance.enabled_forced = false
+		# Dialogic.Inputs.auto_advance.enabled_forced = false
 		Dialogic.Inputs.auto_advance.enabled_until_user_input = true
 		Dialogic.Inputs.auto_skip.enabled = false
 		Dialogic.Inputs.manual_advance.system_enabled = false

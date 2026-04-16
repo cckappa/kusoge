@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Character" load_steps=10 format=3 uid="uid://cbfks710yx2fn"]
+[gd_resource type="Resource" script_class="Character" format=3 uid="uid://cbfks710yx2fn"]
 
 [ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_r35bp"]
 [ext_resource type="Resource" uid="uid://divn1nh4qjs3p" path="res://assets/resources/abilities/rayo_cosmico.tres" id="2_n6t2g"]
@@ -17,10 +17,5 @@ section_folder = "demo_tecnico"
 character_portrait = ExtResource("7_d4004")
 character_damaged = ExtResource("6_3gjvu")
 max_hp = 240
-unlocked = false
-type = "NORMAL"
 abilities = Array[ExtResource("1_r35bp")]([ExtResource("2_n6t2g"), ExtResource("3_877ac"), ExtResource("4_nligh"), ExtResource("5_3vrwd")])
-loot = Array[ExtResource("2_q33km")]([])
-min_loot = 0
-max_loot = 1
 metadata/_custom_type_script = "uid://c8058f4jc2ul3"

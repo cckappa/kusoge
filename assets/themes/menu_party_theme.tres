@@ -1,0 +1,27 @@
+[gd_resource type="Theme" format=3 uid="uid://crmca0mrbuhyc"]
+
+[ext_resource type="FontFile" uid="uid://cugoftt3cwwba" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Medium.ttf" id="1_dfutt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jv0nc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.24705882, 0.31764707, 0.8, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfutt"]
+bg_color = Color(0.003921569, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vk4uc"]
+bg_color = Color(0.043137256, 0.10980392, 0.23137255, 0.9490196)
+
+[resource]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_jv0nc")
+PanelContainerFondoMember/base_type = &"PanelContainer"
+PanelContainerFondoMember/styles/panel = SubResource("StyleBoxFlat_dfutt")
+PanelContainerNombre/base_type = &"PanelContainer"
+PanelContainerNombre/styles/panel = SubResource("StyleBoxFlat_vk4uc")
+RichTextLabel/colors/default_color = Color(0.003921569, 1, 0.15686275, 1)
+RichTextLabel/font_sizes/normal_font_size = 100
+RichTextLabel/fonts/normal_font = ExtResource("1_dfutt")

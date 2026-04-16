@@ -1,12 +1,53 @@
-[gd_scene load_steps=4 format=3 uid="uid://bx88hvib56f0"]
+[gd_scene format=3 uid="uid://bx88hvib56f0"]
 
-[ext_resource type="PackedScene" uid="uid://but6w2vlvlpex" path="res://scenes/menu/menu_tamagotchi.tscn" id="1_6y8p8"]
 [ext_resource type="Script" uid="uid://bof2iweysicw2" path="res://scripts/menu/menu_sub_viewport.gd" id="1_v71ah"]
+[ext_resource type="Script" uid="uid://bi2663o6grh2i" path="res://scripts/menu/menu_tamagotchi.gd" id="2_ira2m"]
 [ext_resource type="PackedScene" uid="uid://bwijht2q5rb8f" path="res://scenes/menu/blur_effect.tscn" id="2_v71ah"]
+[ext_resource type="PackedScene" uid="uid://cx5vmbvvaonsr" path="res://scenes/menu/tamagotchi.tscn" id="3_duuv3"]
+[ext_resource type="Script" uid="uid://f44vuw1735px" path="res://addons/addons/wigglebone/wiggle_rotation_modifier_3d.gd" id="4_ebauk"]
+[ext_resource type="Script" uid="uid://dflm38dq2gb47" path="res://addons/addons/wigglebone/wiggle_rotation_properties_3d.gd" id="5_mtv8o"]
+[ext_resource type="Script" uid="uid://bxs7rj8j6tbt3" path="res://scripts/menu/menu_tamagotchi_limbo_hsm.gd" id="6_mmblw"]
+[ext_resource type="Script" uid="uid://d03ibp4dos68s" path="res://scripts/menu/menu_tamagotchi_hidden_state.gd" id="7_duuv3"]
+[ext_resource type="Script" uid="uid://dc7bdoo8605q5" path="res://scripts/menu/menu_tamagotchi_base_state.gd" id="7_o2re4"]
+[ext_resource type="Theme" uid="uid://ivmeqy3td87i" path="res://assets/themes/menu_pixelify.tres" id="8_5aw48"]
+[ext_resource type="PackedScene" uid="uid://dtgg7s2k7nbud" path="res://scenes/menu/header_bar.tscn" id="9_dinic"]
+[ext_resource type="Texture2D" uid="uid://dvly3xwpepgo7" path="res://assets/menu/pov_screen_pausa.jpg" id="10_ldva5"]
+[ext_resource type="Texture2D" uid="uid://o68qjlc00xhn" path="res://assets/menu/corazon_menu.png" id="11_0tps1"]
+[ext_resource type="Script" uid="uid://oown44uh3drx" path="res://scripts/menu/menu_tamagotchi_party_limbo_hsm.gd" id="12_mmblw"]
+[ext_resource type="Texture2D" uid="uid://rsqps5edq51q" path="res://assets/battle/Daño.PNG" id="12_yl3w3"]
+[ext_resource type="Script" uid="uid://cpopq75r5iwyw" path="res://scripts/menu/hovering_effect.gd" id="13_ldva5"]
+[ext_resource type="Script" uid="uid://bdmxcar4fnuq6" path="res://scripts/menu/menu_tamagotchi_party_hidden_state.gd" id="13_o2re4"]
+[ext_resource type="Texture2D" uid="uid://vgmkybqdl06e" path="res://assets/battle/tiempo.PNG" id="13_tfody"]
+[ext_resource type="Script" uid="uid://cfy83jrvwqbfs" path="res://scripts/menu/menu_tamagotchi_party_base_state.gd" id="14_5aw48"]
+[ext_resource type="Theme" uid="uid://crmca0mrbuhyc" path="res://assets/themes/menu_party_theme.tres" id="15_5aw48"]
+[ext_resource type="Texture2D" uid="uid://cd3nnf0w48lic" path="res://assets/character_portraits/demo_tecnico/RANASTASIO DYB.PNG" id="16_0tps1"]
+[ext_resource type="PackedScene" uid="uid://c284iahmhbm3n" path="res://scenes/menu/menu_party_member_container.tscn" id="16_5aw48"]
+[ext_resource type="Script" uid="uid://b0utgo4glektp" path="res://scripts/menu/pov_container.gd" id="16_dinic"]
+[ext_resource type="Script" uid="uid://v1fvmdslx0x0" path="res://scripts/menu/member_description_control.gd" id="16_yl3w3"]
 
-[node name="MenuSubViewport" type="SubViewportContainer"]
+[sub_resource type="Resource" id="Resource_0snb7"]
+script = ExtResource("5_mtv8o")
+spring_freq = 1.7
+swing_span = 1.0472
+gravity = Vector3(0, 9.81, 0)
+metadata/_custom_type_script = "uid://dflm38dq2gb47"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yl3w3"]
+bg_color = Color(0.003921569, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfody"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmn4q"]
+bg_color = Color(0, 1, 1, 1)
+border_width_bottom = 3
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[node name="MenuSubViewport" type="SubViewportContainer" unique_id=158507729]
 process_mode = 3
-visible = false
 z_index = 2
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,18 +56,885 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_v71ah")
 
-[node name="SubViewport" type="SubViewport" parent="."]
+[node name="SubViewport" type="SubViewport" parent="." unique_id=867953843]
 unique_name_in_owner = true
 process_mode = 3
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(3840, 2160)
-render_target_update_mode = 0
+render_target_update_mode = 4
 
-[node name="MenuTamagotchi" parent="SubViewport" node_paths=PackedStringArray("menu_sub_viewport") instance=ExtResource("1_6y8p8")]
-menu_sub_viewport = NodePath("../..")
+[node name="MenuTamagotchi" type="Control" parent="SubViewport" unique_id=1904172661]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ira2m")
 
-[node name="BlurEffect" parent="." instance=ExtResource("2_v71ah")]
+[node name="Tamagotchi" parent="SubViewport/MenuTamagotchi" unique_id=9477100 instance=ExtResource("3_duuv3")]
+unique_name_in_owner = true
+process_mode = 3
+
+[node name="DMWBWiggleRotationModifier3D" type="SkeletonModifier3D" parent="SubViewport/MenuTamagotchi/Tamagotchi/AnimatableBody3D/tamagotchi2/Armature/Skeleton3D" index="21" unique_id=1981794143]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+transform = Transform3D(3.7389478e-07, -1.4044795e-07, -0.9999998, 5.9604602e-08, -0.9999998, 1.4044797e-07, -0.9999999, -5.960465e-08, -3.7389475e-07, 4.950113e-09, 0.81744367, -2.3829461e-08)
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+active = true
+influence = 1.0
+script = ExtResource("4_ebauk")
+bone_name = "Full"
+properties = SubResource("Resource_0snb7")
+handle_distance = 0.44
+metadata/_custom_type_script = "uid://f44vuw1735px"
+
+[node name="MenuTamagotchiLimboHSM" type="LimboHSM" parent="SubViewport/MenuTamagotchi" unique_id=1839893344 node_paths=PackedStringArray("limbo_initial_state", "menu_sub_viewport")]
+script = ExtResource("6_mmblw")
+limbo_initial_state = NodePath("MenuTamagotchiHiddenState")
+menu_sub_viewport = NodePath("../../..")
+
+[node name="MenuTamagotchiHiddenState" type="LimboState" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM" unique_id=1673215792]
+script = ExtResource("7_duuv3")
+
+[node name="MenuTamagotchiBaseState" type="LimboState" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM" unique_id=1599853498]
+script = ExtResource("7_o2re4")
+
+[node name="ButtonsTamagotchi" type="Control" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiBaseState" unique_id=154432876]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonTierra" type="Button" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiBaseState/ButtonsTamagotchi" unique_id=961020941]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 2178.0
+offset_top = 1019.0
+offset_right = 2264.0
+offset_bottom = 1059.0
+mouse_filter = 2
+text = "TIERRA"
+
+[node name="ButtonOptions" type="Button" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiBaseState/ButtonsTamagotchi" unique_id=1262470769]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 2215.0
+offset_top = 950.0
+offset_right = 2301.0
+offset_bottom = 990.0
+mouse_filter = 2
+text = "OPTIONS"
+
+[node name="ButtonBack" type="Button" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiBaseState/ButtonsTamagotchi" unique_id=1962441067]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 1669.0
+offset_top = 950.0
+offset_right = 1755.0
+offset_bottom = 990.0
+mouse_filter = 2
+text = "BACK"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiBaseState/ButtonsTamagotchi" unique_id=681449852]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -20.0
+offset_right = 152.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonItems" type="Button" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiBaseState/ButtonsTamagotchi/HBoxContainer" unique_id=1330229700]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+text = "ITEMS"
+
+[node name="ButtonTrinkets" type="Button" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiBaseState/ButtonsTamagotchi/HBoxContainer" unique_id=1624002232]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+text = "TRINKETS"
+
+[node name="ButtonQuests" type="Button" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiBaseState/ButtonsTamagotchi/HBoxContainer" unique_id=630211786]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+text = "QUESTS"
+
+[node name="ButtonCorazon" type="Button" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiBaseState/ButtonsTamagotchi/HBoxContainer" unique_id=756915120]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+text = "CORAZON"
+
+[node name="MenuTamagotchiPartyLimboHSM" type="LimboHSM" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM" unique_id=1509051655 node_paths=PackedStringArray("limbo_initial_state")]
+unique_name_in_owner = true
+script = ExtResource("12_mmblw")
+limbo_initial_state = NodePath("MenuTamagotchiPartyBaseState")
+
+[node name="MenuTamagotchiPartyHiddenState" type="LimboState" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM" unique_id=849938897]
+script = ExtResource("13_o2re4")
+
+[node name="MenuTamagotchiPartyBaseState" type="LimboState" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM" unique_id=2055426740]
+script = ExtResource("14_5aw48")
+
+[node name="PartyControl" type="Control" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState" unique_id=470803166]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PartyPanelContainer" type="PanelContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl" unique_id=1560321676]
+layout_mode = 0
+offset_left = 2034.0
+offset_top = 246.0
+offset_right = 3092.0
+offset_bottom = 578.0
+theme = ExtResource("15_5aw48")
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/PartyPanelContainer" unique_id=1647845293]
+layout_mode = 2
+color = Color(0, 0.012920001, 0.11207495, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/PartyPanelContainer" unique_id=888040952]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HoveringEffect" type="Node" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/PartyPanelContainer/VBoxContainer" unique_id=2129487484]
+script = ExtResource("13_ldva5")
+metadata/_custom_type_script = "uid://cpopq75r5iwyw"
+
+[node name="HeaderBar" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/PartyPanelContainer/VBoxContainer" unique_id=872013768 instance=ExtResource("9_dinic")]
+layout_mode = 2
+title_text = "EQUIPO"
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/PartyPanelContainer/VBoxContainer" unique_id=257653786]
+layout_mode = 2
+
+[node name="PartyGridContainer" type="GridContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/PartyPanelContainer/VBoxContainer/MarginContainer" unique_id=330805955]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 4
+
+[node name="MenuPartyMemberContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/PartyPanelContainer/VBoxContainer/MarginContainer/PartyGridContainer" unique_id=156636780 instance=ExtResource("16_5aw48")]
+layout_mode = 2
+
+[node name="MenuPartyMemberContainer2" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/PartyPanelContainer/VBoxContainer/MarginContainer/PartyGridContainer" unique_id=1350215988 instance=ExtResource("16_5aw48")]
+layout_mode = 2
+
+[node name="MenuPartyMemberContainer3" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/PartyPanelContainer/VBoxContainer/MarginContainer/PartyGridContainer" unique_id=1774571255 instance=ExtResource("16_5aw48")]
+layout_mode = 2
+
+[node name="MenuPartyMemberContainer4" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/PartyPanelContainer/VBoxContainer/MarginContainer/PartyGridContainer" unique_id=1896518625 instance=ExtResource("16_5aw48")]
+layout_mode = 2
+
+[node name="FullPanelContainer" type="PanelContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl" unique_id=634359614]
+layout_mode = 0
+offset_left = 393.0
+offset_top = 248.0
+offset_right = 1451.0
+offset_bottom = 605.0
+theme = ExtResource("15_5aw48")
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer" unique_id=2051644571]
+layout_mode = 2
+color = Color(0, 0.012920001, 0.11207495, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer" unique_id=1457105006]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HoveringEffect" type="Node" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer" unique_id=133623756]
+script = ExtResource("13_ldva5")
+metadata/_custom_type_script = "uid://cpopq75r5iwyw"
+
+[node name="HeaderBar" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer" unique_id=548764941 instance=ExtResource("9_dinic")]
+layout_mode = 2
+title_text = "DIRECTORIO"
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer" unique_id=466986267]
+custom_minimum_size = Vector2(0, 260)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer/MarginContainer" unique_id=901080512]
+layout_mode = 2
+vertical_scroll_mode = 3
+
+[node name="FullPartyGridContainer" type="GridContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer/MarginContainer/ScrollContainer" unique_id=647171227]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 4
+
+[node name="MenuPartyMemberContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer/MarginContainer/ScrollContainer/FullPartyGridContainer" unique_id=1041024996 instance=ExtResource("16_5aw48")]
+layout_mode = 2
+
+[node name="MenuPartyMemberContainer2" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer/MarginContainer/ScrollContainer/FullPartyGridContainer" unique_id=174210975 instance=ExtResource("16_5aw48")]
+layout_mode = 2
+
+[node name="MenuPartyMemberContainer3" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer/MarginContainer/ScrollContainer/FullPartyGridContainer" unique_id=2030449498 instance=ExtResource("16_5aw48")]
+layout_mode = 2
+
+[node name="MenuPartyMemberContainer4" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer/MarginContainer/ScrollContainer/FullPartyGridContainer" unique_id=669997957 instance=ExtResource("16_5aw48")]
+layout_mode = 2
+
+[node name="MenuPartyMemberContainer5" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer/MarginContainer/ScrollContainer/FullPartyGridContainer" unique_id=1166185117 instance=ExtResource("16_5aw48")]
+layout_mode = 2
+
+[node name="MenuPartyMemberContainer6" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer/MarginContainer/ScrollContainer/FullPartyGridContainer" unique_id=1711428952 instance=ExtResource("16_5aw48")]
+layout_mode = 2
+
+[node name="MenuPartyMemberContainer7" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer/MarginContainer/ScrollContainer/FullPartyGridContainer" unique_id=118338187 instance=ExtResource("16_5aw48")]
+layout_mode = 2
+
+[node name="MenuPartyMemberContainer8" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer/MarginContainer/ScrollContainer/FullPartyGridContainer" unique_id=553122892 instance=ExtResource("16_5aw48")]
+layout_mode = 2
+
+[node name="MenuPartyMemberContainer9" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer/MarginContainer/ScrollContainer/FullPartyGridContainer" unique_id=1200902715 instance=ExtResource("16_5aw48")]
+layout_mode = 2
+
+[node name="MenuPartyMemberContainer10" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer/MarginContainer/ScrollContainer/FullPartyGridContainer" unique_id=1460319870 instance=ExtResource("16_5aw48")]
+layout_mode = 2
+
+[node name="MenuPartyMemberContainer11" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer/MarginContainer/ScrollContainer/FullPartyGridContainer" unique_id=316745870 instance=ExtResource("16_5aw48")]
+layout_mode = 2
+
+[node name="MenuPartyMemberContainer12" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer/MarginContainer/ScrollContainer/FullPartyGridContainer" unique_id=1190135257 instance=ExtResource("16_5aw48")]
+layout_mode = 2
+
+[node name="MenuPartyMemberContainer13" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer/MarginContainer/ScrollContainer/FullPartyGridContainer" unique_id=2078220655 instance=ExtResource("16_5aw48")]
+layout_mode = 2
+
+[node name="MenuPartyMemberContainer14" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer/MarginContainer/ScrollContainer/FullPartyGridContainer" unique_id=1198334327 instance=ExtResource("16_5aw48")]
+layout_mode = 2
+
+[node name="MenuPartyMemberContainer15" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer/MarginContainer/ScrollContainer/FullPartyGridContainer" unique_id=370699728 instance=ExtResource("16_5aw48")]
+layout_mode = 2
+
+[node name="MenuPartyMemberContainer16" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer/MarginContainer/ScrollContainer/FullPartyGridContainer" unique_id=537986149 instance=ExtResource("16_5aw48")]
+layout_mode = 2
+
+[node name="MenuPartyMemberContainer17" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer/MarginContainer/ScrollContainer/FullPartyGridContainer" unique_id=1301030945 instance=ExtResource("16_5aw48")]
+layout_mode = 2
+
+[node name="MenuPartyMemberContainer18" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer/MarginContainer/ScrollContainer/FullPartyGridContainer" unique_id=1029731081 instance=ExtResource("16_5aw48")]
+layout_mode = 2
+
+[node name="MenuPartyMemberContainer19" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer/MarginContainer/ScrollContainer/FullPartyGridContainer" unique_id=1630470656 instance=ExtResource("16_5aw48")]
+layout_mode = 2
+
+[node name="MenuPartyMemberContainer20" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer/MarginContainer/ScrollContainer/FullPartyGridContainer" unique_id=972845948 instance=ExtResource("16_5aw48")]
+layout_mode = 2
+
+[node name="MemberDescriptionControl" type="Control" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState" unique_id=388608412]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_yl3w3")
+
+[node name="InfoContainer" type="PanelContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl" unique_id=1109272010]
+layout_mode = 0
+offset_left = 1990.0
+offset_top = 641.0
+offset_right = 2790.0
+offset_bottom = 1700.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yl3w3")
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoContainer" unique_id=1073757021]
+layout_mode = 2
+color = Color(0.003921569, 1, 1, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoContainer" unique_id=147924681]
+layout_mode = 2
+
+[node name="HoveringEffect" type="Node" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoContainer/VBoxContainer" unique_id=1043445845]
+script = ExtResource("13_ldva5")
+metadata/_custom_type_script = "uid://cpopq75r5iwyw"
+
+[node name="HeaderBar" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoContainer/VBoxContainer" unique_id=1409170071 instance=ExtResource("9_dinic")]
+layout_mode = 2
+title_text = "INFO"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoContainer/VBoxContainer" unique_id=1452014651]
+layout_mode = 2
+
+[node name="MarginContainer" type="PanelContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoContainer/VBoxContainer/VBoxContainer" unique_id=46424409]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tfody")
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoContainer/VBoxContainer/VBoxContainer/MarginContainer" unique_id=619821829]
+layout_mode = 2
+color = Color(0.003921569, 1, 1, 1)
+
+[node name="InfoTexture" type="TextureRect" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoContainer/VBoxContainer/VBoxContainer/MarginContainer" unique_id=676577798]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 800)
+layout_mode = 2
+texture = ExtResource("16_0tps1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoContainer/VBoxContainer/VBoxContainer" unique_id=658793270]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoContainer/VBoxContainer/VBoxContainer/PanelContainer" unique_id=349545235]
+layout_mode = 2
+color = Color(0.46254948, 0.28707156, 0.97587764, 1)
+
+[node name="MarginContainer2" type="MarginContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoContainer/VBoxContainer/VBoxContainer/PanelContainer" unique_id=939169626]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer2" unique_id=978243781]
+layout_mode = 2
+
+[node name="InfoName" type="RichTextLabel" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer2/VBoxContainer" unique_id=1260023803]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("15_5aw48")
+text = "RANASTACIO"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="InfoDescripcionPanelContainer" type="PanelContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl" unique_id=404926516]
+layout_mode = 0
+offset_left = 2277.0
+offset_top = 1662.0
+offset_right = 3037.0
+offset_bottom = 1943.0
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoDescripcionPanelContainer" unique_id=1687287748]
+layout_mode = 2
+color = Color(0, 0, 0.13333334, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoDescripcionPanelContainer" unique_id=1951407774]
+layout_mode = 2
+
+[node name="HoveringEffect" type="Node" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoDescripcionPanelContainer/VBoxContainer" unique_id=116350420]
+script = ExtResource("13_ldva5")
+metadata/_custom_type_script = "uid://cpopq75r5iwyw"
+
+[node name="HeaderBar" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoDescripcionPanelContainer/VBoxContainer" unique_id=1788384121 instance=ExtResource("9_dinic")]
+layout_mode = 2
+title_text = "MÁS INFO"
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoDescripcionPanelContainer/VBoxContainer" unique_id=722770262]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoDescripcionPanelContainer/VBoxContainer/MarginContainer" unique_id=1841966457]
+layout_mode = 2
+
+[node name="InfoDescripcionText" type="RichTextLabel" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoDescripcionPanelContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1115949016]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(720, 0)
+layout_mode = 2
+theme = ExtResource("15_5aw48")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet"
+fit_content = true
+
+[node name="BlurEffect" parent="." unique_id=251510813 instance=ExtResource("2_v71ah")]
 z_index = -1
 layout_mode = 2
 script = null
+
+[node name="Layouts" type="Control" parent="." unique_id=751758756]
+z_index = -1
+layout_mode = 2
+
+[node name="PovContainer" type="PanelContainer" parent="Layouts" unique_id=1745083630]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 469.0
+offset_top = 202.0
+offset_right = 1402.0
+offset_bottom = 1019.0
+theme = ExtResource("8_5aw48")
+script = ExtResource("16_dinic")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Layouts/PovContainer" unique_id=481041058]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="HoveringEffect" type="Node" parent="Layouts/PovContainer/VBoxContainer" unique_id=1497873353]
+script = ExtResource("13_ldva5")
+metadata/_custom_type_script = "uid://cpopq75r5iwyw"
+
+[node name="HeaderBar" parent="Layouts/PovContainer/VBoxContainer" unique_id=290125684 instance=ExtResource("9_dinic")]
+layout_mode = 2
+title_text = "PAUSA"
+
+[node name="PovScreen" type="TextureRect" parent="Layouts/PovContainer/VBoxContainer" unique_id=661440910]
+layout_mode = 2
+texture = ExtResource("10_ldva5")
+
+[node name="PartyContainer" type="PanelContainer" parent="Layouts" unique_id=1361480983]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 405.0
+offset_top = -1126.0
+offset_right = 1338.0
+offset_bottom = -309.0
+grow_vertical = 0
+theme = ExtResource("8_5aw48")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Layouts/PartyContainer" unique_id=417046553]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="HeaderBar" parent="Layouts/PartyContainer/VBoxContainer" unique_id=1307903814 instance=ExtResource("9_dinic")]
+layout_mode = 2
+title_text = "STATS"
+
+[node name="PanelContainer" type="PanelContainer" parent="Layouts/PartyContainer/VBoxContainer" unique_id=1457293252]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+theme_override_styles/panel = SubResource("StyleBoxFlat_dmn4q")
+
+[node name="MarginContainer" type="MarginContainer" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer" unique_id=1085440614]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=75264517]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1646409982]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=760659433]
+layout_mode = 2
+texture = ExtResource("11_0tps1")
+expand_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=365394859]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "12/130"
+fit_content = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1057907401]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "C:\\ATAQUES>_"
+fit_content = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=622600088]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=402701023]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "- Escupitajo"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1102839908]
+layout_mode = 2
+texture = ExtResource("12_yl3w3")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1493177612]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1497286705]
+layout_mode = 2
+texture = ExtResource("13_tfody")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2100543094]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1770493970]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1918548378]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "- Escupitajo"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1859634454]
+layout_mode = 2
+texture = ExtResource("12_yl3w3")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=295418726]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=199232619]
+layout_mode = 2
+texture = ExtResource("13_tfody")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=147841540]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=632465852]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=507743882]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "- Escupitajo"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=948952134]
+layout_mode = 2
+texture = ExtResource("12_yl3w3")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=546238377]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1882948054]
+layout_mode = 2
+texture = ExtResource("13_tfody")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1070406645]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1877565795]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=1035108451]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "- Escupitajo"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=836959879]
+layout_mode = 2
+texture = ExtResource("12_yl3w3")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=16249098]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=1272700917]
+layout_mode = 2
+texture = ExtResource("13_tfody")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Layouts/PartyContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=73670849]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemsContainer" type="PanelContainer" parent="Layouts" unique_id=29438904]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 737.0
+offset_top = -1015.0
+offset_right = 1670.0
+offset_bottom = -198.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("8_5aw48")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Layouts/ItemsContainer" unique_id=134006663]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="HeaderBar" parent="Layouts/ItemsContainer/VBoxContainer" unique_id=997315070 instance=ExtResource("9_dinic")]
+layout_mode = 2
+title_text = "ITEMS"
+
+[node name="PanelContainer" type="PanelContainer" parent="Layouts/ItemsContainer/VBoxContainer" unique_id=802081444]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+theme_override_styles/panel = SubResource("StyleBoxFlat_dmn4q")
+
+[node name="MarginContainer" type="MarginContainer" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer" unique_id=192373238]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=785077208]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=708536639]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1143078106]
+layout_mode = 2
+texture = ExtResource("11_0tps1")
+expand_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=142977833]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "12/130"
+fit_content = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1121704145]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "C:\\ITEMS>_"
+fit_content = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1746140443]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=216976982]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "- Galleta"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1291402738]
+layout_mode = 2
+texture = ExtResource("12_yl3w3")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=363352544]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2137342487]
+layout_mode = 2
+texture = ExtResource("13_tfody")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1084967126]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=456503853]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=2014980951]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "- Cafecito"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=647439783]
+layout_mode = 2
+texture = ExtResource("12_yl3w3")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=819110807]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=2008638912]
+layout_mode = 2
+texture = ExtResource("13_tfody")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1802971599]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=710924067]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1290082472]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "- Pastel"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1575357005]
+layout_mode = 2
+texture = ExtResource("12_yl3w3")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=923778944]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1763453640]
+layout_mode = 2
+texture = ExtResource("13_tfody")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1055255432]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=316811689]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=2131949181]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "- Bomba"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=864521295]
+layout_mode = 2
+texture = ExtResource("12_yl3w3")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=1558346015]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=2128542907]
+layout_mode = 2
+texture = ExtResource("13_tfody")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Layouts/ItemsContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=157911543]
+layout_mode = 2
+theme = ExtResource("8_5aw48")
+bbcode_enabled = true
+text = "10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[editable path="SubViewport/MenuTamagotchi/Tamagotchi"]
+[editable path="SubViewport/MenuTamagotchi/Tamagotchi/AnimatableBody3D/tamagotchi2"]
