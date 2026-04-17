@@ -58,3 +58,6 @@ signal add_notification(title:String, body:String, image:Texture)
 
 ## MENU
 signal menu_party_character_focus_entered(character:Character)
+signal menu_item_focus_entered(item:Item)
+signal menu_party_character_button_pressed(character:Character)
+signal menu_member_character_button_pressed(character:Character)

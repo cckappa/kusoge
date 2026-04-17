@@ -9,6 +9,7 @@ func _ready() -> void:
 	Console.add_command("goto", console_go_to_room, ["TARGET_SCENE", "TARGET_MARKER"], 1, "Cambia a la escena especificada. TARGET_MARKER es opcional y por defecto es 'DefaultMarker'.")
 	Console.add_command("overwrite", console_set_overwrite_state, ["OVERWRITE_VALUE"], 1, "Cambia overwrite value en Globals para poder usar room_state en base_scene.")
 	Console.add_command("keyvar", console_set_key_variable, ["KEY", "VALUE", "TYPE"], 2, "Cambia el valor de una variable clave en Globals. El tipo puede ser INT, FLOAT, BOOL o STRING.")
+	Console.add_command("cafe", console_add_cafe, ["QUANTITY"], 0, "Agrega un item, puedes agregar cantidad")
 
 func console_set_dialogic_variable(var_path: String, value: Variant, type: String) -> void:
 	var var_paths := var_path.split(".")
@@ -70,3 +71,7 @@ func console_set_key_variable(key: String, value: Variant, type: String = "STRIN
 
 	Globals.key_variables[key] = value
 	print("Set key variable:", key, " to value:", value)
+
+func console_add_cafe(item_name:String)->void:
+	var cafe := load("res://assets/resources/items/coffee.tres")
+	cafe.add_to_items(10)

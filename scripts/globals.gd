@@ -82,8 +82,8 @@ func setup_globals() -> void:
 	maps = full_maps_resource.get_maps_dictionary()
 	ene_1.current_hp = ene_1.max_hp
 	ene_2.current_hp = ene_2.max_hp
-	party = [MIUMIU, PROTO_SHAMAN, LOBUKI, SABIA_RANA_PEDRO]
-	set_current_characters([ALICIA, RANASTACIO, MALENA, INGENIERO_FROGELIO])
+	party = [RANASTACIO, MALENA, INGENIERO_FROGELIO, MIUMIU, PROTO_SHAMAN, LOBUKI, SABIA_RANA_PEDRO]
+	set_current_characters([ALICIA])
 	enemies = [ene_1, ene_2]
 
 func set_current_enemies(enemy:EnemyResource, _extra_enemies:Array[EnemyResource] = []) -> void:

@@ -24,8 +24,10 @@ const max_shake_torque := 1.0
 const min_shake_torque := 0.2
 
 func _setup() -> void:
+	button_items.connect("pressed", _on_button_items_pressed)
 	button_items.connect("focus_entered", _on_button_items_focus_entered)
 	button_items.connect("focus_exited", _on_button_items_focus_exited)
+
 	button_trinkets.connect("focus_entered", _on_button_trinkets_focus_entered)
 	button_trinkets.connect("focus_exited", _on_button_trinkets_focus_exited)
 	button_quests.connect("focus_entered", _on_button_quests_focus_entered)
@@ -52,6 +54,9 @@ func _input(event:InputEvent) -> void:
 		dispatch("to_hidden_state")
 
 
+func _on_button_items_pressed() -> void:
+	if is_active():
+		dispatch("to_item_hsm")
 
 func _on_button_items_focus_entered() -> void:
 	item_button_model.set_surface_override_material(0, boton_brillando)

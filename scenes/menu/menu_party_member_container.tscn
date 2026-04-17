@@ -3,16 +3,21 @@
 [ext_resource type="Script" uid="uid://ci4qubuewxqy1" path="res://scripts/menu/menu_party_member_container.gd" id="2_j0qil"]
 [ext_resource type="Texture2D" uid="uid://4gcpx3eh7ly4" path="res://assets/character_portraits/demo_tecnico/Alicia DYB.PNG" id="2_khypy"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wwbom"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wwbom"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="MenuPartyMemberContainer" type="MarginContainer" unique_id=156636780]
 offset_right = 260.0
 offset_bottom = 235.0
-focus_mode = 2
 script = ExtResource("2_j0qil")
 color_focus = Color(0, 1, 0, 1)
 color_unfocus = Color(0.5943571, 0.962128, 1, 0)
+
+[node name="Button" type="Button" parent="." unique_id=1300863248]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wwbom")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=245655117]
 layout_mode = 2
@@ -45,5 +50,6 @@ texture = ExtResource("2_khypy")
 expand_mode = 1
 stretch_mode = 5
 
-[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
-[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="focus_entered" from="Button" to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="Button" to="." method="_on_focus_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

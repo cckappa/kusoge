@@ -6,11 +6,15 @@ extends LimboHSM
 @onready var hidden_state:LimboState=$MenuTamagotchiHiddenState
 @onready var base_state:LimboState=$MenuTamagotchiBaseState
 @onready var party_hsm:LimboState=$MenuTamagotchiPartyLimboHSM
-@onready var party_hidden_state:LimboState=$MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyHiddenState
+@onready var item_hsm:LimboState=$MenuTamagotchiItemLimboHSM
 
 @onready var tamagotchi:=%Tamagotchi
 @onready var party_control:Control=%PartyControl
+@onready var items_control:Control=%ItemsControl
+@onready var item_descriptions_control:Control=%ItemDescriptionsControl
 @onready var member_description_control:Control=%MemberDescriptionControl
+@onready var party_options:=%PartyOptions
+@onready var member_options:=%MemberOptions
 @onready var pov_container:PanelContainer=%PovContainer
 
 func _ready() -> void:
@@ -25,18 +29,28 @@ func _ready() -> void:
 func _set_transitions() -> void:
 	add_transition(hidden_state, base_state, "to_base_state")
 	add_transition(base_state, hidden_state, "to_hidden_state")
+	
 	add_transition(base_state, party_hsm, "to_party_hsm")
 	add_transition(party_hsm, base_state, "to_base_state")
+	add_transition(party_hsm, hidden_state, "to_hidden_state")
+	
+	add_transition(base_state, item_hsm, "to_item_hsm")
+	add_transition(item_hsm, base_state, "to_base_state")
+	add_transition(item_hsm, hidden_state, "to_hidden_state")
 
 
 func _set_blackboard() -> void:
 	blackboard.set_var("talking", false)
 	blackboard.set_var("tamagotchi", tamagotchi)
 	blackboard.set_var("party_control", party_control)
+	blackboard.set_var("items_control", items_control)
+	blackboard.set_var("item_descriptions_control", item_descriptions_control)
 	blackboard.set_var("member_description_control", member_description_control)
 	blackboard.set_var("pov_container", pov_container)
 	blackboard.set_var("party_hsm", party_hsm)
 	blackboard.set_var("hsm", self)
+	blackboard.set_var("party_options",party_options)
+	blackboard.set_var("member_options",member_options)
 
 func starts_talking() -> void:
 	blackboard.set_var("talking", true)

@@ -40,9 +40,9 @@ func _input(event:InputEvent) -> void:
 		print("empieza a hablar")
 
 func enters_area(body:Node2D) -> void:
-	print("body entered: ", body.name, " disabled: ", disabled)
+	# print("body entered: ", body.name, " disabled: ", disabled)
 	if body.is_in_group("main_character") and not disabled:
-		print(body.name)
+		# print(body.name)
 		if show_input:
 			show_input.appear_input_label()
 		talking_zone = true
@@ -65,7 +65,7 @@ func enters_area(body:Node2D) -> void:
 
 func exits_area(body:Node2D) -> void:
 	if body.is_in_group("main_character"):
-		print(body.name)
+		# print(body.name)
 		if show_input:
 			show_input.disappear_input_label()
 		talking_zone = false

@@ -23,9 +23,16 @@
 [ext_resource type="Texture2D" uid="uid://cd3nnf0w48lic" path="res://assets/character_portraits/demo_tecnico/RANASTASIO DYB.PNG" id="16_0tps1"]
 [ext_resource type="PackedScene" uid="uid://c284iahmhbm3n" path="res://scenes/menu/menu_party_member_container.tscn" id="16_5aw48"]
 [ext_resource type="Script" uid="uid://b0utgo4glektp" path="res://scripts/menu/pov_container.gd" id="16_dinic"]
+[ext_resource type="PackedScene" uid="uid://b70x651hdanbo" path="res://scenes/menu/menu_missing_party.tscn" id="16_v1kli"]
 [ext_resource type="Script" uid="uid://v1fvmdslx0x0" path="res://scripts/menu/member_description_control.gd" id="16_yl3w3"]
 [ext_resource type="PackedScene" uid="uid://dhn52stl8orqn" path="res://scenes/menu/info_habilidad_container.tscn" id="18_0snb7"]
 [ext_resource type="FontFile" uid="uid://bdmps3wsxple0" path="res://assets/fonts/Bagel_Fat_One/BagelFatOne-Regular.ttf" id="19_tfody"]
+[ext_resource type="Script" uid="uid://cwrn4pod4jfoh" path="res://scripts/menu/menu_tamagotchi_party_option_state.gd" id="21_2t3kw"]
+[ext_resource type="Script" uid="uid://f4p2dab21dvd" path="res://scripts/menu/menu_tamagotchi_item_limbo_hsm.gd" id="21_idbuj"]
+[ext_resource type="Script" uid="uid://xlxnv6d2ynpj" path="res://scripts/menu/menu_tamagotchi_item_hidden_state.gd" id="22_5w4f6"]
+[ext_resource type="Script" uid="uid://cb1sehfjvwaqb" path="res://scripts/menu/menu_tamagotchi_member_option_state.gd" id="22_8tlpf"]
+[ext_resource type="Script" uid="uid://csprmldcrspcj" path="res://scripts/menu/menu_tamagotchi_item_base_state.gd" id="23_2t3kw"]
+[ext_resource type="Texture2D" uid="uid://derwre1r0c57q" path="res://assets/item_icons/demo_tecnico/Cafecito.PNG" id="24_5w4f6"]
 
 [sub_resource type="Resource" id="Resource_0snb7"]
 script = ExtResource("5_mtv8o")
@@ -41,6 +48,11 @@ bg_color = Color(0.003921569, 1, 1, 1)
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0snb7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2t3kw"]
+bg_color = Color(0, 1, 0.12315822, 0.41200003)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5w4f6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmn4q"]
 bg_color = Color(0, 1, 1, 1)
@@ -80,6 +92,18 @@ script = ExtResource("2_ira2m")
 [node name="Tamagotchi" parent="SubViewport/MenuTamagotchi" unique_id=9477100 instance=ExtResource("3_duuv3")]
 unique_name_in_owner = true
 process_mode = 3
+
+[node name="tierra" parent="SubViewport/MenuTamagotchi/Tamagotchi/AnimatableBody3D/tamagotchi2/Armature/Skeleton3D" index="17" unique_id=263802950]
+visible = false
+
+[node name="tierra_base" parent="SubViewport/MenuTamagotchi/Tamagotchi/AnimatableBody3D/tamagotchi2/Armature/Skeleton3D" index="18" unique_id=77668706]
+visible = false
+
+[node name="trinkets" parent="SubViewport/MenuTamagotchi/Tamagotchi/AnimatableBody3D/tamagotchi2/Armature/Skeleton3D" index="19" unique_id=194881487]
+visible = false
+
+[node name="trinkets_base" parent="SubViewport/MenuTamagotchi/Tamagotchi/AnimatableBody3D/tamagotchi2/Armature/Skeleton3D" index="20" unique_id=303145458]
+visible = false
 
 [node name="DMWBWiggleRotationModifier3D" type="SkeletonModifier3D" parent="SubViewport/MenuTamagotchi/Tamagotchi/AnimatableBody3D/tamagotchi2/Armature/Skeleton3D" index="21" unique_id=1981794143]
 unique_name_in_owner = false
@@ -132,6 +156,7 @@ offset_left = 2178.0
 offset_top = 1019.0
 offset_right = 2264.0
 offset_bottom = 1059.0
+focus_mode = 0
 mouse_filter = 2
 text = "TIERRA"
 
@@ -181,6 +206,7 @@ text = "ITEMS"
 [node name="ButtonTrinkets" type="Button" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiBaseState/ButtonsTamagotchi/HBoxContainer" unique_id=1624002232]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
 mouse_filter = 2
 text = "TRINKETS"
 
@@ -257,15 +283,15 @@ layout_mode = 2
 [node name="MenuPartyMemberContainer3" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/PartyPanelContainer/VBoxContainer/MarginContainer/PartyGridContainer" unique_id=1774571255 instance=ExtResource("16_5aw48")]
 layout_mode = 2
 
-[node name="MenuPartyMemberContainer4" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/PartyPanelContainer/VBoxContainer/MarginContainer/PartyGridContainer" unique_id=1896518625 instance=ExtResource("16_5aw48")]
+[node name="MenuMissingParty" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/PartyPanelContainer/VBoxContainer/MarginContainer/PartyGridContainer" unique_id=1575710865 instance=ExtResource("16_v1kli")]
 layout_mode = 2
 
 [node name="FullPanelContainer" type="PanelContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl" unique_id=634359614]
 layout_mode = 0
-offset_left = 393.0
-offset_top = 248.0
-offset_right = 1451.0
-offset_bottom = 605.0
+offset_left = 549.0
+offset_top = 233.0
+offset_right = 1343.0
+offset_bottom = 1610.0
 theme = ExtResource("15_5aw48")
 
 [node name="ColorRect" type="ColorRect" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer" unique_id=2051644571]
@@ -289,13 +315,16 @@ custom_minimum_size = Vector2(0, 260)
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer/MarginContainer" unique_id=901080512]
+custom_minimum_size = Vector2(0, 1280)
 layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
 [node name="FullPartyGridContainer" type="GridContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer/MarginContainer/ScrollContainer" unique_id=647171227]
 unique_name_in_owner = true
 layout_mode = 2
-columns = 4
+columns = 3
 
 [node name="MenuPartyMemberContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer/VBoxContainer/MarginContainer/ScrollContainer/FullPartyGridContainer" unique_id=1041024996 instance=ExtResource("16_5aw48")]
 layout_mode = 2
@@ -558,6 +587,242 @@ fit_content = true
 [node name="HoveringEffect" type="Node" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoVidaContainer/CenterContainer" unique_id=112700255]
 script = ExtResource("13_ldva5")
 metadata/_custom_type_script = "uid://cpopq75r5iwyw"
+
+[node name="MenuTamagotchiPartyOptionState" type="LimboState" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM" unique_id=974570746]
+script = ExtResource("21_2t3kw")
+
+[node name="PartyOptions" type="Control" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyOptionState" unique_id=707964147]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PartyOptionsContainer" type="PanelContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyOptionState/PartyOptions" unique_id=534601272]
+layout_mode = 0
+offset_left = 1506.0
+offset_top = 283.0
+offset_right = 1980.0
+offset_bottom = 606.0
+theme = ExtResource("15_5aw48")
+
+[node name="HoveringEffect" type="Node" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyOptionState/PartyOptions/PartyOptionsContainer" unique_id=1182115233]
+script = ExtResource("13_ldva5")
+metadata/_custom_type_script = "uid://cpopq75r5iwyw"
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyOptionState/PartyOptions/PartyOptionsContainer" unique_id=1140788355]
+layout_mode = 2
+color = Color(0.7764706, 0.7764706, 0.7764706, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyOptionState/PartyOptions/PartyOptionsContainer" unique_id=1088394329]
+layout_mode = 2
+
+[node name="HeaderBar" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyOptionState/PartyOptions/PartyOptionsContainer/VBoxContainer" unique_id=102391801 instance=ExtResource("9_dinic")]
+layout_mode = 2
+title_text = "ORGANIZAR"
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyOptionState/PartyOptions/PartyOptionsContainer/VBoxContainer" unique_id=175957884]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyOptionState/PartyOptions/PartyOptionsContainer/VBoxContainer/MarginContainer" unique_id=1980014751]
+layout_mode = 2
+theme_override_constants/separation = 28
+
+[node name="SacarPartyButton" type="Button" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyOptionState/PartyOptions/PartyOptionsContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=937727907]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("15_5aw48")
+text = "<<< Sacar del equipo"
+
+[node name="AtrasPartyButton" type="Button" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyOptionState/PartyOptions/PartyOptionsContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=426311082]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("15_5aw48")
+text = "Atras"
+
+[node name="MenuTamagotchiMemberOptionState" type="LimboState" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM" unique_id=61631309]
+script = ExtResource("22_8tlpf")
+
+[node name="MemberOptions" type="Control" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiMemberOptionState" unique_id=1621094742]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MemberOptionsContainer" type="PanelContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiMemberOptionState/MemberOptions" unique_id=1691787993]
+layout_mode = 0
+offset_left = 1474.0
+offset_top = 282.0
+offset_right = 1995.0
+offset_bottom = 605.0
+theme = ExtResource("15_5aw48")
+
+[node name="HoveringEffect" type="Node" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiMemberOptionState/MemberOptions/MemberOptionsContainer" unique_id=154337232]
+script = ExtResource("13_ldva5")
+metadata/_custom_type_script = "uid://cpopq75r5iwyw"
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiMemberOptionState/MemberOptions/MemberOptionsContainer" unique_id=1781080167]
+layout_mode = 2
+color = Color(0.7764706, 0.7764706, 0.7764706, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiMemberOptionState/MemberOptions/MemberOptionsContainer" unique_id=1719391297]
+layout_mode = 2
+
+[node name="HeaderBar" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiMemberOptionState/MemberOptions/MemberOptionsContainer/VBoxContainer" unique_id=1415601868 instance=ExtResource("9_dinic")]
+layout_mode = 2
+title_text = "ORGANIZAR"
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiMemberOptionState/MemberOptions/MemberOptionsContainer/VBoxContainer" unique_id=1599641336]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiMemberOptionState/MemberOptions/MemberOptionsContainer/VBoxContainer/MarginContainer" unique_id=1791063207]
+layout_mode = 2
+theme_override_constants/separation = 28
+
+[node name="AgregarMemberButton" type="Button" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiMemberOptionState/MemberOptions/MemberOptionsContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=558332060]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("15_5aw48")
+text = "Agregar al equipo >>>"
+
+[node name="MarcarMemberButton" type="Button" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiMemberOptionState/MemberOptions/MemberOptionsContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=89390452]
+visible = false
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 2
+theme = ExtResource("15_5aw48")
+text = "Marcar"
+
+[node name="AtrasMemberButton" type="Button" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiMemberOptionState/MemberOptions/MemberOptionsContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1506759390]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("15_5aw48")
+text = "Atras"
+
+[node name="MenuTamagotchiItemLimboHSM" type="LimboHSM" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM" unique_id=2004258393 node_paths=PackedStringArray("limbo_initial_state")]
+unique_name_in_owner = true
+script = ExtResource("21_idbuj")
+limbo_initial_state = NodePath("MenuTamagotchiItemBaseState")
+
+[node name="MenuTamagotchiItemHiddenState" type="LimboState" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiItemLimboHSM" unique_id=762699729]
+script = ExtResource("22_5w4f6")
+
+[node name="MenuTamagotchiItemBaseState" type="LimboState" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiItemLimboHSM" unique_id=728346817]
+script = ExtResource("23_2t3kw")
+
+[node name="ItemsControl" type="Control" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiItemLimboHSM/MenuTamagotchiItemBaseState" unique_id=143432761]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InfoItemsContainer" type="PanelContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiItemLimboHSM/MenuTamagotchiItemBaseState/ItemsControl" unique_id=379349851]
+layout_mode = 0
+offset_left = 550.0
+offset_top = 341.0
+offset_right = 1310.0
+offset_bottom = 948.0
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiItemLimboHSM/MenuTamagotchiItemBaseState/ItemsControl/InfoItemsContainer" unique_id=436504936]
+layout_mode = 2
+color = Color(0, 0, 0.13333334, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiItemLimboHSM/MenuTamagotchiItemBaseState/ItemsControl/InfoItemsContainer" unique_id=724292312]
+layout_mode = 2
+
+[node name="HoveringEffect" type="Node" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiItemLimboHSM/MenuTamagotchiItemBaseState/ItemsControl/InfoItemsContainer/VBoxContainer" unique_id=1850099794]
+script = ExtResource("13_ldva5")
+metadata/_custom_type_script = "uid://cpopq75r5iwyw"
+
+[node name="HeaderBar" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiItemLimboHSM/MenuTamagotchiItemBaseState/ItemsControl/InfoItemsContainer/VBoxContainer" unique_id=1819740294 instance=ExtResource("9_dinic")]
+layout_mode = 2
+title_text = "OBJETOS"
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiItemLimboHSM/MenuTamagotchiItemBaseState/ItemsControl/InfoItemsContainer/VBoxContainer" unique_id=718323154]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="InfoItemsVBox" type="VBoxContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiItemLimboHSM/MenuTamagotchiItemBaseState/ItemsControl/InfoItemsContainer/VBoxContainer/MarginContainer" unique_id=1895242166]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ItemText" type="RichTextLabel" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiItemLimboHSM/MenuTamagotchiItemBaseState/ItemsControl/InfoItemsContainer/VBoxContainer/MarginContainer/InfoItemsVBox" unique_id=1835711343]
+custom_minimum_size = Vector2(720, 0)
+layout_mode = 2
+focus_mode = 2
+theme = ExtResource("15_5aw48")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "No tienes objetos en tu inventario :("
+fit_content = true
+
+[node name="ItemDescriptionsControl" type="Control" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiItemLimboHSM/MenuTamagotchiItemBaseState" unique_id=2048754183]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiItemLimboHSM/MenuTamagotchiItemBaseState/ItemDescriptionsControl" unique_id=954533736]
+layout_mode = 0
+offset_left = 1344.0
+offset_top = 503.0
+offset_right = 1584.0
+offset_bottom = 743.0
+theme = ExtResource("15_5aw48")
+theme_type_variation = &"PanelContainerFondoMember"
+theme_override_styles/panel = SubResource("StyleBoxFlat_2t3kw")
+
+[node name="PanelContainer" type="PanelContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiItemLimboHSM/MenuTamagotchiItemBaseState/ItemDescriptionsControl/PanelContainer" unique_id=1666792038]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5w4f6")
+
+[node name="HoveringEffect" type="Node" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiItemLimboHSM/MenuTamagotchiItemBaseState/ItemDescriptionsControl/PanelContainer/PanelContainer" unique_id=368442852]
+script = ExtResource("13_ldva5")
+metadata/_custom_type_script = "uid://cpopq75r5iwyw"
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiItemLimboHSM/MenuTamagotchiItemBaseState/ItemDescriptionsControl/PanelContainer/PanelContainer" unique_id=683736318]
+layout_mode = 2
+color = Color(0, 1, 0.37187055, 0.289)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiItemLimboHSM/MenuTamagotchiItemBaseState/ItemDescriptionsControl/PanelContainer/PanelContainer" unique_id=841864872]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiItemLimboHSM/MenuTamagotchiItemBaseState/ItemDescriptionsControl/PanelContainer/PanelContainer/VBoxContainer" unique_id=1552011134]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="CenterContainer" type="CenterContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiItemLimboHSM/MenuTamagotchiItemBaseState/ItemDescriptionsControl/PanelContainer/PanelContainer/VBoxContainer/MarginContainer" unique_id=1963957482]
+layout_mode = 2
+
+[node name="SpriteItem" type="TextureRect" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiItemLimboHSM/MenuTamagotchiItemBaseState/ItemDescriptionsControl/PanelContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer" unique_id=673880259]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+texture = ExtResource("24_5w4f6")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="BlurEffect" parent="." unique_id=251510813 instance=ExtResource("2_v71ah")]
 z_index = -1

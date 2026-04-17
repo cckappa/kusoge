@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://ivmeqy3td87i"]
+[gd_resource type="Theme" format=3 uid="uid://ivmeqy3td87i"]
 
 [ext_resource type="FontFile" uid="uid://dhntt63cl5ml1" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="1_7pcuq"]
 [ext_resource type="StyleBox" uid="uid://bl2rnnrph1tfh" path="res://assets/themes/pink_box.tres" id="1_qrapq"]

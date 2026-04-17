@@ -12,5 +12,10 @@ func move_base() -> void:
 
 func move_party() -> void:
 	var tween := create_tween()
-	tween.tween_property(self, "position", Vector2(2456, 429), tween_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT) 
+	tween.tween_property(self, "position", Vector2(1275, 60), tween_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT) 
+
+func move_items() -> void:
+	var tween := create_tween()
+	tween.tween_property(self, "position", Vector2(1898, 98), tween_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT) 
+
 

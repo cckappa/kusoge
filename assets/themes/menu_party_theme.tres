@@ -1,6 +1,38 @@
 [gd_resource type="Theme" format=3 uid="uid://crmca0mrbuhyc"]
 
 [ext_resource type="FontFile" uid="uid://ch5xxlkb4rbs7" path="res://assets/fonts/437_Rainbow_100_re_66/Ac437_Rainbow100_re_66.ttf" id="1_dfutt"]
+[ext_resource type="FontFile" uid="uid://rdhs7glvb78e" path="res://assets/fonts/Libre_Caslon_Display/LibreCaslonDisplay-Regular.ttf" id="1_vk4uc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rd7fw"]
+bg_color = Color(0.7750634, 0.7750634, 0.7750634, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.06053038, 0.06053035, 0.060530283, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4yewd"]
+bg_color = Color(0.7750634, 0.7750634, 0.7750634, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.06053038, 0.06053035, 0.060530283, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60430"]
+bg_color = Color(0.7750634, 0.7750634, 0.7750634, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.90359825, 0.90359825, 0.903598, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1o03i"]
+bg_color = Color(0.7750634, 0.7750634, 0.7750634, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jv0nc"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -16,7 +48,19 @@ bg_color = Color(0.003921569, 1, 1, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vk4uc"]
 bg_color = Color(0.043137256, 0.10980392, 0.23137255, 0.9490196)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dfutt"]
+
 [resource]
+Button/colors/font_color = Color(0.033853173, 0.033853333, 0.03385321, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 55
+Button/fonts/font = ExtResource("1_vk4uc")
+Button/styles/focus = SubResource("StyleBoxFlat_rd7fw")
+Button/styles/hover = SubResource("StyleBoxFlat_4yewd")
+Button/styles/normal = SubResource("StyleBoxFlat_60430")
+Button/styles/pressed = SubResource("StyleBoxFlat_1o03i")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_jv0nc")
 PanelContainerFondoMember/base_type = &"PanelContainer"
 PanelContainerFondoMember/styles/panel = SubResource("StyleBoxFlat_dfutt")
@@ -25,3 +69,4 @@ PanelContainerNombre/styles/panel = SubResource("StyleBoxFlat_vk4uc")
 RichTextLabel/colors/default_color = Color(0.003921569, 1, 0.15686275, 1)
 RichTextLabel/font_sizes/normal_font_size = 100
 RichTextLabel/fonts/normal_font = ExtResource("1_dfutt")
+RichTextLabel/styles/focus = SubResource("StyleBoxEmpty_dfutt")

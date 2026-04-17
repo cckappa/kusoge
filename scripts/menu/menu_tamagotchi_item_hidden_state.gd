@@ -13,7 +13,5 @@ func _enter() -> void:
 		get_root().call_deferred("dispatch","to_base_state")
 
 func set_visibility(_visible:bool) -> void:
-	blackboard.get_var("party_control").visible = _visible
-	blackboard.get_var("member_description_control").visible = _visible
-	blackboard.get_var("party_options").visible = _visible
-	blackboard.get_var("member_options").visible = _visible
+	blackboard.get_var("items_control").visible = _visible
+	blackboard.get_var("item_descriptions_control").visible = _visible
