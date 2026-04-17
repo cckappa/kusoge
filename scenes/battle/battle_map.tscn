@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://cod6c54j8jvom"]
+
+[ext_resource type="PackedScene" uid="uid://dm3728co0sn8k" path="res://scenes/battle/party_character_container.tscn" id="1_6cni1"]
+[ext_resource type="Script" uid="uid://b80kfb61skudv" path="res://scripts/battle/battle_limbo_hsm.gd" id="1_vcmfp"]
+[ext_resource type="Script" uid="uid://byyhfiggbwnox" path="res://scripts/battle/initialize_party.gd" id="2_r1wka"]
+[ext_resource type="Script" uid="uid://b1w2nokl54ywb" path="res://scripts/battle/focus_party.gd" id="3_xyjd7"]
+[ext_resource type="Script" uid="uid://cpopq75r5iwyw" path="res://scripts/menu/hovering_effect.gd" id="5_bn473"]
+[ext_resource type="PackedScene" uid="uid://dtgg7s2k7nbud" path="res://scenes/menu/header_bar.tscn" id="6_pq4qf"]
+[ext_resource type="PackedScene" uid="uid://dhn52stl8orqn" path="res://scenes/menu/info_habilidad_container.tscn" id="7_mjn88"]
+
+[node name="BattleMap" type="Control" unique_id=1410843090]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BattleLimboHSM" type="LimboHSM" parent="." unique_id=1679570893 node_paths=PackedStringArray("limbo_initial_state")]
+script = ExtResource("1_vcmfp")
+limbo_initial_state = NodePath("FocusParty")
+
+[node name="InitializeParty" type="LimboState" parent="BattleLimboHSM" unique_id=2089980601]
+script = ExtResource("2_r1wka")
+
+[node name="FocusParty" type="LimboState" parent="BattleLimboHSM" unique_id=483360589]
+script = ExtResource("3_xyjd7")
+
+[node name="PartyControl" type="Control" parent="." unique_id=1807358384]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="PartyControl" unique_id=476464889]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -1385.0
+offset_top = -722.0
+offset_right = 1385.0
+offset_bottom = -163.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PartyHBoxContainer" type="HBoxContainer" parent="PartyControl/CenterContainer" unique_id=1087967486]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 2
+focus_behavior_recursive = 2
+theme_override_constants/separation = 130
+alignment = 1
+
+[node name="PartyCharacterVisualSeBorra" parent="PartyControl/CenterContainer/PartyHBoxContainer" unique_id=1967704241 instance=ExtResource("1_6cni1")]
+layout_mode = 2
+
+[node name="PartyCharacterContainer2" parent="PartyControl/CenterContainer/PartyHBoxContainer" unique_id=1392726088 instance=ExtResource("1_6cni1")]
+layout_mode = 2
+
+[node name="PartyCharacterContainer3" parent="PartyControl/CenterContainer/PartyHBoxContainer" unique_id=1919111383 instance=ExtResource("1_6cni1")]
+layout_mode = 2
+
+[node name="PartyCharacterContainer4" parent="PartyControl/CenterContainer/PartyHBoxContainer" unique_id=1590886367 instance=ExtResource("1_6cni1")]
+layout_mode = 2
+
+[node name="AttackMenuControl" type="Control" parent="." unique_id=1135225868]
+z_index = 100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InfoHabilidadesContainer" type="PanelContainer" parent="AttackMenuControl" unique_id=928437970]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -380.0
+offset_top = -303.5
+offset_right = 380.0
+offset_bottom = 303.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="AttackMenuControl/InfoHabilidadesContainer" unique_id=1020502816]
+layout_mode = 2
+color = Color(0, 0, 0.13333334, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AttackMenuControl/InfoHabilidadesContainer" unique_id=1271894820]
+layout_mode = 2
+
+[node name="HoveringEffect" type="Node" parent="AttackMenuControl/InfoHabilidadesContainer/VBoxContainer" unique_id=651350955]
+script = ExtResource("5_bn473")
+metadata/_custom_type_script = "uid://cpopq75r5iwyw"
+
+[node name="HeaderBar" parent="AttackMenuControl/InfoHabilidadesContainer/VBoxContainer" unique_id=1517944800 instance=ExtResource("6_pq4qf")]
+layout_mode = 2
+title_text = "HABILIDADES"
+
+[node name="MarginContainer" type="MarginContainer" parent="AttackMenuControl/InfoHabilidadesContainer/VBoxContainer" unique_id=647393485]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="InfoHabilidadesVBox" type="VBoxContainer" parent="AttackMenuControl/InfoHabilidadesContainer/VBoxContainer/MarginContainer" unique_id=909776069]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 45
+
+[node name="InfoHabilidadContainer" parent="AttackMenuControl/InfoHabilidadesContainer/VBoxContainer/MarginContainer/InfoHabilidadesVBox" unique_id=1747630235 instance=ExtResource("7_mjn88")]
+layout_mode = 2

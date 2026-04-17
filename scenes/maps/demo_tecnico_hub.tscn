@@ -761,7 +761,7 @@ script = ExtResource("35_f3wh4")
 duration = 2.0
 transition = 1
 
-[node name="ShowInput" type="Node2D" unique_id=1271019550 node_paths=PackedStringArray("door_sprite", "door_collision")]
+[node name="DemoTecnicoHub" type="Node2D" unique_id=1271019550 node_paths=PackedStringArray("door_sprite", "door_collision")]
 y_sort_enabled = true
 script = ExtResource("1_w0bji")
 door_sprite = NodePath("ObjectLayer/Casa/PuertaCasa/AnimatedSprite2D")

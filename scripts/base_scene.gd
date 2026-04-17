@@ -15,6 +15,7 @@ var add_to_maps_button: = add_to_maps_resource
 # var battle_scene: String = "res://scenes/battle.tscn" 
 const BATTLE = preload("res://scenes/battle.tscn")
 const FULL_MAPS_RESOURCE_PATH = "res://assets/resources/maps/full_maps.tres"
+const EMPTY_DIALOGIC = "empty_timeline"
 
 var playable_character: Node2D
 var camera2D: PhantomCamera2D
@@ -30,6 +31,7 @@ func _ready() -> void:
 	if y_sort_enabled != true:
 		y_sort_enabled = true
 
+	call_empty_dialogic_for_loading()
 	set_dev_tools()
 	set_map_information()
 
@@ -167,3 +169,6 @@ func set_dev_tools() -> void:
 		if canvas_node:
 			print("Adding Dev UI to CanvasLayer")
 			canvas_node.add_child.call_deferred(dev_ui_instance)
+
+func call_empty_dialogic_for_loading() -> void:
+	Dialogic.start(EMPTY_DIALOGIC)

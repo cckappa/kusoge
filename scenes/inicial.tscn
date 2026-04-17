@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://dfidel1ct2nq"]
+[gd_scene format=3 uid="uid://dfidel1ct2nq"]
 
 [ext_resource type="Script" uid="uid://bc48bdl6w38yw" path="res://scripts/inicial.gd" id="1_o71xu"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="2_1dw8i"]
@@ -42,7 +42,6 @@
 [ext_resource type="Resource" uid="uid://cym74q2mvjcte" path="res://assets/resources/enemies/serpra.tres" id="36_mxbwd"]
 [ext_resource type="Texture2D" uid="uid://c31kt0h0ajr2y" path="res://assets/objects/cosas_0000s_0000_maceta.png" id="37_4tk2x"]
 [ext_resource type="Resource" uid="uid://dhjur3x054uqu" path="res://assets/resources/enemies/lobo_salvaje.tres" id="37_5m0wc"]
-[ext_resource type="PackedScene" uid="uid://ci5a44r0l16fy" path="res://scenes/pause_menu.tscn" id="42_3enco"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7hm6u"]
 size = Vector2(320, 1835)
@@ -390,80 +389,78 @@ Vector2i(0, 1): {
 }
 }
 
-[node name="Inicial" type="Node2D" node_paths=PackedStringArray("black_rect", "audio_stream_player")]
+[node name="Inicial" type="Node2D" unique_id=1968622468]
 y_sort_enabled = true
 script = ExtResource("1_o71xu")
-black_rect = NodePath("CanvasLayer/BlackRect")
-audio_stream_player = NodePath("AudioStreamPlayer")
 
-[node name="SettingsMenu" parent="." instance=ExtResource("2_1dw8i")]
+[node name="SettingsMenu" parent="." unique_id=981572788 instance=ExtResource("2_1dw8i")]
 
-[node name="BackgroundLayer" type="Node2D" parent="."]
+[node name="BackgroundLayer" type="Node2D" parent="." unique_id=1190046077]
 z_index = -1
 script = ExtResource("3_aopbk")
 
-[node name="Sprite2D" type="Sprite2D" parent="BackgroundLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundLayer" unique_id=1143571922]
 texture = ExtResource("3_522kq")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="BackgroundLayer"]
+[node name="StaticBody2D" type="StaticBody2D" parent="BackgroundLayer" unique_id=1716268148]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D" unique_id=856823719]
 position = Vector2(-917, -97.5)
 shape = SubResource("RectangleShape2D_7hm6u")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D" unique_id=644862128]
 position = Vector2(-610.5, -640)
 shape = SubResource("RectangleShape2D_4pqnx")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D" unique_id=1033841868]
 position = Vector2(663, -640)
 shape = SubResource("RectangleShape2D_tofan")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D" unique_id=422486621]
 position = Vector2(27.75, -662.5)
 shape = SubResource("RectangleShape2D_upkr7")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D" unique_id=653741186]
 position = Vector2(-667.25, 895.25)
 shape = SubResource("RectangleShape2D_uxw4m")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D" unique_id=1583783825]
 position = Vector2(521, 892)
 shape = SubResource("RectangleShape2D_hlq4c")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D" unique_id=1934743434]
 position = Vector2(902.5, -3.5)
 shape = SubResource("RectangleShape2D_04bmr")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=104676414]
 polygon = PackedVector2Array(465, -3, 493, -2, 584, 49, 466, 51)
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D" unique_id=1269882946]
 position = Vector2(24, 124)
 shape = SubResource("RectangleShape2D_jhf4j")
 
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D" unique_id=1025884391]
 position = Vector2(-412, -86.5)
 shape = SubResource("RectangleShape2D_fn2xi")
 
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D" unique_id=707801332]
 position = Vector2(463, 69)
 shape = SubResource("RectangleShape2D_vk55a")
 
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D" unique_id=1028648868]
 position = Vector2(466, -266)
 shape = SubResource("RectangleShape2D_neimp")
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=806514944]
 position = Vector2(12, -34)
 polygon = PackedVector2Array(460, -159, 578, -107, 583, -134, 464, -185)
 
-[node name="PlayableCharacter" parent="." instance=ExtResource("3_5la8r")]
+[node name="PlayableCharacter" parent="." unique_id=1409199919 instance=ExtResource("3_5la8r")]
 position = Vector2(192, 454)
 
-[node name="NpcLayer" type="Node" parent="."]
+[node name="NpcLayer" type="Node" parent="." unique_id=841764597]
 
-[node name="Mesero" parent="." instance=ExtResource("12_hoddu")]
+[node name="Mesero" parent="." unique_id=435507424 instance=ExtResource("12_hoddu")]
 position = Vector2(688, 618)
 
 [node name="AnimatedSprite2D" parent="Mesero" index="0"]
@@ -472,32 +469,32 @@ autoplay = "default"
 frame_progress = 0.932002
 offset = Vector2(0, -99.51)
 
-[node name="Talk" type="Node2D" parent="Mesero" node_paths=PackedStringArray("talking_area")]
+[node name="Talk" type="Node2D" parent="Mesero" unique_id=1894514362 node_paths=PackedStringArray("talking_area")]
 position = Vector2(-179, 19)
 script = ExtResource("7_b1xsq")
 talking_area = NodePath("Area2D")
 timeline_name = "mesero_bar_1"
 metadata/_custom_type_script = "uid://do84xbf65qif"
 
-[node name="Area2D" type="Area2D" parent="Mesero/Talk"]
+[node name="Area2D" type="Area2D" parent="Mesero/Talk" unique_id=2088955031]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mesero/Talk/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mesero/Talk/Area2D" unique_id=1814568124]
 shape = SubResource("CircleShape2D_5m0wc")
 
-[node name="Quest" type="Node2D" parent="Mesero"]
+[node name="Quest" type="Node2D" parent="Mesero" unique_id=350388871]
 position = Vector2(0, 1)
 script = ExtResource("12_jkpxj")
 quest_resource = ExtResource("13_f53t4")
 dialogic_signal = "mesero_bar_q_1"
 metadata/_custom_type_script = "uid://bj1igyevn8g64"
 
-[node name="ItemGiver" type="Node" parent="Mesero"]
+[node name="ItemGiver" type="Node" parent="Mesero" unique_id=501888792]
 script = ExtResource("10_20hxs")
 item = ExtResource("11_mxbwd")
 dialogic_signal = "mesero_bar_i_1"
 metadata/_custom_type_script = "uid://b0gh7v5xk7w7w"
 
-[node name="WeyBarra" parent="." instance=ExtResource("12_hoddu")]
+[node name="WeyBarra" parent="." unique_id=1971894966 instance=ExtResource("12_hoddu")]
 position = Vector2(488, 460)
 
 [node name="AnimatedSprite2D" parent="WeyBarra" index="0"]
@@ -510,7 +507,7 @@ offset = Vector2(0, -105.89)
 position = Vector2(-14, -63)
 shape = SubResource("CapsuleShape2D_27xes")
 
-[node name="TecladoPlayer" parent="." instance=ExtResource("12_hoddu")]
+[node name="TecladoPlayer" parent="." unique_id=21266558 instance=ExtResource("12_hoddu")]
 position = Vector2(-182, -7)
 
 [node name="AnimatedSprite2D" parent="TecladoPlayer" index="0"]
@@ -523,7 +520,7 @@ offset = Vector2(0, -188.92)
 position = Vector2(2, -99)
 shape = SubResource("RectangleShape2D_ynnld")
 
-[node name="Cantante" parent="." instance=ExtResource("12_hoddu")]
+[node name="Cantante" parent="." unique_id=371433652 instance=ExtResource("12_hoddu")]
 position = Vector2(44, -17)
 
 [node name="AnimatedSprite2D" parent="Cantante" index="0"]
@@ -537,7 +534,7 @@ position = Vector2(4, -23)
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_vfo8s")
 
-[node name="RanaBorracha" parent="." instance=ExtResource("12_hoddu")]
+[node name="RanaBorracha" parent="." unique_id=1261064949 instance=ExtResource("12_hoddu")]
 position = Vector2(-47, 424)
 
 [node name="AnimatedSprite2D" parent="RanaBorracha" index="0"]
@@ -549,29 +546,29 @@ offset = Vector2(0, -125.505)
 [node name="CollisionPolygon2D" parent="RanaBorracha/StaticBody2D" index="0"]
 polygon = PackedVector2Array(-72, 9, -16, 18, 13, 8, 33, -45, 54, -100, -4, -106, -60, -81)
 
-[node name="Talk" type="Node2D" parent="RanaBorracha" node_paths=PackedStringArray("talking_area")]
+[node name="Talk" type="Node2D" parent="RanaBorracha" unique_id=1985133887 node_paths=PackedStringArray("talking_area")]
 script = ExtResource("7_b1xsq")
 talking_area = NodePath("Area2D")
 timeline_name = "rana_borracha_bar_1"
 
-[node name="Area2D" type="Area2D" parent="RanaBorracha/Talk"]
+[node name="Area2D" type="Area2D" parent="RanaBorracha/Talk" unique_id=1117293773]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RanaBorracha/Talk/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RanaBorracha/Talk/Area2D" unique_id=1883430421]
 position = Vector2(-25, -53)
 shape = SubResource("CircleShape2D_4fasa")
 
-[node name="Quest" type="Node2D" parent="RanaBorracha"]
+[node name="Quest" type="Node2D" parent="RanaBorracha" unique_id=436262785]
 script = ExtResource("12_jkpxj")
 quest_resource = ExtResource("13_f53t4")
 dialogic_signal = "rana_borracha_quest_1"
 
-[node name="ItemTaker" type="Node" parent="RanaBorracha"]
+[node name="ItemTaker" type="Node" parent="RanaBorracha" unique_id=697493662]
 script = ExtResource("16_mxbwd")
 item = ExtResource("11_mxbwd")
 dialogic_signal = "rana_borracha_irm_1"
 metadata/_custom_type_script = "uid://moxcdo1lwavw"
 
-[node name="Lila" parent="." instance=ExtResource("12_hoddu")]
+[node name="Lila" parent="." unique_id=1113944753 instance=ExtResource("12_hoddu")]
 position = Vector2(-303, 1215)
 
 [node name="AnimatedSprite2D" parent="Lila" index="0"]
@@ -582,27 +579,27 @@ offset = Vector2(0, -74.275)
 position = Vector2(-5, -8.5)
 shape = SubResource("RectangleShape2D_20hxs")
 
-[node name="Talk" type="Node2D" parent="Lila" node_paths=PackedStringArray("talking_area")]
+[node name="Talk" type="Node2D" parent="Lila" unique_id=499507947 node_paths=PackedStringArray("talking_area")]
 script = ExtResource("7_b1xsq")
 talking_area = NodePath("Area2D")
 timeline_name = "lila_bar_1"
 metadata/_custom_type_script = "uid://do84xbf65qif"
 
-[node name="Area2D" type="Area2D" parent="Lila/Talk"]
+[node name="Area2D" type="Area2D" parent="Lila/Talk" unique_id=1745338152]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lila/Talk/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lila/Talk/Area2D" unique_id=104594810]
 position = Vector2(-4, -21)
 shape = SubResource("CircleShape2D_aopbk")
 
-[node name="Quest" type="Node2D" parent="Lila"]
+[node name="Quest" type="Node2D" parent="Lila" unique_id=1252438678]
 script = ExtResource("12_jkpxj")
 quest_resource = ExtResource("13_f53t4")
 dialogic_signal = "lila_bar_q_1"
 metadata/_custom_type_script = "uid://bj1igyevn8g64"
 
-[node name="ObjectLayer" type="Node" parent="."]
+[node name="ObjectLayer" type="Node" parent="." unique_id=947271916]
 
-[node name="Objeto" parent="." instance=ExtResource("7_u5b8b")]
+[node name="Objeto" parent="." unique_id=1628139173 instance=ExtResource("7_u5b8b")]
 position = Vector2(626, 334)
 
 [node name="Sprite2D" parent="Objeto" index="0"]
@@ -612,20 +609,20 @@ offset = Vector2(0, 182.925)
 [node name="CollisionPolygon2D" parent="Objeto/StaticBody2D" index="1"]
 polygon = PackedVector2Array(147, -23, -119, -17, -119, 442, -107, 457, 33, 454, 33, 30, 156, 26, 162, -25)
 
-[node name="Cables" type="Node2D" parent="."]
+[node name="Cables" type="Node2D" parent="." unique_id=463714616]
 position = Vector2(0, -197)
 
-[node name="Sprite2D" type="Sprite2D" parent="Cables"]
+[node name="Sprite2D" type="Sprite2D" parent="Cables" unique_id=1998288922]
 position = Vector2(-409, -105)
 texture = ExtResource("14_km5dj")
 offset = Vector2(0, 200)
 
-[node name="Sprite2D2" type="Sprite2D" parent="Cables"]
+[node name="Sprite2D2" type="Sprite2D" parent="Cables" unique_id=985861263]
 position = Vector2(305, -105)
 texture = ExtResource("15_5l3ms")
 offset = Vector2(0, 200)
 
-[node name="Synth" parent="." instance=ExtResource("7_u5b8b")]
+[node name="Synth" parent="." unique_id=1741147127 instance=ExtResource("7_u5b8b")]
 position = Vector2(-181, -16)
 
 [node name="Sprite2D" parent="Synth" index="0"]
@@ -636,7 +633,7 @@ offset = Vector2(0, -51)
 position = Vector2(8, -16)
 shape = SubResource("RectangleShape2D_4uuda")
 
-[node name="MesitaSilla" parent="." instance=ExtResource("7_u5b8b")]
+[node name="MesitaSilla" parent="." unique_id=980749098 instance=ExtResource("7_u5b8b")]
 position = Vector2(-653, 440)
 
 [node name="Sprite2D" parent="MesitaSilla" index="0"]
@@ -649,7 +646,7 @@ position = Vector2(0, -61)
 [node name="CollisionPolygon2D" parent="MesitaSilla/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-56, 45, -7, 69, 27, 75, 89, 52, 95, 14, 100, -14, 34, -50, 12, -97, -98, -69)
 
-[node name="Mesita" parent="." instance=ExtResource("7_u5b8b")]
+[node name="Mesita" parent="." unique_id=1525343054 instance=ExtResource("7_u5b8b")]
 position = Vector2(185, 610)
 
 [node name="Sprite2D" parent="Mesita" index="0"]
@@ -659,7 +656,7 @@ offset = Vector2(0, -61.57)
 [node name="CollisionPolygon2D" parent="Mesita/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-75, -10, 0, -5, 79, -20, 77, -51, 32, -87, -34, -82, -77, -48)
 
-[node name="MesaBorracho" parent="." instance=ExtResource("7_u5b8b")]
+[node name="MesaBorracho" parent="." unique_id=1466602819 instance=ExtResource("7_u5b8b")]
 position = Vector2(-130, 398)
 
 [node name="Sprite2D" parent="MesaBorracho" index="0"]
@@ -669,7 +666,7 @@ offset = Vector2(0, -65.035)
 [node name="CollisionPolygon2D" parent="MesaBorracho/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-154, 32, -73, 44, -5, 24, 26, 12, 26, 12, 101, 26, 147, -24, 79, -43, -2, -38, -75, -35, -155, -36)
 
-[node name="SillaSola" parent="." instance=ExtResource("7_u5b8b")]
+[node name="SillaSola" parent="." unique_id=781561751 instance=ExtResource("7_u5b8b")]
 position = Vector2(-701, 749)
 
 [node name="Sprite2D" parent="SillaSola" index="0"]
@@ -682,7 +679,7 @@ position = Vector2(-6.5, -16)
 [node name="CollisionPolygon2D" parent="SillaSola/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-56, 10, 23, 12, 55, -30, 55, -47, -19, -42, -52, -24)
 
-[node name="MesaChelas" parent="." instance=ExtResource("7_u5b8b")]
+[node name="MesaChelas" parent="." unique_id=914927182 instance=ExtResource("7_u5b8b")]
 position = Vector2(-634, 623)
 
 [node name="Sprite2D" parent="MesaChelas" index="0"]
@@ -692,7 +689,7 @@ offset = Vector2(0, -68.83)
 [node name="CollisionPolygon2D" parent="MesaChelas/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-78, -5, 10, 16, 74, -10, 73, -56, 7, -68, -81, -67)
 
-[node name="Microfono" parent="." instance=ExtResource("7_u5b8b")]
+[node name="Microfono" parent="." unique_id=1600968932 instance=ExtResource("7_u5b8b")]
 position = Vector2(44, 23)
 
 [node name="Sprite2D" parent="Microfono" index="0"]
@@ -703,14 +700,14 @@ offset = Vector2(0, -70.355)
 position = Vector2(-2, -4)
 shape = SubResource("RectangleShape2D_odg4w")
 
-[node name="Chelas" parent="." instance=ExtResource("7_u5b8b")]
+[node name="Chelas" parent="." unique_id=595467428 instance=ExtResource("7_u5b8b")]
 position = Vector2(553, 337)
 
 [node name="Sprite2D" parent="Chelas" index="0"]
 texture = ExtResource("15_k1ob1")
 offset = Vector2(0, 141.19)
 
-[node name="Banquito" parent="." instance=ExtResource("7_u5b8b")]
+[node name="Banquito" parent="." unique_id=1129306815 instance=ExtResource("7_u5b8b")]
 position = Vector2(469, 449)
 
 [node name="Sprite2D" parent="Banquito" index="0"]
@@ -721,7 +718,7 @@ offset = Vector2(0, -22.72)
 position = Vector2(-1, 3)
 shape = SubResource("CircleShape2D_mo4td")
 
-[node name="Banquito2" parent="." instance=ExtResource("7_u5b8b")]
+[node name="Banquito2" parent="." unique_id=178026327 instance=ExtResource("7_u5b8b")]
 position = Vector2(468, 564)
 
 [node name="Sprite2D" parent="Banquito2" index="0"]
@@ -732,7 +729,7 @@ offset = Vector2(0, -22.72)
 position = Vector2(-1, 3)
 shape = SubResource("CircleShape2D_fe50o")
 
-[node name="Banquito3" parent="." instance=ExtResource("7_u5b8b")]
+[node name="Banquito3" parent="." unique_id=338067610 instance=ExtResource("7_u5b8b")]
 position = Vector2(475, 744)
 
 [node name="Sprite2D" parent="Banquito3" index="0"]
@@ -743,7 +740,7 @@ offset = Vector2(0, -22.72)
 position = Vector2(-1, 3)
 shape = SubResource("CircleShape2D_3c75j")
 
-[node name="BocinaSynth" parent="." instance=ExtResource("7_u5b8b")]
+[node name="BocinaSynth" parent="." unique_id=1783142502 instance=ExtResource("7_u5b8b")]
 position = Vector2(-613, -144)
 
 [node name="Sprite2D" parent="BocinaSynth" index="0"]
@@ -754,7 +751,7 @@ offset = Vector2(0, -87.535)
 position = Vector2(81, 27)
 polygon = PackedVector2Array(-89, 43, 28, -7, 25, -42, -58, -38, -159, -43, -207, -20)
 
-[node name="Bocina" parent="." instance=ExtResource("7_u5b8b")]
+[node name="Bocina" parent="." unique_id=399804551 instance=ExtResource("7_u5b8b")]
 position = Vector2(631, -213)
 
 [node name="Sprite2D" parent="Bocina" index="0"]
@@ -765,74 +762,72 @@ offset = Vector2(0, -125.635)
 position = Vector2(6, -52)
 shape = SubResource("RectangleShape2D_lwbny")
 
-[node name="Mecha" type="Node2D" parent="."]
+[node name="Mecha" type="Node2D" parent="." unique_id=1401427814]
 visible = false
 position = Vector2(-2056, -271)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Mecha"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Mecha" unique_id=1019236056]
 scale = Vector2(0.5, 0.5)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mecha/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mecha/StaticBody2D" unique_id=1992865281]
 position = Vector2(0, 72)
 polygon = PackedVector2Array(-14, 208, -86, 190, -92, 142, -134, 136, -158, 222, -152, 310, -206, 316, -208, 386, -190, 404, -152, 404, -152, 474, -170, 484, -264, 428, -268, 330, -338, 258, -384, 252, -382, 220, -442, 198, -444, 176, -398, 118, -446, 76, -466, -12, -438, -32, -424, -62, -420, -108, -412, -120, -348, -102, -360, -156, 344, -148, 398, -118, 386, -98, 430, -34, 444, 36, 462, 60, 466, 84, 362, 164, 432, 226, 458, 258, 462, 332, 360, 310, 308, 286, 266, 324, 240, 384, 210, 384, 214, 344, 188, 336, 166, 364, 168, 404, 132, 406, 136, 334, 196, 228, 144, 230, 144, 202, 92, 192, 72, 192)
 
-[node name="Mecha" type="Sprite2D" parent="Mecha"]
+[node name="Mecha" type="Sprite2D" parent="Mecha" unique_id=1543906314]
 y_sort_enabled = true
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_ersdn")
 offset = Vector2(0, 71)
 
-[node name="Talk" type="Node2D" parent="Mecha" node_paths=PackedStringArray("talking_area")]
+[node name="Talk" type="Node2D" parent="Mecha" unique_id=1443541561 node_paths=PackedStringArray("talking_area")]
 position = Vector2(0, 216)
 script = ExtResource("7_b1xsq")
 talking_area = NodePath("Area2D")
 timeline_name = "obj_mecha"
 
-[node name="Area2D" type="Area2D" parent="Mecha/Talk"]
+[node name="Area2D" type="Area2D" parent="Mecha/Talk" unique_id=386808292]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mecha/Talk/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mecha/Talk/Area2D" unique_id=851141090]
 shape = SubResource("CircleShape2D_dpxpg")
 
-[node name="EnemiesLayer" type="Node" parent="."]
+[node name="EnemiesLayer" type="Node" parent="." unique_id=1070684637]
 
-[node name="EnemyArea" parent="." instance=ExtResource("15_eeqd0")]
+[node name="EnemyArea" parent="." unique_id=1528414609 instance=ExtResource("15_eeqd0")]
 position = Vector2(-684, 96)
 enemies = Array[ExtResource("16_8i388")]([ExtResource("36_mxbwd"), ExtResource("37_5m0wc")])
 
-[node name="SavesLayer" type="Node" parent="."]
+[node name="SavesLayer" type="Node" parent="." unique_id=570338587]
 
-[node name="SaveButton" type="Node2D" parent="."]
+[node name="SaveButton" type="Node2D" parent="." unique_id=2076846249]
 position = Vector2(-470, 738)
 script = ExtResource("32_i1jro")
 dialogic_save_argument = &"save_bar"
 
-[node name="Sprite2D" type="Sprite2D" parent="SaveButton"]
+[node name="Sprite2D" type="Sprite2D" parent="SaveButton" unique_id=1295213364]
 texture = ExtResource("32_4trcd")
 offset = Vector2(0, -63.895)
 
-[node name="Talk" type="Node2D" parent="SaveButton" node_paths=PackedStringArray("talking_area")]
+[node name="Talk" type="Node2D" parent="SaveButton" unique_id=1852939903 node_paths=PackedStringArray("talking_area")]
 position = Vector2(0, -61)
 script = ExtResource("7_b1xsq")
 talking_area = NodePath("Area2D")
 timeline_name = "save_bar"
 
-[node name="Area2D" type="Area2D" parent="SaveButton/Talk"]
+[node name="Area2D" type="Area2D" parent="SaveButton/Talk" unique_id=442395583]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SaveButton/Talk/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SaveButton/Talk/Area2D" unique_id=529111506]
 shape = SubResource("CircleShape2D_lxseo")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1810449193]
 unique_name_in_owner = true
 process_mode = 3
 stream = SubResource("AudioStreamInteractive_dgkbc")
 autoplay = true
 bus = &"Music"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=992191206]
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("42_3enco")]
-
-[node name="BlackRect" type="ColorRect" parent="CanvasLayer"]
+[node name="BlackRect" type="ColorRect" parent="CanvasLayer" unique_id=2012335097]
 unique_name_in_owner = true
 visible = false
 modulate = Color(0, 0, 0, 1)

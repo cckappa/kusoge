@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://li0a5rq7wt7u"]
+[gd_scene format=3 uid="uid://li0a5rq7wt7u"]
 
 [ext_resource type="Script" uid="uid://cm53j7285f7l8" path="res://scripts/ally_container.gd" id="1_fh84y"]
 [ext_resource type="Texture2D" uid="uid://cdulpvixtxapj" path="res://assets/icons/selected_arrow.svg" id="2_8b1ki"]
@@ -224,7 +224,7 @@ _data = {
 &"damage_animation": SubResource("Animation_3r251")
 }
 
-[node name="AllyContainer" type="Control"]
+[node name="AllyContainer" type="Control" unique_id=1138077648]
 custom_minimum_size = Vector2(400, 541)
 layout_mode = 3
 anchors_preset = 0
@@ -233,10 +233,10 @@ offset_bottom = 541.0
 size_flags_horizontal = 4
 script = ExtResource("1_fh84y")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=319910423]
 one_shot = true
 
-[node name="SelectedArrow" type="TextureButton" parent="." groups=["selected_arrows"]]
+[node name="SelectedArrow" type="TextureButton" parent="." unique_id=1794767260 groups=["selected_arrows"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(65, 65)
 layout_mode = 1
@@ -253,7 +253,7 @@ stretch_mode = 5
 script = ExtResource("3_mbva7")
 amount_hovering = 12
 
-[node name="FakeArrow" type="TextureRect" parent="."]
+[node name="FakeArrow" type="TextureRect" parent="." unique_id=263135004]
 unique_name_in_owner = true
 visible = false
 layout_mode = 0
@@ -266,35 +266,35 @@ expand_mode = 1
 stretch_mode = 5
 script = ExtResource("4_8qofy")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1445607992]
 z_as_relative = false
-layout_mode = 2
+layout_mode = 0
 offset_right = 400.0
 offset_bottom = 519.23
 theme_override_styles/panel = SubResource("StyleBoxFlat_wh2qf")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1350799505]
 layout_mode = 2
 theme_override_constants/separation = 7
 
-[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/VBoxContainer" unique_id=1476265283]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/CenterContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/CenterContainer" unique_id=950499342]
 clip_contents = true
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4i8le")
 
-[node name="Portrait" type="TextureRect" parent="PanelContainer/VBoxContainer/CenterContainer/PanelContainer"]
+[node name="Portrait" type="TextureRect" parent="PanelContainer/VBoxContainer/CenterContainer/PanelContainer" unique_id=1042329840]
 unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("3_wh2qf")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="PortraitDamaged" type="TextureRect" parent="PanelContainer/VBoxContainer/CenterContainer/PanelContainer"]
+[node name="PortraitDamaged" type="TextureRect" parent="PanelContainer/VBoxContainer/CenterContainer/PanelContainer" unique_id=623699754]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -302,7 +302,7 @@ texture = ExtResource("4_4i8le")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="TargetButton" type="TextureButton" parent="PanelContainer/VBoxContainer/CenterContainer" groups=["selected_targets"]]
+[node name="TargetButton" type="TextureButton" parent="PanelContainer/VBoxContainer/CenterContainer" unique_id=831626810 groups=["selected_targets"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
@@ -311,12 +311,12 @@ texture_focused = ExtResource("5_h36vx")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="HealthContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="HealthContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=2109920098]
 z_index = 16
 z_as_relative = false
 layout_mode = 2
 
-[node name="LifeBar" type="ProgressBar" parent="PanelContainer/VBoxContainer/HealthContainer"]
+[node name="LifeBar" type="ProgressBar" parent="PanelContainer/VBoxContainer/HealthContainer" unique_id=2087957730]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 54)
 layout_mode = 2
@@ -327,7 +327,7 @@ theme_override_styles/fill = ExtResource("9_8qofy")
 value = 80.0
 show_percentage = false
 
-[node name="HealthPoints" type="RichTextLabel" parent="PanelContainer/VBoxContainer/HealthContainer"]
+[node name="HealthPoints" type="RichTextLabel" parent="PanelContainer/VBoxContainer/HealthContainer" unique_id=1734996950]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -336,15 +336,15 @@ theme = SubResource("Theme_2i6ux")
 text = "5/20"
 fit_content = true
 
-[node name="CooldownBar" type="Control" parent="PanelContainer/VBoxContainer"]
+[node name="CooldownBar" type="Control" parent="PanelContainer/VBoxContainer" unique_id=1232327932]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/VBoxContainer/CooldownBar"]
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/VBoxContainer/CooldownBar" unique_id=2041574287]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(400, 15)
-layout_mode = 2
+layout_mode = 0
 offset_right = 400.0
 offset_bottom = 35.0
 grow_horizontal = 2
@@ -355,10 +355,10 @@ value = 96.0
 rounded = true
 show_percentage = false
 
-[node name="CircleThin" type="TextureRect" parent="PanelContainer/VBoxContainer/CooldownBar"]
+[node name="CircleThin" type="TextureRect" parent="PanelContainer/VBoxContainer/CooldownBar" unique_id=1678456006]
 unique_name_in_owner = true
 visible = false
-layout_mode = 2
+layout_mode = 0
 offset_left = 240.001
 offset_top = -109.999
 offset_right = 490.001
@@ -369,10 +369,10 @@ texture = ExtResource("9_7dsxs")
 expand_mode = 1
 flip_v = true
 
-[node name="CircleThick" type="TextureRect" parent="PanelContainer/VBoxContainer/CooldownBar"]
+[node name="CircleThick" type="TextureRect" parent="PanelContainer/VBoxContainer/CooldownBar" unique_id=207121604]
 unique_name_in_owner = true
 visible = false
-layout_mode = 2
+layout_mode = 0
 offset_left = 265.001
 offset_top = -84.9987
 offset_right = 465.001
@@ -383,9 +383,9 @@ texture = ExtResource("8_tt1g2")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/VBoxContainer/CooldownBar"]
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/VBoxContainer/CooldownBar" unique_id=1923746286]
 visible = false
-layout_mode = 2
+layout_mode = 0
 offset_left = 348.0
 offset_top = -2.0
 offset_right = 383.0
@@ -393,7 +393,7 @@ offset_bottom = 33.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/CooldownBar/CenterContainer"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/CooldownBar/CenterContainer" unique_id=1889615404]
 self_modulate = Color(1, 1, 1, 0.698039)
 custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
@@ -401,7 +401,7 @@ texture = ExtResource("7_fa4ii")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="PanelContainer/VBoxContainer/CooldownBar"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="PanelContainer/VBoxContainer/CooldownBar" unique_id=1607375752]
 unique_name_in_owner = true
 modulate = Color(0, 1.657, 3.15, 1)
 z_index = 16
@@ -421,7 +421,7 @@ texture_under = ExtResource("10_2i6ux")
 texture_over = ExtResource("11_65wtp")
 texture_progress = ExtResource("12_8qofy")
 
-[node name="AbilityArrow" type="TextureRect" parent="PanelContainer"]
+[node name="AbilityArrow" type="TextureRect" parent="PanelContainer" unique_id=1781126222]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -429,7 +429,7 @@ texture = ExtResource("5_chbk5")
 expand_mode = 1
 script = ExtResource("6_vv1c1")
 
-[node name="DeathTexture" type="TextureRect" parent="PanelContainer"]
+[node name="DeathTexture" type="TextureRect" parent="PanelContainer" unique_id=926521159]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -437,16 +437,16 @@ texture = ExtResource("8_2n5jn")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="MenuDel" type="VBoxContainer" parent="."]
+[node name="MenuDel" type="VBoxContainer" parent="." unique_id=1851204379]
 visible = false
 z_index = 16
 z_as_relative = false
-layout_mode = 2
+layout_mode = 0
 offset_top = -135.0
 offset_right = 400.0
 offset_bottom = 384.23
 
-[node name="Attack" type="Button" parent="MenuDel" groups=["menu"]]
+[node name="Attack" type="Button" parent="MenuDel" unique_id=805340211 groups=["menu"]]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 focus_mode = 0
@@ -454,7 +454,7 @@ theme = ExtResource("3_8ksiu")
 button_mask = 0
 text = "X / Habilidades"
 
-[node name="Block" type="Button" parent="MenuDel" groups=["menu"]]
+[node name="Block" type="Button" parent="MenuDel" unique_id=186893061 groups=["menu"]]
 visible = false
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
@@ -463,7 +463,7 @@ theme = ExtResource("3_8ksiu")
 button_mask = 0
 text = "Bloqueo"
 
-[node name="Item" type="Button" parent="MenuDel" groups=["menu"]]
+[node name="Item" type="Button" parent="MenuDel" unique_id=2106427299 groups=["menu"]]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 focus_mode = 0
@@ -471,7 +471,7 @@ theme = ExtResource("3_8ksiu")
 button_mask = 0
 text = "C / Objetos"
 
-[node name="Run" type="Button" parent="MenuDel" groups=["menu"]]
+[node name="Run" type="Button" parent="MenuDel" unique_id=1320067404 groups=["menu"]]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 focus_mode = 0
@@ -479,7 +479,7 @@ theme = ExtResource("3_8ksiu")
 button_mask = 0
 text = "V / Huir"
 
-[node name="Menu" type="TextureRect" parent="."]
+[node name="Menu" type="TextureRect" parent="." unique_id=496170194]
 unique_name_in_owner = true
 visible = false
 layout_mode = 0
@@ -489,54 +489,54 @@ offset_right = 842.0
 offset_bottom = 201.0
 texture = ExtResource("21_8qofy")
 
-[node name="ParticleCenter" type="Marker2D" parent="."]
+[node name="ParticleCenter" type="Marker2D" parent="." unique_id=2033097834]
 position = Vector2(199, 321)
 gizmo_extents = 56.2
 
-[node name="CritParticlesLongCircle" parent="ParticleCenter" instance=ExtResource("11_guey6")]
+[node name="CritParticlesLongCircle" parent="ParticleCenter" unique_id=938724402 instance=ExtResource("11_guey6")]
 unique_name_in_owner = true
 position = Vector2(0, -35)
 
-[node name="HealParticlesLong" parent="ParticleCenter" instance=ExtResource("14_lrqhl")]
+[node name="HealParticlesLong" parent="ParticleCenter" unique_id=1393231000 instance=ExtResource("14_lrqhl")]
 unique_name_in_owner = true
 position = Vector2(9, 115)
 
-[node name="HealParticlesStar" parent="ParticleCenter" instance=ExtResource("15_q4kgi")]
+[node name="HealParticlesStar" parent="ParticleCenter" unique_id=1990604250 instance=ExtResource("15_q4kgi")]
 unique_name_in_owner = true
 position = Vector2(17, 41)
 
-[node name="HitSound" type="AudioStreamPlayer" parent="."]
+[node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=1127887769]
 unique_name_in_owner = true
 stream = ExtResource("14_yn0qb")
 bus = &"SFX"
 
-[node name="StrongHitSound" type="AudioStreamPlayer" parent="."]
+[node name="StrongHitSound" type="AudioStreamPlayer" parent="." unique_id=1623583341]
 unique_name_in_owner = true
 stream = ExtResource("21_fh58w")
 volume_db = 7.0
 pitch_scale = 0.75
 bus = &"SFX"
 
-[node name="HealSound" type="AudioStreamPlayer" parent="."]
+[node name="HealSound" type="AudioStreamPlayer" parent="." unique_id=1881315944]
 unique_name_in_owner = true
 stream = ExtResource("17_6ud7a")
 pitch_scale = 2.0
 bus = &"SFX"
 
-[node name="CritSound" type="AudioStreamPlayer" parent="."]
+[node name="CritSound" type="AudioStreamPlayer" parent="." unique_id=211284524]
 unique_name_in_owner = true
 stream = ExtResource("20_6a6ab")
 volume_db = 0.505
 bus = &"SFX"
 
-[node name="BurningSound" type="AudioStreamPlayer" parent="."]
+[node name="BurningSound" type="AudioStreamPlayer" parent="." unique_id=2002863061]
 unique_name_in_owner = true
 stream = ExtResource("23_2grme")
 volume_db = 2.0
 bus = &"SFX"
 parameters/looping = false
 
-[node name="DamageValue" type="RichTextLabel" parent="."]
+[node name="DamageValue" type="RichTextLabel" parent="." unique_id=1514593275]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 0
@@ -556,11 +556,9 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1002193003]
 unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_77y1w")
-}
+libraries/ = SubResource("AnimationLibrary_77y1w")
 
 [connection signal="focus_entered" from="SelectedArrow" to="." method="_on_selected_arrow_focus_entered"]
 [connection signal="focus_exited" from="SelectedArrow" to="." method="_on_selected_arrow_focus_exited"]

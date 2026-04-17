@@ -165,6 +165,7 @@ script = ExtResource("11_7tigv")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1482676317]
 
 [node name="MenuSubViewport" parent="CanvasLayer" unique_id=1469266770 instance=ExtResource("12_arw8t")]
+visible = false
 
 [node name="SettingsMenu" parent="CanvasLayer" unique_id=410864025 instance=ExtResource("14_0nn7d")]
 

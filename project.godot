@@ -65,6 +65,7 @@ directories/dch_directory={
 directories/dtl_directory={
 "arbol_1_demo_tecnico": "res://dialogic/timelines/demo_tecnico/arbol_1_demo_tecnico.dtl",
 "cigarros_suelo_demo_tecnico": "res://dialogic/timelines/demo_tecnico/cigarros_suelo_demo_tecnico.dtl",
+"empty_timeline": "res://dialogic/timelines/empty_timeline.dtl",
 "estatua_central_demo_tecnico": "res://dialogic/timelines/demo_tecnico/estatua_central_demo_tecnico.dtl",
 "hada_save_cueva_demo": "res://dialogic/timelines/demo_tecnico/hada_save_cueva_demo.dtl",
 "jefe_demo_tecnico": "res://dialogic/timelines/demo_tecnico/jefe_demo_tecnico.dtl",

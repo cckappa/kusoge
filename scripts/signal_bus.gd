@@ -36,6 +36,9 @@ signal enemy_health_trigger_dialog(character:Character, dialog:EnemyFightDialog)
 signal enemy_victory_dialogs_started()
 signal enemy_victory_dialogs_ended()
 
+## BATTLE MAP
+signal party_character_button_pressed(character:Character)
+
 
 ## QUESTS
 
