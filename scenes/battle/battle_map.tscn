@@ -4,9 +4,15 @@
 [ext_resource type="Script" uid="uid://b80kfb61skudv" path="res://scripts/battle/battle_limbo_hsm.gd" id="1_vcmfp"]
 [ext_resource type="Script" uid="uid://byyhfiggbwnox" path="res://scripts/battle/initialize_party.gd" id="2_r1wka"]
 [ext_resource type="Script" uid="uid://b1w2nokl54ywb" path="res://scripts/battle/focus_party.gd" id="3_xyjd7"]
+[ext_resource type="Script" uid="uid://dl6ytf00kw3n0" path="res://scripts/battle/focus_attack_menu.gd" id="4_pq4qf"]
 [ext_resource type="Script" uid="uid://cpopq75r5iwyw" path="res://scripts/menu/hovering_effect.gd" id="5_bn473"]
 [ext_resource type="PackedScene" uid="uid://dtgg7s2k7nbud" path="res://scenes/menu/header_bar.tscn" id="6_pq4qf"]
-[ext_resource type="PackedScene" uid="uid://dhn52stl8orqn" path="res://scenes/menu/info_habilidad_container.tscn" id="7_mjn88"]
+[ext_resource type="PackedScene" uid="uid://culojaavn2qrn" path="res://scenes/battle/attack_menu_container.tscn" id="8_dblkv"]
+[ext_resource type="Theme" uid="uid://b03gqfkj47prf" path="res://assets/themes/attack_menu_battle_map.tres" id="9_umxj2"]
+[ext_resource type="Texture2D" uid="uid://rsqps5edq51q" path="res://assets/battle/Daño.PNG" id="10_dpxrw"]
+[ext_resource type="Texture2D" uid="uid://vgmkybqdl06e" path="res://assets/battle/tiempo.PNG" id="11_snn6l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sxpir"]
 
 [node name="BattleMap" type="Control" unique_id=1410843090]
 layout_mode = 3
@@ -25,6 +31,9 @@ script = ExtResource("2_r1wka")
 
 [node name="FocusParty" type="LimboState" parent="BattleLimboHSM" unique_id=483360589]
 script = ExtResource("3_xyjd7")
+
+[node name="FocusAttackMenu" type="LimboState" parent="BattleLimboHSM" unique_id=466108232]
+script = ExtResource("4_pq4qf")
 
 [node name="PartyControl" type="Control" parent="." unique_id=1807358384]
 layout_mode = 1
@@ -51,7 +60,6 @@ grow_vertical = 0
 [node name="PartyHBoxContainer" type="HBoxContainer" parent="PartyControl/CenterContainer" unique_id=1087967486]
 unique_name_in_owner = true
 layout_mode = 2
-focus_mode = 2
 focus_behavior_recursive = 2
 theme_override_constants/separation = 130
 alignment = 1
@@ -69,6 +77,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="AttackMenuControl" type="Control" parent="." unique_id=1135225868]
+unique_name_in_owner = true
 z_index = 100
 layout_mode = 1
 anchors_preset = 15
@@ -84,10 +93,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -380.0
-offset_top = -303.5
-offset_right = 380.0
-offset_bottom = 303.5
+offset_left = -400.0
+offset_top = -410.0
+offset_right = 400.0
+offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -103,6 +112,7 @@ script = ExtResource("5_bn473")
 metadata/_custom_type_script = "uid://cpopq75r5iwyw"
 
 [node name="HeaderBar" parent="AttackMenuControl/InfoHabilidadesContainer/VBoxContainer" unique_id=1517944800 instance=ExtResource("6_pq4qf")]
+unique_name_in_owner = true
 layout_mode = 2
 title_text = "HABILIDADES"
 
@@ -118,5 +128,67 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 45
 
-[node name="InfoHabilidadContainer" parent="AttackMenuControl/InfoHabilidadesContainer/VBoxContainer/MarginContainer/InfoHabilidadesVBox" unique_id=1747630235 instance=ExtResource("7_mjn88")]
+[node name="AttackMenuContainer" parent="AttackMenuControl/InfoHabilidadesContainer/VBoxContainer/MarginContainer/InfoHabilidadesVBox" unique_id=2113491521 instance=ExtResource("8_dblkv")]
 layout_mode = 2
+
+[node name="DescripcionHabilidadesContainer" type="PanelContainer" parent="AttackMenuControl" unique_id=282377318]
+layout_mode = 0
+offset_left = 2270.0
+offset_top = 846.0
+offset_right = 2579.0
+offset_bottom = 1194.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_sxpir")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AttackMenuControl/DescripcionHabilidadesContainer" unique_id=670610106]
+layout_mode = 2
+theme_override_constants/separation = -21
+
+[node name="HoveringEffect" type="Node" parent="AttackMenuControl/DescripcionHabilidadesContainer/VBoxContainer" unique_id=970773277]
+script = ExtResource("5_bn473")
+metadata/_custom_type_script = "uid://cpopq75r5iwyw"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="AttackMenuControl/DescripcionHabilidadesContainer/VBoxContainer" unique_id=256713403]
+layout_mode = 2
+theme_override_constants/separation = -110
+
+[node name="HabilidadDano" type="RichTextLabel" parent="AttackMenuControl/DescripcionHabilidadesContainer/VBoxContainer/HBoxContainer2" unique_id=1715254805]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("9_umxj2")
+theme_type_variation = &"RichTextLabelAttack"
+bbcode_enabled = true
+text = " 30 "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="AttackMenuControl/DescripcionHabilidadesContainer/VBoxContainer/HBoxContainer2" unique_id=22806399]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("10_dpxrw")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AttackMenuControl/DescripcionHabilidadesContainer/VBoxContainer" unique_id=20711315]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="AttackMenuControl/DescripcionHabilidadesContainer/VBoxContainer/HBoxContainer" unique_id=754686904]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+texture = ExtResource("11_snn6l")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="HabilidadSegundos" type="RichTextLabel" parent="AttackMenuControl/DescripcionHabilidadesContainer/VBoxContainer/HBoxContainer" unique_id=1627230370]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("9_umxj2")
+text = "10s"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

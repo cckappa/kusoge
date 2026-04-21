@@ -4,6 +4,7 @@ extends LimboHSM
 
 @onready var initialize_party:=$InitializeParty
 @onready var focus_party:=$FocusParty
+@onready var focus_attack:=$FocusAttackMenu
 
 func _ready() -> void:
 	_set_transitions()
@@ -15,8 +16,9 @@ func _ready() -> void:
 
 func _set_transitions() -> void:
 	add_transition(initialize_party, focus_party, "to_focus_party")
+	add_transition(focus_attack, focus_party, "to_focus_party")
+	add_transition(focus_party, focus_attack, "to_focus_attack")
 
 func _set_blackboard() -> void:
-	pass
-	# blackboard.set_var("black_rect", black_rect)
+	blackboard.set_var("current_selected_character_pos", 0)
 

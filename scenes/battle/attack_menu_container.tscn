@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://culojaavn2qrn"]
+
+[ext_resource type="Theme" uid="uid://crmca0mrbuhyc" path="res://assets/themes/menu_party_theme.tres" id="1_j4va5"]
+[ext_resource type="Script" uid="uid://nun8lv072pjy" path="res://scripts/battle/attack_menu_container.gd" id="1_jyr54"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jyr54"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mr461"]
+
+[node name="AttackMenuContainer" type="HBoxContainer" unique_id=2113491521]
+script = ExtResource("1_jyr54")
+
+[node name="Button" type="Button" parent="." unique_id=828405839 groups=["selected_ability_buttons"]]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jyr54")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mr461")
+
+[node name="Asterisco" type="RichTextLabel" parent="." unique_id=1664027147]
+custom_minimum_size = Vector2(36, 0)
+layout_mode = 2
+theme = ExtResource("1_j4va5")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+fit_content = true
+
+[node name="HabilidadText" type="RichTextLabel" parent="." unique_id=1868178176]
+custom_minimum_size = Vector2(720, 0)
+layout_mode = 2
+theme = ExtResource("1_j4va5")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "Puñetazo limpio"
+fit_content = true
+
+[connection signal="focus_entered" from="Button" to="." method="_on_button_focus_entered"]
+[connection signal="focus_exited" from="Button" to="." method="_on_button_focus_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

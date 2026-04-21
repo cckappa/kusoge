@@ -38,6 +38,7 @@ signal enemy_victory_dialogs_ended()
 
 ## BATTLE MAP
 signal party_character_button_pressed(character:Character)
+signal attack_menu_focused(ability:Ability)
 
 
 ## QUESTS

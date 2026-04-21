@@ -47,7 +47,7 @@ layout_mode = 2
 [node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/PanelContainer/VBoxContainer" unique_id=1746601508]
 layout_mode = 2
 
-[node name="SelectedButton" type="TextureButton" parent="HBoxContainer/PanelContainer/VBoxContainer/CenterContainer" unique_id=1803173859]
+[node name="SelectedButton" type="TextureButton" parent="HBoxContainer/PanelContainer/VBoxContainer/CenterContainer" unique_id=1803173859 groups=["selected_arrows"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
