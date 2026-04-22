@@ -15,6 +15,7 @@ func _setup() -> void:
 	SignalBus.connect("attack_menu_focused", _on_attack_menu_focused)
 	SignalBus.connect("attack_menu_pressed", _on_attack_menu_pressed)
 	SignalBus.connect("enemies_defeated", _enemies_defeated)
+	SignalBus.connect("set_alive_allies_containers", _on_set_alive_allies_containers)
 	attack_menu_control.visible = false
 
 func _enter() -> void:
@@ -81,3 +82,8 @@ func _exit() -> void:
 func _enemies_defeated() -> void:
 	if is_active():
 		dispatch("to_win_state")
+
+func _on_set_alive_allies_containers(alive_allies_containers:Array) -> void:
+	if alive_allies_containers.size() > 0 and is_active():
+		await get_tree().process_frame
+		dispatch("to_focus_party")

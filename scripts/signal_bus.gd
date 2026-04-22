@@ -42,7 +42,8 @@ signal attack_menu_focused(ability:Ability)
 signal attack_menu_pressed(ability:Ability)
 signal enemy_button_pressed(enemy:EnemyResource, control:Control, enemy_container:EnemyBattleClass)
 signal enemies_defeated()
-signal get_alive_allies_containers(alive_allies_containers:Array)
+signal set_alive_allies_containers(alive_allies_containers:Array)
+signal party_character_killed()
 
 
 ## QUESTS

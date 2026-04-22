@@ -10,6 +10,7 @@ var crit:=false
 func _ready() -> void:
 	SignalBus.connect("enemy_button_pressed", _on_enemy_button_pressed)
 	SignalBus.connect("enemies_defeated", _enemies_defeated)
+	SignalBus.connect("set_alive_allies_containers", _on_set_alive_allies_containers)
 
 func _enter() -> void:
 	selected_ability = get_cargo()
@@ -23,7 +24,6 @@ func _enter() -> void:
 		for enemy in enemies_h_box_container.get_children():
 			if enemy.focus_enemy():
 				return
-				# enemies_h_box_container.get_child(0).focus_enemy()
 
 func _input(event:InputEvent) -> void:
 	if event.is_action_pressed("back") and is_active():
@@ -60,3 +60,8 @@ func emit_enemies_defeated() -> void:
 func _enemies_defeated() -> void:
 	if is_active():
 		dispatch("to_win_state")
+
+func _on_set_alive_allies_containers(alive_allies_containers:Array) -> void:
+	if alive_allies_containers.size() > 0 and is_active():
+		await get_tree().process_frame
+		dispatch("to_focus_party")

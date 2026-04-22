@@ -1,23 +1,77 @@
 [gd_resource type="BehaviorTree" format=3 uid="uid://b5yjul755y6vg"]
 
+[ext_resource type="Script" uid="uid://8juv671bgmi7" path="res://ai/tasks/can_use_ability.gd" id="1_qglqi"]
+[ext_resource type="Script" uid="uid://dau7kvj3ab74c" path="res://ai/tasks/use_ability.gd" id="2_tw5p5"]
+[ext_resource type="Script" uid="uid://dxgfju0p4nlh3" path="res://ai/tasks/wait_cooldown.gd" id="3_tw5p5"]
+
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_cb6sd"]
+var/resourceloaded/name = &"resourceloaded"
+var/resourceloaded/type = 1
+var/resourceloaded/value = false
+var/resourceloaded/hint = 0
+var/resourceloaded/hint_string = ""
+var/initial_done/name = &"initial_done"
+var/initial_done/type = 1
+var/initial_done/value = false
+var/initial_done/hint = 0
+var/initial_done/hint_string = ""
+
+[sub_resource type="BBVariant" id="BBVariant_yqgid"]
+type = 1
+saved_value = true
+resource_name = "true"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_0fslb"]
+variable = &"initial_done"
+value = SubResource("BBVariant_yqgid")
 
 [sub_resource type="BTWait" id="BTWait_w30as"]
 duration = 5.0
 
-[sub_resource type="BBNode" id="BBNode_w30as"]
-saved_value = NodePath(".")
-resource_name = "."
+[sub_resource type="BBVariant" id="BBVariant_5eqwu"]
+type = 1
+saved_value = true
+resource_name = "true"
 
-[sub_resource type="BTCallMethod" id="BTCallMethod_5eqwu"]
-node = SubResource("BBNode_w30as")
-method = &"use_ability"
-
-[sub_resource type="BTWait" id="BTWait_5eqwu"]
+[sub_resource type="BTSetVar" id="BTSetVar_qglqi"]
+variable = &"initial_done"
+value = SubResource("BBVariant_5eqwu")
 
 [sub_resource type="BTSequence" id="BTSequence_tw5p5"]
-children = [SubResource("BTWait_w30as"), SubResource("BTCallMethod_5eqwu"), SubResource("BTWait_5eqwu")]
+children = [SubResource("BTWait_w30as"), SubResource("BTSetVar_qglqi")]
+
+[sub_resource type="BTSelector" id="BTSelector_qglqi"]
+children = [SubResource("BTCheckVar_0fslb"), SubResource("BTSequence_tw5p5")]
+
+[sub_resource type="BTWait" id="BTWait_tw5p5"]
+duration = 0.5
+
+[sub_resource type="BTAction" id="BTAction_yqgid"]
+script = ExtResource("1_qglqi")
+
+[sub_resource type="BTSequence" id="BTSequence_0fslb"]
+children = [SubResource("BTWait_tw5p5"), SubResource("BTAction_yqgid")]
+
+[sub_resource type="BTAction" id="BTAction_b6jy3"]
+script = ExtResource("2_tw5p5")
+
+[sub_resource type="BTAction" id="BTAction_0fslb"]
+script = ExtResource("3_tw5p5")
+
+[sub_resource type="BTRandomWait" id="BTRandomWait_tw5p5"]
+
+[sub_resource type="BTSequence" id="BTSequence_yqgid"]
+children = [SubResource("BTAction_b6jy3"), SubResource("BTAction_0fslb"), SubResource("BTRandomWait_tw5p5")]
+
+[sub_resource type="BTSelector" id="BTSelector_tw5p5"]
+children = [SubResource("BTSequence_0fslb"), SubResource("BTSequence_yqgid")]
+
+[sub_resource type="BTSequence" id="BTSequence_6qdnk"]
+children = [SubResource("BTSelector_tw5p5")]
+
+[sub_resource type="BTSequence" id="BTSequence_qo77r"]
+children = [SubResource("BTSelector_qglqi"), SubResource("BTSequence_6qdnk")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_cb6sd")
-root_task = SubResource("BTSequence_tw5p5")
+root_task = SubResource("BTSequence_qo77r")

@@ -62,9 +62,9 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_niuge"]
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_tmdd1"]
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_adbdh"]
 
-[node name="EnemyBasicContainer" type="PanelContainer" unique_id=795346071 node_paths=PackedStringArray("enemy_texture", "enemy_button", "info_vida_text", "control_center", "vida_progress_bar", "damage_number", "death_texture")]
+[node name="EnemyBasicContainer" type="PanelContainer" unique_id=795346071 node_paths=PackedStringArray("enemy_texture", "enemy_button", "info_vida_text", "control_center", "vida_progress_bar", "damage_number", "death_texture", "b_t_player")]
 offset_right = 595.0
 offset_bottom = 623.0
 size_flags_horizontal = 3
@@ -78,6 +78,7 @@ control_center = NodePath("HBoxContainer/PanelContainer/VBoxContainer/VBoxContai
 vida_progress_bar = NodePath("HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/InfoVidaContainer/HBoxContainer/CenterContainer/VidaProgressBar")
 damage_number = NodePath("HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/PanelContainer/PanelContainer/ControlCenter/DamageNumber")
 death_texture = NodePath("HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/PanelContainer/PanelContainer/DeadTexture")
+b_t_player = NodePath("BTPlayer")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1589624350]
 layout_mode = 2
@@ -114,7 +115,7 @@ position = Vector2(391.99997, 377)
 scale = Vector2(2.5575, 2.5575)
 sprite_frames = SubResource("SpriteFrames_urwhy")
 autoplay = "default"
-frame_progress = 0.23661883
+frame_progress = 0.7548317
 
 [node name="EnemyTexture" type="TextureRect" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/PanelContainer/PanelContainer" unique_id=627754196]
 layout_mode = 2
@@ -221,4 +222,4 @@ metadata/_custom_type_script = "uid://cpopq75r5iwyw"
 
 [node name="BTPlayer" type="BTPlayer" parent="." unique_id=389921449]
 behavior_tree = ExtResource("13_adbdh")
-blackboard_plan = SubResource("BlackboardPlan_tmdd1")
+blackboard_plan = SubResource("BlackboardPlan_adbdh")

@@ -9,14 +9,19 @@ extends Node
 @export var vida_progress_bar:TextureProgressBar
 @export var damage_number:RichTextLabel
 @export var death_texture:TextureRect
+@export var b_t_player:BTPlayer
 
 var dead:=false
 var current_alive_allies_containers:Array
 var ready_scene := false
+var current_ability:Ability
+var current_target:PanelContainer
+var tween :Tween
 
 func _ready() -> void:
 	enemy_button.connect("pressed", _on_button_pressed)
-	SignalBus.connect("get_alive_allies_containers", _on_get_alive_allies_containers)
+	SignalBus.connect("set_alive_allies_containers", _on_set_alive_allies_containers)
+	b_t_player.blackboard.set_var("agent", self)
 	_setup()
 
 func _setup() -> void:
@@ -39,8 +44,10 @@ func _on_button_pressed() -> void:
 	SignalBus.emit_signal("enemy_button_pressed", enemy_resource, control_center, self)
 
 func set_health() -> void:
+	if tween:
+		tween.kill()
 
-	var tween := create_tween()
+	tween = create_tween()
 
 	var start_hp := int((vida_progress_bar.value / 100.0) * enemy_resource.max_hp)
 	var target_hp := enemy_resource.current_hp
@@ -67,9 +74,9 @@ func show_damage(damage:float) -> void:
 	)
 	
 	var duration := 1.0
-	var tween := create_tween()
+	var _tween := create_tween()
 	
-	tween.tween_method(func(t: float) -> void:
+	_tween.tween_method(func(t: float) -> void:
 		# Quadratic bezier position
 		var pos := start_pos.lerp(control, t).lerp(control.lerp(end_pos, t), t)
 		damage_number.position = pos
@@ -80,8 +87,8 @@ func show_damage(damage:float) -> void:
 	, 0.0, 1.0, duration)
 	
 	# Fade out at the end
-	tween.parallel().tween_property(damage_number, "modulate:a", 0.0, duration)
-	await tween.finished
+	_tween.parallel().tween_property(damage_number, "modulate:a", 0.0, duration)
+	await _tween.finished
 	damage_number.visible = false
 	damage_number.position = start_pos
 
@@ -94,8 +101,31 @@ func kill_enemy() -> void:
 func is_alive() -> bool:
 	return !dead
 
-func _on_get_alive_allies_containers(_alive_allies_containers:Array) -> void:
+func _on_set_alive_allies_containers(_alive_allies_containers:Array) -> void:
 	current_alive_allies_containers = _alive_allies_containers
 
+func can_use_ability() -> bool:
+	return enemy_resource != null and enemy_resource.abilities.size() > 0 and current_alive_allies_containers.size() > 0
+
 func use_ability() -> void:
-	print("Enemy using ability: ", enemy_resource.abilities[0].ability_name, " to : ", current_alive_allies_containers[0])
+	current_ability = enemy_resource.abilities.pick_random()
+	if current_alive_allies_containers.size() == 0:
+		return
+	
+	current_target = current_alive_allies_containers.pick_random()
+	
+	var animation_instance := current_ability.attack_animation.instantiate()
+	animation_instance.rotation_degrees = -180
+	animation_instance.connect("landed_ability", landed_ability.bind(current_ability, current_target.party_character, current_target))
+	current_target.center_control.add_child(animation_instance)
+
+
+func landed_ability(ability:Ability, target:Character, party_container:PanelContainer) -> void:
+	print("Enemy landed ability: ", ability.ability_name, " on target: ", target.name)
+	# target.take_damage(ability.damage_points)
+	# party_container.show_damage(current_ability.use_ability(current_target.party_character, false))
+	ability.use_ability(target, false)
+	if target.disabled:
+		party_container.kill_party_character()
+	current_target.set_health()
+	current_target.attacked()
