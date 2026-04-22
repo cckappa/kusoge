@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://deg6oekjklhs8"]
+[gd_scene format=3 uid="uid://deg6oekjklhs8"]
 
 [ext_resource type="Script" uid="uid://durb5suil11ek" path="res://scripts/enemy_container.gd" id="1_rne6s"]
 [ext_resource type="Theme" uid="uid://ctd47cus6kna0" path="res://assets/themes/menu_theme.tres" id="2_hayad"]
@@ -74,7 +74,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_3r251"]
 resource_name = "damage_animation"
-length = 0.65
+length = 0.001
 step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -131,7 +131,7 @@ _data = {
 &"damage_animation": SubResource("Animation_3r251")
 }
 
-[node name="EnemyContainer" type="Control"]
+[node name="EnemyContainer" type="Control" unique_id=1184942251]
 custom_minimum_size = Vector2(600, 678)
 layout_mode = 3
 anchors_preset = 8
@@ -148,16 +148,16 @@ grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("1_rne6s")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=549399049]
 one_shot = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=741181960]
 custom_minimum_size = Vector2(100, 255)
-layout_mode = 2
+layout_mode = 0
 offset_right = 600.0
 offset_bottom = 678.0
 
-[node name="LifeBar" type="ProgressBar" parent="VBoxContainer"]
+[node name="LifeBar" type="ProgressBar" parent="VBoxContainer" unique_id=1792393888]
 unique_name_in_owner = true
 z_index = 16
 z_as_relative = false
@@ -169,11 +169,11 @@ theme_override_styles/fill = ExtResource("4_3r251")
 value = 80.0
 show_percentage = false
 
-[node name="Control" type="Control" parent="VBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer" unique_id=728865001]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="ProgressBar" type="TextureProgressBar" parent="VBoxContainer/Control"]
+[node name="ProgressBar" type="TextureProgressBar" parent="VBoxContainer/Control" unique_id=148286713]
 unique_name_in_owner = true
 modulate = Color(0, 1.657, 3.15, 1)
 z_index = 16
@@ -191,11 +191,11 @@ radial_center_offset = Vector2(-2, 0)
 texture_under = ExtResource("5_de1d0")
 texture_progress = ExtResource("7_deu02")
 
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer" unique_id=1201901001]
 custom_minimum_size = Vector2(100, 255)
 layout_mode = 2
 
-[node name="EnemyPhoto" type="TextureRect" parent="VBoxContainer/CenterContainer"]
+[node name="EnemyPhoto" type="TextureRect" parent="VBoxContainer/CenterContainer" unique_id=112029710]
 unique_name_in_owner = true
 material = SubResource("CanvasItemMaterial_c07se")
 use_parent_material = true
@@ -207,7 +207,7 @@ texture = ExtResource("3_y7wkr")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TargetButton" type="TextureButton" parent="VBoxContainer/CenterContainer" groups=["selected_targets"]]
+[node name="TargetButton" type="TextureButton" parent="VBoxContainer/CenterContainer" unique_id=1231798809 groups=["selected_targets"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
@@ -216,7 +216,7 @@ texture_focused = ExtResource("5_qrxc3")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="DeathTexture" type="TextureRect" parent="."]
+[node name="DeathTexture" type="TextureRect" parent="." unique_id=1057513497]
 unique_name_in_owner = true
 visible = false
 modulate = Color(0.219608, 0.25098, 0.298039, 1)
@@ -236,55 +236,54 @@ scale = Vector2(1.5, 1.5)
 pivot_offset = Vector2(130, 96)
 texture = ExtResource("5_g3yxh")
 
-[node name="ParticleCenter" type="Marker2D" parent="."]
+[node name="ParticleCenter" type="Marker2D" parent="." unique_id=1434912379]
 position = Vector2(270, 244)
 gizmo_extents = 56.2
 
-[node name="HealParticlesLong" parent="ParticleCenter" instance=ExtResource("10_o60lc")]
+[node name="HealParticlesLong" parent="ParticleCenter" unique_id=92574388 instance=ExtResource("10_o60lc")]
 unique_name_in_owner = true
 position = Vector2(8, 187)
 
-[node name="HealParticlesStar" parent="ParticleCenter" instance=ExtResource("11_7ghmc")]
+[node name="HealParticlesStar" parent="ParticleCenter" unique_id=606166843 instance=ExtResource("11_7ghmc")]
 unique_name_in_owner = true
 position = Vector2(5, 108)
 
-[node name="CritParticlesLongCircle" parent="ParticleCenter" instance=ExtResource("6_pb7q0")]
+[node name="CritParticlesLongCircle" parent="ParticleCenter" unique_id=1745780247 instance=ExtResource("6_pb7q0")]
 unique_name_in_owner = true
 
-[node name="HitSound" type="AudioStreamPlayer" parent="."]
+[node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=1163265380]
 unique_name_in_owner = true
 stream = ExtResource("7_aprvx")
 bus = &"SFX"
 
-[node name="StrongHitSound" type="AudioStreamPlayer" parent="."]
+[node name="StrongHitSound" type="AudioStreamPlayer" parent="." unique_id=1918431310]
 unique_name_in_owner = true
 stream = ExtResource("14_x6eex")
 volume_db = 7.0
 pitch_scale = 0.75
 bus = &"SFX"
 
-[node name="HealSound" type="AudioStreamPlayer" parent="."]
+[node name="HealSound" type="AudioStreamPlayer" parent="." unique_id=189960785]
 unique_name_in_owner = true
 stream = ExtResource("13_w60pi")
 pitch_scale = 2.0
 bus = &"SFX"
 
-[node name="BurningSound" type="AudioStreamPlayer" parent="."]
+[node name="BurningSound" type="AudioStreamPlayer" parent="." unique_id=1786539145]
 unique_name_in_owner = true
 stream = ExtResource("15_8qgus")
 volume_db = 2.0
 bus = &"SFX"
 parameters/looping = false
 
-[node name="DamageContainer" type="Control" parent="."]
+[node name="DamageContainer" type="Control" parent="." unique_id=1443503123]
 z_index = 15
 z_as_relative = false
-layout_mode = 2
 anchors_preset = 0
 offset_right = 600.0
 offset_bottom = 678.0
 
-[node name="DamageValue" type="RichTextLabel" parent="DamageContainer"]
+[node name="DamageValue" type="RichTextLabel" parent="DamageContainer" unique_id=889882028]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 1
@@ -293,10 +292,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -480.0
-offset_top = 18.0
-offset_right = 476.0
-offset_bottom = 453.0
+offset_left = -250.0
+offset_top = -95.0
+offset_right = 706.0
+offset_bottom = 340.00018
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(478, 217.5)
@@ -309,11 +308,9 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="DamageContainer"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DamageContainer" unique_id=167391293]
 unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_77y1w")
-}
+libraries/ = SubResource("AnimationLibrary_77y1w")
 
 [connection signal="focus_entered" from="VBoxContainer/CenterContainer/TargetButton" to="." method="_on_target_button_focus_entered"]
 [connection signal="focus_exited" from="VBoxContainer/CenterContainer/TargetButton" to="." method="_on_target_button_focus_exited"]

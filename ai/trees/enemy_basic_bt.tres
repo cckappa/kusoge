@@ -1,0 +1,23 @@
+[gd_resource type="BehaviorTree" format=3 uid="uid://b5yjul755y6vg"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_cb6sd"]
+
+[sub_resource type="BTWait" id="BTWait_w30as"]
+duration = 5.0
+
+[sub_resource type="BBNode" id="BBNode_w30as"]
+saved_value = NodePath(".")
+resource_name = "."
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_5eqwu"]
+node = SubResource("BBNode_w30as")
+method = &"use_ability"
+
+[sub_resource type="BTWait" id="BTWait_5eqwu"]
+
+[sub_resource type="BTSequence" id="BTSequence_tw5p5"]
+children = [SubResource("BTWait_w30as"), SubResource("BTCallMethod_5eqwu"), SubResource("BTWait_5eqwu")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_cb6sd")
+root_task = SubResource("BTSequence_tw5p5")

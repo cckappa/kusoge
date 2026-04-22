@@ -46,7 +46,9 @@ func set_current_hp(hp:int=-1) -> void:
 		current_hp = hp
 
 func reduce_health(hp:int, crit:bool=false) -> void:
-	current_hp = clamp(current_hp - hp, 0, max_hp)
+	if !disabled:
+		current_hp = clamp(current_hp - hp, 0, max_hp)
+	
 	if current_hp <= 0:
 		disabled = true
 
@@ -54,7 +56,11 @@ func reduce_health(hp:int, crit:bool=false) -> void:
 		current_container.set_health(current_hp, "DAMAGE", crit)
 
 func increase_health(hp:int, crit:bool=false) -> void:
-	current_hp = clamp(current_hp + hp, 0, max_hp)
+	if !disabled:
+		current_hp = clamp(current_hp + hp, 0, max_hp)
+
+	if current_hp <=0:
+		disabled = true
 	
 	if current_container != null:
 		current_container.set_health(current_hp, "HEAL", crit)

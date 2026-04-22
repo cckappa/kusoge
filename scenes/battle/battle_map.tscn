@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://dm3728co0sn8k" path="res://scenes/battle/party_character_container.tscn" id="1_6cni1"]
 [ext_resource type="Script" uid="uid://b80kfb61skudv" path="res://scripts/battle/battle_limbo_hsm.gd" id="1_vcmfp"]
 [ext_resource type="Script" uid="uid://byyhfiggbwnox" path="res://scripts/battle/initialize_party.gd" id="2_r1wka"]
+[ext_resource type="Script" uid="uid://c14yfhja8qpy1" path="res://scripts/battle/initialize_battle.gd" id="2_u8pyc"]
+[ext_resource type="Texture2D" uid="uid://bn0sgboycgtx7" path="res://assets/battle/batalla_en.png" id="3_ktkgc"]
+[ext_resource type="Script" uid="uid://lt006iyrqly8" path="res://scripts/battle/initialize_enemies.gd" id="3_umxj2"]
 [ext_resource type="Script" uid="uid://b1w2nokl54ywb" path="res://scripts/battle/focus_party.gd" id="3_xyjd7"]
 [ext_resource type="Script" uid="uid://dl6ytf00kw3n0" path="res://scripts/battle/focus_attack_menu.gd" id="4_pq4qf"]
 [ext_resource type="Script" uid="uid://cpopq75r5iwyw" path="res://scripts/menu/hovering_effect.gd" id="5_bn473"]
@@ -11,8 +14,355 @@
 [ext_resource type="Theme" uid="uid://b03gqfkj47prf" path="res://assets/themes/attack_menu_battle_map.tres" id="9_umxj2"]
 [ext_resource type="Texture2D" uid="uid://rsqps5edq51q" path="res://assets/battle/Daño.PNG" id="10_dpxrw"]
 [ext_resource type="Texture2D" uid="uid://vgmkybqdl06e" path="res://assets/battle/tiempo.PNG" id="11_snn6l"]
+[ext_resource type="Script" uid="uid://btsyuids06ne2" path="res://scripts/battle/focus_enemy.gd" id="13_dpxrw"]
+[ext_resource type="PackedScene" uid="uid://dfpxj66fotgf1" path="res://scenes/battle/enemy_containers/enemy_basic_container.tscn" id="14_snn6l"]
+[ext_resource type="PackedScene" uid="uid://cen6sqaru04iv" path="res://scenes/battle/enemy_containers/demo_tecnico_boss.tscn" id="15_m48ao"]
+[ext_resource type="Script" uid="uid://ddhv7w5agy7jk" path="res://scripts/battle/win_state.gd" id="16_sxpir"]
+[ext_resource type="Texture2D" uid="uid://bg30medshbrqt" path="res://assets/battle/star3_victory.png" id="18_u8pyc"]
+[ext_resource type="Texture2D" uid="uid://j10oria8we1o" path="res://assets/battle/star2_victory.png" id="19_ktkgc"]
+[ext_resource type="Texture2D" uid="uid://dhtpgwsxltfj3" path="res://assets/battle/star1_victory.png" id="20_gamms"]
+[ext_resource type="Texture2D" uid="uid://sqikgc8yjenu" path="res://assets/battle/kio_victory_2.png" id="21_3cwtw"]
+
+[sub_resource type="Animation" id="Animation_gmkwt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1925, 522)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1i0gj"]
+resource_name = "battle_start"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.29999968, 0.5666667),
+"transitions": PackedFloat32Array(0.217638, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.29999968),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4, 2),
+"transitions": PackedFloat32Array(0.812253, 0.183011),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gamms"]
+_data = {
+&"RESET": SubResource("Animation_gmkwt"),
+&"battle_start": SubResource("Animation_1i0gj")
+}
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sxpir"]
+
+[sub_resource type="Animation" id="Animation_lv4so"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Kio:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Star1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Star2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Star3:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bi5l8"]
+resource_name = "hide_kio"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Star3:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.14),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Star2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Star1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%VictoryKio/..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.96666664),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"tkio_hidden"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_1m01a"]
+resource_name = "kio_victory"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Kio:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.266667, 0.633333),
+"transitions": PackedFloat32Array(0.277392, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Star1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Star2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Star3:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%VictoryKio/..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.95),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"tkio_finished"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eivww"]
+_data = {
+&"RESET": SubResource("Animation_lv4so"),
+&"hide_kio": SubResource("Animation_bi5l8"),
+&"kio_victory": SubResource("Animation_1m01a")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a128i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_onowp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u8pyc"]
 
 [node name="BattleMap" type="Control" unique_id=1410843090]
 layout_mode = 3
@@ -24,26 +374,50 @@ grow_vertical = 2
 
 [node name="BattleLimboHSM" type="LimboHSM" parent="." unique_id=1679570893 node_paths=PackedStringArray("limbo_initial_state")]
 script = ExtResource("1_vcmfp")
-limbo_initial_state = NodePath("FocusParty")
+limbo_initial_state = NodePath("InitializeBattle")
+
+[node name="InitializeBattle" type="LimboState" parent="BattleLimboHSM" unique_id=1121373440]
+script = ExtResource("2_u8pyc")
+
+[node name="BattleTexture" type="TextureRect" parent="BattleLimboHSM/InitializeBattle" unique_id=621965100]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -962.5
+offset_top = -261.0
+offset_right = 962.5
+offset_bottom = 261.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(962.5, 261)
+texture = ExtResource("3_ktkgc")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BattleLimboHSM/InitializeBattle/BattleTexture" unique_id=1764000522]
+libraries/ = SubResource("AnimationLibrary_gamms")
+autoplay = &"battle_start"
 
 [node name="InitializeParty" type="LimboState" parent="BattleLimboHSM" unique_id=2089980601]
 script = ExtResource("2_r1wka")
 
+[node name="InitializeEnemies" type="LimboState" parent="BattleLimboHSM" unique_id=175982845]
+script = ExtResource("3_umxj2")
+
 [node name="FocusParty" type="LimboState" parent="BattleLimboHSM" unique_id=483360589]
 script = ExtResource("3_xyjd7")
 
-[node name="FocusAttackMenu" type="LimboState" parent="BattleLimboHSM" unique_id=466108232]
-script = ExtResource("4_pq4qf")
-
-[node name="PartyControl" type="Control" parent="." unique_id=1807358384]
-layout_mode = 1
+[node name="PartyControl" type="Control" parent="BattleLimboHSM/FocusParty" unique_id=1807358384]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="PartyControl" unique_id=476464889]
+[node name="CenterContainer" type="CenterContainer" parent="BattleLimboHSM/FocusParty/PartyControl" unique_id=476464889]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -57,36 +431,39 @@ offset_bottom = -163.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="PartyHBoxContainer" type="HBoxContainer" parent="PartyControl/CenterContainer" unique_id=1087967486]
+[node name="PartyHBoxContainer" type="HBoxContainer" parent="BattleLimboHSM/FocusParty/PartyControl/CenterContainer" unique_id=1087967486]
 unique_name_in_owner = true
 layout_mode = 2
 focus_behavior_recursive = 2
 theme_override_constants/separation = 130
 alignment = 1
 
-[node name="PartyCharacterVisualSeBorra" parent="PartyControl/CenterContainer/PartyHBoxContainer" unique_id=1967704241 instance=ExtResource("1_6cni1")]
+[node name="PartyCharacterVisualSeBorra" parent="BattleLimboHSM/FocusParty/PartyControl/CenterContainer/PartyHBoxContainer" unique_id=1967704241 instance=ExtResource("1_6cni1")]
 layout_mode = 2
 
-[node name="PartyCharacterContainer2" parent="PartyControl/CenterContainer/PartyHBoxContainer" unique_id=1392726088 instance=ExtResource("1_6cni1")]
+[node name="PartyCharacterContainer2" parent="BattleLimboHSM/FocusParty/PartyControl/CenterContainer/PartyHBoxContainer" unique_id=1392726088 instance=ExtResource("1_6cni1")]
 layout_mode = 2
 
-[node name="PartyCharacterContainer3" parent="PartyControl/CenterContainer/PartyHBoxContainer" unique_id=1919111383 instance=ExtResource("1_6cni1")]
+[node name="PartyCharacterContainer3" parent="BattleLimboHSM/FocusParty/PartyControl/CenterContainer/PartyHBoxContainer" unique_id=1919111383 instance=ExtResource("1_6cni1")]
 layout_mode = 2
 
-[node name="PartyCharacterContainer4" parent="PartyControl/CenterContainer/PartyHBoxContainer" unique_id=1590886367 instance=ExtResource("1_6cni1")]
+[node name="PartyCharacterContainer4" parent="BattleLimboHSM/FocusParty/PartyControl/CenterContainer/PartyHBoxContainer" unique_id=1590886367 instance=ExtResource("1_6cni1")]
 layout_mode = 2
 
-[node name="AttackMenuControl" type="Control" parent="." unique_id=1135225868]
+[node name="FocusAttackMenu" type="LimboState" parent="BattleLimboHSM" unique_id=466108232]
+script = ExtResource("4_pq4qf")
+
+[node name="AttackMenuControl" type="Control" parent="BattleLimboHSM/FocusAttackMenu" unique_id=1135225868]
 unique_name_in_owner = true
 z_index = 100
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="InfoHabilidadesContainer" type="PanelContainer" parent="AttackMenuControl" unique_id=928437970]
+[node name="InfoHabilidadesContainer" type="PanelContainer" parent="BattleLimboHSM/FocusAttackMenu/AttackMenuControl" unique_id=928437970]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -100,38 +477,38 @@ offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="AttackMenuControl/InfoHabilidadesContainer" unique_id=1020502816]
+[node name="ColorRect" type="ColorRect" parent="BattleLimboHSM/FocusAttackMenu/AttackMenuControl/InfoHabilidadesContainer" unique_id=1020502816]
 layout_mode = 2
 color = Color(0, 0, 0.13333334, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AttackMenuControl/InfoHabilidadesContainer" unique_id=1271894820]
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleLimboHSM/FocusAttackMenu/AttackMenuControl/InfoHabilidadesContainer" unique_id=1271894820]
 layout_mode = 2
 
-[node name="HoveringEffect" type="Node" parent="AttackMenuControl/InfoHabilidadesContainer/VBoxContainer" unique_id=651350955]
+[node name="HoveringEffect" type="Node" parent="BattleLimboHSM/FocusAttackMenu/AttackMenuControl/InfoHabilidadesContainer/VBoxContainer" unique_id=651350955]
 script = ExtResource("5_bn473")
 metadata/_custom_type_script = "uid://cpopq75r5iwyw"
 
-[node name="HeaderBar" parent="AttackMenuControl/InfoHabilidadesContainer/VBoxContainer" unique_id=1517944800 instance=ExtResource("6_pq4qf")]
+[node name="HeaderBar" parent="BattleLimboHSM/FocusAttackMenu/AttackMenuControl/InfoHabilidadesContainer/VBoxContainer" unique_id=1517944800 instance=ExtResource("6_pq4qf")]
 unique_name_in_owner = true
 layout_mode = 2
 title_text = "HABILIDADES"
 
-[node name="MarginContainer" type="MarginContainer" parent="AttackMenuControl/InfoHabilidadesContainer/VBoxContainer" unique_id=647393485]
+[node name="MarginContainer" type="MarginContainer" parent="BattleLimboHSM/FocusAttackMenu/AttackMenuControl/InfoHabilidadesContainer/VBoxContainer" unique_id=647393485]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="InfoHabilidadesVBox" type="VBoxContainer" parent="AttackMenuControl/InfoHabilidadesContainer/VBoxContainer/MarginContainer" unique_id=909776069]
+[node name="InfoHabilidadesVBox" type="VBoxContainer" parent="BattleLimboHSM/FocusAttackMenu/AttackMenuControl/InfoHabilidadesContainer/VBoxContainer/MarginContainer" unique_id=909776069]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 45
 
-[node name="AttackMenuContainer" parent="AttackMenuControl/InfoHabilidadesContainer/VBoxContainer/MarginContainer/InfoHabilidadesVBox" unique_id=2113491521 instance=ExtResource("8_dblkv")]
+[node name="AttackMenuContainer" parent="BattleLimboHSM/FocusAttackMenu/AttackMenuControl/InfoHabilidadesContainer/VBoxContainer/MarginContainer/InfoHabilidadesVBox" unique_id=2113491521 instance=ExtResource("8_dblkv")]
 layout_mode = 2
 
-[node name="DescripcionHabilidadesContainer" type="PanelContainer" parent="AttackMenuControl" unique_id=282377318]
+[node name="DescripcionHabilidadesContainer" type="PanelContainer" parent="BattleLimboHSM/FocusAttackMenu/AttackMenuControl" unique_id=282377318]
 layout_mode = 0
 offset_left = 2270.0
 offset_top = 846.0
@@ -139,19 +516,19 @@ offset_right = 2579.0
 offset_bottom = 1194.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_sxpir")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AttackMenuControl/DescripcionHabilidadesContainer" unique_id=670610106]
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleLimboHSM/FocusAttackMenu/AttackMenuControl/DescripcionHabilidadesContainer" unique_id=670610106]
 layout_mode = 2
 theme_override_constants/separation = -21
 
-[node name="HoveringEffect" type="Node" parent="AttackMenuControl/DescripcionHabilidadesContainer/VBoxContainer" unique_id=970773277]
+[node name="HoveringEffect" type="Node" parent="BattleLimboHSM/FocusAttackMenu/AttackMenuControl/DescripcionHabilidadesContainer/VBoxContainer" unique_id=970773277]
 script = ExtResource("5_bn473")
 metadata/_custom_type_script = "uid://cpopq75r5iwyw"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="AttackMenuControl/DescripcionHabilidadesContainer/VBoxContainer" unique_id=256713403]
+[node name="HBoxContainer2" type="HBoxContainer" parent="BattleLimboHSM/FocusAttackMenu/AttackMenuControl/DescripcionHabilidadesContainer/VBoxContainer" unique_id=256713403]
 layout_mode = 2
 theme_override_constants/separation = -110
 
-[node name="HabilidadDano" type="RichTextLabel" parent="AttackMenuControl/DescripcionHabilidadesContainer/VBoxContainer/HBoxContainer2" unique_id=1715254805]
+[node name="HabilidadDano" type="RichTextLabel" parent="BattleLimboHSM/FocusAttackMenu/AttackMenuControl/DescripcionHabilidadesContainer/VBoxContainer/HBoxContainer2" unique_id=1715254805]
 unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
@@ -163,7 +540,7 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="TextureRect" type="TextureRect" parent="AttackMenuControl/DescripcionHabilidadesContainer/VBoxContainer/HBoxContainer2" unique_id=22806399]
+[node name="TextureRect" type="TextureRect" parent="BattleLimboHSM/FocusAttackMenu/AttackMenuControl/DescripcionHabilidadesContainer/VBoxContainer/HBoxContainer2" unique_id=22806399]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -172,18 +549,18 @@ texture = ExtResource("10_dpxrw")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="AttackMenuControl/DescripcionHabilidadesContainer/VBoxContainer" unique_id=20711315]
+[node name="HBoxContainer" type="HBoxContainer" parent="BattleLimboHSM/FocusAttackMenu/AttackMenuControl/DescripcionHabilidadesContainer/VBoxContainer" unique_id=20711315]
 layout_mode = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="AttackMenuControl/DescripcionHabilidadesContainer/VBoxContainer/HBoxContainer" unique_id=754686904]
+[node name="TextureRect" type="TextureRect" parent="BattleLimboHSM/FocusAttackMenu/AttackMenuControl/DescripcionHabilidadesContainer/VBoxContainer/HBoxContainer" unique_id=754686904]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 texture = ExtResource("11_snn6l")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="HabilidadSegundos" type="RichTextLabel" parent="AttackMenuControl/DescripcionHabilidadesContainer/VBoxContainer/HBoxContainer" unique_id=1627230370]
+[node name="HabilidadSegundos" type="RichTextLabel" parent="BattleLimboHSM/FocusAttackMenu/AttackMenuControl/DescripcionHabilidadesContainer/VBoxContainer/HBoxContainer" unique_id=1627230370]
 unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
@@ -192,3 +569,158 @@ text = "10s"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
+
+[node name="FocusEnemy" type="LimboState" parent="BattleLimboHSM" unique_id=1958576101]
+script = ExtResource("13_dpxrw")
+
+[node name="EnemyControl" type="Control" parent="BattleLimboHSM/FocusEnemy" unique_id=1895678222]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="BattleLimboHSM/FocusEnemy/EnemyControl" unique_id=1433814332]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -736.0
+offset_right = 298.0
+offset_bottom = -242.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EnemiesHBoxContainer" type="HBoxContainer" parent="BattleLimboHSM/FocusEnemy/EnemyControl/CenterContainer" unique_id=594804605]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="EnemyBasicContainer" parent="BattleLimboHSM/FocusEnemy/EnemyControl/CenterContainer/EnemiesHBoxContainer" unique_id=1379602517 instance=ExtResource("14_snn6l")]
+layout_mode = 2
+
+[node name="EnemyBasicContainer2" parent="BattleLimboHSM/FocusEnemy/EnemyControl/CenterContainer/EnemiesHBoxContainer" unique_id=795346071 instance=ExtResource("14_snn6l")]
+layout_mode = 2
+
+[node name="EnemyBasicContainer3" parent="BattleLimboHSM/FocusEnemy/EnemyControl/CenterContainer/EnemiesHBoxContainer" unique_id=1598956690 instance=ExtResource("14_snn6l")]
+layout_mode = 2
+
+[node name="EnemyBasicContainer4" parent="BattleLimboHSM/FocusEnemy/EnemyControl/CenterContainer/EnemiesHBoxContainer" unique_id=795809582 instance=ExtResource("14_snn6l")]
+layout_mode = 2
+
+[node name="DemoTecnicoBoss" parent="BattleLimboHSM/FocusEnemy/EnemyControl" unique_id=1759020300 instance=ExtResource("15_m48ao")]
+unique_name_in_owner = true
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="WinState" type="LimboState" parent="BattleLimboHSM" unique_id=1530615766]
+script = ExtResource("16_sxpir")
+
+[node name="VictoryKio" type="Control" parent="BattleLimboHSM/WinState" unique_id=1208153376]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Star3" type="TextureRect" parent="BattleLimboHSM/WinState/VictoryKio" unique_id=1656206672]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1184.5
+offset_top = -361.0
+offset_right = 1184.5
+offset_bottom = 361.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_u8pyc")
+
+[node name="Star2" type="TextureRect" parent="BattleLimboHSM/WinState/VictoryKio" unique_id=1879594163]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1189.5
+offset_top = -987.0
+offset_right = 1189.5
+offset_bottom = 987.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_ktkgc")
+
+[node name="Star1" type="TextureRect" parent="BattleLimboHSM/WinState/VictoryKio" unique_id=1880511031]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1507.0
+offset_top = -265.0
+offset_right = 1507.0
+offset_bottom = 265.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_gamms")
+
+[node name="Kio" type="TextureRect" parent="BattleLimboHSM/WinState/VictoryKio" unique_id=1799112335]
+z_index = 187
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -727.0
+offset_top = -493.0
+offset_right = 728.0
+offset_bottom = 494.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(839, 857)
+texture = ExtResource("21_3cwtw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BattleLimboHSM/WinState/VictoryKio" unique_id=708038638]
+libraries/ = SubResource("AnimationLibrary_eivww")
+
+[node name="Button" type="Button" parent="BattleLimboHSM/WinState/VictoryKio" unique_id=1342565329]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_a128i")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_onowp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u8pyc")
+
+[connection signal="animation_finished" from="BattleLimboHSM/InitializeBattle/BattleTexture/AnimationPlayer" to="BattleLimboHSM/InitializeBattle" method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="BattleLimboHSM/WinState/VictoryKio/Button" to="BattleLimboHSM/WinState" method="_on_button_pressed"]

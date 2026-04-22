@@ -3,7 +3,7 @@ extends Ability
 
 @export var heal_points:int
 
-func use_ability(character: Character, crit:bool=false) -> void:
+func use_ability(character: Character, crit:bool=false) -> float:
 	var total_heal:= 0
 	if crit:
 		total_heal = ceil(heal_points * Globals.crit_multiplier)
@@ -11,3 +11,4 @@ func use_ability(character: Character, crit:bool=false) -> void:
 		total_heal = heal_points
 	print('Healed ', total_heal, '!')
 	character.increase_health(total_heal, crit)
+	return total_heal

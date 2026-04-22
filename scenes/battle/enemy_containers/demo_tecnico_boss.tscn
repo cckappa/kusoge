@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cen6sqaru04iv"]
+
+[ext_resource type="Script" uid="uid://d2s61368ejkvt" path="res://scripts/battle/enemy_containers/demo_tecnico_boss.gd" id="1_pib8w"]
+[ext_resource type="PackedScene" uid="uid://dfpxj66fotgf1" path="res://scenes/battle/enemy_containers/enemy_basic_container.tscn" id="2_yk663"]
+[ext_resource type="Script" uid="uid://chdi14bo5worb" path="res://scripts/battle/enemy_containers/boss_container.gd" id="3_lxicc"]
+[ext_resource type="Resource" uid="uid://bpjcrmsd44mru" path="res://assets/resources/enemies/rana_cosmica.tres" id="4_jy06p"]
+
+[node name="DemoTecnicoBoss" type="Control" unique_id=553947955]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_pib8w")
+
+[node name="BossContainer" parent="." unique_id=795346071 node_paths=PackedStringArray("animated_sprite", "enemy_texture") instance=ExtResource("2_yk663")]
+layout_mode = 0
+offset_left = 969.0
+offset_top = 311.0
+offset_right = 1874.0
+offset_bottom = 1115.0
+script = ExtResource("3_lxicc")
+animated_sprite = NodePath("HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/PanelContainer/PanelContainer/ManualControl/AnimatedSprite2D")
+enemy_resource = ExtResource("4_jy06p")
+enemy_texture = NodePath("HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/PanelContainer/PanelContainer/ManualControl")
+
+[node name="ManualControl" parent="BossContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/PanelContainer/PanelContainer" parent_id_path=PackedInt32Array(795346071, 2024149616) index="0" unique_id=1237588125]
+visible = true
+custom_minimum_size = Vector2(790, 710)
+
+[node name="EnemyTexture" parent="BossContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/PanelContainer/PanelContainer" parent_id_path=PackedInt32Array(795346071, 2024149616) index="1" unique_id=627754196]
+visible = false
+
+[node name="DeadTexture" parent="BossContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/PanelContainer/PanelContainer" parent_id_path=PackedInt32Array(795346071, 2024149616) index="2" unique_id=550022273]
+custom_minimum_size = Vector2(0, 550)
+
+[node name="InfoVidaText" parent="BossContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/InfoVidaContainer/HBoxContainer/CenterContainer" parent_id_path=PackedInt32Array(795346071, 1215915111) index="1" unique_id=1232842925]
+text = "[center]650"
+
+[editable path="BossContainer"]

@@ -33,5 +33,5 @@ var description:String:
 	get:
 		return tr("abilities/%s/description" % identifier)
 
-func use_ability(character: Character, crit:bool=false) -> void:
-	pass
+func use_ability(character: Character, crit:bool=false) -> float:
+	return 0.0

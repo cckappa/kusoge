@@ -18,4 +18,4 @@ func _on_button_focus_exited() -> void:
 	asterisco.text = ""
 
 func _on_button_pressed() -> void:
-	print(ability.ability_name)
+	SignalBus.emit_signal("attack_menu_pressed", ability)

@@ -34,7 +34,7 @@ func _setup() -> void:
 	
 	await get_tree().process_frame
 	party_h_box_container.size = Vector2(0,0)
-
+	SignalBus.emit_signal("get_alive_allies_containers", party_h_box_container.get_children())
 
 func _free_children() -> void:
 	for child in party_h_box_container.get_children():

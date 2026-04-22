@@ -47,7 +47,7 @@ layout_mode = 2
 [node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/PanelContainer/VBoxContainer" unique_id=1746601508]
 layout_mode = 2
 
-[node name="SelectedButton" type="TextureButton" parent="HBoxContainer/PanelContainer/VBoxContainer/CenterContainer" unique_id=1803173859 groups=["selected_arrows"]]
+[node name="SelectedButton" type="TextureButton" parent="HBoxContainer/PanelContainer/VBoxContainer/CenterContainer" unique_id=1803173859]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
@@ -91,7 +91,7 @@ layout_mode = 2
 [node name="VidaProgressBar" type="TextureProgressBar" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/InfoVidaContainer/HBoxContainer/CenterContainer" unique_id=43356]
 unique_name_in_owner = true
 layout_mode = 2
-value = 53.0
+value = 100.0
 fill_mode = 3
 texture_under = ExtResource("5_u5r7s")
 texture_progress = ExtResource("5_u5r7s")
@@ -141,4 +141,8 @@ script = ExtResource("11_3amih")
 radius = 10.0
 metadata/_custom_type_script = "uid://cpopq75r5iwyw"
 
+[node name="Timer" type="Timer" parent="." unique_id=391842980]
+one_shot = true
+
 [connection signal="pressed" from="HBoxContainer/PanelContainer/VBoxContainer/CenterContainer/SelectedButton" to="." method="_on_selected_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

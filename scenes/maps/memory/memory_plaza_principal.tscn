@@ -1754,8 +1754,11 @@ script = ExtResource("11_kyqry")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2074357170]
 
 [node name="MenuSubViewport" parent="CanvasLayer" unique_id=152873112 instance=ExtResource("12_dtr7p")]
+visible = false
+metadata/_edit_lock_ = true
 
 [node name="SettingsMenu" parent="CanvasLayer" unique_id=1714580915 instance=ExtResource("14_u8q45")]
+metadata/_edit_lock_ = true
 
 [node name="NotificationCenter" parent="CanvasLayer" unique_id=425973657 instance=ExtResource("16_ge44a")]
 metadata/_edit_lock_ = true

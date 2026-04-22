@@ -23,6 +23,7 @@ const LOBUKI = preload("res://assets/resources/characters/demo_tecnico/lobuki.tr
 
 var ene_1 := preload("res://assets/resources/enemies/serpra.tres")
 var ene_2 := preload("res://assets/resources/enemies/lobo_salvaje.tres")
+var ene_especial := preload("res://assets/resources/enemies/rana_cosmica.tres")
 var enemies:Array[Character]
 var crit_multiplier:= 1.5
 
@@ -82,9 +83,13 @@ func setup_globals() -> void:
 	maps = full_maps_resource.get_maps_dictionary()
 	ene_1.current_hp = ene_1.max_hp
 	ene_2.current_hp = ene_2.max_hp
-	party = [INGENIERO_FROGELIO, MIUMIU, PROTO_SHAMAN, LOBUKI, SABIA_RANA_PEDRO]
-	set_current_characters([ALICIA, RANASTACIO, MALENA])
+	ene_especial.current_hp = ene_especial.max_hp
+	party = [MIUMIU, PROTO_SHAMAN, LOBUKI, SABIA_RANA_PEDRO]
+	set_current_characters([ALICIA, RANASTACIO, MALENA, INGENIERO_FROGELIO])
+
+	#ENEMIES USED
 	enemies = [ene_1, ene_2]
+	# enemies = [ene_especial]
 
 func set_current_enemies(enemy:EnemyResource, _extra_enemies:Array[EnemyResource] = []) -> void:
 	if main_enemy == null:

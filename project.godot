@@ -213,7 +213,6 @@ selected_targets=""
 npcs=""
 battle=""
 ability_animations=""
-selected_ability_buttons=""
 
 [gui]
 

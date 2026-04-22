@@ -10,7 +10,7 @@
 [node name="AttackMenuContainer" type="HBoxContainer" unique_id=2113491521]
 script = ExtResource("1_jyr54")
 
-[node name="Button" type="Button" parent="." unique_id=828405839 groups=["selected_ability_buttons"]]
+[node name="Button" type="Button" parent="." unique_id=828405839]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jyr54")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mr461")
