@@ -9,7 +9,10 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("main_character")
 
 func _on_dialogic_signal(argument:Dictionary) -> void:
-	if argument.name == dialogic_save_argument:
+	if !argument.has("save"):
+		return
+
+	if argument.save == dialogic_save_argument:
 		set_player_values()
 		GameSaveHandler.save_game()
 

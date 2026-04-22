@@ -5,6 +5,7 @@ extends LimboState
 @onready var info_habilidades_v_box:=%InfoHabilidadesVBox
 @onready var habilidad_dano:=%HabilidadDano
 @onready var habilidad_segundos:=%HabilidadSegundos
+@onready var cooldown_not_finished_sound:=$CooldownNotFinishedSound
 
 var selected_party_member:Character
 
@@ -16,6 +17,7 @@ func _setup() -> void:
 	SignalBus.connect("attack_menu_pressed", _on_attack_menu_pressed)
 	SignalBus.connect("enemies_defeated", _enemies_defeated)
 	SignalBus.connect("set_alive_allies_containers", _on_set_alive_allies_containers)
+	SignalBus.connect("total_party_kill", _on_total_party_kill)
 	attack_menu_control.visible = false
 
 func _enter() -> void:
@@ -72,11 +74,17 @@ func _on_attack_menu_focused(_ability:Ability) -> void:
 		habilidad_segundos.text = str(_ability.wait_time) + "s"
 
 func _on_attack_menu_pressed(_ability:Ability) -> void:
-	if is_active() and blackboard.get_var("selected_party_container").can_attack:
-		dispatch("to_focus_enemy", _ability)
+	if is_active():
+		if blackboard.get_var("selected_party_container").can_attack:
+			blackboard.get_var("selected_party_container").stop_cooldown_animation()
+			dispatch("to_focus_enemy", _ability)
+		else:
+			blackboard.get_var("selected_party_container").play_cooldown_animation()
+			cooldown_not_finished_sound.play()
 
 func _exit() -> void:
 	attack_menu_control.visible = false
+	blackboard.get_var("selected_party_container").set_cooldown_color()
 	Functions.set_game_speed(1)
 
 func _enemies_defeated() -> void:
@@ -87,3 +95,7 @@ func _on_set_alive_allies_containers(alive_allies_containers:Array) -> void:
 	if alive_allies_containers.size() > 0 and is_active():
 		await get_tree().process_frame
 		dispatch("to_focus_party")
+
+func _on_total_party_kill() -> void:
+	if is_active():
+		dispatch("to_lose_state")

@@ -3,11 +3,9 @@
 [ext_resource type="Script" uid="uid://ddv7kigla6iip" path="res://scripts/maps/demo_tecnico_hub.gd" id="1_w0bji"]
 [ext_resource type="Resource" uid="uid://dcj32vi68o7vl" path="res://assets/resources/maps/demo_tecnico/demo_tecnico_hub.tres" id="2_4h3p4"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="2_b27bq"]
-[ext_resource type="Script" uid="uid://dspbirfebckws" path="res://scripts/peleas_demo_tecnico.gd" id="2_mwdq3"]
 [ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="3_7yfwg"]
 [ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="3_mr767"]
 [ext_resource type="Resource" uid="uid://owjbdndkkffa" path="res://assets/resources/enemies/gollien.tres" id="3_p1lo0"]
-[ext_resource type="Resource" uid="uid://dasxq4u7q28ri" path="res://assets/resources/enemies/humarana.tres" id="3_r2m6q"]
 [ext_resource type="AudioStream" uid="uid://dg8jfiyj6wy8a" path="res://assets/music/enemy_encounter.mp3" id="4_b27bq"]
 [ext_resource type="Resource" uid="uid://dhjur3x054uqu" path="res://assets/resources/enemies/lobo_salvaje.tres" id="4_mce50"]
 [ext_resource type="Texture2D" uid="uid://bdk20ogn4b7cn" path="res://assets/backgrounds/demo_tecnico/SUELO.PNG" id="4_ng4if"]
@@ -17,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://ds6mq6sdtkyar" path="res://assets/backgrounds/demo_tecnico/MONTAÑAS.PNG" id="6_wd8je"]
 [ext_resource type="Resource" uid="uid://b38b3cj2ttdxe" path="res://assets/resources/enemies/chamuco.tres" id="7_pno3w"]
 [ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="8_0xr4t"]
-[ext_resource type="Resource" uid="uid://c5yt23t4nhw7j" path="res://assets/resources/enemies/casita_salvaje.tres" id="8_1w4oy"]
 [ext_resource type="Script" uid="uid://g7sf10k2338d" path="res://scripts/npc_layer.gd" id="9_4yjoi"]
 [ext_resource type="PackedScene" uid="uid://clmbh4jnxur05" path="res://scenes/objeto.tscn" id="9_86tlv"]
 [ext_resource type="PackedScene" uid="uid://h0q50x2317m1" path="res://scenes/npc.tscn" id="9_273xm"]
@@ -66,6 +63,11 @@
 [ext_resource type="Texture2D" uid="uid://60n8w544ebmn" path="res://assets/objects/demo_tecnico/4roca_mapa.png" id="49_02r7b"]
 [ext_resource type="PackedScene" uid="uid://bx88hvib56f0" path="res://scenes/menu/menu_sub_viewport.tscn" id="52_1w4oy"]
 [ext_resource type="AudioStream" uid="uid://dsubppnwuv28" path="res://assets/music/tema_earthbound.mp3" id="61_gvktg"]
+[ext_resource type="Script" uid="uid://calbsshdno2ur" path="res://scripts/fight_manager.gd" id="67_q24vt"]
+[ext_resource type="Script" uid="uid://wk0pglf3r6ow" path="res://scripts/fights/fight_resource.gd" id="68_m805y"]
+[ext_resource type="Script" uid="uid://bmxggwbtvyxeb" path="res://scripts/enemy_resource.gd" id="69_jg827"]
+[ext_resource type="Resource" uid="uid://cym74q2mvjcte" path="res://assets/resources/enemies/serpra.tres" id="70_slii2"]
+[ext_resource type="Script" uid="uid://ifqsfamlb3pd" path="res://scripts/fights/stakes_resource.gd" id="72_vp0uk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1lo0"]
 size = Vector2(3690, 614)
@@ -761,16 +763,54 @@ script = ExtResource("35_f3wh4")
 duration = 2.0
 transition = 1
 
+[sub_resource type="Resource" id="Resource_4ugpp"]
+script = ExtResource("72_vp0uk")
+key_name = &"demo_tecnico_hub-batalla_1"
+key_value = true
+metadata/_custom_type_script = "uid://ifqsfamlb3pd"
+
+[sub_resource type="Resource" id="Resource_slii2"]
+script = ExtResource("68_m805y")
+identifier = &"batalla_1"
+target_marker = &"MarkerPeleas"
+stakes = SubResource("Resource_4ugpp")
+enemies = Array[ExtResource("69_jg827")]([ExtResource("70_slii2"), ExtResource("4_mce50")])
+metadata/_custom_type_script = "uid://wk0pglf3r6ow"
+
+[sub_resource type="Resource" id="Resource_q24vt"]
+script = ExtResource("72_vp0uk")
+key_name = &"demo_tecnico_hub-batalla_2"
+key_value = true
+metadata/_custom_type_script = "uid://ifqsfamlb3pd"
+
+[sub_resource type="Resource" id="Resource_m805y"]
+script = ExtResource("68_m805y")
+identifier = &"batalla_2"
+target_marker = &"MarkerPeleas"
+stakes = SubResource("Resource_q24vt")
+enemies = Array[ExtResource("69_jg827")]([ExtResource("7_pno3w"), ExtResource("3_p1lo0"), ExtResource("7_pno3w")])
+metadata/_custom_type_script = "uid://wk0pglf3r6ow"
+
+[sub_resource type="Resource" id="Resource_jg827"]
+script = ExtResource("72_vp0uk")
+key_name = &"demo_tecnico_hub-batalla_3"
+key_value = true
+metadata/_custom_type_script = "uid://ifqsfamlb3pd"
+
+[sub_resource type="Resource" id="Resource_ymowm"]
+script = ExtResource("68_m805y")
+identifier = &"batalla_3"
+target_marker = &"MarkerPeleas"
+stakes = SubResource("Resource_jg827")
+enemies = Array[ExtResource("69_jg827")]([ExtResource("6_nn2xs"), ExtResource("10_4h3p4"), ExtResource("5_ngix7")])
+metadata/_custom_type_script = "uid://wk0pglf3r6ow"
+
 [node name="DemoTecnicoHub" type="Node2D" unique_id=1271019550 node_paths=PackedStringArray("door_sprite", "door_collision")]
 y_sort_enabled = true
 script = ExtResource("1_w0bji")
 door_sprite = NodePath("ObjectLayer/Casa/PuertaCasa/AnimatedSprite2D")
 door_collision = NodePath("ObjectLayer/Casa/PuertaCasa/StaticBody2D/CollisionShape2D")
 single_map_resource = ExtResource("2_4h3p4")
-
-[node name="PeleasDemoTecnico" type="Node" parent="." unique_id=392660550]
-script = ExtResource("2_mwdq3")
-enemies = [[ExtResource("3_r2m6q"), ExtResource("3_p1lo0"), ExtResource("5_ngix7")], [ExtResource("6_nn2xs"), ExtResource("7_pno3w"), ExtResource("8_1w4oy")], [ExtResource("4_mce50"), ExtResource("10_4h3p4"), ExtResource("4_mce50")]]
 
 [node name="ParallaxBackgroundLayer" type="Node2D" parent="." unique_id=567095110]
 z_index = -1
@@ -1252,6 +1292,9 @@ metadata/_custom_type_script = "uid://cv43fprb0dski"
 [node name="DefaultMarker" type="Marker2D" parent="SpawnsLayer" unique_id=698117281]
 position = Vector2(175, 69)
 
+[node name="MarkerPeleas" type="Marker2D" parent="SpawnsLayer" unique_id=1839414586]
+position = Vector2(534, -316)
+
 [node name="EntradaCueva" type="Marker2D" parent="SpawnsLayer" unique_id=1340956100]
 position = Vector2(-1769, -1075)
 
@@ -1332,6 +1375,11 @@ tween_on_load = false
 limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
 
 [node name="CameraZoneAreas" type="Node" parent="CameraManager" unique_id=2002970168]
+
+[node name="FightManager" type="Node" parent="." unique_id=655061623]
+script = ExtResource("67_q24vt")
+fights = Array[ExtResource("68_m805y")]([SubResource("Resource_slii2"), SubResource("Resource_m805y"), SubResource("Resource_ymowm")])
+metadata/_custom_type_script = "uid://calbsshdno2ur"
 
 [connection signal="body_entered" from="ObjectLayer/Casa/PuertaCasa/Area2D" to="." method="_on_area_2d_body_entered"]
 

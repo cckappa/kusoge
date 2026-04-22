@@ -9,7 +9,10 @@ func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 
 func _on_dialogic_signal(argument:Dictionary) -> void: 
-	if dialogic_signal != "" and argument.name == dialogic_signal:
+	if !argument.has("quest"):
+		return
+
+	if dialogic_signal != "" and argument.quest == dialogic_signal:
 		if argument.type == "start":
 			quest_resource.start_quest()
 			print("Quest started:", quest_resource.identifier)
@@ -25,4 +28,4 @@ func _on_dialogic_signal(argument:Dictionary) -> void:
 		elif argument.type == "print":
 			print(quest_resource.quest_status)
 		else:
-			printerr("Unknown signal type: %s" % argument.name)
+			printerr("Unknown signal type: %s" % argument.quest)

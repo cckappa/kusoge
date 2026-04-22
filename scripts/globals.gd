@@ -56,7 +56,7 @@ var full_maps_resource := preload("res://assets/resources/maps/full_maps.tres")
 var maps :Dictionary 
 
 var current_map_name:String
-var current_map_path:String
+var current_map_path:String="res://scenes/maps/demo_tecnico_hub.tscn"
 var overwrite_map_state: bool = true
 
 var key_variables:Dictionary={}
@@ -84,8 +84,8 @@ func setup_globals() -> void:
 	ene_1.current_hp = ene_1.max_hp
 	ene_2.current_hp = ene_2.max_hp
 	ene_especial.current_hp = ene_especial.max_hp
-	party = [MIUMIU, PROTO_SHAMAN, LOBUKI, SABIA_RANA_PEDRO, INGENIERO_FROGELIO]
-	set_current_characters([ALICIA, RANASTACIO, MALENA])
+	party = [MIUMIU, PROTO_SHAMAN, RANASTACIO, LOBUKI, SABIA_RANA_PEDRO]
+	set_current_characters([ALICIA, INGENIERO_FROGELIO, MALENA])
 
 	#ENEMIES USED
 	enemies = [ene_1, ene_2]

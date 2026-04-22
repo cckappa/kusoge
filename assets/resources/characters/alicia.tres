@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="Character" load_steps=10 format=3 uid="uid://c6dgtrmu786cv"]
+[gd_resource type="Resource" script_class="Character" format=3 uid="uid://c6dgtrmu786cv"]
 
 [ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_mx7kx"]
 [ext_resource type="Resource" uid="uid://bbgmx00txpaek" path="res://assets/resources/abilities/cachetada.tres" id="2_7qxyu"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_fd7yh"]
 [ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="3_5fc53"]
+[ext_resource type="Resource" uid="uid://bnkt1v88hkkjx" path="res://assets/resources/abilities/piss.tres" id="3_68w2w"]
 [ext_resource type="Resource" uid="uid://ckx56tfvcgtr8" path="res://assets/resources/abilities/escupitajo.tres" id="3_tik4s"]
-[ext_resource type="Resource" uid="uid://ct5dshx02d4l0" path="res://assets/resources/abilities/focused_healing.tres" id="4_huxs8"]
 [ext_resource type="Resource" uid="uid://divn1nh4qjs3p" path="res://assets/resources/abilities/rayo_cosmico.tres" id="5_tik4s"]
 [ext_resource type="Texture2D" uid="uid://4gcpx3eh7ly4" path="res://assets/character_portraits/demo_tecnico/Alicia DYB.PNG" id="6_rf4ft"]
 [ext_resource type="Texture2D" uid="uid://l38qfes82cnk" path="res://assets/character_portraits/demo_tecnico/Alicia daño.PNG" id="6_tik4s"]
@@ -18,8 +18,4 @@ character_portrait = ExtResource("6_rf4ft")
 character_damaged = ExtResource("6_tik4s")
 max_hp = 300
 unlocked = true
-type = "NORMAL"
-abilities = Array[ExtResource("1_mx7kx")]([ExtResource("2_7qxyu"), ExtResource("3_tik4s"), ExtResource("4_huxs8"), ExtResource("5_tik4s")])
-loot = Array[ExtResource("2_fd7yh")]([])
-min_loot = 0
-max_loot = 1
+abilities = Array[ExtResource("1_mx7kx")]([ExtResource("2_7qxyu"), ExtResource("3_68w2w"), ExtResource("3_tik4s"), ExtResource("5_tik4s")])

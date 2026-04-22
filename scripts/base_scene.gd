@@ -124,7 +124,7 @@ func setup_battle() -> void:
 	call_deferred("start_battle")
 
 func start_battle() -> void:
-	get_tree().change_scene_to_file("res://scenes/battle.tscn")
+	get_tree().change_scene_to_file("res://scenes/battle/battle_map.tscn")
 
 func _on_dialogic_signal(argument:Dictionary) -> void:
 	if not argument.has("name"):

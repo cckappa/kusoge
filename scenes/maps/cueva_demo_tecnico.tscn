@@ -20,7 +20,6 @@
 [ext_resource type="Resource" uid="uid://clu0pe7crj6f7" path="res://assets/resources/quests/cigarro_lobuki.tres" id="13_55pex"]
 [ext_resource type="Script" uid="uid://c2d2peg3ovb8n" path="res://scripts/saves_layer.gd" id="13_c4cm6"]
 [ext_resource type="PackedScene" uid="uid://clmbh4jnxur05" path="res://scenes/objeto.tscn" id="13_u0ndw"]
-[ext_resource type="PackedScene" uid="uid://ci5a44r0l16fy" path="res://scenes/pause_menu.tscn" id="14_c4mmd"]
 [ext_resource type="Script" uid="uid://do84xbf65qif" path="res://scripts/talk.gd" id="15_vai2h"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="16_joev4"]
 [ext_resource type="Script" uid="uid://moxcdo1lwavw" path="res://scripts/item_taker.gd" id="16_n0a8t"]
@@ -32,7 +31,9 @@
 [ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="18_brrda"]
 [ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="19_wvs86"]
 [ext_resource type="Script" uid="uid://dct4fb2oheved" path="res://scripts/save_button.gd" id="23_n0a8t"]
+[ext_resource type="PackedScene" uid="uid://bx88hvib56f0" path="res://scenes/menu/menu_sub_viewport.tscn" id="28_ceigr"]
 [ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="29_6xik8"]
+[ext_resource type="Script" uid="uid://bof2iweysicw2" path="res://scripts/menu/menu_sub_viewport.gd" id="29_c4cm6"]
 [ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="30_6xik8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chxpl"]
@@ -459,8 +460,16 @@ position = Vector2(-628, 439)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=942976466]
 
-[node name="PauseMenu" parent="CanvasLayer" unique_id=437761292 instance=ExtResource("14_c4mmd")]
-metadata/_edit_lock_ = true
+[node name="MenuSubViewport" type="SubViewportContainer" parent="CanvasLayer" unique_id=158507729 instance=ExtResource("28_ceigr")]
+process_mode = 3
+visible = false
+z_index = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("29_c4cm6")
 
 [node name="SettingsMenu" parent="CanvasLayer" unique_id=371702260 instance=ExtResource("16_joev4")]
 metadata/_edit_lock_ = true

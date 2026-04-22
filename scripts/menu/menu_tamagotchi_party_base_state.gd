@@ -9,6 +9,7 @@ const MENU_PARTY_MISSING_CONTAINER_PATH:="res://scenes/menu/menu_missing_party.t
 func _setup() -> void:
 	SignalBus.connect("menu_member_character_button_pressed", _to_member_state)
 	SignalBus.connect("menu_party_character_button_pressed", _to_party_state)
+	SignalBus.connect("character_unlocked", _new_character)
 	_free_children()
 	add_party_members()
 	
@@ -61,3 +62,7 @@ func _to_party_state(_character:Character) -> void:
 
 func _to_member_state(_character:Character) -> void:
 	dispatch("to_party_member_option_state", _character)
+
+func _new_character(_character:Character) -> void:
+	_free_children()
+	add_party_members()

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DamageAbility" load_steps=3 format=3 uid="uid://b4hl0uorngix0"]
+[gd_resource type="Resource" script_class="DamageAbility" format=3 uid="uid://b4hl0uorngix0"]
 
 [ext_resource type="Script" uid="uid://3uj7qdnixdle" path="res://scripts/abilities/damage_ability.gd" id="1_5qpon"]
 [ext_resource type="PackedScene" uid="uid://cvec5481ygy7e" path="res://scenes/ability_animations/patada_animation.tscn" id="1_54xlb"]
@@ -7,8 +7,5 @@
 script = ExtResource("1_5qpon")
 damage_points = 40
 identifier = "patada"
-type = "NORMAL"
-base_wait_time = 6.0
-wait_time = 6.0
-effect = "NEGATIVE"
+base_wait_time = 12.0
 attack_animation = ExtResource("1_54xlb")

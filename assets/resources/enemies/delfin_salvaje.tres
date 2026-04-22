@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyResource" load_steps=9 format=3 uid="uid://bqogm4mw28f4y"]
+[gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://bqogm4mw28f4y"]
 
 [ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_cvytf"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_rdah2"]
@@ -11,15 +11,9 @@
 
 [resource]
 script = ExtResource("3_prfuh")
-enemy_fight_dialogs = Array[ExtResource("5_sn27r")]([])
-identifier = ""
-section_folder = ""
 character_portrait = ExtResource("4_sn27r")
 max_hp = 130
-unlocked = false
-type = "NORMAL"
 abilities = Array[ExtResource("1_cvytf")]([ExtResource("2_swx01"), ExtResource("3_7l60d")])
 loot = Array[ExtResource("2_rdah2")]([ExtResource("6_7l60d")])
-min_loot = 0
 max_loot = 2
 metadata/_custom_type_script = "uid://bmxggwbtvyxeb"

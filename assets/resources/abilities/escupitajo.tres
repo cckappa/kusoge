@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DamageAbility" load_steps=3 format=3 uid="uid://ckx56tfvcgtr8"]
+[gd_resource type="Resource" script_class="DamageAbility" format=3 uid="uid://ckx56tfvcgtr8"]
 
 [ext_resource type="PackedScene" uid="uid://d3jg4p8lblvlj" path="res://scenes/ability_animations/escupitajo_animation.tscn" id="1_b7nlv"]
 [ext_resource type="Script" uid="uid://3uj7qdnixdle" path="res://scripts/abilities/damage_ability.gd" id="1_o06i0"]
@@ -8,8 +8,6 @@ script = ExtResource("1_o06i0")
 damage_points = 40
 identifier = "escupitajo"
 type = "WATER"
-base_wait_time = 4.0
-wait_time = 4.0
-effect = "NEGATIVE"
+base_wait_time = 8.0
 attack_animation = ExtResource("1_b7nlv")
 metadata/_custom_type_script = "uid://3uj7qdnixdle"

@@ -16,12 +16,22 @@
 [ext_resource type="Texture2D" uid="uid://vgmkybqdl06e" path="res://assets/battle/tiempo.PNG" id="11_snn6l"]
 [ext_resource type="Script" uid="uid://btsyuids06ne2" path="res://scripts/battle/focus_enemy.gd" id="13_dpxrw"]
 [ext_resource type="PackedScene" uid="uid://dfpxj66fotgf1" path="res://scenes/battle/enemy_containers/enemy_basic_container.tscn" id="14_snn6l"]
+[ext_resource type="AudioStream" uid="uid://c48ujoigwjk4j" path="res://assets/sfx/417794__lorenzothegreat__error-cropped.wav" id="15_57amn"]
 [ext_resource type="PackedScene" uid="uid://cen6sqaru04iv" path="res://scenes/battle/enemy_containers/demo_tecnico_boss.tscn" id="15_m48ao"]
 [ext_resource type="Script" uid="uid://ddhv7w5agy7jk" path="res://scripts/battle/win_state.gd" id="16_sxpir"]
 [ext_resource type="Texture2D" uid="uid://bg30medshbrqt" path="res://assets/battle/star3_victory.png" id="18_u8pyc"]
 [ext_resource type="Texture2D" uid="uid://j10oria8we1o" path="res://assets/battle/star2_victory.png" id="19_ktkgc"]
 [ext_resource type="Texture2D" uid="uid://dhtpgwsxltfj3" path="res://assets/battle/star1_victory.png" id="20_gamms"]
 [ext_resource type="Texture2D" uid="uid://sqikgc8yjenu" path="res://assets/battle/kio_victory_2.png" id="21_3cwtw"]
+[ext_resource type="Script" uid="uid://c61030v5gmvau" path="res://scripts/battle/lose_state.gd" id="23_ktkgc"]
+[ext_resource type="Theme" uid="uid://ctd47cus6kna0" path="res://assets/themes/menu_theme.tres" id="24_ghiy6"]
+[ext_resource type="Texture2D" uid="uid://d3xuo1pm4n8w5" path="res://assets/battle/desmotivaciones.png" id="25_puri3"]
+[ext_resource type="Theme" uid="uid://bfoia834oik6" path="res://assets/themes/lose_theme.tres" id="26_2psgg"]
+[ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="27_puri3"]
+[ext_resource type="Texture2D" uid="uid://buj1i4srn7wxf" path="res://assets/fight_backgrounds/demo_tecnico/Fondo_bosque.PNG" id="28_2psgg"]
+[ext_resource type="AudioStream" uid="uid://3vetx47tyh7f" path="res://assets/music/earthbound_battle_theme.mp3" id="30_kj30c"]
+[ext_resource type="AudioStream" uid="uid://b324qislhpfci" path="res://assets/music/victory_fanfare.mp3" id="31_fa03t"]
+[ext_resource type="AudioStream" uid="uid://cbw1lvt4yiqbe" path="res://assets/music/lost_battle.mp3" id="32_ktdji"]
 
 [sub_resource type="Animation" id="Animation_gmkwt"]
 length = 0.001
@@ -266,11 +276,11 @@ tracks/4/path = NodePath("%VictoryKio/..")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.96666664),
+"times": PackedFloat32Array(0.4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"tkio_hidden"
+"method": &"_exit_battle"
 }]
 }
 
@@ -363,6 +373,96 @@ _data = {
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_onowp"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u8pyc"]
+
+[sub_resource type="Animation" id="Animation_8a2ah"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fqtyt"]
+resource_name = "lose_screen"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 3.16667),
+"transitions": PackedFloat32Array(3.2490113, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m2jme"]
+_data = {
+&"RESET": SubResource("Animation_8a2ah"),
+&"lose_screen": SubResource("Animation_fqtyt")
+}
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_mws2h"]
+clip_count = 3
+clip_0/name = &"BattleMusic"
+clip_0/stream = ExtResource("30_kj30c")
+clip_0/auto_advance = 1
+clip_0/next_clip = 0
+clip_1/name = &"VictoryFanfare"
+clip_1/stream = ExtResource("31_fa03t")
+clip_1/auto_advance = 1
+clip_1/next_clip = 1
+clip_2/name = &"LostBattle"
+clip_2/stream = ExtResource("32_ktdji")
+clip_2/auto_advance = 1
+clip_2/next_clip = 2
+_transitions = {
+Vector2i(0, 1): {
+"fade_beats": 2.0,
+"fade_mode": 3,
+"from_time": 1,
+"to_time": 1
+},
+Vector2i(0, 2): {
+"fade_beats": 2.0,
+"fade_mode": 3,
+"from_time": 1,
+"to_time": 1
+}
+}
 
 [node name="BattleMap" type="Control" unique_id=1410843090]
 layout_mode = 3
@@ -470,10 +570,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = -410.0
-offset_right = 400.0
-offset_bottom = 60.0
+offset_left = -402.0
+offset_top = -231.0
+offset_right = 402.0
+offset_bottom = 239.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -511,9 +611,9 @@ layout_mode = 2
 [node name="DescripcionHabilidadesContainer" type="PanelContainer" parent="BattleLimboHSM/FocusAttackMenu/AttackMenuControl" unique_id=282377318]
 layout_mode = 0
 offset_left = 2270.0
-offset_top = 846.0
+offset_top = 1025.0
 offset_right = 2579.0
-offset_bottom = 1194.0
+offset_bottom = 1373.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_sxpir")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BattleLimboHSM/FocusAttackMenu/AttackMenuControl/DescripcionHabilidadesContainer" unique_id=670610106]
@@ -569,6 +669,11 @@ text = "10s"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
+
+[node name="CooldownNotFinishedSound" type="AudioStreamPlayer" parent="BattleLimboHSM/FocusAttackMenu" unique_id=1597643268]
+stream = ExtResource("15_57amn")
+volume_db = 7.0
+bus = &"SFX"
 
 [node name="FocusEnemy" type="LimboState" parent="BattleLimboHSM" unique_id=1958576101]
 script = ExtResource("13_dpxrw")
@@ -722,5 +827,125 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_a128i")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_onowp")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_u8pyc")
 
+[node name="LoseState" type="LimboState" parent="BattleLimboHSM" unique_id=1117817801]
+script = ExtResource("23_ktkgc")
+
+[node name="LoseScreen" type="Control" parent="BattleLimboHSM/LoseState" unique_id=1288569680]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0)
+z_index = 4095
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="BattleLimboHSM/LoseState/LoseScreen" unique_id=1608117941]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ContinueButtons" type="HBoxContainer" parent="BattleLimboHSM/LoseState/LoseScreen" unique_id=1156847460]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -236.0
+offset_top = 810.0
+offset_right = 236.0
+offset_bottom = 889.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="ContinueButton" type="Button" parent="BattleLimboHSM/LoseState/LoseScreen/ContinueButtons" unique_id=715186278]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("24_ghiy6")
+text = "¿Continuar?"
+
+[node name="QuitButton" type="Button" parent="BattleLimboHSM/LoseState/LoseScreen/ContinueButtons" unique_id=757933918]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("24_ghiy6")
+text = "Salir"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleLimboHSM/LoseState/LoseScreen" unique_id=1109505862]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -788.0
+offset_right = 512.0
+offset_bottom = 703.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="BattleLimboHSM/LoseState/LoseScreen/VBoxContainer" unique_id=1801601985]
+layout_mode = 2
+texture = ExtResource("25_puri3")
+
+[node name="LoseText" type="RichTextLabel" parent="BattleLimboHSM/LoseState/LoseScreen/VBoxContainer" unique_id=379596244]
+layout_mode = 2
+theme = ExtResource("26_2psgg")
+bbcode_enabled = true
+text = "[center]ASI COMO"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="LoseText2" type="RichTextLabel" parent="BattleLimboHSM/LoseState/LoseScreen/VBoxContainer" unique_id=951305138]
+layout_mode = 2
+theme = ExtResource("26_2psgg")
+theme_override_font_sizes/normal_font_size = 61
+bbcode_enabled = true
+text = "[center]lloro rio
+como caigo me levanto
+como amo olvido
+:("
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="LoseAnimationPlayer" type="AnimationPlayer" parent="BattleLimboHSM/LoseState/LoseScreen" unique_id=354792890]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_m2jme")
+
+[node name="BlackRect" parent="." unique_id=1650603718 instance=ExtResource("27_puri3")]
+unique_name_in_owner = true
+z_index = 265
+layout_mode = 1
+
+[node name="BackgroundImage" type="TextureRect" parent="." unique_id=151683985]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("28_2psgg")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1190897238]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamInteractive_mws2h")
+autoplay = true
+bus = &"Music"
+
 [connection signal="animation_finished" from="BattleLimboHSM/InitializeBattle/BattleTexture/AnimationPlayer" to="BattleLimboHSM/InitializeBattle" method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="BattleLimboHSM/WinState/VictoryKio/Button" to="BattleLimboHSM/WinState" method="_on_button_pressed"]
+[connection signal="pressed" from="BattleLimboHSM/LoseState/LoseScreen/ContinueButtons/ContinueButton" to="BattleLimboHSM/LoseState" method="_on_continue_button_pressed"]
+[connection signal="pressed" from="BattleLimboHSM/LoseState/LoseScreen/ContinueButtons/QuitButton" to="BattleLimboHSM/LoseState" method="_on_quit_button_pressed"]

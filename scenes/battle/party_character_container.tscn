@@ -9,9 +9,12 @@
 [ext_resource type="Theme" uid="uid://crmca0mrbuhyc" path="res://assets/themes/menu_party_theme.tres" id="6_niuge"]
 [ext_resource type="FontFile" uid="uid://bdmps3wsxple0" path="res://assets/fonts/Bagel_Fat_One/BagelFatOne-Regular.ttf" id="7_5psfg"]
 [ext_resource type="Texture2D" uid="uid://u86wqrsgcbl1" path="res://assets/icons/radial_timer_background.png" id="7_873tc"]
+[ext_resource type="Theme" uid="uid://b03gqfkj47prf" path="res://assets/themes/attack_menu_battle_map.tres" id="7_klaal"]
 [ext_resource type="Texture2D" uid="uid://dgsgpr4m766ne" path="res://assets/icons/radial_timer_slice.png" id="8_8lue5"]
 [ext_resource type="Texture2D" uid="uid://buj4nrlqipl5o" path="res://assets/icons/radial_timer_disc.png" id="9_3amih"]
 [ext_resource type="Script" uid="uid://cpopq75r5iwyw" path="res://scripts/menu/hovering_effect.gd" id="11_3amih"]
+[ext_resource type="AudioStream" uid="uid://btagcqpq4o02r" path="res://assets/sfx/162792__timgormly__8-bit-explosion1.mp3" id="14_u5r7s"]
+[ext_resource type="AudioStream" uid="uid://cp7ukw7yg8emv" path="res://assets/sfx/387137-584244_djfroyd_smokinghotdog.mp3" id="15_niuge"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3amih"]
 
@@ -99,6 +102,23 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="DamageNumber" type="RichTextLabel" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/PanelContainer/PanelContainer/CenterContainer/CenterControl" unique_id=341909132]
+unique_name_in_owner = true
+visible = false
+clip_contents = false
+layout_mode = 0
+offset_left = -241.0
+offset_top = -142.0
+offset_right = 241.0
+offset_bottom = 142.0
+theme = ExtResource("7_klaal")
+theme_type_variation = &"RichTextLabelAttack"
+bbcode_enabled = true
+text = "[center]8900"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
 [node name="InfoVidaContainer" type="PanelContainer" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer" unique_id=958200585]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_5yidj")
@@ -108,6 +128,14 @@ layout_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/InfoVidaContainer/HBoxContainer" unique_id=1215915111]
 layout_mode = 2
+
+[node name="VidaSombra" type="TextureRect" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/InfoVidaContainer/HBoxContainer/CenterContainer" unique_id=1744873584]
+modulate = Color(0, 0, 0, 0.53000003)
+custom_minimum_size = Vector2(0, 169)
+layout_mode = 2
+texture = ExtResource("5_u5r7s")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="VidaProgressBar" type="TextureProgressBar" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/InfoVidaContainer/HBoxContainer/CenterContainer" unique_id=43356]
 unique_name_in_owner = true
@@ -165,5 +193,15 @@ metadata/_custom_type_script = "uid://cpopq75r5iwyw"
 [node name="Timer" type="Timer" parent="." unique_id=391842980]
 one_shot = true
 
+[node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=486686073]
+stream = ExtResource("14_u5r7s")
+bus = &"SFX"
+
+[node name="CritSound" type="AudioStreamPlayer" parent="." unique_id=828063030]
+stream = ExtResource("15_niuge")
+volume_db = 0.505
+bus = &"SFX"
+
+[connection signal="focus_entered" from="HBoxContainer/PanelContainer/VBoxContainer/CenterContainer/SelectedButton" to="." method="_on_selected_button_focus_entered"]
 [connection signal="pressed" from="HBoxContainer/PanelContainer/VBoxContainer/CenterContainer/SelectedButton" to="." method="_on_selected_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

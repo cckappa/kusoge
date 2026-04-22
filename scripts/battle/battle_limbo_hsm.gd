@@ -8,6 +8,7 @@ extends LimboHSM
 @onready var focus_attack:=$FocusAttackMenu
 @onready var focus_enemy:=$FocusEnemy
 @onready var win_state:=$WinState
+@onready var lose_state:=$LoseState
 
 func _ready() -> void:
 	_set_transitions()
@@ -27,6 +28,9 @@ func _set_transitions() -> void:
 	add_transition(focus_party, win_state, "to_win_state")
 	add_transition(focus_attack, win_state, "to_win_state")
 	add_transition(focus_enemy, win_state, "to_win_state")
+	add_transition(focus_party, lose_state, "to_lose_state")
+	add_transition(focus_attack, lose_state, "to_lose_state")
+	add_transition(focus_enemy, lose_state, "to_lose_state")
 
 func _set_blackboard() -> void:
 	blackboard.set_var("selected_party_member", null)

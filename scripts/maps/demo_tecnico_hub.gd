@@ -7,8 +7,6 @@ extends BaseScene
 @onready var door_animation_player:= %DoorAnimationPlayer
 @onready var talk_door:= %TalkDoor
 
-var battle_scene: String = "res://scenes/battle.tscn" 
-
 func _ready_scene() -> void:
 
 	match Globals.maps[single_map_resource.map_name].state:
@@ -23,10 +21,6 @@ func _ready_scene() -> void:
 
 	black_rect.visible = true
 	await Functions.fade_color_rect(black_rect, "OUT", 2)
-
-
-func start_battle() -> void:
-	get_tree().change_scene_to_file(battle_scene)
 
 
 func _on_area_2d_body_entered(body: Node) -> void:

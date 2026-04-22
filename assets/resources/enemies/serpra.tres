@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://bmxggwbtvyxeb" path="res://scripts/enemy_resource.gd" id="3_bbq64"]
 [ext_resource type="Resource" uid="uid://dx4j66lt4vb35" path="res://assets/resources/abilities/cuchillazo.tres" id="3_m1n1h"]
 [ext_resource type="Resource" uid="uid://bghxbphfpwny3" path="res://assets/resources/abilities/rasguño.tres" id="4_lig8e"]
-[ext_resource type="Resource" uid="uid://ct5dshx02d4l0" path="res://assets/resources/abilities/focused_healing.tres" id="5_5m0ee"]
 [ext_resource type="Texture2D" uid="uid://bgefprxussdta" path="res://assets/enemy_sprites/Serpra.png" id="6_atrar"]
 [ext_resource type="Script" uid="uid://bsp5qx4xq3r8" path="res://scripts/enemy_fight_dialog.gd" id="6_lig8e"]
 [ext_resource type="Resource" uid="uid://fxibbhftjw5n" path="res://assets/resources/items/cookie.tres" id="8_o73sw"]
@@ -41,7 +40,7 @@ enemy_fight_dialogs = Array[ExtResource("6_lig8e")]([SubResource("Resource_7u56j
 identifier = "serpra"
 character_portrait = ExtResource("6_atrar")
 max_hp = 110
-abilities = Array[ExtResource("1_yoklo")]([ExtResource("5_5m0ee"), ExtResource("3_m1n1h"), ExtResource("4_lig8e")])
+abilities = Array[ExtResource("1_yoklo")]([ExtResource("3_m1n1h"), ExtResource("4_lig8e")])
 loot = Array[ExtResource("2_bft4o")]([ExtResource("8_o73sw")])
 min_loot = 1
 max_loot = 2

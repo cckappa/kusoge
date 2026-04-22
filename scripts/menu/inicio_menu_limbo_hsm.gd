@@ -10,7 +10,7 @@ extends LimboHSM
 
 @onready var black_rect := %BlackRect
 
-const INICIAL := preload("res://scenes/inicial.tscn")
+const INICIAL := preload("res://scenes/maps/cueva_demo_tecnico.tscn")
 const DEMO_SCENE := preload("res://scenes/maps/demo_tecnico_hub.tscn")
 
 func _ready() -> void:

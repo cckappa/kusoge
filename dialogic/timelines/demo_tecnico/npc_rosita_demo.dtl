@@ -12,5 +12,5 @@ if {Quests.demo_tecnico.lobuki_cigarro_quest_status} == 0.0:
 		npc_rosita: namas me queda uno suelto #id:61
 	npc_rosita: gracias, recuerda que fumar es causa de cancer #id:62
 	set {Quests.demo_tecnico.lobuki_cigarro_quest_status} = 1.0
-	[signal arg_type="dict" arg="{"name":"npc_rosita_demo","next_index":1.0,"type":"goal"}"]
-	[signal arg_type="dict" arg="{"amount":1,"name":"cigarrete_lobuki_take"}"]
+	[signal arg_type="dict" arg="{"quest":"npc_rosita_demo","next_index":1.0,"type":"goal"}"]
+	[signal arg_type="dict" arg="{"amount":1,"give_item":"cigarrete_lobuki_take"}"]

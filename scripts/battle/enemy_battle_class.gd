@@ -10,6 +10,9 @@ extends Node
 @export var damage_number:RichTextLabel
 @export var death_texture:TextureRect
 @export var b_t_player:BTPlayer
+@export var timer:Timer
+@export var cooldown_progress_bar:TextureProgressBar
+@export var hitsound:AudioStreamPlayer
 
 var dead:=false
 var current_alive_allies_containers:Array
@@ -23,6 +26,10 @@ func _ready() -> void:
 	SignalBus.connect("set_alive_allies_containers", _on_set_alive_allies_containers)
 	b_t_player.blackboard.set_var("agent", self)
 	_setup()
+
+func _process(_delta: float) -> void:
+	if not timer.is_stopped():
+		cooldown_progress_bar.value = (1.0 - (timer.time_left / timer.wait_time)) * 100
 
 func _setup() -> void:
 	pass
@@ -61,6 +68,7 @@ func set_health() -> void:
 func show_damage(damage:float) -> void:
 	if dead:
 		return
+	hitsound.play()
 	damage_number.text = "[center]" + str(ceili(damage))
 	damage_number.visible = true
 	damage_number.modulate.a = 1
@@ -105,7 +113,7 @@ func _on_set_alive_allies_containers(_alive_allies_containers:Array) -> void:
 	current_alive_allies_containers = _alive_allies_containers
 
 func can_use_ability() -> bool:
-	return enemy_resource != null and enemy_resource.abilities.size() > 0 and current_alive_allies_containers.size() > 0
+	return enemy_resource != null and enemy_resource.abilities.size() > 0 and current_alive_allies_containers.size() > 0 and not dead
 
 func use_ability() -> void:
 	current_ability = enemy_resource.abilities.pick_random()
@@ -113,6 +121,7 @@ func use_ability() -> void:
 		return
 	
 	current_target = current_alive_allies_containers.pick_random()
+	set_cooldown(current_ability.wait_time)
 	
 	var animation_instance := current_ability.attack_animation.instantiate()
 	animation_instance.rotation_degrees = -180
@@ -124,8 +133,12 @@ func landed_ability(ability:Ability, target:Character, party_container:PanelCont
 	print("Enemy landed ability: ", ability.ability_name, " on target: ", target.name)
 	# target.take_damage(ability.damage_points)
 	# party_container.show_damage(current_ability.use_ability(current_target.party_character, false))
-	ability.use_ability(target, false)
+	party_container.show_damage(ability.use_ability(target, false))
 	if target.disabled:
 		party_container.kill_party_character()
 	current_target.set_health()
 	current_target.attacked()
+
+func set_cooldown(_time:float) -> void:
+	timer.wait_time = _time
+	timer.start()

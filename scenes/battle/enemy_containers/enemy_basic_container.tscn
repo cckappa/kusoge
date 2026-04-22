@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://u86wqrsgcbl1" path="res://assets/icons/radial_timer_background.png" id="8_j688j"]
 [ext_resource type="Texture2D" uid="uid://buj4nrlqipl5o" path="res://assets/icons/radial_timer_disc.png" id="10_fq4kr"]
 [ext_resource type="BehaviorTree" uid="uid://b5yjul755y6vg" path="res://ai/trees/enemy_basic_bt.tres" id="13_adbdh"]
+[ext_resource type="AudioStream" uid="uid://btagcqpq4o02r" path="res://assets/sfx/162792__timgormly__8-bit-explosion1.mp3" id="14_tmdd1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3amih"]
 
@@ -64,7 +65,7 @@ animations = [{
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_adbdh"]
 
-[node name="EnemyBasicContainer" type="PanelContainer" unique_id=795346071 node_paths=PackedStringArray("enemy_texture", "enemy_button", "info_vida_text", "control_center", "vida_progress_bar", "damage_number", "death_texture", "b_t_player")]
+[node name="EnemyBasicContainer" type="PanelContainer" unique_id=795346071 node_paths=PackedStringArray("enemy_texture", "enemy_button", "info_vida_text", "control_center", "vida_progress_bar", "damage_number", "death_texture", "b_t_player", "timer", "cooldown_progress_bar", "hitsound")]
 offset_right = 595.0
 offset_bottom = 623.0
 size_flags_horizontal = 3
@@ -79,6 +80,9 @@ vida_progress_bar = NodePath("HBoxContainer/PanelContainer/VBoxContainer/VBoxCon
 damage_number = NodePath("HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/PanelContainer/PanelContainer/ControlCenter/DamageNumber")
 death_texture = NodePath("HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/PanelContainer/PanelContainer/DeadTexture")
 b_t_player = NodePath("BTPlayer")
+timer = NodePath("Timer")
+cooldown_progress_bar = NodePath("HBoxContainer/PanelContainer2/PanelContainer/CooldownProgressBar")
+hitsound = NodePath("HitSound")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1589624350]
 layout_mode = 2
@@ -170,6 +174,14 @@ layout_mode = 2
 [node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/InfoVidaContainer/HBoxContainer" unique_id=1215915111]
 layout_mode = 2
 
+[node name="VidaSombra" type="TextureRect" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/InfoVidaContainer/HBoxContainer/CenterContainer" unique_id=627337272]
+modulate = Color(0, 0, 0, 0.53000003)
+custom_minimum_size = Vector2(0, 169)
+layout_mode = 2
+texture = ExtResource("5_urwhy")
+expand_mode = 3
+stretch_mode = 5
+
 [node name="VidaProgressBar" type="TextureProgressBar" parent="HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/InfoVidaContainer/HBoxContainer/CenterContainer" unique_id=43356]
 layout_mode = 2
 value = 100.0
@@ -203,7 +215,6 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_niuge")
 
 [node name="CooldownProgressBar" type="TextureProgressBar" parent="HBoxContainer/PanelContainer2/PanelContainer" unique_id=2080986128]
-unique_name_in_owner = true
 modulate = Color(0, 1.657, 3.15, 1)
 z_index = 16
 z_as_relative = false
@@ -223,3 +234,10 @@ metadata/_custom_type_script = "uid://cpopq75r5iwyw"
 [node name="BTPlayer" type="BTPlayer" parent="." unique_id=389921449]
 behavior_tree = ExtResource("13_adbdh")
 blackboard_plan = SubResource("BlackboardPlan_adbdh")
+
+[node name="Timer" type="Timer" parent="." unique_id=1117318652]
+one_shot = true
+
+[node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=1005161382]
+stream = ExtResource("14_tmdd1")
+bus = &"SFX"

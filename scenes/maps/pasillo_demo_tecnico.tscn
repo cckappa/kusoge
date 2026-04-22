@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://0tlgkod8boti"]
+[gd_scene format=3 uid="uid://0tlgkod8boti"]
 
 [ext_resource type="Script" uid="uid://cxd47ile2ns4g" path="res://scripts/maps/pasillo_demo_tecnico.gd" id="1_gc2ga"]
 [ext_resource type="Resource" uid="uid://cnryrsf8fyv51" path="res://assets/resources/maps/demo_tecnico/pasillo_demo_tecnico.tres" id="2_5k3u6"]
@@ -25,8 +25,9 @@
 [ext_resource type="Script" uid="uid://ck4xyxoy5fldl" path="res://scripts/enemies_layer.gd" id="23_1f4r8"]
 [ext_resource type="Script" uid="uid://cv43fprb0dski" path="res://scripts/spawns_layer.gd" id="24_prxsk"]
 [ext_resource type="Script" uid="uid://c2d2peg3ovb8n" path="res://scripts/saves_layer.gd" id="25_6lhvw"]
-[ext_resource type="PackedScene" uid="uid://ci5a44r0l16fy" path="res://scenes/pause_menu.tscn" id="26_77dqh"]
+[ext_resource type="PackedScene" uid="uid://bx88hvib56f0" path="res://scenes/menu/menu_sub_viewport.tscn" id="26_oqudx"]
 [ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="27_3i0hk"]
+[ext_resource type="Script" uid="uid://bof2iweysicw2" path="res://scripts/menu/menu_sub_viewport.gd" id="27_gc2ga"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="28_vnmxb"]
 [ext_resource type="PackedScene" uid="uid://dqi4bw7t4w0u8" path="res://scenes/add_new_character_animation.tscn" id="29_msnjy"]
 [ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="30_7ip4d"]
@@ -47,45 +48,44 @@ size = Vector2(3896, 1841)
 script = ExtResource("35_sjh72")
 duration = 2.0
 transition = 1
-ease = 2
 
-[node name="PasilloDemoTecnico" type="Node2D"]
+[node name="PasilloDemoTecnico" type="Node2D" unique_id=1463409338]
 y_sort_enabled = true
 script = ExtResource("1_gc2ga")
 single_map_resource = ExtResource("2_5k3u6")
 
-[node name="SceneCreatorTool" type="Node" parent="."]
+[node name="SceneCreatorTool" type="Node" parent="." unique_id=1232848254]
 script = ExtResource("2_msnjy")
 metadata/_custom_type_script = "uid://5rnf247xyu5v"
 
-[node name="ParallaxBackgroundLayer" type="Node2D" parent="."]
+[node name="ParallaxBackgroundLayer" type="Node2D" parent="." unique_id=258472114]
 z_index = -1
 script = ExtResource("3_ef8py")
 
-[node name="BackgroundLayer" type="Node2D" parent="."]
+[node name="BackgroundLayer" type="Node2D" parent="." unique_id=1071578862]
 z_index = -1
 script = ExtResource("4_m3kqk")
 
-[node name="FondoPasill" type="Sprite2D" parent="BackgroundLayer"]
+[node name="FondoPasill" type="Sprite2D" parent="BackgroundLayer" unique_id=1122258368]
 texture = ExtResource("5_3k1ha")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="BackgroundLayer"]
+[node name="StaticBody2D" type="StaticBody2D" parent="BackgroundLayer" unique_id=1933992878]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D" unique_id=518999954]
 position = Vector2(0.5, 1018.5)
 shape = SubResource("RectangleShape2D_8u4pw")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=889018110]
 polygon = PackedVector2Array(-1970, 843, -1830, 649, -1841, 492, -1754, 358, -1638, 240, -1579, 233, -1550, 260, -1314, -28, -1350, -510, -2116, -311, -2061, 460, -2103, 839)
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=1354525378]
 polygon = PackedVector2Array(2045, 926, 1837, 649, 1843, 560, 1742, 386, 1668, 267, 1592, 242, 1536, 257, 1342, 8, 1347, -430, 1983, -474, 2356, -228, 2304, 283, 2250, 939)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D" unique_id=1071251873]
 position = Vector2(-13.5, -44)
 shape = SubResource("RectangleShape2D_5mvqy")
 
-[node name="SceneChanger" type="Area2D" parent="BackgroundLayer" node_paths=PackedStringArray("black_rect")]
+[node name="SceneChanger" type="Area2D" parent="BackgroundLayer" unique_id=57186520 node_paths=PackedStringArray("black_rect")]
 position = Vector2(-1719, 363)
 script = ExtResource("6_msnjy")
 target_scene = "res://scenes/maps/cabeza_demo_tecnico.tscn"
@@ -93,10 +93,10 @@ target_marker = "EntradaPasillo"
 black_rect = NodePath("../../CanvasLayer/BlackRect")
 metadata/_custom_type_script = "uid://bsvp6e76bx107"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/SceneChanger"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/SceneChanger" unique_id=1826374638]
 polygon = PackedVector2Array(-125, 186, -117, 5, 62, -234, 132, -239, 127, -120)
 
-[node name="SceneChanger2" type="Area2D" parent="BackgroundLayer" node_paths=PackedStringArray("black_rect")]
+[node name="SceneChanger2" type="Area2D" parent="BackgroundLayer" unique_id=1172620274 node_paths=PackedStringArray("black_rect")]
 position = Vector2(1708, 368)
 script = ExtResource("6_msnjy")
 target_scene = "res://scenes/ending_playable_demo.tscn"
@@ -104,20 +104,20 @@ target_marker = "Ending"
 black_rect = NodePath("../../CanvasLayer/BlackRect")
 metadata/_custom_type_script = "uid://bsvp6e76bx107"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/SceneChanger2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/SceneChanger2" unique_id=1167106678]
 polygon = PackedVector2Array(114, 211, 178, 230, 197, -39, -44, -301, -154, -251, -120, -120)
 
-[node name="PlayableCharacter" parent="." instance=ExtResource("6_vlj8a")]
+[node name="PlayableCharacter" parent="." unique_id=1608140488 instance=ExtResource("6_vlj8a")]
 
-[node name="NpcLayer" type="Node2D" parent="."]
+[node name="NpcLayer" type="Node2D" parent="." unique_id=2099704757]
 y_sort_enabled = true
 script = ExtResource("9_br8a3")
 
-[node name="ObjectLayer" type="Node2D" parent="."]
+[node name="ObjectLayer" type="Node2D" parent="." unique_id=1037192262]
 y_sort_enabled = true
 script = ExtResource("10_4rnfk")
 
-[node name="MuertoAmarillo" parent="ObjectLayer" instance=ExtResource("11_vxo0c")]
+[node name="MuertoAmarillo" parent="ObjectLayer" unique_id=320904600 instance=ExtResource("11_vxo0c")]
 position = Vector2(-1435, 178)
 
 [node name="Sprite2D" parent="ObjectLayer/MuertoAmarillo" index="0"]
@@ -127,7 +127,7 @@ offset = Vector2(0, -72)
 [node name="CollisionPolygon2D" parent="ObjectLayer/MuertoAmarillo/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-85, 33, -64, 73, -37, 55, 59, 50, 86, 17, 80, -2, -6, -3, -66, 2)
 
-[node name="MuertoRana" parent="ObjectLayer" instance=ExtResource("11_vxo0c")]
+[node name="MuertoRana" parent="ObjectLayer" unique_id=1977916830 instance=ExtResource("11_vxo0c")]
 position = Vector2(299, 142)
 
 [node name="Sprite2D" parent="ObjectLayer/MuertoRana" index="0"]
@@ -137,7 +137,7 @@ offset = Vector2(0, -3)
 [node name="CollisionPolygon2D" parent="ObjectLayer/MuertoRana/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-174, 39, -81, 51, 42, 60, 126, 22, 168, 21, 169, -7, 144, -22, 33, -28, -99, -20, -132, 9, -175, 29)
 
-[node name="MuertoAcostado" parent="ObjectLayer" instance=ExtResource("11_vxo0c")]
+[node name="MuertoAcostado" parent="ObjectLayer" unique_id=2016500710 instance=ExtResource("11_vxo0c")]
 position = Vector2(-314, 178)
 
 [node name="Sprite2D" parent="ObjectLayer/MuertoAcostado" index="0"]
@@ -147,7 +147,7 @@ offset = Vector2(0, -8)
 [node name="CollisionPolygon2D" parent="ObjectLayer/MuertoAcostado/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-226, 4, -148, 13, -105, 19, -74, 38, -12, 26, 48, 48, 71, 64, 138, 80, 179, 73, 235, -5, 215, -38, 65, -41, -52, -24)
 
-[node name="MuertoSentado" parent="ObjectLayer" instance=ExtResource("11_vxo0c")]
+[node name="MuertoSentado" parent="ObjectLayer" unique_id=1814018113 instance=ExtResource("11_vxo0c")]
 position = Vector2(1139, 128)
 
 [node name="Sprite2D" parent="ObjectLayer/MuertoSentado" index="0"]
@@ -157,7 +157,7 @@ offset = Vector2(0, -69)
 [node name="CollisionPolygon2D" parent="ObjectLayer/MuertoSentado/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-136, 90, -112, 94, -24, 45, 42, 40, 115, 92, 127, 91, 153, 39, 65, -9, -68, -12, -149, 33)
 
-[node name="MuertoAmarilloAcostado" parent="ObjectLayer" instance=ExtResource("11_vxo0c")]
+[node name="MuertoAmarilloAcostado" parent="ObjectLayer" unique_id=1830084498 instance=ExtResource("11_vxo0c")]
 position = Vector2(1127, 650)
 
 [node name="Sprite2D" parent="ObjectLayer/MuertoAmarilloAcostado" index="0"]
@@ -167,7 +167,7 @@ offset = Vector2(0, -8)
 [node name="CollisionPolygon2D" parent="ObjectLayer/MuertoAmarilloAcostado/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-225, 56, -170, 61, -122, 39, -49, 48, 43, 46, 112, 61, 223, 52, 212, -66, 130, -73, 23, -51, -100, -48, -155, -39, -172, 3)
 
-[node name="CraneosMultiples" parent="ObjectLayer" instance=ExtResource("11_vxo0c")]
+[node name="CraneosMultiples" parent="ObjectLayer" unique_id=1768960043 instance=ExtResource("11_vxo0c")]
 position = Vector2(622, 143)
 
 [node name="Sprite2D" parent="ObjectLayer/CraneosMultiples" index="0"]
@@ -177,7 +177,7 @@ offset = Vector2(0, -12.45)
 [node name="CollisionPolygon2D" parent="ObjectLayer/CraneosMultiples/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-74, 8, -44, 38, 9, 32, 64, 20, 62, -1, 35, -7, -27, -8)
 
-[node name="Craneo1" parent="ObjectLayer" instance=ExtResource("11_vxo0c")]
+[node name="Craneo1" parent="ObjectLayer" unique_id=1063384036 instance=ExtResource("11_vxo0c")]
 position = Vector2(-568, 591)
 
 [node name="Sprite2D" parent="ObjectLayer/Craneo1" index="0"]
@@ -187,7 +187,7 @@ offset = Vector2(0, -18.84)
 [node name="CollisionPolygon2D" parent="ObjectLayer/Craneo1/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-47, 12, -20, 28, 43, 22, 50, -1, 29, -10, -27, -10)
 
-[node name="Craneo2" parent="ObjectLayer" instance=ExtResource("11_vxo0c")]
+[node name="Craneo2" parent="ObjectLayer" unique_id=1734416392 instance=ExtResource("11_vxo0c")]
 position = Vector2(1319, 139)
 
 [node name="Sprite2D" parent="ObjectLayer/Craneo2" index="0"]
@@ -197,7 +197,7 @@ offset = Vector2(0, -7.15)
 [node name="CollisionPolygon2D" parent="ObjectLayer/Craneo2/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-34, 4, -12, 20, 33, 19, 38, -5, -1, -8)
 
-[node name="Craneo3" parent="ObjectLayer" instance=ExtResource("11_vxo0c")]
+[node name="Craneo3" parent="ObjectLayer" unique_id=1520503798 instance=ExtResource("11_vxo0c")]
 position = Vector2(355, 614)
 
 [node name="Sprite2D" parent="ObjectLayer/Craneo3" index="0"]
@@ -207,7 +207,7 @@ offset = Vector2(0, -7.94)
 [node name="CollisionPolygon2D" parent="ObjectLayer/Craneo3/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-38, 1, -13, 24, 27, 16, 38, -7, 15, -16, -33, -8)
 
-[node name="Mano1" parent="ObjectLayer" instance=ExtResource("11_vxo0c")]
+[node name="Mano1" parent="ObjectLayer" unique_id=1113217926 instance=ExtResource("11_vxo0c")]
 position = Vector2(-1395, 646)
 
 [node name="Sprite2D" parent="ObjectLayer/Mano1" index="0"]
@@ -217,7 +217,7 @@ offset = Vector2(0, 56.72)
 [node name="CollisionPolygon2D" parent="ObjectLayer/Mano1/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-49, 106, -13, 112, 9, 89, 2, 60, 42, 17, 40, -5, -27, 44)
 
-[node name="Mano2" parent="ObjectLayer" instance=ExtResource("11_vxo0c")]
+[node name="Mano2" parent="ObjectLayer" unique_id=1445310933 instance=ExtResource("11_vxo0c")]
 position = Vector2(-710, 158)
 
 [node name="Sprite2D" parent="ObjectLayer/Mano2" index="0"]
@@ -227,44 +227,53 @@ offset = Vector2(0, 42.605)
 [node name="CollisionPolygon2D" parent="ObjectLayer/Mano2/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-58, 16, -28, 5, 60, 59, 36, 85, -57, 39)
 
-[node name="EnemiesLayer" type="Node2D" parent="."]
+[node name="EnemiesLayer" type="Node2D" parent="." unique_id=75309230]
 y_sort_enabled = true
 script = ExtResource("23_1f4r8")
 
-[node name="SpawnsLayer" type="Node2D" parent="."]
+[node name="SpawnsLayer" type="Node2D" parent="." unique_id=2053499812]
 y_sort_enabled = true
 script = ExtResource("24_prxsk")
 
-[node name="DefaultMarker" type="Marker2D" parent="SpawnsLayer"]
+[node name="DefaultMarker" type="Marker2D" parent="SpawnsLayer" unique_id=614961072]
 position = Vector2(8, 472)
 
-[node name="PasilloSalidaIzquierda" type="Marker2D" parent="SpawnsLayer"]
+[node name="PasilloSalidaIzquierda" type="Marker2D" parent="SpawnsLayer" unique_id=1026182763]
 position = Vector2(-1627, 450)
 
-[node name="PasilloSalidaDerecha" type="Marker2D" parent="SpawnsLayer"]
+[node name="PasilloSalidaDerecha" type="Marker2D" parent="SpawnsLayer" unique_id=29091141]
 position = Vector2(1594, 459)
 
-[node name="SavesLayer" type="Node2D" parent="."]
+[node name="SavesLayer" type="Node2D" parent="." unique_id=376100839]
 y_sort_enabled = true
 script = ExtResource("25_6lhvw")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=129869755]
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("26_77dqh")]
+[node name="MenuSubViewport" type="SubViewportContainer" parent="CanvasLayer" unique_id=158507729 instance=ExtResource("26_oqudx")]
+process_mode = 3
+visible = false
+z_index = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("27_gc2ga")
 
-[node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("28_vnmxb")]
+[node name="SettingsMenu" parent="CanvasLayer" unique_id=331804725 instance=ExtResource("28_vnmxb")]
 
-[node name="NotificationCenter" parent="CanvasLayer" instance=ExtResource("27_3i0hk")]
+[node name="NotificationCenter" parent="CanvasLayer" unique_id=429243603 instance=ExtResource("27_3i0hk")]
 
-[node name="AddNewCharacterAnimation" parent="CanvasLayer" instance=ExtResource("29_msnjy")]
+[node name="AddNewCharacterAnimation" parent="CanvasLayer" unique_id=2054281463 instance=ExtResource("29_msnjy")]
 
-[node name="AddNewItemAnimation" parent="CanvasLayer" instance=ExtResource("31_m3kqk")]
+[node name="AddNewItemAnimation" parent="CanvasLayer" unique_id=1256777758 instance=ExtResource("31_m3kqk")]
 
-[node name="BlackRect" parent="CanvasLayer" instance=ExtResource("30_7ip4d")]
+[node name="BlackRect" parent="CanvasLayer" unique_id=63855740 instance=ExtResource("30_7ip4d")]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=670684534]
 
-[node name="CameraManager" parent="." instance=ExtResource("31_xme65")]
+[node name="CameraManager" parent="." unique_id=969536332 instance=ExtResource("31_xme65")]
 
 [node name="Camera2D" parent="CameraManager" index="0"]
 physics_interpolation_mode = 1

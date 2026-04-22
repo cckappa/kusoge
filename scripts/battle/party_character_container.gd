@@ -9,12 +9,16 @@ extends Control
 @onready var timer:=$Timer
 @onready var center_control:Control=%CenterControl
 @onready var dead_texture:TextureRect=%DeadTexture
+@onready var damage_number:RichTextLabel=%DamageNumber
+@onready var hitsound:AudioStreamPlayer=$HitSound
+@onready var critsound:AudioStreamPlayer=$CritSound
 
 var party_character:Character
 var can_attack:=true
 var dead:=false
 var tween :Tween
 var displayed_hp:float
+var cooldown_tween: Tween
 
 func _process(_delta: float) -> void:
 	if not timer.is_stopped():
@@ -32,8 +36,9 @@ func set_info(_character:Character) -> void:
 	info_vida_text.text = '[center]'+str(party_character.current_hp)
 	displayed_hp = float(party_character.current_hp)
 
-func focus_party_character() -> void:
+func focus_party_character() -> bool:
 	selected_button.grab_focus()
+	return true
 
 func _on_selected_button_pressed() -> void:
 	SignalBus.emit_signal("party_character_button_pressed", party_character, self)
@@ -53,18 +58,56 @@ func set_health() -> void:
 		vida_progress_bar.value = int((value / float(party_character.max_hp)) * 100)
 	, float(displayed_hp), float(target_hp), 0.5)
 
+
+func show_damage(damage:float) -> void:
+	if dead:
+		return
+	damage_number.text = "[center]" + str(ceili(damage))
+	damage_number.visible = true
+	damage_number.modulate.a = 1
+	var start_pos := damage_number.position
+	var end_pos := start_pos + Vector2(randf_range(-60, 60), randf_range(-80, -40))
+	
+	# Control point pushes the path into an arc shape
+	var control := Vector2(
+		(start_pos.x + end_pos.x) / 2 + randf_range(-30, 30),
+		(start_pos.y + end_pos.y) / 2 - randf_range(20, 50)
+	)
+	
+	var duration := 1.0
+	var _tween := create_tween()
+	
+	_tween.tween_method(func(t: float) -> void:
+		# Quadratic bezier position
+		var pos := start_pos.lerp(control, t).lerp(control.lerp(end_pos, t), t)
+		damage_number.position = pos
+		
+		# Derivative of bezier gives the direction to rotate toward
+		var tangent := (control - start_pos).lerp(end_pos - control, t)
+		damage_number.rotation = tangent.angle() * 0.05  # 0.05 keeps the tilt subtle
+	, 0.0, 1.0, duration)
+	
+	# Fade out at the end
+	_tween.parallel().tween_property(damage_number, "modulate:a", 0.0, duration)
+	await _tween.finished
+	damage_number.visible = false
+	damage_number.position = start_pos
+
 func set_cooldown(_time:float) -> void:
 	can_attack = false
 	timer.wait_time = _time
 	timer.start()
 
 func _on_timer_timeout() -> void:
+	cooldown_progress_bar.modulate = Color(0.0, 1.657, 3.15)
 	can_attack = true
 
 func get_crit() -> bool:
 	if cooldown_progress_bar.value >66 and cooldown_progress_bar.value < 83:
 		timer.stop()
 		cooldown_progress_bar.value = 100
+		critsound.play()
+		cooldown_progress_bar.modulate = Color(0.0, 1.657, 3.15)
 		return true
 	else:
 		return false
@@ -76,25 +119,42 @@ func kill_party_character() -> void:
 	selected_button.focus_mode = Control.FOCUS_NONE
 	dead_texture.visible = true
 
+func is_alive() -> bool:
+	return !dead
+
 func attacked() -> void:
+	hitsound.play()
 	character_texture.visible = false
 	attacked_texture.visible = true
 	attacked_texture.modulate = Color(5.472, 5.472, 5.472)
 
 	var _tween := create_tween()
-	_tween.tween_property(attacked_texture, "modulate", Color(1, 1, 1, 1), 0.3)
+	_tween.tween_property(attacked_texture, "modulate", Color(1, 1, 1, 1), 0.4)
 
-	await get_tree().create_timer(0.3).timeout
-	Functions.set_game_speed(0.05)
-	await get_tree().create_timer(0.005).timeout
-	Functions.set_game_speed(1)
+	await get_tree().create_timer(0.4).timeout
 
 	attacked_texture.visible = false
 	attacked_texture.modulate = Color.WHITE
 	character_texture.visible = true
-# func attacked() -> void:
-# 	character_texture.visible = false
-# 	attacked_texture.visible = true
-# 	await get_tree().create_timer(0.2).timeout
-# 	attacked_texture.visible = false
-# 	character_texture.visible = true
+
+func _on_selected_button_focus_entered() -> void:
+	SignalBus.emit_signal("party_character_button_focused", self)
+
+func play_cooldown_animation() -> void:
+	if cooldown_tween:
+		cooldown_tween.kill()
+	cooldown_tween = create_tween().set_loops(3)
+	cooldown_tween.tween_property(cooldown_progress_bar, "modulate", Color.RED, 0.05)
+	cooldown_tween.tween_property(cooldown_progress_bar, "modulate", Color.WHITE, 0.05)
+
+func stop_cooldown_animation() -> void:
+	if cooldown_tween:
+		cooldown_tween.kill()
+		cooldown_tween = null
+	cooldown_progress_bar.modulate = Color(0.0, 1.657, 3.15)
+
+func set_cooldown_color() -> void:
+	if timer.is_stopped():
+		cooldown_progress_bar.modulate = Color(0.0, 1.657, 3.15)
+	else:
+		cooldown_progress_bar.modulate = Color.WHITE

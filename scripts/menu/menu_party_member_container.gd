@@ -20,6 +20,8 @@ func setup_info(_character:Character) -> void:
 	member_profile.texture = _character.character_portrait
 	if not _character.unlocked:
 		member_profile.modulate = Color(0,0,0,1)
+	else:
+		member_profile.modulate = Color(1,1,1,1)
 	background_color.color = color_unfocus
 
 func _on_focus_entered() -> void:

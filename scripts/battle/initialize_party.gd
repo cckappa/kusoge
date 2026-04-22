@@ -11,6 +11,7 @@ func _setup() -> void:
 
 	var first_party_character_container:PanelContainer
 	var last_party_character_container:PanelContainer
+	var alive_allies_containers := []
 
 	var i:=0
 
@@ -28,6 +29,7 @@ func _setup() -> void:
 				last_party_character_container = party_character_instance
 			
 			i += 1
+		alive_allies_containers.append(party_character_instance)
 	
 	if Globals.current_characters.size() > 1:
 		first_party_character_container.selected_button.focus_neighbor_left = last_party_character_container.selected_button.get_path()
@@ -35,6 +37,7 @@ func _setup() -> void:
 	
 	await get_tree().process_frame
 	party_h_box_container.size = Vector2(0,0)
+	blackboard.set_var("selected_party_container", alive_allies_containers[0])
 	SignalBus.emit_signal("set_alive_allies_containers", party_h_box_container.get_children())
 
 func _free_children() -> void:
@@ -46,5 +49,8 @@ func _on_party_character_killed() -> void:
 	for container in party_h_box_container.get_children():
 		if !container.dead:
 			alive_allies_containers.append(container)
+	
+	if alive_allies_containers.size() == 0:
+		SignalBus.emit_signal("total_party_kill")
 	
 	SignalBus.emit_signal("set_alive_allies_containers", alive_allies_containers)

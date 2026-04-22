@@ -11,6 +11,7 @@ func _ready() -> void:
 	SignalBus.connect("enemy_button_pressed", _on_enemy_button_pressed)
 	SignalBus.connect("enemies_defeated", _enemies_defeated)
 	SignalBus.connect("set_alive_allies_containers", _on_set_alive_allies_containers)
+	SignalBus.connect("total_party_kill", _on_total_party_kill)
 
 func _enter() -> void:
 	selected_ability = get_cargo()
@@ -33,6 +34,7 @@ func _on_enemy_button_pressed(_enemy_resource:EnemyResource, _control:Control, _
 	if selected_ability.attack_animation and is_active():
 		selected_party_container = blackboard.get_var("selected_party_container")
 		selected_party_container.set_cooldown(selected_ability.wait_time)
+		selected_party_container.set_cooldown_color()
 
 		var animation_instance := selected_ability.attack_animation.instantiate()
 		animation_instance.connect("landed_ability", landed_ability.bind(selected_ability, _enemy_resource, _enemy_container))
@@ -63,5 +65,10 @@ func _enemies_defeated() -> void:
 
 func _on_set_alive_allies_containers(alive_allies_containers:Array) -> void:
 	if alive_allies_containers.size() > 0 and is_active():
-		await get_tree().process_frame
-		dispatch("to_focus_party")
+		if not blackboard.get_var("selected_party_container").is_alive():
+			await get_tree().process_frame
+			dispatch("to_focus_party")
+
+func _on_total_party_kill() -> void:
+	if is_active():
+		dispatch("to_lose_state")

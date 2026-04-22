@@ -9,7 +9,10 @@ func _ready() -> void:
 
 
 func _on_dialogic_signal(argument:Dictionary) -> void: 
-	if dialogic_signal != "" and argument.name == dialogic_signal:
+	if !argument.has("give_item"):
+		return
+
+	if dialogic_signal != "" and argument.give_item == dialogic_signal:
 		if argument.amount != null:
 			item.add_to_items(argument.amount)
 		else:

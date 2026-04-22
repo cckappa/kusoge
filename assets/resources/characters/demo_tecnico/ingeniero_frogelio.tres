@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Character" load_steps=10 format=3 uid="uid://cvi8qisigyg8d"]
+[gd_resource type="Resource" script_class="Character" format=3 uid="uid://cvi8qisigyg8d"]
 
 [ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_u3pwk"]
 [ext_resource type="Resource" uid="uid://vi3rd2eouv4y" path="res://assets/resources/abilities/lanzar_portafolio.tres" id="2_4aiya"]
@@ -18,8 +18,4 @@ character_portrait = ExtResource("7_cs1q4")
 character_damaged = ExtResource("6_idec5")
 max_hp = 330
 unlocked = true
-type = "NORMAL"
 abilities = Array[ExtResource("1_u3pwk")]([ExtResource("2_4aiya"), ExtResource("3_5y3xm"), ExtResource("4_5cnwe"), ExtResource("5_4yhg2")])
-loot = Array[ExtResource("8_g7xe6")]([])
-min_loot = 0
-max_loot = 1
