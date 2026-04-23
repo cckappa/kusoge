@@ -38,10 +38,10 @@ func add_party_members() -> void:
 	const party_missing_container = preload(MENU_PARTY_MISSING_CONTAINER_PATH)
 
 	for character in Globals.current_characters:
-		var party_member_container_instance := party_member_container.instantiate()
-		party_grid_container.add_child(party_member_container_instance)
-		party_member_container_instance.type = party_member_container_instance.button_type.PARTY
-		party_member_container_instance.setup_info(character)
+			var party_member_container_instance := party_member_container.instantiate()
+			party_grid_container.add_child(party_member_container_instance)
+			party_member_container_instance.type = party_member_container_instance.button_type.PARTY
+			party_member_container_instance.setup_info(character)
 	
 	var current_party_count := Globals.current_characters.size()
 	print("Fiesta con #",current_party_count)

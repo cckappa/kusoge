@@ -1,5 +1,7 @@
 extends Control
 
+@export var missing_character_texture:Texture2D
+
 @onready var info_name:=%InfoName
 @onready var info_texture:=%InfoTexture
 @onready var info_descripcion_text:=%InfoDescripcionText

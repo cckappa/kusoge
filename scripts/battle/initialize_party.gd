@@ -30,6 +30,7 @@ func _setup() -> void:
 			
 			i += 1
 		alive_allies_containers.append(party_character_instance)
+		# print("Character HP: ", character.current_hp)
 	
 	if Globals.current_characters.size() > 1:
 		first_party_character_container.selected_button.focus_neighbor_left = last_party_character_container.selected_button.get_path()

@@ -16,6 +16,9 @@ var type := button_type.PARTY
 var character:Character
 
 func setup_info(_character:Character) -> void:
+	if _character == null:
+		return
+
 	character = _character
 	member_profile.texture = _character.character_portrait
 	if not _character.unlocked:

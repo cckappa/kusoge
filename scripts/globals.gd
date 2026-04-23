@@ -132,19 +132,25 @@ func reset_lives() ->void:
 	for character in current_characters:
 		if character.current_hp == -1:
 			character.set_current_hp()
+			character.disabled = false
 		if OS.is_debug_build():
 			character.set_current_hp()
+			character.disabled = false
 	
 	for character in party:
 		if character.current_hp == -1:
 			character.set_current_hp()
+			character.disabled = false
 		if OS.is_debug_build():
 			character.set_current_hp()
+			character.disabled = false
 
 func set_otk() -> void:
 	for character in current_characters:
 		if character.current_hp <= 0:
-			character.set_current_hp(character.max_hp)
+			# asi solito es -1 y reinicia la vida
+			character.set_current_hp()
+			character.disabled = false
 	clear_current_enemies()
 
 

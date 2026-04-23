@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://b70x651hdanbo" path="res://scenes/menu/menu_missing_party.tscn" id="16_v1kli"]
 [ext_resource type="Script" uid="uid://v1fvmdslx0x0" path="res://scripts/menu/member_description_control.gd" id="16_yl3w3"]
 [ext_resource type="PackedScene" uid="uid://dhn52stl8orqn" path="res://scenes/menu/info_habilidad_container.tscn" id="18_0snb7"]
+[ext_resource type="Texture2D" uid="uid://dqelip61rsfg0" path="res://assets/missing_texture.png" id="18_8u5c7"]
 [ext_resource type="FontFile" uid="uid://bdmps3wsxple0" path="res://assets/fonts/Bagel_Fat_One/BagelFatOne-Regular.ttf" id="19_tfody"]
 [ext_resource type="Script" uid="uid://cwrn4pod4jfoh" path="res://scripts/menu/menu_tamagotchi_party_option_state.gd" id="21_2t3kw"]
 [ext_resource type="Script" uid="uid://f4p2dab21dvd" path="res://scripts/menu/menu_tamagotchi_item_limbo_hsm.gd" id="21_idbuj"]
@@ -71,6 +72,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_v71ah")
+metadata/_edit_lock_ = true
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=867953843]
 unique_name_in_owner = true
@@ -88,6 +90,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_ira2m")
+metadata/_edit_lock_ = true
 
 [node name="Tamagotchi" parent="SubViewport/MenuTamagotchi" unique_id=9477100 instance=ExtResource("3_duuv3")]
 unique_name_in_owner = true
@@ -147,6 +150,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="ButtonTierra" type="Button" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiBaseState/ButtonsTamagotchi" unique_id=961020941]
 unique_name_in_owner = true
@@ -241,6 +245,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="PartyPanelContainer" type="PanelContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl" unique_id=1560321676]
 layout_mode = 0
@@ -395,6 +400,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("16_yl3w3")
+missing_character_texture = ExtResource("18_8u5c7")
+metadata/_edit_lock_ = true
 
 [node name="InfoContainer" type="PanelContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl" unique_id=1109272010]
 layout_mode = 0
@@ -727,6 +734,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="InfoItemsContainer" type="PanelContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiItemLimboHSM/MenuTamagotchiItemBaseState/ItemsControl" unique_id=379349851]
 layout_mode = 0
@@ -780,6 +788,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiItemLimboHSM/MenuTamagotchiItemBaseState/ItemDescriptionsControl" unique_id=954533736]
 layout_mode = 0

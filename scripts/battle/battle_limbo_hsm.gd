@@ -11,6 +11,7 @@ extends LimboHSM
 @onready var lose_state:=$LoseState
 
 func _ready() -> void:
+	get_tree().paused = false
 	_set_transitions()
 	_set_blackboard()
 	# initialize puede llevar self o un nodo parent para jalarlo con agent. dentro de limbostates

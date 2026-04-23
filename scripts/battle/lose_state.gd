@@ -26,3 +26,12 @@ func _on_quit_button_pressed() -> void:
 		Globals.set_otk()
 		await Functions.fade_color_rect(black_rect, "IN", 2)
 		get_tree().change_scene_to_file("res://scenes/inicio_menu.tscn")
+
+func _grab_focus() -> void:
+	if not option_selected and is_active():
+		if continue_button.has_focus():
+			continue_button.grab_focus()
+		elif quit_button.has_focus():
+			quit_button.grab_focus()
+		else:
+			continue_button.grab_focus()

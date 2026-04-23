@@ -25,7 +25,7 @@ func physics_update(_delta: float) -> void:
 
 	direction = Vector2(input_x, input_y)
 
-	if direction.length() > 1.0:
+	if direction.length() > 0.0:
 		direction = direction.normalized()
 	
 	if direction != Vector2.ZERO:

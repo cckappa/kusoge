@@ -29,6 +29,9 @@ func _process(_delta: float) -> void:
 			can_attack = false
 
 func set_info(_character:Character) -> void:
+	if _character == null:
+		return
+
 	party_character = _character
 	name = party_character.identifier
 	character_texture.texture = party_character.character_portrait
