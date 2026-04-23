@@ -100,9 +100,10 @@ func set_marker() -> void:
 		playable_character.position = Globals.player_position
 	else:
 		var target_marker := get_node("SpawnsLayer/" + Globals.target_marker)
-		if not target_marker:
-			# print("Target marker not found:", Globals.target_marker)
-			return
+		if target_marker == null:
+			printerr("Target marker not found:", Globals.target_marker)
+			target_marker = get_node("SpawnsLayer/DefaultMarker")
+		
 		playable_character.position = target_marker.position
 		Globals.target_marker = "default"  # Reset to default after setting position
 		# print("Target marker position set to:", Globals.target_marker)
