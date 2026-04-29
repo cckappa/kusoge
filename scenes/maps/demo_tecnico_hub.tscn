@@ -1306,7 +1306,6 @@ layer = 128
 
 [node name="MenuSubViewport" parent="CanvasLayer" unique_id=1188549310 instance=ExtResource("52_1w4oy")]
 visible = false
-metadata/_edit_lock_ = true
 
 [node name="SettingsMenu" parent="CanvasLayer" unique_id=670349771 instance=ExtResource("2_b27bq")]
 metadata/_edit_lock_ = true

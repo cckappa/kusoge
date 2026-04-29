@@ -27,27 +27,27 @@ func _ready_scene() -> void:
 func _apply_settings() -> void:
 	master_slider.value = audio_settings.master_volume
 	master_label.text = "%d" % audio_settings.master_volume
-	AudioServer.set_bus_volume_db(MASTER_BUS_ID, Functions.get_decimal(audio_settings.master_volume))
+	AudioServer.set_bus_volume_db(MASTER_BUS_ID, linear_to_db(audio_settings.master_volume))
 	
 	music_slider.value = audio_settings.music_volume
 	music_label.text = "%d" % audio_settings.music_volume
-	AudioServer.set_bus_volume_db(MUSIC_BUS_ID, Functions.get_decimal(audio_settings.master_volume))
+	AudioServer.set_bus_volume_db(MUSIC_BUS_ID, linear_to_db(audio_settings.music_volume))
 	
 	sfx_slider.value = audio_settings.sfx_volume
 	sfx_label.text = "%d" % audio_settings.sfx_volume
-	AudioServer.set_bus_volume_db(SFX_BUS_ID, Functions.get_decimal(audio_settings.master_volume))
+	AudioServer.set_bus_volume_db(SFX_BUS_ID, linear_to_db(audio_settings.sfx_volume))
 
 func save_master(slider_val:float) -> void:
 	master_label.text = "%d" % slider_val
-	AudioServer.set_bus_volume_db(MASTER_BUS_ID, Functions.get_decimal(slider_val))
+	AudioServer.set_bus_volume_db(MASTER_BUS_ID, linear_to_db(slider_val))
 	save_setting("audio", "master_volume", slider_val)
 
 func save_music(slider_val:float) -> void:
 	music_label.text = "%d" % slider_val
-	AudioServer.set_bus_volume_db(MUSIC_BUS_ID, Functions.get_decimal(slider_val))
+	AudioServer.set_bus_volume_db(MUSIC_BUS_ID, linear_to_db(slider_val))
 	save_setting("audio", "music_volume", slider_val)
 
 func save_sfx(slider_val:float) -> void:
 	sfx_label.text = "%d" % slider_val
-	AudioServer.set_bus_volume_db(SFX_BUS_ID, Functions.get_decimal(slider_val))
+	AudioServer.set_bus_volume_db(SFX_BUS_ID, linear_to_db(slider_val))
 	save_setting("audio", "sfx_volume", slider_val)

@@ -33,9 +33,9 @@ func _ready() -> void:
 		config.set_value("accesibility", "speed_text", 20)
 		
 		# AudioPanel Settings
-		config.set_value("audio", "master_volume", 80)
-		config.set_value("audio", "music_volume", 100)
-		config.set_value("audio", "sfx_volume", 100)
+		config.set_value("audio", "master_volume", 0.0)
+		config.set_value("audio", "music_volume", 0.0)
+		config.set_value("audio", "sfx_volume", 0.0)
 		
 		# VideoPanel Settings
 		config.set_value("video", "fullscreen", 1)
@@ -72,9 +72,9 @@ func apply_settings() -> void:
 	# AccesibilityPanel Settings
 	
 	# AudioPanel Settings
-	AudioServer.set_bus_volume_db(MASTER_BUS_ID, Functions.get_decimal(config.get_value("audio", "master_volume")))
-	AudioServer.set_bus_volume_db(MUSIC_BUS_ID, Functions.get_decimal(config.get_value("audio", "music_volume")))
-	AudioServer.set_bus_volume_db(SFX_BUS_ID, Functions.get_decimal(config.get_value("audio", "sfx_volume")))
+	AudioServer.set_bus_volume_db(MASTER_BUS_ID, linear_to_db(config.get_value("audio", "master_volume")))
+	AudioServer.set_bus_volume_db(MUSIC_BUS_ID, linear_to_db(config.get_value("audio", "music_volume")))
+	AudioServer.set_bus_volume_db(SFX_BUS_ID, linear_to_db(config.get_value("audio", "sfx_volume")))
 	
 	# VideoPanel Settings
 	# if config.get_value("video", "fullscreen"):

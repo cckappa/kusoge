@@ -75,9 +75,13 @@ var trinkets:Array[Trinket]=[
 ]
 
 func _ready() -> void:
+	_test_steam()
 	setup_globals()
 	if OS.is_debug_build():
 		reset_lives()
+
+func _test_steam() -> void:
+	print("Steam Running: ", Steam.isSteamRunning())
 
 func setup_globals() -> void:
 	maps = full_maps_resource.get_maps_dictionary()

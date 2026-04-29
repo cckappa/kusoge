@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://byctl1vrnbctx"]
+[gd_scene format=3 uid="uid://byctl1vrnbctx"]
 
 [ext_resource type="Theme" uid="uid://ctd47cus6kna0" path="res://assets/themes/menu_theme.tres" id="1_eynjv"]
 [ext_resource type="Script" uid="uid://cit4h4wpq0ui5" path="res://scripts/settings_menu.gd" id="1_ot7jk"]
@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://jgbwguoeum4w" path="res://scripts/accesibility_panel.gd" id="5_3lbn0"]
 [ext_resource type="Script" uid="uid://dcpajc06alfep" path="res://scripts/video_panel.gd" id="7_5vr1g"]
 
-[node name="SettingsMenu" type="Control" node_paths=PackedStringArray("game_button", "accesibility_button", "audio_button", "controls_button", "video_button", "game_panel", "accesibility_panel", "audio_panel", "controls_panel", "video_panel", "close_button")]
+[node name="SettingsMenu" type="Control" unique_id=2024337667 node_paths=PackedStringArray("game_button", "accesibility_button", "audio_button", "controls_button", "video_button", "game_panel", "accesibility_panel", "audio_panel", "controls_panel", "video_panel", "close_button")]
 process_mode = 3
 visible = false
 layout_mode = 3
@@ -30,7 +30,7 @@ controls_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSec
 video_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/VideoPanel")
 close_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/BottomButtons/ClosePause")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1476632997]
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 1
 anchors_preset = 8
@@ -45,74 +45,74 @@ offset_bottom = 79.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=227050778]
 layout_mode = 2
 theme = ExtResource("1_eynjv")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1723284258]
 layout_mode = 2
 
-[node name="PanelSections" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="PanelSections" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=559960334]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TopMenu" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections"]
+[node name="TopMenu" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections" unique_id=1956094934]
 layout_mode = 2
 
-[node name="Game" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu"]
+[node name="Game" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu" unique_id=441580477]
 layout_mode = 2
 toggle_mode = true
 button_pressed = true
 button_group = ExtResource("3_wgto6")
 text = "Juego"
 
-[node name="Accesibility" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu"]
+[node name="Accesibility" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu" unique_id=1889336265]
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("3_wgto6")
 text = "Accesibilidad"
 
-[node name="Video" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu"]
+[node name="Video" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu" unique_id=2006314361]
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("3_wgto6")
 text = "Video"
 
-[node name="Audio" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu"]
+[node name="Audio" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu" unique_id=435989017]
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("3_wgto6")
 text = "Audio"
 
-[node name="Controls" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu"]
+[node name="Controls" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu" unique_id=1856854957]
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("3_wgto6")
 text = "Controles"
 
-[node name="GamePanel" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections" node_paths=PackedStringArray("difficulty_slider", "quit_button", "language_option")]
+[node name="GamePanel" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections" unique_id=467591434 node_paths=PackedStringArray("difficulty_slider", "quit_button", "language_option")]
 layout_mode = 2
 script = ExtResource("4_f87us")
 difficulty_slider = NodePath("MarginContainer/VBoxContainer/Difficulty/HSlider")
 quit_button = NodePath("MarginContainer/VBoxContainer/QuitGame")
 language_option = NodePath("MarginContainer/VBoxContainer/Language/OptionButton")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/GamePanel"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/GamePanel" unique_id=937246505]
 layout_mode = 2
 theme = ExtResource("1_eynjv")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/GamePanel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/GamePanel/MarginContainer" unique_id=1718761985]
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="Language" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/GamePanel/MarginContainer/VBoxContainer"]
+[node name="Language" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/GamePanel/MarginContainer/VBoxContainer" unique_id=947759137]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/GamePanel/MarginContainer/VBoxContainer/Language"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/GamePanel/MarginContainer/VBoxContainer/Language" unique_id=618355663]
 layout_mode = 2
 text = "Idioma"
 
-[node name="OptionButton" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/GamePanel/MarginContainer/VBoxContainer/Language"]
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/GamePanel/MarginContainer/VBoxContainer/Language" unique_id=2133400436]
 layout_mode = 2
 selected = 0
 item_count = 2
@@ -121,24 +121,24 @@ popup/item_0/id = 0
 popup/item_1/text = "English"
 popup/item_1/id = 1
 
-[node name="Difficulty" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/GamePanel/MarginContainer/VBoxContainer"]
+[node name="Difficulty" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/GamePanel/MarginContainer/VBoxContainer" unique_id=637493389]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/GamePanel/MarginContainer/VBoxContainer/Difficulty"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/GamePanel/MarginContainer/VBoxContainer/Difficulty" unique_id=290832182]
 layout_mode = 2
 text = "Dificultad"
 
-[node name="HSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/GamePanel/MarginContainer/VBoxContainer/Difficulty"]
+[node name="HSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/GamePanel/MarginContainer/VBoxContainer/Difficulty" unique_id=913648380]
 layout_mode = 2
 max_value = 2.0
 value = 2.0
 
-[node name="QuitGame" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/GamePanel/MarginContainer/VBoxContainer"]
+[node name="QuitGame" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/GamePanel/MarginContainer/VBoxContainer" unique_id=2009485272]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Salir del juego"
 
-[node name="AccesibilityPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections" node_paths=PackedStringArray("animated_checkbox", "scale_spinbox", "speed_spinbox")]
+[node name="AccesibilityPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections" unique_id=1046038668 node_paths=PackedStringArray("animated_checkbox", "scale_spinbox", "speed_spinbox")]
 visible = false
 layout_mode = 2
 script = ExtResource("5_3lbn0")
@@ -146,53 +146,53 @@ animated_checkbox = NodePath("MarginContainer/VBoxContainer/TextAnimated/CheckBo
 scale_spinbox = NodePath("MarginContainer/VBoxContainer/TextScale/SpinBox")
 speed_spinbox = NodePath("MarginContainer/VBoxContainer/TextSpeed/SpinBox")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel" unique_id=1705513434]
 layout_mode = 2
 theme = ExtResource("1_eynjv")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel/MarginContainer" unique_id=919267571]
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="TextAnimated" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel/MarginContainer/VBoxContainer"]
+[node name="TextAnimated" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel/MarginContainer/VBoxContainer" unique_id=1436547460]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel/MarginContainer/VBoxContainer/TextAnimated"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel/MarginContainer/VBoxContainer/TextAnimated" unique_id=1970282382]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Texto animado "
 
-[node name="CheckBox" type="CheckBox" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel/MarginContainer/VBoxContainer/TextAnimated"]
+[node name="CheckBox" type="CheckBox" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel/MarginContainer/VBoxContainer/TextAnimated" unique_id=937110727]
 layout_mode = 2
 button_pressed = true
 
-[node name="TextScale" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel/MarginContainer/VBoxContainer"]
+[node name="TextScale" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel/MarginContainer/VBoxContainer" unique_id=1545867265]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel/MarginContainer/VBoxContainer/TextScale"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel/MarginContainer/VBoxContainer/TextScale" unique_id=835056016]
 layout_mode = 2
 text = "Tamaño del texto"
 
-[node name="SpinBox" type="SpinBox" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel/MarginContainer/VBoxContainer/TextScale"]
+[node name="SpinBox" type="SpinBox" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel/MarginContainer/VBoxContainer/TextScale" unique_id=1294182699]
 layout_mode = 2
 min_value = 8.0
 max_value = 36.0
 value = 8.0
 
-[node name="TextSpeed" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel/MarginContainer/VBoxContainer"]
+[node name="TextSpeed" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel/MarginContainer/VBoxContainer" unique_id=457176556]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel/MarginContainer/VBoxContainer/TextSpeed"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel/MarginContainer/VBoxContainer/TextSpeed" unique_id=869405496]
 layout_mode = 2
 text = "Velocidad del texto"
 
-[node name="SpinBox" type="SpinBox" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel/MarginContainer/VBoxContainer/TextSpeed"]
+[node name="SpinBox" type="SpinBox" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel/MarginContainer/VBoxContainer/TextSpeed" unique_id=484685017]
 layout_mode = 2
 min_value = 20.0
 step = 5.0
 value = 20.0
 
-[node name="AudioPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections" node_paths=PackedStringArray("master_slider", "master_label", "music_slider", "music_label", "sfx_slider", "sfx_label")]
+[node name="AudioPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections" unique_id=812634953 node_paths=PackedStringArray("master_slider", "master_label", "music_slider", "music_label", "sfx_slider", "sfx_label")]
 visible = false
 layout_mode = 2
 script = ExtResource("4_a8ce2")
@@ -203,177 +203,177 @@ music_label = NodePath("MarginContainer/VBoxContainer/MusicVolume/HBoxContainer/
 sfx_slider = NodePath("MarginContainer/VBoxContainer/SFXVolume/HSlider")
 sfx_label = NodePath("MarginContainer/VBoxContainer/SFXVolume/HBoxContainer/LabelNumber")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel" unique_id=103815490]
 layout_mode = 2
 theme = ExtResource("1_eynjv")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer" unique_id=983236351]
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="MasterVolume" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer"]
+[node name="MasterVolume" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer" unique_id=393956149]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer/MasterVolume"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer/MasterVolume" unique_id=2119385060]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer/MasterVolume/HBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer/MasterVolume/HBoxContainer" unique_id=1949694941]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Volumen General"
 
-[node name="LabelNumber" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer/MasterVolume/HBoxContainer"]
+[node name="LabelNumber" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer/MasterVolume/HBoxContainer" unique_id=262021270]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 text = "80
 "
 horizontal_alignment = 2
 
-[node name="HSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer/MasterVolume"]
+[node name="HSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer/MasterVolume" unique_id=2119831330]
 layout_mode = 2
 value = 80.0
 
-[node name="MusicVolume" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer"]
+[node name="MusicVolume" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer" unique_id=1623160243]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer/MusicVolume"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer/MusicVolume" unique_id=635793085]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer/MusicVolume/HBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer/MusicVolume/HBoxContainer" unique_id=915822755]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Volumen de la Música"
 
-[node name="LabelNumber" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer/MusicVolume/HBoxContainer"]
+[node name="LabelNumber" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer/MusicVolume/HBoxContainer" unique_id=1310857301]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 text = "100"
 horizontal_alignment = 2
 
-[node name="HSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer/MusicVolume"]
+[node name="HSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer/MusicVolume" unique_id=608747742]
 layout_mode = 2
 value = 100.0
 
-[node name="SFXVolume" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer"]
+[node name="SFXVolume" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer" unique_id=1092810324]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer/SFXVolume"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer/SFXVolume" unique_id=108717468]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer/SFXVolume/HBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer/SFXVolume/HBoxContainer" unique_id=1406688285]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Volumen SFX"
 
-[node name="LabelNumber" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer/SFXVolume/HBoxContainer"]
+[node name="LabelNumber" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer/SFXVolume/HBoxContainer" unique_id=651937165]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 text = "100"
 horizontal_alignment = 2
 
-[node name="HSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer/SFXVolume"]
+[node name="HSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel/MarginContainer/VBoxContainer/SFXVolume" unique_id=1275485205]
 layout_mode = 2
 value = 100.0
 
-[node name="VideoPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections" node_paths=PackedStringArray("fullscreen_checkbox", "resolution_option")]
+[node name="VideoPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections" unique_id=1863194261 node_paths=PackedStringArray("fullscreen_checkbox", "resolution_option")]
 visible = false
 layout_mode = 2
 script = ExtResource("7_5vr1g")
 fullscreen_checkbox = NodePath("MarginContainer/VBoxContainer/FullScreen/CheckBox")
 resolution_option = NodePath("MarginContainer/VBoxContainer/ScreenResolution/OptionButton")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/VideoPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/VideoPanel" unique_id=1735456554]
 layout_mode = 2
 theme = ExtResource("1_eynjv")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/VideoPanel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/VideoPanel/MarginContainer" unique_id=1527427982]
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="FullScreen" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/VideoPanel/MarginContainer/VBoxContainer"]
+[node name="FullScreen" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/VideoPanel/MarginContainer/VBoxContainer" unique_id=607076443]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/VideoPanel/MarginContainer/VBoxContainer/FullScreen"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/VideoPanel/MarginContainer/VBoxContainer/FullScreen" unique_id=349061941]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Pantalla Completa"
 
-[node name="CheckBox" type="CheckBox" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/VideoPanel/MarginContainer/VBoxContainer/FullScreen"]
+[node name="CheckBox" type="CheckBox" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/VideoPanel/MarginContainer/VBoxContainer/FullScreen" unique_id=1137526327]
 layout_mode = 2
 button_pressed = true
 
-[node name="ScreenResolution" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/VideoPanel/MarginContainer/VBoxContainer"]
+[node name="ScreenResolution" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/VideoPanel/MarginContainer/VBoxContainer" unique_id=1563985402]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/VideoPanel/MarginContainer/VBoxContainer/ScreenResolution"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/VideoPanel/MarginContainer/VBoxContainer/ScreenResolution" unique_id=693837108]
 layout_mode = 2
 text = "Resolución"
 
-[node name="OptionButton" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/VideoPanel/MarginContainer/VBoxContainer/ScreenResolution"]
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/VideoPanel/MarginContainer/VBoxContainer/ScreenResolution" unique_id=1807299370]
 layout_mode = 2
 
-[node name="ControlsPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections"]
+[node name="ControlsPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections" unique_id=235365385]
 visible = false
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel" unique_id=1159105565]
 layout_mode = 2
 theme = ExtResource("1_eynjv")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel/MarginContainer" unique_id=239290249]
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="Attack" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel/MarginContainer/VBoxContainer"]
+[node name="Attack" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel/MarginContainer/VBoxContainer" unique_id=709517049]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel/MarginContainer/VBoxContainer/Attack"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel/MarginContainer/VBoxContainer/Attack" unique_id=1317396456]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Atacar"
 
-[node name="ButtonLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel/MarginContainer/VBoxContainer/Attack"]
+[node name="ButtonLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel/MarginContainer/VBoxContainer/Attack" unique_id=1072171606]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 text = "X"
 horizontal_alignment = 2
 uppercase = true
 
-[node name="Dodge" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel/MarginContainer/VBoxContainer"]
+[node name="Dodge" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel/MarginContainer/VBoxContainer" unique_id=612050232]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel/MarginContainer/VBoxContainer/Dodge"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel/MarginContainer/VBoxContainer/Dodge" unique_id=1035007858]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Esquivar"
 
-[node name="ButtonLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel/MarginContainer/VBoxContainer/Dodge"]
+[node name="ButtonLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel/MarginContainer/VBoxContainer/Dodge" unique_id=1806621341]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 text = "C"
 horizontal_alignment = 2
 uppercase = true
 
-[node name="Spell" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel/MarginContainer/VBoxContainer"]
+[node name="Spell" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel/MarginContainer/VBoxContainer" unique_id=88904673]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel/MarginContainer/VBoxContainer/Spell"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel/MarginContainer/VBoxContainer/Spell" unique_id=2008132446]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Hechizo"
 
-[node name="ButtonLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel/MarginContainer/VBoxContainer/Spell"]
+[node name="ButtonLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel/MarginContainer/VBoxContainer/Spell" unique_id=1098728011]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 text = "D"
 horizontal_alignment = 2
 uppercase = true
 
-[node name="BottomButtons" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="BottomButtons" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=107014047]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="ClosePause" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/BottomButtons"]
+[node name="ClosePause" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/BottomButtons" unique_id=1436878176]
 layout_mode = 2
 text = "Cerrar"
