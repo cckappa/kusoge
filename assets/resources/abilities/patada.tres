@@ -1,11 +1,10 @@
-[gd_resource type="Resource" script_class="DamageAbility" format=3 uid="uid://b4hl0uorngix0"]
+[gd_resource type="Resource" script_class="DamageAbilityEffect" format=3 uid="uid://cy6ska5nin5ji"]
 
-[ext_resource type="Script" uid="uid://3uj7qdnixdle" path="res://scripts/abilities/damage_ability.gd" id="1_5qpon"]
-[ext_resource type="PackedScene" uid="uid://cvec5481ygy7e" path="res://scenes/ability_animations/patada_animation.tscn" id="1_54xlb"]
+[ext_resource type="Script" uid="uid://daasguyojnm37" path="res://scripts/abilities/damage_ability_effect.gd" id="1_iusm0"]
 
 [resource]
-script = ExtResource("1_5qpon")
-damage_points = 40
+script = ExtResource("1_iusm0")
+damage_amount = 10
 identifier = "patada"
-base_wait_time = 12.0
-attack_animation = ExtResource("1_54xlb")
+wait_time = 12.0
+metadata/_custom_type_script = "uid://daasguyojnm37"

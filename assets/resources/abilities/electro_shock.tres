@@ -1,14 +1,10 @@
-[gd_resource type="Resource" script_class="DamageAbility" load_steps=3 format=3 uid="uid://ikrsihnyo6wj"]
+[gd_resource type="Resource" script_class="DamageAbilityEffect" format=3 uid="uid://3ws5vedecgsl"]
 
-[ext_resource type="PackedScene" uid="uid://bj0y3cwxvctmc" path="res://scenes/ability_animations/default_attack_animation.tscn" id="1_a6h4v"]
-[ext_resource type="Script" uid="uid://3uj7qdnixdle" path="res://scripts/abilities/damage_ability.gd" id="1_ajjaw"]
+[ext_resource type="Script" uid="uid://daasguyojnm37" path="res://scripts/abilities/damage_ability_effect.gd" id="1_ibhll"]
 
 [resource]
-script = ExtResource("1_ajjaw")
-damage_points = 20
+script = ExtResource("1_ibhll")
+damage_amount = 20
 identifier = "electroshock"
-type = "ELECTRIC"
-base_wait_time = 6.0
 wait_time = 6.0
-effect = "NEGATIVE"
-attack_animation = ExtResource("1_a6h4v")
+metadata/_custom_type_script = "uid://daasguyojnm37"

@@ -1,9 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://dhjur3x054uqu"]
 
-[ext_resource type="Script" uid="uid://vwjr4owjq8g6" path="res://scripts/abilities/ability.gd" id="1_me4su"]
-[ext_resource type="Resource" uid="uid://bghxbphfpwny3" path="res://assets/resources/abilities/rasguño.tres" id="2_2memt"]
+[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability_new.gd" id="1_equtn"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_7o7er"]
-[ext_resource type="Resource" uid="uid://bnkt1v88hkkjx" path="res://assets/resources/abilities/piss.tres" id="3_oc4wk"]
 [ext_resource type="Script" uid="uid://bmxggwbtvyxeb" path="res://scripts/enemy_resource.gd" id="3_yrk0f"]
 [ext_resource type="Script" uid="uid://bsp5qx4xq3r8" path="res://scripts/enemy_fight_dialog.gd" id="5_oc4wk"]
 [ext_resource type="Texture2D" uid="uid://cbiwxsyrcx41q" path="res://assets/enemy_sprites/Lobo_Salvaje.png" id="6_8p0g4"]
@@ -31,7 +29,7 @@ script = ExtResource("3_yrk0f")
 enemy_fight_dialogs = Array[ExtResource("5_oc4wk")]([SubResource("Resource_vjonj"), SubResource("Resource_oc4wk"), SubResource("Resource_nbouu")])
 character_portrait = ExtResource("6_8p0g4")
 max_hp = 120
-abilities = Array[ExtResource("1_me4su")]([ExtResource("2_2memt"), ExtResource("3_oc4wk")])
+abilities = Array[ExtResource("1_equtn")]([null, null])
 loot = Array[ExtResource("2_7o7er")]([ExtResource("8_v1u11")])
 min_loot = 1
 max_loot = 3

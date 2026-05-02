@@ -1,13 +1,10 @@
-[gd_resource type="Resource" script_class="DamageAbility" format=3 uid="uid://bnkt1v88hkkjx"]
+[gd_resource type="Resource" script_class="DamageAbilityEffect" format=3 uid="uid://d2on4i7ux3n0h"]
 
-[ext_resource type="PackedScene" uid="uid://cs12q6im5gih7" path="res://scenes/ability_animations/piss_animation.tscn" id="1_7buo4"]
-[ext_resource type="Script" uid="uid://3uj7qdnixdle" path="res://scripts/abilities/damage_ability.gd" id="1_vg46s"]
+[ext_resource type="Script" uid="uid://daasguyojnm37" path="res://scripts/abilities/damage_ability_effect.gd" id="1_vg46s"]
 
 [resource]
 script = ExtResource("1_vg46s")
-damage_points = 70
+damage_amount = 70
 identifier = "piss"
-type = "WATER"
-base_wait_time = 10.0
-attack_animation = ExtResource("1_7buo4")
-metadata/_custom_type_script = "uid://3uj7qdnixdle"
+wait_time = 10.0
+metadata/_custom_type_script = "uid://daasguyojnm37"

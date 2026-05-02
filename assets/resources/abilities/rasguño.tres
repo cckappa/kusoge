@@ -1,12 +1,10 @@
-[gd_resource type="Resource" script_class="DamageAbility" format=3 uid="uid://bghxbphfpwny3"]
+[gd_resource type="Resource" script_class="DamageAbilityEffect" format=3 uid="uid://ormor5jj23yf"]
 
-[ext_resource type="PackedScene" uid="uid://tgs215rv8p8u" path="res://scenes/ability_animations/rasguño_animation.tscn" id="1_fygye"]
-[ext_resource type="Script" uid="uid://3uj7qdnixdle" path="res://scripts/abilities/damage_ability.gd" id="1_xa7dl"]
+[ext_resource type="Script" uid="uid://daasguyojnm37" path="res://scripts/abilities/damage_ability_effect.gd" id="1_xa7dl"]
 
 [resource]
 script = ExtResource("1_xa7dl")
-damage_points = 35
+damage_amount = 35
 identifier = "scratch"
-base_wait_time = 8.0
-attack_animation = ExtResource("1_fygye")
-metadata/_custom_type_script = "uid://3uj7qdnixdle"
+wait_time = 8.0
+metadata/_custom_type_script = "uid://daasguyojnm37"

@@ -25,6 +25,7 @@ var wait_time: float:
 ) var effect: String = "NEGATIVE"
 
 @export var attack_animation:PackedScene
+@export var ability_effect:AbilityEffect
 
 var ability_name:String:
 	get:

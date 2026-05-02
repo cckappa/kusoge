@@ -39,13 +39,14 @@ signal enemy_victory_dialogs_ended()
 ## BATTLE MAP
 signal party_character_button_pressed(character:Character)
 signal party_character_button_focused(container:PanelContainer)
-signal attack_menu_focused(ability:Ability)
-signal attack_menu_pressed(ability:Ability)
+signal attack_menu_focused(ability:AbilityNew)
+signal attack_menu_pressed(ability:AbilityNew)
 signal enemy_button_pressed(enemy:EnemyResource, control:Control, enemy_container:EnemyBattleClass)
 signal enemies_defeated()
 signal set_alive_allies_containers(alive_allies_containers:Array)
 signal party_character_killed()
 signal total_party_kill()
+signal show_damage_popup(character:Character, damage:float, is_crit:bool)
 
 
 ## QUESTS

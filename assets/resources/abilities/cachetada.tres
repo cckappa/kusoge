@@ -1,11 +1,10 @@
-[gd_resource type="Resource" script_class="DamageAbility" format=3 uid="uid://bbgmx00txpaek"]
+[gd_resource type="Resource" script_class="DamageAbilityEffect" format=3 uid="uid://cldr7s6qxpq0e"]
 
-[ext_resource type="PackedScene" uid="uid://dcmbqtk7toppq" path="res://scenes/ability_animations/cachetada_animation.tscn" id="1_1w1d5"]
-[ext_resource type="Script" uid="uid://3uj7qdnixdle" path="res://scripts/abilities/damage_ability.gd" id="1_ll1y5"]
+[ext_resource type="Script" uid="uid://daasguyojnm37" path="res://scripts/abilities/damage_ability_effect.gd" id="1_y8d3e"]
 
 [resource]
-script = ExtResource("1_ll1y5")
-damage_points = 40
+script = ExtResource("1_y8d3e")
+damage_amount = 40
 identifier = "cachetada"
-base_wait_time = 8.0
-attack_animation = ExtResource("1_1w1d5")
+wait_time = 8.0
+metadata/_custom_type_script = "uid://daasguyojnm37"

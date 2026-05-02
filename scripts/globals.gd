@@ -88,8 +88,8 @@ func setup_globals() -> void:
 	ene_1.current_hp = ene_1.max_hp
 	ene_2.current_hp = ene_2.max_hp
 	ene_especial.current_hp = ene_especial.max_hp
-	party = [MIUMIU, PROTO_SHAMAN, RANASTACIO, LOBUKI, SABIA_RANA_PEDRO]
-	set_current_characters([ALICIA, INGENIERO_FROGELIO, MALENA])
+	party = [MIUMIU, PROTO_SHAMAN, RANASTACIO, LOBUKI, SABIA_RANA_PEDRO, INGENIERO_FROGELIO, MALENA]
+	set_current_characters([ALICIA])
 
 	#ENEMIES USED
 	enemies = [ene_1, ene_2]

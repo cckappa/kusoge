@@ -4,7 +4,7 @@ extends LimboState
 @onready var enemy_control:=%EnemyControl
 
 var selected_party_container:PanelContainer
-var selected_ability:Ability
+var selected_ability:AbilityNew
 var crit:=false
 
 func _ready() -> void:
@@ -33,7 +33,7 @@ func _input(event:InputEvent) -> void:
 func _on_enemy_button_pressed(_enemy_resource:EnemyResource, _control:Control, _enemy_container:EnemyBattleClass) -> void:
 	if selected_ability.attack_animation and is_active():
 		selected_party_container = blackboard.get_var("selected_party_container")
-		selected_party_container.set_cooldown(selected_ability.wait_time)
+		selected_party_container.set_cooldown(selected_ability.ability_effect.wait_time)
 		selected_party_container.set_cooldown_color()
 
 		var animation_instance := selected_ability.attack_animation.instantiate()
@@ -41,9 +41,9 @@ func _on_enemy_button_pressed(_enemy_resource:EnemyResource, _control:Control, _
 		_control.add_child(animation_instance)
 		dispatch("to_focus_party")
 
-func landed_ability(ability:Ability, target:Character, enemy_container:EnemyBattleClass) -> void:
-	print("Landed ability: ", ability.ability_name, " on target: ", target.name, " with crit: ", crit)
-	enemy_container.show_damage(ability.use_ability(target, crit))
+func landed_ability(ability:AbilityNew, target:Character, enemy_container:EnemyBattleClass) -> void:
+	print("Landed ability: ", ability.ability_effect.ability_name, " on target: ", target.name, " with crit: ", crit)
+	ability.ability_effect.use_ability(target, enemy_container, crit)
 	if target.disabled:
 		enemy_container.kill_enemy()
 

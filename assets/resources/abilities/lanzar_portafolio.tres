@@ -1,12 +1,10 @@
-[gd_resource type="Resource" script_class="DamageAbility" format=3 uid="uid://vi3rd2eouv4y"]
+[gd_resource type="Resource" script_class="DamageAbilityEffect" format=3 uid="uid://dsilaf7hhixu0"]
 
-[ext_resource type="Script" uid="uid://3uj7qdnixdle" path="res://scripts/abilities/damage_ability.gd" id="1_fpvtv"]
-[ext_resource type="PackedScene" uid="uid://blj5j5ntxprsj" path="res://scenes/ability_animations/lanzar_portafolio_animation.tscn" id="1_tdmly"]
+[ext_resource type="Script" uid="uid://daasguyojnm37" path="res://scripts/abilities/damage_ability_effect.gd" id="1_fpvtv"]
 
 [resource]
 script = ExtResource("1_fpvtv")
-damage_points = 60
+damage_amount = 60
 identifier = "lanzar_portafolio"
-base_wait_time = 20.0
-attack_animation = ExtResource("1_tdmly")
-metadata/_custom_type_script = "uid://3uj7qdnixdle"
+wait_time = 20.0
+metadata/_custom_type_script = "uid://daasguyojnm37"
