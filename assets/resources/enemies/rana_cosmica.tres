@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://bpjcrmsd44mru"]
 
-[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability_new.gd" id="1_3vcjj"]
+[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability.gd" id="1_3vcjj"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_fi30u"]
 [ext_resource type="Script" uid="uid://bmxggwbtvyxeb" path="res://scripts/enemy_resource.gd" id="3_3mu4o"]
 [ext_resource type="Texture2D" uid="uid://msgiexlrv1ff" path="res://assets/enemy_sprites/Rana_Cosmica.png" id="3_3vcjj"]

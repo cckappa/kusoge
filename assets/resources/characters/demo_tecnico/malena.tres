@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Character" format=3 uid="uid://ha5plqow4htg"]
 
-[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability_new.gd" id="1_qiidm"]
+[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability.gd" id="1_qiidm"]
 [ext_resource type="Texture2D" uid="uid://bo2xka0hq3p6g" path="res://assets/character_portraits/demo_tecnico/malena daño.PNG" id="6_80fl1"]
 [ext_resource type="Texture2D" uid="uid://b4rdbse7fjwq2" path="res://assets/character_portraits/demo_tecnico/malena DYB.PNG" id="7_cnd8r"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="8_pd7rq"]

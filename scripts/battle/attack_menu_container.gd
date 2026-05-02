@@ -4,9 +4,9 @@ extends HBoxContainer
 @onready var habilidad_text:=$HabilidadText
 @onready var selected_button:=$Button
 
-var ability:AbilityNew
+var ability:Ability
 
-func set_info(_ability:AbilityNew) -> void:
+func set_info(_ability:Ability) -> void:
 	ability = _ability
 	habilidad_text.text = _ability.ability_effect.ability_name
 

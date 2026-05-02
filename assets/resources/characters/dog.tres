@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Character" format=3 uid="uid://cgvghpwc1pnon"]
 
-[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability_new.gd" id="1_bfihn"]
+[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability.gd" id="1_bfihn"]
 [ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="2_ia3gp"]
 [ext_resource type="Texture2D" uid="uid://drw4yn5y0uptl" path="res://assets/character_portraits/front_dog.png" id="4_sveyr"]
 [ext_resource type="Texture2D" uid="uid://cv42vdyov0olf" path="res://assets/character_portraits/portrait_dog.png" id="5_womdx"]

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Character" format=3 uid="uid://c6dgtrmu786cv"]
 
-[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability_new.gd" id="1_hondw"]
+[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability.gd" id="1_kfhml"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_fd7yh"]
 [ext_resource type="Resource" uid="uid://cb7lr7pmi5qfo" path="res://assets/resources/abilities/escupitajo.tres" id="2_kfhml"]
 [ext_resource type="PackedScene" uid="uid://d3jg4p8lblvlj" path="res://scenes/ability_animations/escupitajo_animation.tscn" id="3_1c44k"]
@@ -15,25 +15,25 @@
 [ext_resource type="PackedScene" uid="uid://oap1evwogs6s" path="res://scenes/ability_animations/cuchillazo_animation.tscn" id="8_g2nfn"]
 
 [sub_resource type="Resource" id="Resource_68w2w"]
-script = ExtResource("1_hondw")
+script = ExtResource("1_kfhml")
 ability_effect = ExtResource("2_kfhml")
 attack_animation = ExtResource("3_1c44k")
 metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
 
 [sub_resource type="Resource" id="Resource_cyr6m"]
-script = ExtResource("1_hondw")
+script = ExtResource("1_kfhml")
 ability_effect = ExtResource("4_7o73h")
 attack_animation = ExtResource("5_kfhml")
 metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
 
 [sub_resource type="Resource" id="Resource_d0ees"]
-script = ExtResource("1_hondw")
+script = ExtResource("1_kfhml")
 ability_effect = ExtResource("6_1c44k")
 attack_animation = ExtResource("3_tik4s")
 metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
 
 [sub_resource type="Resource" id="Resource_po51k"]
-script = ExtResource("1_hondw")
+script = ExtResource("1_kfhml")
 ability_effect = ExtResource("7_vb2gk")
 attack_animation = ExtResource("8_g2nfn")
 metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
@@ -46,4 +46,4 @@ character_portrait = ExtResource("6_rf4ft")
 character_damaged = ExtResource("6_tik4s")
 max_hp = 300
 unlocked = true
-abilities = Array[ExtResource("1_hondw")]([SubResource("Resource_68w2w"), SubResource("Resource_cyr6m"), SubResource("Resource_d0ees"), SubResource("Resource_po51k")])
+abilities = Array[ExtResource("1_kfhml")]([SubResource("Resource_68w2w"), SubResource("Resource_cyr6m"), SubResource("Resource_d0ees"), SubResource("Resource_po51k")])

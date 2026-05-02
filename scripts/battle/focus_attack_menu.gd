@@ -63,7 +63,7 @@ func _free_children() -> void:
 	for child in info_habilidades_v_box.get_children():
 		child.free()
 		
-func _on_attack_menu_focused(_ability:AbilityNew) -> void:
+func _on_attack_menu_focused(_ability:Ability) -> void:
 	# print("Focused ability: ", _ability.ability_effect.ability_name)
 	pass
 	# if _ability.effect == "NEGATIVE":
@@ -75,7 +75,7 @@ func _on_attack_menu_focused(_ability:AbilityNew) -> void:
 	# 	habilidad_dano.text = " " + str(_ability.heal_points) + " "
 	# 	habilidad_segundos.text = str(_ability.wait_time) + "s"
 
-func _on_attack_menu_pressed(_ability:AbilityNew) -> void:
+func _on_attack_menu_pressed(_ability:Ability) -> void:
 	if is_active():
 		if blackboard.get_var("selected_party_container").can_attack:
 			blackboard.get_var("selected_party_container").stop_cooldown_animation()

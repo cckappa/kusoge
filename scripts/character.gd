@@ -26,7 +26,7 @@ var description:String:
 	"ICE", 
 	"WIND", 
 	"GRASS") var type: String = "NORMAL"
-@export var abilities:Array[AbilityNew]
+@export var abilities:Array[Ability]
 
 @export_group("Enemy Info")
 @export var loot:Array[Item]
@@ -35,7 +35,7 @@ var description:String:
 @export var selection:Selection
 
 var current_hp:=-1
-var current_abilities:Array[AbilityNew]
+var current_abilities:Array[Ability]
 var current_container:CharacterContainer
 var disabled:bool=false
 

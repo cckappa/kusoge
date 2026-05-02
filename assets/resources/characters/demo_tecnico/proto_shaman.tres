@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Character" format=3 uid="uid://dnsq6byto3aky"]
 
-[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability_new.gd" id="1_k0nh0"]
+[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability.gd" id="1_k0nh0"]
 [ext_resource type="Texture2D" uid="uid://dfgi6o38rv7y5" path="res://assets/character_portraits/demo_tecnico/PROTO SHAMAN DAÑO.PNG" id="6_k3ulb"]
 [ext_resource type="Texture2D" uid="uid://0r8gw5y8ktaj" path="res://assets/character_portraits/demo_tecnico/PROTO SHAMAN DYB.PNG" id="7_yb6hn"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="8_lsir5"]

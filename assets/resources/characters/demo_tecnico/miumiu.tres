@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Character" format=3 uid="uid://c2hvwf1gif31i"]
 
-[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability_new.gd" id="1_k12jt"]
+[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability.gd" id="1_k12jt"]
 [ext_resource type="Texture2D" uid="uid://cqyg3ggs88tow" path="res://assets/character_portraits/demo_tecnico/MIMIU DAÑO.PNG" id="6_bat83"]
 [ext_resource type="Texture2D" uid="uid://cuk6fpt5syl85" path="res://assets/character_portraits/demo_tecnico/MIMIU DYB.PNG" id="7_hujgy"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="8_7b2s0"]

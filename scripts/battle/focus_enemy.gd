@@ -4,7 +4,7 @@ extends LimboState
 @onready var enemy_control:=%EnemyControl
 
 var selected_party_container:PanelContainer
-var selected_ability:AbilityNew
+var selected_ability:Ability
 var crit:=false
 
 func _ready() -> void:
@@ -41,7 +41,7 @@ func _on_enemy_button_pressed(_enemy_resource:EnemyResource, _control:Control, _
 		_control.add_child(animation_instance)
 		dispatch("to_focus_party")
 
-func landed_ability(ability:AbilityNew, target:Character, enemy_container:EnemyBattleClass) -> void:
+func landed_ability(ability:Ability, target:Character, enemy_container:EnemyBattleClass) -> void:
 	print("Landed ability: ", ability.ability_effect.ability_name, " on target: ", target.name, " with crit: ", crit)
 	ability.ability_effect.use_ability(target, enemy_container, crit)
 	if target.disabled:

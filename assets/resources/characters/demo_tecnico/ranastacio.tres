@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Character" format=3 uid="uid://bvpnaj7mub7a7"]
 
-[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability_new.gd" id="1_8yk8n"]
+[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability.gd" id="1_8yk8n"]
 [ext_resource type="Texture2D" uid="uid://djkclyjbsvrpd" path="res://assets/character_portraits/demo_tecnico/RANASTASIO DAÑO.PNG" id="6_kamsy"]
 [ext_resource type="Texture2D" uid="uid://cd3nnf0w48lic" path="res://assets/character_portraits/demo_tecnico/RANASTASIO DYB.PNG" id="7_ch0ct"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="8_tgns4"]
