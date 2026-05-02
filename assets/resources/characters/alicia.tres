@@ -3,40 +3,32 @@
 [ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability.gd" id="1_kfhml"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_fd7yh"]
 [ext_resource type="Resource" uid="uid://cb7lr7pmi5qfo" path="res://assets/resources/abilities/escupitajo.tres" id="2_kfhml"]
-[ext_resource type="PackedScene" uid="uid://d3jg4p8lblvlj" path="res://scenes/ability_animations/escupitajo_animation.tscn" id="3_1c44k"]
 [ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="3_5fc53"]
-[ext_resource type="PackedScene" uid="uid://dcmbqtk7toppq" path="res://scenes/ability_animations/cachetada_animation.tscn" id="3_tik4s"]
 [ext_resource type="Resource" uid="uid://d2on4i7ux3n0h" path="res://assets/resources/abilities/piss.tres" id="4_7o73h"]
-[ext_resource type="PackedScene" uid="uid://cs12q6im5gih7" path="res://scenes/ability_animations/piss_animation.tscn" id="5_kfhml"]
 [ext_resource type="Resource" uid="uid://cldr7s6qxpq0e" path="res://assets/resources/abilities/cachetada.tres" id="6_1c44k"]
 [ext_resource type="Texture2D" uid="uid://4gcpx3eh7ly4" path="res://assets/character_portraits/demo_tecnico/Alicia DYB.PNG" id="6_rf4ft"]
 [ext_resource type="Texture2D" uid="uid://l38qfes82cnk" path="res://assets/character_portraits/demo_tecnico/Alicia daño.PNG" id="6_tik4s"]
 [ext_resource type="Resource" uid="uid://cd8kprex7tr02" path="res://assets/resources/abilities/cuchillazo.tres" id="7_vb2gk"]
-[ext_resource type="PackedScene" uid="uid://oap1evwogs6s" path="res://scenes/ability_animations/cuchillazo_animation.tscn" id="8_g2nfn"]
 [ext_resource type="Script" uid="uid://cqxebod7a0a5t" path="res://scripts/fight_dialog.gd" id="12_1c44k"]
 
 [sub_resource type="Resource" id="Resource_68w2w"]
 script = ExtResource("1_kfhml")
 ability_effect = ExtResource("2_kfhml")
-attack_animation = ExtResource("3_1c44k")
 metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
 
 [sub_resource type="Resource" id="Resource_cyr6m"]
 script = ExtResource("1_kfhml")
 ability_effect = ExtResource("4_7o73h")
-attack_animation = ExtResource("5_kfhml")
 metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
 
 [sub_resource type="Resource" id="Resource_d0ees"]
 script = ExtResource("1_kfhml")
 ability_effect = ExtResource("6_1c44k")
-attack_animation = ExtResource("3_tik4s")
 metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
 
 [sub_resource type="Resource" id="Resource_po51k"]
 script = ExtResource("1_kfhml")
 ability_effect = ExtResource("7_vb2gk")
-attack_animation = ExtResource("8_g2nfn")
 metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
 
 [resource]

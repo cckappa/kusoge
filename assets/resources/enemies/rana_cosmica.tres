@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability.gd" id="1_idx8b"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_fi30u"]
-[ext_resource type="PackedScene" uid="uid://doe4w81lckoki" path="res://scenes/ability_animations/rayo_cosmico_animation.tscn" id="3_1tthc"]
 [ext_resource type="Texture2D" uid="uid://msgiexlrv1ff" path="res://assets/enemy_sprites/Rana_Cosmica.png" id="3_3vcjj"]
 [ext_resource type="Resource" uid="uid://qiwbo8p4p58i" path="res://assets/resources/abilities/rayo_cosmico.tres" id="3_p6eoc"]
 [ext_resource type="Script" uid="uid://cqxebod7a0a5t" path="res://scripts/fight_dialog.gd" id="5_w224d"]
@@ -11,7 +10,6 @@
 [sub_resource type="Resource" id="Resource_c881a"]
 script = ExtResource("1_idx8b")
 ability_effect = ExtResource("3_p6eoc")
-attack_animation = ExtResource("3_1tthc")
 metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
 
 [resource]

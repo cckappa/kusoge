@@ -1,14 +1,25 @@
 [gd_resource type="Resource" script_class="Character" format=3 uid="uid://4obe6nn74oyo"]
 
-[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability.gd" id="1_yac20"]
+[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability.gd" id="1_wmxbo"]
+[ext_resource type="Resource" uid="uid://crjiwriqghj28" path="res://assets/resources/abilities/punch.tres" id="2_cwtli"]
 [ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="2_euhmh"]
+[ext_resource type="Resource" uid="uid://cy6ska5nin5ji" path="res://assets/resources/abilities/patada.tres" id="3_4qa1v"]
+[ext_resource type="Script" uid="uid://cqxebod7a0a5t" path="res://scripts/fight_dialog.gd" id="5_mep1p"]
 [ext_resource type="Texture2D" uid="uid://ctb2muwbi50se" path="res://assets/character_portraits/alicia.png" id="6_p2q1w"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="7_ye45n"]
-[ext_resource type="Resource" uid="uid://bnsdg5ny4ckdx" path="res://assets/resources/selections/basic_select.tres" id="9_vs6d0"]
+
+[sub_resource type="Resource" id="Resource_vb6ks"]
+script = ExtResource("1_wmxbo")
+ability_effect = ExtResource("2_cwtli")
+metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
+
+[sub_resource type="Resource" id="Resource_wshur"]
+script = ExtResource("1_wmxbo")
+ability_effect = ExtResource("3_4qa1v")
+metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
 
 [resource]
 script = ExtResource("2_euhmh")
 character_portrait = ExtResource("6_p2q1w")
 max_hp = 50
-abilities = Array[ExtResource("1_yac20")]([null, null])
-selection = ExtResource("9_vs6d0")
+abilities = Array[ExtResource("1_wmxbo")]([SubResource("Resource_vb6ks"), SubResource("Resource_wshur")])

@@ -1,7 +1,7 @@
 class_name EnemyBattleClass
-extends Node
+extends BattleContainer
 
-@export var enemy_resource:Character=null
+# @export var enemy_resource:Character=null
 @export var enemy_texture:Control
 @export var enemy_button:TextureButton
 @export var info_vida_text:RichTextLabel
@@ -18,7 +18,7 @@ var dead:=false
 var current_alive_allies_containers:Array
 var ready_scene := false
 var current_ability:Ability
-var current_target:PanelContainer
+var current_target:BattleContainer
 var tween :Tween
 
 func _ready() -> void:
@@ -35,20 +35,22 @@ func _setup() -> void:
 	pass
 
 func focus_enemy() -> bool:
-	if enemy_resource.disabled != true:
+	if character_resource.disabled != true:
 		enemy_button.grab_focus()
 
-	return !enemy_resource.disabled
+	return !character_resource.disabled
 
 func set_info(_enemy_resource:Character) -> void:
-	if _enemy_resource != null:
-		enemy_resource = _enemy_resource
-	info_vida_text.text = "[center]" + str(enemy_resource.max_hp)
+	if _enemy_resource == null:
+		return
+
+	character_resource = _enemy_resource
+	info_vida_text.text = "[center]" + str(character_resource.max_hp)
 	if enemy_texture.is_class("TextureRect"):
-		enemy_texture.texture = enemy_resource.character_portrait
+		enemy_texture.texture = character_resource.character_portrait
 
 func _on_button_pressed() -> void:
-	SignalBus.emit_signal("enemy_button_pressed", enemy_resource, control_center, self)
+	SignalBus.emit_signal("enemy_button_pressed", character_resource, control_center, self)
 
 func set_health() -> void:
 	if tween:
@@ -56,19 +58,19 @@ func set_health() -> void:
 
 	tween = create_tween()
 
-	var start_hp := int((vida_progress_bar.value / 100.0) * enemy_resource.max_hp)
-	var target_hp := enemy_resource.current_hp
+	var start_hp := int((vida_progress_bar.value / 100.0) * character_resource.max_hp)
+	var target_hp := character_resource.current_hp
 
 	tween.tween_method(func(value: float) -> void:
 		info_vida_text.text = "[center]" + str(int(value))
-		vida_progress_bar.value = int((value / float(enemy_resource.max_hp)) * 100)
+		vida_progress_bar.value = int((value / float(character_resource.max_hp)) * 100)
 	, float(start_hp), float(target_hp), 0.5)
 
 
 func show_damage(damage:float) -> void:
 	if dead:
 		return
-	hitsound.play()
+	# hitsound.play()
 	damage_number.text = "[center]" + str(ceili(damage))
 	damage_number.visible = true
 	damage_number.modulate.a = 1
@@ -100,7 +102,18 @@ func show_damage(damage:float) -> void:
 	damage_number.visible = false
 	damage_number.position = start_pos
 
-func kill_enemy() -> void:
+func show_attacked() -> void:
+	hitsound.play()
+	enemy_texture.modulate = Color(5.472, 5.472, 5.472)
+
+	var _tween := create_tween()
+	_tween.tween_property(enemy_texture, "modulate", Color(1, 1, 1, 1), 0.4)
+
+	await get_tree().create_timer(0.4).timeout
+
+	enemy_texture.modulate = Color.WHITE
+
+func kill_character() -> void:
 	dead = true
 	death_texture.visible = true
 	enemy_texture.modulate = Color(0.107, 0.107, 0.107)
@@ -113,19 +126,19 @@ func _on_set_alive_allies_containers(_alive_allies_containers:Array) -> void:
 	current_alive_allies_containers = _alive_allies_containers
 
 func can_use_ability() -> bool:
-	return enemy_resource != null and enemy_resource.abilities.size() > 0 and current_alive_allies_containers.size() > 0 and not dead
+	return character_resource != null and character_resource.abilities.size() > 0 and current_alive_allies_containers.size() > 0 and not dead
 
 func use_ability() -> void:
-	current_ability = enemy_resource.abilities.pick_random()
+	current_ability = character_resource.abilities.pick_random()
 	if current_alive_allies_containers.size() == 0:
 		return
 	
 	current_target = current_alive_allies_containers.pick_random()
-	set_cooldown(current_ability.wait_time)
+	set_cooldown(current_ability.ability_effect.wait_time)
 	
-	var animation_instance := current_ability.attack_animation.instantiate()
+	var animation_instance :Node= current_ability.ability_effect.attack_animation.instantiate()
 	animation_instance.rotation_degrees = -180
-	animation_instance.connect("landed_ability", landed_ability.bind(current_ability, current_target.party_character, current_target))
+	animation_instance.connect("landed_ability", landed_ability.bind(current_ability, current_target.character_resource, current_target))
 	current_target.center_control.add_child(animation_instance)
 
 
@@ -135,10 +148,10 @@ func landed_ability(ability:Ability, target:Character, party_container:PanelCont
 	# party_container.show_damage(current_ability.use_ability(current_target.party_character, false))
 	ability.ability_effect.use_ability(target, party_container, false)
 	# party_container.show_damage(ability.use_ability(target, false))
-	if target.disabled:
-		party_container.kill_party_character()
-	current_target.set_health()
-	current_target.attacked()
+	# if target.disabled:
+	# 	party_container.kill()
+	# current_target.set_health()
+	# current_target.attacked()
 
 func set_cooldown(_time:float) -> void:
 	timer.wait_time = _time

@@ -2,6 +2,8 @@ class_name DamageAbilityEffect
 extends AbilityEffect
 
 @export var damage_amount: int = 0
+@export var wait_time:=1.0
+@export var attack_animation:PackedScene
 
 func use_ability(character:Character, container:Node, crit:bool=false) -> void:
 	var total_damage := 0
@@ -13,8 +15,8 @@ func use_ability(character:Character, container:Node, crit:bool=false) -> void:
 	print('Damaged ', total_damage, '!')
 	character.reduce_health(total_damage, crit)
 	if character.disabled:
-		container.kill_enemy()
+		container.kill_character()
 
 	container.set_health()
 	container.show_damage(total_damage)
-
+	container.show_attacked()

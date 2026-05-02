@@ -1,12 +1,25 @@
 [gd_resource type="Resource" script_class="Character" format=3 uid="uid://bx4t65l1qc1qi"]
 
-[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability.gd" id="1_ys310"]
+[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability.gd" id="1_n87yv"]
+[ext_resource type="Resource" uid="uid://du8f0wjeeu1oy" path="res://assets/resources/abilities/fireball.tres" id="2_albdp"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_hr31q"]
+[ext_resource type="Resource" uid="uid://cy6ska5nin5ji" path="res://assets/resources/abilities/patada.tres" id="3_6x3o5"]
 [ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="3_daufi"]
+[ext_resource type="Script" uid="uid://cqxebod7a0a5t" path="res://scripts/fight_dialog.gd" id="5_7c22n"]
 [ext_resource type="Texture2D" uid="uid://bef6siwgirsol" path="res://assets/character_portraits/toku.png" id="6_oty8e"]
+
+[sub_resource type="Resource" id="Resource_0fyui"]
+script = ExtResource("1_n87yv")
+ability_effect = ExtResource("2_albdp")
+metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
+
+[sub_resource type="Resource" id="Resource_dgd4b"]
+script = ExtResource("1_n87yv")
+ability_effect = ExtResource("3_6x3o5")
+metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
 
 [resource]
 script = ExtResource("3_daufi")
 character_portrait = ExtResource("6_oty8e")
 max_hp = 60
-abilities = Array[ExtResource("1_ys310")]([null, null])
+abilities = Array[ExtResource("1_n87yv")]([SubResource("Resource_0fyui"), SubResource("Resource_dgd4b")])

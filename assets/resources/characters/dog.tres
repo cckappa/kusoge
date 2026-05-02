@@ -1,16 +1,25 @@
 [gd_resource type="Resource" script_class="Character" format=3 uid="uid://cgvghpwc1pnon"]
 
-[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability.gd" id="1_bfihn"]
+[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability.gd" id="1_3y5f7"]
+[ext_resource type="Resource" uid="uid://d2on4i7ux3n0h" path="res://assets/resources/abilities/piss.tres" id="2_h5yhj"]
 [ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="2_ia3gp"]
-[ext_resource type="Texture2D" uid="uid://drw4yn5y0uptl" path="res://assets/character_portraits/front_dog.png" id="4_sveyr"]
+[ext_resource type="Resource" uid="uid://cy6ska5nin5ji" path="res://assets/resources/abilities/patada.tres" id="3_ge7f3"]
+[ext_resource type="Script" uid="uid://cqxebod7a0a5t" path="res://scripts/fight_dialog.gd" id="5_lhntv"]
 [ext_resource type="Texture2D" uid="uid://cv42vdyov0olf" path="res://assets/character_portraits/portrait_dog.png" id="5_womdx"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="8_hmhjd"]
-[ext_resource type="Resource" uid="uid://bnsdg5ny4ckdx" path="res://assets/resources/selections/basic_select.tres" id="9_dm63y"]
+
+[sub_resource type="Resource" id="Resource_hmhjd"]
+script = ExtResource("1_3y5f7")
+ability_effect = ExtResource("2_h5yhj")
+metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
+
+[sub_resource type="Resource" id="Resource_p473g"]
+script = ExtResource("1_3y5f7")
+ability_effect = ExtResource("3_ge7f3")
+metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
 
 [resource]
 script = ExtResource("2_ia3gp")
 character_portrait = ExtResource("5_womdx")
-character_front = ExtResource("4_sveyr")
 max_hp = 50
-abilities = Array[ExtResource("1_bfihn")]([null, null])
-selection = ExtResource("9_dm63y")
+abilities = Array[ExtResource("1_3y5f7")]([SubResource("Resource_hmhjd"), SubResource("Resource_p473g")])

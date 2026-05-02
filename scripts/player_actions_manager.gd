@@ -437,10 +437,10 @@ func alive_enemies(current_arrange_enemies:Dictionary) -> Array[Character]:
 
 
 func play_attack_animation(ability: Ability, parent_node: Node, target:Character, crit:bool=false) -> void:
-	if ability.attack_animation:
-		var animation_instance := ability.attack_animation.instantiate()
-		animation_instance.connect("landed_ability", landed_ability.bind(ability, target, crit))
-		parent_node.add_child(animation_instance)
+	# if ability.attack_animation:
+	var animation_instance := ability.attack_animation.instantiate()
+	animation_instance.connect("landed_ability", landed_ability.bind(ability, target, crit))
+	parent_node.add_child(animation_instance)
 		
 func spawn_loot(loot_data: Array) -> void:
 	var loot_count := loot_data.size()

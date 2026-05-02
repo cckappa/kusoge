@@ -1,10 +1,27 @@
 [gd_resource type="Resource" script_class="Character" format=3 uid="uid://cvi8qisigyg8d"]
 
-[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability.gd" id="1_5bomc"]
+[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability.gd" id="1_u3pwk"]
+[ext_resource type="Resource" uid="uid://dsilaf7hhixu0" path="res://assets/resources/abilities/lanzar_portafolio.tres" id="2_4aiya"]
+[ext_resource type="PackedScene" uid="uid://blj5j5ntxprsj" path="res://scenes/ability_animations/lanzar_portafolio_animation.tscn" id="3_4aiya"]
+[ext_resource type="Resource" uid="uid://cldr7s6qxpq0e" path="res://assets/resources/abilities/cachetada.tres" id="3_5y3xm"]
+[ext_resource type="PackedScene" uid="uid://dcmbqtk7toppq" path="res://scenes/ability_animations/cachetada_animation.tscn" id="5_5y3xm"]
 [ext_resource type="Texture2D" uid="uid://sioaiix5tv2e" path="res://assets/character_portraits/demo_tecnico/ING. FROGELIO DAÑO.PNG" id="6_idec5"]
 [ext_resource type="Texture2D" uid="uid://f0i4d0kjxq0w" path="res://assets/character_portraits/demo_tecnico/ING. FROGELIO DYB.PNG" id="7_cs1q4"]
+[ext_resource type="Script" uid="uid://cqxebod7a0a5t" path="res://scripts/fight_dialog.gd" id="8_5cnwe"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="8_g7xe6"]
 [ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="9_yu1p2"]
+
+[sub_resource type="Resource" id="Resource_4yhg2"]
+script = ExtResource("1_u3pwk")
+ability_effect = ExtResource("2_4aiya")
+attack_animation = ExtResource("3_4aiya")
+metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
+
+[sub_resource type="Resource" id="Resource_idec5"]
+script = ExtResource("1_u3pwk")
+ability_effect = ExtResource("3_5y3xm")
+attack_animation = ExtResource("5_5y3xm")
+metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
 
 [resource]
 script = ExtResource("9_yu1p2")
@@ -14,4 +31,4 @@ character_portrait = ExtResource("7_cs1q4")
 character_damaged = ExtResource("6_idec5")
 max_hp = 330
 unlocked = true
-abilities = Array[ExtResource("1_5bomc")]([null, null])
+abilities = Array[ExtResource("1_u3pwk")]([SubResource("Resource_4yhg2"), SubResource("Resource_idec5")])

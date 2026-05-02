@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="DamageAbilityEffect" format=3 uid="uid://ormor5jj23yf"]
 
+[ext_resource type="PackedScene" uid="uid://tgs215rv8p8u" path="res://scenes/ability_animations/rasguño_animation.tscn" id="1_fygye"]
 [ext_resource type="Script" uid="uid://daasguyojnm37" path="res://scripts/abilities/damage_ability_effect.gd" id="1_xa7dl"]
 
 [resource]
 script = ExtResource("1_xa7dl")
 damage_amount = 35
-identifier = "scratch"
 wait_time = 8.0
+attack_animation = ExtResource("1_fygye")
+identifier = "scratch"
 metadata/_custom_type_script = "uid://daasguyojnm37"

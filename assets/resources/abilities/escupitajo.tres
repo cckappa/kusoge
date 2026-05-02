@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="DamageAbilityEffect" format=3 uid="uid://cb7lr7pmi5qfo"]
 
+[ext_resource type="PackedScene" uid="uid://d3jg4p8lblvlj" path="res://scenes/ability_animations/escupitajo_animation.tscn" id="1_b7nlv"]
 [ext_resource type="Script" uid="uid://daasguyojnm37" path="res://scripts/abilities/damage_ability_effect.gd" id="1_o06i0"]
 
 [resource]
 script = ExtResource("1_o06i0")
 damage_amount = 40
-identifier = "escupitajo"
 wait_time = 8.0
+attack_animation = ExtResource("1_b7nlv")
+identifier = "escupitajo"
 metadata/_custom_type_script = "uid://daasguyojnm37"

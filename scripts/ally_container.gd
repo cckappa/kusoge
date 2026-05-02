@@ -40,7 +40,7 @@ signal uses_item(target:Character)
 const TARGET_HEAL = preload("res://assets/icons/target_heal.svg")
 const TARGET_SELECT = preload("res://assets/icons/target_select.svg")
 const menu_theme = preload("res://assets/themes/menu_theme.tres")
-const block_ability = preload("res://assets/resources/abilities/basic_armour.tres") 
+# const block_ability = preload("res://assets/resources/abilities/basic_armour.tres") 
 
 var front_texture : Texture
 var character_portrait :  Texture

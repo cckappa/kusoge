@@ -3,23 +3,19 @@
 [ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability.gd" id="1_ilftn"]
 [ext_resource type="Resource" uid="uid://cb7lr7pmi5qfo" path="res://assets/resources/abilities/escupitajo.tres" id="2_0ptx6"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_wd485"]
-[ext_resource type="PackedScene" uid="uid://d3jg4p8lblvlj" path="res://scenes/ability_animations/escupitajo_animation.tscn" id="3_3rumu"]
 [ext_resource type="Script" uid="uid://cqxebod7a0a5t" path="res://scripts/fight_dialog.gd" id="4_3w4g6"]
 [ext_resource type="Texture2D" uid="uid://vdib6tsjg4r1" path="res://assets/enemy_sprites/Casita_Salvaje.png" id="4_h61co"]
 [ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="4_wd485"]
 [ext_resource type="Resource" uid="uid://cldr7s6qxpq0e" path="res://assets/resources/abilities/cachetada.tres" id="4_wfif0"]
-[ext_resource type="PackedScene" uid="uid://dcmbqtk7toppq" path="res://scenes/ability_animations/cachetada_animation.tscn" id="5_o3p37"]
 
 [sub_resource type="Resource" id="Resource_d4jop"]
 script = ExtResource("1_ilftn")
 ability_effect = ExtResource("2_0ptx6")
-attack_animation = ExtResource("3_3rumu")
 metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
 
 [sub_resource type="Resource" id="Resource_3n33s"]
 script = ExtResource("1_ilftn")
 ability_effect = ExtResource("4_wfif0")
-attack_animation = ExtResource("5_o3p37")
 metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
 
 [resource]

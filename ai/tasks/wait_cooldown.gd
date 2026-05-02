@@ -7,6 +7,6 @@ func _enter() -> void:
 
 func _tick(delta: float) -> Status:
 	_elapsed += delta
-	if _elapsed >= agent.current_ability.wait_time:
+	if _elapsed >= agent.current_ability.ability_effect.wait_time:
 		return SUCCESS
 	return RUNNING

@@ -4,14 +4,12 @@
 [ext_resource type="Resource" uid="uid://ormor5jj23yf" path="res://assets/resources/abilities/rasguño.tres" id="2_2memt"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_7o7er"]
 [ext_resource type="Script" uid="uid://cqxebod7a0a5t" path="res://scripts/fight_dialog.gd" id="2_yrk0f"]
-[ext_resource type="PackedScene" uid="uid://tgs215rv8p8u" path="res://scenes/ability_animations/rasguño_animation.tscn" id="3_2memt"]
 [ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="4_equtn"]
 [ext_resource type="Texture2D" uid="uid://cbiwxsyrcx41q" path="res://assets/enemy_sprites/Lobo_Salvaje.png" id="6_8p0g4"]
 
 [sub_resource type="Resource" id="Resource_oc4wk"]
 script = ExtResource("1_me4su")
 ability_effect = ExtResource("2_2memt")
-attack_animation = ExtResource("3_2memt")
 metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
 
 [resource]

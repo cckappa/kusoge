@@ -1,10 +1,23 @@
 [gd_resource type="Resource" script_class="Character" format=3 uid="uid://bvpnaj7mub7a7"]
 
-[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability.gd" id="1_8yk8n"]
+[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability.gd" id="1_hfu4i"]
+[ext_resource type="Resource" uid="uid://d2on4i7ux3n0h" path="res://assets/resources/abilities/piss.tres" id="2_owuk7"]
+[ext_resource type="Resource" uid="uid://ormor5jj23yf" path="res://assets/resources/abilities/rasguño.tres" id="3_227ma"]
+[ext_resource type="Script" uid="uid://cqxebod7a0a5t" path="res://scripts/fight_dialog.gd" id="6_hfu4i"]
 [ext_resource type="Texture2D" uid="uid://djkclyjbsvrpd" path="res://assets/character_portraits/demo_tecnico/RANASTASIO DAÑO.PNG" id="6_kamsy"]
 [ext_resource type="Texture2D" uid="uid://cd3nnf0w48lic" path="res://assets/character_portraits/demo_tecnico/RANASTASIO DYB.PNG" id="7_ch0ct"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="8_tgns4"]
 [ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="9_pr17l"]
+
+[sub_resource type="Resource" id="Resource_owuk7"]
+script = ExtResource("1_hfu4i")
+ability_effect = ExtResource("2_owuk7")
+metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
+
+[sub_resource type="Resource" id="Resource_vh5cb"]
+script = ExtResource("1_hfu4i")
+ability_effect = ExtResource("3_227ma")
+metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
 
 [resource]
 script = ExtResource("9_pr17l")
@@ -14,4 +27,4 @@ character_portrait = ExtResource("7_ch0ct")
 character_damaged = ExtResource("6_kamsy")
 max_hp = 270
 unlocked = true
-abilities = Array[ExtResource("1_8yk8n")]([null, null])
+abilities = Array[ExtResource("1_hfu4i")]([SubResource("Resource_owuk7"), SubResource("Resource_vh5cb")])

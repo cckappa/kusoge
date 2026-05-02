@@ -5,4 +5,4 @@ extends Resource
 # Es el Marker2D para posicionar al jugador cuando acabe la pelea.
 @export var target_marker:StringName
 @export var stakes:StakesResource
-@export var enemies:Array[EnemyResource]
+@export var enemies:Array[Character]

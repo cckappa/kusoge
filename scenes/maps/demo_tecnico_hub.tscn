@@ -5,21 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="2_b27bq"]
 [ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="3_7yfwg"]
 [ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="3_mr767"]
-[ext_resource type="Resource" uid="uid://owjbdndkkffa" path="res://assets/resources/enemies_del/gollien.tres" id="3_p1lo0"]
 [ext_resource type="AudioStream" uid="uid://dg8jfiyj6wy8a" path="res://assets/music/enemy_encounter.mp3" id="4_b27bq"]
-[ext_resource type="Resource" uid="uid://dhjur3x054uqu" path="res://assets/resources/enemies_del/lobo_salvaje.tres" id="4_mce50"]
+[ext_resource type="Resource" uid="uid://da5qdt8nmxlli" path="res://assets/resources/enemies/lobo_salvaje.tres" id="4_mce50"]
 [ext_resource type="Texture2D" uid="uid://bdk20ogn4b7cn" path="res://assets/backgrounds/demo_tecnico/SUELO.PNG" id="4_ng4if"]
 [ext_resource type="Texture2D" uid="uid://be0l3u0w4cmth" path="res://assets/backgrounds/demo_tecnico/CIELO.PNG" id="5_0xr4t"]
-[ext_resource type="Resource" uid="uid://b8mif5qacuo4w" path="res://assets/resources/enemies_del/cuchillo_salvaje.tres" id="5_ngix7"]
-[ext_resource type="Resource" uid="uid://bqogm4mw28f4y" path="res://assets/resources/enemies_del/delfin_salvaje.tres" id="6_nn2xs"]
 [ext_resource type="Texture2D" uid="uid://ds6mq6sdtkyar" path="res://assets/backgrounds/demo_tecnico/MONTAÑAS.PNG" id="6_wd8je"]
-[ext_resource type="Resource" uid="uid://b38b3cj2ttdxe" path="res://assets/resources/enemies_del/chamuco.tres" id="7_pno3w"]
 [ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="8_0xr4t"]
 [ext_resource type="Script" uid="uid://g7sf10k2338d" path="res://scripts/npc_layer.gd" id="9_4yjoi"]
 [ext_resource type="PackedScene" uid="uid://clmbh4jnxur05" path="res://scenes/objeto.tscn" id="9_86tlv"]
 [ext_resource type="PackedScene" uid="uid://h0q50x2317m1" path="res://scenes/npc.tscn" id="9_273xm"]
 [ext_resource type="Script" uid="uid://dsfklbei7r5qc" path="res://scripts/object_layer.gd" id="9_h40t6"]
-[ext_resource type="Resource" uid="uid://bpjcrmsd44mru" path="res://assets/resources/enemies_del/rana_cosmica.tres" id="10_4h3p4"]
+[ext_resource type="Resource" uid="uid://blaium4q0nnpv" path="res://assets/resources/enemies/rana_cosmica.tres" id="10_4h3p4"]
 [ext_resource type="Texture2D" uid="uid://byxrqklktxr3j" path="res://assets/spritesheets/demo_tecnico/RANASABIA.png" id="10_5gik4"]
 [ext_resource type="Texture2D" uid="uid://um522k3outd6" path="res://assets/spritesheets/demo_tecnico/ARBOL1.png" id="11_41sgd"]
 [ext_resource type="Texture2D" uid="uid://duv0435v3wc6t" path="res://assets/objects/demo_tecnico/CASA.PNG" id="11_dtajs"]
@@ -62,11 +58,11 @@
 [ext_resource type="Texture2D" uid="uid://dfx4uk7g3jxfc" path="res://assets/objects/demo_tecnico/3roca_mapa.png" id="48_gvktg"]
 [ext_resource type="Texture2D" uid="uid://60n8w544ebmn" path="res://assets/objects/demo_tecnico/4roca_mapa.png" id="49_02r7b"]
 [ext_resource type="PackedScene" uid="uid://bx88hvib56f0" path="res://scenes/menu/menu_sub_viewport.tscn" id="52_1w4oy"]
+[ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="60_4h3p4"]
+[ext_resource type="Resource" uid="uid://cl6tgcavinbui" path="res://assets/resources/enemies/casita_salvaje.tres" id="61_cf2ti"]
 [ext_resource type="AudioStream" uid="uid://dsubppnwuv28" path="res://assets/music/tema_earthbound.mp3" id="61_gvktg"]
 [ext_resource type="Script" uid="uid://calbsshdno2ur" path="res://scripts/fight_manager.gd" id="67_q24vt"]
 [ext_resource type="Script" uid="uid://wk0pglf3r6ow" path="res://scripts/fights/fight_resource.gd" id="68_m805y"]
-[ext_resource type="Script" uid="uid://bmxggwbtvyxeb" path="res://scripts/enemy_resource.gd" id="69_jg827"]
-[ext_resource type="Resource" uid="uid://cym74q2mvjcte" path="res://assets/resources/enemies_del/serpra.tres" id="70_slii2"]
 [ext_resource type="Script" uid="uid://ifqsfamlb3pd" path="res://scripts/fights/stakes_resource.gd" id="72_vp0uk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1lo0"]
@@ -774,7 +770,7 @@ script = ExtResource("68_m805y")
 identifier = &"batalla_1"
 target_marker = &"MarkerPeleas"
 stakes = SubResource("Resource_4ugpp")
-enemies = Array[ExtResource("69_jg827")]([ExtResource("70_slii2"), ExtResource("4_mce50")])
+enemies = Array[ExtResource("60_4h3p4")]([ExtResource("61_cf2ti"), ExtResource("4_mce50")])
 metadata/_custom_type_script = "uid://wk0pglf3r6ow"
 
 [sub_resource type="Resource" id="Resource_q24vt"]
@@ -788,7 +784,7 @@ script = ExtResource("68_m805y")
 identifier = &"batalla_2"
 target_marker = &"MarkerPeleas"
 stakes = SubResource("Resource_q24vt")
-enemies = Array[ExtResource("69_jg827")]([ExtResource("7_pno3w"), ExtResource("3_p1lo0"), ExtResource("7_pno3w")])
+enemies = Array[ExtResource("60_4h3p4")]([ExtResource("4_mce50"), ExtResource("4_mce50")])
 metadata/_custom_type_script = "uid://wk0pglf3r6ow"
 
 [sub_resource type="Resource" id="Resource_jg827"]
@@ -802,7 +798,7 @@ script = ExtResource("68_m805y")
 identifier = &"batalla_3"
 target_marker = &"MarkerPeleas"
 stakes = SubResource("Resource_jg827")
-enemies = Array[ExtResource("69_jg827")]([ExtResource("6_nn2xs"), ExtResource("10_4h3p4"), ExtResource("5_ngix7")])
+enemies = Array[ExtResource("60_4h3p4")]([ExtResource("4_mce50"), ExtResource("10_4h3p4"), ExtResource("4_mce50")])
 metadata/_custom_type_script = "uid://wk0pglf3r6ow"
 
 [node name="DemoTecnicoHub" type="Node2D" unique_id=1271019550 node_paths=PackedStringArray("door_sprite", "door_collision")]

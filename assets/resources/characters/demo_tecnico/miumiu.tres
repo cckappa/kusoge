@@ -1,10 +1,23 @@
 [gd_resource type="Resource" script_class="Character" format=3 uid="uid://c2hvwf1gif31i"]
 
-[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability.gd" id="1_k12jt"]
+[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability.gd" id="1_it4d0"]
+[ext_resource type="Resource" uid="uid://du8f0wjeeu1oy" path="res://assets/resources/abilities/fireball.tres" id="2_uct3m"]
+[ext_resource type="Resource" uid="uid://cy6ska5nin5ji" path="res://assets/resources/abilities/patada.tres" id="4_j7oaf"]
+[ext_resource type="Script" uid="uid://cqxebod7a0a5t" path="res://scripts/fight_dialog.gd" id="6_8wwur"]
 [ext_resource type="Texture2D" uid="uid://cqyg3ggs88tow" path="res://assets/character_portraits/demo_tecnico/MIMIU DAÑO.PNG" id="6_bat83"]
 [ext_resource type="Texture2D" uid="uid://cuk6fpt5syl85" path="res://assets/character_portraits/demo_tecnico/MIMIU DYB.PNG" id="7_hujgy"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="8_7b2s0"]
 [ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="9_qiu67"]
+
+[sub_resource type="Resource" id="Resource_it4d0"]
+script = ExtResource("1_it4d0")
+ability_effect = ExtResource("2_uct3m")
+metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
+
+[sub_resource type="Resource" id="Resource_uct3m"]
+script = ExtResource("1_it4d0")
+ability_effect = ExtResource("4_j7oaf")
+metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
 
 [resource]
 script = ExtResource("9_qiu67")
@@ -13,4 +26,4 @@ section_folder = "demo_tecnico"
 character_portrait = ExtResource("7_hujgy")
 character_damaged = ExtResource("6_bat83")
 max_hp = 210
-abilities = Array[ExtResource("1_k12jt")]([null, null])
+abilities = Array[ExtResource("1_it4d0")]([SubResource("Resource_it4d0"), SubResource("Resource_uct3m")])

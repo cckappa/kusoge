@@ -1,4 +1,4 @@
-extends Control
+extends BattleContainer
 
 @onready var selected_button:TextureButton=%SelectedButton
 @onready var character_texture:TextureRect=%CharacterTexture
@@ -13,7 +13,7 @@ extends Control
 @onready var hitsound:AudioStreamPlayer=$HitSound
 @onready var critsound:AudioStreamPlayer=$CritSound
 
-var party_character:Character
+# var party_character:Character
 var can_attack:=true
 var dead:=false
 var tween :Tween
@@ -32,19 +32,20 @@ func set_info(_character:Character) -> void:
 	if _character == null:
 		return
 
-	party_character = _character
-	name = party_character.identifier
-	character_texture.texture = party_character.character_portrait
-	attacked_texture.texture = party_character.character_damaged
-	info_vida_text.text = '[center]'+str(party_character.current_hp)
-	displayed_hp = float(party_character.current_hp)
+	character_resource = _character
+	name = character_resource.identifier
+	character_texture.texture = character_resource.character_portrait
+	attacked_texture.texture = character_resource.character_damaged
+	info_vida_text.text = '[center]'+str(character_resource.current_hp)
+	displayed_hp = float(character_resource.current_hp)
+	vida_progress_bar.value = displayed_hp / float(character_resource.max_hp) * 100
 
 func focus_party_character() -> bool:
 	selected_button.grab_focus()
 	return true
 
 func _on_selected_button_pressed() -> void:
-	SignalBus.emit_signal("party_character_button_pressed", party_character, self)
+	SignalBus.emit_signal("party_character_button_pressed", character_resource, self)
 
 func set_health() -> void:
 	if tween:
@@ -53,12 +54,12 @@ func set_health() -> void:
 	tween = create_tween()
 
 	# var start_hp := int((vida_progress_bar.value / 100.0) * party_character.max_hp)
-	var target_hp := party_character.current_hp
+	var target_hp := character_resource.current_hp
 
 	tween.tween_method(func(value: float) -> void:
 		displayed_hp = value
 		info_vida_text.text = "[center]" + str(int(value))
-		vida_progress_bar.value = int((value / float(party_character.max_hp)) * 100)
+		vida_progress_bar.value = int((value / float(character_resource.max_hp)) * 100)
 	, float(displayed_hp), float(target_hp), 0.5)
 
 
@@ -115,7 +116,7 @@ func get_crit() -> bool:
 	else:
 		return false
 
-func kill_party_character() -> void:
+func kill_character() -> void:
 	dead = true
 	SignalBus.emit_signal("party_character_killed")
 	character_texture.modulate = Color(0.107, 0.107, 0.107)
@@ -125,7 +126,7 @@ func kill_party_character() -> void:
 func is_alive() -> bool:
 	return !dead
 
-func attacked() -> void:
+func show_attacked() -> void:
 	hitsound.play()
 	character_texture.visible = false
 	attacked_texture.visible = true

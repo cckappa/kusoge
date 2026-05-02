@@ -31,12 +31,12 @@ func _input(event:InputEvent) -> void:
 		dispatch("to_focus_attack")
 
 func _on_enemy_button_pressed(_enemy_resource:Character, _control:Control, _enemy_container:EnemyBattleClass) -> void:
-	if selected_ability.attack_animation and is_active():
+	if is_active():
 		selected_party_container = blackboard.get_var("selected_party_container")
-		selected_party_container.set_cooldown(selected_ability.wait_time)
+		selected_party_container.set_cooldown(selected_ability.ability_effect.wait_time)
 		selected_party_container.set_cooldown_color()
 
-		var animation_instance := selected_ability.attack_animation.instantiate()
+		var animation_instance:Node = selected_ability.ability_effect.attack_animation.instantiate()
 		animation_instance.connect("landed_ability", landed_ability.bind(selected_ability, _enemy_resource, _enemy_container))
 		_control.add_child(animation_instance)
 		dispatch("to_focus_party")
@@ -44,10 +44,10 @@ func _on_enemy_button_pressed(_enemy_resource:Character, _control:Control, _enem
 func landed_ability(ability:Ability, target:Character, enemy_container:EnemyBattleClass) -> void:
 	print("Landed ability: ", ability.ability_effect.ability_name, " on target: ", target.name, " with crit: ", crit)
 	ability.ability_effect.use_ability(target, enemy_container, crit)
-	if target.disabled:
-		enemy_container.kill_enemy()
+	# if target.disabled:
+	# 	enemy_container.kill()
 
-	enemy_container.set_health()
+	# enemy_container.set_health()
 	emit_enemies_defeated()
 
 func emit_enemies_defeated() -> void:

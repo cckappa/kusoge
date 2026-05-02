@@ -1,12 +1,25 @@
 [gd_resource type="Resource" script_class="Character" format=3 uid="uid://dw2nd8yp0anh1"]
 
-[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability.gd" id="1_k1awx"]
+[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability.gd" id="1_jgxa0"]
 [ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="2_exmd2"]
+[ext_resource type="Resource" uid="uid://cd8kprex7tr02" path="res://assets/resources/abilities/cuchillazo.tres" id="2_xpk5d"]
 [ext_resource type="Script" uid="uid://c8058f4jc2ul3" path="res://scripts/character.gd" id="3_apdnw"]
+[ext_resource type="Resource" uid="uid://cldr7s6qxpq0e" path="res://assets/resources/abilities/cachetada.tres" id="3_lqen7"]
+[ext_resource type="Script" uid="uid://cqxebod7a0a5t" path="res://scripts/fight_dialog.gd" id="5_4pikm"]
 [ext_resource type="Texture2D" uid="uid://d30mwsy67g10e" path="res://assets/character_portraits/espiga.png" id="6_r1spq"]
+
+[sub_resource type="Resource" id="Resource_xwsdm"]
+script = ExtResource("1_jgxa0")
+ability_effect = ExtResource("2_xpk5d")
+metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
+
+[sub_resource type="Resource" id="Resource_wdjrc"]
+script = ExtResource("1_jgxa0")
+ability_effect = ExtResource("3_lqen7")
+metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
 
 [resource]
 script = ExtResource("3_apdnw")
 character_portrait = ExtResource("6_r1spq")
 max_hp = 70
-abilities = Array[ExtResource("1_k1awx")]([null, null])
+abilities = Array[ExtResource("1_jgxa0")]([SubResource("Resource_xwsdm"), SubResource("Resource_wdjrc")])

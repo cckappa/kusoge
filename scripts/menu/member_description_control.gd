@@ -32,19 +32,24 @@ func _on_menu_party_character_focus_entered(_character:Character) -> void:
 
 	
 	for child in info_habilidades_v_box.get_children():
-		child.queue_free()
+		child.free()
 
 	for ability in _character.abilities:
 		var info_habilidad_instance:VBoxContainer=info_habilidad.instantiate()
-		if ability.effect == "NEGATIVE":
-			info_habilidades_v_box.add_child(info_habilidad_instance)
-			if _character.unlocked:
-				info_habilidad_instance.set_info(ability.ability_name, "_.-` d({d}) x {s}s '-._".format({"d":ability.damage_points,"s":ability.base_wait_time}))
-			else:
-				info_habilidad_instance.set_info("?????????", "_.-` d({d}) x {s}s '-._".format({"d":"?","s":"?"}))
-		elif ability.effect == "POSITIVE":
-			info_habilidades_v_box.add_child(info_habilidad_instance)
-			if _character.unlocked:
-				info_habilidad_instance.set_info(ability.ability_name, "_.-` h({d}) x {s}s '-._".format({"d":ability.heal_points,"s":ability.base_wait_time}))
-			else:
-				info_habilidad_instance.set_info("?????????", "_.-` h({d}) x {s}s '-._".format({"d":"?","s":"?"}))
+		info_habilidades_v_box.add_child(info_habilidad_instance)
+		if _character.unlocked:
+			info_habilidad_instance.call_deferred("set_info", ability.ability_effect.ability_name, "_.-` d({d}) x {s}s '-._".format({"d":ability.ability_effect.damage_amount,"s":ability.wait_time}))
+		else:
+			info_habilidad_instance.call_deferred("set_info", "?????????", "_.-` d({d}) x {s}s '-._".format({"d":"?","s":"?"}))
+		# if ability.effect == "NEGATIVE":
+		# 	info_habilidades_v_box.add_child(info_habilidad_instance)
+		# 	if _character.unlocked:
+		# 		info_habilidad_instance.set_info(ability.ability_name, "_.-` d({d}) x {s}s '-._".format({"d":ability.damage_points,"s":ability.base_wait_time}))
+		# 	else:
+		# 		info_habilidad_instance.set_info("?????????", "_.-` d({d}) x {s}s '-._".format({"d":"?","s":"?"}))
+		# elif ability.effect == "POSITIVE":
+		# 	info_habilidades_v_box.add_child(info_habilidad_instance)
+		# 	if _character.unlocked:
+		# 		info_habilidad_instance.set_info(ability.ability_name, "_.-` h({d}) x {s}s '-._".format({"d":ability.heal_points,"s":ability.base_wait_time}))
+		# 	else:
+		# 		info_habilidad_instance.set_info("?????????", "_.-` h({d}) x {s}s '-._".format({"d":"?","s":"?"}))
