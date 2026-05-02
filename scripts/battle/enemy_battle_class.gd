@@ -1,7 +1,7 @@
 class_name EnemyBattleClass
 extends Node
 
-@export var enemy_resource:EnemyResource=null
+@export var enemy_resource:Character=null
 @export var enemy_texture:Control
 @export var enemy_button:TextureButton
 @export var info_vida_text:RichTextLabel
@@ -40,7 +40,7 @@ func focus_enemy() -> bool:
 
 	return !enemy_resource.disabled
 
-func set_info(_enemy_resource:EnemyResource) -> void:
+func set_info(_enemy_resource:Character) -> void:
 	if _enemy_resource != null:
 		enemy_resource = _enemy_resource
 	info_vida_text.text = "[center]" + str(enemy_resource.max_hp)
@@ -130,10 +130,11 @@ func use_ability() -> void:
 
 
 func landed_ability(ability:Ability, target:Character, party_container:PanelContainer) -> void:
-	print("Enemy landed ability: ", ability.ability_name, " on target: ", target.name)
+	print("Enemy landed ability: ", ability.ability_effect.ability_name, " on target: ", target.name)
 	# target.take_damage(ability.damage_points)
 	# party_container.show_damage(current_ability.use_ability(current_target.party_character, false))
-	party_container.show_damage(ability.use_ability(target, false))
+	ability.ability_effect.use_ability(target, party_container, false)
+	# party_container.show_damage(ability.use_ability(target, false))
 	if target.disabled:
 		party_container.kill_party_character()
 	current_target.set_health()

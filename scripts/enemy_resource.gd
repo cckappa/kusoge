@@ -2,7 +2,6 @@ class_name EnemyResource
 extends Character
 
 @export var special_enemy:=false
-@export var enemy_container_path:="res://scenes/battle/enemy_basic_container.tscn"
 
 @export var enemy_fight_dialogs:Array[EnemyFightDialog]
 

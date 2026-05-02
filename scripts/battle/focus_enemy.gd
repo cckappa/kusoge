@@ -30,10 +30,10 @@ func _input(event:InputEvent) -> void:
 	if event.is_action_pressed("back") and is_active():
 		dispatch("to_focus_attack")
 
-func _on_enemy_button_pressed(_enemy_resource:EnemyResource, _control:Control, _enemy_container:EnemyBattleClass) -> void:
+func _on_enemy_button_pressed(_enemy_resource:Character, _control:Control, _enemy_container:EnemyBattleClass) -> void:
 	if selected_ability.attack_animation and is_active():
 		selected_party_container = blackboard.get_var("selected_party_container")
-		selected_party_container.set_cooldown(selected_ability.ability_effect.wait_time)
+		selected_party_container.set_cooldown(selected_ability.wait_time)
 		selected_party_container.set_cooldown_color()
 
 		var animation_instance := selected_ability.attack_animation.instantiate()

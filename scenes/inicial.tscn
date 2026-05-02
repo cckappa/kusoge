@@ -39,9 +39,9 @@
 [ext_resource type="AudioStream" uid="uid://dg8jfiyj6wy8a" path="res://assets/music/enemy_encounter.mp3" id="20_4ogc4"]
 [ext_resource type="Texture2D" uid="uid://clbm3kycuhvh8" path="res://assets/icons/save_star.png" id="32_4trcd"]
 [ext_resource type="Script" uid="uid://dct4fb2oheved" path="res://scripts/save_button.gd" id="32_i1jro"]
-[ext_resource type="Resource" uid="uid://cym74q2mvjcte" path="res://assets/resources/enemies/serpra.tres" id="36_mxbwd"]
+[ext_resource type="Resource" uid="uid://cym74q2mvjcte" path="res://assets/resources/enemies_del/serpra.tres" id="36_mxbwd"]
 [ext_resource type="Texture2D" uid="uid://c31kt0h0ajr2y" path="res://assets/objects/cosas_0000s_0000_maceta.png" id="37_4tk2x"]
-[ext_resource type="Resource" uid="uid://dhjur3x054uqu" path="res://assets/resources/enemies/lobo_salvaje.tres" id="37_5m0wc"]
+[ext_resource type="Resource" uid="uid://dhjur3x054uqu" path="res://assets/resources/enemies_del/lobo_salvaje.tres" id="37_5m0wc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7hm6u"]
 size = Vector2(320, 1835)

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d2s61368ejkvt" path="res://scripts/battle/enemy_containers/demo_tecnico_boss.gd" id="1_pib8w"]
 [ext_resource type="PackedScene" uid="uid://dfpxj66fotgf1" path="res://scenes/battle/enemy_containers/enemy_basic_container.tscn" id="2_yk663"]
 [ext_resource type="Script" uid="uid://chdi14bo5worb" path="res://scripts/battle/enemy_containers/boss_container.gd" id="3_lxicc"]
-[ext_resource type="Resource" uid="uid://bpjcrmsd44mru" path="res://assets/resources/enemies/rana_cosmica.tres" id="4_jy06p"]
+[ext_resource type="Resource" uid="uid://bpjcrmsd44mru" path="res://assets/resources/enemies_del/rana_cosmica.tres" id="4_jy06p"]
 
 [node name="DemoTecnicoBoss" type="Control" unique_id=553947955]
 layout_mode = 3

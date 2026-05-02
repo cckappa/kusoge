@@ -43,7 +43,7 @@ func _setup() -> void:
 
 func _free_children() -> void:
 	for child in party_h_box_container.get_children():
-		child.queue_free()
+		child.free()
 
 func _on_party_character_killed() -> void:
 	var alive_allies_containers := []

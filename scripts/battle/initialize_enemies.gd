@@ -63,17 +63,17 @@ func set_normal_battle() -> void:
 # 	# 	last_party_character_container.selected_button.focus_neighbor_right = first_party_character_container.selected_button.get_path()
 
 func _free_children() -> void:
-	demo_tecnico_boss.queue_free()
+	demo_tecnico_boss.free()
 	if blackboard.get_var("special_battle") == true:
-		center_container.queue_free()
+		center_container.free()
 	else:
 		for child in enemies_h_box_container.get_children():
-			child.queue_free()
+			child.free()
 
 
 func _check_battle_type() -> bool:
 	var is_special := false
 	for enemy in Globals.enemies:
-		if enemy.special_enemy == true:
+		if enemy.special_encounter == true:
 			is_special = true
 	return is_special

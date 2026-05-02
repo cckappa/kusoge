@@ -21,7 +21,7 @@ const SABIA_RANA_PEDRO = preload("res://assets/resources/characters/demo_tecnico
 const LOBUKI = preload("res://assets/resources/characters/demo_tecnico/lobuki.tres")
 
 
-var ene_1 := preload("res://assets/resources/enemies/serpra.tres")
+var ene_1 := preload("res://assets/resources/enemies/casita_salvaje.tres")
 var ene_2 := preload("res://assets/resources/enemies/lobo_salvaje.tres")
 var ene_especial := preload("res://assets/resources/enemies/rana_cosmica.tres")
 var enemies:Array[Character]
@@ -92,6 +92,7 @@ func setup_globals() -> void:
 	set_current_characters([ALICIA])
 
 	#ENEMIES USED
+	# enemies = [ene_1]
 	enemies = [ene_1, ene_2]
 	# enemies = [ene_especial]
 

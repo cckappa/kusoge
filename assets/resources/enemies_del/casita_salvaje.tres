@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://c5yt23t4nhw7j"]
+
+[ext_resource type="Script" uid="uid://b2p5sq3kkpyyc" path="res://scripts/abilities/ability.gd" id="1_x2smq"]
+[ext_resource type="Texture2D" uid="uid://vdib6tsjg4r1" path="res://assets/enemy_sprites/Casita_Salvaje.png" id="2_x0mym"]
+[ext_resource type="Script" uid="uid://bsp5qx4xq3r8" path="res://scripts/enemy_fight_dialog.gd" id="3_4fb3p"]
+[ext_resource type="Script" uid="uid://cqxebod7a0a5t" path="res://scripts/fight_dialog.gd" id="4_8lqsw"]
+[ext_resource type="Script" uid="uid://vwrbypy2w8xi" path="res://scripts/items/item.gd" id="5_e8jk8"]
+[ext_resource type="Resource" uid="uid://bqyq6l006wa1h" path="res://assets/resources/items/coffee.tres" id="6_si0n7"]
+[ext_resource type="Script" uid="uid://bmxggwbtvyxeb" path="res://scripts/enemy_resource.gd" id="7_r3irg"]
+
+[resource]
+script = ExtResource("7_r3irg")
+character_portrait = ExtResource("2_x0mym")
+max_hp = 120
+abilities = Array[ExtResource("1_x2smq")]([null, null])
+loot = Array[ExtResource("5_e8jk8")]([ExtResource("6_si0n7")])
+max_loot = 2
+metadata/_custom_type_script = "uid://bmxggwbtvyxeb"

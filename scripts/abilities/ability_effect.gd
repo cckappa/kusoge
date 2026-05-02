@@ -3,7 +3,6 @@ class_name AbilityEffect
 extends Resource
 
 @export var identifier:String
-@export var wait_time: float = 1.0
 
 var ability_name:String:
 	get:

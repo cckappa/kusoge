@@ -24,9 +24,9 @@
 [ext_resource type="Script" uid="uid://calbsshdno2ur" path="res://scripts/fight_manager.gd" id="24_xjcry"]
 [ext_resource type="Script" uid="uid://wk0pglf3r6ow" path="res://scripts/fights/fight_resource.gd" id="25_sjrv7"]
 [ext_resource type="Script" uid="uid://bmxggwbtvyxeb" path="res://scripts/enemy_resource.gd" id="26_xcwwi"]
-[ext_resource type="Resource" uid="uid://bj5ouo0g6ynd6" path="res://assets/resources/enemies/memory/nino_malo_1.tres" id="27_axlg8"]
+[ext_resource type="Resource" uid="uid://bj5ouo0g6ynd6" path="res://assets/resources/enemies_del/memory/nino_malo_1.tres" id="27_axlg8"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="27_ktgac"]
-[ext_resource type="Resource" uid="uid://dme334efssmlh" path="res://assets/resources/enemies/memory/nino_malo_2.tres" id="28_4jpor"]
+[ext_resource type="Resource" uid="uid://dme334efssmlh" path="res://assets/resources/enemies_del/memory/nino_malo_2.tres" id="28_4jpor"]
 [ext_resource type="Script" uid="uid://ifqsfamlb3pd" path="res://scripts/fights/stakes_resource.gd" id="28_l20no"]
 [ext_resource type="Script" uid="uid://c1jeqou5gv2cf" path="res://scripts/world_animation_player.gd" id="32_lmgfs"]
 

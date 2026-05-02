@@ -12,7 +12,6 @@ var description:String:
 		return tr("%s/%s/description" % [section_folder,identifier])
 @export var character_portrait:Texture
 @export var character_damaged:Texture
-@export var character_front:Texture
 @export var max_hp:int
 @export var unlocked:bool = false
 
@@ -28,11 +27,14 @@ var description:String:
 	"GRASS") var type: String = "NORMAL"
 @export var abilities:Array[Ability]
 
-@export_group("Enemy Info")
+@export_group("Loot")
 @export var loot:Array[Item]
 @export var min_loot:int = 0
 @export var max_loot:int = 1
-@export var selection:Selection
+
+@export_group("Battle Dialogs")
+@export var special_encounter:=false
+@export var fight_dialogs:Array[FightDialog]
 
 var current_hp:=-1
 var current_abilities:Array[Ability]
@@ -76,3 +78,42 @@ func add_loot_to_item_list() -> Array[Dictionary]:
 	
 	return added_loot
 	
+
+func get_intro_dialog() -> EnemyFightDialog:
+	if fight_dialogs.size() == 0:
+		return null
+
+	var intro_dialogs := []
+	for dialog in fight_dialogs:
+		if dialog.dialog_type == EnemyFightDialog.DialogType.INTRO:
+			intro_dialogs.append(dialog)
+
+	return intro_dialogs.pick_random()
+
+func get_health_trigger_dialogs() -> Array[EnemyFightDialog]:
+	if fight_dialogs.size() == 0:
+		return []
+
+	var health_dialogs :Array[EnemyFightDialog] = []
+	for dialog in fight_dialogs:
+		if dialog.dialog_type == EnemyFightDialog.DialogType.HEALTH_TRIGGER:
+			health_dialogs.append(dialog)
+
+	if health_dialogs.size() == 0:
+		return []
+	
+	return health_dialogs
+
+func get_victory_dialog() -> EnemyFightDialog:
+	if fight_dialogs.size() == 0:
+		return null
+	
+	var victory_dialogs :Array[EnemyFightDialog] = []
+	for dialog in fight_dialogs:
+		if dialog.dialog_type == EnemyFightDialog.DialogType.VICTORY:
+			victory_dialogs.append(dialog)
+
+	if victory_dialogs.size() == 0:
+		return null
+
+	return victory_dialogs.pick_random()
