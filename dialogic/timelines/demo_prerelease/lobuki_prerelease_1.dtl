@@ -1,0 +1,15 @@
+if {MapStates.demo_prerelease.nueva_amistad} == false:
+	lobuki: como llegaste aqui?
+	lobuki: amiga no se, llevo tres dias de fiesta
+	lobuki: ya perdi a todos mis amigos
+	lobuki: ya no se donde es el after
+else:
+	lobuki: ¿te gustaria ir al bosque?
+	lobuki: pues mucha suerte amiga
+	lobuki: yo me pienso quedar aquí
+	lobuki: aunque te podría acompañar si me consigues un cigarro
+	if Items.item_list.has("cigarro_lobuki"):
+		lobuki: ala de donde lo sacaste...
+		lobuki: muchas gracias!
+		lobuki: bueno, vamonos de aquí
+		[signal arg_type="dict" arg="{"amount":1,"take_item":"cigarro_lobuki_gives"}"]

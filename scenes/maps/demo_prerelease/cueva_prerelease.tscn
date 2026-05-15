@@ -1,0 +1,497 @@
+[gd_scene format=3 uid="uid://duwomurxxicxi"]
+
+[ext_resource type="Script" uid="uid://d0q32cfdk1wsf" path="res://scripts/maps/cueva_demo_tecnico.gd" id="1_wgs37"]
+[ext_resource type="Resource" uid="uid://bnbdkrk6q7vh1" path="res://assets/resources/maps/demo_prerelease/cueva_prerelease.tres" id="2_wgs37"]
+[ext_resource type="Script" uid="uid://5rnf247xyu5v" path="res://scripts/scene_creator_tool.gd" id="3_is3up"]
+[ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="4_cjf0f"]
+[ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="5_l1da2"]
+[ext_resource type="Texture2D" uid="uid://dk2g0sgely260" path="res://assets/backgrounds/demo_tecnico/FONDO.png" id="6_qepb5"]
+[ext_resource type="Texture2D" uid="uid://clex5tc2am6pg" path="res://assets/backgrounds/demo_tecnico/CUEVA.png" id="7_3csoj"]
+[ext_resource type="Script" uid="uid://do84xbf65qif" path="res://scripts/talk.gd" id="8_iu8q8"]
+[ext_resource type="Script" uid="uid://ca7mt0w3ffvhe" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="9_h5spe"]
+[ext_resource type="Script" uid="uid://cvyrqhq08dmm3" path="res://scripts/show_input.gd" id="10_qtwdi"]
+[ext_resource type="Script" uid="uid://bsvp6e76bx107" path="res://scripts/scene_changer.gd" id="11_7ecrl"]
+[ext_resource type="Script" uid="uid://b0gh7v5xk7w7w" path="res://scripts/item_giver.gd" id="11_58c7q"]
+[ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="12_y3tnj"]
+[ext_resource type="Script" uid="uid://g7sf10k2338d" path="res://scripts/npc_layer.gd" id="13_q5wxb"]
+[ext_resource type="PackedScene" uid="uid://h0q50x2317m1" path="res://scenes/npc.tscn" id="14_ouxha"]
+[ext_resource type="Texture2D" uid="uid://w42c684j7bkt" path="res://assets/spritesheets/demo_tecnico/LOBO.png" id="15_ekugr"]
+[ext_resource type="Script" uid="uid://bj1igyevn8g64" path="res://scripts/quests/quest.gd" id="16_nx5lj"]
+[ext_resource type="Resource" uid="uid://clu0pe7crj6f7" path="res://assets/resources/quests/cigarro_lobuki.tres" id="17_sv18p"]
+[ext_resource type="Script" uid="uid://moxcdo1lwavw" path="res://scripts/item_taker.gd" id="18_n57hq"]
+[ext_resource type="Resource" uid="uid://be2db4m15u3w5" path="res://assets/resources/items/cigarro_lobuki.tres" id="19_uaw67"]
+[ext_resource type="Script" uid="uid://dsfklbei7r5qc" path="res://scripts/object_layer.gd" id="20_4yhtw"]
+[ext_resource type="PackedScene" uid="uid://clmbh4jnxur05" path="res://scenes/objeto.tscn" id="21_dbn11"]
+[ext_resource type="Texture2D" uid="uid://cftt7j0vg133g" path="res://assets/backgrounds/demo_tecnico/FRENTE.png" id="22_m6y1f"]
+[ext_resource type="Script" uid="uid://ck4xyxoy5fldl" path="res://scripts/enemies_layer.gd" id="23_hjvvj"]
+[ext_resource type="Script" uid="uid://c2d2peg3ovb8n" path="res://scripts/saves_layer.gd" id="24_irrus"]
+[ext_resource type="Texture2D" uid="uid://c1ddgejajynqk" path="res://assets/spritesheets/demo_tecnico/SAVE.png" id="25_f7ba1"]
+[ext_resource type="Script" uid="uid://dct4fb2oheved" path="res://scripts/save_button.gd" id="26_bj14o"]
+[ext_resource type="Script" uid="uid://cv43fprb0dski" path="res://scripts/spawns_layer.gd" id="27_q4p7y"]
+[ext_resource type="PackedScene" uid="uid://bx88hvib56f0" path="res://scenes/menu/menu_sub_viewport.tscn" id="28_mtokg"]
+[ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="29_nik4m"]
+[ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="30_bw3ek"]
+[ext_resource type="PackedScene" uid="uid://dqi4bw7t4w0u8" path="res://scenes/add_new_character_animation.tscn" id="31_7g4bl"]
+[ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="32_fbrim"]
+[ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="33_8t5io"]
+[ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="34_4i6y3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chxpl"]
+size = Vector2(1134, 335)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xik8"]
+size = Vector2(302, 230)
+
+[sub_resource type="Texture2D" id="Texture2D_vrrpf"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("9_h5spe")
+path = "talks"
+metadata/_custom_type_script = "uid://ca7mt0w3ffvhe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xik8"]
+atlas = ExtResource("15_ekugr")
+region = Rect2(0, 0, 428, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quom2"]
+atlas = ExtResource("15_ekugr")
+region = Rect2(428, 0, 428, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g27c"]
+atlas = ExtResource("15_ekugr")
+region = Rect2(856, 0, 428, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrrpf"]
+atlas = ExtResource("15_ekugr")
+region = Rect2(1284, 0, 428, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ceigr"]
+atlas = ExtResource("15_ekugr")
+region = Rect2(1712, 0, 428, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4cm6"]
+atlas = ExtResource("15_ekugr")
+region = Rect2(2140, 0, 428, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4mmd"]
+atlas = ExtResource("15_ekugr")
+region = Rect2(0, 600, 428, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smvra"]
+atlas = ExtResource("15_ekugr")
+region = Rect2(428, 600, 428, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_joev4"]
+atlas = ExtResource("15_ekugr")
+region = Rect2(856, 600, 428, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccuyo"]
+atlas = ExtResource("15_ekugr")
+region = Rect2(1284, 600, 428, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brrda"]
+atlas = ExtResource("15_ekugr")
+region = Rect2(1712, 600, 428, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvs86"]
+atlas = ExtResource("15_ekugr")
+region = Rect2(2140, 600, 428, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfkqv"]
+atlas = ExtResource("15_ekugr")
+region = Rect2(0, 1200, 428, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vau0r"]
+atlas = ExtResource("15_ekugr")
+region = Rect2(428, 1200, 428, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eestf"]
+atlas = ExtResource("15_ekugr")
+region = Rect2(856, 1200, 428, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3erhx"]
+atlas = ExtResource("15_ekugr")
+region = Rect2(1284, 1200, 428, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u30oo"]
+atlas = ExtResource("15_ekugr")
+region = Rect2(1712, 1200, 428, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xob34"]
+atlas = ExtResource("15_ekugr")
+region = Rect2(2140, 1200, 428, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7si0u"]
+atlas = ExtResource("15_ekugr")
+region = Rect2(0, 1800, 428, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b286q"]
+atlas = ExtResource("15_ekugr")
+region = Rect2(428, 1800, 428, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0mxj"]
+atlas = ExtResource("15_ekugr")
+region = Rect2(856, 1800, 428, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fd5w"]
+atlas = ExtResource("15_ekugr")
+region = Rect2(1284, 1800, 428, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khio5"]
+atlas = ExtResource("15_ekugr")
+region = Rect2(1712, 1800, 428, 600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nu2yi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xik8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_quom2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g27c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrrpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ceigr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4cm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4mmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smvra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joev4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccuyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brrda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvs86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfkqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vau0r")
+}, {
+"duration": 7.0,
+"texture": SubResource("AtlasTexture_eestf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3erhx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u30oo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xob34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7si0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b286q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0mxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fd5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khio5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_55pex"]
+radius = 177.553
+
+[sub_resource type="Texture2D" id="Texture2D_c4cm6"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("9_h5spe")
+path = "talks"
+metadata/_custom_type_script = "uid://ca7mt0w3ffvhe"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2263"]
+atlas = ExtResource("25_f7ba1")
+region = Rect2(0, 0, 623, 401)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gaeh"]
+atlas = ExtResource("25_f7ba1")
+region = Rect2(623, 0, 623, 401)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jx6xw"]
+atlas = ExtResource("25_f7ba1")
+region = Rect2(0, 401, 623, 401)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_os3nl"]
+atlas = ExtResource("25_f7ba1")
+region = Rect2(0, 802, 623, 401)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wd4o3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2263")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_4gaeh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jx6xw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_os3nl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n0a8t"]
+radius = 161.941
+
+[sub_resource type="Texture2D" id="Texture2D_c4mmd"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("9_h5spe")
+path = "talks"
+metadata/_custom_type_script = "uid://ca7mt0w3ffvhe"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2kmg"]
+size = Vector2(3840, 2160)
+
+[node name="CuevaPrerelease" type="Node2D" unique_id=488817035]
+y_sort_enabled = true
+script = ExtResource("1_wgs37")
+single_map_resource = ExtResource("2_wgs37")
+
+[node name="SceneCreatorTool" type="Node" parent="." unique_id=1890355290]
+script = ExtResource("3_is3up")
+metadata/_custom_type_script = "uid://5rnf247xyu5v"
+
+[node name="ParallaxBackgroundLayer" type="Node2D" parent="." unique_id=1638347301]
+z_index = -1
+script = ExtResource("4_cjf0f")
+
+[node name="BackgroundLayer" type="Node2D" parent="." unique_id=757565667]
+z_index = -1
+script = ExtResource("5_l1da2")
+
+[node name="Fondo" type="Sprite2D" parent="BackgroundLayer" unique_id=706814698]
+texture = ExtResource("6_qepb5")
+
+[node name="Cueva" type="Sprite2D" parent="BackgroundLayer" unique_id=2011263897]
+texture = ExtResource("7_3csoj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BackgroundLayer" unique_id=1947243324]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D" unique_id=1672924308]
+position = Vector2(16, -4.5)
+shape = SubResource("RectangleShape2D_chxpl")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=939829986]
+polygon = PackedVector2Array(-483, 133, -1030, 820, -992, -258, -472, -228)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=1976308431]
+polygon = PackedVector2Array(462, 122, 584, 255, 645, 152, 846, 285, 793, 448, 1017, 817, 1013, -235, 470, -209)
+
+[node name="Talk" type="Node2D" parent="BackgroundLayer" unique_id=425450522 node_paths=PackedStringArray("talking_area")]
+position = Vector2(-947, 579)
+script = ExtResource("8_iu8q8")
+talking_area = NodePath("Area2D")
+timeline_name = "cigarros_suelo_prerelease"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="BackgroundLayer/Talk" unique_id=1904151815]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundLayer/Talk/Area2D" unique_id=1285253863]
+position = Vector2(141, 105)
+shape = SubResource("RectangleShape2D_6xik8")
+
+[node name="ShowInput" type="Sprite2D" parent="BackgroundLayer/Talk" unique_id=1841451539]
+position = Vector2(54, -185)
+texture = SubResource("Texture2D_vrrpf")
+script = ExtResource("10_qtwdi")
+metadata/_custom_type_script = "uid://cvyrqhq08dmm3"
+
+[node name="ItemGiver" type="Node" parent="BackgroundLayer/Talk" unique_id=884297556]
+script = ExtResource("11_58c7q")
+item = ExtResource("19_uaw67")
+dialogic_signal = "cigarro_lobuki"
+metadata/_custom_type_script = "uid://b0gh7v5xk7w7w"
+
+[node name="SceneChanger" type="Area2D" parent="BackgroundLayer" unique_id=687229619 node_paths=PackedStringArray("black_rect")]
+position = Vector2(729, 270)
+script = ExtResource("11_7ecrl")
+target_scene = "res://scenes/maps/demo_prerelease/pasillo_prerelease.tscn"
+target_marker = "EntradaCueva"
+black_rect = NodePath("../../CanvasLayer/BlackRect")
+metadata/_custom_type_script = "uid://bsvp6e76bx107"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/SceneChanger" unique_id=807267533]
+polygon = PackedVector2Array(-138, -65, 166, 193, 193, -53, -92, -213)
+
+[node name="PlayableCharacter" parent="." unique_id=1947602330 instance=ExtResource("12_y3tnj")]
+position = Vector2(-621, 465)
+
+[node name="NpcLayer" type="Node2D" parent="." unique_id=1198622048]
+y_sort_enabled = true
+script = ExtResource("13_q5wxb")
+
+[node name="Lobito" parent="NpcLayer" unique_id=1932100479 instance=ExtResource("14_ouxha")]
+position = Vector2(-426, 570)
+
+[node name="AnimatedSprite2D" parent="NpcLayer/Lobito" index="0"]
+sprite_frames = SubResource("SpriteFrames_nu2yi")
+autoplay = "default"
+frame_progress = 0.545928
+offset = Vector2(0, -189)
+
+[node name="CollisionPolygon2D" parent="NpcLayer/Lobito/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-19, 53, -55, 5, -29, -24, 66, -55, 141, -60, 168, -5, 211, 46, 71, 97, 31, 61)
+
+[node name="Quest" type="Node2D" parent="NpcLayer/Lobito" unique_id=1131178270]
+script = ExtResource("16_nx5lj")
+quest_resource = ExtResource("17_sv18p")
+dialogic_signal = "lobuki_cigarro_0"
+metadata/_custom_type_script = "uid://bj1igyevn8g64"
+
+[node name="Talk" type="Node2D" parent="NpcLayer/Lobito" unique_id=1236630513 node_paths=PackedStringArray("talking_area")]
+script = ExtResource("8_iu8q8")
+talking_area = NodePath("Area2D")
+timeline_name = "lobuki_prerelease_1"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="NpcLayer/Lobito/Talk" unique_id=25787047]
+position = Vector2(40, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/Lobito/Talk/Area2D" unique_id=987339835]
+shape = SubResource("CircleShape2D_55pex")
+
+[node name="ShowInput" type="Sprite2D" parent="NpcLayer/Lobito/Talk" unique_id=245233131]
+position = Vector2(111, -454)
+texture = SubResource("Texture2D_c4cm6")
+script = ExtResource("10_qtwdi")
+metadata/_custom_type_script = "uid://cvyrqhq08dmm3"
+
+[node name="ItemTaker" type="Node" parent="NpcLayer/Lobito" unique_id=1323240480]
+script = ExtResource("18_n57hq")
+item = ExtResource("19_uaw67")
+dialogic_signal = "cigarro_lobuki_gives"
+metadata/_custom_type_script = "uid://moxcdo1lwavw"
+
+[node name="ObjectLayer" type="Node2D" parent="." unique_id=864926928]
+y_sort_enabled = true
+script = ExtResource("20_4yhtw")
+
+[node name="PiedrasFrente" parent="ObjectLayer" unique_id=1262249863 instance=ExtResource("21_dbn11")]
+position = Vector2(0, 818)
+
+[node name="Sprite2D" parent="ObjectLayer/PiedrasFrente" index="0"]
+texture = ExtResource("22_m6y1f")
+offset = Vector2(0, -323)
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/PiedrasFrente/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-1004, -318, -867, -217, -695, -56, -568, -35, -327, -87, -172, -52, 3, -85, 217, -120, 321, -167, 581, -137, 818, -208, 821, -339, 871, -443, 1000, -450, 1036, 5, 390, 45, -1016, 21)
+
+[node name="EnemiesLayer" type="Node2D" parent="." unique_id=1521005982]
+y_sort_enabled = true
+script = ExtResource("23_hjvvj")
+
+[node name="SavesLayer" type="Node2D" parent="." unique_id=2007865816]
+y_sort_enabled = true
+script = ExtResource("24_irrus")
+
+[node name="HadaSave" parent="SavesLayer" unique_id=1673696133 instance=ExtResource("14_ouxha")]
+position = Vector2(0, 156)
+
+[node name="AnimatedSprite2D" parent="SavesLayer/HadaSave" index="0"]
+sprite_frames = SubResource("SpriteFrames_wd4o3")
+autoplay = "default"
+frame_progress = 0.528099
+offset = Vector2(0, -132)
+
+[node name="CollisionPolygon2D" parent="SavesLayer/HadaSave/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-303, 17, -205, 40, 67, 51, 222, 48, 303, 28, 260, -32, 71, -49, -155, -44, -249, -15)
+
+[node name="Talk" type="Node2D" parent="SavesLayer/HadaSave" unique_id=1337173165 node_paths=PackedStringArray("talking_area")]
+position = Vector2(-17, -32)
+script = ExtResource("8_iu8q8")
+talking_area = NodePath("Area2D")
+timeline_name = "hada_save_cueva_demo"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="SavesLayer/HadaSave/Talk" unique_id=289013269]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SavesLayer/HadaSave/Talk/Area2D" unique_id=937601244]
+shape = SubResource("CircleShape2D_n0a8t")
+
+[node name="ShowInput" type="Sprite2D" parent="SavesLayer/HadaSave/Talk" unique_id=473543698]
+position = Vector2(-11, -371)
+texture = SubResource("Texture2D_c4mmd")
+script = ExtResource("10_qtwdi")
+metadata/_custom_type_script = "uid://cvyrqhq08dmm3"
+
+[node name="SaveButton" type="Node2D" parent="SavesLayer/HadaSave" unique_id=1581483897]
+script = ExtResource("26_bj14o")
+dialogic_save_argument = &"hada_save_cueva_demo"
+metadata/_custom_type_script = "uid://dct4fb2oheved"
+
+[node name="SpawnsLayer" type="Node2D" parent="." unique_id=962499191]
+y_sort_enabled = true
+script = ExtResource("27_q4p7y")
+metadata/_custom_type_script = "uid://cv43fprb0dski"
+
+[node name="DefaultMarker" type="Marker2D" parent="SpawnsLayer" unique_id=343029153]
+position = Vector2(-14, 402)
+
+[node name="EntradaCueva" type="Marker2D" parent="SpawnsLayer" unique_id=1947436228]
+position = Vector2(527, 366)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=942976466]
+
+[node name="MenuSubViewport" parent="CanvasLayer" unique_id=158507729 instance=ExtResource("28_mtokg")]
+visible = false
+
+[node name="SettingsMenu" parent="CanvasLayer" unique_id=371702260 instance=ExtResource("29_nik4m")]
+metadata/_edit_lock_ = true
+
+[node name="NotificationCenter" parent="CanvasLayer" unique_id=960985354 instance=ExtResource("30_bw3ek")]
+metadata/_edit_lock_ = true
+
+[node name="AddNewCharacterAnimation" parent="CanvasLayer" unique_id=1298839809 instance=ExtResource("31_7g4bl")]
+metadata/_edit_lock_ = true
+
+[node name="AddNewItemAnimation" parent="CanvasLayer" unique_id=325338057 instance=ExtResource("32_fbrim")]
+metadata/_edit_lock_ = true
+
+[node name="BlackRect" parent="CanvasLayer" unique_id=1369938301 instance=ExtResource("33_8t5io")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=145332053]
+
+[node name="CameraManager" parent="." unique_id=1376107199 instance=ExtResource("34_4i6y3")]
+
+[node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" parent_id_path=PackedInt32Array(1376107199, 1986731475) index="0" unique_id=1569982798]
+shape = SubResource("RectangleShape2D_m2kmg")
+
+[editable path="NpcLayer/Lobito"]
+[editable path="ObjectLayer/PiedrasFrente"]
+[editable path="SavesLayer/HadaSave"]
+[editable path="CameraManager"]

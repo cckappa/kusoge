@@ -28,11 +28,14 @@ func start_dialog() -> void:
 
 func _on_timeline_ended() -> void:
 	talking = false
+	automatic_start_triggered = false
 	SignalBus.emit_signal("stops_talking")
 	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
 	print("termina de hablar")
 	if talk_type == 1: # one_shot
 		set_disabled(true)
+	else:
+		set_disabled(false)
 
 func _input(event:InputEvent) -> void:
 	if event.is_action_pressed("talks") and talking_zone and !talking and not automatic_start_triggered and not disabled:

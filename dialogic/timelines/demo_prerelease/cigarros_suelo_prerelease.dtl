@@ -1,0 +1,9 @@
+[style name="object_info"]
+un cajetilla de cigarros toda apachurrada
+adentro parece que queda un último cigarro
+está un poco mojado y ves como una cucaracha pasó por encima
+if {MapStates.demo_prerelease.nueva_amistad} == true:
+	agarras la cigarro?
+	- si
+		[signal arg_type="dict" arg="{"amount":1,"give_item":"cigarro_lobuki"}"]
+	- no guacala

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://da60fhf2hpt08"]
+[gd_scene format=3 uid="uid://da60fhf2hpt08"]
 
 [ext_resource type="Script" uid="uid://84ck8i2ypykl" path="res://scripts/camera_manager.gd" id="1_rc1ae"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_ujni5"]
@@ -6,33 +6,33 @@
 [ext_resource type="PackedScene" uid="uid://bfmoovgy8msfb" path="res://scenes/phantom_camera_2d_setupped.tscn" id="4_y2ba2"]
 [ext_resource type="Script" uid="uid://desx1xrrvf1ew" path="res://scripts/reminder_phantom_camera.gd" id="5_ujni5"]
 
-[node name="CameraManager" type="Node" node_paths=PackedStringArray("phantom_cameras", "current_camera")]
+[node name="CameraManager" type="Node" unique_id=1203642049 node_paths=PackedStringArray("phantom_cameras", "current_camera")]
 script = ExtResource("1_rc1ae")
 phantom_cameras = [NodePath("PhantomCameras/PhantomCamera2D")]
 current_camera = NodePath("PhantomCameras/PhantomCamera2D")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=440357056]
 zoom = Vector2(1.2, 1.2)
 editor_draw_limits = true
 
-[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1574566684]
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("2_ujni5")
 
-[node name="AreasLimits" type="Node" parent="."]
+[node name="AreasLimits" type="Node" parent="." unique_id=1278964458]
 
-[node name="CameraLimit" type="Area2D" parent="AreasLimits"]
+[node name="CameraLimit" type="Area2D" parent="AreasLimits" unique_id=1986731475]
 
-[node name="CameraCollision" parent="AreasLimits/CameraLimit" instance=ExtResource("3_m66yv")]
+[node name="CameraCollision" parent="AreasLimits/CameraLimit" unique_id=1569982798 instance=ExtResource("3_m66yv")]
 metadata/_edit_lock_ = true
 
-[node name="PhantomCameras" type="Node" parent="."]
+[node name="PhantomCameras" type="Node" parent="." unique_id=219495286]
 
-[node name="PhantomCamera2D" parent="PhantomCameras" instance=ExtResource("4_y2ba2")]
+[node name="PhantomCamera2D" parent="PhantomCameras" unique_id=437005990 instance=ExtResource("4_y2ba2")]
 tween_on_load = false
 
-[node name="ReminderPhantomCamera" type="Node" parent="PhantomCameras"]
+[node name="ReminderPhantomCamera" type="Node" parent="PhantomCameras" unique_id=652175356]
 script = ExtResource("5_ujni5")
 
-[node name="CameraZoneAreas" type="Node" parent="."]
+[node name="CameraZoneAreas" type="Node" parent="." unique_id=1668372668]

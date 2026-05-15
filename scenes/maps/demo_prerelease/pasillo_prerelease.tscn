@@ -1,0 +1,272 @@
+[gd_scene format=3 uid="uid://ccrqw36oaa271"]
+
+[ext_resource type="Script" uid="uid://cka70sgov4idk" path="res://scripts/maps/demo_prerelease/pasillo_prerelease.gd" id="1_m12uc"]
+[ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="2_43kn3"]
+[ext_resource type="Resource" uid="uid://dn222cj7wa2my" path="res://assets/resources/maps/demo_prerelease/pasillo_prerelease.tres" id="2_rd1as"]
+[ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="3_qk4qj"]
+[ext_resource type="PackedScene" uid="uid://ckc0rqj4d6b16" path="res://scenes/gray_box.tscn" id="4_hb4ug"]
+[ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="4_vrexx"]
+[ext_resource type="Script" uid="uid://bhg6tus2nlmgr" path="res://scripts/gray_box.gd" id="5_2v0vb"]
+[ext_resource type="Script" uid="uid://bsvp6e76bx107" path="res://scripts/scene_changer.gd" id="7_18dyx"]
+[ext_resource type="Script" uid="uid://g7sf10k2338d" path="res://scripts/npc_layer.gd" id="7_hb4ug"]
+[ext_resource type="Script" uid="uid://dsfklbei7r5qc" path="res://scripts/object_layer.gd" id="8_2v0vb"]
+[ext_resource type="Script" uid="uid://ck4xyxoy5fldl" path="res://scripts/enemies_layer.gd" id="9_jy20a"]
+[ext_resource type="PackedScene" uid="uid://cel1jfamiy0ik" path="res://scenes/gray_box_npc.tscn" id="10_jy20a"]
+[ext_resource type="Script" uid="uid://cv43fprb0dski" path="res://scripts/spawns_layer.gd" id="10_rd1as"]
+[ext_resource type="Script" uid="uid://ca7mt0w3ffvhe" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="11_6fac6"]
+[ext_resource type="Script" uid="uid://c2d2peg3ovb8n" path="res://scripts/saves_layer.gd" id="11_8e1vf"]
+[ext_resource type="Texture2D" uid="uid://byxrqklktxr3j" path="res://assets/spritesheets/demo_tecnico/RANASABIA.png" id="12_8e1vf"]
+[ext_resource type="PackedScene" uid="uid://bx88hvib56f0" path="res://scenes/menu/menu_sub_viewport.tscn" id="12_b6ygi"]
+[ext_resource type="Script" uid="uid://do84xbf65qif" path="res://scripts/talk.gd" id="13_jy20a"]
+[ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="14_gxate"]
+[ext_resource type="Script" uid="uid://cvyrqhq08dmm3" path="res://scripts/show_input.gd" id="14_rd1as"]
+[ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="16_71kmb"]
+[ext_resource type="PackedScene" uid="uid://dqi4bw7t4w0u8" path="res://scenes/add_new_character_animation.tscn" id="18_26b6c"]
+[ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="20_ldarq"]
+[ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="22_0serw"]
+[ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="23_r1ja0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6ygi"]
+atlas = ExtResource("12_8e1vf")
+region = Rect2(0, 0, 566, 483)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jf04u"]
+atlas = ExtResource("12_8e1vf")
+region = Rect2(566, 0, 566, 483)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxate"]
+atlas = ExtResource("12_8e1vf")
+region = Rect2(0, 483, 566, 483)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gqsw"]
+atlas = ExtResource("12_8e1vf")
+region = Rect2(566, 483, 566, 483)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71kmb"]
+atlas = ExtResource("12_8e1vf")
+region = Rect2(0, 966, 566, 483)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cfkf"]
+atlas = ExtResource("12_8e1vf")
+region = Rect2(566, 966, 566, 483)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_26b6c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6ygi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jf04u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxate")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gqsw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71kmb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cfkf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="Texture2D" id="Texture2D_q6lvv"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("11_6fac6")
+path = "talks"
+metadata/_custom_type_script = "uid://ca7mt0w3ffvhe"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8e1vf"]
+radius = 119.67
+height = 598.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jy20a"]
+size = Vector2(285, 1526)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4chq3"]
+size = Vector2(3476, 4681)
+
+[node name="PasilloPrerelease" type="Node2D" unique_id=610098658]
+y_sort_enabled = true
+script = ExtResource("1_m12uc")
+single_map_resource = ExtResource("2_rd1as")
+
+[node name="ParallaxBackgroundLayer" type="Node2D" parent="." unique_id=2101963592]
+z_index = -1
+script = ExtResource("2_43kn3")
+
+[node name="BackgroundLayer" type="Node2D" parent="." unique_id=1737565633]
+z_index = -1
+script = ExtResource("3_qk4qj")
+
+[node name="GrayBox" parent="BackgroundLayer" unique_id=1797927552 instance=ExtResource("4_hb4ug")]
+
+[node name="Polygon2D" parent="BackgroundLayer/GrayBox" index="0"]
+polygon = PackedVector2Array(-709, -1035, 703, -1022, 809, 3145, -837, 3124)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BackgroundLayer" unique_id=561605950]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=1106795432]
+polygon = PackedVector2Array(-736, -406, -833, 3102, -1151, 3102, -1012, -480)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=1994396637]
+polygon = PackedVector2Array(-1102, 3037, 966, 3078, 1015, 3403, -1167, 3306, -1143, 3184)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=770417696]
+polygon = PackedVector2Array(835, 3135, 689, -1188, 901, -1196, 1161, 3167)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=929200846]
+polygon = PackedVector2Array(-795, -1037, 922, -1007, 952, -1214, -854, -1237)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=2142556422]
+polygon = PackedVector2Array(-1009, -807, -691, -770, -676, -1133, -987, -1148)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=1021341512]
+polygon = PackedVector2Array(-876, -400, -847, -992, -1157, -1007, -1157, -267)
+
+[node name="PuertaCueva" parent="BackgroundLayer" unique_id=195993784 groups=["objects"] instance=ExtResource("4_hb4ug")]
+position = Vector2(-763, -587)
+script = ExtResource("5_2v0vb")
+
+[node name="Polygon2D" parent="BackgroundLayer/PuertaCueva" index="0"]
+color = Color(0.32915837, 0.3291584, 0.3291583, 1)
+polygon = PackedVector2Array(42, -205, -68, -212, -89, 165, 35, 189)
+
+[node name="Sprite" parent="BackgroundLayer/PuertaCueva" index="1"]
+unique_name_in_owner = true
+
+[node name="Label" parent="BackgroundLayer/PuertaCueva" index="2"]
+offset_right = 40.0
+offset_bottom = 22.3333
+theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+
+[node name="SceneChanger" type="Area2D" parent="BackgroundLayer/PuertaCueva" unique_id=1718373637 node_paths=PackedStringArray("black_rect")]
+script = ExtResource("7_18dyx")
+target_scene = "res://scenes/maps/demo_prerelease/cueva_prerelease.tscn"
+target_marker = "EntradaCueva"
+black_rect = NodePath("../../../CanvasLayer/BlackRect")
+metadata/_custom_type_script = "uid://bsvp6e76bx107"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/PuertaCueva/SceneChanger" unique_id=120420610]
+polygon = PackedVector2Array(-5, -229, -1, 222, -136, 183, -132, -243)
+
+[node name="PlayableCharacter" parent="." unique_id=2078442437 instance=ExtResource("4_vrexx")]
+
+[node name="NpcLayer" type="Node2D" parent="." unique_id=921746432]
+y_sort_enabled = true
+script = ExtResource("7_hb4ug")
+
+[node name="RanaSabia" parent="NpcLayer" unique_id=2078170223 instance=ExtResource("10_jy20a")]
+position = Vector2(8, -848)
+
+[node name="Sprite" parent="NpcLayer/RanaSabia" index="1"]
+sprite_frames = SubResource("SpriteFrames_26b6c")
+autoplay = "default"
+frame_progress = 0.65802336
+offset = Vector2(0, -210)
+
+[node name="Talk" type="Node2D" parent="NpcLayer/RanaSabia" unique_id=571831009 node_paths=PackedStringArray("talking_area")]
+script = ExtResource("13_jy20a")
+talking_area = NodePath("Area2D")
+timeline_name = "rana_sabia_prerelease_1"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="ShowInput" type="Sprite2D" parent="NpcLayer/RanaSabia/Talk" unique_id=1856382259]
+position = Vector2(0, -517)
+texture = SubResource("Texture2D_q6lvv")
+script = ExtResource("14_rd1as")
+metadata/_custom_type_script = "uid://cvyrqhq08dmm3"
+
+[node name="Area2D" type="Area2D" parent="NpcLayer/RanaSabia/Talk" unique_id=1612902599]
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/RanaSabia/Talk/Area2D" unique_id=1483442626]
+shape = SubResource("CapsuleShape2D_8e1vf")
+
+[node name="Talk2" type="Node2D" parent="NpcLayer/RanaSabia" unique_id=1553319621 node_paths=PackedStringArray("talking_area")]
+position = Vector2(-13, 1236)
+script = ExtResource("13_jy20a")
+talking_area = NodePath("Area2D")
+automatic_start = true
+timeline_name = "rana_sabia_prerelease_alerta_1"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="NpcLayer/RanaSabia/Talk2" unique_id=987052478]
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/RanaSabia/Talk2/Area2D" unique_id=1460758544]
+position = Vector2(-30.5, 4.7683716e-07)
+shape = SubResource("RectangleShape2D_jy20a")
+
+[node name="ObjectLayer" type="Node2D" parent="." unique_id=1624691151]
+y_sort_enabled = true
+script = ExtResource("8_2v0vb")
+
+[node name="EnemiesLayer" type="Node2D" parent="." unique_id=428027711]
+y_sort_enabled = true
+script = ExtResource("9_jy20a")
+
+[node name="SpawnsLayer" type="Node2D" parent="." unique_id=1926119750]
+y_sort_enabled = true
+script = ExtResource("10_rd1as")
+
+[node name="DefaultMarker" type="Marker2D" parent="SpawnsLayer" unique_id=324115951]
+
+[node name="EntradaCueva" type="Marker2D" parent="SpawnsLayer" unique_id=1282163632]
+position = Vector2(-599, -572)
+
+[node name="SavesLayer" type="Node2D" parent="." unique_id=355089605]
+y_sort_enabled = true
+script = ExtResource("11_8e1vf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=675891627]
+
+[node name="MenuSubViewport" parent="CanvasLayer" unique_id=158507729 instance=ExtResource("12_b6ygi")]
+visible = false
+
+[node name="SettingsMenu" parent="CanvasLayer" unique_id=2024337667 instance=ExtResource("14_gxate")]
+metadata/_edit_lock_ = true
+
+[node name="NotificationCenter" parent="CanvasLayer" unique_id=991527537 instance=ExtResource("16_71kmb")]
+metadata/_edit_lock_ = true
+
+[node name="AddNewCharacterAnimation" parent="CanvasLayer" unique_id=514298111 instance=ExtResource("18_26b6c")]
+metadata/_edit_lock_ = true
+
+[node name="AddNewItemAnimation" parent="CanvasLayer" unique_id=1292005086 instance=ExtResource("20_ldarq")]
+metadata/_edit_lock_ = true
+
+[node name="BlackRect" parent="CanvasLayer" unique_id=223358979 instance=ExtResource("22_0serw")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1940355868]
+
+[node name="CameraManager" parent="." unique_id=1992687465 instance=ExtResource("23_r1ja0")]
+
+[node name="Camera2D" parent="CameraManager" index="0" unique_id=440357056]
+physics_interpolation_mode = 1
+process_callback = 0
+limit_left = -1790
+limit_top = -1459
+limit_right = 1686
+limit_bottom = 3222
+
+[node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" parent_id_path=PackedInt32Array(1992687465, 1986731475) index="0" unique_id=1569982798]
+position = Vector2(-52, 881.5)
+shape = SubResource("RectangleShape2D_4chq3")
+
+[node name="PhantomCamera2D" parent="CameraManager/PhantomCameras" parent_id_path=PackedInt32Array(1992687465, 219495286) index="0" unique_id=437005990 node_paths=PackedStringArray("follow_target")]
+follow_target = NodePath("../../../PlayableCharacter")
+limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
+
+[editable path="BackgroundLayer/GrayBox"]
+[editable path="BackgroundLayer/PuertaCueva"]
+[editable path="NpcLayer/RanaSabia"]
+[editable path="CameraManager"]

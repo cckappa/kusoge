@@ -13,7 +13,7 @@ func _on_dialogic_signal(argument:Dictionary) -> void:
 		return
 
 	if dialogic_signal != "" and argument.give_item == dialogic_signal:
-		if argument.amount != null:
+		if argument.has("amount"):
 			item.add_to_items(argument.amount)
 		else:
 			printerr("argument.amount not provided")

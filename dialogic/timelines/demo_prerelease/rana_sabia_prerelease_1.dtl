@@ -1,0 +1,4 @@
+sabia_rana_pedro: es peligroso alla afuera
+sabia_rana_pedro: no vayas sola
+sabia_rana_pedro: intenta hacer un amigo antes
+set {MapStates.demo_prerelease.nueva_amistad} = true

@@ -1,0 +1,5 @@
+sabia_rana_pedro: ¡ey niña! sh sh
+sabia_rana_pedro: ¿qué piensas que haces?
+sabia_rana_pedro: ¡es muy peligroso ir por ahí, regrésate!
+[signal arg_type="dict" arg="{"name":"empuja_alicia"}"]
+[wait time="0.5"]
