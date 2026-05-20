@@ -15,6 +15,11 @@
 [ext_resource type="Script" uid="uid://cpopq75r5iwyw" path="res://scripts/menu/hovering_effect.gd" id="11_3amih"]
 [ext_resource type="AudioStream" uid="uid://btagcqpq4o02r" path="res://assets/sfx/162792__timgormly__8-bit-explosion1.mp3" id="14_u5r7s"]
 [ext_resource type="AudioStream" uid="uid://cp7ukw7yg8emv" path="res://assets/sfx/387137-584244_djfroyd_smokinghotdog.mp3" id="15_niuge"]
+[ext_resource type="Script" uid="uid://lkd71tc457p4" path="res://scripts/battle/emission_node.gd" id="16_cb7uv"]
+[ext_resource type="Texture2D" uid="uid://bi0th8pwegekv" path="res://assets/icons/medium_particle.png" id="17_vfwj8"]
+[ext_resource type="Texture2D" uid="uid://uvy6bx7c8nhe" path="res://assets/icons/confetti_particle.png" id="18_ysaeg"]
+[ext_resource type="PackedScene" uid="uid://b7bvrpga1v04o" path="res://scenes/hit_particles_star.tscn" id="19_mjg05"]
+[ext_resource type="PackedScene" uid="uid://j5owvy2xjpt6" path="res://scenes/hit_particles_long_circle.tscn" id="20_7pmwi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3amih"]
 
@@ -27,6 +32,33 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_klaal"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_niuge"]
+
+[sub_resource type="Curve" id="Curve_khejj"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(0.57843137, 2), -0.37535396, -0.37535396, 0, 0, Vector2(1, 0), -5.987616, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_khbe0"]
+offsets = PackedFloat32Array(0, 0.24285714)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 1)
+
+[sub_resource type="Curve" id="Curve_gygcd"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.32026142, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.029722571), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_2oj3c"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_2ltj8"]
+_data = [Vector2(0, 0.29590487), 0.0, 0.0, 0, 0, Vector2(1e-05, 0), 0.0, 0.0, 0, 0, Vector2(0.4313725, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_qpwam"]
+_limits = [0.0, 1.8, 0.0, 1.0]
+_data = [Vector2(0.114379086, 0), 0.0, 0.0, 0, 0, Vector2(0.9117647, 1.8), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="PartyCharacterContainer" type="PanelContainer" unique_id=795346071]
 offset_right = 595.0
@@ -201,6 +233,121 @@ bus = &"SFX"
 stream = ExtResource("15_niuge")
 volume_db = 0.505
 bus = &"SFX"
+
+[node name="VisualEffects" type="Control" parent="." unique_id=219558204]
+layout_mode = 2
+
+[node name="EmissionNode" type="Control" parent="VisualEffects" unique_id=1702218413]
+unique_name_in_owner = true
+anchors_preset = 0
+script = ExtResource("16_cb7uv")
+
+[node name="BloodParticles" type="CPUParticles2D" parent="VisualEffects/EmissionNode" unique_id=1861046000]
+position = Vector2(210, 213)
+emitting = false
+amount = 10
+texture = ExtResource("17_vfwj8")
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.93
+randomness = 0.22
+particle_flag_align_y = true
+direction = Vector2(0, 0)
+spread = 180.0
+initial_velocity_min = 912.5
+initial_velocity_max = 931.25
+tangential_accel_max = 25.55
+scale_amount_min = 0.6
+scale_amount_max = 0.75
+scale_amount_curve = SubResource("Curve_khejj")
+color_ramp = SubResource("Gradient_khbe0")
+
+[node name="BloodParticles2" type="CPUParticles2D" parent="VisualEffects/EmissionNode" unique_id=107637548]
+position = Vector2(210, 213)
+emitting = false
+amount = 10
+texture = ExtResource("17_vfwj8")
+lifetime = 0.6
+one_shot = true
+explosiveness = 0.93
+randomness = 0.22
+particle_flag_align_y = true
+direction = Vector2(0, 0)
+spread = 180.0
+initial_velocity_min = 912.5
+initial_velocity_max = 931.25
+tangential_accel_max = 25.55
+scale_amount_min = 0.6
+scale_amount_max = 0.75
+scale_amount_curve = SubResource("Curve_khejj")
+
+[node name="ConfettiParticles" type="CPUParticles2D" parent="VisualEffects/EmissionNode" unique_id=1423411127]
+visible = false
+position = Vector2(306, 266)
+rotation = -0.51667935
+scale = Vector2(0.99999994, 0.99999994)
+amount = 32
+texture = ExtResource("18_ysaeg")
+lifetime = 1.11
+one_shot = true
+speed_scale = 2.75
+explosiveness = 0.52
+randomness = 0.93
+emission_shape = 1
+emission_sphere_radius = 128.0
+direction = Vector2(0, -1)
+spread = 16.87
+gravity = Vector2(0, 700)
+initial_velocity_min = 950.0
+initial_velocity_max = 950.0
+angle_min = -527.5
+angle_max = 333.0
+scale_amount_min = 0.1
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_gygcd")
+color = Color(1, 0, 1, 1)
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_2oj3c")
+
+[node name="ConfettiParticles2" type="CPUParticles2D" parent="VisualEffects/EmissionNode" unique_id=20515128]
+visible = false
+position = Vector2(64.99999, 444.99997)
+rotation = 0.45211172
+scale = Vector2(0.9999998, 0.9999998)
+amount = 32
+texture = ExtResource("18_ysaeg")
+lifetime = 1.51
+one_shot = true
+speed_scale = 4.05
+explosiveness = 0.52
+randomness = 0.93
+emission_shape = 1
+emission_sphere_radius = 128.0
+direction = Vector2(0, -1)
+spread = 16.87
+gravity = Vector2(0, 700)
+initial_velocity_min = 950.0
+initial_velocity_max = 950.0
+angle_min = -527.5
+angle_max = 333.0
+scale_amount_min = 0.1
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_gygcd")
+color = Color(1, 0, 1, 1)
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_2oj3c")
+
+[node name="HitParticlesStar" parent="VisualEffects/EmissionNode" unique_id=225491218 instance=ExtResource("19_mjg05")]
+position = Vector2(197, 216)
+amount = 6
+
+[node name="HitParticlesLongCircle" parent="VisualEffects/EmissionNode" unique_id=697156325 instance=ExtResource("20_7pmwi")]
+position = Vector2(235, 250)
+split_scale = true
+scale_curve_x = SubResource("Curve_2ltj8")
+scale_curve_y = SubResource("Curve_qpwam")
 
 [connection signal="focus_entered" from="HBoxContainer/PanelContainer/VBoxContainer/CenterContainer/SelectedButton" to="." method="_on_selected_button_focus_entered"]
 [connection signal="pressed" from="HBoxContainer/PanelContainer/VBoxContainer/CenterContainer/SelectedButton" to="." method="_on_selected_button_pressed"]

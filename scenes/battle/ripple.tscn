@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bo3boon2wsc8p"]
+
+[ext_resource type="Shader" uid="uid://bx8k5fbthx4lf" path="res://assets/shaders/ripple.gdshader" id="1_rq65n"]
+[ext_resource type="Script" uid="uid://rdpskktb2tkh" path="res://scripts/battle/ripple.gd" id="2_04llk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ato6"]
+shader = ExtResource("1_rq65n")
+shader_parameter/strength = 0.08800000418
+shader_parameter/radius = 0.3310000157225
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/aberration = 0.425
+shader_parameter/width = 0.04
+shader_parameter/feather = 0.135
+
+[node name="Ripple" type="ColorRect" unique_id=1268387277]
+top_level = true
+z_index = 200
+material = SubResource("ShaderMaterial_3ato6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_04llk")

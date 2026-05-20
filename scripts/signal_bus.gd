@@ -47,6 +47,8 @@ signal set_alive_allies_containers(alive_allies_containers:Array)
 signal party_character_killed()
 signal total_party_kill()
 signal show_damage_popup(character:Character, damage:float, is_crit:bool)
+signal party_attacked(normalized_center:Vector2)
+signal enemy_attacked(normalized_center:Vector2)
 
 
 ## QUESTS

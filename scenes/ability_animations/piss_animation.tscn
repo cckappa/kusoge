@@ -1,11 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://cs12q6im5gih7"]
+[gd_scene format=3 uid="uid://cs12q6im5gih7"]
 
 [ext_resource type="Script" uid="uid://bvx442ceoiq3t" path="res://scripts/ability_animations/piss_animation.gd" id="1_a5f2o"]
-[ext_resource type="Script" uid="uid://dxuy4bb1whoa0" path="res://scripts/landed_particles.gd" id="2_oy0um"]
-[ext_resource type="PackedScene" uid="uid://b7bvrpga1v04o" path="res://scenes/hit_particles_star.tscn" id="3_4ohyu"]
-[ext_resource type="PackedScene" uid="uid://hg6t1jbcmxp3" path="res://scenes/hit_particles_circle.tscn" id="4_yf1jf"]
-[ext_resource type="PackedScene" uid="uid://b3k38ghwf35bw" path="res://scenes/hit_particles_big_star.tscn" id="5_qgocc"]
-[ext_resource type="PackedScene" uid="uid://j5owvy2xjpt6" path="res://scenes/hit_particles_long_circle.tscn" id="6_1sctc"]
 [ext_resource type="Texture2D" uid="uid://ciwf4s2v6ydu3" path="res://assets/animation_assets/pipi.png" id="7_ct7px"]
 [ext_resource type="Texture2D" uid="uid://c8oca72q3q76l" path="res://assets/animation_assets/piss.png" id="8_4ohyu"]
 
@@ -232,25 +227,10 @@ _data = {
 &"piss_animation": SubResource("Animation_oy0um")
 }
 
-[node name="PissAnimation" type="Node2D" node_paths=PackedStringArray("landed_particles")]
+[node name="PissAnimation" type="Node2D" unique_id=2044329954]
 script = ExtResource("1_a5f2o")
-landed_particles = NodePath("LandedParticles")
 
-[node name="LandedParticles" type="Node2D" parent="."]
-z_index = 16
-z_as_relative = false
-script = ExtResource("2_oy0um")
-metadata/_custom_type_script = "uid://dxuy4bb1whoa0"
-
-[node name="HitParticlesStar" parent="LandedParticles" instance=ExtResource("3_4ohyu")]
-
-[node name="HitParticlesCircle" parent="LandedParticles" instance=ExtResource("4_yf1jf")]
-
-[node name="HitParticlesBigStar" parent="LandedParticles" instance=ExtResource("5_qgocc")]
-
-[node name="HitParticlesLongCircle" parent="LandedParticles" instance=ExtResource("6_1sctc")]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1046255371]
 position = Vector2(155, 704)
 scale = Vector2(3.62144, 3.32718)
 sprite_frames = SubResource("SpriteFrames_6jd1d")
@@ -258,8 +238,6 @@ animation = &"piss"
 autoplay = "piss"
 frame_progress = 0.181008
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_4ohyu")
-}
-autoplay = "piss_animation"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1222544630]
+libraries/ = SubResource("AnimationLibrary_4ohyu")
+autoplay = &"piss_animation"

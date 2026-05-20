@@ -1,12 +1,46 @@
-[gd_scene load_steps=11 format=3 uid="uid://oap1evwogs6s"]
+[gd_scene format=3 uid="uid://oap1evwogs6s"]
 
 [ext_resource type="Script" uid="uid://ck5wcj3pswxd4" path="res://scripts/ability_animations/cuchillazo_animation.gd" id="1_iyu5u"]
-[ext_resource type="Script" uid="uid://dxuy4bb1whoa0" path="res://scripts/landed_particles.gd" id="2_3rvq7"]
-[ext_resource type="PackedScene" uid="uid://b7bvrpga1v04o" path="res://scenes/hit_particles_star.tscn" id="3_8s230"]
-[ext_resource type="PackedScene" uid="uid://hg6t1jbcmxp3" path="res://scenes/hit_particles_circle.tscn" id="4_fidyr"]
-[ext_resource type="PackedScene" uid="uid://b3k38ghwf35bw" path="res://scenes/hit_particles_big_star.tscn" id="5_ybiq7"]
-[ext_resource type="PackedScene" uid="uid://j5owvy2xjpt6" path="res://scenes/hit_particles_long_circle.tscn" id="6_xnarb"]
 [ext_resource type="Texture2D" uid="uid://gggnjf2mqgcc" path="res://assets/animation_assets/knife.png" id="7_6qy4n"]
+
+[sub_resource type="Animation" id="Animation_8dmw7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Knife:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10, 1720)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Knife:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.14159]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Knife:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_5e04r"]
 resource_name = "cuchillazo_animation"
@@ -62,75 +96,21 @@ tracks/3/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_8dmw7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Knife:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(10, 1720)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Knife:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-3.14159]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Knife:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_essxj"]
 _data = {
 &"RESET": SubResource("Animation_8dmw7"),
 &"cuchillazo_animation": SubResource("Animation_5e04r")
 }
 
-[node name="CuchillazoAnimation" type="Node2D" node_paths=PackedStringArray("landed_particles")]
+[node name="CuchillazoAnimation" type="Node2D" unique_id=895459504]
 script = ExtResource("1_iyu5u")
-landed_particles = NodePath("LandedParticles")
 
-[node name="LandedParticles" type="Node2D" parent="."]
-script = ExtResource("2_3rvq7")
-metadata/_custom_type_script = "uid://dxuy4bb1whoa0"
-
-[node name="HitParticlesStar" parent="LandedParticles" instance=ExtResource("3_8s230")]
-
-[node name="HitParticlesCircle" parent="LandedParticles" instance=ExtResource("4_fidyr")]
-
-[node name="HitParticlesBigStar" parent="LandedParticles" instance=ExtResource("5_ybiq7")]
-
-[node name="HitParticlesLongCircle" parent="LandedParticles" instance=ExtResource("6_xnarb")]
-
-[node name="Knife" type="Sprite2D" parent="."]
+[node name="Knife" type="Sprite2D" parent="." unique_id=1280847644]
 position = Vector2(10, 1720)
 rotation = -3.14159
 scale = Vector2(1.135, 1.135)
 texture = ExtResource("7_6qy4n")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_essxj")
-}
-autoplay = "cuchillazo_animation"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1219291115]
+libraries/ = SubResource("AnimationLibrary_essxj")
+autoplay = &"cuchillazo_animation"

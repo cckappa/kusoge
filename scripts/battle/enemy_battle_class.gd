@@ -13,6 +13,7 @@ extends BattleContainer
 @export var timer:Timer
 @export var cooldown_progress_bar:TextureProgressBar
 @export var hitsound:AudioStreamPlayer
+@export var emission_node:Control
 
 var dead:=false
 var current_alive_allies_containers:Array
@@ -68,6 +69,7 @@ func set_health() -> void:
 
 
 func show_damage(damage:float) -> void:
+	return
 	if dead:
 		return
 	# hitsound.play()
@@ -75,15 +77,15 @@ func show_damage(damage:float) -> void:
 	damage_number.visible = true
 	damage_number.modulate.a = 1
 	var start_pos := damage_number.position
-	var end_pos := start_pos + Vector2(randf_range(-60, 60), randf_range(-80, -40))
+	var end_pos := start_pos + Vector2(randf_range(-100, 100), randf_range(-300, -100))
 	
 	# Control point pushes the path into an arc shape
 	var control := Vector2(
-		(start_pos.x + end_pos.x) / 2 + randf_range(-30, 30),
-		(start_pos.y + end_pos.y) / 2 - randf_range(20, 50)
+		(start_pos.x + end_pos.x) / 2 + randf_range(-80, 80),
+		(start_pos.y + end_pos.y) / 2 - randf_range(50, 100)
 	)
 	
-	var duration := 1.0
+	var duration := 0.2
 	var _tween := create_tween()
 	
 	_tween.tween_method(func(t: float) -> void:
@@ -104,14 +106,31 @@ func show_damage(damage:float) -> void:
 
 func show_attacked() -> void:
 	hitsound.play()
+	SignalBus.emit_signal("enemy_attacked", get_normalized_center())
+	var random_offset := Vector2(randf_range(-100, 100), randf_range(-200, -100))
+	var original_position := enemy_texture.position
+	emission_node.emit_particles()
+	
+	
 	enemy_texture.modulate = Color(5.472, 5.472, 5.472)
-
+	
 	var _tween := create_tween()
-	_tween.tween_property(enemy_texture, "modulate", Color(1, 1, 1, 1), 0.4)
+	
+	_tween.tween_property(enemy_texture, "position", original_position + random_offset, 0.1)\
+		.set_ease(Tween.EASE_IN)\
+		.set_trans(Tween.TRANS_SPRING)
+	
+	_tween.tween_property(enemy_texture, "position", original_position, 0.3)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_BOUNCE)
+	
+	_tween.parallel().tween_property(enemy_texture, "modulate", Color(1, 1, 1, 1), 0.4)
 
-	await get_tree().create_timer(0.4).timeout
 
+	
+	await _tween.finished
 	enemy_texture.modulate = Color.WHITE
+	enemy_texture.position = original_position
 
 func kill_character() -> void:
 	dead = true

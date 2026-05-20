@@ -14,6 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://buj4nrlqipl5o" path="res://assets/icons/radial_timer_disc.png" id="10_fq4kr"]
 [ext_resource type="BehaviorTree" uid="uid://b5yjul755y6vg" path="res://ai/trees/enemy_basic_bt.tres" id="13_adbdh"]
 [ext_resource type="AudioStream" uid="uid://btagcqpq4o02r" path="res://assets/sfx/162792__timgormly__8-bit-explosion1.mp3" id="14_tmdd1"]
+[ext_resource type="Texture2D" uid="uid://bi0th8pwegekv" path="res://assets/icons/medium_particle.png" id="15_32xgs"]
+[ext_resource type="Script" uid="uid://lkd71tc457p4" path="res://scripts/battle/emission_node.gd" id="15_i68xp"]
+[ext_resource type="Texture2D" uid="uid://uvy6bx7c8nhe" path="res://assets/icons/confetti_particle.png" id="16_blv73"]
+[ext_resource type="PackedScene" uid="uid://b7bvrpga1v04o" path="res://scenes/hit_particles_star.tscn" id="18_cofn1"]
+[ext_resource type="PackedScene" uid="uid://j5owvy2xjpt6" path="res://scenes/hit_particles_long_circle.tscn" id="19_1qa3q"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3amih"]
 
@@ -65,7 +70,34 @@ animations = [{
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_adbdh"]
 
-[node name="EnemyBasicContainer" type="PanelContainer" unique_id=795346071 node_paths=PackedStringArray("enemy_texture", "enemy_button", "info_vida_text", "control_center", "vida_progress_bar", "damage_number", "death_texture", "b_t_player", "timer", "cooldown_progress_bar", "hitsound")]
+[sub_resource type="Curve" id="Curve_blv73"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(0.57843137, 2), -0.37535396, -0.37535396, 0, 0, Vector2(1, 0), -5.987616, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_i68xp"]
+offsets = PackedFloat32Array(0, 0.24285714)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 1)
+
+[sub_resource type="Curve" id="Curve_i68xp"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.32026142, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.029722571), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_cofn1"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_220r3"]
+_data = [Vector2(0, 0.29590487), 0.0, 0.0, 0, 0, Vector2(1e-05, 0), 0.0, 0.0, 0, 0, Vector2(0.4313725, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_fmgk0"]
+_limits = [0.0, 1.8, 0.0, 1.0]
+_data = [Vector2(0.114379086, 0), 0.0, 0.0, 0, 0, Vector2(0.9117647, 1.8), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="EnemyBasicContainer" type="PanelContainer" unique_id=795346071 node_paths=PackedStringArray("enemy_texture", "enemy_button", "info_vida_text", "control_center", "vida_progress_bar", "damage_number", "death_texture", "b_t_player", "timer", "cooldown_progress_bar", "hitsound", "chromatic_aberration", "emission_node")]
 offset_right = 595.0
 offset_bottom = 623.0
 size_flags_horizontal = 3
@@ -83,6 +115,8 @@ b_t_player = NodePath("BTPlayer")
 timer = NodePath("Timer")
 cooldown_progress_bar = NodePath("HBoxContainer/PanelContainer2/PanelContainer/CooldownProgressBar")
 hitsound = NodePath("HitSound")
+chromatic_aberration = NodePath("")
+emission_node = NodePath("VisualEffects/EmissionNode")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1589624350]
 layout_mode = 2
@@ -206,6 +240,11 @@ fit_content = true
 script = ExtResource("4_6574x")
 metadata/_custom_type_script = "uid://cpopq75r5iwyw"
 
+[node name="HoveringEffect" type="Node" parent="HBoxContainer/PanelContainer" unique_id=1792386069]
+script = ExtResource("4_6574x")
+radius = 10.0
+metadata/_custom_type_script = "uid://cpopq75r5iwyw"
+
 [node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer" unique_id=1414324062]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_klaal")
@@ -241,3 +280,117 @@ one_shot = true
 [node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=1005161382]
 stream = ExtResource("14_tmdd1")
 bus = &"SFX"
+
+[node name="VisualEffects" type="Control" parent="." unique_id=702364897]
+layout_mode = 2
+
+[node name="EmissionNode" type="Control" parent="VisualEffects" unique_id=1224810976]
+anchors_preset = 0
+script = ExtResource("15_i68xp")
+
+[node name="BloodParticles" type="CPUParticles2D" parent="VisualEffects/EmissionNode" unique_id=1211997692]
+position = Vector2(210, 213)
+emitting = false
+amount = 10
+texture = ExtResource("15_32xgs")
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.93
+randomness = 0.22
+particle_flag_align_y = true
+direction = Vector2(0, 0)
+spread = 180.0
+initial_velocity_min = 912.5
+initial_velocity_max = 931.25
+tangential_accel_max = 25.55
+scale_amount_min = 0.6
+scale_amount_max = 0.75
+scale_amount_curve = SubResource("Curve_blv73")
+color_ramp = SubResource("Gradient_i68xp")
+
+[node name="BloodParticles2" type="CPUParticles2D" parent="VisualEffects/EmissionNode" unique_id=299748156]
+position = Vector2(210, 213)
+emitting = false
+amount = 10
+texture = ExtResource("15_32xgs")
+lifetime = 0.6
+one_shot = true
+explosiveness = 0.93
+randomness = 0.22
+particle_flag_align_y = true
+direction = Vector2(0, 0)
+spread = 180.0
+initial_velocity_min = 912.5
+initial_velocity_max = 931.25
+tangential_accel_max = 25.55
+scale_amount_min = 0.6
+scale_amount_max = 0.75
+scale_amount_curve = SubResource("Curve_blv73")
+
+[node name="ConfettiParticles" type="CPUParticles2D" parent="VisualEffects/EmissionNode" unique_id=1783265574]
+position = Vector2(306, 266)
+rotation = -0.51667935
+scale = Vector2(0.99999994, 0.99999994)
+emitting = false
+amount = 32
+texture = ExtResource("16_blv73")
+lifetime = 1.11
+one_shot = true
+speed_scale = 2.75
+explosiveness = 0.52
+randomness = 0.93
+emission_shape = 1
+emission_sphere_radius = 128.0
+direction = Vector2(0, -1)
+spread = 16.87
+gravity = Vector2(0, 700)
+initial_velocity_min = 950.0
+initial_velocity_max = 950.0
+angle_min = -527.5
+angle_max = 333.0
+scale_amount_min = 0.1
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_i68xp")
+color = Color(1, 0, 1, 1)
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_cofn1")
+
+[node name="ConfettiParticles2" type="CPUParticles2D" parent="VisualEffects/EmissionNode" unique_id=417904337]
+position = Vector2(64.99999, 444.99997)
+rotation = 0.45211172
+scale = Vector2(0.9999998, 0.9999998)
+emitting = false
+amount = 32
+texture = ExtResource("16_blv73")
+lifetime = 1.51
+one_shot = true
+speed_scale = 4.05
+explosiveness = 0.52
+randomness = 0.93
+emission_shape = 1
+emission_sphere_radius = 128.0
+direction = Vector2(0, -1)
+spread = 16.87
+gravity = Vector2(0, 700)
+initial_velocity_min = 950.0
+initial_velocity_max = 950.0
+angle_min = -527.5
+angle_max = 333.0
+scale_amount_min = 0.1
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_i68xp")
+color = Color(1, 0, 1, 1)
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_cofn1")
+
+[node name="HitParticlesStar" parent="VisualEffects/EmissionNode" unique_id=304254517 instance=ExtResource("18_cofn1")]
+position = Vector2(197, 216)
+amount = 6
+
+[node name="HitParticlesLongCircle" parent="VisualEffects/EmissionNode" unique_id=1958919014 instance=ExtResource("19_1qa3q")]
+position = Vector2(235, 250)
+split_scale = true
+scale_curve_x = SubResource("Curve_220r3")
+scale_curve_y = SubResource("Curve_fmgk0")

@@ -12,6 +12,7 @@ extends BattleContainer
 @onready var damage_number:RichTextLabel=%DamageNumber
 @onready var hitsound:AudioStreamPlayer=$HitSound
 @onready var critsound:AudioStreamPlayer=$CritSound
+@onready var emission_node:Control=%EmissionNode
 
 # var party_character:Character
 var can_attack:=true
@@ -128,14 +129,32 @@ func is_alive() -> bool:
 
 func show_attacked() -> void:
 	hitsound.play()
+	emission_node.emit_particles()
+	SignalBus.emit_signal("party_attacked", get_normalized_center())
 	character_texture.visible = false
 	attacked_texture.visible = true
 	attacked_texture.modulate = Color(5.472, 5.472, 5.472)
 
-	var _tween := create_tween()
-	_tween.tween_property(attacked_texture, "modulate", Color(1, 1, 1, 1), 0.4)
 
-	await get_tree().create_timer(0.4).timeout
+	var random_offset := Vector2(randf_range(-100, 100), randf_range(100, 200))
+	var original_position := attacked_texture.position
+
+	var _tween := create_tween()
+
+	_tween.tween_property(attacked_texture, "position", original_position + random_offset, 0.1)\
+		.set_ease(Tween.EASE_IN)\
+		.set_trans(Tween.TRANS_SPRING)
+	
+	_tween.tween_property(attacked_texture, "position", original_position, 0.3)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_BOUNCE)
+	
+	_tween.parallel().tween_property(attacked_texture, "modulate", Color(1, 1, 1, 1), 0.4)
+
+	
+	await _tween.finished
+
+	# _tween.tween_property(attacked_texture, "modulate", Color(1, 1, 1, 1), 0.4)
 
 	attacked_texture.visible = false
 	attacked_texture.modulate = Color.WHITE

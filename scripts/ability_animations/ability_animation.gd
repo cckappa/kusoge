@@ -3,7 +3,6 @@ class_name AbilityAnimation
 
 signal landed_ability()
 
-@export var landed_particles:Node2D
 @onready var animation_player:AnimationPlayer=$AnimationPlayer
 
 func _ready() -> void:
@@ -13,10 +12,8 @@ func _ready() -> void:
 
 func emit_lands_ability() -> void:
 	emit_signal("landed_ability")
-	trigger_particles()
+	modulate = Color(18.892, 18.892, 18.892)
 	await get_tree().create_timer(0.2).timeout
+	modulate = Color(1,1,1)
+	await animation_player.animation_finished
 	queue_free()
-
-func trigger_particles() -> void:
-	for particle in landed_particles.get_children():
-		particle.emitting = true
