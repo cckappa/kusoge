@@ -27,13 +27,12 @@ var description:String:
 	"GRASS") var type: String = "NORMAL"
 @export var abilities:Array[Ability]
 
-@export_group("Loot")
+@export_group("Battle")
 @export var loot:Array[Item]
 @export var min_loot:int = 0
 @export var max_loot:int = 1
-
-@export_group("Battle Dialogs")
 @export var special_encounter:=false
+@export var enemy_container_path:String
 @export var fight_dialogs:Array[FightDialog]
 
 var current_hp:=-1

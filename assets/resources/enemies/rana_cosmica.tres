@@ -18,4 +18,6 @@ identifier = "rana_cosmica"
 character_portrait = ExtResource("3_3vcjj")
 max_hp = 150
 abilities = Array[ExtResource("1_idx8b")]([SubResource("Resource_c881a")])
+special_encounter = true
+enemy_container_path = "res://scenes/battle/enemy_containers/demo_tecnico_boss.tscn"
 metadata/_custom_type_script = "uid://c8058f4jc2ul3"

@@ -2,7 +2,8 @@
 class_name BattleContainer
 extends PanelContainer
 
-var character_resource:Character=null
+# Dejar vacio si no es especial
+@export var character_resource:Character=null
 var viewport_size:Vector2
 
 @abstract

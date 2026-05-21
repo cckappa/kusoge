@@ -73,7 +73,7 @@ func _free_children() -> void:
 
 func _check_battle_type() -> bool:
 	var is_special := false
-	for enemy in Globals.enemies:
-		if enemy.special_encounter == true:
-			is_special = true
+	if Globals.enemies[0].special_encounter == true:
+		is_special = true
+
 	return is_special

@@ -3,7 +3,45 @@
 [ext_resource type="Script" uid="uid://d2s61368ejkvt" path="res://scripts/battle/enemy_containers/demo_tecnico_boss.gd" id="1_pib8w"]
 [ext_resource type="PackedScene" uid="uid://dfpxj66fotgf1" path="res://scenes/battle/enemy_containers/enemy_basic_container.tscn" id="2_yk663"]
 [ext_resource type="Script" uid="uid://chdi14bo5worb" path="res://scripts/battle/enemy_containers/boss_container.gd" id="3_lxicc"]
-[ext_resource type="Resource" uid="uid://bpjcrmsd44mru" path="res://assets/resources/enemies_del/rana_cosmica.tres" id="4_jy06p"]
+[ext_resource type="Resource" uid="uid://blaium4q0nnpv" path="res://assets/resources/enemies/rana_cosmica.tres" id="4_jy06p"]
+
+[sub_resource type="Animation" id="Animation_jy06p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(892, 279)]
+}
+
+[sub_resource type="Animation" id="Animation_totjc"]
+resource_name = "idle_boss"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossContainer:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(892, 279), Vector2(2272, 330)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i766w"]
+_data = {
+&"RESET": SubResource("Animation_jy06p"),
+&"idle_boss": SubResource("Animation_totjc")
+}
 
 [node name="DemoTecnicoBoss" type="Control" unique_id=553947955]
 layout_mode = 3
@@ -17,15 +55,22 @@ size_flags_vertical = 3
 script = ExtResource("1_pib8w")
 
 [node name="BossContainer" parent="." unique_id=795346071 node_paths=PackedStringArray("animated_sprite", "enemy_texture") instance=ExtResource("2_yk663")]
-layout_mode = 0
-offset_left = 969.0
-offset_top = 311.0
-offset_right = 1874.0
-offset_bottom = 1115.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1028.0
+offset_top = -801.0
+offset_right = -42.997803
+offset_bottom = 22.00061
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("3_lxicc")
 animated_sprite = NodePath("HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/PanelContainer/PanelContainer/ManualControl/AnimatedSprite2D")
-enemy_resource = ExtResource("4_jy06p")
 enemy_texture = NodePath("HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/PanelContainer/PanelContainer/ManualControl")
+character_resource = ExtResource("4_jy06p")
 
 [node name="ManualControl" parent="BossContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/PanelContainer/PanelContainer" parent_id_path=PackedInt32Array(795346071, 2024149616) index="0" unique_id=1237588125]
 visible = true
@@ -37,7 +82,11 @@ visible = false
 [node name="DeadTexture" parent="BossContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/PanelContainer/PanelContainer" parent_id_path=PackedInt32Array(795346071, 2024149616) index="2" unique_id=550022273]
 custom_minimum_size = Vector2(0, 550)
 
-[node name="InfoVidaText" parent="BossContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/InfoVidaContainer/HBoxContainer/CenterContainer" parent_id_path=PackedInt32Array(795346071, 1215915111) index="1" unique_id=1232842925]
+[node name="InfoVidaText" parent="BossContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/InfoVidaContainer/HBoxContainer/CenterContainer" parent_id_path=PackedInt32Array(795346071, 1215915111) index="2" unique_id=1232842925]
 text = "[center]650"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1989357464]
+libraries/ = SubResource("AnimationLibrary_i766w")
+autoplay = &"idle_boss"
 
 [editable path="BossContainer"]

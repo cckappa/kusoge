@@ -1,7 +1,6 @@
 class_name EnemyBattleClass
 extends BattleContainer
 
-# @export var enemy_resource:Character=null
 @export var enemy_texture:Control
 @export var enemy_button:TextureButton
 @export var info_vida_text:RichTextLabel

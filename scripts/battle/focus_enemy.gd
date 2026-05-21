@@ -52,10 +52,12 @@ func landed_ability(ability:Ability, target:Character, enemy_container:EnemyBatt
 
 func emit_enemies_defeated() -> void:
 	var all_enemies_defeated := true
-	for enemy in enemies_h_box_container.get_children():
-		if enemy.is_alive():
+	for enemy in enemy_control.find_children("*", "", true, false):
+		if enemy.has_method("is_alive") and enemy.is_alive():
+			print("Checking enemy: ", enemy.name)
 			all_enemies_defeated = false
-
+			break
+	
 	if all_enemies_defeated:
 		SignalBus.emit_signal("enemies_defeated")
 

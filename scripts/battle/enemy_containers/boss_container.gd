@@ -3,7 +3,7 @@ extends EnemyBattleClass
 @export var animated_sprite:AnimatedSprite2D
 
 func _setup() -> void:
-	set_info(null)
+	set_info(character_resource)
 
 func kill_enemy() -> void:
 	dead = true
