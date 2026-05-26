@@ -33,6 +33,7 @@ metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
 
 [resource]
 script = ExtResource("3_5fc53")
+character_id = 1
 identifier = "alicia"
 section_folder = "root"
 character_portrait = ExtResource("6_rf4ft")

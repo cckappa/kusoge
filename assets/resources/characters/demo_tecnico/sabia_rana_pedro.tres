@@ -21,6 +21,7 @@ metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
 
 [resource]
 script = ExtResource("3_3diml")
+character_id = 8
 identifier = "sabia_rana_pedro"
 section_folder = "demo_tecnico"
 character_portrait = ExtResource("7_d4004")

@@ -1,24 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckc0rqj4d6b16"]
+[gd_scene format=3 uid="uid://ckc0rqj4d6b16"]
 
 [ext_resource type="Script" uid="uid://bhg6tus2nlmgr" path="res://scripts/gray_box.gd" id="1_xjn40"]
 
-[node name="GrayBox" type="Node2D" groups=["objects"]]
+[node name="GrayBox" type="Node2D" unique_id=875075279 groups=["objects"]]
 script = ExtResource("1_xjn40")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1264535793]
 color = Color(0.529067, 0.529067, 0.529067, 1)
 
-[node name="Sprite" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1314284104]
 unique_name_in_owner = true
 
-[node name="Label" type="Label" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2121259102]
+
+[node name="Label" type="Label" parent="." unique_id=2059125336]
 offset_right = 40.0
 offset_bottom = 22.3333
 theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=392447427]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1089963160]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=619803914]

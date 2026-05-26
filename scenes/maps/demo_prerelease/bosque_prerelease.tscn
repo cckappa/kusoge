@@ -1,0 +1,554 @@
+[gd_scene format=3 uid="uid://rmlrvnsr8gmu"]
+
+[ext_resource type="Script" uid="uid://xilbbgydsf26" path="res://scripts/maps/demo_prerelease/bosque_prerelease.gd" id="1_8kanm"]
+[ext_resource type="Resource" uid="uid://bap1ns0xghqhe" path="res://assets/resources/maps/demo_prerelease/bosque_prerelease.tres" id="2_gfjun"]
+[ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="3_o2web"]
+[ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="4_qd61g"]
+[ext_resource type="PackedScene" uid="uid://ckc0rqj4d6b16" path="res://scenes/gray_box.tscn" id="5_wsxlu"]
+[ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="5_wyn0j"]
+[ext_resource type="Script" uid="uid://bhg6tus2nlmgr" path="res://scripts/gray_box.gd" id="6_qu7ai"]
+[ext_resource type="Script" uid="uid://caf516xcaglfd" path="res://scripts/playable_character.gd" id="6_wsxlu"]
+[ext_resource type="Resource" uid="uid://jr2yuolebha7" path="res://assets/resources/conejitx.tres" id="7_qu7ai"]
+[ext_resource type="Script" uid="uid://g7sf10k2338d" path="res://scripts/npc_layer.gd" id="8_jtvo4"]
+[ext_resource type="Script" uid="uid://dsfklbei7r5qc" path="res://scripts/object_layer.gd" id="9_0ov44"]
+[ext_resource type="Script" uid="uid://ck4xyxoy5fldl" path="res://scripts/enemies_layer.gd" id="10_2jn6u"]
+[ext_resource type="Script" uid="uid://cv43fprb0dski" path="res://scripts/spawns_layer.gd" id="11_fvii6"]
+[ext_resource type="PackedScene" uid="uid://h0q50x2317m1" path="res://scenes/npc.tscn" id="12_h3612"]
+[ext_resource type="Script" uid="uid://c2d2peg3ovb8n" path="res://scripts/saves_layer.gd" id="12_otrva"]
+[ext_resource type="PackedScene" uid="uid://bx88hvib56f0" path="res://scenes/menu/menu_sub_viewport.tscn" id="13_h3612"]
+[ext_resource type="Texture2D" uid="uid://ddvk3ukdg4a2d" path="res://assets/spritesheets/demo_tecnico/PUERTA.png" id="13_ng17h"]
+[ext_resource type="Script" uid="uid://bsvp6e76bx107" path="res://scripts/scene_changer.gd" id="14_cd4os"]
+[ext_resource type="Script" uid="uid://bof2iweysicw2" path="res://scripts/menu/menu_sub_viewport.gd" id="14_ng17h"]
+[ext_resource type="Script" uid="uid://do84xbf65qif" path="res://scripts/talk.gd" id="15_3bsvr"]
+[ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="15_cd4os"]
+[ext_resource type="Script" uid="uid://cit4h4wpq0ui5" path="res://scripts/settings_menu.gd" id="16_3bsvr"]
+[ext_resource type="Script" uid="uid://ca7mt0w3ffvhe" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="16_stklf"]
+[ext_resource type="Script" uid="uid://cvyrqhq08dmm3" path="res://scripts/show_input.gd" id="17_acrrq"]
+[ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="17_stklf"]
+[ext_resource type="Script" uid="uid://cscct5yogwe8u" path="res://scripts/notification_center.gd" id="18_acrrq"]
+[ext_resource type="PackedScene" uid="uid://clmbh4jnxur05" path="res://scenes/objeto.tscn" id="18_lpgnj"]
+[ext_resource type="Texture2D" uid="uid://duv0435v3wc6t" path="res://assets/objects/demo_tecnico/CASA.PNG" id="19_e3cj8"]
+[ext_resource type="PackedScene" uid="uid://dqi4bw7t4w0u8" path="res://scenes/add_new_character_animation.tscn" id="19_lpgnj"]
+[ext_resource type="Script" uid="uid://ck2ow411sbom1" path="res://scripts/add_new_character_animation.gd" id="20_e3cj8"]
+[ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="21_18p21"]
+[ext_resource type="Script" uid="uid://bae3eo7ywlmmf" path="res://scripts/add_new_item_animation.gd" id="22_q150m"]
+[ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="23_dw21r"]
+[ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="24_p5nbd"]
+[ext_resource type="Script" uid="uid://84ck8i2ypykl" path="res://scripts/camera_manager.gd" id="25_m8mjo"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="26_6m0du"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="27_mlge7"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="28_h1jk1"]
+[ext_resource type="Script" uid="uid://desx1xrrvf1ew" path="res://scripts/reminder_phantom_camera.gd" id="29_3hovv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3612"]
+size = Vector2(155, 581)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf2ti"]
+atlas = ExtResource("13_ng17h")
+region = Rect2(0, 0, 573, 555)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4h3p4"]
+atlas = ExtResource("13_ng17h")
+region = Rect2(573, 1665, 573, 555)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76sup"]
+atlas = ExtResource("13_ng17h")
+region = Rect2(0, 0, 573, 555)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w68cj"]
+atlas = ExtResource("13_ng17h")
+region = Rect2(0, 555, 573, 555)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8j15a"]
+atlas = ExtResource("13_ng17h")
+region = Rect2(573, 0, 573, 555)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4o6e"]
+atlas = ExtResource("13_ng17h")
+region = Rect2(573, 555, 573, 555)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asj11"]
+atlas = ExtResource("13_ng17h")
+region = Rect2(0, 1110, 573, 555)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvcta"]
+atlas = ExtResource("13_ng17h")
+region = Rect2(573, 1110, 573, 555)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4iek"]
+atlas = ExtResource("13_ng17h")
+region = Rect2(1146, 0, 573, 555)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tijk"]
+atlas = ExtResource("13_ng17h")
+region = Rect2(1146, 555, 573, 555)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvq1o"]
+atlas = ExtResource("13_ng17h")
+region = Rect2(1146, 1110, 573, 555)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2m6q"]
+atlas = ExtResource("13_ng17h")
+region = Rect2(0, 1665, 573, 555)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngix7"]
+atlas = ExtResource("13_ng17h")
+region = Rect2(573, 1665, 573, 555)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_18p21"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf2ti")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4h3p4")
+}],
+"loop": false,
+"name": &"fully_opened",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 3.51,
+"texture": SubResource("AtlasTexture_76sup")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_w68cj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8j15a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4o6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asj11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvcta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4iek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tijk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvq1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2m6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngix7")
+}],
+"loop": false,
+"name": &"opened",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q150m"]
+size = Vector2(642, 311)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dw21r"]
+size = Vector2(506, 94)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5nbd"]
+size = Vector2(444, 397)
+
+[sub_resource type="Animation" id="Animation_8j15a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TalkDoor/Area2D:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_w68cj"]
+resource_name = "opening"
+length = 1.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_opened_animation"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TalkDoor/Area2D:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m8mjo"]
+_data = {
+&"RESET": SubResource("Animation_8j15a"),
+&"opening": SubResource("Animation_w68cj")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6m0du"]
+size = Vector2(573, 134)
+
+[sub_resource type="Texture2D" id="Texture2D_mlge7"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("16_stklf")
+path = "talks"
+metadata/_custom_type_script = "uid://ca7mt0w3ffvhe"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o2web"]
+size = Vector2(4279, 3584)
+
+[sub_resource type="Resource" id="Resource_fyrvt"]
+script = ExtResource("28_h1jk1")
+duration = 2.0
+transition = 1
+
+[node name="BosquePrerelease" type="Node2D" unique_id=391055761 node_paths=PackedStringArray("door_sprite", "door_collision")]
+y_sort_enabled = true
+script = ExtResource("1_8kanm")
+door_sprite = NodePath("ObjectLayer/Casa/PuertaCasa/AnimatedSprite2D")
+door_collision = NodePath("ObjectLayer/Casa/PuertaCasa/Area2D/CollisionShape2D")
+single_map_resource = ExtResource("2_gfjun")
+
+[node name="ParallaxBackgroundLayer" type="Node2D" parent="." unique_id=519175889]
+z_index = -1
+script = ExtResource("3_o2web")
+
+[node name="BackgroundLayer" type="Node2D" parent="." unique_id=1293395317]
+z_index = -1
+script = ExtResource("4_qd61g")
+
+[node name="GrayBox" parent="BackgroundLayer" unique_id=442754526 groups=["objects"] instance=ExtResource("5_wsxlu")]
+script = ExtResource("6_qu7ai")
+
+[node name="Polygon2D" parent="BackgroundLayer/GrayBox" index="0"]
+color = Color(0.529067, 0.529067, 0.529067, 1)
+polygon = PackedVector2Array(-1503, -1051, -971, -1426, 244, -1712, 1889, -1438, 2509, -854, 2473, 398, 1787, 819, 209, 731, -1052, 523, -1571, 62, -1643, -601, -1804, -664, -1810.1935, -1036.3711, -1812, -1145)
+
+[node name="Sprite" parent="BackgroundLayer/GrayBox" index="1"]
+unique_name_in_owner = true
+
+[node name="Label" parent="BackgroundLayer/GrayBox" index="2"]
+offset_right = 40.0
+offset_bottom = 22.3333
+theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+
+[node name="SalidaPasillo" parent="BackgroundLayer" unique_id=762944028 groups=["objects"] instance=ExtResource("5_wsxlu")]
+position = Vector2(-1731, -893)
+script = ExtResource("6_qu7ai")
+
+[node name="Polygon2D" parent="BackgroundLayer/SalidaPasillo" index="0"]
+color = Color(0.529067, 0.529067, 0.529067, 1)
+
+[node name="Sprite" parent="BackgroundLayer/SalidaPasillo" index="1"]
+unique_name_in_owner = true
+
+[node name="Label" parent="BackgroundLayer/SalidaPasillo" index="2"]
+offset_right = 40.0
+offset_bottom = 22.3333
+theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+
+[node name="SceneChanger" type="Area2D" parent="BackgroundLayer/SalidaPasillo" unique_id=1026394755 node_paths=PackedStringArray("black_rect")]
+position = Vector2(-3, -173)
+script = ExtResource("14_cd4os")
+target_scene = "res://scenes/maps/demo_prerelease/pasillo_prerelease.tscn"
+target_marker = "EntradaBosque"
+black_rect = NodePath("../../../CanvasLayer/BlackRect")
+metadata/_custom_type_script = "uid://bsvp6e76bx107"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundLayer/SalidaPasillo/SceneChanger" unique_id=1380432398]
+position = Vector2(-32.5, 174.5)
+shape = SubResource("RectangleShape2D_h3612")
+
+[node name="PlayableCharacter" type="CharacterBody2D" parent="." unique_id=943328989 groups=["main_character"] instance=ExtResource("5_wyn0j")]
+y_sort_enabled = true
+script = ExtResource("6_wsxlu")
+character_info = ExtResource("7_qu7ai")
+
+[node name="NpcLayer" type="Node2D" parent="." unique_id=252906158]
+y_sort_enabled = true
+script = ExtResource("8_jtvo4")
+
+[node name="ObjectLayer" type="Node2D" parent="." unique_id=1752924893]
+y_sort_enabled = true
+script = ExtResource("9_0ov44")
+
+[node name="Casa" type="Node2D" parent="ObjectLayer" unique_id=615473919]
+y_sort_enabled = true
+
+[node name="PuertaCasa" parent="ObjectLayer/Casa" unique_id=416140553 instance=ExtResource("12_h3612")]
+position = Vector2(854, -1112)
+
+[node name="AnimatedSprite2D" parent="ObjectLayer/Casa/PuertaCasa" index="0"]
+sprite_frames = SubResource("SpriteFrames_18p21")
+autoplay = "default"
+offset = Vector2(0, -251)
+
+[node name="CollisionShape2D" parent="ObjectLayer/Casa/PuertaCasa/StaticBody2D" index="1"]
+position = Vector2(-5, -138.5)
+shape = SubResource("RectangleShape2D_q150m")
+
+[node name="SceneChanger" type="Area2D" parent="ObjectLayer/Casa/PuertaCasa" unique_id=843101717 node_paths=PackedStringArray("black_rect")]
+script = ExtResource("14_cd4os")
+target_scene = "res://scenes/maps/demo_prerelease/cabeza_prerelease.tscn"
+target_marker = "EntradaCabeza"
+black_rect = NodePath("../../../../CanvasLayer/BlackRect")
+metadata/_custom_type_script = "uid://bsvp6e76bx107"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/Casa/PuertaCasa/SceneChanger" unique_id=929946999]
+position = Vector2(10, -64)
+shape = SubResource("RectangleShape2D_dw21r")
+
+[node name="Area2D" type="Area2D" parent="ObjectLayer/Casa/PuertaCasa" unique_id=1737021862]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/Casa/PuertaCasa/Area2D" unique_id=695645414]
+position = Vector2(4, 188.5)
+shape = SubResource("RectangleShape2D_p5nbd")
+
+[node name="DoorAnimationPlayer" type="AnimationPlayer" parent="ObjectLayer/Casa/PuertaCasa" unique_id=1954903983]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_m8mjo")
+
+[node name="TalkDoor" type="Node2D" parent="ObjectLayer/Casa/PuertaCasa" unique_id=957468820 node_paths=PackedStringArray("talking_area")]
+unique_name_in_owner = true
+script = ExtResource("15_3bsvr")
+talking_area = NodePath("Area2D")
+timeline_name = "puerta_ojo_demo_tecnico"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="ObjectLayer/Casa/PuertaCasa/TalkDoor" unique_id=1219952533]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/Casa/PuertaCasa/TalkDoor/Area2D" unique_id=1366253825]
+position = Vector2(4.5, 57)
+shape = SubResource("RectangleShape2D_6m0du")
+
+[node name="ShowInput" type="Sprite2D" parent="ObjectLayer/Casa/PuertaCasa/TalkDoor" unique_id=1695177270]
+position = Vector2(349, -84)
+texture = SubResource("Texture2D_mlge7")
+script = ExtResource("17_acrrq")
+metadata/_custom_type_script = "uid://cvyrqhq08dmm3"
+
+[node name="CasaEstructura" parent="ObjectLayer/Casa" unique_id=91942394 instance=ExtResource("18_lpgnj")]
+position = Vector2(914, -1137)
+
+[node name="Sprite2D" parent="ObjectLayer/Casa/CasaEstructura" index="0"]
+texture = ExtResource("19_e3cj8")
+offset = Vector2(0, -711)
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/Casa/CasaEstructura/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-1144, 32, -828, 26, -819, 52, -341, 44, -304, 27, -285, -4, -250, -31, 120, -29, 198, -25, 221, 46, 1144, 38, 1152, -39, 1127, -168, 801, -490, 508, -1078, 182, -1272, 34, -1297, -137, -1275, -411, -1106, -591, -892, -714, -578, -753, -464, -933, -399, -1116, -165, -1144, -68)
+
+[node name="EnemiesLayer" type="Node2D" parent="." unique_id=168756298]
+y_sort_enabled = true
+script = ExtResource("10_2jn6u")
+
+[node name="SpawnsLayer" type="Node2D" parent="." unique_id=1424937228]
+y_sort_enabled = true
+script = ExtResource("11_fvii6")
+
+[node name="DefaultMarker" type="Marker2D" parent="SpawnsLayer" unique_id=234951106]
+
+[node name="EntradaBosque" type="Marker2D" parent="SpawnsLayer" unique_id=755613647]
+position = Vector2(-1607, -885)
+
+[node name="EntradaCabeza" type="Marker2D" parent="SpawnsLayer" unique_id=1835078076]
+position = Vector2(850, -1003)
+
+[node name="SavesLayer" type="Node2D" parent="." unique_id=2009176398]
+y_sort_enabled = true
+script = ExtResource("12_otrva")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1507041068]
+
+[node name="MenuSubViewport" type="SubViewportContainer" parent="CanvasLayer" unique_id=158507729 instance=ExtResource("13_h3612")]
+process_mode = 3
+visible = false
+z_index = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("14_ng17h")
+metadata/_edit_lock_ = true
+
+[node name="SettingsMenu" type="Control" parent="CanvasLayer" unique_id=2024337667 node_paths=PackedStringArray("game_button", "accesibility_button", "audio_button", "controls_button", "video_button", "game_panel", "accesibility_panel", "audio_panel", "controls_panel", "video_panel", "close_button") instance=ExtResource("15_cd4os")]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_3bsvr")
+game_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Game")
+accesibility_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Accesibility")
+audio_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Audio")
+controls_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Controls")
+video_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Video")
+game_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/GamePanel")
+accesibility_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel")
+audio_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel")
+controls_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel")
+video_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/VideoPanel")
+close_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/BottomButtons/ClosePause")
+metadata/_edit_lock_ = true
+
+[node name="NotificationCenter" type="Control" parent="CanvasLayer" unique_id=79691152 instance=ExtResource("17_stklf")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("18_acrrq")
+metadata/_edit_lock_ = true
+
+[node name="AddNewCharacterAnimation" type="Control" parent="CanvasLayer" unique_id=1007526646 instance=ExtResource("19_lpgnj")]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("20_e3cj8")
+animation_duration = 3.0
+metadata/_edit_lock_ = true
+
+[node name="AddNewItemAnimation" type="Control" parent="CanvasLayer" unique_id=1797630206 instance=ExtResource("21_18p21")]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("22_q150m")
+animation_duration = 3.0
+metadata/_edit_lock_ = true
+
+[node name="BlackRect" type="ColorRect" parent="CanvasLayer" unique_id=1495884054 instance=ExtResource("23_dw21r")]
+visible = false
+modulate = Color(0, 0, 0, 1)
+top_level = true
+z_index = 3
+y_sort_enabled = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1068636144]
+
+[node name="CameraManager" parent="." unique_id=1203642049 node_paths=PackedStringArray("phantom_cameras", "current_camera") instance=ExtResource("24_p5nbd")]
+script = ExtResource("25_m8mjo")
+phantom_cameras = [NodePath("PhantomCameras/PhantomCamera2D")]
+current_camera = NodePath("PhantomCameras/PhantomCamera2D")
+
+[node name="Camera2D" parent="CameraManager" index="0" unique_id=440357056]
+physics_interpolation_mode = 1
+zoom = Vector2(1.2, 1.2)
+process_callback = 0
+limit_left = -1717
+limit_top = -2636
+limit_right = 2562
+limit_bottom = 948
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" parent="CameraManager/Camera2D" index="0" unique_id=1574566684]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("26_6m0du")
+
+[node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" parent_id_path=PackedInt32Array(1203642049, 1986731475) index="0" unique_id=1569982798]
+position = Vector2(422.5, -844)
+shape = SubResource("RectangleShape2D_o2web")
+disabled = true
+metadata/_edit_lock_ = true
+
+[node name="PhantomCamera2D" parent="CameraManager/PhantomCameras" parent_id_path=PackedInt32Array(1203642049, 219495286) index="0" unique_id=437005990 node_paths=PackedStringArray("follow_target")]
+top_level = true
+script = ExtResource("27_mlge7")
+priority = 1
+follow_mode = 5
+follow_target = NodePath("../../../PlayableCharacter")
+zoom = Vector2(1.2, 1.2)
+tween_resource = SubResource("Resource_fyrvt")
+tween_on_load = false
+follow_damping = true
+follow_damping_value = Vector2(0.25, 0.25)
+draw_limits = true
+limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
+
+[node name="ReminderPhantomCamera" parent="CameraManager/PhantomCameras" parent_id_path=PackedInt32Array(1203642049, 219495286) index="1" unique_id=652175356]
+script = ExtResource("29_3hovv")
+
+[connection signal="body_entered" from="ObjectLayer/Casa/PuertaCasa/Area2D" to="." method="_on_area_2d_body_entered"]
+
+[editable path="BackgroundLayer/GrayBox"]
+[editable path="BackgroundLayer/SalidaPasillo"]
+[editable path="ObjectLayer/Casa/PuertaCasa"]
+[editable path="ObjectLayer/Casa/CasaEstructura"]
+[editable path="CameraManager"]

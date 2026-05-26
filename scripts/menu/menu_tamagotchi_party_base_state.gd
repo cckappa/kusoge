@@ -49,9 +49,12 @@ func add_party_members() -> void:
 		for i in (4 - current_party_count):
 			var party_missing_container_instance := party_missing_container.instantiate()
 			party_grid_container.add_child(party_missing_container_instance)
+			party_missing_container_instance.name = "MenuMissingParty"
 
+	var sorted_party := Globals.party.duplicate()
+	sorted_party.sort_custom(_sort_by_character_id)
 	
-	for character in Globals.party:
+	for character:Character in sorted_party:
 		var party_member_container_instance := party_member_container.instantiate()
 		full_party_grid_container.add_child(party_member_container_instance)
 		party_member_container_instance.type = party_member_container_instance.button_type.MEMBER
@@ -66,3 +69,6 @@ func _to_member_state(_character:Character) -> void:
 func _new_character(_character:Character) -> void:
 	_free_children()
 	add_party_members()
+
+func _sort_by_character_id(a:Character, b:Character) -> bool:
+	return a.character_id < b.character_id

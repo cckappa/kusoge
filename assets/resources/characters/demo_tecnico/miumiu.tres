@@ -21,6 +21,7 @@ metadata/_custom_type_script = "uid://b2p5sq3kkpyyc"
 
 [resource]
 script = ExtResource("9_qiu67")
+character_id = 5
 identifier = "miu_miu"
 section_folder = "demo_tecnico"
 character_portrait = ExtResource("7_hujgy")

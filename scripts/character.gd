@@ -2,6 +2,7 @@ class_name Character
 extends Resource
 
 @export_group("Character Info")
+@export var character_id:int
 @export var identifier:String
 @export var section_folder:String
 var name:String:

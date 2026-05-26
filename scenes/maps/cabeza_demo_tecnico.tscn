@@ -28,7 +28,6 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="22_4q5a7"]
 [ext_resource type="PackedScene" uid="uid://bx88hvib56f0" path="res://scenes/menu/menu_sub_viewport.tscn" id="24_mvwv0"]
 [ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="24_xo0ap"]
-[ext_resource type="Script" uid="uid://bof2iweysicw2" path="res://scripts/menu/menu_sub_viewport.gd" id="25_x35hd"]
 [ext_resource type="PackedScene" uid="uid://dqi4bw7t4w0u8" path="res://scenes/add_new_character_animation.tscn" id="26_x35hd"]
 [ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="28_0b1g4"]
 
@@ -245,16 +244,8 @@ script = ExtResource("12_mvwv0")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=917044160]
 
-[node name="MenuSubViewport" type="SubViewportContainer" parent="CanvasLayer" unique_id=158507729 instance=ExtResource("24_mvwv0")]
-process_mode = 3
+[node name="MenuSubViewport" parent="CanvasLayer" unique_id=158507729 instance=ExtResource("24_mvwv0")]
 visible = false
-z_index = 2
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("25_x35hd")
 
 [node name="SettingsMenu" parent="CanvasLayer" unique_id=205444488 instance=ExtResource("15_0b1g4")]
 
@@ -270,7 +261,7 @@ script = ExtResource("25_x35hd")
 
 [node name="CameraManager" parent="." unique_id=1648888403 instance=ExtResource("18_pu5hf")]
 
-[node name="Camera2D" parent="CameraManager" index="0"]
+[node name="Camera2D" parent="CameraManager" index="0" unique_id=440357056]
 physics_interpolation_mode = 1
 process_callback = 0
 limit_left = -1741
@@ -278,11 +269,11 @@ limit_top = -1520
 limit_right = 1741
 limit_bottom = 1519
 
-[node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" index="0"]
+[node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" parent_id_path=PackedInt32Array(1648888403, 1986731475) index="0" unique_id=1569982798]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_x35hd")
 
-[node name="PhantomCamera2D" parent="CameraManager/PhantomCameras" index="0" node_paths=PackedStringArray("follow_target")]
+[node name="PhantomCamera2D" parent="CameraManager/PhantomCameras" parent_id_path=PackedInt32Array(1648888403, 219495286) index="0" unique_id=437005990 node_paths=PackedStringArray("follow_target")]
 follow_target = NodePath("../../../PlayableCharacter")
 tween_resource = SubResource("Resource_fyrvt")
 limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")

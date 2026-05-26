@@ -1,0 +1,41 @@
+@tool
+#ARCHIVO BASE
+# Hay que darle Reload Saved Scene para que jale el @tool
+# map_state_logic() y dialogic_logic() funcionan con el estado del mapa, que se guarda en Globals.maps[nombre_del_mapa].state
+
+extends BaseScene
+
+@export var door_sprite : AnimatedSprite2D
+@export var door_collision : CollisionShape2D
+
+@onready var door_animation_player:= %DoorAnimationPlayer
+@onready var talk_door:= %TalkDoor
+
+func _ready_scene() -> void:
+	match Globals.maps[single_map_resource.map_name].state:
+		"default":
+			pass
+		"door_opened":
+			door_sprite.play("fully_opened")
+			door_collision.disabled = true
+			talk_door.get_child(0).monitoring = false
+		_:
+			pass
+
+	black_rect.visible = true
+	await Functions.fade_color_rect(black_rect, "OUT", 2)
+
+
+func _on_area_2d_body_entered(body: Node) -> void:
+	# if body.is_in_group("main_character") and Globals.maps[single_map_resource.map_name].state == "default":
+	# 	if (Globals.key_variables.has("demo_tecnico_hub-batalla_1") and Globals.key_variables["demo_tecnico_hub-batalla_1"] == true) \
+	# 	and (Globals.key_variables.has("demo_tecnico_hub-batalla_2") and Globals.key_variables["demo_tecnico_hub-batalla_2"] == true) \
+	# 	and (Globals.key_variables.has("demo_tecnico_hub-batalla_3") and Globals.key_variables["demo_tecnico_hub-batalla_3"] == true):
+	if body.is_in_group("main_character") and Globals.maps[single_map_resource.map_name].state == "default":
+		door_animation_player.play("opening")
+		Globals.maps[single_map_resource.map_name].state = "door_opened"
+			
+
+func play_opened_animation() -> void:
+	print("play opened animation called")
+	door_sprite.play("opened")
