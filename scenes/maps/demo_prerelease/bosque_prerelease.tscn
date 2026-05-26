@@ -6,9 +6,6 @@
 [ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="4_qd61g"]
 [ext_resource type="PackedScene" uid="uid://ckc0rqj4d6b16" path="res://scenes/gray_box.tscn" id="5_wsxlu"]
 [ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="5_wyn0j"]
-[ext_resource type="Script" uid="uid://bhg6tus2nlmgr" path="res://scripts/gray_box.gd" id="6_qu7ai"]
-[ext_resource type="Script" uid="uid://caf516xcaglfd" path="res://scripts/playable_character.gd" id="6_wsxlu"]
-[ext_resource type="Resource" uid="uid://jr2yuolebha7" path="res://assets/resources/conejitx.tres" id="7_qu7ai"]
 [ext_resource type="Script" uid="uid://g7sf10k2338d" path="res://scripts/npc_layer.gd" id="8_jtvo4"]
 [ext_resource type="Script" uid="uid://dsfklbei7r5qc" path="res://scripts/object_layer.gd" id="9_0ov44"]
 [ext_resource type="Script" uid="uid://ck4xyxoy5fldl" path="res://scripts/enemies_layer.gd" id="10_2jn6u"]
@@ -18,27 +15,18 @@
 [ext_resource type="PackedScene" uid="uid://bx88hvib56f0" path="res://scenes/menu/menu_sub_viewport.tscn" id="13_h3612"]
 [ext_resource type="Texture2D" uid="uid://ddvk3ukdg4a2d" path="res://assets/spritesheets/demo_tecnico/PUERTA.png" id="13_ng17h"]
 [ext_resource type="Script" uid="uid://bsvp6e76bx107" path="res://scripts/scene_changer.gd" id="14_cd4os"]
-[ext_resource type="Script" uid="uid://bof2iweysicw2" path="res://scripts/menu/menu_sub_viewport.gd" id="14_ng17h"]
 [ext_resource type="Script" uid="uid://do84xbf65qif" path="res://scripts/talk.gd" id="15_3bsvr"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="15_cd4os"]
-[ext_resource type="Script" uid="uid://cit4h4wpq0ui5" path="res://scripts/settings_menu.gd" id="16_3bsvr"]
 [ext_resource type="Script" uid="uid://ca7mt0w3ffvhe" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="16_stklf"]
 [ext_resource type="Script" uid="uid://cvyrqhq08dmm3" path="res://scripts/show_input.gd" id="17_acrrq"]
 [ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="17_stklf"]
-[ext_resource type="Script" uid="uid://cscct5yogwe8u" path="res://scripts/notification_center.gd" id="18_acrrq"]
 [ext_resource type="PackedScene" uid="uid://clmbh4jnxur05" path="res://scenes/objeto.tscn" id="18_lpgnj"]
 [ext_resource type="Texture2D" uid="uid://duv0435v3wc6t" path="res://assets/objects/demo_tecnico/CASA.PNG" id="19_e3cj8"]
 [ext_resource type="PackedScene" uid="uid://dqi4bw7t4w0u8" path="res://scenes/add_new_character_animation.tscn" id="19_lpgnj"]
-[ext_resource type="Script" uid="uid://ck2ow411sbom1" path="res://scripts/add_new_character_animation.gd" id="20_e3cj8"]
 [ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="21_18p21"]
-[ext_resource type="Script" uid="uid://bae3eo7ywlmmf" path="res://scripts/add_new_item_animation.gd" id="22_q150m"]
 [ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="23_dw21r"]
 [ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="24_p5nbd"]
-[ext_resource type="Script" uid="uid://84ck8i2ypykl" path="res://scripts/camera_manager.gd" id="25_m8mjo"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="26_6m0du"]
-[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="27_mlge7"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="28_h1jk1"]
-[ext_resource type="Script" uid="uid://desx1xrrvf1ew" path="res://scripts/reminder_phantom_camera.gd" id="29_3hovv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3612"]
 size = Vector2(155, 581)
@@ -269,37 +257,13 @@ script = ExtResource("3_o2web")
 z_index = -1
 script = ExtResource("4_qd61g")
 
-[node name="GrayBox" parent="BackgroundLayer" unique_id=442754526 groups=["objects"] instance=ExtResource("5_wsxlu")]
-script = ExtResource("6_qu7ai")
+[node name="GrayBox" parent="BackgroundLayer" unique_id=442754526 instance=ExtResource("5_wsxlu")]
 
-[node name="Polygon2D" parent="BackgroundLayer/GrayBox" index="0"]
-color = Color(0.529067, 0.529067, 0.529067, 1)
+[node name="Polygon2D" parent="BackgroundLayer/GrayBox" index="0" unique_id=1264535793]
 polygon = PackedVector2Array(-1503, -1051, -971, -1426, 244, -1712, 1889, -1438, 2509, -854, 2473, 398, 1787, 819, 209, 731, -1052, 523, -1571, 62, -1643, -601, -1804, -664, -1810.1935, -1036.3711, -1812, -1145)
 
-[node name="Sprite" parent="BackgroundLayer/GrayBox" index="1"]
-unique_name_in_owner = true
-
-[node name="Label" parent="BackgroundLayer/GrayBox" index="2"]
-offset_right = 40.0
-offset_bottom = 22.3333
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-
-[node name="SalidaPasillo" parent="BackgroundLayer" unique_id=762944028 groups=["objects"] instance=ExtResource("5_wsxlu")]
+[node name="SalidaPasillo" parent="BackgroundLayer" unique_id=762944028 instance=ExtResource("5_wsxlu")]
 position = Vector2(-1731, -893)
-script = ExtResource("6_qu7ai")
-
-[node name="Polygon2D" parent="BackgroundLayer/SalidaPasillo" index="0"]
-color = Color(0.529067, 0.529067, 0.529067, 1)
-
-[node name="Sprite" parent="BackgroundLayer/SalidaPasillo" index="1"]
-unique_name_in_owner = true
-
-[node name="Label" parent="BackgroundLayer/SalidaPasillo" index="2"]
-offset_right = 40.0
-offset_bottom = 22.3333
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 
 [node name="SceneChanger" type="Area2D" parent="BackgroundLayer/SalidaPasillo" unique_id=1026394755 node_paths=PackedStringArray("black_rect")]
 position = Vector2(-3, -173)
@@ -313,10 +277,7 @@ metadata/_custom_type_script = "uid://bsvp6e76bx107"
 position = Vector2(-32.5, 174.5)
 shape = SubResource("RectangleShape2D_h3612")
 
-[node name="PlayableCharacter" type="CharacterBody2D" parent="." unique_id=943328989 groups=["main_character"] instance=ExtResource("5_wyn0j")]
-y_sort_enabled = true
-script = ExtResource("6_wsxlu")
-character_info = ExtResource("7_qu7ai")
+[node name="PlayableCharacter" parent="." unique_id=943328989 instance=ExtResource("5_wyn0j")]
 
 [node name="NpcLayer" type="Node2D" parent="." unique_id=252906158]
 y_sort_enabled = true
@@ -413,137 +374,46 @@ script = ExtResource("12_otrva")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1507041068]
 
-[node name="MenuSubViewport" type="SubViewportContainer" parent="CanvasLayer" unique_id=158507729 instance=ExtResource("13_h3612")]
-process_mode = 3
+[node name="MenuSubViewport" parent="CanvasLayer" unique_id=158507729 instance=ExtResource("13_h3612")]
 visible = false
-z_index = 2
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("14_ng17h")
+
+[node name="SettingsMenu" parent="CanvasLayer" unique_id=2024337667 instance=ExtResource("15_cd4os")]
 metadata/_edit_lock_ = true
 
-[node name="SettingsMenu" type="Control" parent="CanvasLayer" unique_id=2024337667 node_paths=PackedStringArray("game_button", "accesibility_button", "audio_button", "controls_button", "video_button", "game_panel", "accesibility_panel", "audio_panel", "controls_panel", "video_panel", "close_button") instance=ExtResource("15_cd4os")]
-process_mode = 3
+[node name="NotificationCenter" parent="CanvasLayer" unique_id=79691152 instance=ExtResource("17_stklf")]
 visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("16_3bsvr")
-game_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Game")
-accesibility_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Accesibility")
-audio_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Audio")
-controls_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Controls")
-video_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Video")
-game_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/GamePanel")
-accesibility_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel")
-audio_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel")
-controls_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel")
-video_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/VideoPanel")
-close_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/BottomButtons/ClosePause")
 metadata/_edit_lock_ = true
 
-[node name="NotificationCenter" type="Control" parent="CanvasLayer" unique_id=79691152 instance=ExtResource("17_stklf")]
+[node name="AddNewCharacterAnimation" parent="CanvasLayer" unique_id=1007526646 instance=ExtResource("19_lpgnj")]
 visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("18_acrrq")
 metadata/_edit_lock_ = true
 
-[node name="AddNewCharacterAnimation" type="Control" parent="CanvasLayer" unique_id=1007526646 instance=ExtResource("19_lpgnj")]
+[node name="AddNewItemAnimation" parent="CanvasLayer" unique_id=1797630206 instance=ExtResource("21_18p21")]
 visible = false
-modulate = Color(1, 1, 1, 0)
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("20_e3cj8")
-animation_duration = 3.0
 metadata/_edit_lock_ = true
 
-[node name="AddNewItemAnimation" type="Control" parent="CanvasLayer" unique_id=1797630206 instance=ExtResource("21_18p21")]
-visible = false
-modulate = Color(1, 1, 1, 0)
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("22_q150m")
-animation_duration = 3.0
-metadata/_edit_lock_ = true
-
-[node name="BlackRect" type="ColorRect" parent="CanvasLayer" unique_id=1495884054 instance=ExtResource("23_dw21r")]
-visible = false
-modulate = Color(0, 0, 0, 1)
-top_level = true
-z_index = 3
-y_sort_enabled = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
+[node name="BlackRect" parent="CanvasLayer" unique_id=1495884054 instance=ExtResource("23_dw21r")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1068636144]
 
-[node name="CameraManager" parent="." unique_id=1203642049 node_paths=PackedStringArray("phantom_cameras", "current_camera") instance=ExtResource("24_p5nbd")]
-script = ExtResource("25_m8mjo")
-phantom_cameras = [NodePath("PhantomCameras/PhantomCamera2D")]
-current_camera = NodePath("PhantomCameras/PhantomCamera2D")
+[node name="CameraManager" parent="." unique_id=1203642049 instance=ExtResource("24_p5nbd")]
 
 [node name="Camera2D" parent="CameraManager" index="0" unique_id=440357056]
 physics_interpolation_mode = 1
-zoom = Vector2(1.2, 1.2)
 process_callback = 0
 limit_left = -1717
 limit_top = -2636
 limit_right = 2562
 limit_bottom = 948
-editor_draw_limits = true
-
-[node name="PhantomCameraHost" parent="CameraManager/Camera2D" index="0" unique_id=1574566684]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("26_6m0du")
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" parent_id_path=PackedInt32Array(1203642049, 1986731475) index="0" unique_id=1569982798]
 position = Vector2(422.5, -844)
 shape = SubResource("RectangleShape2D_o2web")
-disabled = true
-metadata/_edit_lock_ = true
 
 [node name="PhantomCamera2D" parent="CameraManager/PhantomCameras" parent_id_path=PackedInt32Array(1203642049, 219495286) index="0" unique_id=437005990 node_paths=PackedStringArray("follow_target")]
-top_level = true
-script = ExtResource("27_mlge7")
-priority = 1
-follow_mode = 5
 follow_target = NodePath("../../../PlayableCharacter")
-zoom = Vector2(1.2, 1.2)
 tween_resource = SubResource("Resource_fyrvt")
-tween_on_load = false
-follow_damping = true
-follow_damping_value = Vector2(0.25, 0.25)
-draw_limits = true
 limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
-
-[node name="ReminderPhantomCamera" parent="CameraManager/PhantomCameras" parent_id_path=PackedInt32Array(1203642049, 219495286) index="1" unique_id=652175356]
-script = ExtResource("29_3hovv")
 
 [connection signal="body_entered" from="ObjectLayer/Casa/PuertaCasa/Area2D" to="." method="_on_area_2d_body_entered"]
 

@@ -1,0 +1,353 @@
+[gd_scene format=3 uid="uid://dhcj3nfmf1h3g"]
+
+[ext_resource type="Script" uid="uid://iyxa2juiwepc" path="res://scripts/maps/habitacion_demo_tecnico.gd" id="1_lvic6"]
+[ext_resource type="Resource" uid="uid://c75auh1qcyv38" path="res://assets/resources/maps/demo_prerelease/habitacion_jefe_prerelease.tres" id="2_lvic6"]
+[ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="3_uofqo"]
+[ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="4_pthnn"]
+[ext_resource type="Texture2D" uid="uid://dl1jide8tgpi" path="res://assets/backgrounds/demo_tecnico/fondo_habitacion.png" id="5_4b0da"]
+[ext_resource type="Script" uid="uid://bsvp6e76bx107" path="res://scripts/scene_changer.gd" id="6_l4qo8"]
+[ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="7_dk8cw"]
+[ext_resource type="Script" uid="uid://g7sf10k2338d" path="res://scripts/npc_layer.gd" id="8_e25k5"]
+[ext_resource type="PackedScene" uid="uid://h0q50x2317m1" path="res://scenes/npc.tscn" id="9_egg04"]
+[ext_resource type="Texture2D" uid="uid://dypnt78d1mjsp" path="res://assets/spritesheets/demo_tecnico/jefe_mapa.png" id="10_al08e"]
+[ext_resource type="Script" uid="uid://do84xbf65qif" path="res://scripts/talk.gd" id="11_ukhik"]
+[ext_resource type="Script" uid="uid://dsfklbei7r5qc" path="res://scripts/object_layer.gd" id="12_stx3b"]
+[ext_resource type="Texture2D" uid="uid://dgafhxdgdujjc" path="res://assets/spritesheets/demo_tecnico/candelabroder_habitacion.png" id="13_n8y0w"]
+[ext_resource type="Texture2D" uid="uid://cjpvk2gmey647" path="res://assets/spritesheets/demo_tecnico/candelabroizq_habitacion.png" id="14_uuekx"]
+[ext_resource type="PackedScene" uid="uid://clmbh4jnxur05" path="res://scenes/objeto.tscn" id="15_edbjx"]
+[ext_resource type="Texture2D" uid="uid://ckndfgr2gggsp" path="res://assets/objects/demo_tecnico/craneo1_habitacion.png" id="16_custv"]
+[ext_resource type="Texture2D" uid="uid://bwl6t1hflemcw" path="res://assets/objects/demo_tecnico/craneo2_habitacion.png" id="17_6iq4v"]
+[ext_resource type="Texture2D" uid="uid://dxd54x5v7mp36" path="res://assets/objects/demo_tecnico/craneo3_habitacion.png" id="18_c8nf2"]
+[ext_resource type="Texture2D" uid="uid://drotdyw73xb3y" path="res://assets/backgrounds/demo_tecnico/craneoslimite_habitacion.png" id="19_pjtj2"]
+[ext_resource type="Script" uid="uid://ck4xyxoy5fldl" path="res://scripts/enemies_layer.gd" id="20_cip4b"]
+[ext_resource type="Script" uid="uid://cv43fprb0dski" path="res://scripts/spawns_layer.gd" id="21_tb0th"]
+[ext_resource type="Script" uid="uid://c2d2peg3ovb8n" path="res://scripts/saves_layer.gd" id="22_3pv4a"]
+[ext_resource type="PackedScene" uid="uid://bx88hvib56f0" path="res://scenes/menu/menu_sub_viewport.tscn" id="23_lvic6"]
+[ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="24_poffd"]
+[ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="25_x4u4l"]
+[ext_resource type="PackedScene" uid="uid://dqi4bw7t4w0u8" path="res://scenes/add_new_character_animation.tscn" id="26_6joyf"]
+[ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="27_tync1"]
+[ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="28_6chcs"]
+[ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="29_xnv65"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="30_f2qi4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_phoxl"]
+size = Vector2(2479, 344)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_or2tu"]
+size = Vector2(1148, 344)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sky3e"]
+atlas = ExtResource("10_al08e")
+region = Rect2(0, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3tux"]
+atlas = ExtResource("10_al08e")
+region = Rect2(400, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7180"]
+atlas = ExtResource("10_al08e")
+region = Rect2(0, 400, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcmex"]
+atlas = ExtResource("10_al08e")
+region = Rect2(400, 400, 400, 400)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0fy3c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sky3e")
+}, {
+"duration": 1.71,
+"texture": SubResource("AtlasTexture_x3tux")
+}, {
+"duration": 0.61,
+"texture": SubResource("AtlasTexture_c7180")
+}, {
+"duration": 1.91,
+"texture": SubResource("AtlasTexture_dcmex")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix8xt"]
+size = Vector2(1519, 659)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvqvm"]
+atlas = ExtResource("13_n8y0w")
+region = Rect2(0, 0, 411, 715)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6urx6"]
+atlas = ExtResource("13_n8y0w")
+region = Rect2(411, 0, 411, 715)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yv1h"]
+atlas = ExtResource("13_n8y0w")
+region = Rect2(822, 0, 411, 715)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_phoxl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvqvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6urx6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yv1h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or2tu"]
+atlas = ExtResource("14_uuekx")
+region = Rect2(0, 0, 411, 715)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0sfp"]
+atlas = ExtResource("14_uuekx")
+region = Rect2(411, 0, 411, 715)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajej5"]
+atlas = ExtResource("14_uuekx")
+region = Rect2(822, 0, 411, 715)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sebpp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_or2tu")
+}, {
+"duration": 1.61,
+"texture": SubResource("AtlasTexture_p0sfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajej5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1j1x1"]
+size = Vector2(3896, 2234)
+
+[sub_resource type="Resource" id="Resource_fyrvt"]
+script = ExtResource("30_f2qi4")
+duration = 2.0
+transition = 1
+
+[node name="HabitacionJefePrerelease" type="Node2D" unique_id=1270107523]
+y_sort_enabled = true
+script = ExtResource("1_lvic6")
+single_map_resource = ExtResource("2_lvic6")
+
+[node name="ParallaxBackgroundLayer" type="Node2D" parent="." unique_id=772758026]
+z_index = -1
+script = ExtResource("3_uofqo")
+
+[node name="BackgroundLayer" type="Node2D" parent="." unique_id=348408536]
+z_index = -1
+script = ExtResource("4_pthnn")
+
+[node name="FondoHabitacion" type="Sprite2D" parent="BackgroundLayer" unique_id=1149766030]
+texture = ExtResource("5_4b0da")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BackgroundLayer" unique_id=1806684774]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D" unique_id=1229643735]
+position = Vector2(-14.5, 988)
+shape = SubResource("RectangleShape2D_phoxl")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BackgroundLayer/StaticBody2D" unique_id=1618085177]
+position = Vector2(-10, -31)
+shape = SubResource("RectangleShape2D_or2tu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=221828260]
+polygon = PackedVector2Array(-1037, 865, -862, 617, -820, 442, -693, 262, -633, 247, -596, 254, -447, 99, -499, -274, -1056, -156, -1180, 368, -1155, 794)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=1577512769]
+polygon = PackedVector2Array(404, 56, 574, 243, 833, 584, 1055, 889, 1394, 679, 1246, -224, 529, -399, 270, -290)
+
+[node name="SceneChanger" type="Area2D" parent="BackgroundLayer" unique_id=1690551909 node_paths=PackedStringArray("black_rect")]
+script = ExtResource("6_l4qo8")
+target_scene = "res://scenes/maps/demo_prerelease/pasillo_cabeza_prerelease.tscn"
+target_marker = "EntradaHabitacion"
+black_rect = NodePath("../../CanvasLayer/BlackRect")
+metadata/_custom_type_script = "uid://bsvp6e76bx107"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/SceneChanger" unique_id=1572557460]
+polygon = PackedVector2Array(-883, 502, -876, 566, -631, 232, -663, 154, -811, 182)
+
+[node name="PlayableCharacter" parent="." unique_id=1738322616 instance=ExtResource("7_dk8cw")]
+
+[node name="NpcLayer" type="Node2D" parent="." unique_id=658197785]
+y_sort_enabled = true
+script = ExtResource("8_e25k5")
+
+[node name="Jefe" parent="NpcLayer" unique_id=1564569223 instance=ExtResource("9_egg04")]
+position = Vector2(0, 145)
+
+[node name="AnimatedSprite2D" parent="NpcLayer/Jefe" index="0"]
+sprite_frames = SubResource("SpriteFrames_0fy3c")
+autoplay = "default"
+frame_progress = 0.802385
+offset = Vector2(0, -135.38)
+
+[node name="CollisionPolygon2D" parent="NpcLayer/Jefe/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-102, 57, -11, 68, 89, 60, 111, 15, 49, -32, -43, -37, -110, 11)
+
+[node name="Talk" type="Node2D" parent="NpcLayer/Jefe" unique_id=876840076 node_paths=PackedStringArray("talking_area")]
+script = ExtResource("11_ukhik")
+talking_area = NodePath("Area2D")
+automatic_start = true
+timeline_name = "jefe_demo_tecnico"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="NpcLayer/Jefe/Talk" unique_id=1191916286]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/Jefe/Talk/Area2D" unique_id=967717317]
+position = Vector2(235.5, 319.5)
+shape = SubResource("RectangleShape2D_ix8xt")
+
+[node name="ObjectLayer" type="Node2D" parent="." unique_id=1675755361]
+y_sort_enabled = true
+script = ExtResource("12_stx3b")
+
+[node name="CandelabroDer" parent="ObjectLayer" unique_id=525138419 instance=ExtResource("9_egg04")]
+position = Vector2(295, 158)
+
+[node name="AnimatedSprite2D" parent="ObjectLayer/CandelabroDer" index="0"]
+sprite_frames = SubResource("SpriteFrames_phoxl")
+autoplay = "default"
+frame_progress = 0.116658
+offset = Vector2(0, -314)
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/CandelabroDer/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-93, 20, -42, 41, 58, 36, 59, 10, 17, -17, -41, -14)
+
+[node name="CandelabroIzq" parent="ObjectLayer" unique_id=1009084445 instance=ExtResource("9_egg04")]
+position = Vector2(-288, 159)
+
+[node name="AnimatedSprite2D" parent="ObjectLayer/CandelabroIzq" index="0"]
+sprite_frames = SubResource("SpriteFrames_sebpp")
+autoplay = "default"
+frame_progress = 0.850946
+offset = Vector2(0, -314)
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/CandelabroIzq/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-67, 37, 4, 39, 91, 23, 60, -5, 29, -11, -33, 0)
+
+[node name="Craneo1" parent="ObjectLayer" unique_id=1143610962 instance=ExtResource("15_edbjx")]
+position = Vector2(218, 510)
+
+[node name="Sprite2D" parent="ObjectLayer/Craneo1" index="0"]
+texture = ExtResource("16_custv")
+offset = Vector2(0, -20.125)
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/Craneo1/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-52, 12, -15, 37, 36, 30, 56, -6, 46, -17, -35, -13)
+
+[node name="Craneo2" parent="ObjectLayer" unique_id=1908282747 instance=ExtResource("15_edbjx")]
+position = Vector2(472, 165)
+
+[node name="Sprite2D" parent="ObjectLayer/Craneo2" index="0"]
+texture = ExtResource("17_6iq4v")
+offset = Vector2(0, -19)
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/Craneo2/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-52, 7, 28, 28, 55, 8, 38, -9, -40, -10)
+
+[node name="Craneo3" parent="ObjectLayer" unique_id=1911064314 instance=ExtResource("15_edbjx")]
+position = Vector2(-473, 153)
+
+[node name="Sprite2D" parent="ObjectLayer/Craneo3" index="0"]
+texture = ExtResource("18_c8nf2")
+offset = Vector2(0, -22)
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/Craneo3/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-62, 4, -29, 26, 27, 34, 63, 12, 56, -13, -8, -17)
+
+[node name="LimiteCraneos" parent="ObjectLayer" unique_id=1974090337 instance=ExtResource("15_edbjx")]
+position = Vector2(0, 825)
+
+[node name="Sprite2D" parent="ObjectLayer/LimiteCraneos" index="0"]
+texture = ExtResource("19_pjtj2")
+offset = Vector2(0, -179)
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/LimiteCraneos/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-1020, 0, 1023, -4, 1019, -261, 941, -178, 706, -59, 461, -18, 286, -34, 91, -50, -145, -34, -348, -31, -587, -93, -733, -84, -848, -71, -1014, -139)
+
+[node name="EnemiesLayer" type="Node2D" parent="." unique_id=370046628]
+y_sort_enabled = true
+script = ExtResource("20_cip4b")
+
+[node name="SpawnsLayer" type="Node2D" parent="." unique_id=1702556712]
+y_sort_enabled = true
+script = ExtResource("21_tb0th")
+
+[node name="DefaultMarker" type="Marker2D" parent="SpawnsLayer" unique_id=1642988301]
+position = Vector2(-407, 433)
+
+[node name="EntradaHabitacion" type="Marker2D" parent="SpawnsLayer" unique_id=266998493]
+position = Vector2(-618, 443)
+
+[node name="SavesLayer" type="Node2D" parent="." unique_id=1155360540]
+y_sort_enabled = true
+script = ExtResource("22_3pv4a")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1096406174]
+
+[node name="MenuSubViewport" parent="CanvasLayer" unique_id=158507729 instance=ExtResource("23_lvic6")]
+visible = false
+
+[node name="SettingsMenu" parent="CanvasLayer" unique_id=421622590 instance=ExtResource("24_poffd")]
+metadata/_edit_lock_ = true
+
+[node name="NotificationCenter" parent="CanvasLayer" unique_id=1012460415 instance=ExtResource("25_x4u4l")]
+metadata/_edit_lock_ = true
+
+[node name="AddNewCharacterAnimation" parent="CanvasLayer" unique_id=1476483961 instance=ExtResource("26_6joyf")]
+metadata/_edit_lock_ = true
+
+[node name="AddNewItemAnimation" parent="CanvasLayer" unique_id=1495672688 instance=ExtResource("27_tync1")]
+metadata/_edit_lock_ = true
+
+[node name="BlackRect" parent="CanvasLayer" unique_id=1034097350 instance=ExtResource("28_6chcs")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1232064445]
+
+[node name="CameraManager" parent="." unique_id=1045457685 instance=ExtResource("29_xnv65")]
+
+[node name="Camera2D" parent="CameraManager" index="0" unique_id=440357056]
+physics_interpolation_mode = 1
+position = Vector2(0, -5.999939)
+process_callback = 0
+limit_left = -1948
+limit_top = -1340
+limit_right = 1948
+limit_bottom = 894
+
+[node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" parent_id_path=PackedInt32Array(1045457685, 1986731475) index="0" unique_id=1569982798]
+position = Vector2(0, -223)
+shape = SubResource("RectangleShape2D_1j1x1")
+
+[node name="PhantomCamera2D" parent="CameraManager/PhantomCameras" parent_id_path=PackedInt32Array(1045457685, 219495286) index="0" unique_id=437005990 node_paths=PackedStringArray("follow_target")]
+position = Vector2(0, -5.999939)
+follow_target = NodePath("../../../PlayableCharacter")
+tween_resource = SubResource("Resource_fyrvt")
+limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
+
+[editable path="NpcLayer/Jefe"]
+[editable path="ObjectLayer/CandelabroDer"]
+[editable path="ObjectLayer/CandelabroIzq"]
+[editable path="ObjectLayer/Craneo1"]
+[editable path="ObjectLayer/Craneo2"]
+[editable path="ObjectLayer/Craneo3"]
+[editable path="ObjectLayer/LimiteCraneos"]
+[editable path="CameraManager"]

@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="3_qk4qj"]
 [ext_resource type="PackedScene" uid="uid://ckc0rqj4d6b16" path="res://scenes/gray_box.tscn" id="4_hb4ug"]
 [ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="4_vrexx"]
-[ext_resource type="Script" uid="uid://bhg6tus2nlmgr" path="res://scripts/gray_box.gd" id="5_2v0vb"]
 [ext_resource type="Script" uid="uid://bsvp6e76bx107" path="res://scripts/scene_changer.gd" id="7_18dyx"]
 [ext_resource type="Script" uid="uid://g7sf10k2338d" path="res://scripts/npc_layer.gd" id="7_hb4ug"]
 [ext_resource type="Script" uid="uid://dsfklbei7r5qc" path="res://scripts/object_layer.gd" id="8_2v0vb"]
@@ -111,34 +110,40 @@ script = ExtResource("3_qk4qj")
 
 [node name="GrayBox" parent="BackgroundLayer" unique_id=1797927552 instance=ExtResource("4_hb4ug")]
 
-[node name="Polygon2D" parent="BackgroundLayer/GrayBox" index="0"]
+[node name="Polygon2D" parent="BackgroundLayer/GrayBox" index="0" unique_id=1264535793]
 polygon = PackedVector2Array(-709, -1035, 703, -1022, 746, 369, 887, 1069, 1714, 1325, 1667, 2980, -196, 2186, -741, 1358, -781, 982)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="BackgroundLayer" unique_id=561605950]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=1106795432]
 polygon = PackedVector2Array(-736, -406, -740, 1465, -1163, 1652, -1012, -480)
+disabled = true
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=1994396637]
 position = Vector2(118, -670)
 polygon = PackedVector2Array(-858, 2096, -237, 2923, 1617, 3667, 1960, 4299, 423, 4065, -1167, 3306, -1389, 2302)
+disabled = true
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=770417696]
 polygon = PackedVector2Array(836, 1110, 689, -1188, 901, -1196, 1841, 1140, 1624, 1357)
+disabled = true
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=929200846]
 polygon = PackedVector2Array(-795, -1037, 922, -1007, 952, -1214, -854, -1237)
+disabled = true
 
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=2142556422]
 polygon = PackedVector2Array(-1009, -807, -691, -770, -676, -1133, -987, -1148)
+disabled = true
 
 [node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=1021341512]
 polygon = PackedVector2Array(-876, -400, -847, -992, -1157, -1007, -1157, -267)
+disabled = true
 
 [node name="PuertaCueva" parent="BackgroundLayer" unique_id=195993784 instance=ExtResource("4_hb4ug")]
 position = Vector2(-763, -587)
 
-[node name="Polygon2D" parent="BackgroundLayer/PuertaCueva" index="0"]
+[node name="Polygon2D" parent="BackgroundLayer/PuertaCueva" index="0" unique_id=1264535793]
 color = Color(0.32915837, 0.3291584, 0.3291583, 1)
 polygon = PackedVector2Array(42, -205, -68, -212, -89, 165, 35, 189)
 
@@ -152,21 +157,8 @@ metadata/_custom_type_script = "uid://bsvp6e76bx107"
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/PuertaCueva/SceneChanger" unique_id=120420610]
 polygon = PackedVector2Array(-5, -229, -1, 222, -136, 183, -132, -243)
 
-[node name="SalidaPasillo" parent="BackgroundLayer" unique_id=1292040891 groups=["objects"] instance=ExtResource("4_hb4ug")]
+[node name="SalidaPasillo" parent="BackgroundLayer" unique_id=1292040891 instance=ExtResource("4_hb4ug")]
 position = Vector2(1547, 2052)
-script = ExtResource("5_2v0vb")
-
-[node name="Polygon2D" parent="BackgroundLayer/SalidaPasillo" index="0"]
-color = Color(0.529067, 0.529067, 0.529067, 1)
-
-[node name="Sprite" parent="BackgroundLayer/SalidaPasillo" index="1"]
-unique_name_in_owner = true
-
-[node name="Label" parent="BackgroundLayer/SalidaPasillo" index="2"]
-offset_right = 40.0
-offset_bottom = 22.3333
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 
 [node name="SceneChanger" type="Area2D" parent="BackgroundLayer/SalidaPasillo" unique_id=1909763407 node_paths=PackedStringArray("black_rect")]
 script = ExtResource("7_18dyx")
@@ -277,10 +269,10 @@ metadata/_edit_lock_ = true
 [node name="Camera2D" parent="CameraManager" index="0" unique_id=440357056]
 physics_interpolation_mode = 1
 process_callback = 0
-limit_left = -1717
-limit_top = -2636
-limit_right = 2562
-limit_bottom = 948
+limit_left = -1790
+limit_top = -1459
+limit_right = 1686
+limit_bottom = 3222
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" parent_id_path=PackedInt32Array(1992687465, 1986731475) index="0" unique_id=1569982798]
 position = Vector2(-52, 881.5)

@@ -313,7 +313,7 @@ polygon = PackedVector2Array(-483, 133, -1030, 820, -992, -258, -472, -228)
 polygon = PackedVector2Array(462, 122, 584, 255, 645, 152, 846, 285, 857, 642, 1017, 817, 1013, -235, 470, -209)
 
 [node name="Talk" type="Node2D" parent="BackgroundLayer" unique_id=425450522 node_paths=PackedStringArray("talking_area")]
-position = Vector2(-947, 579)
+position = Vector2(662, 572)
 script = ExtResource("8_iu8q8")
 talking_area = NodePath("Area2D")
 timeline_name = "cigarros_suelo_prerelease"
@@ -326,7 +326,7 @@ position = Vector2(141, 105)
 shape = SubResource("RectangleShape2D_6xik8")
 
 [node name="ShowInput" type="Sprite2D" parent="BackgroundLayer/Talk" unique_id=1841451539]
-position = Vector2(54, -185)
+position = Vector2(240, -199)
 texture = SubResource("Texture2D_vrrpf")
 script = ExtResource("10_qtwdi")
 metadata/_custom_type_script = "uid://cvyrqhq08dmm3"
@@ -409,7 +409,7 @@ texture = ExtResource("23_l1da2")
 offset = Vector2(0, -323)
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/PiedrasFrente/StaticBody2D" index="1"]
-polygon = PackedVector2Array(-1004, -318, -867, -217, -695, -56, -568, -35, -327, -87, -172, -52, 3, -85, 217, -120, 321, -167, 581, -137, 818, -208, 821, -339, 871, -443, 1000, -450, 1036, 5, 390, 45, -1016, 21)
+polygon = PackedVector2Array(-1004, -318, -849, -352, -708, -221, -573, -108, -347, -183, -190, -152, 3, -85, 142, -7, 321, -76, 503, -23, 729, -51, 818, -208, 821, -339, 871, -443, 1000, -450, 1036, 5, 390, 45, -1016, 21)
 
 [node name="EnemiesLayer" type="Node2D" parent="." unique_id=1521005982]
 y_sort_enabled = true
