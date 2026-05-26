@@ -163,7 +163,7 @@ func _find_resource_in_maps_dir(map_name: String, path: String) -> bool:
 	return false
 
 func set_dev_tools() -> void:
-	if OS.is_debug_build():
+	if OS.is_debug_build() and not Globals.recording:
 		var dev_ui_scene: PackedScene = preload("res://scenes/dev_ui.tscn")
 		var dev_ui_instance: Node = dev_ui_scene.instantiate()
 		var canvas_node :CanvasLayer= get_tree().get_current_scene().find_child("CanvasLayer")

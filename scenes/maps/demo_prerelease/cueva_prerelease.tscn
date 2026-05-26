@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://d0q32cfdk1wsf" path="res://scripts/maps/cueva_demo_tecnico.gd" id="1_wgs37"]
 [ext_resource type="Resource" uid="uid://bnbdkrk6q7vh1" path="res://assets/resources/maps/demo_prerelease/cueva_prerelease.tres" id="2_wgs37"]
-[ext_resource type="Script" uid="uid://5rnf247xyu5v" path="res://scripts/scene_creator_tool.gd" id="3_is3up"]
 [ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="4_cjf0f"]
 [ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="5_l1da2"]
 [ext_resource type="Texture2D" uid="uid://bg7t8d32hacg" path="res://assets/maps/demo_prerelease/cueva_prerelease/FONDO.png" id="6_58c7q"]
@@ -281,10 +280,6 @@ size = Vector2(3840, 2160)
 y_sort_enabled = true
 script = ExtResource("1_wgs37")
 single_map_resource = ExtResource("2_wgs37")
-
-[node name="SceneCreatorTool" type="Node" parent="." unique_id=1890355290]
-script = ExtResource("3_is3up")
-metadata/_custom_type_script = "uid://5rnf247xyu5v"
 
 [node name="ParallaxBackgroundLayer" type="Node2D" parent="." unique_id=1638347301]
 z_index = -1
