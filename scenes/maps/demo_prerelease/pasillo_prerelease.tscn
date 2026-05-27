@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://do84xbf65qif" path="res://scripts/talk.gd" id="13_jy20a"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="14_gxate"]
 [ext_resource type="Script" uid="uid://cvyrqhq08dmm3" path="res://scripts/show_input.gd" id="14_rd1as"]
+[ext_resource type="Script" uid="uid://bhg6tus2nlmgr" path="res://scripts/gray_box.gd" id="15_bs2kh"]
 [ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="16_71kmb"]
 [ext_resource type="PackedScene" uid="uid://dqi4bw7t4w0u8" path="res://scenes/add_new_character_animation.tscn" id="18_26b6c"]
 [ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="20_ldarq"]
@@ -91,6 +92,16 @@ height = 598.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jy20a"]
 size = Vector2(285, 1526)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_18dyx"]
+radius = 173.48775
+
+[sub_resource type="Texture2D" id="Texture2D_18dyx"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("11_6fac6")
+path = "talks"
+metadata/_custom_type_script = "uid://ca7mt0w3ffvhe"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4chq3"]
 size = Vector2(3476, 4681)
@@ -172,6 +183,7 @@ position = Vector2(111.5, 136.5)
 shape = SubResource("RectangleShape2D_18dyx")
 
 [node name="PlayableCharacter" parent="." unique_id=2078442437 instance=ExtResource("4_vrexx")]
+position = Vector2(1, -5)
 
 [node name="NpcLayer" type="Node2D" parent="." unique_id=921746432]
 y_sort_enabled = true
@@ -219,9 +231,71 @@ rotation = -1.5707964
 position = Vector2(-30.5, 4.7683716e-07)
 shape = SubResource("RectangleShape2D_jy20a")
 
+[node name="Lobuki" parent="NpcLayer" unique_id=875075279 groups=["objects"] instance=ExtResource("4_hb4ug")]
+position = Vector2(-596, 197)
+script = ExtResource("15_bs2kh")
+
+[node name="Polygon2D" parent="NpcLayer/Lobuki" index="0" unique_id=1264535793]
+color = Color(0.8589508, 0.00051673176, 0.8447104, 1)
+polygon = PackedVector2Array(-104, 13, -92, -281, 39, -421, 107, -273, 65, -136, 68, -19)
+
+[node name="Sprite" parent="NpcLayer/Lobuki" index="1" unique_id=1314284104]
+unique_name_in_owner = true
+autoplay = "default"
+offset = Vector2(0, -190)
+
+[node name="Sprite2D" parent="NpcLayer/Lobuki" index="2" unique_id=2121259102]
+offset = Vector2(0, -96)
+
+[node name="Label" parent="NpcLayer/Lobuki" index="3" unique_id=2059125336]
+offset_right = 40.0
+offset_bottom = 22.3333
+theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+
+[node name="CollisionShape2D" parent="NpcLayer/Lobuki/StaticBody2D" parent_id_path=PackedInt32Array(875075279, 392447427) index="0" unique_id=1089963160]
+position = Vector2(-40, -62)
+
+[node name="CollisionPolygon2D" parent="NpcLayer/Lobuki/StaticBody2D" parent_id_path=PackedInt32Array(875075279, 392447427) index="1" unique_id=619803914]
+polygon = PackedVector2Array(-164, -2, -68, 102, 90, 8, 47, -49, -105, -49)
+
+[node name="Talk" type="Node2D" parent="NpcLayer/Lobuki" unique_id=1243085438 node_paths=PackedStringArray("talking_area")]
+script = ExtResource("13_jy20a")
+talking_area = NodePath("Area2D")
+timeline_name = "lobuki_pasillo_prerelease_1"
+metadata/_custom_type_script = "uid://do84xbf65qif"
+
+[node name="Area2D" type="Area2D" parent="NpcLayer/Lobuki/Talk" unique_id=184127111]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/Lobuki/Talk/Area2D" unique_id=253574647]
+shape = SubResource("CircleShape2D_18dyx")
+
+[node name="ShowInput" type="Sprite2D" parent="NpcLayer/Lobuki/Talk" unique_id=1128452033]
+position = Vector2(49, -242)
+texture = SubResource("Texture2D_18dyx")
+script = ExtResource("14_rd1as")
+metadata/_custom_type_script = "uid://cvyrqhq08dmm3"
+
 [node name="ObjectLayer" type="Node2D" parent="." unique_id=1624691151]
 y_sort_enabled = true
 script = ExtResource("8_2v0vb")
+
+[node name="PlantaFrente" parent="ObjectLayer" unique_id=1390872512 groups=["objects"] instance=ExtResource("4_hb4ug")]
+position = Vector2(-787, 3048)
+script = ExtResource("15_bs2kh")
+
+[node name="Polygon2D" parent="ObjectLayer/PlantaFrente" index="0" unique_id=1264535793]
+color = Color(1.2513996e-06, 0.9377129, 0.431856, 1)
+polygon = PackedVector2Array(-195, -32, -188, -597, 707, -1364, 727, -926, 639, -610, 370, 2, 693, -449, 1346, -1054, 1440, -798, 1279, -126, 882, 116, 81, 164)
+
+[node name="Sprite" parent="ObjectLayer/PlantaFrente" index="1" unique_id=1314284104]
+unique_name_in_owner = true
+
+[node name="Label" parent="ObjectLayer/PlantaFrente" index="3" unique_id=2059125336]
+offset_right = 40.0
+offset_bottom = 22.3333
+theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
 
 [node name="EnemiesLayer" type="Node2D" parent="." unique_id=428027711]
 y_sort_enabled = true
@@ -268,6 +342,7 @@ metadata/_edit_lock_ = true
 
 [node name="Camera2D" parent="CameraManager" index="0" unique_id=440357056]
 physics_interpolation_mode = 1
+position = Vector2(1, -5)
 process_callback = 0
 limit_left = -1790
 limit_top = -1459
@@ -279,6 +354,7 @@ position = Vector2(-52, 881.5)
 shape = SubResource("RectangleShape2D_4chq3")
 
 [node name="PhantomCamera2D" parent="CameraManager/PhantomCameras" parent_id_path=PackedInt32Array(1992687465, 219495286) index="0" unique_id=437005990 node_paths=PackedStringArray("follow_target")]
+position = Vector2(1, -5)
 follow_target = NodePath("../../../PlayableCharacter")
 limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
 
@@ -286,4 +362,6 @@ limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
 [editable path="BackgroundLayer/PuertaCueva"]
 [editable path="BackgroundLayer/SalidaPasillo"]
 [editable path="NpcLayer/RanaSabia"]
+[editable path="NpcLayer/Lobuki"]
+[editable path="ObjectLayer/PlantaFrente"]
 [editable path="CameraManager"]

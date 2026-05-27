@@ -76,6 +76,7 @@ directories/dtl_directory={
 "lobo_salvaje_intro_fight_1": "res://dialogic/timelines/demo_tecnico/fight_enemies_dialogs/lobo_salvaje_intro_fight_1.dtl",
 "lobo_salvaje_victory_1": "res://dialogic/timelines/demo_tecnico/fight_enemies_dialogs/lobo_salvaje_victory_1.dtl",
 "lobuki_cigarro_0": "res://dialogic/timelines/demo_tecnico/lobuki_cigarro_0.dtl",
+"lobuki_pasillo_prerelease_1": "res://dialogic/timelines/demo_prerelease/lobuki_pasillo_prerelease_1.dtl",
 "lobuki_prerelease_1": "res://dialogic/timelines/demo_prerelease/lobuki_prerelease_1.dtl",
 "memory_basura_alerta_1": "res://dialogic/timelines/memory_scene_1/memory_basura_alerta_1.dtl",
 "memory_basura_sorpresa_npc1_1": "res://dialogic/timelines/memory_scene_1/memory_basura_sorpresa_npc1_1.dtl",
