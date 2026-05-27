@@ -249,10 +249,10 @@ metadata/_edit_lock_ = true
 
 [node name="PartyPanelContainer" type="PanelContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl" unique_id=1560321676]
 layout_mode = 0
-offset_left = 2034.0
-offset_top = 246.0
-offset_right = 3092.0
-offset_bottom = 578.0
+offset_left = 343.0
+offset_top = 310.0
+offset_right = 1401.0
+offset_bottom = 642.0
 theme = ExtResource("15_5aw48")
 
 [node name="ColorRect" type="ColorRect" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/PartyPanelContainer" unique_id=1647845293]
@@ -293,10 +293,10 @@ layout_mode = 2
 
 [node name="FullPanelContainer" type="PanelContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl" unique_id=634359614]
 layout_mode = 0
-offset_left = 549.0
-offset_top = 233.0
-offset_right = 1343.0
-offset_bottom = 1610.0
+offset_left = 2346.0
+offset_top = 243.0
+offset_right = 3140.0
+offset_bottom = 1620.0
 theme = ExtResource("15_5aw48")
 
 [node name="ColorRect" type="ColorRect" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/PartyControl/FullPanelContainer" unique_id=2051644571]
@@ -405,10 +405,10 @@ metadata/_edit_lock_ = true
 
 [node name="InfoContainer" type="PanelContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl" unique_id=1109272010]
 layout_mode = 0
-offset_left = 1990.0
-offset_top = 641.0
-offset_right = 2790.0
-offset_bottom = 1664.0
+offset_left = 391.0
+offset_top = 636.0
+offset_right = 1191.0
+offset_bottom = 1659.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_yl3w3")
 
 [node name="ColorRect" type="ColorRect" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoContainer" unique_id=1073757021]
@@ -473,10 +473,10 @@ autowrap_mode = 0
 
 [node name="InfoDescripcionPanelContainer" type="PanelContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl" unique_id=404926516]
 layout_mode = 0
-offset_left = 2277.0
-offset_top = 1662.0
-offset_right = 3037.0
-offset_bottom = 1943.0
+offset_left = 472.0
+offset_top = 1680.0
+offset_right = 1232.0
+offset_bottom = 1961.0
 
 [node name="ColorRect" type="ColorRect" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoDescripcionPanelContainer" unique_id=1687287748]
 layout_mode = 2
@@ -515,10 +515,10 @@ fit_content = true
 
 [node name="InfoHabilidadesContainer" type="PanelContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl" unique_id=619136644]
 layout_mode = 0
-offset_left = 2774.0
-offset_top = 778.0
-offset_right = 3534.0
-offset_bottom = 1385.0
+offset_left = 1258.0
+offset_top = 1293.0
+offset_right = 2018.0
+offset_bottom = 1900.0
 
 [node name="ColorRect" type="ColorRect" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoHabilidadesContainer" unique_id=1233492292]
 layout_mode = 2
@@ -552,10 +552,10 @@ layout_mode = 2
 
 [node name="InfoVidaContainer" type="PanelContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl" unique_id=1265483965]
 layout_mode = 0
-offset_left = 1874.0
-offset_top = 742.0
-offset_right = 2174.0
-offset_bottom = 922.0
+offset_left = 284.0
+offset_top = 802.0
+offset_right = 584.0
+offset_bottom = 982.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0snb7")
 
 [node name="CenterContainer" type="CenterContainer" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyBaseState/MemberDescriptionControl/InfoVidaContainer" unique_id=29730292]
@@ -643,7 +643,7 @@ theme_override_constants/separation = 28
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("15_5aw48")
-text = "<<< Sacar del equipo"
+text = "Sacar del equipo >>>"
 
 [node name="AtrasPartyButton" type="Button" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiPartyOptionState/PartyOptions/PartyOptionsContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=426311082]
 unique_name_in_owner = true
@@ -699,7 +699,7 @@ theme_override_constants/separation = 28
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("15_5aw48")
-text = "Agregar al equipo >>>"
+text = "<<< Agregar al equipo"
 
 [node name="MarcarMemberButton" type="Button" parent="SubViewport/MenuTamagotchi/MenuTamagotchiLimboHSM/MenuTamagotchiPartyLimboHSM/MenuTamagotchiMemberOptionState/MemberOptions/MemberOptionsContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=89390452]
 visible = false

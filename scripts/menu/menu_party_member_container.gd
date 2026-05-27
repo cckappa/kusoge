@@ -39,7 +39,11 @@ func _on_focus_exited() -> void:
 func _on_button_pressed() -> void:
 	if type == button_type.PARTY:
 		print("Party con: ", character.name)
-		SignalBus.emit_signal("menu_party_character_button_pressed", character)
+		SignalBus.emit_signal("menu_party_character_button_pressed", character, self)
 	elif type == button_type.MEMBER and character.unlocked:
 		print("Member: ", character.name)
-		SignalBus.emit_signal("menu_member_character_button_pressed", character)
+		SignalBus.emit_signal("menu_member_character_button_pressed", character, self)
+
+
+func _on_switch_button_pressed() -> void:
+	print("Switch pressed")

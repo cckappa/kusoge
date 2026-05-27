@@ -50,6 +50,35 @@ texture = ExtResource("2_khypy")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="Control" type="Control" parent="." unique_id=1400652865]
+visible = false
+layout_mode = 2
+
+[node name="SwitchButton" type="Button" parent="Control" unique_id=326726569]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+focus_mode = 0
+
+[node name="SwitchProfile" type="TextureRect" parent="Control" unique_id=1126580705]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -133.0
+offset_top = -64.0
+offset_right = -32.0
+offset_bottom = 37.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("2_khypy")
+expand_mode = 3
+stretch_mode = 5
+
 [connection signal="focus_entered" from="Button" to="." method="_on_focus_entered"]
 [connection signal="focus_exited" from="Button" to="." method="_on_focus_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/SwitchButton" to="." method="_on_switch_button_pressed"]

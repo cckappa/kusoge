@@ -10,8 +10,8 @@ func _setup() -> void:
 	sacar_party_button.connect("pressed", _on_sacar_party_pressed)
 
 func _enter() -> void:
-	var cargo:Character=get_cargo()
-	character = cargo
+	var cargo:Dictionary=get_cargo()
+	character = cargo.character
 
 	blackboard.get_var("party_options").visible = true
 	sacar_party_button.grab_focus()

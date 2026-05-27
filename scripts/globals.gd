@@ -132,7 +132,15 @@ func clear_current_characters() -> void:
 	current_characters.clear()
 
 func remove_character_from_current_characters(character:Character) -> void:
-	current_characters.erase(character)
+	if current_characters.has(character):
+		current_characters.erase(character)
+
+func add_character_to_current_characters(character:Character) -> void:
+	current_characters.append(character)
+
+func remove_character_from_party(character:Character) -> void:
+	if party.has(character):
+		party.erase(character)
 
 func reset_lives() ->void:
 	## TODO: Cambiar a una funcion que resete la vida de tu party a 1hp

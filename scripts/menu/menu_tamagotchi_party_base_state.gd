@@ -60,11 +60,11 @@ func add_party_members() -> void:
 		party_member_container_instance.type = party_member_container_instance.button_type.MEMBER
 		party_member_container_instance.setup_info(character)
 
-func _to_party_state(_character:Character) -> void:
-	dispatch("to_party_party_option_state", _character)
+func _to_party_state(_character:Character, _container:MarginContainer) -> void:
+	dispatch("to_party_party_option_state", {"character": _character, "container": _container})
 
-func _to_member_state(_character:Character) -> void:
-	dispatch("to_party_member_option_state", _character)
+func _to_member_state(_character:Character, _container:MarginContainer) -> void:
+	dispatch("to_party_member_option_state", {"character": _character, "container": _container})
 
 func _new_character(_character:Character) -> void:
 	_free_children()
