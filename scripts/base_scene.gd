@@ -3,12 +3,16 @@ class_name BaseScene
 extends Node2D
 
 @export_tool_button("Add to Maps Resource")
-var add_to_maps_button: = add_to_maps_resource
+var add_to_maps_button:= add_to_maps_resource
 
 ## SingleMapResource to set map information on the inspector
 @export var single_map_resource: SingleMapResource
 @export var room_state: String = "default"
 
+@export_tool_button("Export Map")
+var export_map_button:= export_map_image
+
+@onready var background_layer:BackgroundLayer = $BackgroundLayer
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var black_rect: ColorRect = $CanvasLayer/BlackRect
 
@@ -19,6 +23,7 @@ const EMPTY_DIALOGIC = "empty_timeline"
 
 var playable_character: Node2D
 var camera2D: PhantomCamera2D
+
 
 func _ready() -> void:
 	Functions.set_dialogic_auto_advance(false)
@@ -173,3 +178,72 @@ func set_dev_tools() -> void:
 
 func call_empty_dialogic_for_loading() -> void:
 	Dialogic.start(EMPTY_DIALOGIC)
+
+func export_map_image() -> void:
+	if not Engine.is_editor_hint():
+		return
+	var polygons:=get_all_polygon2d(self)
+	var labels:=get_all_labels(self)
+	var datetime := Time.get_datetime_string_from_system().replace(":", "-").replace("T", "_")
+	var map_name := "res://assets/map_image_exports/%s_%s.svg" % [single_map_resource.map_name, datetime]
+	save_polygons_to_svg(polygons, labels, map_name)
+
+func get_all_polygon2d(node: Node) -> Array:
+	var result := []
+	for child in node.get_children(true):
+		if child is Polygon2D:
+			result.append(child)
+		result.append_array(get_all_polygon2d(child))
+	return result
+
+func save_polygons_to_svg(polygons: Array, labels:Array , path: String) -> void:
+    # Calculate bounding box
+	var min_pos := Vector2(INF, INF)
+	var max_pos := Vector2(-INF, -INF)
+	for polygon:Polygon2D in polygons:
+		for point in polygon.polygon:
+			var global_point := polygon.to_global(point)
+			min_pos.x = min(min_pos.x, global_point.x)
+			min_pos.y = min(min_pos.y, global_point.y)
+			max_pos.x = max(max_pos.x, global_point.x)
+			max_pos.y = max(max_pos.y, global_point.y)
+
+	var width := max_pos.x - min_pos.x
+	var height := max_pos.y - min_pos.y
+
+	var svg := '<svg xmlns="http://www.w3.org/2000/svg" viewBox="{x} {y} {w} {h}">\n'.format({
+		"x": min_pos.x, "y": min_pos.y, "w": width, "h": height
+	})
+
+	for polygon:Polygon2D in polygons:
+		var points_str := ""
+		for point in polygon.polygon:
+			var global_point := polygon.to_global(point)
+			points_str += "%s,%s " % [global_point.x, global_point.y]
+
+		var color :String= polygon.color.to_html(false)
+		svg += '  <polygon points="%s" fill="#%s" stroke="none"/>\n' % [points_str.strip_edges(), color]
+	
+	for label:Label in labels:
+		var global_pos := label.global_position
+		var font_size := label.get_theme_font_size("font_size") 
+		var color := label.get_theme_color("font_color").to_html(false)
+		svg += '  <text x="%s" y="%s" font-size="%s" fill="#%s">%s</text>\n' % [
+			global_pos.x, global_pos.y, font_size, color, label.text
+		]
+
+	svg += "</svg>"
+
+	var file := FileAccess.open(path, FileAccess.WRITE)
+	file.store_string(svg)
+	file.close()
+
+func get_all_labels(node: Node) -> Array:
+	var result := []
+	for child in node.get_children(true):
+		if child is CanvasLayer:
+			continue
+		if child is Label:
+			result.append(child)
+		result.append_array(get_all_labels(child))
+	return result

@@ -19,7 +19,6 @@
 [ext_resource type="Script" uid="uid://do84xbf65qif" path="res://scripts/talk.gd" id="13_jy20a"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="14_gxate"]
 [ext_resource type="Script" uid="uid://cvyrqhq08dmm3" path="res://scripts/show_input.gd" id="14_rd1as"]
-[ext_resource type="Script" uid="uid://bhg6tus2nlmgr" path="res://scripts/gray_box.gd" id="15_bs2kh"]
 [ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="16_71kmb"]
 [ext_resource type="PackedScene" uid="uid://dqi4bw7t4w0u8" path="res://scenes/add_new_character_animation.tscn" id="18_26b6c"]
 [ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="20_ldarq"]
@@ -186,11 +185,21 @@ script = ExtResource("7_hb4ug")
 [node name="RanaSabia" parent="NpcLayer" unique_id=2078170223 instance=ExtResource("10_jy20a")]
 position = Vector2(438, -848)
 
+[node name="Polygon2D" parent="NpcLayer/RanaSabia" index="0"]
+polygon = PackedVector2Array(-132, 21, -79, -374, 50, -404, 114, -9)
+
 [node name="Sprite" parent="NpcLayer/RanaSabia" index="1"]
 sprite_frames = SubResource("SpriteFrames_26b6c")
 autoplay = "default"
 frame_progress = 0.65802336
 offset = Vector2(0, -210)
+
+[node name="Label" parent="NpcLayer/RanaSabia" index="2"]
+offset_left = -47.0
+offset_top = -240.0
+offset_right = 36.0
+offset_bottom = -198.125
+text = "RANA"
 
 [node name="Talk" type="Node2D" parent="NpcLayer/RanaSabia" unique_id=571831009 node_paths=PackedStringArray("talking_area")]
 script = ExtResource("13_jy20a")
@@ -236,22 +245,19 @@ position = Vector2(-787, 3048)
 color = Color(1.2513996e-06, 0.9377129, 0.431856, 1)
 polygon = PackedVector2Array(-195, -32, -188, -597, 707, -1364, 727, -926, 639, -610, 370, 2, 693, -449, 1346, -1054, 1440, -798, 1279, -126, 882, 116, 81, 164)
 
-[node name="Ciber" parent="ObjectLayer" unique_id=875075279 groups=["objects"] instance=ExtResource("4_hb4ug")]
+[node name="Label" parent="ObjectLayer/PlantaFrente" index="3" unique_id=2059125336]
+offset_left = 191.0
+offset_top = -377.0
+offset_right = 306.0
+offset_bottom = -335.125
+text = "PLANTA"
+
+[node name="Ciber" parent="ObjectLayer" unique_id=875075279 instance=ExtResource("4_hb4ug")]
 position = Vector2(-12, -2887)
-script = ExtResource("15_bs2kh")
 
 [node name="Polygon2D" parent="ObjectLayer/Ciber" index="0" unique_id=1264535793]
 color = Color(0.38170326, 0.38170326, 0.3817031, 1)
 polygon = PackedVector2Array(-643, 100, -280, 226, -169, -373, 171, -396, 282, 241, 637, 11, 586, -869, -658, -736)
-
-[node name="Sprite" parent="ObjectLayer/Ciber" index="1" unique_id=1314284104]
-unique_name_in_owner = true
-
-[node name="Label" parent="ObjectLayer/Ciber" index="3" unique_id=2059125336]
-offset_right = 40.0
-offset_bottom = 22.3333
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 
 [node name="CollisionPolygon2D" parent="ObjectLayer/Ciber/StaticBody2D" parent_id_path=PackedInt32Array(875075279, 392447427) index="1" unique_id=619803914]
 polygon = PackedVector2Array(-661, 102, -288, 230, -244, 4, 246, 29, 281, 224, 629, 4, 594, -357, -645, -319)

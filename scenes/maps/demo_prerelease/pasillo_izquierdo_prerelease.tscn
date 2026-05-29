@@ -6,9 +6,6 @@
 [ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="4_42ivg"]
 [ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="5_kklll"]
 [ext_resource type="PackedScene" uid="uid://ckc0rqj4d6b16" path="res://scenes/gray_box.tscn" id="5_o5emu"]
-[ext_resource type="Script" uid="uid://bhg6tus2nlmgr" path="res://scripts/gray_box.gd" id="6_m8twi"]
-[ext_resource type="Script" uid="uid://caf516xcaglfd" path="res://scripts/playable_character.gd" id="6_o5emu"]
-[ext_resource type="Resource" uid="uid://jr2yuolebha7" path="res://assets/resources/conejitx.tres" id="7_m8twi"]
 [ext_resource type="Script" uid="uid://g7sf10k2338d" path="res://scripts/npc_layer.gd" id="8_8p0gc"]
 [ext_resource type="Script" uid="uid://dsfklbei7r5qc" path="res://scripts/object_layer.gd" id="9_1xlex"]
 [ext_resource type="Script" uid="uid://ck4xyxoy5fldl" path="res://scripts/enemies_layer.gd" id="10_8dcc0"]
@@ -16,22 +13,13 @@
 [ext_resource type="Script" uid="uid://c2d2peg3ovb8n" path="res://scripts/saves_layer.gd" id="12_kufxs"]
 [ext_resource type="Script" uid="uid://bsvp6e76bx107" path="res://scripts/scene_changer.gd" id="12_o5emu"]
 [ext_resource type="PackedScene" uid="uid://bx88hvib56f0" path="res://scenes/menu/menu_sub_viewport.tscn" id="13_vyf8k"]
-[ext_resource type="Script" uid="uid://bof2iweysicw2" path="res://scripts/menu/menu_sub_viewport.gd" id="14_fgac7"]
 [ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="15_3wr2i"]
-[ext_resource type="Script" uid="uid://cit4h4wpq0ui5" path="res://scripts/settings_menu.gd" id="16_adi6w"]
 [ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="17_tjjxp"]
-[ext_resource type="Script" uid="uid://cscct5yogwe8u" path="res://scripts/notification_center.gd" id="18_k67x2"]
 [ext_resource type="PackedScene" uid="uid://dqi4bw7t4w0u8" path="res://scenes/add_new_character_animation.tscn" id="19_vnwnw"]
-[ext_resource type="Script" uid="uid://ck2ow411sbom1" path="res://scripts/add_new_character_animation.gd" id="20_j3bl7"]
 [ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="21_bivg8"]
-[ext_resource type="Script" uid="uid://bae3eo7ywlmmf" path="res://scripts/add_new_item_animation.gd" id="22_y6glf"]
 [ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="23_ajmyp"]
 [ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="24_xx6d2"]
-[ext_resource type="Script" uid="uid://84ck8i2ypykl" path="res://scripts/camera_manager.gd" id="25_oeyem"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="26_8slne"]
-[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="27_xg428"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="28_bu886"]
-[ext_resource type="Script" uid="uid://desx1xrrvf1ew" path="res://scripts/reminder_phantom_camera.gd" id="29_tg0eb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8twi"]
 size = Vector2(823, 68)
@@ -40,7 +28,7 @@ size = Vector2(823, 68)
 size = Vector2(44, 592)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8p0gc"]
-size = Vector2(2540, 1726)
+size = Vector2(3116, 3291)
 
 [sub_resource type="Resource" id="Resource_fyrvt"]
 script = ExtResource("28_bu886")
@@ -60,26 +48,12 @@ script = ExtResource("3_pcag8")
 z_index = -1
 script = ExtResource("4_42ivg")
 
-[node name="GrayBox" parent="BackgroundLayer" unique_id=875075279 groups=["objects"] instance=ExtResource("5_o5emu")]
-script = ExtResource("6_m8twi")
+[node name="GrayBox" parent="BackgroundLayer" unique_id=875075279 instance=ExtResource("5_o5emu")]
 
 [node name="Polygon2D" parent="BackgroundLayer/GrayBox" index="0" unique_id=1264535793]
-color = Color(0.529067, 0.529067, 0.529067, 1)
-polygon = PackedVector2Array(1002, -321, 1049, 332, -566, 338, -593, -1283, 255, -1283, 376, -381)
+polygon = PackedVector2Array(1002, -321, 1049, 332, -566, 338, -625, -2791, 249, -2620, 376, -381)
 
-[node name="Sprite" parent="BackgroundLayer/GrayBox" index="1" unique_id=1314284104]
-unique_name_in_owner = true
-
-[node name="Label" parent="BackgroundLayer/GrayBox" index="3" unique_id=2059125336]
-offset_right = 40.0
-offset_bottom = 22.3333
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-
-[node name="PlayableCharacter" type="CharacterBody2D" parent="." unique_id=1835201479 groups=["main_character"] instance=ExtResource("5_kklll")]
-y_sort_enabled = true
-script = ExtResource("6_o5emu")
-character_info = ExtResource("7_m8twi")
+[node name="PlayableCharacter" parent="." unique_id=1835201479 instance=ExtResource("5_kklll")]
 
 [node name="NpcLayer" type="Node2D" parent="." unique_id=1864957800]
 y_sort_enabled = true
@@ -89,22 +63,12 @@ script = ExtResource("8_8p0gc")
 y_sort_enabled = true
 script = ExtResource("9_1xlex")
 
-[node name="EntradaOficina" parent="ObjectLayer" unique_id=1691107464 groups=["objects"] instance=ExtResource("5_o5emu")]
-position = Vector2(-188, -1274)
-script = ExtResource("6_m8twi")
+[node name="EntradaOficina" parent="ObjectLayer" unique_id=1691107464 instance=ExtResource("5_o5emu")]
+position = Vector2(-188, -2656)
 
 [node name="Polygon2D" parent="ObjectLayer/EntradaOficina" index="0" unique_id=1264535793]
 color = Color(0.25929368, 0.25929374, 0.2592936, 1)
 polygon = PackedVector2Array(-417, -33, -392, 26, 443, 26, 456, -58)
-
-[node name="Sprite" parent="ObjectLayer/EntradaOficina" index="1" unique_id=1314284104]
-unique_name_in_owner = true
-
-[node name="Label" parent="ObjectLayer/EntradaOficina" index="3" unique_id=2059125336]
-offset_right = 40.0
-offset_bottom = 22.3333
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 
 [node name="SceneChanger" type="Area2D" parent="ObjectLayer/EntradaOficina" unique_id=1974143532 node_paths=PackedStringArray("black_rect")]
 script = ExtResource("12_o5emu")
@@ -117,22 +81,12 @@ metadata/_custom_type_script = "uid://bsvp6e76bx107"
 position = Vector2(26.5, -53)
 shape = SubResource("RectangleShape2D_m8twi")
 
-[node name="EntradaPasilloIzquierdo" parent="ObjectLayer" unique_id=2100755592 groups=["objects"] instance=ExtResource("5_o5emu")]
+[node name="EntradaPasilloIzquierdo" parent="ObjectLayer" unique_id=2100755592 instance=ExtResource("5_o5emu")]
 position = Vector2(1011, 0)
-script = ExtResource("6_m8twi")
 
 [node name="Polygon2D" parent="ObjectLayer/EntradaPasilloIzquierdo" index="0" unique_id=1264535793]
 color = Color(0.3366076, 0.33660764, 0.33660752, 1)
 polygon = PackedVector2Array(40, -298, -39, -292, 5, 313, 74, 309)
-
-[node name="Sprite" parent="ObjectLayer/EntradaPasilloIzquierdo" index="1" unique_id=1314284104]
-unique_name_in_owner = true
-
-[node name="Label" parent="ObjectLayer/EntradaPasilloIzquierdo" index="3" unique_id=2059125336]
-offset_right = 40.0
-offset_bottom = 22.3333
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 
 [node name="SceneChanger" type="Area2D" parent="ObjectLayer/EntradaPasilloIzquierdo" unique_id=1748224963 node_paths=PackedStringArray("black_rect")]
 script = ExtResource("12_o5emu")
@@ -167,136 +121,45 @@ script = ExtResource("12_kufxs")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1491042084]
 
-[node name="MenuSubViewport" type="SubViewportContainer" parent="CanvasLayer" unique_id=158507729 instance=ExtResource("13_vyf8k")]
-process_mode = 3
+[node name="MenuSubViewport" parent="CanvasLayer" unique_id=158507729 instance=ExtResource("13_vyf8k")]
 visible = false
-z_index = 2
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("14_fgac7")
+
+[node name="SettingsMenu" parent="CanvasLayer" unique_id=2024337667 instance=ExtResource("15_3wr2i")]
 metadata/_edit_lock_ = true
 
-[node name="SettingsMenu" type="Control" parent="CanvasLayer" unique_id=2024337667 node_paths=PackedStringArray("game_button", "accesibility_button", "audio_button", "controls_button", "video_button", "game_panel", "accesibility_panel", "audio_panel", "controls_panel", "video_panel", "close_button") instance=ExtResource("15_3wr2i")]
-process_mode = 3
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("16_adi6w")
-game_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Game")
-accesibility_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Accesibility")
-audio_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Audio")
-controls_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Controls")
-video_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/TopMenu/Video")
-game_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/GamePanel")
-accesibility_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/AccesibilityPanel")
-audio_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/AudioPanel")
-controls_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/ControlsPanel")
-video_panel = NodePath("PanelContainer/MarginContainer/VBoxContainer/PanelSections/VideoPanel")
-close_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/BottomButtons/ClosePause")
+[node name="NotificationCenter" parent="CanvasLayer" unique_id=1306426107 instance=ExtResource("17_tjjxp")]
 metadata/_edit_lock_ = true
 
-[node name="NotificationCenter" type="Control" parent="CanvasLayer" unique_id=1306426107 instance=ExtResource("17_tjjxp")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("18_k67x2")
+[node name="AddNewCharacterAnimation" parent="CanvasLayer" unique_id=2128338629 instance=ExtResource("19_vnwnw")]
 metadata/_edit_lock_ = true
 
-[node name="AddNewCharacterAnimation" type="Control" parent="CanvasLayer" unique_id=2128338629 instance=ExtResource("19_vnwnw")]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("20_j3bl7")
-animation_duration = 3.0
+[node name="AddNewItemAnimation" parent="CanvasLayer" unique_id=154519064 instance=ExtResource("21_bivg8")]
 metadata/_edit_lock_ = true
 
-[node name="AddNewItemAnimation" type="Control" parent="CanvasLayer" unique_id=154519064 instance=ExtResource("21_bivg8")]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("22_y6glf")
-animation_duration = 3.0
-metadata/_edit_lock_ = true
-
-[node name="BlackRect" type="ColorRect" parent="CanvasLayer" unique_id=1006804598 instance=ExtResource("23_ajmyp")]
-visible = false
-modulate = Color(0, 0, 0, 1)
-top_level = true
-z_index = 3
-y_sort_enabled = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
+[node name="BlackRect" parent="CanvasLayer" unique_id=1006804598 instance=ExtResource("23_ajmyp")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1201606748]
 
-[node name="CameraManager" parent="." unique_id=1203642049 node_paths=PackedStringArray("phantom_cameras", "current_camera") instance=ExtResource("24_xx6d2")]
-script = ExtResource("25_oeyem")
-phantom_cameras = [NodePath("PhantomCameras/PhantomCamera2D")]
-current_camera = NodePath("PhantomCameras/PhantomCamera2D")
+[node name="CameraManager" parent="." unique_id=1203642049 instance=ExtResource("24_xx6d2")]
 
 [node name="Camera2D" parent="CameraManager" index="0" unique_id=440357056]
 physics_interpolation_mode = 1
-position = Vector2(329.99988, -505.99994)
-zoom = Vector2(1.2, 1.2)
+position = Vector2(41.999878, -418.99994)
 process_callback = 0
-limit_left = -1270
-limit_top = -1332
-limit_right = 1270
-limit_bottom = 394
-editor_draw_limits = true
-
-[node name="PhantomCameraHost" parent="CameraManager/Camera2D" index="0" unique_id=1574566684]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("26_8slne")
+limit_left = -1558
+limit_top = -2810
+limit_right = 1558
+limit_bottom = 481
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" parent_id_path=PackedInt32Array(1203642049, 1986731475) index="0" unique_id=1569982798]
-position = Vector2(0, -469)
+position = Vector2(0, -1164.5)
 shape = SubResource("RectangleShape2D_8p0gc")
-disabled = true
-metadata/_edit_lock_ = true
 
 [node name="PhantomCamera2D" parent="CameraManager/PhantomCameras" parent_id_path=PackedInt32Array(1203642049, 219495286) index="0" unique_id=437005990 node_paths=PackedStringArray("follow_target")]
-top_level = true
-position = Vector2(329.99988, -505.99994)
-script = ExtResource("27_xg428")
-priority = 1
-follow_mode = 5
+position = Vector2(41.999878, -418.99994)
 follow_target = NodePath("../../../PlayableCharacter")
-zoom = Vector2(1.2, 1.2)
 tween_resource = SubResource("Resource_fyrvt")
-tween_on_load = false
-follow_damping = true
-follow_damping_value = Vector2(0.25, 0.25)
-draw_limits = true
 limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
-
-[node name="ReminderPhantomCamera" parent="CameraManager/PhantomCameras" parent_id_path=PackedInt32Array(1203642049, 219495286) index="1" unique_id=652175356]
-script = ExtResource("29_tg0eb")
 
 [editable path="BackgroundLayer/GrayBox"]
 [editable path="ObjectLayer/EntradaOficina"]
