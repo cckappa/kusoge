@@ -268,7 +268,7 @@ position = Vector2(-1731, -893)
 [node name="SceneChanger" type="Area2D" parent="BackgroundLayer/SalidaPasillo" unique_id=1026394755 node_paths=PackedStringArray("black_rect")]
 position = Vector2(-3, -173)
 script = ExtResource("14_cd4os")
-target_scene = "res://scenes/maps/demo_prerelease/pasillo_prerelease.tscn"
+target_scene = "res://scenes/maps/demo_prerelease/campamento_prerelease.tscn"
 target_marker = "EntradaBosque"
 black_rect = NodePath("../../../CanvasLayer/BlackRect")
 metadata/_custom_type_script = "uid://bsvp6e76bx107"

@@ -93,18 +93,11 @@ height = 598.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jy20a"]
 size = Vector2(285, 1526)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_18dyx"]
-radius = 173.48775
-
-[sub_resource type="Texture2D" id="Texture2D_18dyx"]
-resource_local_to_scene = false
-resource_name = ""
-script = ExtResource("11_6fac6")
-path = "talks"
-metadata/_custom_type_script = "uid://ca7mt0w3ffvhe"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bs2kh"]
+size = Vector2(506, 152)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4chq3"]
-size = Vector2(3476, 4681)
+size = Vector2(3476, 7364)
 
 [node name="PasilloPrerelease" type="Node2D" unique_id=610098658]
 y_sort_enabled = true
@@ -122,7 +115,7 @@ script = ExtResource("3_qk4qj")
 [node name="GrayBox" parent="BackgroundLayer" unique_id=1797927552 instance=ExtResource("4_hb4ug")]
 
 [node name="Polygon2D" parent="BackgroundLayer/GrayBox" index="0" unique_id=1264535793]
-polygon = PackedVector2Array(-709, -1035, 703, -1022, 746, 369, 887, 1069, 1714, 1325, 1667, 2980, -196, 2186, -741, 1358, -781, 982)
+polygon = PackedVector2Array(-709, -1035, -660, -1912, -1133, -2289, -948, -3370, 865, -3377, 1213, -2467, 672, -1971, 703, -1022, 746, 369, 887, 1069, 1714, 1325, 1667, 2980, -196, 2186, -741, 1358, -781, 982)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="BackgroundLayer" unique_id=561605950]
 
@@ -136,15 +129,16 @@ polygon = PackedVector2Array(-858, 2096, -237, 2923, 1617, 3667, 1960, 4299, 423
 disabled = true
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=770417696]
-polygon = PackedVector2Array(836, 1110, 689, -1188, 901, -1196, 1841, 1140, 1624, 1357)
+polygon = PackedVector2Array(836, 1110, 673, -2000, 1236, -2453, 1841, 1140, 1624, 1357)
 disabled = true
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=929200846]
+position = Vector2(-92, -2385)
 polygon = PackedVector2Array(-795, -1037, 922, -1007, 952, -1214, -854, -1237)
 disabled = true
 
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=2142556422]
-polygon = PackedVector2Array(-1009, -807, -691, -770, -676, -1133, -987, -1148)
+polygon = PackedVector2Array(-1009, -807, -691, -770, -641, -1964, -1174, -2300)
 disabled = true
 
 [node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=1021341512]
@@ -173,8 +167,8 @@ position = Vector2(1547, 2052)
 
 [node name="SceneChanger" type="Area2D" parent="BackgroundLayer/SalidaPasillo" unique_id=1909763407 node_paths=PackedStringArray("black_rect")]
 script = ExtResource("7_18dyx")
-target_scene = "res://scenes/maps/demo_prerelease/bosque_prerelease.tscn"
-target_marker = "EntradaBosque"
+target_scene = "res://scenes/maps/demo_prerelease/campamento_prerelease.tscn"
+target_marker = "EntradaPasillo"
 black_rect = NodePath("../../../CanvasLayer/BlackRect")
 metadata/_custom_type_script = "uid://bsvp6e76bx107"
 
@@ -190,7 +184,7 @@ y_sort_enabled = true
 script = ExtResource("7_hb4ug")
 
 [node name="RanaSabia" parent="NpcLayer" unique_id=2078170223 instance=ExtResource("10_jy20a")]
-position = Vector2(8, -848)
+position = Vector2(438, -848)
 
 [node name="Sprite" parent="NpcLayer/RanaSabia" index="1"]
 sprite_frames = SubResource("SpriteFrames_26b6c")
@@ -217,7 +211,7 @@ rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_8e1vf")
 
 [node name="Talk2" type="Node2D" parent="NpcLayer/RanaSabia" unique_id=1553319621 node_paths=PackedStringArray("talking_area")]
-position = Vector2(-13, 1236)
+position = Vector2(-422, 1236)
 script = ExtResource("13_jy20a")
 talking_area = NodePath("Area2D")
 automatic_start = true
@@ -231,71 +225,47 @@ rotation = -1.5707964
 position = Vector2(-30.5, 4.7683716e-07)
 shape = SubResource("RectangleShape2D_jy20a")
 
-[node name="Lobuki" parent="NpcLayer" unique_id=875075279 groups=["objects"] instance=ExtResource("4_hb4ug")]
-position = Vector2(-596, 197)
-script = ExtResource("15_bs2kh")
-
-[node name="Polygon2D" parent="NpcLayer/Lobuki" index="0" unique_id=1264535793]
-color = Color(0.8589508, 0.00051673176, 0.8447104, 1)
-polygon = PackedVector2Array(-104, 13, -92, -281, 39, -421, 107, -273, 65, -136, 68, -19)
-
-[node name="Sprite" parent="NpcLayer/Lobuki" index="1" unique_id=1314284104]
-unique_name_in_owner = true
-autoplay = "default"
-offset = Vector2(0, -190)
-
-[node name="Sprite2D" parent="NpcLayer/Lobuki" index="2" unique_id=2121259102]
-offset = Vector2(0, -96)
-
-[node name="Label" parent="NpcLayer/Lobuki" index="3" unique_id=2059125336]
-offset_right = 40.0
-offset_bottom = 22.3333
-theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-
-[node name="CollisionShape2D" parent="NpcLayer/Lobuki/StaticBody2D" parent_id_path=PackedInt32Array(875075279, 392447427) index="0" unique_id=1089963160]
-position = Vector2(-40, -62)
-
-[node name="CollisionPolygon2D" parent="NpcLayer/Lobuki/StaticBody2D" parent_id_path=PackedInt32Array(875075279, 392447427) index="1" unique_id=619803914]
-polygon = PackedVector2Array(-164, -2, -68, 102, 90, 8, 47, -49, -105, -49)
-
-[node name="Talk" type="Node2D" parent="NpcLayer/Lobuki" unique_id=1243085438 node_paths=PackedStringArray("talking_area")]
-script = ExtResource("13_jy20a")
-talking_area = NodePath("Area2D")
-timeline_name = "lobuki_pasillo_prerelease_1"
-metadata/_custom_type_script = "uid://do84xbf65qif"
-
-[node name="Area2D" type="Area2D" parent="NpcLayer/Lobuki/Talk" unique_id=184127111]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcLayer/Lobuki/Talk/Area2D" unique_id=253574647]
-shape = SubResource("CircleShape2D_18dyx")
-
-[node name="ShowInput" type="Sprite2D" parent="NpcLayer/Lobuki/Talk" unique_id=1128452033]
-position = Vector2(49, -242)
-texture = SubResource("Texture2D_18dyx")
-script = ExtResource("14_rd1as")
-metadata/_custom_type_script = "uid://cvyrqhq08dmm3"
-
 [node name="ObjectLayer" type="Node2D" parent="." unique_id=1624691151]
 y_sort_enabled = true
 script = ExtResource("8_2v0vb")
 
-[node name="PlantaFrente" parent="ObjectLayer" unique_id=1390872512 groups=["objects"] instance=ExtResource("4_hb4ug")]
+[node name="PlantaFrente" parent="ObjectLayer" unique_id=1390872512 instance=ExtResource("4_hb4ug")]
 position = Vector2(-787, 3048)
-script = ExtResource("15_bs2kh")
 
 [node name="Polygon2D" parent="ObjectLayer/PlantaFrente" index="0" unique_id=1264535793]
 color = Color(1.2513996e-06, 0.9377129, 0.431856, 1)
 polygon = PackedVector2Array(-195, -32, -188, -597, 707, -1364, 727, -926, 639, -610, 370, 2, 693, -449, 1346, -1054, 1440, -798, 1279, -126, 882, 116, 81, 164)
 
-[node name="Sprite" parent="ObjectLayer/PlantaFrente" index="1" unique_id=1314284104]
+[node name="Ciber" parent="ObjectLayer" unique_id=875075279 groups=["objects"] instance=ExtResource("4_hb4ug")]
+position = Vector2(-12, -2887)
+script = ExtResource("15_bs2kh")
+
+[node name="Polygon2D" parent="ObjectLayer/Ciber" index="0" unique_id=1264535793]
+color = Color(0.38170326, 0.38170326, 0.3817031, 1)
+polygon = PackedVector2Array(-643, 100, -280, 226, -169, -373, 171, -396, 282, 241, 637, 11, 586, -869, -658, -736)
+
+[node name="Sprite" parent="ObjectLayer/Ciber" index="1" unique_id=1314284104]
 unique_name_in_owner = true
 
-[node name="Label" parent="ObjectLayer/PlantaFrente" index="3" unique_id=2059125336]
+[node name="Label" parent="ObjectLayer/Ciber" index="3" unique_id=2059125336]
 offset_right = 40.0
 offset_bottom = 22.3333
 theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
+
+[node name="CollisionPolygon2D" parent="ObjectLayer/Ciber/StaticBody2D" parent_id_path=PackedInt32Array(875075279, 392447427) index="1" unique_id=619803914]
+polygon = PackedVector2Array(-661, 102, -288, 230, -244, 4, 246, 29, 281, 224, 629, 4, 594, -357, -645, -319)
+
+[node name="SceneChanger" type="Area2D" parent="ObjectLayer/Ciber" unique_id=1448448944 node_paths=PackedStringArray("black_rect")]
+script = ExtResource("7_18dyx")
+target_scene = "res://scenes/maps/demo_prerelease/ciber_prerelease.tscn"
+target_marker = "EntradaCiber"
+black_rect = NodePath("../../../CanvasLayer/BlackRect")
+metadata/_custom_type_script = "uid://bsvp6e76bx107"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/Ciber/SceneChanger" unique_id=1321888301]
+position = Vector2(0, 66)
+shape = SubResource("RectangleShape2D_bs2kh")
 
 [node name="EnemiesLayer" type="Node2D" parent="." unique_id=428027711]
 y_sort_enabled = true
@@ -310,8 +280,11 @@ script = ExtResource("10_rd1as")
 [node name="EntradaCueva" type="Marker2D" parent="SpawnsLayer" unique_id=1282163632]
 position = Vector2(-599, -572)
 
-[node name="EntradaBosque" type="Marker2D" parent="SpawnsLayer" unique_id=773705245]
+[node name="EntradaPasillo" type="Marker2D" parent="SpawnsLayer" unique_id=773705245]
 position = Vector2(1326, 2035)
+
+[node name="EntradaCiber" type="Marker2D" parent="SpawnsLayer" unique_id=1013306219]
+position = Vector2(10, -2525)
 
 [node name="SavesLayer" type="Node2D" parent="." unique_id=355089605]
 y_sort_enabled = true
@@ -345,12 +318,12 @@ physics_interpolation_mode = 1
 position = Vector2(1, -5)
 process_callback = 0
 limit_left = -1790
-limit_top = -1459
+limit_top = -4142
 limit_right = 1686
 limit_bottom = 3222
 
 [node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" parent_id_path=PackedInt32Array(1992687465, 1986731475) index="0" unique_id=1569982798]
-position = Vector2(-52, 881.5)
+position = Vector2(-52, -460)
 shape = SubResource("RectangleShape2D_4chq3")
 
 [node name="PhantomCamera2D" parent="CameraManager/PhantomCameras" parent_id_path=PackedInt32Array(1992687465, 219495286) index="0" unique_id=437005990 node_paths=PackedStringArray("follow_target")]
@@ -362,6 +335,6 @@ limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
 [editable path="BackgroundLayer/PuertaCueva"]
 [editable path="BackgroundLayer/SalidaPasillo"]
 [editable path="NpcLayer/RanaSabia"]
-[editable path="NpcLayer/Lobuki"]
 [editable path="ObjectLayer/PlantaFrente"]
+[editable path="ObjectLayer/Ciber"]
 [editable path="CameraManager"]

@@ -51,9 +51,9 @@ seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ktdji"]
 shader = ExtResource("33_kj30c")
-shader_parameter/scale = Vector2(7, 9)
-shader_parameter/strength = 1.0
-shader_parameter/fps = 6.0
+shader_parameter/scale = Vector2(102.1, 149.025)
+shader_parameter/strength = 0.51
+shader_parameter/fps = 5.0
 shader_parameter/noise = SubResource("NoiseTexture2D_fa03t")
 
 [sub_resource type="Animation" id="Animation_gmkwt"]
@@ -515,6 +515,7 @@ z_index = 265
 layout_mode = 1
 
 [node name="Ripple" type="ColorRect" parent="." unique_id=1268387277]
+visible = false
 top_level = true
 z_index = 4096
 z_as_relative = false

@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://66kpaxei4qu0"]
+
+[ext_resource type="Script" uid="uid://cfoa4v53ltpso" path="res://scripts/maps/demo_prerelease/campamento_prerelease.gd" id="1_ypj1v"]
+[ext_resource type="Resource" uid="uid://c5pt2xxga7jm3" path="res://assets/resources/maps/demo_prerelease/campamento_prerelease.tres" id="2_mlkgm"]
+[ext_resource type="Script" uid="uid://47r7xyodgbvr" path="res://scripts/parallax_background_layer.gd" id="3_2cc7w"]
+[ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="4_t7cvr"]
+[ext_resource type="PackedScene" uid="uid://ckc0rqj4d6b16" path="res://scenes/gray_box.tscn" id="5_1fd7h"]
+[ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="5_3aa3m"]
+[ext_resource type="Script" uid="uid://g7sf10k2338d" path="res://scripts/npc_layer.gd" id="8_klawy"]
+[ext_resource type="Script" uid="uid://dsfklbei7r5qc" path="res://scripts/object_layer.gd" id="9_434of"]
+[ext_resource type="Script" uid="uid://ck4xyxoy5fldl" path="res://scripts/enemies_layer.gd" id="10_eltwh"]
+[ext_resource type="Script" uid="uid://cv43fprb0dski" path="res://scripts/spawns_layer.gd" id="11_ry8kv"]
+[ext_resource type="Script" uid="uid://bsvp6e76bx107" path="res://scripts/scene_changer.gd" id="12_1fd7h"]
+[ext_resource type="Script" uid="uid://c2d2peg3ovb8n" path="res://scripts/saves_layer.gd" id="12_7h1i5"]
+[ext_resource type="PackedScene" uid="uid://bx88hvib56f0" path="res://scenes/menu/menu_sub_viewport.tscn" id="13_hlcts"]
+[ext_resource type="PackedScene" uid="uid://byctl1vrnbctx" path="res://scenes/settings_menu.tscn" id="15_27tts"]
+[ext_resource type="PackedScene" uid="uid://b0jlkrvs3qm3j" path="res://scenes/notification_center.tscn" id="17_gu0mm"]
+[ext_resource type="PackedScene" uid="uid://dqi4bw7t4w0u8" path="res://scenes/add_new_character_animation.tscn" id="19_gcsj2"]
+[ext_resource type="PackedScene" uid="uid://c0reubx1neuon" path="res://scenes/add_new_item_animation.tscn" id="21_t327b"]
+[ext_resource type="PackedScene" uid="uid://bdm55ulfce5x4" path="res://scenes/black_rect.tscn" id="23_4hgxo"]
+[ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="24_hkhea"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="28_bsljv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fd7h"]
+size = Vector2(140, 908)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a43y5"]
+size = Vector2(102, 832)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klawy"]
+size = Vector2(3619, 4204)
+
+[sub_resource type="Resource" id="Resource_fyrvt"]
+script = ExtResource("28_bsljv")
+duration = 2.0
+transition = 1
+
+[node name="CampamentoPrerelease" type="Node2D" unique_id=744140620]
+y_sort_enabled = true
+script = ExtResource("1_ypj1v")
+single_map_resource = ExtResource("2_mlkgm")
+
+[node name="ParallaxBackgroundLayer" type="Node2D" parent="." unique_id=1670297254]
+z_index = -1
+script = ExtResource("3_2cc7w")
+
+[node name="BackgroundLayer" type="Node2D" parent="." unique_id=1221239562]
+z_index = -1
+script = ExtResource("4_t7cvr")
+
+[node name="GrayBox" parent="BackgroundLayer" unique_id=875075279 instance=ExtResource("5_1fd7h")]
+
+[node name="Polygon2D" parent="BackgroundLayer/GrayBox" index="0" unique_id=1264535793]
+polygon = PackedVector2Array(-2464, -781, -1814, -604, -1437, -630, -882, -941, 309, -637, 672, -156, 916, 480, 842, 1057, 339, 1620, 665, 1967, 354, 2693, -682, 2352, -1422, 2271, -2177, 1753, -2118, 665, -2622, 66)
+
+[node name="PlayableCharacter" parent="." unique_id=538857729 instance=ExtResource("5_3aa3m")]
+
+[node name="NpcLayer" type="Node2D" parent="." unique_id=992927634]
+y_sort_enabled = true
+script = ExtResource("8_klawy")
+
+[node name="ObjectLayer" type="Node2D" parent="." unique_id=2058032113]
+y_sort_enabled = true
+script = ExtResource("9_434of")
+
+[node name="EntradaPasillo" parent="ObjectLayer" unique_id=760745691 instance=ExtResource("5_1fd7h")]
+position = Vector2(-2610, -492)
+
+[node name="Polygon2D" parent="ObjectLayer/EntradaPasillo" index="0" unique_id=1264535793]
+color = Color(0.24115604, 0.24115607, 0.24115595, 1)
+
+[node name="SceneChanger" type="Area2D" parent="ObjectLayer/EntradaPasillo" unique_id=1484519777 node_paths=PackedStringArray("black_rect")]
+script = ExtResource("12_1fd7h")
+target_scene = "res://scenes/maps/demo_prerelease/pasillo_prerelease.tscn"
+target_marker = "EntradaPasillo"
+black_rect = NodePath("../../../CanvasLayer/BlackRect")
+metadata/_custom_type_script = "uid://bsvp6e76bx107"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/EntradaPasillo/SceneChanger" unique_id=1140615587]
+position = Vector2(22, 63)
+rotation = 0.21915096
+shape = SubResource("RectangleShape2D_1fd7h")
+
+[node name="EntradaBosque" parent="ObjectLayer" unique_id=1567792273 instance=ExtResource("5_1fd7h")]
+position = Vector2(437, 2296)
+
+[node name="SceneChanger" type="Area2D" parent="ObjectLayer/EntradaBosque" unique_id=1533749011 node_paths=PackedStringArray("black_rect")]
+script = ExtResource("12_1fd7h")
+target_scene = "res://scenes/maps/demo_prerelease/bosque_prerelease.tscn"
+target_marker = "EntradaBosque"
+black_rect = NodePath("../../../CanvasLayer/BlackRect")
+metadata/_custom_type_script = "uid://bsvp6e76bx107"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/EntradaBosque/SceneChanger" unique_id=545692700]
+position = Vector2(41, 0)
+rotation = 0.43741983
+shape = SubResource("RectangleShape2D_a43y5")
+
+[node name="EnemiesLayer" type="Node2D" parent="." unique_id=705901883]
+y_sort_enabled = true
+script = ExtResource("10_eltwh")
+
+[node name="SpawnsLayer" type="Node2D" parent="." unique_id=905852966]
+y_sort_enabled = true
+script = ExtResource("11_ry8kv")
+
+[node name="DefaultMarker" type="Marker2D" parent="SpawnsLayer" unique_id=2127929145]
+
+[node name="EntradaPasillo" type="Marker2D" parent="SpawnsLayer" unique_id=1736049980]
+position = Vector2(-2405, -433)
+
+[node name="EntradaBosque" type="Marker2D" parent="SpawnsLayer" unique_id=1242865865]
+position = Vector2(336, 2137)
+
+[node name="SavesLayer" type="Node2D" parent="." unique_id=1816105095]
+y_sort_enabled = true
+script = ExtResource("12_7h1i5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=365415825]
+
+[node name="MenuSubViewport" parent="CanvasLayer" unique_id=158507729 instance=ExtResource("13_hlcts")]
+visible = false
+
+[node name="SettingsMenu" parent="CanvasLayer" unique_id=2024337667 instance=ExtResource("15_27tts")]
+metadata/_edit_lock_ = true
+
+[node name="NotificationCenter" parent="CanvasLayer" unique_id=1917623558 instance=ExtResource("17_gu0mm")]
+metadata/_edit_lock_ = true
+
+[node name="AddNewCharacterAnimation" parent="CanvasLayer" unique_id=735521577 instance=ExtResource("19_gcsj2")]
+metadata/_edit_lock_ = true
+
+[node name="AddNewItemAnimation" parent="CanvasLayer" unique_id=1220730827 instance=ExtResource("21_t327b")]
+metadata/_edit_lock_ = true
+
+[node name="BlackRect" parent="CanvasLayer" unique_id=745559396 instance=ExtResource("23_4hgxo")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=768780203]
+
+[node name="CameraManager" parent="." unique_id=1203642049 instance=ExtResource("24_hkhea")]
+
+[node name="Camera2D" parent="CameraManager" index="0" unique_id=440357056]
+physics_interpolation_mode = 1
+process_callback = 0
+
+[node name="CameraCollision" parent="CameraManager/AreasLimits/CameraLimit" parent_id_path=PackedInt32Array(1203642049, 1986731475) index="0" unique_id=1569982798]
+position = Vector2(-765.5, 665)
+shape = SubResource("RectangleShape2D_klawy")
+
+[node name="PhantomCamera2D" parent="CameraManager/PhantomCameras" parent_id_path=PackedInt32Array(1203642049, 219495286) index="0" unique_id=437005990 node_paths=PackedStringArray("follow_target")]
+follow_target = NodePath("../../../PlayableCharacter")
+tween_resource = SubResource("Resource_fyrvt")
+
+[editable path="BackgroundLayer/GrayBox"]
+[editable path="ObjectLayer/EntradaPasillo"]
+[editable path="ObjectLayer/EntradaBosque"]
+[editable path="CameraManager"]

@@ -34,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://bhisp4vv2yehe" path="res://assets/maps/demo_prerelease/cabeza_prerelease/PUERTA CERRASA.PNG" id="24_pj753"]
 [ext_resource type="PackedScene" uid="uid://da60fhf2hpt08" path="res://scenes/camera_manager.tscn" id="24_yeu88"]
 [ext_resource type="Script" uid="uid://bsvp6e76bx107" path="res://scripts/scene_changer.gd" id="25_3hgi5"]
+[ext_resource type="Script" uid="uid://bhg6tus2nlmgr" path="res://scripts/gray_box.gd" id="25_y0j04"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="28_ujcdm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aypox"]
@@ -91,6 +92,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmace"]
 size = Vector2(858, 125)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ni2j6"]
+size = Vector2(95, 540)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ahwam"]
 size = Vector2(3287, 3315)
 
@@ -126,7 +130,7 @@ position = Vector2(-1803, -131)
 shape = SubResource("RectangleShape2D_hhsvn")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundLayer/StaticBody2D" unique_id=212702625]
-polygon = PackedVector2Array(-1473, 666, -605, -469, -306, -469, -246, -496, -196, -543, 199, -550, 296, -469, 609, -464, 1008, 64, 1086, 69, 1238, 92, 1330, 368, 1330, 501, 1459, 666, 1845, 464, 1757, -1144, -949, -1167, -1666, -1043, -1565, 689)
+polygon = PackedVector2Array(-1473, 666, -1330, 492, -1322, 271, -1105, -1, -1000, 74, -605, -469, -306, -469, -246, -496, -196, -543, 199, -550, 296, -469, 609, -464, 1008, 64, 1086, 69, 1238, 92, 1330, 368, 1330, 501, 1459, 666, 1845, 464, 1757, -1144, -949, -1167, -1666, -1043, -1565, 689)
 
 [node name="PlayableCharacter" parent="." unique_id=658819135 instance=ExtResource("5_uyd12")]
 
@@ -306,6 +310,34 @@ metadata/_custom_type_script = "uid://bsvp6e76bx107"
 position = Vector2(0, 52.5)
 shape = SubResource("RectangleShape2D_mmace")
 
+[node name="PuertaIzquierda" parent="ObjectLayer" unique_id=992378952 groups=["objects"] instance=ExtResource("21_j3y63")]
+position = Vector2(-1218, 129)
+script = ExtResource("25_y0j04")
+
+[node name="Polygon2D" parent="ObjectLayer/PuertaIzquierda" index="0" unique_id=1264535793]
+color = Color(0.529067, 0.529067, 0.529067, 1)
+
+[node name="Sprite" parent="ObjectLayer/PuertaIzquierda" index="1" unique_id=1314284104]
+unique_name_in_owner = true
+
+[node name="Label" parent="ObjectLayer/PuertaIzquierda" index="3" unique_id=2059125336]
+offset_right = 40.0
+offset_bottom = 22.3333
+theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+
+[node name="SceneChanger" type="Area2D" parent="ObjectLayer/PuertaIzquierda" unique_id=1739037182 node_paths=PackedStringArray("black_rect")]
+script = ExtResource("25_3hgi5")
+target_scene = "res://scenes/maps/demo_prerelease/pasillo_izquierdo_prerelease.tscn"
+target_marker = "EntradaPasilloIzquierdo"
+black_rect = NodePath("../../../CanvasLayer/BlackRect")
+metadata/_custom_type_script = "uid://bsvp6e76bx107"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/PuertaIzquierda/SceneChanger" unique_id=220408736]
+position = Vector2(-16, 43)
+rotation = 0.6540707
+shape = SubResource("RectangleShape2D_ni2j6")
+
 [node name="EnemiesLayer" type="Node2D" parent="." unique_id=1990376673]
 y_sort_enabled = true
 script = ExtResource("10_y0j04")
@@ -321,6 +353,9 @@ position = Vector2(1009, 253)
 
 [node name="EntradaCabeza" type="Marker2D" parent="SpawnsLayer" unique_id=174899396]
 position = Vector2(0, 1380)
+
+[node name="EntradaPasilloIzquierdo" type="Marker2D" parent="SpawnsLayer" unique_id=76898596]
+position = Vector2(-1034, 268)
 
 [node name="SavesLayer" type="Node2D" parent="." unique_id=2005085257]
 y_sort_enabled = true
@@ -380,4 +415,5 @@ limit_target = NodePath("../../AreasLimits/CameraLimit/CameraCollision")
 [editable path="ObjectLayer/LlaveAnimada"]
 [editable path="ObjectLayer/PuertaDerecha"]
 [editable path="ObjectLayer/EntradaCabeza"]
+[editable path="ObjectLayer/PuertaIzquierda"]
 [editable path="CameraManager"]

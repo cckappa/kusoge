@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SingleMapResource" format=3 uid="uid://cf82xwbphyons"]
+
+[ext_resource type="Script" uid="uid://b21bna7stwiam" path="res://scripts/maps/single_map_resource.gd" id="1_bwkla"]
+
+[resource]
+script = ExtResource("1_bwkla")
+scene_path = "res://scenes/maps/demo_prerelease/ciber_prerelease.tscn"
+metadata/_custom_type_script = "uid://b21bna7stwiam"
