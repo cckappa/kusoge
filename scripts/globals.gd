@@ -1,15 +1,15 @@
 extends Node
 
-var player_position:=Vector2(192,454)
+var player_position := Vector2(192, 454)
 
-var party:Array[Character]
-var target:=[]
-var main_enemy:EnemyResource
-var current_enemies:Array[EnemyResource]
-var current_characters:Array[Character]
-var extra_enemies:Array[EnemyResource]
-var target_marker:String = "default"
-var from_door:bool = false
+var party: Array[Character]
+var target := []
+var main_enemy: EnemyResource
+var current_enemies: Array[EnemyResource]
+var current_characters: Array[Character]
+var extra_enemies: Array[EnemyResource]
+var target_marker: String = "default"
+var from_door: bool = false
 
 const ALICIA := preload("res://assets/resources/characters/alicia.tres")
 const INGENIERO_FROGELIO = preload("res://assets/resources/characters/demo_tecnico/ingeniero_frogelio.tres")
@@ -24,12 +24,12 @@ const LOBUKI = preload("res://assets/resources/characters/demo_tecnico/lobuki.tr
 var ene_1 := preload("res://assets/resources/enemies/casita_salvaje.tres")
 var ene_2 := preload("res://assets/resources/enemies/lobo_salvaje.tres")
 var ene_especial := preload("res://assets/resources/enemies/rana_cosmica.tres")
-var enemies:Array[Character]
-var crit_multiplier:= 1.5
+var enemies: Array[Character]
+var crit_multiplier := 1.5
 
-var recording:bool = true
+var recording: bool = false
 
-var current_arrange : Dictionary = {
+var current_arrange: Dictionary = {
 	"left": null,
 	"up": null,
 	"right": null,
@@ -40,14 +40,14 @@ var current_arrange : Dictionary = {
 	"joypad_4": null
 }
 
-var current_arrange_allies : Dictionary = {
+var current_arrange_allies: Dictionary = {
 	"left": null,
 	"up": null,
 	"right": null,
 	"down": null,
 }
 
-var current_arrange_enemies : Dictionary = {
+var current_arrange_enemies: Dictionary = {
 	"joypad_1": null,
 	"joypad_2": null,
 	"joypad_3": null,
@@ -55,14 +55,14 @@ var current_arrange_enemies : Dictionary = {
 }
 
 var full_maps_resource := preload("res://assets/resources/maps/full_maps.tres")
-var maps :Dictionary 
+var maps: Dictionary
 
-var current_map_name:String
-var current_map_path:String="res://scenes/maps/demo_tecnico_hub.tscn"
+var current_map_name: String
+var current_map_path: String = "res://scenes/maps/demo_tecnico_hub.tscn"
 var overwrite_map_state: bool = true
 
-var key_variables:Dictionary={}
-var current_stakes:Dictionary={
+var key_variables: Dictionary = {}
+var current_stakes: Dictionary = {
 	"type": null,
 	"key_variable_key": null,
 	"key_variable_value": null,
@@ -71,7 +71,7 @@ var current_stakes:Dictionary={
 	"lose_map_value": null
 }
 
-var trinkets:Array[Trinket]=[
+var trinkets: Array[Trinket] = [
 	load("res://assets/resources/trinkets/blue_labubu.tres"),
 	load("res://assets/resources/trinkets/green_frog.tres")
 ]
@@ -98,7 +98,7 @@ func setup_globals() -> void:
 	enemies = [ene_1, ene_2]
 	# enemies = [ene_especial]
 
-func set_current_enemies(enemy:EnemyResource, _extra_enemies:Array[EnemyResource] = []) -> void:
+func set_current_enemies(enemy: EnemyResource, _extra_enemies: Array[EnemyResource] = []) -> void:
 	if main_enemy == null:
 		main_enemy = enemy
 		current_enemies = [enemy]
@@ -119,10 +119,10 @@ func clear_current_enemies() -> void:
 	if extra_enemies.size() != 0:
 		extra_enemies.clear()
 
-func set_target(_target:Array) -> void:
+func set_target(_target: Array) -> void:
 	target = _target
 
-func set_current_characters(characters:Array[Character]) -> void:
+func set_current_characters(characters: Array[Character]) -> void:
 	current_characters = characters
 
 func get_current_characters() -> Array[Character]:
@@ -131,18 +131,23 @@ func get_current_characters() -> Array[Character]:
 func clear_current_characters() -> void:
 	current_characters.clear()
 
-func remove_character_from_current_characters(character:Character) -> void:
+func remove_character_from_current_characters(character: Character) -> void:
 	if current_characters.has(character):
 		current_characters.erase(character)
 
-func add_character_to_current_characters(character:Character) -> void:
-	current_characters.append(character)
+func add_character_to_current_characters(character: Character) -> void:
+	if !current_characters.has(character):
+		current_characters.append(character)
 
-func remove_character_from_party(character:Character) -> void:
+func add_character_to_party(character: Character) -> void:
+	if !party.has(character):
+		party.append(character)
+
+func remove_character_from_party(character: Character) -> void:
 	if party.has(character):
 		party.erase(character)
 
-func reset_lives() ->void:
+func reset_lives() -> void:
 	## TODO: Cambiar a una funcion que resete la vida de tu party a 1hp
 	for character in current_characters:
 		if character.current_hp == -1:
@@ -169,28 +174,28 @@ func set_otk() -> void:
 	clear_current_enemies()
 
 
-func switch_favorite_places(from_index:int, to_index:int) -> void:
+func switch_favorite_places(from_index: int, to_index: int) -> void:
 	var from_character := current_characters[from_index]
 	var to_character := current_characters[to_index]
 	
 	current_characters[from_index] = to_character
 	current_characters[to_index] = from_character
 
-func switch_friend_to_favorite(from_index:int, to_index:int) -> void:
+func switch_friend_to_favorite(from_index: int, to_index: int) -> void:
 	var from_character := party[from_index]
 	var to_character := current_characters[to_index]
 	
 	party[from_index] = to_character
 	current_characters[to_index] = from_character
 
-func switch_favorite_to_friend(from_index:int, to_index:int) -> void:
+func switch_favorite_to_friend(from_index: int, to_index: int) -> void:
 	var from_character := current_characters[from_index]
 	var to_character := party[to_index]
 	
 	current_characters[from_index] = to_character
 	party[to_index] = from_character
 
-func set_stakes(stakes:StakesResource) -> void:
+func set_stakes(stakes: StakesResource) -> void:
 	current_stakes.type = stakes.type
 	match stakes.type:
 		"key":
@@ -242,7 +247,7 @@ func set_map_state(map_name: StringName, state_name: StringName) -> void:
 	Globals.maps[map_name].state = state_name
 	print("Map state updated:", map_name, "->", state_name)
 
-func set_key_variable(key: StringName, value:Variant) -> void:
+func set_key_variable(key: StringName, value: Variant) -> void:
 	if Globals.key_variables.has(key):
 		print("Key variable updated:", key, "->", value, " (was: ", Globals.key_variables[key], ")")
 		Globals.key_variables[key] = value

@@ -2,10 +2,11 @@ extends LimboHSM
 
 @export var limbo_initial_state: LimboState
 
-@onready var party_hidden_state:=$MenuTamagotchiPartyHiddenState
-@onready var party_base_state:=$MenuTamagotchiPartyBaseState
-@onready var party_party_option_state:=$MenuTamagotchiPartyOptionState
-@onready var party_member_option_state:=$MenuTamagotchiMemberOptionState
+@onready var party_hidden_state := $MenuTamagotchiPartyHiddenState
+@onready var party_base_state := $MenuTamagotchiPartyBaseState
+@onready var party_party_option_state := $MenuTamagotchiPartyOptionState
+@onready var party_member_option_state := $MenuTamagotchiMemberOptionState
+@onready var party_moving_state := $MenuTamagotchiMovingState
 
 func _setup() -> void:
 	_set_transitions()
@@ -23,4 +24,6 @@ func _set_transitions() -> void:
 	add_transition(party_party_option_state, party_hidden_state, "to_party_hidden_state")
 	add_transition(party_member_option_state, party_base_state, "to_party_base_state")
 	add_transition(party_member_option_state, party_hidden_state, "to_party_hidden_state")
-
+	add_transition(party_party_option_state, party_moving_state, "to_party_moving_state")
+	add_transition(party_member_option_state, party_moving_state, "to_party_moving_state")
+	add_transition(party_moving_state, party_base_state, "to_party_base_state")
