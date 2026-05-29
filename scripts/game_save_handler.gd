@@ -10,7 +10,7 @@ func _ready() -> void:
 func verify_save_directory(path: String) -> void:
 	DirAccess.make_dir_absolute(path)
 
-func save_game(path:String = SAVE_PATH + SAVE_FILE_NAME) -> void:
+func save_game(path: String = SAVE_PATH + SAVE_FILE_NAME) -> void:
 	var file := FileAccess.open_encrypted_with_pass(path, FileAccess.WRITE, SECURITY_KEY)
 		
 	if file == null:
@@ -19,55 +19,57 @@ func save_game(path:String = SAVE_PATH + SAVE_FILE_NAME) -> void:
 	
 	## SERIALIZE ITEMS
 	var serialized_items := {}
-	for identifier:StringName in Items.item_list:
-		var item_data :Dictionary= Items.item_list[identifier]
+	for identifier: StringName in Items.item_list:
+		var item_data: Dictionary = Items.item_list[identifier]
 		serialized_items[identifier] = {
-			"resource_path": item_data.resource.resource_path,  # Store path instead of resource
+			"resource_path": item_data.resource.resource_path, # Store path instead of resource
 			"total": item_data.total
 		}
 	
 	## SERIALIZE CURRENT CHARACTERS
-	var serialized_current_characters:Array[Dictionary]
+	var serialized_current_characters: Array[Dictionary]
 	for character in Globals.current_characters:
 		var character_data := {
-			"resource_path": character.resource_path,   # Save the resource path
-			"current_hp": character.current_hp,           # Save dynamic property (current_hp)
-			"unlocked": character.unlocked
+			"resource_path": character.resource_path, # Save the resource path
+			"current_hp": character.current_hp, # Save dynamic property (current_hp)
+			"unlocked": character.unlocked,
+			"character_id": character.character_id
 		}
 		serialized_current_characters.append(character_data)
 	
 	## SERIALIZE PARTY
-	var serialized_party:Array[Dictionary]
+	var serialized_party: Array[Dictionary]
 	for character in Globals.party:
 		var character_data := {
-			"resource_path": character.resource_path,   # Save the resource path
-			"current_hp": character.current_hp,           # Save dynamic property (current_hp)
-			"unlocked": character.unlocked
+			"resource_path": character.resource_path, # Save the resource path
+			"current_hp": character.current_hp, # Save dynamic property (current_hp)
+			"unlocked": character.unlocked,
+			"character_id": character.character_id
 		}
 		serialized_party.append(character_data)
 
 	## SERIALIZE DIALOGIC VARIABLES
-	var dialogic_variables:={}
-	for quest_folder:Object in Dialogic.VAR.Quests.folders():		
-		var folder_name :String = quest_folder.path
+	var dialogic_variables := {}
+	for quest_folder: Object in Dialogic.VAR.Quests.folders():
+		var folder_name: String = quest_folder.path
 		
-		dialogic_variables[folder_name] = {} 
-		for variable:String in quest_folder.variables():
+		dialogic_variables[folder_name] = {}
+		for variable: String in quest_folder.variables():
 			dialogic_variables[folder_name][variable] = quest_folder.get(variable)
 
 	## SERIALIZE QUESTS
-	var serialized_quests:= {}
-	for identifier:StringName in Quests.current_quests:  # Iterate over quest objects
-		var quest_data:QuestResource = Quests.current_quests[identifier]
+	var serialized_quests := {}
+	for identifier: StringName in Quests.current_quests: # Iterate over quest objects
+		var quest_data: QuestResource = Quests.current_quests[identifier]
 		serialized_quests[identifier] = {
-			"resource_path": quest_data.resource_path,   # Save the resource path
-			"quest_status": quest_data.quest_status,        # Include quest_status
-			"quest_goal_index": quest_data.quest_goal_index  # Include quest_goal_index
+			"resource_path": quest_data.resource_path, # Save the resource path
+			"quest_status": quest_data.quest_status, # Include quest_status
+			"quest_goal_index": quest_data.quest_goal_index # Include quest_goal_index
 		}
 	
-	var data:={
+	var data := {
 		"player": {
-			"position":{
+			"position": {
 				"x": Globals.player_position.x,
 				"y": Globals.player_position.y
 			}
@@ -89,7 +91,7 @@ func save_game(path:String = SAVE_PATH + SAVE_FILE_NAME) -> void:
 	file.store_string(json_string)
 	file.close()
 
-func load_game(path:String = SAVE_PATH + SAVE_FILE_NAME) -> void:
+func load_game(path: String = SAVE_PATH + SAVE_FILE_NAME) -> void:
 	if FileAccess.file_exists(path):
 		var file := FileAccess.open_encrypted_with_pass(path, FileAccess.READ, SECURITY_KEY)
 		if file == null:
@@ -99,7 +101,7 @@ func load_game(path:String = SAVE_PATH + SAVE_FILE_NAME) -> void:
 		var content := file.get_as_text()
 		file.close()
 		
-		var data:Dictionary = JSON.parse_string(content)
+		var data: Dictionary = JSON.parse_string(content)
 		if data == null:
 			printerr("Cannot parse %s as a json_string: (%s)" % [path, content])
 		
@@ -107,15 +109,15 @@ func load_game(path:String = SAVE_PATH + SAVE_FILE_NAME) -> void:
 	else:
 		printerr("Cannot open non-existent file at %s" % [path])
 
-func set_game_info(data:Dictionary) -> void:
+func set_game_info(data: Dictionary) -> void:
 	## PLAYER INFO
 	Globals.player_position = Vector2(data.player.position.x, data.player.position.y)
 	
 	## ITEM INFO
 	Items.item_list.clear()
-	for identifier:StringName in data.items:
-		var item_data :Dictionary= data.items[identifier]
-		var item_resource := load(item_data.resource_path)  # Load the Resource back
+	for identifier: StringName in data.items:
+		var item_data: Dictionary = data.items[identifier]
+		var item_resource := load(item_data.resource_path) # Load the Resource back
 		if item_resource:
 			Items.item_list[identifier] = {
 				"resource": item_resource,
@@ -123,29 +125,31 @@ func set_game_info(data:Dictionary) -> void:
 			}
 	
 	## CHARACTERS INFO
-	var current_characters:Array[Character]
-	for character:Dictionary in data.current_characters:
+	var current_characters: Array[Character]
+	for character: Dictionary in data.current_characters:
 		var character_resource := load(character.resource_path)
 		character_resource.set_current_hp(character.current_hp)
 		character_resource.unlocked = character.unlocked
+		character_resource.character_id = character.character_id
 		current_characters.append(character_resource)
 
-	var party:Array[Character]
-	for character:Dictionary in data.party:
+	var party: Array[Character]
+	for character: Dictionary in data.party:
 		var character_resource := load(character.resource_path)
 		character_resource.set_current_hp(character.current_hp)
 		character_resource.unlocked = character.unlocked
+		character_resource.character_id = character.character_id
 		party.append(character_resource)
 		
 	Globals.current_characters = current_characters
 	Globals.party = party
 
 	## DIALOGIC VARIABLES
-	for folder_name:String in data.dialogic_variables:
+	for folder_name: String in data.dialogic_variables:
 		var result := folder_name.split(".")
 		
-		var folder:Object = Dialogic.VAR.Quests.get(result[1])
-		for variable:String in data.dialogic_variables[folder_name]:
+		var folder: Object = Dialogic.VAR.Quests.get(result[1])
+		for variable: String in data.dialogic_variables[folder_name]:
 			folder.set(variable, data.dialogic_variables[folder_name][variable])
 
 	## QUESTS
@@ -153,12 +157,12 @@ func set_game_info(data:Dictionary) -> void:
 
 	for identifier: StringName in data.current_quests:
 		var quest_data: Dictionary = data.current_quests[identifier]
-		var quest_resource := load(quest_data.resource_path)  # Load the QuestResource using identifier
+		var quest_resource := load(quest_data.resource_path) # Load the QuestResource using identifier
 
 		if quest_resource:
-			quest_resource.quest_status = quest_data.quest_status  # Set the quest status
-			quest_resource.quest_goal_index = quest_data.quest_goal_index  # Set the quest status
-			Quests.current_quests[identifier] = quest_resource  # Store in current quests
+			quest_resource.quest_status = quest_data.quest_status # Set the quest status
+			quest_resource.quest_goal_index = quest_data.quest_goal_index # Set the quest status
+			Quests.current_quests[identifier] = quest_resource # Store in current quests
 
 	## MAP
 	Globals.maps = data.maps
@@ -167,10 +171,10 @@ func set_game_info(data:Dictionary) -> void:
 	## KEY VARIABLES
 	Globals.key_variables = data.key_variables
 
-func clear_save_file(path:String = SAVE_PATH + SAVE_FILE_NAME) -> void:
+func clear_save_file(path: String = SAVE_PATH + SAVE_FILE_NAME) -> void:
 	clear_current_globals()
 	if FileAccess.file_exists(path):
-		var dir := DirAccess.open("res://")  # Base path doesn’t matter much for absolute paths
+		var dir := DirAccess.open("res://") # Base path doesn’t matter much for absolute paths
 		if dir:
 			var err := DirAccess.remove_absolute(path)
 			if err == OK:
@@ -181,7 +185,7 @@ func clear_save_file(path:String = SAVE_PATH + SAVE_FILE_NAME) -> void:
 		print("No save file exists at: ", path)
 
 func clear_current_globals() -> void:
-	Globals.player_position = Vector2(192,454)
+	Globals.player_position = Vector2(192, 454)
 	Items.item_list.clear()
 	Quests.current_quests.clear()
 	Globals.setup_globals()
@@ -191,7 +195,7 @@ func clear_current_globals() -> void:
 	Globals.current_map_path = ""
 	Globals.key_variables.clear()
 
-func save_file_exists(path:String = SAVE_PATH + SAVE_FILE_NAME) -> bool:
+func save_file_exists(path: String = SAVE_PATH + SAVE_FILE_NAME) -> bool:
 	if FileAccess.file_exists(path):
 		var file := FileAccess.open_encrypted_with_pass(path, FileAccess.READ, SECURITY_KEY)
 		if file == null:
@@ -201,7 +205,7 @@ func save_file_exists(path:String = SAVE_PATH + SAVE_FILE_NAME) -> bool:
 		var content := file.get_as_text()
 		file.close()
 		
-		var data:Dictionary = JSON.parse_string(content)
+		var data: Dictionary = JSON.parse_string(content)
 		if data == null:
 			return false
 		

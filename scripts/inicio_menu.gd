@@ -1,15 +1,15 @@
 extends Control
 
-const inicial := preload("res://scenes/maps/cueva_demo_tecnico.tscn")
+const inicial := preload("res://scenes/maps/demo_prerelease/cueva_prerelease.tscn")
 const demo_scene := preload("res://scenes/maps/demo_tecnico_hub.tscn")
 
-@onready var inicio_menu_limbo_hsm:LimboHSM=$InicioMenuLimboHSM
+@onready var inicio_menu_limbo_hsm: LimboHSM = $InicioMenuLimboHSM
 @onready var black_rect := %BlackRect
 @onready var intro_screen := $IntroScreen
 
 var started_game: bool = false
 
-func _ready()->void:
+func _ready() -> void:
 	black_rect.visible = true
 	await Functions.fade_color_rect(black_rect, "OUT", 2)
 	inicio_menu_limbo_hsm.dispatch("to_menu_base")

@@ -11,14 +11,23 @@ extends MarginContainer
 @onready var first_button: Button = $Button
 
 var character: Character
+var id: int
 
-func setup_info(_character: Character) -> void:
+func setup_info(_character: Character, _id: int = -1) -> void:
 	if _character == null:
 		remove_info()
+		if _id != -1:
+			id = _id
 		background_color.color = color_unfocus
 		return
 
 	character = _character
+
+	if _id != -1:
+		id = _id
+	else:
+		id = _character.character_id
+
 	member_profile.texture = _character.character_portrait
 	if not _character.unlocked:
 		member_profile.modulate = Color(0, 0, 0, 1)
@@ -34,6 +43,12 @@ func focus_normal() -> void:
 	switch_control.visible = false
 	first_button.focus_mode = Control.FOCUS_ALL
 	switch_button.focus_mode = Control.FOCUS_NONE
+
+func set_new_character_id() -> void:
+	if id != -1 and character != null:
+		# print("Setting ID: ", character.character_id, " to ", id)
+		character.character_id = id
+
 
 func _on_focus_entered() -> void:
 	SignalBus.emit_signal("menu_party_character_focus_entered", character)

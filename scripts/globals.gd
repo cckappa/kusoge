@@ -27,7 +27,7 @@ var ene_especial := preload("res://assets/resources/enemies/rana_cosmica.tres")
 var enemies: Array[Character]
 var crit_multiplier := 1.5
 
-var recording: bool = false
+var recording: bool = true
 
 var current_arrange: Dictionary = {
 	"left": null,

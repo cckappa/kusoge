@@ -2,19 +2,19 @@ extends LimboHSM
 
 @export var limbo_initial_state: LimboState
 
-@onready var init_state:LimboState=$InitState
-@onready var menu_base:LimboState=$MenuBase
-@onready var menu_juego_nuevo:LimboState=$MenuJuegoNuevo
-@onready var started_game:LimboState=$StartedGame
-@onready var quitted_game:LimboState=$QuittedGame
+@onready var init_state: LimboState = $InitState
+@onready var menu_base: LimboState = $MenuBase
+@onready var menu_juego_nuevo: LimboState = $MenuJuegoNuevo
+@onready var started_game: LimboState = $StartedGame
+@onready var quitted_game: LimboState = $QuittedGame
 
 @onready var black_rect := %BlackRect
 
-const INICIAL := preload("res://scenes/maps/cueva_demo_tecnico.tscn")
+const INICIAL := preload("res://scenes/maps/demo_prerelease/cueva_prerelease.tscn")
 const DEMO_SCENE := preload("res://scenes/maps/demo_tecnico_hub.tscn")
 
 func _ready() -> void:
-	initialize(self)
+	initialize(self )
 	initial_state = limbo_initial_state
 	set_transitions()
 	set_blackboard()

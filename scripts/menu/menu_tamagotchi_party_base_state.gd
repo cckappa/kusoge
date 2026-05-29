@@ -26,10 +26,10 @@ func _enter() -> void:
 	
 	for _character: Character in Globals.current_characters:
 		if _character.unlocked:
-			print("Current character: ", _character.name)
+			print("Current character: ", _character.name, ", id: ", _character.character_id)
 	for _character: Character in Globals.party:
 		if _character.unlocked:
-			print("Party character: ", _character.name)
+			print("Party character: ", _character.name, ", id: ", _character.character_id)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("back") and is_active():
@@ -48,32 +48,46 @@ func _free_children() -> void:
 func add_party_members() -> void:
 	const party_member_container = preload(MENU_PARTY_MEMBER_CONTAINER_PATH)
 
+	var sorted_current_characters: Array[Character] = []
+	sorted_current_characters.resize(4)
+	sorted_current_characters.fill(null)
+
 	for character in Globals.current_characters:
+		if character.unlocked and character.character_id < 4:
+			sorted_current_characters[character.character_id] = character
+
+	var j := 0
+	for character in sorted_current_characters:
+		if character != null:
 			var party_member_container_instance := party_member_container.instantiate()
 			party_grid_container.add_child(party_member_container_instance)
 			party_member_container_instance.setup_info(character)
-	
-	var current_party_count := Globals.current_characters.size()
-	print("Fiesta con #", current_party_count)
-	if current_party_count < 4:
-		for i in (4 - current_party_count):
+		else:
 			var party_member_container_instance := party_member_container.instantiate()
 			party_grid_container.add_child(party_member_container_instance)
-			party_member_container_instance.setup_info(null)
-
-	var sorted_party := Globals.party.duplicate()
-	sorted_party.sort_custom(_sort_by_character_id)
+			party_member_container_instance.setup_info(null, j)
+		j += 1
 	
-	for character: Character in sorted_party:
+
+	var sorted_party: Array[Character] = []
+	sorted_party.resize(30)
+	sorted_party.fill(null)
+
+	for character in Globals.party:
 		if character.unlocked:
+			sorted_party[character.character_id] = character
+
+	var i := 0
+	for character: Character in sorted_party:
+		if character != null and character.unlocked:
 			var party_member_container_instance := party_member_container.instantiate()
 			full_party_grid_container.add_child(party_member_container_instance)
 			party_member_container_instance.setup_info(character)
-	
-	for i in range(20):
-		var party_member_container_instance := party_member_container.instantiate()
-		full_party_grid_container.add_child(party_member_container_instance)
-		party_member_container_instance.setup_info(null)
+		else:
+			var party_member_container_instance := party_member_container.instantiate()
+			full_party_grid_container.add_child(party_member_container_instance)
+			party_member_container_instance.setup_info(null, i)
+		i += 1
 	
 
 func _to_party_state(_character: Character, _container: MarginContainer) -> void:

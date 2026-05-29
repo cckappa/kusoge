@@ -36,6 +36,8 @@ func _exit() -> void:
 	for member_container: MarginContainer in containers:
 		if member_container.has_method("switch_focus"):
 			member_container.focus_normal()
+		if member_container.has_method("set_new_character_id"):
+			member_container.set_new_character_id()
 
 func _update(_delta: float) -> void:
 	pass
@@ -45,9 +47,14 @@ func switch_container(_character: Character, _container: MarginContainer) -> voi
 		if _container.member_profile.visible == false:
 			_container.show_portrait()
 
-		_container.setup_info(character)
+		# character.character_id = _container.id
 
-		print("Parent Container: ", _container.get_parent())
+		if _character == null:
+			print("Container id:", _container.id)
+		else:
+			print("Character id:", character.character_id, ", Container id:", character_container.id)
+
+		_container.setup_info(character, _container.id)
 
 		if _container.get_parent() == party_grid_container:
 			Globals.add_character_to_current_characters(character)
