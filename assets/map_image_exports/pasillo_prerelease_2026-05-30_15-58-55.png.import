@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qcdrf6c8wajn"
-path="res://.godot/imported/pasillo_prerelease_2026-05-29_10-54-27.svg-8364d3657b620f7020895e34b6f4c792.ctex"
+uid="uid://bndjgqjlxvy2i"
+path="res://.godot/imported/pasillo_prerelease_2026-05-30_15-58-55.png-c5b5f2ea83803f703bc6fa00bebf4041.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map_image_exports/pasillo_prerelease_2026-05-29_10-54-27.svg"
-dest_files=["res://.godot/imported/pasillo_prerelease_2026-05-29_10-54-27.svg-8364d3657b620f7020895e34b6f4c792.ctex"]
+source_file="res://assets/map_image_exports/pasillo_prerelease_2026-05-30_15-58-55.png"
+dest_files=["res://.godot/imported/pasillo_prerelease_2026-05-30_15-58-55.png-c5b5f2ea83803f703bc6fa00bebf4041.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

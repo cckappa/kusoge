@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bmjyuab7tehhv"]
+
+[ext_resource type="Script" uid="uid://bfatxalg4r4mb" path="res://scripts/alicia_svg.gd" id="1_3und8"]
+
+[node name="AliciaSVG" type="Polygon2D" unique_id=731096288]
+z_index = -1
+color = Color(0.34509805, 0.92941177, 0.9372549, 1)
+polygon = PackedVector2Array(-62, -3, 61, -3, 58, -112, 77, -108, 70, -161, 93, -156, 103, -209, 35, -369, -42, -369, -88, -290, -72, -260, -106, -194, -78, -151, -85, -107, -47, -90, -50, -38)
+script = ExtResource("1_3und8")

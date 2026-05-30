@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://g7sf10k2338d" path="res://scripts/npc_layer.gd" id="8_p5r4m"]
 [ext_resource type="Script" uid="uid://dsfklbei7r5qc" path="res://scripts/object_layer.gd" id="9_4coic"]
 [ext_resource type="Script" uid="uid://ck4xyxoy5fldl" path="res://scripts/enemies_layer.gd" id="10_ofgwv"]
+[ext_resource type="PackedScene" uid="uid://bmjyuab7tehhv" path="res://scenes/alicia_svg.tscn" id="10_sl3hv"]
 [ext_resource type="Script" uid="uid://cv43fprb0dski" path="res://scripts/spawns_layer.gd" id="11_dn1nm"]
 [ext_resource type="Script" uid="uid://c2d2peg3ovb8n" path="res://scripts/saves_layer.gd" id="12_avtwa"]
 [ext_resource type="Script" uid="uid://bsvp6e76bx107" path="res://scripts/scene_changer.gd" id="12_s5o52"]
@@ -49,6 +50,8 @@ script = ExtResource("4_ai14g")
 
 [node name="Polygon2D" parent="BackgroundLayer/GrayBox" index="0" unique_id=1264535793]
 polygon = PackedVector2Array(-995, -867, 1128, -892, 1224, 867, -1217, 857)
+
+[node name="AliciaSVG" parent="." unique_id=731096288 instance=ExtResource("10_sl3hv")]
 
 [node name="PlayableCharacter" parent="." unique_id=1016046816 instance=ExtResource("5_cft22")]
 

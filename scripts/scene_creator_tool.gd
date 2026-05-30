@@ -3,7 +3,7 @@ extends Node
 class_name SceneCreatorTool
 
 @export_tool_button("Create Scene")
-var create_scene_button: = create_scene
+var create_scene_button := create_scene
 var playable_character: Node
 var camera_manager: Node
 var collision_shape_2d_base: Node2D
@@ -26,6 +26,13 @@ func create_scene() -> void:
 			background_layer.name = "BackgroundLayer"
 			get_parent().add_child(background_layer)
 			background_layer.owner = get_tree().edited_scene_root
+		
+		if not get_parent().has_node("AliciaSVG"):
+			print('2.1 Creating Alicia SVG...')
+			var alicia_svg: Polygon2D = load("res://scenes/alicia_svg.tscn").instantiate()
+			alicia_svg.name = "AliciaSVG"
+			get_parent().add_child(alicia_svg)
+			alicia_svg.owner = get_tree().edited_scene_root
 
 		if not get_parent().has_node("PlayableCharacter"):
 			print('3. Creating PlayableCharacter...')
@@ -66,7 +73,7 @@ func create_scene() -> void:
 		if get_parent().has_node("SpawnsLayer"):
 			if not get_parent().get_node("SpawnsLayer").has_node("DefaultMarker"):
 				print('7.1 Creating Default Marker...')
-				var default_marker:= Marker2D.new()
+				var default_marker := Marker2D.new()
 				default_marker.name = "DefaultMarker"
 				get_parent().get_node("SpawnsLayer").add_child(default_marker)
 				default_marker.owner = get_tree().edited_scene_root

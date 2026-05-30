@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="4_qd61g"]
 [ext_resource type="PackedScene" uid="uid://ckc0rqj4d6b16" path="res://scenes/gray_box.tscn" id="5_wsxlu"]
 [ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="5_wyn0j"]
+[ext_resource type="PackedScene" uid="uid://bmjyuab7tehhv" path="res://scenes/alicia_svg.tscn" id="7_v5ou6"]
 [ext_resource type="Script" uid="uid://g7sf10k2338d" path="res://scripts/npc_layer.gd" id="8_jtvo4"]
 [ext_resource type="Script" uid="uid://dsfklbei7r5qc" path="res://scripts/object_layer.gd" id="9_0ov44"]
 [ext_resource type="Script" uid="uid://ck4xyxoy5fldl" path="res://scripts/enemies_layer.gd" id="10_2jn6u"]
@@ -276,6 +277,8 @@ metadata/_custom_type_script = "uid://bsvp6e76bx107"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundLayer/SalidaPasillo/SceneChanger" unique_id=1380432398]
 position = Vector2(-32.5, 174.5)
 shape = SubResource("RectangleShape2D_h3612")
+
+[node name="AliciaSVG" parent="." unique_id=731096288 instance=ExtResource("7_v5ou6")]
 
 [node name="PlayableCharacter" parent="." unique_id=943328989 instance=ExtResource("5_wyn0j")]
 

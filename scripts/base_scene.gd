@@ -3,16 +3,16 @@ class_name BaseScene
 extends Node2D
 
 @export_tool_button("Add to Maps Resource")
-var add_to_maps_button:= add_to_maps_resource
+var add_to_maps_button := add_to_maps_resource
 
 ## SingleMapResource to set map information on the inspector
 @export var single_map_resource: SingleMapResource
 @export var room_state: String = "default"
 
 @export_tool_button("Export Map")
-var export_map_button:= export_map_image
+var export_map_button := export_map_image
 
-@onready var background_layer:BackgroundLayer = $BackgroundLayer
+@onready var background_layer: BackgroundLayer = $BackgroundLayer
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var black_rect: ColorRect = $CanvasLayer/BlackRect
 
@@ -80,7 +80,7 @@ func set_map_information() -> void:
 	Globals.current_map_path = single_map_resource.scene_path
 
 	if Globals.maps.has(single_map_resource.map_name) and Globals.overwrite_map_state == true:
-		Globals.maps[single_map_resource.map_name].state = room_state	
+		Globals.maps[single_map_resource.map_name].state = room_state
 
 	print("Current map set to:", single_map_resource.map_name, " with state: ", Globals.maps[single_map_resource.map_name].state, " overwrite state: ", Globals.overwrite_map_state)
 		
@@ -110,7 +110,7 @@ func set_marker() -> void:
 			target_marker = get_node("SpawnsLayer/DefaultMarker")
 		
 		playable_character.position = target_marker.position
-		Globals.target_marker = "default"  # Reset to default after setting position
+		Globals.target_marker = "default" # Reset to default after setting position
 		# print("Target marker position set to:", Globals.target_marker)
 
 func quit_game() -> void:
@@ -132,11 +132,11 @@ func setup_battle() -> void:
 func start_battle() -> void:
 	get_tree().change_scene_to_file("res://scenes/battle/battle_map.tscn")
 
-func _on_dialogic_signal(argument:Dictionary) -> void:
+func _on_dialogic_signal(argument: Dictionary) -> void:
 	if not argument.has("name"):
 		print("Dialogic signal received without 'name' key:", argument)
 		return
-	var event_name :String = argument.name
+	var event_name: String = argument.name
 	dialogic_logic(event_name)
 
 func map_state_logic() -> void:
@@ -145,7 +145,7 @@ func map_state_logic() -> void:
 func dialogic_logic(event_name: String) -> void:
 	pass
 
-func key_variable_logic()-> void:
+func key_variable_logic() -> void:
 	pass
 
 func _find_resource_in_maps_dir(map_name: String, path: String) -> bool:
@@ -171,7 +171,7 @@ func set_dev_tools() -> void:
 	if OS.is_debug_build() and not Globals.recording:
 		var dev_ui_scene: PackedScene = preload("res://scenes/dev_ui.tscn")
 		var dev_ui_instance: Node = dev_ui_scene.instantiate()
-		var canvas_node :CanvasLayer= get_tree().get_current_scene().find_child("CanvasLayer")
+		var canvas_node: CanvasLayer = get_tree().get_current_scene().find_child("CanvasLayer")
 		if canvas_node:
 			print("Adding Dev UI to CanvasLayer")
 			canvas_node.add_child.call_deferred(dev_ui_instance)
@@ -182,11 +182,13 @@ func call_empty_dialogic_for_loading() -> void:
 func export_map_image() -> void:
 	if not Engine.is_editor_hint():
 		return
-	var polygons:=get_all_polygon2d(self)
-	var labels:=get_all_labels(self)
+	var polygons := get_all_polygon2d(self )
+	var labels := get_all_labels(self )
 	var datetime := Time.get_datetime_string_from_system().replace(":", "-").replace("T", "_")
-	var map_name := "res://assets/map_image_exports/%s_%s.svg" % [single_map_resource.map_name, datetime]
-	save_polygons_to_svg(polygons, labels, map_name)
+	# var map_name := "res://assets/map_image_exports/%s_%s.svg" % [single_map_resource.map_name, datetime]
+	# save_polygons_to_svg(polygons, labels, map_name)
+	var map_name := "res://assets/map_image_exports/%s_%s.png" % [single_map_resource.map_name, datetime]
+	await save_polygons_to_png(polygons, labels, map_name)
 
 func get_all_polygon2d(node: Node) -> Array:
 	var result := []
@@ -196,11 +198,11 @@ func get_all_polygon2d(node: Node) -> Array:
 		result.append_array(get_all_polygon2d(child))
 	return result
 
-func save_polygons_to_svg(polygons: Array, labels:Array , path: String) -> void:
+func save_polygons_to_svg(polygons: Array, labels: Array, path: String) -> void:
     # Calculate bounding box
 	var min_pos := Vector2(INF, INF)
 	var max_pos := Vector2(-INF, -INF)
-	for polygon:Polygon2D in polygons:
+	for polygon: Polygon2D in polygons:
 		for point in polygon.polygon:
 			var global_point := polygon.to_global(point)
 			min_pos.x = min(min_pos.x, global_point.x)
@@ -215,18 +217,18 @@ func save_polygons_to_svg(polygons: Array, labels:Array , path: String) -> void:
 		"x": min_pos.x, "y": min_pos.y, "w": width, "h": height
 	})
 
-	for polygon:Polygon2D in polygons:
+	for polygon: Polygon2D in polygons:
 		var points_str := ""
 		for point in polygon.polygon:
 			var global_point := polygon.to_global(point)
 			points_str += "%s,%s " % [global_point.x, global_point.y]
 
-		var color :String= polygon.color.to_html(false)
+		var color: String = polygon.color.to_html(false)
 		svg += '  <polygon points="%s" fill="#%s" stroke="none"/>\n' % [points_str.strip_edges(), color]
 	
-	for label:Label in labels:
+	for label: Label in labels:
 		var global_pos := label.global_position
-		var font_size := label.get_theme_font_size("font_size") 
+		var font_size := label.get_theme_font_size("font_size")
 		var color := label.get_theme_color("font_color").to_html(false)
 		svg += '  <text x="%s" y="%s" font-size="%s" fill="#%s">%s</text>\n' % [
 			global_pos.x, global_pos.y, font_size, color, label.text
@@ -237,6 +239,52 @@ func save_polygons_to_svg(polygons: Array, labels:Array , path: String) -> void:
 	var file := FileAccess.open(path, FileAccess.WRITE)
 	file.store_string(svg)
 	file.close()
+
+func save_polygons_to_png(polygons: Array, labels: Array, path: String) -> void:
+	# Calculate bounding box
+	var min_pos := Vector2(INF, INF)
+	var max_pos := Vector2(-INF, -INF)
+	for polygon: Polygon2D in polygons:
+		for point in polygon.polygon:
+			var global_point := polygon.to_global(point)
+			min_pos.x = min(min_pos.x, global_point.x)
+			min_pos.y = min(min_pos.y, global_point.y)
+			max_pos.x = max(max_pos.x, global_point.x)
+			max_pos.y = max(max_pos.y, global_point.y)
+
+	var width := int(max_pos.x - min_pos.x)
+	var height := int(max_pos.y - min_pos.y)
+
+	# Create viewport to render into
+	var viewport := SubViewport.new()
+	viewport.size = Vector2i(width, height)
+	viewport.transparent_bg = true
+	viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
+	add_child(viewport)
+
+	# Add polygons offset by min_pos so they start at 0,0
+	for polygon: Polygon2D in polygons:
+		var new_polygon := Polygon2D.new()
+		var new_points := PackedVector2Array()
+		for point in polygon.polygon:
+			new_points.append(polygon.to_global(point) - min_pos)
+		new_polygon.polygon = new_points
+		new_polygon.color = polygon.color
+		viewport.add_child(new_polygon)
+
+	# Add labels
+	for label: Label in labels:
+		var new_label := Label.new()
+		new_label.text = label.text
+		new_label.position = label.global_position - min_pos
+		viewport.add_child(new_label)
+
+	# Wait for frame to render
+	await RenderingServer.frame_post_draw
+
+	var image := viewport.get_texture().get_image()
+	image.save_png(path)
+	viewport.queue_free()
 
 func get_all_labels(node: Node) -> Array:
 	var result := []

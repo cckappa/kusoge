@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://d4gnu0ogw3rcy" path="res://scripts/background_layer.gd" id="4_t7cvr"]
 [ext_resource type="PackedScene" uid="uid://ckc0rqj4d6b16" path="res://scenes/gray_box.tscn" id="5_1fd7h"]
 [ext_resource type="PackedScene" uid="uid://cc852y6dvkcdr" path="res://scenes/playable_character.tscn" id="5_3aa3m"]
+[ext_resource type="PackedScene" uid="uid://bmjyuab7tehhv" path="res://scenes/alicia_svg.tscn" id="6_degt3"]
 [ext_resource type="Script" uid="uid://g7sf10k2338d" path="res://scripts/npc_layer.gd" id="8_klawy"]
 [ext_resource type="Script" uid="uid://dsfklbei7r5qc" path="res://scripts/object_layer.gd" id="9_434of"]
 [ext_resource type="Script" uid="uid://ck4xyxoy5fldl" path="res://scripts/enemies_layer.gd" id="10_eltwh"]
@@ -52,6 +53,8 @@ script = ExtResource("4_t7cvr")
 
 [node name="Polygon2D" parent="BackgroundLayer/GrayBox" index="0" unique_id=1264535793]
 polygon = PackedVector2Array(-2464, -781, -1814, -604, -1437, -630, -882, -941, 309, -637, 672, -156, 916, 480, 842, 1057, 339, 1620, 665, 1967, 354, 2693, -682, 2352, -1422, 2271, -2177, 1753, -2118, 665, -2622, 66)
+
+[node name="AliciaSVG" parent="." unique_id=731096288 instance=ExtResource("6_degt3")]
 
 [node name="PlayableCharacter" parent="." unique_id=538857729 instance=ExtResource("5_3aa3m")]
 
