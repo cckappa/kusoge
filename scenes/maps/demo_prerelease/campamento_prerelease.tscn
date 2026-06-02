@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://g7sf10k2338d" path="res://scripts/npc_layer.gd" id="8_klawy"]
 [ext_resource type="Script" uid="uid://dsfklbei7r5qc" path="res://scripts/object_layer.gd" id="9_434of"]
 [ext_resource type="Script" uid="uid://ck4xyxoy5fldl" path="res://scripts/enemies_layer.gd" id="10_eltwh"]
+[ext_resource type="Script" uid="uid://bhg6tus2nlmgr" path="res://scripts/gray_box.gd" id="11_n0r0f"]
 [ext_resource type="Script" uid="uid://cv43fprb0dski" path="res://scripts/spawns_layer.gd" id="11_ry8kv"]
 [ext_resource type="Script" uid="uid://bsvp6e76bx107" path="res://scripts/scene_changer.gd" id="12_1fd7h"]
 [ext_resource type="Script" uid="uid://c2d2peg3ovb8n" path="res://scripts/saves_layer.gd" id="12_7h1i5"]
@@ -27,6 +28,9 @@ size = Vector2(140, 908)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a43y5"]
 size = Vector2(102, 832)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rl1w7"]
+size = Vector2(722.90234, 108)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klawy"]
 size = Vector2(3619, 4204)
@@ -52,7 +56,7 @@ script = ExtResource("4_t7cvr")
 [node name="GrayBox" parent="BackgroundLayer" unique_id=875075279 instance=ExtResource("5_1fd7h")]
 
 [node name="Polygon2D" parent="BackgroundLayer/GrayBox" index="0" unique_id=1264535793]
-polygon = PackedVector2Array(-2464, -781, -1814, -604, -1437, -630, -882, -941, 309, -637, 672, -156, 916, 480, 842, 1057, 339, 1620, 665, 1967, 354, 2693, -682, 2352, -1422, 2271, -2177, 1753, -2118, 665, -2622, 66)
+polygon = PackedVector2Array(-2464, -781, -1814, -604, -1437, -630, -882, -941, 309, -637, 672, -156, 916, 480, 842, 1057, 339, 1620, 665, 1967, 354, 2693, -682, 2352, -1422, 2271, -1786, 2371, -2334, 2015, -2177, 1753, -2118, 665, -2622, 66)
 
 [node name="AliciaSVG" parent="." unique_id=731096288 instance=ExtResource("6_degt3")]
 
@@ -99,6 +103,35 @@ position = Vector2(41, 0)
 rotation = 0.43741983
 shape = SubResource("RectangleShape2D_a43y5")
 
+[node name="EntradaSubCampamento" parent="ObjectLayer" unique_id=1830037905 groups=["objects"] instance=ExtResource("5_1fd7h")]
+position = Vector2(-2042, 2139)
+script = ExtResource("11_n0r0f")
+
+[node name="Polygon2D" parent="ObjectLayer/EntradaSubCampamento" index="0" unique_id=1264535793]
+color = Color(0.32172796, 0.32172796, 0.32172787, 1)
+polygon = PackedVector2Array(-242, -206, 350, 226, 254, 235, -297, -118)
+
+[node name="Sprite" parent="ObjectLayer/EntradaSubCampamento" index="1" unique_id=1314284104]
+unique_name_in_owner = true
+
+[node name="Label" parent="ObjectLayer/EntradaSubCampamento" index="3" unique_id=2059125336]
+offset_right = 40.0
+offset_bottom = 22.3333
+theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
+theme_override_font_sizes/font_size = 90
+
+[node name="SceneChanger" type="Area2D" parent="ObjectLayer/EntradaSubCampamento" unique_id=1492703732 node_paths=PackedStringArray("black_rect")]
+script = ExtResource("12_1fd7h")
+target_scene = "res://scenes/maps/demo_prerelease/sub_campamento_prerelease.tscn"
+target_marker = "EntradaSubCampamento"
+black_rect = NodePath("../../../CanvasLayer/BlackRect")
+metadata/_custom_type_script = "uid://bsvp6e76bx107"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectLayer/EntradaSubCampamento/SceneChanger" unique_id=1270655396]
+position = Vector2(-9, 53)
+rotation = 0.63351715
+shape = SubResource("RectangleShape2D_rl1w7")
+
 [node name="EnemiesLayer" type="Node2D" parent="." unique_id=705901883]
 y_sort_enabled = true
 script = ExtResource("10_eltwh")
@@ -114,6 +147,9 @@ position = Vector2(-2405, -433)
 
 [node name="EntradaBosque" type="Marker2D" parent="SpawnsLayer" unique_id=1242865865]
 position = Vector2(336, 2137)
+
+[node name="EntradaSubCampamento" type="Marker2D" parent="SpawnsLayer" unique_id=2115083020]
+position = Vector2(-1907, 2033)
 
 [node name="SavesLayer" type="Node2D" parent="." unique_id=1816105095]
 y_sort_enabled = true
@@ -157,4 +193,5 @@ tween_resource = SubResource("Resource_fyrvt")
 [editable path="BackgroundLayer/GrayBox"]
 [editable path="ObjectLayer/EntradaPasillo"]
 [editable path="ObjectLayer/EntradaBosque"]
+[editable path="ObjectLayer/EntradaSubCampamento"]
 [editable path="CameraManager"]
